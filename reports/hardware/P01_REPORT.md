@@ -131,6 +131,8 @@ MLX 峰值在同步工作单元之后检查，RSS 每秒采样，不能排除单
 
 wheel 构建、隔离安装、无 ML 依赖导入与契约 CLI 检查通过。**公共 sdist 边界发现尚待 S0 修复**：在 `.git` 为文件的 App worktree，Hatchling 1.27.0 只读枚举实际选中 29,241 文件 / 7,128,391,528 bytes，其中 29,116 个在私有目录；数字会随私有日志增加。复现脚本 [P01_CHECK_SDIST_SELECTION.py](P01_CHECK_SDIST_SELECTION.py) 退出 1，不创建 archive。先前完整 `uv build` 在 sdist 压缩阶段被 T1 停止，未产出 sdist、未上传；仅 `uv build --wheel` 成功。根因可能与 worktree VCS 忽略发现有关，**推断，未确认**。S0 已接管显式 sdist 选择规则及独立审查，T1 未修改公共 pyproject。
 
+交付前 S0 独立定位补充：Hatchling 1.27.0 的 `BuilderConfig.load_vcs_exclusion_patterns` 在 `exclude_spec.match_file(self.root)` 为真时返回空 patterns。App 工作区根路径含 `.codex`，仓库 `.gitignore` 又有 `.codex/`，因而全部 VCS 排除被丢弃；`.git` 是文件本身不是充分原因。S0 报告已在临时 `.codex/worktrees/check` 目录用私有 canary 复现旧 sdist 泄漏，并以 explicit only-include 排除、从新 sdist 重建 wheel。以上是 **S0 独立核验回报**，其公共精确修复提交仍待 R1/S0 集成验证；T1 保留原枚举证据和早期推断，不重跑真实大 sdist。
+
 ## 7. 尚未执行或验收
 
 独立 R1/S0 验收、kris 人工样本语义确认、公共 p01-replay 环境对整条 GPU 路径的复跑、正式 SFT/DPO、正式偏好生成、完整 P03 harness、BFCL/最终测试、长时稳定性/功耗、跨机器验证和服务部署均 NOT_RUN。mlx-tune 原生训练未通过；备选默认 padding/编译配置没有通过，必须保留上述条件。sdist 问题由 S0 集成修复后复核。没有模型/数据上传、付费资源或公网接口。

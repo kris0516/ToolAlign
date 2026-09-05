@@ -162,5 +162,11 @@
     "archive_created": false
   },
   "sdist_build": "STOPPED_BY_OWNER_DURING_COMPRESSION; NO_SDIST_CREATED; NO_UPLOAD",
-  "sdist_root_cause": "UNCONFIRMED; possible worktree VCS ignore discovery difference"
+  "sdist_root_cause": "UNCONFIRMED; possible worktree VCS ignore discovery difference",
+  "sdist_s0_followup": {
+    "source": "S0 independent native task report",
+    "root_cause": "Hatchling1.27.0 load_vcs_exclusion_patterns returns no patterns when exclude_spec matches the project root; the App root contains .codex and this repository ignores .codex/",
+    "regression": "S0 reported old-sdist private canary inclusion and explicit-only-include exclusion in a temporary .codex/worktrees/check path; rebuilt wheel from fixed sdist",
+    "acceptance": "Pending exact S0 public fix and independent R1 review; T1 did not rerun a real large sdist"
+  }
 }
