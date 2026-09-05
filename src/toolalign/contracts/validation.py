@@ -74,26 +74,27 @@ def _validator(kind: str) -> Draft202012Validator:
 
 def _tool_schema(schema: dict, depth: int = 0) -> None:
     # A deliberately bounded portable subset. In particular, no refs, regex or remote IDs.
-    allowed = {
-        "type",
-        "description",
-        "properties",
-        "required",
-        "additionalProperties",
-        "items",
-        "minItems",
-        "maxItems",
-        "minLength",
-        "maxLength",
-        "minimum",
-        "maximum",
-        "enum",
-    }
-    if depth > 12 or not isinstance(schema, dict) or set(schema) - allowed:
+    if depth > 12 or not isinstance(schema, dict):
         raise ContractError("Unsupported tool parameter schema")
     kind = schema.get("type")
-    if kind not in ("object", "array", "string", "integer", "number", "boolean", "null"):
+    keywords_by_type = {
+        "object": {"properties", "required", "additionalProperties"},
+        "array": {"items", "minItems", "maxItems"},
+        "string": {"minLength", "maxLength"},
+        "integer": {"minimum", "maximum"},
+        "number": {"minimum", "maximum"},
+        "boolean": set(),
+        "null": set(),
+    }
+    known_keywords = {"type", "description", "enum"}.union(*keywords_by_type.values())
+    if set(schema) - known_keywords:
+        raise ContractError("Unsupported tool parameter schema")
+    if not isinstance(kind, str) or kind not in keywords_by_type:
         raise ContractError("Tool parameter schemas require one explicit primitive type")
+    allowed = {"type", "description", "enum"} | keywords_by_type[kind]
+    if set(schema) - allowed:
+        # JSON Schema ignores inapplicable keywords; our portable subset must reject them.
+        raise ContractError("Unsupported tool parameter schema keyword for its type")
     if kind == "object":
         properties = schema.get("properties")
         if not isinstance(properties, dict) or len(properties) > 128:
@@ -127,7 +128,7 @@ def _check_tools(tools: list[dict]) -> None:
             raise ContractError("Invalid tool parameter schema") from exc
 
 
-def _check_messages(messages: list[dict]) -> None:
+def _check_messages(messages: list[dict]) -> set[str]:
     pending = set()
     seen = set()
     for message in messages:
@@ -145,6 +146,7 @@ def _check_messages(messages: list[dict]) -> None:
             pending.add(call["call_id"])
     if pending or messages[-1]["role"] not in ("user", "tool"):
         raise ContractError("Model input must end before the next assistant decision")
+    return seen
 
 
 def _utc(value: str) -> datetime:
@@ -169,20 +171,23 @@ def validate_record(record: dict, kind: str | None = None) -> dict:
     try:
         _validator(kind).validate(record)
     except ValidationError as exc:
-        # Do not echo user data, credentials or private payloads in CLI errors.
-        path = "/".join(str(p) for p in exc.absolute_path)
-        raise ContractError(f"{kind}: invalid field /{path} ({exc.validator})") from exc
+        # Instance paths can contain private, user-controlled dictionary keys.
+        # Schema paths come exclusively from the trusted bundled schema.
+        path = "/".join(str(p) for p in exc.absolute_schema_path)
+        raise ContractError(f"{kind}: failed schema rule /{path}") from exc
     if kind == "tool":
         _check_tools([record])
     if kind in ("example", "preference"):
         _check_tools(record["tools"])
-        _check_messages(record["messages"])
+        history_call_ids = _check_messages(record["messages"])
     if kind == "example":
         registered = {tool["name"]: tool for tool in record["tools"]}
         calls = record["expected_action"]["tool_calls"]
         if len({call["call_id"] for call in calls}) != len(calls):
             raise ContractError("Expected action contains duplicate call IDs")
         for call in calls:
+            if call["call_id"] in history_call_ids:
+                raise ContractError("Expected action call IDs collide with input history")
             if call["name"] not in registered:
                 raise ContractError("Expected action references an undeclared tool")
             validate_tool_arguments(registered[call["name"]], call["arguments"])

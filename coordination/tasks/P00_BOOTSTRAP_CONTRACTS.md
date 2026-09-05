@@ -1,6 +1,6 @@
 # P00｜仓库启动与契约冻结
 
-状态：READY_FOR_REVIEW；S0 已领取。P01–P03 保持 BLOCKED，R1 独立审查与 main 集成验证前不解锁。
+状态：CHANGES_REQUESTED；S0 已领取。P01–P03 保持 BLOCKED，R1 独立审查与 main 集成验证前不解锁。
 
 | 字段 | 初始值 |
 |---|---|

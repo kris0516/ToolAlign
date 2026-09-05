@@ -220,3 +220,72 @@ def test_cli_success_error_empty_jsonl_and_duplicate_keys(tmp_path, record, caps
     assert main(["validate", str(path)]) == 2
     path.write_text("")
     assert main(["validate", str(path), "--jsonl"]) == 2
+
+
+@pytest.mark.parametrize("location", ["object_items", "string_properties", "object_string_limit"])
+def test_tool_schema_rejects_type_inapplicable_keywords(record, location):
+    tool = record("tool")
+    schema = tool["parameters_json_schema"]
+    if location == "object_items":
+        schema["items"] = {"$ref": "https://example.invalid/must-not-be-resolved"}
+    elif location == "string_properties":
+        schema["properties"]["build_id"]["properties"] = {
+            "hidden": {"type": "string", "pattern": "(a+)+$"}
+        }
+    else:
+        schema["minLength"] = 1
+    with pytest.raises(ContractError):
+        validate_record(tool)
+
+
+@pytest.mark.parametrize(
+    "kind,path",
+    [
+        ("run", ["git_commit"]),
+        ("run", ["model", "model_hash"]),
+        ("tool", ["name"]),
+        ("trace", ["trace_id"]),
+        ("run", ["started_at"]),
+    ],
+)
+@pytest.mark.parametrize("suffix", ["\n", "\r\n", "\u2028"])
+def test_identity_and_time_patterns_require_the_entire_string(record, kind, path, suffix):
+    value = record(kind)
+    parent = value
+    for component in path[:-1]:
+        parent = parent[component]
+    parent[path[-1]] += suffix
+    with pytest.raises(ContractError):
+        validate_record(value)
+
+
+def test_cli_diagnostics_do_not_expose_payload_keys(tmp_path, record, capsys):
+    value = record("run")
+    marker = "synthetic_sensitive_dictionary_key"
+    value["dependency_versions"] = {marker: 12}
+    path = tmp_path / "invalid.json"
+    path.write_text(json.dumps(value))
+    assert main(["validate", str(path)]) == 2
+    output = capsys.readouterr()
+    assert marker not in output.out + output.err
+    assert "dependency_versions" in output.err
+
+
+def test_next_target_call_id_stays_unique_when_appended_to_history(record):
+    example = record("example")
+    call = copy.deepcopy(example["expected_action"]["tool_calls"][0])
+    example["messages"].extend(
+        [
+            {"role": "assistant", "content": "", "tool_calls": [call], "tool_call_id": None},
+            {
+                "role": "tool",
+                "content": "fixture observation",
+                "tool_calls": [],
+                "tool_call_id": call["call_id"],
+            },
+        ]
+    )
+    with pytest.raises(ContractError, match="collide"):
+        validate_record(example)
+    example["expected_action"]["tool_calls"][0]["call_id"] = "call-2"
+    validate_record(example)

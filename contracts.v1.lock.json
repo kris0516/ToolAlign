@@ -1,8 +1,8 @@
 {
   "contract_version": "toolalign.contracts.v1",
   "files": {
-    "src/toolalign/contracts/v1.json": "ee3c0620d50639b87519dda77f9be4792e563ad63f74b8bdddb75802bd3f82ad",
-    "src/toolalign/contracts/validation.py": "c3e7e046ab3b66c046549e3a00c41832c9b3d3f568939d9c9085231f6abb986c",
+    "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
     "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
     "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15"
   }

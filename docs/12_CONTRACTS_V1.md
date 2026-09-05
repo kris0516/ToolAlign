@@ -18,7 +18,7 @@ uv build
 
 Python 声明范围为 3.11–3.14；本机 P00 使用 3.14.7。CPU 包仅依赖锁定的 jsonschema 及其传递依赖，不引入 MLX、PyTorch、模型下载或付费 API。CI 检查 Python 3.11 和 3.14，未取得运行结果前不声称 CI 已通过。`uv.lock` 由 S0 所有；P01 提交 backend 依赖申请，由 S0 实际核验后集中修改。
 
-`toolalign validate` 成功返回 0，输入错误返回 2；支持 `--kind` 与 `--jsonl`。空输入、重复 JSON key、非有限数值、类型强制转换和未知 schema version 均拒绝。源码直接调用 `validate_record` 时同样必须传原生 JSON 类型。序列顺序有意义，哈希使用 UTF-8、排序对象键、无空白、有限 JSON 数值的 SHA-256；不把这个规则叫作 RFC 8785。
+`toolalign validate` 成功返回 0，输入错误返回 2；支持 `--kind` 与 `--jsonl`。空输入、重复 JSON key、非有限数值、类型强制转换和未知 schema version 均拒绝。诊断只输出受信 schema 路径，输入的自由字典键名不回显；所有身份/时间 pattern 使用完整字符串匹配，末尾换行不能绕过。源码直接调用 `validate_record` 时同样必须传原生 JSON 类型。序列顺序有意义，哈希使用 UTF-8、排序对象键、无空白、有限 JSON 数值的 SHA-256；不把这个规则叫作 RFC 8785。
 
 ## Wire records
 
@@ -34,7 +34,7 @@ JSON Schema Draft 2020-12 定义位于安装包内 `src/toolalign/contracts/v1.j
 
 所有列出的 wire 字段都显式存在，可空字段写 JSON null；未声明字段拒绝，禁止悄悄扩展。模型/数据/trace hash 只提供身份关联，schema 不能证明文件真实存在、许可正确、没有数据泄漏或 oracle 判定正确，后续任务必须另验。
 
-Messages 是**下一次 assistant 决策之前的输入前缀**，不能包含目标 completion。每条 message 显式包含 role、content、tool_calls 和 tool_call_id。输入最后角色为 user 或 tool；历史工具 observation 必须匹配 pending call，所有 observation 结束后才能开始下轮。标签在 `expected_action`，动作种类固定为 `tool_calls`、`final`、`clarify`、`refuse`；调用含 call_id/name/arguments。需要多步轨迹时，每个受监督 assistant 决策由 P02 单独产生一个前缀样本，保持相同 group，不能跨 split。
+Messages 是**下一次 assistant 决策之前的输入前缀**，不能包含目标 completion。每条 message 显式包含 role、content、tool_calls 和 tool_call_id。输入最后角色为 user 或 tool；历史工具 observation 必须匹配 pending call，所有 observation 结束后才能开始下轮。标签在 `expected_action`，动作种类固定为 `tool_calls`、`final`、`clarify`、`refuse`；调用含 call_id/name/arguments；目标 call_id 不能与输入前缀历史重复，保证合法目标可以成为下一步历史。需要多步轨迹时，每个受监督 assistant 决策由 P02 单独产生一个前缀样本，保持相同 group，不能跨 split。
 
 `model_input_from_example` 返回**仅** messages/tools 的独立副本。`OracleTask` 与模型输入类型分开。投影只保证不携带元数据字段，不能发现有人把答案或秘密藏在自然语言 content 中；P02/P03 仍必须审查样本与 oracle 隔离。
 
@@ -46,7 +46,7 @@ Run 的 reference_model_hash 在 DPO 时必填，但 schema 无法证明它属�
 
 首版每个工具参数根是闭合 object（additionalProperties=false）；嵌套只接受显式单个 object/array/string/integer/number/boolean/null 类型。支持 properties/required、items 与长度/范围/enum 限制，最长深度 12，每个对象最多 128 个属性。array 必须声明 maxItems ≤ 1000，string 必须声明 maxLength ≤ 16384。工具 timeout 为 1–60000ms。
 
-禁止 `$ref`、远程 `$id`、组合 schema、正则与未声明关键词；不下载远程 schema，不执行模板或内容。P02 遇到超出子集的来源条目必须隔离、计数并请求 S0 决策，不能降低约束或自动扩大工具能力。这个校验器是数据入口，真正的 registry/executor、沙箱路径、取消和 deadline 由 P03 实现，P00 没有执行任意工具。
+关键词还必须适用于当前 type，例如 object 不允许 items、string 不允许 properties；不能利用 JSON Schema 默认忽略无关关键词的行为隐藏 schema。禁止 `$ref`、远程 `$id`、组合 schema、正则与未声明关键词；不下载远程 schema，不执行模板或内容。P02 遇到超出子集的来源条目必须隔离、计数并请求 S0 决策，不能降低约束或自动扩大工具能力。这个校验器是数据入口，真正的 registry/executor、沙箱路径、取消和 deadline 由 P03 实现，P00 没有执行任意工具。
 
 ## 模块接口与所有权
 
@@ -86,6 +86,6 @@ GPULease 使用 `git rev-parse --git-common-dir` 得到共享目录并规范化�
 
 版本冲突或公共依赖变化由 worker 向 S0 提交请求；S0 先写 ADR、更新契约/hash/test，再经审查合并，才能发布新 base。不能只改 hash 让检查通过。P00 的后续基础修复若不改变 wire/接口语义可保留 v1，并记录新 commit；不兼容变更须新版本或明确迁移方案。
 
-公开内容扫描只检查 Git 候选文件，并对秘密、私有路径/对话 ID、大文件与模型/数据文件做启发式筛查；不替代独立审查。原始日志、环境绝对路径和任务映射留在 .toolalign-local。项目长期 goal 与 30 分钟对话跟进负责唤回 S0；本机须开机且 App 运行。恢复时依据 Git、看板和 handoff，不依赖别的对话记忆。
+公开内容扫描同时检查 Git index blob 与工作副本/未跟踪候选（内容、模式、大小），避免“暂存敏感内容后只清理工作副本”的漏扫；并对秘密、私有路径/对话 ID、大文件与模型/数据文件做启发式筛查；不替代独立审查。原始日志、环境绝对路径和任务映射留在 .toolalign-local。项目长期 goal 与 30 分钟对话跟进负责唤回 S0；本机须开机且 App 运行。恢复时依据 Git、看板和 handoff，不依赖别的对话记忆。
 
 实现依据：[jsonschema 验证接口](https://python-jsonschema.readthedocs.io/en/stable/validate/)、[Python flock](https://docs.python.org/3.14/library/fcntl.html)。

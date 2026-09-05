@@ -7,11 +7,11 @@
       "properties": {
         "call_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "name": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          "pattern": "^[a-z][a-z0-9_]{0,63}(?![\\s\\S])"
         },
         "arguments": {
           "type": "object",
@@ -52,7 +52,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -80,7 +80,7 @@
             "properties": {
               "tool_call_id": {
                 "type": "string",
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
               }
             }
           },
@@ -188,13 +188,13 @@
         },
         "model_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "adapter_hash": {
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[0-9a-f]{64}$"
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -203,11 +203,11 @@
         },
         "tokenizer_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "template_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "quantization": {
           "type": "string",
@@ -234,7 +234,7 @@
         },
         "name": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          "pattern": "^[a-z][a-z0-9_]{0,63}(?![\\s\\S])"
         },
         "description": {
           "type": "string",
@@ -281,7 +281,7 @@
         },
         "example_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "source": {
           "type": "string",
@@ -300,11 +300,11 @@
         },
         "source_record_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "group_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "split": {
           "enum": [
@@ -335,7 +335,7 @@
         },
         "category": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         }
       },
       "required": [
@@ -362,15 +362,15 @@
         },
         "preference_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "source_task_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "group_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "split": {
           "const": "train"
@@ -393,7 +393,7 @@
         },
         "prompt_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "chosen": {
           "type": "string",
@@ -418,7 +418,7 @@
             },
             "trace_hash": {
               "type": "string",
-              "pattern": "^[0-9a-f]{64}$"
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
             }
           },
           "required": [
@@ -441,7 +441,7 @@
             },
             "trace_hash": {
               "type": "string",
-              "pattern": "^[0-9a-f]{64}$"
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
             }
           },
           "required": [
@@ -519,7 +519,7 @@
       "properties": {
         "artifact_id": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "relative_path": {
           "type": "string",
@@ -528,7 +528,7 @@
         },
         "sha256": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "size_bytes": {
           "type": "integer",
@@ -557,11 +557,11 @@
         },
         "run_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "git_commit": {
           "type": "string",
-          "pattern": "^[0-9a-f]{40}$"
+          "pattern": "^[0-9a-f]{40}(?![\\s\\S])"
         },
         "purpose": {
           "enum": [
@@ -576,7 +576,7 @@
         },
         "data_manifest_hash": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
         },
         "model": {
           "$ref": "#/$defs/model_identity"
@@ -585,7 +585,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[0-9a-f]{64}$"
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -688,13 +688,13 @@
         },
         "started_at": {
           "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)$"
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)(?![\\s\\S])"
         },
         "ended_at": {
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)$"
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -764,7 +764,7 @@
             "properties": {
               "reference_model_hash": {
                 "type": "string",
-                "pattern": "^[0-9a-f]{64}$"
+                "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
               }
             }
           }
@@ -776,7 +776,7 @@
       "properties": {
         "call_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "status": {
           "enum": [
@@ -792,7 +792,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -849,11 +849,11 @@
         },
         "trace_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "request_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
         },
         "event_index": {
           "type": "integer",
@@ -901,7 +901,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -912,7 +912,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -949,7 +949,7 @@
         },
         "deadline_utc": {
           "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)$"
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)(?![\\s\\S])"
         },
         "latency_ms": {
           "type": "number",
