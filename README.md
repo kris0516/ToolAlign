@@ -46,7 +46,7 @@ ToolAlign 是一个以 Apple Silicon 为主要实验环境的开源研究工程�
 
 ## 开源与部署状态
 
-目标仓库名为 `kris0516/ToolAlign`，公开可见。**本地文档包并不证明远端已创建**；创建后由 Supervisor 在 [项目状态](coordination/PROJECT_STATUS.md) 登记真实 URL、commit 与验证结果。
+当前公开仓库为 `kris0516/ToolAlign`。规划基线已通过 GitHub 写入并读回验证；Supervisor 接手后仍需在 [项目状态](coordination/PROJECT_STATUS.md) 登记领取信息与后续实现 commit。
 
 原创代码和文档采用 [MIT](LICENSE)。模型、数据和第三方依赖各自保留原许可，见 [第三方来源与发布边界](THIRD_PARTY_NOTICES.md)。不复制 LiDARFoodAgent 私有源码、真实用户数据或任何云端凭据。
 

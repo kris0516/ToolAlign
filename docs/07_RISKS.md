@@ -20,7 +20,7 @@
 | R14 | P1 | 不同量化位宽和模型容量混杂 | 一次对照只改一项，全部身份 hash 入表 |
 | R15 | P1 | cache 混用户、混 adapter 或吞工具 schema | exact prefix + model/tenant key，失效测试，旋转 cache 后移 |
 | R16 | P1 | Supervisor 没有原生线程创建能力 | 使用独立对话提示词由 kris 转交，不改用 sub-agent |
-| R17 | P1 | GitHub 当前连接无写权限/无创建操作 | 使用本机经授权 gh 创建新仓库；不声称已经远端发布 |
+| R17 | P1 | 远端仓库状态与本地规划状态不一致 | 以 GitHub read-back、精确 commit 和 main 状态为准；Supervisor 不重复运行首次建仓流程 |
 | R18 | P2 | 投机解码反而更慢 | 可选实验；保留负结果、不进入默认部署 |
 | R19 | P1 | 学生只会运行 Codex 生成代码 | 每阶段 kris 做解释/手改/坏例分析，见学习检查 |
 | R20 | P1 | 浮动依赖/模型上游改变 | pin commit/版本，升级走回归；老结果保留环境身份 |
