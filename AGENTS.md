@@ -7,8 +7,10 @@
 ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练效果。主线为版本化数据 → 原始模型/SFT/DPO → 独立语义评测 → 受限本地推理；主要实验机为用户指定的 Apple Silicon M5 Pro / 48GB。十天是计划窗口，结果与部署按证据登记。
 
 - S0 是本仓库唯一 Supervisor；本地项目已 clone，基线为 `0f152e287bbc0e1c3edfb3f6f3794eb8d36c422f`。
-- 长期 goal 覆盖 P00–P09，按依赖与实际阶段门推进；本对话每 30 分钟跟进一次，无变化保持安静。任务/自动跟进 ID 与绝对工作路径仅存本机 `.toolalign-local/`。
-- 所有后续 worker/reviewer 使用 **独立 Codex 对话**，固定 `model=gpt-6-astra`、`thinking=xhigh`（极高）。不得使用 sub-agent。最多同时两个实现任务，R1 可做纯 CPU 独立审查。
+- **S0 与全部独立 worker/reviewer 一律使用 `model=gpt-6-astra`、`thinking=max`（App 中文「最高」）。** 这是用户最新明确要求；此前子任务 xhigh/极高规则已废止，不能恢复或降级。
+- 长期 goal 覆盖 P00–P09，用户已将活动目标正文改为 max；本对话每 30 分钟跟进一次，无变化保持安静。任务/自动跟进 ID 与绝对工作路径仅存本机 `.toolalign-local/`。
+- 所有 worker/reviewer 使用 **独立 Codex 对话**与隔离 worktree，不得使用 sub-agent。最多同时两个实现任务，R1 可做纯 CPU 独立审查。
+- 新建或按授权调整任务时显式使用 gpt-6-astra / max；普通回报给 S0 时省略 `model` 和 `thinking`，保留已设好的 max。不要根据旧分发词传入 xhigh。完整目标约束见 [GOAL.md](coordination/GOAL.md)。
 - P00 必须经 R1 对精确提交独立审查、S0 合并并验证 main 后，才可分发 P01–P03。
 - 可用开发工具为 VS Code、Xcode 和 Python 3.14。P00 核心包不依赖 MLX；MLX/PyTorch 的可用 Python/版本由 P01 实测并通过 S0 更新锁文件。
 
@@ -19,7 +21,10 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | GitHub Public 仓库与 plan-v0.1 | 已创建并合并规划；main 基线 `0f152e2` |
 | 2026-09-06 | 本地 clone、S0 领取、长期 goal/自动跟进 | 已建立；私有映射已保存；见 PROJECT_STATUS |
 | 2026-09-06 | P00 CPU 基础包、契约与 GPU 锁 | VERIFIED；[PR #2](https://github.com/kris0516/ToolAlign/pull/2) 合并 `cd091e3`；R1-r2 PASS `5d30e1b`，审查 `441d31b`；main 176 项 CPU 检查通过，见 [集成验证](reports/P00_MAIN_VERIFICATION.md) |
-| 尚未进行 | 模型训练、正式评测、推理 API/服务部署 | NOT_RUN；无公网服务、无模型/数据上传 |
+| 2026-09-06 | P01/T1 与 P02/D1 第一批分发 | 两个独立 Codex 任务/分支/worktree 已核验；code_base `ebcaf58`，授权 `12aeb84`；首派为 xhigh，现按用户要求改为 gpt-6-astra / max；IN_PROGRESS |
+| 2026-09-06 | 公共 compatibility extra / ToolACE 来源政策 | VERIFIED；[PR #3](https://github.com/kris0516/ToolAlign/pull/3) 合并 `18fc847`；R1 PASS `e4127d9`，审查 `8ceea3f`；main 233 项 CPU 检查与 wheel 验证通过，见 [集成证据](reports/S0_SHARED_01_MAIN_VERIFICATION.md) |
+| 2026-09-06 | S0/子任务推理等级与消息方向保护 | 最新用户修正统一 gpt-6-astra / max（最高），活动目标/GOAL/PROTOCOL/模板/自动跟进已同步；旧子任务极高规则废止 |
+| 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
 

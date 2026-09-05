@@ -1,6 +1,6 @@
 # 01｜架构、接口与工程边界
 
-状态：P00 已建立契约与 Protocol 候选，详见 [冻结说明](12_CONTRACTS_V1.md)。实现模块仍为后续任务；不能把目录骨架视为训练/执行/服务实现。
+状态：P00 契约与 Protocol 已冻结、合并并验证，详见 [冻结说明](12_CONTRACTS_V1.md)。实现模块按 BOARD 推进；不能把目录骨架视为训练/执行/服务实现。
 
 ## 1. 两条独立链路
 
@@ -41,6 +41,8 @@ request → schema/auth/budget gate → tool-policy model → safe parser
 `toolalign.example.v1` 包含：`example_id`、`source`、`source_revision`、`license_id`、`source_record_hash`、`group_id`、`split`、`messages`、`tools`、`expected_action`、`category`。`expected_action` 仅训练/评测侧可见，不送入推理输入。
 
 `toolalign.tool.v1` 包含：`name`、`description`、`parameters_json_schema`、`tool_version`、`side_effect_class`、`timeout_ms`。首版只允许 `read_only` 与严格隔离的 `sandbox_only`；生产写操作不在允许集合。
+
+历史监督来源的 tool policy 不自动绑定执行器。ToolACE 的来源事实、项目 sandbox-only 许可与未绑定状态按 [来源适配规则](13_TOOLACE_SOURCE_POLICY.md) 分别记录；只有登记了本地实现和精确身份的 registry 才能授予执行，数据描述不能注册工具。
 
 `toolalign.preference.v1` 包含：共享 prompt/工具 schemas、`chosen`、`rejected`、双方验证结果、`preference_reason`、来源 task/group、生成模型 revision、生成参数、oracle version。不允许把两个不同问题的回答配成 preference pair。
 

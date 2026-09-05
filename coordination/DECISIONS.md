@@ -30,7 +30,7 @@
 
 日期：2026-09-06；基线 `0f152e287bbc0e1c3edfb3f6f3794eb8d36c422f`；状态：已执行。
 
-本地 Codex 项目已 clone；S0 建立 P00–P09 长期 goal 和本对话每 30 分钟跟进。已发现原生独立对话 create/send/read/wait 能力，后续只通过这些真实能力派发，返回 ID 保存本机私有映射；不使用 sub-agent。遵从用户选择，所有 worker/reviewer 固定 gpt-6-astra / xhigh。备选为手动分发文本，仅在原生能力不可用时采用。
+本地 Codex 项目已 clone；S0 建立 P00–P09 长期 goal 和本对话每 30 分钟跟进。已发现原生独立对话 create/send/read/wait 能力，后续只通过这些真实能力派发，返回 ID 保存本机私有映射；不使用 sub-agent。遵从用户选择，当前所有 worker/reviewer 和 S0 固定 gpt-6-astra / max（最高）；最新用户要求见 ADR-0014，原先 xhigh 仅为历史配置。备选为手动分发文本，仅在原生能力不可用时采用。
 
 影响：最多两个活跃实现对话，R1 纯 CPU 审查独立；P00 冻结合并验证前不发 P01–P03。验证：本机 Git clone/push dry-run、GitHub 权限/public read-back、长期 goal/自动跟进工具返回成功。回退：停用跟进不删除提交或未合并 worktree，按 handoff 手动继续。
 
@@ -66,3 +66,49 @@ R1 原始审查提交 `66521f8`，结论 FAIL：两项 P1（类型不适用关�
 复核结果：R1-r2 对 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 给出 PASS，独立证据提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`；58 + 46 + 72 项 CPU 检查及独立 wheel 安装通过，五类问题全部关闭。S0 以 fast-forward 保留该审查提交原 SHA；其后只有 S0 验收文档登记，生产实现与被审候选一致。合并 main 后仍需集成检查才允许下一批。
 
 集成结果：最终 head `708642448395be91357275a9a26def981a9f4110` 的 Python 3.11/3.14 CI 通过；PR #2 合并为 `cd091e3a53986b59b170baf5b746644f369135d1`。S0 在该 main 提交重验 176 项 CPU 测试、lint、冻结摘要、公开扫描与 CLI，均退出 0；P00 达到 VERIFIED。
+
+## ADR-0011｜P01 兼容性依赖作为可选环境
+
+日期：2026-09-06；基线 `4cfbe1a5b8d93c20d7b11ec14b31757a574d0903`；状态：VERIFIED，R1 PASS、最终 CI 与 main 集成验证均通过。
+
+T1 在私有 Python 3.14.7 环境完成候选安装，尚未给出正式训练验收。S0 独立核对 PyPI 固定版元数据后，选择 `compatibility` extra：mlx 0.32.2、mlx-lm 0.31.3、torch 2.14.0、psutil 7.2.2；前三级仅 Darwin arm64 生效。保留默认 CPU 基础包；不用整份私有 87 包 freeze 取代项目锁。传递依赖由 uv 实际解析。模型任务依然需要 GPULease、预算与本机证据。
+
+备选为将 MLX/Torch 设为默认依赖；未采用，因为数据/契约 CPU CI 不应要求这些包或误装 Linux CUDA 依赖。mlx-tune 仍为探索候选；T1 的 mask/reference/内存限制风险另由 P01 实测，不随本决定批准正式 DPO。影响是 P01 可在审查后使用固定可复现兼容环境；不更改任何冻结 wire/Protocol。
+
+验证：锁定解析、默认 CPU 环境无 MLX/Torch、Darwin arm64 可选环境的 metadata、跨平台解析计划、契约/lint/公开扫描与原 CPU 回归；具体结果在 S0 交接。回滚：停止依赖此环境的运行，非强制 revert 本次 optional/lock 变更，保留日志与已生成制品，不擅自清除缓存。
+
+## ADR-0012｜ToolACE 历史工具的显式适配与无执行绑定
+
+日期：2026-09-06；基线同 ADR-0011；状态：VERIFIED，R1 PASS、最终 CI 与 main 集成验证均通过。
+
+D1 先审计前 32 条/142 个真实工具，全部缺项目副作用字段且根类型为 dict；S0 阅读代表记录并核对来源卡。直接把来源当冻结 wire 将无法产出有效数据；静默放宽 validator 会破坏 P00 门。选择独立、版本化的来源政策，保留冻结契约字节，明确记录类型别名、项目主动收窄、默认值 annotation、工具改名及来源 lineage。
+
+ToolACE 只作为历史监督数据，其原始副作用信息为 unknown。wire 的 sandbox_only 表示本项目最多允许另行实现/审查的本地 fixture，而非原始 API 的事实分类；dataset manifest 必须同时登记 historical_supervision_only 与 execution_binding=none。使用 ta_ 名称空间，不从数据注册执行器，不把潜在写入 API 标为 read_only。P03 必须验证未绑定工具被拒绝。规则与具体排除条件见 docs/13_TOOLACE_SOURCE_POLICY.md 和 configs/source_toolace.v1.json。
+
+备选为新增更宽 wire 类型、丢弃全部 ToolACE 或随意移除写工具；未采用，因为本轮观察到的主要差异可显式适配，而真实执行权限仍由独立 registry 控制。不是无损转换：补闭合/长度边界主动缩小允许集合，所有受影响原记录必须计数并通过新边界；不删除未知约束来提高留存率。来源许可、人工审查与 G-DATA 仍分别验收。
+
+验证：R1 检查规则与冻结语义/任务边界的关系；D1 后续实现必须对规定负例和两次重建留证，人工包展示转换前后；P03 后续验证无自动注册。回滚：停止该政策对应数据版本，恢复严格隔离，保留原始输入/变更日志与排除分母，不用未审的新 policy 替换已有实验身份。
+
+
+## ADR-0013｜S0 最高推理设置与子任务消息参数分离（已被 ADR-0014 取代）
+
+日期：2026-09-06；状态：已采纳，用户明确修正。S0 保持 gpt-6-astra 与用户当前设置的「最高」推理等级；子任务保持 gpt-6-astra / xhigh（极高）。旧协作协议中的「创建与后续消息统一 xhigh」存在被误用于发回 S0 的风险，现改为根据接收方区分。
+
+所有给 S0 的原生消息完全省略 model/thinking，保留接收方设置；不能再用工具尝试重设用户已恢复的 S0 等级。S0 发给已确认 worker/reviewer 的消息才可以显式指定子任务参数。AGENTS、PROTOCOL、Supervisor 入口、分发模板与自动跟进同步记录；当前三个独立任务已收到即时修正通知。长期目标范围与阶段门不变，补充执行约束存 coordination/GOAL.md。
+
+验证：逐项检查提示词的角色/消息方向、自动跟进保存字段；不调用 S0 设置变更来测试。回退不得恢复会覆盖 S0 的统一消息参数，只能由用户明确修改本项偏好。
+
+## S0-SHARED-01 独立验收记录
+
+R1 对精确候选 `e4127d9a0e6e30b091cba9b9e22a5fbb7091e9a2` 给出 PASS，P0/P1/P2 均为 0；独立报告提交 `8ceea3fbdd476ef0a5583e82e38473f1038dc650`。176 项既有 CPU 回归与 57 项新增边界探针全部通过。S0 fast-forward 保留报告原 SHA；后续仅追加协调文档及用户消息设置保护，不改被审依赖、政策或冻结实现。通过候选 CI/合并/main 验证后再正式发布新基线；本 PASS 不验收 P01 模型后端、P02 实现/人工质量或 P03 执行器。
+
+S0-SHARED-01 集成结果：最终 head e9b33b0 的 CI 两个 Python jobs 全通过，PR #3 合并为 18fc8475476f6becf684ba817480caeb96a7cfb9。该 main 上 233 项 CPU 检查、lint/冻结/公开扫描与独立 wheel 验证全部通过，ADR-0011/0012 达到 VERIFIED。详见 reports/S0_SHARED_01_MAIN_VERIFICATION.md。
+
+
+## ADR-0014｜所有任务统一 6 Astra 最高推理
+
+日期：2026-09-06；状态：已采纳；来源为用户最新明确指令及其随后更新的活动 goal。S0、T1、D1、R1 及后续所有独立任务一律 gpt-6-astra / thinking=max；此前子任务 xhigh/极高规则作废。App 本机中文标签确认 max 对应「最高」，不猜测其他枚举。用户已亲自将进行中目标正文改为 max，S0 的 get_goal 已读回，原目标继续 ACTIVE。
+
+执行：已向 S0 和当前三个独立任务分别提交原生 gpt-6-astra/max 设置调用；同步 AGENTS/GOAL/PROTOCOL、分发模板、私有分发词/身份策略与自动跟进。普通给 S0 的回报省略 model/thinking，不能重发旧 xhigh 参数。过去实际 xhigh 派发/实验记录保留历史事实，不能作为未来设置规则。
+
+此前按发送方向省略参数的保护未达到用户观察到的预期，不能把已写文档当作设置已受保护。现统一使用用户核实的 max，并保留真实工具返回，不声称能改变已发生的推理或重新计算已完成工作。现有 P00–P09 范围、并发/资源/独立审查与公开边界不变。
