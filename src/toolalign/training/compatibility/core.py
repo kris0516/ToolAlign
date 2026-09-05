@@ -178,3 +178,8 @@ class Budget:
 
 class BudgetExceeded(RuntimeError):
     """The declared P01 stop policy was reached; this is not a successful run."""
+
+
+def assert_initial_dpo_loss(value: float, atol: float = 2e-6) -> None:
+    if not math.isfinite(value) or abs(value - math.log(2)) > atol:
+        raise ValueError("Training-path policy=reference loss violates initial ln2 gate")

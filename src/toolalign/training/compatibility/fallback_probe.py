@@ -14,6 +14,7 @@ from dataclasses import asdict
 
 from .core import (
     Budget,
+    assert_initial_dpo_loss,
     digest,
     file_hash,
     padded_batch,
@@ -52,6 +53,12 @@ def run_fallback(
     from mlx_lm_lora.trainer import dpo_trainer as backend
     from mlx_lm_lora.utils import from_pretrained
 
+    if config.get("fallback_disable_compile", False):
+        # Documented MLX diagnostic switch; confined to this leased process.
+        mx.disable_compile()
+        events.append(
+            {"event": "mlx_compilation_disabled_for_fallback", "api": "mx.disable_compile"}
+        )
     budget = Budget(**config["budget"])
     start = time.monotonic()
     limit = config["sequence_length"]
@@ -164,6 +171,9 @@ def run_fallback(
             mx.synchronize()
             if not math.isfinite(info["train_loss"]):
                 raise ValueError("Nonfinite fallback loss")
+            if info["iteration"] <= accumulation:
+                # Loss is measured before update, including the first accumulation boundary.
+                assert_initial_dpo_loss(info["train_loss"])
             c, r = active_pair
             n = max(len(c.token_ids), len(r.token_ids))
             progress["microsteps"] += 1
@@ -277,6 +287,8 @@ def run_fallback(
         "microsteps": len(reports),
         "optimizer_steps": int(optimizer.step.item()),
         "configured_accumulation": accumulation,
+        "compilation_disabled": config.get("fallback_disable_compile", False),
+        "training_path_initial_losses": [r["train_loss"] for r in reports[:accumulation]],
         "initial_ln2": initial_losses,
         "loss_after": after_losses,
         "wall_seconds": train_seconds,

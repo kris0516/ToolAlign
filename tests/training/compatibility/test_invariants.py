@@ -188,3 +188,12 @@ def test_fallback_label_mask_is_explicitly_shifted():
     assert sum(shifted[0][:-1]) == 2
     assert sum(shifted[1][:-1]) == 3
     assert ids[0][4] == 0 and shifted[0][3] == 0
+
+
+def test_initial_gate_checks_actual_training_loss():
+    from toolalign.training.compatibility.core import assert_initial_dpo_loss
+
+    assert_initial_dpo_loss(0.6931471824645996)
+    for loss in [0.6945998072624207, 0.679811418056488, 0.9140625, float("nan")]:
+        with pytest.raises(ValueError):
+            assert_initial_dpo_loss(loss)

@@ -37,3 +37,5 @@ T1 全部私有环境、原始模型、缓存和制品规划上限20GiB；全项
 备选预算为8微步、accumulation8、预期1次optimizer更新，LR5e-6、beta0.1；总预算仍40微步/900秒/131072训练处理token。要求相同 shape 下 policy=reference 初始 ln2±2e-6；原生 float32 score 与不补齐 reference cache 的绝对误差≤0.02（不同 BF16 kernel shape 允许的另列容差），文件/参数hash必须一致、重载 logits≤1e-5。第二次运行依然独立记录，首轮负结果保留。
 
 1.7B 每bucket采用112个SFT微步（前8暖机、104可测，满足100目标且完整累积8），备选DPO8微步；总120微步、524288训练逻辑处理token、900秒上限。容量输入由原创上下文扩展到 bucket-64 左右，保证拒绝响应有长度余量；它不是P02真实长度分布，不能用来宣称真实任务耗时。
+
+第三次0.6B smoke前修正：第二次备选运行的非编译初始化检查通过，但进一步核对**实际训练日志**发现，第一次optimizer更新之前loss交替为0.6945998073与0.6798114181，未满足预登记严格ln2容差。第二次运行的程序性PASS不足以验收，明确降级为 `FAIL_TRAINING_PATH_LN2`；原始JSON/日志不改写。已补充训练回调门槛，使第一个累积周期任一实际loss偏差即停止。使用MLX官方诊断开关 [`mx.disable_compile()`](https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.disable_compile.html) 在专属备选进程阶段禁用编译优化，保留同一backend、dtype、loss、collator、LR、beta与2e-6门槛。该修正验证计算路径，没有放宽门槛或更换第二个备选。
