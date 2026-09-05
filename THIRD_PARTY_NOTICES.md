@@ -10,3 +10,6 @@
 - LiDARFoodAgent：本项目不引入其私有源码、AGPL 代码、用户资料、设备捕获或云配置。未来若复用须独立决定许可兼容与授权。
 
 详见 [来源登记](docs/09_SOURCES.md) 和 [数据治理](docs/02_DATA_GOVERNANCE.md)。本文件是工程发布清单，不替代逐项许可审查。
+# P00 CPU dependency note
+
+P00 使用 jsonschema 4.26.0 及锁定的传递依赖；测试与打包使用 pytest、ruff、hatchling、uv。版本和来源解析记录于 `uv.lock`/`pyproject.toml`。这些包各自保留上游许可证，仓库 MIT 仅覆盖原创内容；没有复制它们的源码或重新许可。正式模型/数据的许可验收仍由 P01/P02 完成。

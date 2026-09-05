@@ -1,0 +1,68 @@
+{
+  "schema_version": "toolalign.preference.v1",
+  "preference_id": "fixture-pair-001",
+  "source_task_id": "fixture-001",
+  "group_id": "build-lookup-v1",
+  "split": "train",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Read the fixture for build demo-01.",
+      "tool_calls": [],
+      "tool_call_id": null
+    }
+  ],
+  "tools": [
+    {
+      "schema_version": "toolalign.tool.v1",
+      "name": "read_fixture",
+      "description": "Read an original public build fixture by build ID.",
+      "parameters_json_schema": {
+        "type": "object",
+        "properties": {
+          "build_id": {
+            "type": "string",
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "build_id"
+        ],
+        "additionalProperties": false
+      },
+      "tool_version": "1.0.0",
+      "side_effect_class": "read_only",
+      "timeout_ms": 1000
+    }
+  ],
+  "prompt_hash": "eb59d03e9021908218d6ac2b420746ce77fc568dce75bca80a9e69d509092c26",
+  "chosen": "{\"build_id\":\"demo-01\"}",
+  "rejected": "{\"build_id\":\"demo-02\"}",
+  "chosen_validation": {
+    "outcome": "success",
+    "reason": "Synthetic schema fixture only; not an executed oracle verdict.",
+    "trace_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "rejected_validation": {
+    "outcome": "failure",
+    "reason": "Synthetic schema fixture only; wrong build ID.",
+    "trace_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "preference_reason": "Different build IDs in an original schema example; not training data.",
+  "generation_model": {
+    "model_id": "fixture/no-model",
+    "model_revision": "fixture-v1",
+    "model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "adapter_hash": null,
+    "tokenizer_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "template_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quantization": "none"
+  },
+  "generation_parameters": {
+    "seed": 42,
+    "temperature": 0,
+    "top_p": 1,
+    "max_new_tokens": 128
+  },
+  "oracle_version": "fixture-only-v1"
+}

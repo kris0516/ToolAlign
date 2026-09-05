@@ -1,0 +1,19 @@
+{
+  "protocol_version": "toolalign.protocol.v1",
+  "contract_bundle": "toolalign.contracts.v1",
+  "enable_thinking": false,
+  "model_concurrency": 1,
+  "max_model_decisions": 3,
+  "max_tool_rounds": 2,
+  "generation_defaults": {
+    "max_new_tokens": 256,
+    "deadline_seconds": 30,
+    "status": "PROVISIONAL_UNTIL_P01"
+  },
+  "preference_audit": {
+    "sample_rule": "min(total, max(100, ceil(total * 0.10)))",
+    "max_mislabel_rate": 0.05,
+    "stop_rule": "mislabels / reviewed > 0.05 blocks formal DPO; unknown labels count as errors"
+  },
+  "backend_dependencies": "UNASSIGNED_UNTIL_P01"
+}

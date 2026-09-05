@@ -4,7 +4,20 @@
 
 ToolAlign 是一个以 Apple Silicon 为主要实验环境的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态：Planning / 尚未实现。** 本次交付只有规划、协作协议、任务包及仓库发布脚本；没有训练好的模型、已执行的 benchmark 或已经上线的推理服务。十天是目标工作安排，不是完成承诺。结果栏在实测前必须保持 `NOT_RUN`。
+> **当前状态：P00 已通过独立审查，待合并与 main 验证。** 已有 CPU 可安装包、版本化契约、模块接口、跨 worktree GPU 锁与基础测试；没有训练好的模型、已执行的 benchmark 或已经上线的推理服务。十天是目标工作安排，不是完成承诺。结果栏在实测前必须保持 `NOT_RUN`。
+
+## CPU 基础检查
+
+```bash
+uv sync --locked --python 3.14
+uv run --locked pytest -q
+uv run --locked ruff check .
+uv run --locked python scripts/check_contract_freeze.py
+uv run --locked python scripts/check_public_content.py
+uv run --locked toolalign validate tests/fixtures/contracts/example.json
+```
+
+仅安装 CPU 基础依赖，不加载模型。离线运行需要事先安装锁定依赖。契约和文件所有权见 [P00 契约说明](docs/12_CONTRACTS_V1.md)；锁定依赖见 `uv.lock`。历史 `MANIFEST.sha256` 仅对应原始规划包，当前发布依据为 Git commit 与阶段证据。
 
 ## 研究问题
 
