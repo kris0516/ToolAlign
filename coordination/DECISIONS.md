@@ -36,7 +36,7 @@
 
 ## ADR-0008｜CPU 契约、离线 schema 子集与冻结摘要
 
-日期：2026-09-06；基线同 ADR-0007；状态：R1-r2 已独立通过，S0 ACCEPTED；待 main 集成验证。
+日期：2026-09-06；基线同 ADR-0007；状态：VERIFIED；R1-r2 已独立通过，已合并并完成 main 集成验证。
 
 选择 Python 3.11–3.14 + jsonschema Draft 2020-12，五类严格 wire record、六个独立 Protocol，额外检查字段关联。备选 Pydantic 或手写完整 validator 未采用；保持数据/接口可用 JSON 跨 backend 使用，并避免基础包导入 MLX/PyTorch。依赖用 uv.lock 固定。schema、validator、interfaces、protocol config 以 contracts.v1.lock.json 记录精确字节。
 
@@ -64,3 +64,5 @@ R1 原始审查提交 `66521f8`，结论 FAIL：两项 P1（类型不适用关�
 备选为接受 P2 并记录限制；未采用，因为这些问题可以小范围修复且直接影响后续数据一致性。验证：基础 tests、原始 R1 probes、公开扫描、冻结摘要、wheel 与 CI；精确结果记入后续 handoff，再由独立任务复核。回退：保留未合并分支和原始失败报告，若复核失败继续阻塞 P00，禁止派发 P01–P03。
 
 复核结果：R1-r2 对 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 给出 PASS，独立证据提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`；58 + 46 + 72 项 CPU 检查及独立 wheel 安装通过，五类问题全部关闭。S0 以 fast-forward 保留该审查提交原 SHA；其后只有 S0 验收文档登记，生产实现与被审候选一致。合并 main 后仍需集成检查才允许下一批。
+
+集成结果：最终 head `708642448395be91357275a9a26def981a9f4110` 的 Python 3.11/3.14 CI 通过；PR #2 合并为 `cd091e3a53986b59b170baf5b746644f369135d1`。S0 在该 main 提交重验 176 项 CPU 测试、lint、冻结摘要、公开扫描与 CLI，均退出 0；P00 达到 VERIFIED。

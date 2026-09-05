@@ -1,6 +1,6 @@
 # 12｜P00 契约冻结说明
 
-版本：`toolalign.contracts.v1`，包含五类 `toolalign.{example,tool,preference,run,trace}.v1`。P00 分支上的文件是冻结候选；只有 R1 独立审查通过、S0 合并且 main 验证后，才成为 P01–P03 可使用的契约。精确字节登记在根目录 `contracts.v1.lock.json`，Git commit 是交付真源。
+版本：`toolalign.contracts.v1`，包含五类 `toolalign.{example,tool,preference,run,trace}.v1`。已完成 R1 独立审查、S0 合并与 main 验证，冻结提交为 `cd091e3a53986b59b170baf5b746644f369135d1`，可作为后续任务契约。精确字节登记在根目录 `contracts.v1.lock.json`，Git commit 是交付真源；验收见 [main 验证报告](../reports/P00_MAIN_VERIFICATION.md)。
 
 ## 安装与验收
 

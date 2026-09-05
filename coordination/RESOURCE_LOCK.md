@@ -6,7 +6,7 @@
 
 ## 2. 锁位置与实现要求
 
-P00 候选实现：`src/toolalign/runtime/gpu_lock.py` 的 `GPULease`、`lock_path` 与 `inspect_gpu_lock`。CPU 竞争/异常/跨 worktree 测试位于 `tests/runtime/test_gpu_lock.py`；使用方法见 `docs/12_CONTRACTS_V1.md`。这些测试不加载模型。
+P00 已验证实现：`src/toolalign/runtime/gpu_lock.py` 的 `GPULease`、`lock_path` 与 `inspect_gpu_lock`。CPU 竞争/异常/跨 worktree 测试位于 `tests/runtime/test_gpu_lock.py`；使用方法见 `docs/12_CONTRACTS_V1.md`。这些测试不加载模型。
 
 P00/P01 实现时，锁根使用该仓库的**共享 Git common directory** 下 `toolalign-runtime-locks/`，或 S0 指定的本机共享私有目录。通过 Git 查询真实 common dir，而不是假定每个 `.git` 都是目录。[S16]
 

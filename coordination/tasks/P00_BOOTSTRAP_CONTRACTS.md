@@ -1,6 +1,6 @@
 # P00｜仓库启动与契约冻结
 
-状态：ACCEPTED；R1-r2 对精确候选 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 给出 PASS，审查提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`。P01–P03 保持 BLOCKED，合并与 main 集成验证前不解锁。
+状态：VERIFIED；R1-r2 PASS 候选 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87`，审查提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`。PR #2 合并 `cd091e3a53986b59b170baf5b746644f369135d1`；main 的 176 项 CPU 检查与关键命令通过。P01–P03 依赖已解除，仍须由 S0 按并发名额分发。
 
 | 字段 | 初始值 |
 |---|---|
@@ -8,7 +8,7 @@
 | 依赖 | 无；先确认本地/远端真实状态 |
 | base commit | 0f152e287bbc0e1c3edfb3f6f3794eb8d36c422f |
 | branch/worktree | `work/p00-bootstrap-contracts`；S0 主项目 checkout；R1 使用 App 独立 worktree |
-| 契约 | `toolalign.contracts.v1` 候选，包含 example/tool/preference/run/trace.v1；摘要见 `contracts.v1.lock.json` |
+| 契约 | `toolalign.contracts.v1` 已冻结，包含 example/tool/preference/run/trace.v1；摘要见 `contracts.v1.lock.json` |
 | 交接 | `coordination/handoffs/P00-r2.md`；独立结果 `coordination/handoffs/P00-review-r2.md` |
 
 ## 目标

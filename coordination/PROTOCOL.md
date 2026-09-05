@@ -16,6 +16,10 @@ S0 首先确认是否有**原生独立对话/线程**创建、消息、状态读
 
 原生工具调用成功返回 thread ID 才登记 `DISPATCHED`。只生成了 prompt 记作 `READY_FOR_MANUAL_DISPATCH`。用户手动建立后记录 alias，敏感 thread ID/本机绝对路径存 `.toolalign-local/`，不公开聊天全文。
 
+App 创建 worktree 若只返回临时 client ID，保持等待设置状态，不能把它传给要求真实 thread ID 的工具。新对话先通过原生 `set_thread_title` 设置自身标题，将返回的真实 ID、角色、模型、推理等级与 cwd 写入自身 `.toolalign-local/task-identity.json`；S0 核对后登记并使用原生 wait/send。任务列表短暂不显示新对话时不重复创建，也不启用 CLI 后台代理。
+
+分发区分 `code_base` 与 `authorization_commit`：前者是已合并并验证的代码基线，后者是 S0 写入领取状态/范围的精确协调提交。Worker 在切换基线前读取授权提交中的任务包，并保留私有副本；不能因为代码基线内任务包仍为未领取就自行改变授权。
+
 ## 3. 任务领取与状态机
 
 `PLANNED → READY → CLAIMED → IN_PROGRESS → READY_FOR_REVIEW → ACCEPTED → MERGED → VERIFIED`。
