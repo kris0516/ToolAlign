@@ -39,6 +39,62 @@ def _shingles(text):
     return {" ".join(words[i : i + 3]) for i in range(len(words) - 2)}
 
 
+def normalized_schema_semantics(schema):
+    """Ignore annotations, not property names; set-valued keywords are unordered.
+
+    This additional audit never changes the original source grouping keys.
+    It is a structural equivalence check, not a complete logical schema solver.
+    """
+    result = {k: copy.deepcopy(v) for k, v in schema.items() if k not in {"description", "default"}}
+    if "properties" in result:
+        result["properties"] = {
+            name: normalized_schema_semantics(child) for name, child in result["properties"].items()
+        }
+        result["required"] = sorted(result.get("required", []))
+    if "items" in result:
+        result["items"] = normalized_schema_semantics(result["items"])
+    if "enum" in result:
+        result["enum"] = sorted(result["enum"], key=canonical_hash)
+    if result["type"] == "string":
+        result.setdefault("minLength", 0)
+    if result["type"] == "array":
+        result.setdefault("minItems", 0)
+    return result
+
+
+def normalized_group_guard(infos, assignments):
+    """Quarantine normalized schema bridges while preserving original groups.
+
+    All convertible source tools participate, including tools in otherwise
+    rejected records. No acceptance rate or split target determines retention.
+    """
+    owners = defaultdict(lambda: {"groups": set(), "splits": set(), "sources": set()})
+    for info, assignment in zip(infos, assignments, strict=True):
+        for key in info.get("normalized_schema_keys", []):
+            owners[key]["groups"].add(assignment["group_id"])
+            owners[key]["splits"].add(assignment["split"])
+            owners[key]["sources"].add(info["source_record_hash"])
+    conflicts = [
+        {"normalized_schema_key": key, **{k: sorted(v) for k, v in owner.items()}}
+        for key, owner in sorted(owners.items())
+        if len(owner["groups"]) > 1
+    ]
+    excluded = {source for row in conflicts for source in row["sources"]}
+    return (
+        excluded,
+        conflicts,
+        {
+            "method": "quarantine_all_sources_with_normalized_schema_in_multiple_original_groups.v1",
+            "original_assignments_changed": False,
+            "normalized_schema_keys": len(owners),
+            "bridge_keys": len(conflicts),
+            "cross_split_bridge_keys": sum(len(row["splits"]) > 1 for row in conflicts),
+            "bridge_unique_source_records": len(excluded),
+            "conflicts_hash": canonical_hash(conflicts),
+        },
+    )
+
+
 class Union:
     def __init__(self, size):
         self.parents = list(range(size))

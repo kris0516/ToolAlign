@@ -1,7 +1,7 @@
-"""Strict adapter for the audited ToolACE JSON-list format.
+"""Audited ToolACE JSON-list parsing and explicit source-policy conversion.
 
-Unknown schema dialects and unlabelled prose are quarantined. No tool execution,
-name rewriting, schema loosening, or inferred side-effect/semantic labels.
+Unknown dialects and unlabelled prose are quarantined. Only the approved policy
+may rewrite tool identities/constraints; historical tools have no execution binding.
 """
 
 from __future__ import annotations
@@ -232,7 +232,7 @@ def message(role, content="", calls=None, call_id=None):
     return {"role": role, "content": content, "tool_calls": calls or [], "tool_call_id": call_id}
 
 
-def inspect_record(record, source, source_index):
+def inspect_record(record, source, source_index, policy=None):
     """Return all decision outcomes plus disjoint primary and overlapping reasons."""
     record_hash = canonical_hash(record)
     info = {
@@ -267,15 +267,51 @@ def inspect_record(record, source, source_index):
         info["record_reasons"].append("conversation_shape")
         return info, []
     normalized_tools = []
-    if not info["record_reasons"]:
+    name_mapping = {}
+    system_text = record.get("system", "") if isinstance(record, dict) else ""
+    if policy is not None:
+        info["strict_record_reasons"] = list(info["record_reasons"])
+        info["record_reasons"] = (
+            [] if info["schema_span"] is not None else list(info["record_reasons"])
+        )
+        info["policy_hash"] = policy.hash
+        info["record_scope"] = "historical_supervision_only"
+        info["execution_binding"] = "none"
+        info["original_side_effect_class"] = "unknown"
+        info["raw_tool_hashes"] = [canonical_hash(t) for t in tools]
+        info["normalized_schema_keys"] = []
+        info["observation_bindings"] = []
+        for raw in tools:
+            try:
+                adapted = policy.convert_tool(raw)
+                if adapted["raw_name"] in name_mapping:
+                    raise DataError("policy_duplicate_source_tool_name")
+                name_mapping[adapted["raw_name"]] = adapted["normalized_name"]
+                normalized_tools.append(adapted["tool"])
+                info["normalized_schema_keys"].append(adapted["normalized_schema_key"])
+            except DataError as exc:
+                if str(exc) == "normalized_name_hash_collision":
+                    raise
+                info["record_reasons"].append(str(exc))
+        if info["schema_span"] is not None:
+            try:
+                system_text, info["system_conversion"] = policy.normalize_system(
+                    system_text, info["schema_span"], MARKER
+                )
+            except DataError as exc:
+                info["record_reasons"].append(str(exc))
+        info["record_reasons"] = sorted(set(info["record_reasons"]))
+    elif not info["record_reasons"]:
         try:
             normalized_tools = [convert_tool(t) for t in tools]
         except DataError as exc:
             info["record_reasons"].append(str(exc))
-    history = [message("system", record.get("system", "") if isinstance(record, dict) else "")]
+    history = [message("system", system_text)]
     pending = []
     history_bad = False
     examples = []
+    record_policy_failures = set()
+    registered = {tool["name"]: tool for tool in normalized_tools}
     for index, turn in enumerate(conversations):
         if (
             not isinstance(turn, dict)
@@ -296,11 +332,34 @@ def inspect_record(record, source, source_index):
         if role == "assistant":
             reasons = list(info["record_reasons"])
             calls = []
+            call_bindings = []
             try:
                 parsed = parse_calls(value, [t.get("name") for t in tools])
                 calls = [{"call_id": f"c-{index}-{j}", **c} for j, c in enumerate(parsed)]
+                if policy is not None and not info["record_reasons"]:
+                    for call in calls:
+                        raw_name = call["name"]
+                        call["name"] = name_mapping[call["name"]]
+                        call_bindings.append(
+                            {
+                                "call_id": call["call_id"],
+                                "raw_name": raw_name,
+                                "normalized_name": call["name"],
+                                "arguments_hash": canonical_hash(call["arguments"]),
+                                "arguments_filled_or_coerced": False,
+                                "rule": "safe_literal_parse_then_name_mapping_only.v1",
+                            }
+                        )
+                        try:
+                            validate_tool_arguments(registered[call["name"]], call["arguments"])
+                        except ContractError:
+                            reasons.append("out_of_policy_arguments")
+                            record_policy_failures.add("out_of_policy_arguments")
             except DataError as exc:
                 reasons.append(str(exc))
+                if policy is not None and value.lstrip().startswith("["):
+                    record_policy_failures.add("policy_source_call_parse_error")
+                    history_bad = True
             if history_bad or pending or history[-1]["role"] not in {"user", "tool"}:
                 reasons.append("invalid_history_prefix")
             example = None
@@ -332,6 +391,12 @@ def inspect_record(record, source, source_index):
                 "reasons": sorted(set(reasons)),
                 "normalized_hash": None,
             }
+            if policy is not None:
+                from .source_policy import text_hash
+
+                decision["source_action_sha256"] = text_hash(value)
+                decision["prefix_turn_end_exclusive"] = index
+                decision["call_bindings"] = call_bindings
             if not reasons:
                 # split/group/ID assigned after all records have been grouped.
                 payload = {
@@ -363,9 +428,28 @@ def inspect_record(record, source, source_index):
                 ):
                     raise DataError("tool_observation_shape")
                 by_name = {o["name"]: o for o in observations}
+                if policy is not None and not info["record_reasons"]:
+                    try:
+                        by_name = {
+                            name_mapping[name]: observation for name, observation in by_name.items()
+                        }
+                    except KeyError as exc:
+                        raise DataError("tool_observation_mismatch") from exc
                 if len(by_name) != len(pending) or set(by_name) != {c["name"] for c in pending}:
                     raise DataError("tool_observation_mismatch")
                 for call in pending:
+                    if policy is not None and not info["record_reasons"]:
+                        info["observation_bindings"].append(
+                            {
+                                "source_turn_index": index,
+                                "raw_name": by_name[call["name"]]["name"],
+                                "normalized_name": call["name"],
+                                "call_id": call["call_id"],
+                                "results_hash": canonical_hash(by_name[call["name"]]["results"]),
+                                "evidence_kind": "historical_observation_only",
+                                "executed_here": False,
+                            }
+                        )
                     history.append(
                         message(
                             "tool",
@@ -376,10 +460,20 @@ def inspect_record(record, source, source_index):
                 pending = []
             except (DataError, TypeError):
                 history_bad = True
+                if policy is not None:
+                    record_policy_failures.add("policy_history_observation_unreliable")
         elif role == "user":
             if pending:
                 history_bad = True
             history.append(message("user", value))
         else:
             history_bad = True
+    if policy is not None and record_policy_failures:
+        examples = []
+        info["record_reasons"] = sorted(set(info["record_reasons"]) | record_policy_failures)
+        for decision in info["decisions"]:
+            if decision["normalized_hash"] is not None:
+                decision["attempted_normalized_hash"] = decision["normalized_hash"]
+            decision["normalized_hash"] = None
+            decision["reasons"] = sorted(set(decision["reasons"]) | record_policy_failures)
     return info, examples

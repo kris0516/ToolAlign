@@ -20,8 +20,10 @@ from .common import (
     write_json,
     write_jsonl,
 )
-from .grouping import SPLITS, build_groups, validate_isolation
-from .lengths import LocalTokenizer, summarize_lengths
+from .grouping import SPLITS, build_groups, normalized_group_guard, validate_isolation
+from .lengths import TRAINING_LENGTH_BASIS, LocalTokenizer, summarize_lengths
+from .review import converted_review_packet
+from .source_policy import SourcePolicy
 from .toolace import inspect_record
 
 
@@ -192,7 +194,7 @@ def build(config):
         "tokenizer_manifest",
         "tokenizer_dir",
     }
-    if set(config) != required:
+    if set(config) - required - {"source_policy"} or required - set(config):
         raise DataError("config_fields")
     if type(config["max_tokens"]) is not int or config["max_tokens"] < 1:
         raise DataError("length_parameters")
@@ -222,6 +224,9 @@ def build(config):
         raise DataError("source_revision_not_pinned")
     if source_manifest["access"]["gated"] is not False:
         raise DataError("source_access_not_approved")
+    policy = SourcePolicy(config["source_policy"]) if "source_policy" in config else None
+    if policy:
+        policy.bind_source(source_manifest)
     source_dir = private_directory(config["source_dir"])
     for name, info in source_manifest["files"].items():
         if Path(name).name != name or name not in {"data.json", "README.md"}:
@@ -249,12 +254,23 @@ def build(config):
     write_json(output / "annotation-examples.json", representatives)
     infos, candidates = [], []
     for i, record in enumerate(records):
-        info, examples = inspect_record(record, source, i)
+        info, examples = inspect_record(record, source, i, policy)
         info["language"] = language(record) if isinstance(record, dict) else "other"
         infos.append(info)
         candidates.extend(examples)
     assignments, group_report = build_groups(records, infos, config["seed"], config["ood_fraction"])
+    bridge_sources = set()
+    if policy:
+        bridge_sources, conflicts, semantic_report = normalized_group_guard(infos, assignments)
+        write_jsonl(output / "normalized-group-conflicts.jsonl", conflicts)
+        for info in infos:
+            info["normalized_group_quarantine"] = info["source_record_hash"] in bridge_sources
+        group_report["normalized_semantic_guard"] = semantic_report
     by_hash = {a["source_record_hash"]: a for a in assignments}
+    info_by_hash = {i["source_record_hash"]: i for i in infos}
+    decision_by_id = {
+        d["normalized_hash"]: d for i in infos for d in i["decisions"] if d["normalized_hash"]
+    }
     normalized = []
     lineage = []
     duplicates = set()
@@ -262,6 +278,7 @@ def build(config):
     accepted_lengths, raw_lengths = [], []
     for example in sorted(candidates, key=lambda e: (e["example_id"], e["source_record_hash"])):
         assignment = by_hash[example["source_record_hash"]]
+        info = info_by_hash[example["source_record_hash"]]
         example.update(group_id=assignment["group_id"], split=assignment["split"])
         content_hash = canonical_hash(
             {k: example[k] for k in ("messages", "tools", "expected_action")}
@@ -275,7 +292,9 @@ def build(config):
             boundary_reason = str(exc)
             length = None
         reason = (
-            "exact_example_duplicate"
+            "normalized_schema_crosses_original_groups"
+            if example["source_record_hash"] in bridge_sources
+            else "exact_example_duplicate"
             if content_hash in duplicates
             else boundary_reason
             if boundary_reason
@@ -296,8 +315,29 @@ def build(config):
             "group_keys": assignment["group_keys"],
             "exclusion_reason": reason,
             "length": length,
+            "length_bucket": length_bucket(length["total_tokens"], buckets) if length else None,
             "training_run": None,
         }
+        if policy:
+            decision = decision_by_id[example["example_id"]]
+            row.update(
+                raw_tool_hashes=info["raw_tool_hashes"],
+                normalized_tool_hashes=[
+                    policy.tools[h]["normalized_tool_hash"] for h in info["raw_tool_hashes"]
+                ],
+                policy_hash=policy.hash,
+                record_scope="historical_supervision_only",
+                execution_binding="none",
+                original_side_effect_class="unknown",
+                source_action_sha256=decision["source_action_sha256"],
+                source_turn_index=decision["turn_index"],
+                call_bindings=decision["call_bindings"],
+                prefix_turn_end_exclusive=decision["prefix_turn_end_exclusive"],
+                system_conversion=info["system_conversion"],
+                normalized_group_keys=sorted(
+                    "normalized_schema:" + k for k in info["normalized_schema_keys"]
+                ),
+            )
         if reason:
             dropped[reason] += 1
         else:
@@ -324,6 +364,14 @@ def build(config):
     split_records = Counter(a["split"] for a in assignments)
     split_examples = Counter(e["split"] for e in normalized)
     intersections = validate_isolation(assignments + lineage)
+    if policy:
+        accepted_lineage = [
+            {**row, "group_keys": row["group_keys"] + row["normalized_group_keys"]}
+            for row in lineage
+            if row["exclusion_reason"] is None
+        ]
+        validate_isolation(accepted_lineage)
+        intersections["normalized_schema_in_final_examples"] = 0
     report = {
         "status": "AUTO_AUDIT_ONLY_G_DATA_PENDING",
         "raw_records": len(records),
@@ -335,6 +383,28 @@ def build(config):
         "overlapping_exclusion_counts": dict(sorted(overlapping.items())),
         "post_normalization_exclusions": dict(sorted(dropped.items())),
         "final_examples": len(normalized),
+        "final_unique_source_records": len({e["source_record_hash"] for e in normalized}),
+        "final_unique_tools": len({canonical_hash(t) for e in normalized for t in e["tools"]}),
+        "final_tool_count_distribution": dict(
+            sorted(Counter(str(len(e["tools"])) for e in normalized).items())
+        ),
+        "final_target_call_count_distribution": dict(
+            sorted(
+                Counter(str(len(e["expected_action"]["tool_calls"])) for e in normalized).items()
+            )
+        ),
+        "final_language_script_counts": dict(
+            sorted(
+                Counter(
+                    info_by_hash[e["source_record_hash"]]["language"] for e in normalized
+                ).items()
+            )
+        ),
+        "final_length_buckets": dict(
+            sorted(
+                Counter(length_bucket(r["total_tokens"], buckets) for r in accepted_lengths).items()
+            )
+        ),
         "records_with_no_assistant_decision": sum(not i["decisions"] for i in infos),
         "record_reason_counts": dict(
             sorted(Counter(r for i in infos for r in i["record_reasons"]).items())
@@ -348,6 +418,9 @@ def build(config):
                 ).items()
             )
         ),
+        "tool_findings_basis": "strict_original_schema_diagnostics_not_policy_rejection"
+        if policy
+        else "strict_conversion",
         "raw_language_script_counts": dict(sorted(Counter(i["language"] for i in infos).items())),
         "decision_syntax_counts": dict(
             sorted(
@@ -376,6 +449,7 @@ def build(config):
         else "NOT_RUN",
         "raw_source_lengths": summarize_lengths(raw_lengths),
         "accepted_example_lengths": summarize_lengths(accepted_lengths),
+        "accepted_length_basis": TRAINING_LENGTH_BASIS if tokenizer else "NOT_RUN",
         "raw_length_unmeasured_decisions": len(decisions) - len(raw_lengths),
         "raw_length_buckets": dict(
             sorted(Counter(d["raw_bucket"] for d in decisions if "raw_bucket" in d).items())
@@ -388,21 +462,43 @@ def build(config):
         normalized
     ) + sum(dropped.values()):
         raise DataError("exclusion_accounting_mismatch")
-    report["human_review"] = _review_packet(
-        output,
-        records,
-        infos,
-        assignments,
-        config["seed"],
-        config["review_sample_records"],
-        len(normalized),
-    )
     write_jsonl(output / "source-index.jsonl", infos)
     write_jsonl(output / "assignments.jsonl", assignments)
     write_jsonl(output / "lineage.jsonl", lineage)
     write_jsonl(output / "examples.jsonl", normalized)
     for split in SPLITS:
         write_jsonl(output / f"{split}.jsonl", (e for e in normalized if e["split"] == split))
+    if policy:
+        write_jsonl(output / "tool-lineage.jsonl", (policy.tools[h] for h in sorted(policy.tools)))
+        write_jsonl(
+            output / "tool-quarantine.jsonl",
+            (
+                {"raw_tool_hash": h, "policy_hash": policy.hash, "reason": policy.failures[h]}
+                for h in sorted(policy.failures)
+            ),
+        )
+        report["source_policy"] = _policy_report(policy, infos)
+        report["human_review"] = converted_review_packet(
+            output,
+            records,
+            infos,
+            assignments,
+            normalized,
+            lineage,
+            policy,
+            config["seed"],
+            config["review_sample_records"],
+        )
+    else:
+        report["human_review"] = _review_packet(
+            output,
+            records,
+            infos,
+            assignments,
+            config["seed"],
+            config["review_sample_records"],
+            len(normalized),
+        )
     write_json(output / "report.json", report)
     try:
         revision = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
@@ -427,5 +523,56 @@ def build(config):
             if p.is_file()
         },
     }
+    if policy:
+        manifest.update(
+            source_policy_hash=policy.hash,
+            source_policy_version=policy.config["policy_version"],
+            record_scope="historical_supervision_only",
+            execution_binding="none",
+            original_side_effect_class="unknown",
+            execution_registration_from_dataset="forbidden",
+        )
     write_json(output / "manifest.json", manifest)
     return report, manifest
+
+
+def _policy_report(policy, infos):
+    unique_fields = Counter(c["reason"] for tool in policy.tools.values() for c in tool["changes"])
+    occurrence_fields, record_changes, decision_changes = Counter(), Counter(), Counter()
+    converted_occurrences = 0
+    for info in infos:
+        changes = [
+            c["reason"]
+            for h in info.get("raw_tool_hashes", [])
+            if h in policy.tools
+            for c in policy.tools[h]["changes"]
+        ]
+        converted_occurrences += sum(h in policy.tools for h in info.get("raw_tool_hashes", []))
+        occurrence_fields.update(changes)
+        record_changes.update(set(changes))
+        decision_changes.update({r: len(info["decisions"]) for r in set(changes)})
+    return {
+        "policy_hash": policy.hash,
+        "policy_version": policy.config["policy_version"],
+        "record_scope": "historical_supervision_only",
+        "execution_binding": "none",
+        "original_side_effect_class": "unknown",
+        "tool_denominator_note": "Converted tools can occur in records rejected for other reasons.",
+        "unique_converted_tools": len(policy.tools),
+        "unique_quarantined_tools": len(policy.failures),
+        "converted_tool_occurrences": converted_occurrences,
+        "unique_tool_quarantine_reasons": dict(sorted(Counter(policy.failures.values()).items())),
+        "unique_tool_field_changes": dict(sorted(unique_fields.items())),
+        "tool_occurrence_field_changes": dict(sorted(occurrence_fields.items())),
+        "source_records_per_change_reason": dict(sorted(record_changes.items())),
+        "assistant_decisions_per_change_reason": dict(sorted(decision_changes.items())),
+        "unique_tool_default_annotations": sum(
+            len(t["default_annotations"]) for t in policy.tools.values()
+        ),
+        "system_converted_records": sum("system_conversion" in i for i in infos),
+        "historical_observation_bindings": sum(
+            len(i.get("observation_bindings", [])) for i in infos
+        ),
+        "actual_tool_executions": 0,
+        "arguments_filled_or_coerced": 0,
+    }
