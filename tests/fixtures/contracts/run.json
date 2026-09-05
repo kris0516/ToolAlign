@@ -1,0 +1,41 @@
+{
+  "schema_version": "toolalign.run.v1",
+  "run_id": "fixture-run",
+  "git_commit": "0000000000000000000000000000000000000000",
+  "purpose": "contract_test",
+  "data_manifest_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "model": {
+    "model_id": "fixture/no-model",
+    "model_revision": "fixture-v1",
+    "model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "adapter_hash": null,
+    "tokenizer_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "template_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quantization": "none"
+  },
+  "reference_model_hash": null,
+  "backend": "fixture-only",
+  "dependency_versions": {
+    "python": "3.14"
+  },
+  "seed": 42,
+  "hardware": {
+    "platform": "synthetic",
+    "machine": "synthetic",
+    "memory_bytes": 0,
+    "accelerator": null
+  },
+  "resource_policy": {
+    "gpu_lock": "gpu0",
+    "max_memory_bytes": 1024,
+    "max_wall_seconds": 10
+  },
+  "training_tokens": 0,
+  "optimizer_steps": 0,
+  "resume_semantics": "not_applicable",
+  "started_at": "2026-09-06T00:00:00Z",
+  "ended_at": "2026-09-06T00:00:01Z",
+  "status": "succeeded",
+  "exit_code": 0,
+  "artifacts": []
+}

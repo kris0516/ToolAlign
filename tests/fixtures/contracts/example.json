@@ -1,0 +1,55 @@
+{
+  "schema_version": "toolalign.example.v1",
+  "example_id": "fixture-001",
+  "source": "toolalign-original-fixtures",
+  "source_revision": "fixture-v1",
+  "license_id": "MIT",
+  "source_record_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "group_id": "build-lookup-v1",
+  "split": "train",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Read the fixture for build demo-01.",
+      "tool_calls": [],
+      "tool_call_id": null
+    }
+  ],
+  "tools": [
+    {
+      "schema_version": "toolalign.tool.v1",
+      "name": "read_fixture",
+      "description": "Read an original public build fixture by build ID.",
+      "parameters_json_schema": {
+        "type": "object",
+        "properties": {
+          "build_id": {
+            "type": "string",
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "build_id"
+        ],
+        "additionalProperties": false
+      },
+      "tool_version": "1.0.0",
+      "side_effect_class": "read_only",
+      "timeout_ms": 1000
+    }
+  ],
+  "expected_action": {
+    "kind": "tool_calls",
+    "tool_calls": [
+      {
+        "call_id": "call-1",
+        "name": "read_fixture",
+        "arguments": {
+          "build_id": "demo-01"
+        }
+      }
+    ],
+    "content": ""
+  },
+  "category": "build_report"
+}

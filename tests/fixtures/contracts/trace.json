@@ -1,0 +1,47 @@
+{
+  "schema_version": "toolalign.trace.v1",
+  "trace_id": "fixture-trace",
+  "request_id": "fixture-request",
+  "event_index": 0,
+  "event": "finalized",
+  "model": {
+    "model_id": "fixture/no-model",
+    "model_revision": "fixture-v1",
+    "model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "adapter_hash": null,
+    "tokenizer_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "template_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quantization": "none"
+  },
+  "tool_call": {
+    "call_id": "call-1",
+    "name": "read_fixture",
+    "arguments": {
+      "build_id": "demo-01"
+    }
+  },
+  "tool_result": {
+    "call_id": "call-1",
+    "status": "completed",
+    "output": {
+      "build_id": "demo-01"
+    },
+    "error_code": null,
+    "retryable": false
+  },
+  "parse_failure": null,
+  "validation_failure": null,
+  "budget_consumed": {
+    "model_decisions": 1,
+    "tool_rounds": 1,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "deadline_utc": "2026-09-06T00:00:10Z",
+  "latency_ms": 0,
+  "task_outcome": {
+    "outcome": "not_scored",
+    "reason": "Schema fixture only.",
+    "oracle_version": "fixture-only-v1"
+  }
+}

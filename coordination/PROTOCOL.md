@@ -12,6 +12,8 @@ kris 是项目负责人，决定范围、费用、隐私、外部发布和学习
 
 S0 首先确认是否有**原生独立对话/线程**创建、消息、状态读取工具，以及这些工具是否真的创建 App 中可见的独立对话。没有这些工具时，不试图用 CLI 后台进程或嵌套代理代替；把 `coordination/prompts/` 的对应提示词填好后交由 kris 新建对话。
 
+所有 worker/reviewer 的原生创建与后续消息统一指定 `model=gpt-6-astra`、`thinking=xhigh`（极高）。最多两个同时活跃的实现对话；R1 CPU 审查可独立进行。
+
 原生工具调用成功返回 thread ID 才登记 `DISPATCHED`。只生成了 prompt 记作 `READY_FOR_MANUAL_DISPATCH`。用户手动建立后记录 alias，敏感 thread ID/本机绝对路径存 `.toolalign-local/`，不公开聊天全文。
 
 ## 3. 任务领取与状态机

@@ -1,10 +1,10 @@
 # ToolAlign 任务看板
 
-规划基线 plan-v0.1；状态初始值，不代表任何任务已领取。只有 S0 可以更新此文件。
+规划基线 plan-v0.1；S0 已领取。只有 S0 可以更新此文件。P00 独立审查、合并和集成验证前不分发 P01–P03。
 
 | 任务 | 负责人角色 | 依赖 | 当前状态 | 基线/证据 |
 |---|---|---|---|---|
-| [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | READY | UNASSIGNED |
+| [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | IN_PROGRESS | base `0f152e2`；分支 `work/p00-bootstrap-contracts`；R1 待审 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | BLOCKED | NOT_RUN |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | BLOCKED | NOT_RUN |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | BLOCKED | NOT_RUN |

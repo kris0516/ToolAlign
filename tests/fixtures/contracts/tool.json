@@ -1,0 +1,21 @@
+{
+  "schema_version": "toolalign.tool.v1",
+  "name": "read_fixture",
+  "description": "Read an original public build fixture by build ID.",
+  "parameters_json_schema": {
+    "type": "object",
+    "properties": {
+      "build_id": {
+        "type": "string",
+        "maxLength": 64
+      }
+    },
+    "required": [
+      "build_id"
+    ],
+    "additionalProperties": false
+  },
+  "tool_version": "1.0.0",
+  "side_effect_class": "read_only",
+  "timeout_ms": 1000
+}
