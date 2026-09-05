@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**；P01/T1 已交付候选等待独立审查，P02/D1 继续适配；P03/E1 已领取，待原生身份核验。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**；P01/T1 已交付候选等待独立审查，P02/D1 继续适配；P03/E1 已核验真实原生任务与隔离 worktree，正在进行 CPU 实现。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；公共支持包合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 并验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/P01 已空闲等待审查；D1/P02 进行中，E1/P03 待核验；R1 正在审 S0-SHARED-02 |
+| 独立实现/reviewer 对话 | T1/P01 已空闲等待审查；D1/P02 与 E1/P03 进行中；R1 正在审 S0-SHARED-02 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00 自测、R1 精确 head 独立审查、S0 合并与 main 重验均已满足。第一批只派发 P01/T1 与 P02/D1；P03/E1 在实现并发名额释放后派发。所有 worker 使用独立 worktree。未返回真实 task ID 不写 DISPATCHED。
+P00 自测、R1 精确 head 独立审查、S0 合并与 main 重验均已满足。第一批为 P01/T1 与 P02/D1；T1 交付且原生状态空闲后，已派发并核验 P03/E1（code_base `97466a2`，授权 `e882594`）。所有 worker 使用独立 worktree，当前两个实现任务为 D1/E1。未返回真实 task ID 不写 DISPATCHED。
 
 ## 恢复入口
 
