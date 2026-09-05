@@ -43,3 +43,5 @@ T1 全部私有环境、原始模型、缓存和制品规划上限20GiB；全项
 第四次0.6B smoke前修正：第三次在reference cache形成之后才切换编译模式，触发reference score门槛，退出2且DPO更新0。由此要求**整个模型进程**从加载、SFT、reference预计算到DPO和重载保持同一编译模式，且该模式与依赖版本进入reference cache身份。microbatch1的chosen/rejected各按自身完整长度输入，避免不必要的共同补齐；没有修改completion、截断或放宽容差。第三次失败仍保留，原始错误未捕获具体score差值，不能补写成已测数字。
 
 1536档资源恢复：首次校准已完成112个SFT微步，但DPO尚无已记录微步时，外层系统pressure变为2，退出124；末次采样swap增长33,161,216 bytes，没有达到1GiB阈值，压力是实际停止原因。重新启动前pressure已恢复1。第二次1536校准只启用备选原生 `grad_checkpoint=True` 降低DPO激活占用；SFT仍False。checkpointing配置进入reference身份，不提高内存/墙钟/步数预算；再通过资源门后才进入2048。
+
+1536第二次通过后进入2048：SFT112微步、DPO8微步均完成，DPO开启原生gradient checkpointing后MLX峰值15,499,194,002 bytes、RSS峰值13,333,069,824 bytes，pressure保持正常。2048沿用该执行模式与checkpointing，仍执行原有120微步/900秒/24GiB MLX/30GiB RSS停止预算。

@@ -216,3 +216,17 @@ def test_checkpoint_timing_uses_real_writer_and_restores(tmp_path):
     assert calls == [{"weights": 1}]
     assert events[0]["phase"] == "sft"
     assert events[0]["seconds"] >= 0
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        {"max_wall_seconds": 901},
+        {"max_microsteps": 121},
+        {"max_processed_tokens": 524289},
+        {"max_swap_growth_bytes": 2 * 1024**3},
+    ],
+)
+def test_probe_cannot_expand_into_formal_training(change):
+    with pytest.raises(ValueError):
+        replace(Budget(), **change).validate()

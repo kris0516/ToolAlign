@@ -147,6 +147,10 @@ class Budget:
             raise ValueError("Budget exceeds P01 memory authorization")
         if self.max_disk_bytes > 20 * 1024**3:
             raise ValueError("Budget exceeds P01 disk authorization")
+        if self.max_wall_seconds > 900 or self.max_microsteps > 120:
+            raise ValueError("P01 probes cannot become formal long training jobs")
+        if self.max_processed_tokens > 524288 or self.max_swap_growth_bytes > 1024**3:
+            raise ValueError("Budget exceeds P01 token or swap authorization")
 
     def check(
         self,

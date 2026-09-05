@@ -111,6 +111,18 @@ def prepare_config(config: dict) -> dict:
     if config["mode"] != "math":
         from .samples import smoke_samples
 
+        sft_steps, dpo_steps = config["sft_steps"], config.get("dpo_steps", 0)
+        if type(sft_steps) is not int or type(dpo_steps) is not int:
+            raise ValueError("Microstep counts must be integers")
+        if not 0 < sft_steps <= 112 or not 0 <= dpo_steps <= 8:
+            raise ValueError("P01 does not authorize formal training")
+        if sft_steps + dpo_steps > budget.max_microsteps:
+            raise ValueError("Planned microsteps exceed declared stop budget")
+        if config["sequence_length"] not in {1024, 1536, 2048}:
+            raise ValueError("Unregistered sequence bucket")
+        if config["mode"] == "smoke" and (sft_steps > 32 or config["sequence_length"] != 1024):
+            raise ValueError("0.6B smoke exceeds preregistration")
+
         if config["model_id"] not in {"Qwen/Qwen3-0.6B", "Qwen/Qwen3-1.7B"}:
             raise ValueError("P01 only authorizes these original public checkpoints")
         expected_revisions = {
