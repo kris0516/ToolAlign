@@ -4,10 +4,15 @@ from __future__ import annotations
 
 import hashlib
 import importlib.metadata
+import json
 import math
 from pathlib import Path
 
-from .common import DataError, file_hash, read_json
+from toolalign.contracts import canonical_hash, model_input_from_example
+
+from .common import DataError, encoded, file_hash, read_json
+
+TRAINING_LENGTH_BASIS = "qwen3_non_thinking_concat_one_eos_v1"
 
 
 def quantiles(values):
@@ -43,15 +48,19 @@ class LocalTokenizer:
             raise DataError("tokenizer_template_mismatch")
         # Reviewed official immutable template, not a template from a data record.
         environment = ImmutableSandboxedEnvironment(trim_blocks=True, lstrip_blocks=True)
-        import json
-
         environment.filters["tojson"] = lambda value: json.dumps(value, ensure_ascii=False)
         self.template = environment.from_string(template)
         self.tokenizer = Tokenizer.from_file(str(root / "tokenizer.json"))
+        self.eos_token_id = self.tokenizer.token_to_id(config["eos_token"])
+        if self.eos_token_id is None or self.encode(config["eos_token"]) != [self.eos_token_id]:
+            raise DataError("tokenizer_eos_not_single_token")
         self.manifest = manifest
 
+    def encode(self, text):
+        return list(self.tokenizer.encode(text, add_special_tokens=False).ids)
+
     def count(self, text):
-        return len(self.tokenizer.encode(text, add_special_tokens=False).ids)
+        return len(self.encode(text))
 
     def render(self, messages, tools=None):
         return self.template.render(
@@ -81,10 +90,16 @@ class LocalTokenizer:
             "total_tokens": total_prompt + completion,
         }
 
-    def normalized(self, example):
-        from toolalign.contracts import model_input_from_example
+    def training_sequence(self, example, *, require_stable_prefix=True):
+        """Render and encode a storage-stable sequence with exactly one appended EOS.
 
-        projection = model_input_from_example(example)
+        The diagnostic opt-out exposes boundary failures to the independent CPU
+        comparison. Production length measurement always requires a stable prefix.
+        No EOS newline is appended, and existing literal EOS tokens are retained.
+        """
+        # examples.jsonl sorts all object keys. Bind in-memory measurement to the
+        # same ordering that a downstream trainer will see after reading the file.
+        projection = json.loads(encoded(model_input_from_example(example)))
         tools = [
             {
                 "type": "function",
@@ -96,12 +111,9 @@ class LocalTokenizer:
             }
             for t in projection["tools"]
         ]
-        prompt = self.count(self.render(projection["messages"], tools))
-        without = self.count(self.render(projection["messages"]))
-        action = example["expected_action"]
+        prompt_text = self.render(projection["messages"], tools)
+        action = json.loads(encoded(example["expected_action"]))
         if action["kind"] == "tool_calls":
-            import json
-
             completion = "\n".join(
                 "<tool_call>\n"
                 + json.dumps({"name": c["name"], "arguments": c["arguments"]}, ensure_ascii=False)
@@ -110,13 +122,38 @@ class LocalTokenizer:
             )
         else:
             completion = action["content"]
-        count = self.count(completion + "<|im_end|>\n")
+        prompt_ids = self.encode(prompt_text)
+        concatenated = self.encode(prompt_text + completion)
+        stable = concatenated[: len(prompt_ids)] == prompt_ids
+        if require_stable_prefix and not stable:
+            raise DataError("prompt_completion_boundary_changed")
+        return {
+            "prompt_text": prompt_text,
+            "prompt_without_tools_text": self.render(projection["messages"]),
+            "completion_text": completion,
+            "prompt_ids": prompt_ids,
+            "concatenated_ids": concatenated,
+            "sequence_ids": [*concatenated, self.eos_token_id],
+            "prefix_stable": stable,
+            "eos_token_id": self.eos_token_id,
+            "length_basis": TRAINING_LENGTH_BASIS,
+        }
+
+    def normalized(self, example):
+        sequence = self.training_sequence(example)
+        prompt = len(sequence["prompt_ids"])
+        full = len(sequence["sequence_ids"])
+        without = self.count(sequence["prompt_without_tools_text"])
         return {
             "prompt_tokens": prompt,
             "schema_marginal_tokens": prompt - without,
             "prompt_without_schema_tokens": without,
-            "completion_tokens": count,
-            "total_tokens": prompt + count,
+            "completion_tokens": full - prompt,
+            "total_tokens": full,
+            "length_basis": TRAINING_LENGTH_BASIS,
+            "prefix_stable": True,
+            "eos_token_id": self.eos_token_id,
+            "sequence_hash": canonical_hash(sequence["sequence_ids"]),
         }
 
 

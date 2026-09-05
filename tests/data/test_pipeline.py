@@ -222,3 +222,32 @@ def test_review_html_escapes_dataset_script(tmp_path, record_factory):
     assert "<script>" not in rendered
     assert "&lt;script&gt;" in rendered
     assert "default-src 'none'" in rendered
+
+
+def test_unstable_token_boundary_is_counted_and_excluded(tmp_path, record_factory, monkeypatch):
+    config = setup_source(tmp_path, record_factory)
+    fake = tmp_path / ".toolalign-local" / "fake-tokenizer.json"
+    write_json(fake, {"test_only": True})
+    config["tokenizer_manifest"] = str(fake)
+
+    class BoundaryFailureTokenizer:
+        def __init__(self, *_):
+            pass
+
+        def normalized(self, example):
+            raise DataError("prompt_completion_boundary_changed")
+
+        def raw_decision(self, *_):
+            return {
+                "prompt_tokens": 20,
+                "schema_marginal_tokens": 5,
+                "prompt_without_schema_tokens": 15,
+                "completion_tokens": 10,
+                "total_tokens": 30,
+            }
+
+    monkeypatch.setattr("toolalign.data.pipeline.LocalTokenizer", BoundaryFailureTokenizer)
+    report, _ = build(config)
+    assert report["normalization_candidates"] == 4
+    assert report["post_normalization_exclusions"] == {"prompt_completion_boundary_changed": 4}
+    assert report["final_examples"] == 0

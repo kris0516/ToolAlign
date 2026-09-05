@@ -266,10 +266,19 @@ def build(config):
         content_hash = canonical_hash(
             {k: example[k] for k in ("messages", "tools", "expected_action")}
         )
-        length = tokenizer.normalized(example) if tokenizer else None
+        boundary_reason = None
+        try:
+            length = tokenizer.normalized(example) if tokenizer else None
+        except DataError as exc:
+            if str(exc) != "prompt_completion_boundary_changed":
+                raise
+            boundary_reason = str(exc)
+            length = None
         reason = (
             "exact_example_duplicate"
             if content_hash in duplicates
+            else boundary_reason
+            if boundary_reason
             else "length_not_measured"
             if length is None
             else "length_over_limit"

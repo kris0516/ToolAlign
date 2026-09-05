@@ -77,3 +77,23 @@ schema 占比为移除 system 中原始工具 JSON span 前后的 prompt token �
 `human-review/index.html` 是离线、转义源文本并禁用脚本/外部资源的查看页；CSV 保持 review 结果空白。按语言书写体系、工具格式、多轮及拒收类型分层覆盖后，以固定 hash 补足100条。问题分类包括格式、schema、副作用、action kind、参数语义、缺真值、泄漏、分组、长度、许可。样本只供质量审查；不能用于模型选择或偏好挖掘。
 
 G-DATA 仍缺 kris 实际抽查、S0 已批准的来源适配和正式可训练 manifest；P05 偏好人工阈值不用于本包验收。训练、BFCL、正式评测、推理部署和公网发布均 NOT_RUN。
+
+## 后续 CPU 衔接检查：规范化训练长度
+
+严格检查点的原始来源统计与14项产物保持原样。后续 `normalized()` 改用 `qwen3_non_thinking_concat_one_eos_v1`：先按本包 JSONL 的对象键序固定序列化、渲染官方 non-thinking prompt，再整体 tokenize(prompt + completion)，检查 prompt IDs 完整保留，最后追加一个 `eos_token_id`，不追加末尾换行。若前缀发生 BPE 合并则记 `prompt_completion_boundary_changed`，完整排除并保留计数。对 completion 中已有的文字/控制 token不做偷偷删除；包括用户要求字面 EOS 的原创边界 fixture，仍只额外追加一个 EOS。
+
+长度结果带 `length_basis`、`sequence_hash`、EOS 和稳定前缀标识，供后续训练器绑定实际序列。工具调用 completion 的 JSON 使用本包固定序列化（非 ASCII 保留、稳定参数键序）；T1 的编码器接收给定 completion 字符串，比较须使用同一字符串，不能把不同 JSON 空白排版当同一序列。`training_sequence()` 可提供准确的 prompt/completion 字符串和 IDs；实际训练集仍待 S0 的来源政策和训练方绑定。原始 `raw_decision()` 仍是隔离表示的统计，不用作规范化训练窗口依据。
+
+独立 CPU 证据使用16个原创合法v1 fixtures（工具调用、并行调用/observation、多轮、无工具、clarify/refuse、中文/Unicode/特殊字符、换行与 EOS 边界），参考环境仅从本地已 pin tokenizer 加载 `AutoTokenizer`，`local_files_only=True`、`trust_remote_code=False`，离线且不导入 Torch/MLX。未调用、复制或运行 T1 的 samples/execution 实现；其已提交编码政策仅作只读口径参考。
+
+```bash
+uv venv .toolalign-local/tokenizer-reference-venv --python 3.14
+uv pip install --python .toolalign-local/tokenizer-reference-venv/bin/python -r reports/data/tokenizer-reference-environment.txt
+uv pip install --python .toolalign-local/tokenizer-venv/bin/python -r reports/data/tokenizer-audit-environment.txt
+PYTHONPATH=src .toolalign-local/tokenizer-reference-venv/bin/python tests/data/tokenizer_crosscheck.py --engine hf --output .toolalign-local/hf-tokenizer-check.json
+PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python tests/data/tokenizer_crosscheck.py --engine local --output .toolalign-local/local-tokenizer-check.json
+uv run --locked python tests/data/compare_tokenizers.py --local .toolalign-local/local-tokenizer-check.json --reference .toolalign-local/hf-tokenizer-check.json --output .toolalign-local/tokenizer-comparison.json
+TOOLALIGN_TOKENIZER_DIR=.toolalign-local/verified-source/qwen PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m pytest -q tests/data/
+```
+
+对照记录含具体字符串/全部 token IDs；公开 golden 是原创 fixtures 的参考 hash，不包含上游数据。核心环境没有可选 tokenizer/本地路径时，16项真实 tokenizer 测试明确 skip；须另运行上面的私有 CPU 命令才能声称这些测试通过。版本间一致性只证明所列 fixtures，不声称所有文本上的普遍等价。详见后续 CPU 长度衔接报告与交接增补。
