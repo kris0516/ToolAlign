@@ -7,8 +7,10 @@
 ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练效果。主线为版本化数据 → 原始模型/SFT/DPO → 独立语义评测 → 受限本地推理；主要实验机为用户指定的 Apple Silicon M5 Pro / 48GB。十天是计划窗口，结果与部署按证据登记。
 
 - S0 是本仓库唯一 Supervisor；本地项目已 clone，基线为 `0f152e287bbc0e1c3edfb3f6f3794eb8d36c422f`。
+- **S0 本对话固定 gpt-6-astra，保留 kris 当前设置的「最高」推理等级。不得通过消息、自动跟进或其他工具覆盖或降低 S0 设置。** 此规则来自用户 2026-09-06 的明确修正，优先于旧分发词。
 - 长期 goal 覆盖 P00–P09，按依赖与实际阶段门推进；本对话每 30 分钟跟进一次，无变化保持安静。任务/自动跟进 ID 与绝对工作路径仅存本机 `.toolalign-local/`。
 - 所有后续 worker/reviewer 使用 **独立 Codex 对话**，固定 `model=gpt-6-astra`、`thinking=xhigh`（极高）。不得使用 sub-agent。最多同时两个实现任务，R1 可做纯 CPU 独立审查。
+- 给 S0 发送 `send_message_to_thread` 时 **必须省略 `model` 和 `thinking`**，只传目标身份与正文；不能把子任务的 xhigh 设置套到 S0。新建子任务与 S0 发给已确认子任务的消息才可指定子任务设置。长期目标的补充约束见 [GOAL.md](coordination/GOAL.md)。
 - P00 必须经 R1 对精确提交独立审查、S0 合并并验证 main 后，才可分发 P01–P03。
 - 可用开发工具为 VS Code、Xcode 和 Python 3.14。P00 核心包不依赖 MLX；MLX/PyTorch 的可用 Python/版本由 P01 实测并通过 S0 更新锁文件。
 

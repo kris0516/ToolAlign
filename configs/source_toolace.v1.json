@@ -1,0 +1,30 @@
+{
+  "policy_version": "toolalign.source_toolace.v1",
+  "source": "Team-ACE/ToolACE",
+  "source_revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+  "source_file": "data.json",
+  "source_file_sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+  "record_scope": "historical_supervision_only",
+  "execution_binding": "none",
+  "tool_name_prefix": "ta_",
+  "tool_name_slug_max_length": 47,
+  "tool_name_hash_length": 12,
+  "full_hash_collision_check_required": true,
+  "type_aliases": {
+    "dict": "object",
+    "int": "integer",
+    "float": "number"
+  },
+  "missing_object_additional_properties": false,
+  "missing_string_max_length": 16384,
+  "missing_array_max_items": 1000,
+  "defaults": "preserve_as_typed_annotation_never_fill_arguments",
+  "wire_side_effect_class": "sandbox_only",
+  "original_side_effect_class": "unknown",
+  "wire_timeout_ms": 1000,
+  "unknown_schema_keywords": "quarantine",
+  "unknown_or_conflicting_schema_types": "quarantine",
+  "out_of_policy_arguments": "quarantine_record",
+  "execution_registration_from_dataset": "forbidden",
+  "all_transformations_require_lineage": true
+}

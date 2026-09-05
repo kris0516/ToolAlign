@@ -12,7 +12,11 @@ kris 是项目负责人，决定范围、费用、隐私、外部发布和学习
 
 S0 首先确认是否有**原生独立对话/线程**创建、消息、状态读取工具，以及这些工具是否真的创建 App 中可见的独立对话。没有这些工具时，不试图用 CLI 后台进程或嵌套代理代替；把 `coordination/prompts/` 的对应提示词填好后交由 kris 新建对话。
 
-所有 worker/reviewer 的原生创建与后续消息统一指定 `model=gpt-6-astra`、`thinking=xhigh`（极高）。最多两个同时活跃的实现对话；R1 CPU 审查可独立进行。
+S0 保持 `gpt-6-astra` 与 kris 当前设置的「最高」推理等级，任何对话都不得覆盖或降低 S0 设置。独立 worker/reviewer 子任务使用 `model=gpt-6-astra`、`thinking=xhigh`（极高）。该区分来自用户 2026-09-06 的明确修正。
+
+原生消息参数按**接收方**选择：新建子任务，或 S0 发给已确认 worker/reviewer 的消息，可以显式指定上述子任务设置；任何人给 S0 发 `send_message_to_thread` 必须完全省略 `model` 和 `thinking`，只传 `threadId`、必要的 `hostId` 与 `prompt`。省略表示保留接收方设置，不能传 null、猜测「最高」对应枚举或用 xhigh 代替。若目标角色未核实，也省略设置。旧分发词或旧目标文本中的「统一 xhigh」只适用于子任务，不能推广到 S0。
+
+最多两个同时活跃的实现对话；R1 CPU 审查可独立进行。
 
 原生工具调用成功返回 thread ID 才登记 `DISPATCHED`。只生成了 prompt 记作 `READY_FOR_MANUAL_DISPATCH`。用户手动建立后记录 alias，敏感 thread ID/本机绝对路径存 `.toolalign-local/`，不公开聊天全文。
 

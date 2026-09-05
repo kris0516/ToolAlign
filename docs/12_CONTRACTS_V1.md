@@ -34,6 +34,8 @@ JSON Schema Draft 2020-12 定义位于安装包内 `src/toolalign/contracts/v1.j
 
 所有列出的 wire 字段都显式存在，可空字段写 JSON null；未声明字段拒绝，禁止悄悄扩展。模型/数据/trace hash 只提供身份关联，schema 不能证明文件真实存在、许可正确、没有数据泄漏或 oracle 判定正确，后续任务必须另验。
 
+Tool 的 side_effect_class 限定本项目允许的执行范围，本身不授予执行能力。历史监督工具没有 registry 绑定时仍不可执行；ToolACE 的原始副作用未知事实、项目 sandbox-only 许可和无绑定状态按 [来源政策](13_TOOLACE_SOURCE_POLICY.md) 分别保存，不能把该字段当成真实外部 API 已只读/已沙箱化的证据。
+
 Messages 是**下一次 assistant 决策之前的输入前缀**，不能包含目标 completion。每条 message 显式包含 role、content、tool_calls 和 tool_call_id。输入最后角色为 user 或 tool；历史工具 observation 必须匹配 pending call，所有 observation 结束后才能开始下轮。标签在 `expected_action`，动作种类固定为 `tool_calls`、`final`、`clarify`、`refuse`；调用含 call_id/name/arguments；目标 call_id 不能与输入前缀历史重复，保证合法目标可以成为下一步历史。需要多步轨迹时，每个受监督 assistant 决策由 P02 单独产生一个前缀样本，保持相同 group，不能跨 split。
 
 `model_input_from_example` 返回**仅** messages/tools 的独立副本。`OracleTask` 与模型输入类型分开。投影只保证不携带元数据字段，不能发现有人把答案或秘密藏在自然语言 content 中；P02/P03 仍必须审查样本与 oracle 隔离。
