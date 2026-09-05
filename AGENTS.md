@@ -19,7 +19,8 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | GitHub Public 仓库与 plan-v0.1 | 已创建并合并规划；main 基线 `0f152e2` |
 | 2026-09-06 | 本地 clone、S0 领取、长期 goal/自动跟进 | 已建立；私有映射已保存；见 PROJECT_STATUS |
 | 2026-09-06 | P00 CPU 基础包、契约与 GPU 锁 | VERIFIED；[PR #2](https://github.com/kris0516/ToolAlign/pull/2) 合并 `cd091e3`；R1-r2 PASS `5d30e1b`，审查 `441d31b`；main 176 项 CPU 检查通过，见 [集成验证](reports/P00_MAIN_VERIFICATION.md) |
-| 尚未进行 | 模型训练、正式评测、推理 API/服务部署 | NOT_RUN；无公网服务、无模型/数据上传 |
+| 2026-09-06 | P01/T1 与 P02/D1 第一批分发 | 两个独立 Codex 任务/分支/worktree 已核验；code_base `ebcaf58`，授权 `12aeb84`；gpt-6-astra / xhigh；IN_PROGRESS |
+| 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
 

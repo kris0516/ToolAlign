@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**；第一批 P01/T1、P02/D1 已由 S0 填写领取包，原生设置待启动。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**；第一批 P01/T1、P02/D1 的原生独立任务及各自 worktree 已核验，均 IN_PROGRESS。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -13,13 +13,13 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P00 合并 `cd091e3a53986b59b170baf5b746644f369135d1` |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | 两轮独立 R1 审查任务均已返回提交；R1-r2 PASS；实现 worker 为 0 |
+| 独立实现/reviewer 对话 | T1/P01 与 D1/P02 两个实现任务进行中；R1-r2 已完成 P00 PASS，可继续纯 CPU 审查 |
 | 派发模型 | gpt-6-astra / xhigh（极高）；仅独立对话 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
 | 当前实现 | CPU Python 基础包、数据契约、模块 Protocol、共享 GPU 锁及测试 |
-| 已实现训练/评测/服务 | 无；各任务待门槛 |
+| 已验收训练/数据/评测/服务 | 无；P01/P02 正在实施，尚无本包验收 |
 | 已运行模型实验 | 无（NOT_RUN） |
 | 重 GPU 作业 | 无；仅 CPU 锁测试 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
