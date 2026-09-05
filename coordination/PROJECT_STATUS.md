@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / 最高；保留用户当前设置，禁止工具覆盖；给 S0 的消息省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；P00 合并 `cd091e3a53986b59b170baf5b746644f369135d1` |
+| 当前任务/分支 | S0 main；公共支持包合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 并验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/P01 与 D1/P02 两个实现任务进行中；R1-r2 已完成 P00 PASS，可继续纯 CPU 审查 |
+| 独立实现/reviewer 对话 | T1/P01 与 D1/P02 两个实现任务进行中；R1 已完成 P00 与 S0-SHARED-01 PASS，可继续纯 CPU 审查 |
 | 子任务派发模型 | gpt-6-astra / xhigh（极高）；仅独立对话，此等级不适用于 S0 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -34,3 +34,5 @@ P00 自测、R1 精确 head 独立审查、S0 合并与 main 重验均已满足�
 ## 恢复入口
 
 先读 AGENTS、BOARD、DECISIONS、当前任务包及最近 handoff，核对 Git 与 GPU 锁，再读取本地私有对话映射。未提交变更不能作为交接完成证据；R1 不批准自身实现。首轮五项问题已修复；R1-r2 对 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 独立 PASS，剩余 P0/P1/P2 均为 0，审查提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`。最终 PR head `7086424` 的 Python 3.11/3.14 CI 成功，PR #2 合并为 `cd091e3a53986b59b170baf5b746644f369135d1`；main 58 + 46 + 72 项检查及 lint/冻结/公开扫描/CLI 均通过。见 [独立复核](handoffs/P00-review-r2.md) 与 [main 证据](../reports/P00_MAIN_VERIFICATION.md)。
+
+公共支持：S0-SHARED-01 已 VERIFIED，见 [main 集成证据](../reports/S0_SHARED_01_MAIN_VERIFICATION.md)。可选依赖/来源政策正式发布给 T1/D1；P01/P02 原任务仍 IN_PROGRESS，不因公共支持通过而提前放行 P04。用户模型设置保护见 [GOAL](GOAL.md) 与 ADR-0013。

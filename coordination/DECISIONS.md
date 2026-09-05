@@ -69,7 +69,7 @@ R1 原始审查提交 `66521f8`，结论 FAIL：两项 P1（类型不适用关�
 
 ## ADR-0011｜P01 兼容性依赖作为可选环境
 
-日期：2026-09-06；基线 `4cfbe1a5b8d93c20d7b11ec14b31757a574d0903`；状态：ACCEPTED，R1 已 PASS，待 CI/main 集成验证。
+日期：2026-09-06；基线 `4cfbe1a5b8d93c20d7b11ec14b31757a574d0903`；状态：VERIFIED，R1 PASS、最终 CI 与 main 集成验证均通过。
 
 T1 在私有 Python 3.14.7 环境完成候选安装，尚未给出正式训练验收。S0 独立核对 PyPI 固定版元数据后，选择 `compatibility` extra：mlx 0.32.2、mlx-lm 0.31.3、torch 2.14.0、psutil 7.2.2；前三级仅 Darwin arm64 生效。保留默认 CPU 基础包；不用整份私有 87 包 freeze 取代项目锁。传递依赖由 uv 实际解析。模型任务依然需要 GPULease、预算与本机证据。
 
@@ -79,7 +79,7 @@ T1 在私有 Python 3.14.7 环境完成候选安装，尚未给出正式训练�
 
 ## ADR-0012｜ToolACE 历史工具的显式适配与无执行绑定
 
-日期：2026-09-06；基线同 ADR-0011；状态：ACCEPTED，R1 已 PASS，待 CI/main 集成验证。
+日期：2026-09-06；基线同 ADR-0011；状态：VERIFIED，R1 PASS、最终 CI 与 main 集成验证均通过。
 
 D1 先审计前 32 条/142 个真实工具，全部缺项目副作用字段且根类型为 dict；S0 阅读代表记录并核对来源卡。直接把来源当冻结 wire 将无法产出有效数据；静默放宽 validator 会破坏 P00 门。选择独立、版本化的来源政策，保留冻结契约字节，明确记录类型别名、项目主动收窄、默认值 annotation、工具改名及来源 lineage。
 
@@ -101,3 +101,5 @@ ToolACE 只作为历史监督数据，其原始副作用信息为 unknown。wire
 ## S0-SHARED-01 独立验收记录
 
 R1 对精确候选 `e4127d9a0e6e30b091cba9b9e22a5fbb7091e9a2` 给出 PASS，P0/P1/P2 均为 0；独立报告提交 `8ceea3fbdd476ef0a5583e82e38473f1038dc650`。176 项既有 CPU 回归与 57 项新增边界探针全部通过。S0 fast-forward 保留报告原 SHA；后续仅追加协调文档及用户消息设置保护，不改被审依赖、政策或冻结实现。通过候选 CI/合并/main 验证后再正式发布新基线；本 PASS 不验收 P01 模型后端、P02 实现/人工质量或 P03 执行器。
+
+S0-SHARED-01 集成结果：最终 head e9b33b0 的 CI 两个 Python jobs 全通过，PR #3 合并为 18fc8475476f6becf684ba817480caeb96a7cfb9。该 main 上 233 项 CPU 检查、lint/冻结/公开扫描与独立 wheel 验证全部通过，ADR-0011/0012 达到 VERIFIED。详见 reports/S0_SHARED_01_MAIN_VERIFICATION.md。
