@@ -1,0 +1,12 @@
+# Third-party sources and publication boundaries
+
+原创 ToolAlign 文档和未来原创代码采用 MIT。MIT 不重新授权任何上游模型、数据集、库、商标或私有项目内容。
+
+- ToolACE：数据卡当前标注 Apache-2.0。下载时保存许可、revision 和源链接。
+- Salesforce xLAM 60K：数据卡当前标注 CC-BY-4.0，且要求确认访问条件。默认不自动接受或镜像发布。
+- Qwen3 模型：使用下载时对应模型的准确许可与模型卡；独立保存原始来源、量化/adapter 转换记录。
+- MLX/MLX-LM 与社区 DPO 依赖：按锁定版本读取其 LICENSE，生成实际依赖清单；不要把所有依赖概括成 MIT。
+- BFCL：代码与数据分别核实对应文件许可；使用官方 evaluator 不代表可无限重分发全部样本。
+- LiDARFoodAgent：本项目不引入其私有源码、AGPL 代码、用户资料、设备捕获或云配置。未来若复用须独立决定许可兼容与授权。
+
+详见 [来源登记](docs/09_SOURCES.md) 和 [数据治理](docs/02_DATA_GOVERNANCE.md)。本文件是工程发布清单，不替代逐项许可审查。
