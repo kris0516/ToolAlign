@@ -47,6 +47,9 @@ def run_model_probe(config: dict, root: Path) -> dict:
     mx.set_default_device(mx.gpu)
     if not mx.metal.is_available():
         raise RuntimeError("Metal is unavailable")
+    if config.get("fallback_disable_compile", False):
+        # Reference and policy must share this execution mode from load through reload.
+        mx.disable_compile()
     mx.random.seed(42)
     np.random.seed(42)
     mx.reset_peak_memory()
@@ -378,7 +381,13 @@ def run_model_probe(config: dict, root: Path) -> dict:
         config["model_identity"]["tokenizer_hash"],
         config["model_identity"]["template_hash"],
         config["model_identity"]["quantization"],
-        config["source_hash"],
+        digest(
+            {
+                "source_hash": config["source_hash"],
+                "dependencies": config["dependency_versions"],
+                "compile_disabled": config.get("fallback_disable_compile", False),
+            }
+        ),
         "sft_smoke",
     )
     identity.validate(smoke_only=True)

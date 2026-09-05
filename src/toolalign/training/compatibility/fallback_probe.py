@@ -106,13 +106,15 @@ def run_fallback(
             chosen.token_ids[: chosen.prompt_length] != rejected.token_ids[: rejected.prompt_length]
         ):
             raise ValueError("Preference pair prompts differ")
-        ids, masks = padded_batch([chosen, rejected], tokenizer.pad_token_id, limit)
-        shifted = fallback_masks(masks)
+        # Microbatch 1 permits separate chosen/rejected lengths, avoiding unnecessary
+        # padding and shape-dependent BF16 rounding in the frozen reference cache.
+        ci, cm = padded_batch([chosen], tokenizer.pad_token_id, limit)
+        ri, rm = padded_batch([rejected], tokenizer.pad_token_id, limit)
         return (
-            mx.array([ids[0]]),
-            mx.array([ids[1]]),
-            mx.array([shifted[0]]),
-            mx.array([shifted[1]]),
+            mx.array(ci),
+            mx.array(ri),
+            mx.array(fallback_masks(cm)),
+            mx.array(fallback_masks(rm)),
         )
 
     def score_pair(actual, pair):
@@ -131,6 +133,14 @@ def run_fallback(
         mx.eval(value)
         initial_losses.append(value.item())
         score_errors.append(max(abs(rc.item() - ref[0]), abs(rr.item() - ref[1])))
+    write_json(
+        root / "fallback-initial-gates.json",
+        {
+            "initial_losses": initial_losses,
+            "reference_score_errors": score_errors,
+            "compilation_disabled": config.get("fallback_disable_compile", False),
+        },
+    )
     if any(abs(v - math.log(2)) > 2e-6 for v in initial_losses):
         raise ValueError("Fallback initial DPO loss violates ln2 gate")
     # Padding can change BF16 kernel rounding; compare equal-shape policy/reference strictly,
@@ -157,11 +167,11 @@ def run_fallback(
             raise ValueError("Unexpected fallback batch invocation")
         active_pair = pairs[batch_index % len(pairs)]
         batch_index += 1
-        n = max(len(x.token_ids) for x in active_pair)
         budget.check(
             wall=time.monotonic() - start,
             microsteps=progress["microsteps"] + 1,
-            processed_tokens=progress["processed_tokens"] + 2 * (n - 1),
+            processed_tokens=progress["processed_tokens"]
+            + sum(len(x.token_ids) - 1 for x in active_pair),
         )
         iteration_start = time.perf_counter()
         yield batch_for(active_pair)
@@ -175,10 +185,9 @@ def run_fallback(
                 # Loss is measured before update, including the first accumulation boundary.
                 assert_initial_dpo_loss(info["train_loss"])
             c, r = active_pair
-            n = max(len(c.token_ids), len(r.token_ids))
             progress["microsteps"] += 1
             progress["training_tokens"] += sum(c.completion_mask) + sum(r.completion_mask)
-            progress["processed_tokens"] += 2 * (n - 1)
+            progress["processed_tokens"] += sum(len(x.token_ids) - 1 for x in active_pair)
             progress["processed_nonpadding_tokens"] += len(c.token_ids) + len(r.token_ids) - 2
             progress["optimizer_steps"] = sft_optimizer_steps + int(optimizer.step.item())
             record = {k: v.item() if hasattr(v, "item") else v for k, v in info.items()}
@@ -186,7 +195,7 @@ def run_fallback(
                 {
                     "synchronized_seconds": time.perf_counter() - iteration_start,
                     "optimizer_steps": int(optimizer.step.item()),
-                    "processed_tokens": 2 * (n - 1),
+                    "processed_tokens": sum(len(x.token_ids) - 1 for x in active_pair),
                     "nonpadding_tokens": len(c.token_ids) + len(r.token_ids) - 2,
                     "supervised_tokens": sum(c.completion_mask) + sum(r.completion_mask),
                 }
