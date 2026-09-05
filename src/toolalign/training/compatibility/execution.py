@@ -24,7 +24,14 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def ensure_apple_silicon() -> None:
+    if platform.system() != "Darwin" or platform.machine() != "arm64":
+        raise ValueError("P01 model probes require macOS on Apple Silicon (Darwin arm64)")
+
+
 def hardware_audit() -> dict:
+    ensure_apple_silicon()
+
     def output(args):
         return subprocess.check_output(args, text=True).strip()
 
@@ -88,6 +95,7 @@ def model_files(directory: Path, revision: str | None = None) -> dict:
 
 
 def prepare_config(config: dict) -> dict:
+    ensure_apple_silicon()
     config = dict(config)
     budget = Budget(**config["budget"])
     budget.validate()

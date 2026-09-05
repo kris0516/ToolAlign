@@ -56,7 +56,17 @@
         "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
         "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d",
         "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
-        "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2"
+        "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+        "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+        "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 129892,
+        "processed_nonpadding_tokens": 122724,
+        "reference_model_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e"
       },
       "manifest_artifacts_verified": 25,
       "model_identity": {
@@ -329,7 +339,17 @@
         "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
         "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
         "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5",
-        "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a"
+        "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+        "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+        "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049"
+      },
+      "progress": {
+        "training_tokens": 980,
+        "optimizer_steps": 14,
+        "microsteps": 112,
+        "processed_tokens": 171920,
+        "processed_nonpadding_tokens": 164752,
+        "reference_model_hash": "1bbd719d2b859f63fb3c67cbbc917e44382a359d59e02722b4a0fda697ae3c9e"
       },
       "manifest_artifacts_verified": 21,
       "model_identity": {
@@ -525,7 +545,17 @@
         "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
         "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5",
         "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
-        "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388"
+        "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+        "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+        "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 195428,
+        "processed_nonpadding_tokens": 188260,
+        "reference_model_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974"
       },
       "manifest_artifacts_verified": 26,
       "model_identity": {
@@ -801,7 +831,17 @@
         "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
         "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034",
         "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
-        "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776"
+        "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+        "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+        "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 260964,
+        "processed_nonpadding_tokens": 253796,
+        "reference_model_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5"
       },
       "manifest_artifacts_verified": 26,
       "model_identity": {
@@ -1074,6 +1114,7 @@
         "resources.json": "f22df2f2deab3038739416b463e5fd49b7946fedc7f2ef4970dab20dabac38ec",
         "result.json": "65c4133fcf6bcd0f56aca21f6cbfa8e1ef5fff5cfd0cc2f8e0f2580b93f5dade"
       },
+      "progress": {},
       "mlx_peak_bytes": null,
       "math": {
         "status": "PASS",
@@ -1165,6 +1206,7 @@
         "resources.json": "1aea9174281d07093d76a910c45b807d40303e429d156e214bb1690fd9142b54",
         "result.json": "85b5a523c5820e993f9c0c936c8d5bfea1599f877a1577deec7bf0a4b567e501"
       },
+      "progress": {},
       "mlx_peak_bytes": null,
       "math": {
         "status": "PASS",
@@ -1260,7 +1302,17 @@
         "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
         "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
         "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
-        "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b"
+        "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+        "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+        "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df"
+      },
+      "progress": {
+        "training_tokens": 281,
+        "optimizer_steps": 4,
+        "microsteps": 32,
+        "processed_tokens": 6594,
+        "processed_nonpadding_tokens": 6594,
+        "reference_model_hash": "e413898e8ca16ea8feaed716c84edc6554c3951a397bd4cd1f8749d8c4db419d"
       },
       "manifest_artifacts_verified": 19,
       "model_identity": {
@@ -1453,7 +1505,17 @@
         "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
         "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
         "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
-        "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4"
+        "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+        "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+        "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866"
+      },
+      "progress": {
+        "training_tokens": 421,
+        "optimizer_steps": 5,
+        "microsteps": 40,
+        "processed_tokens": 10122,
+        "processed_nonpadding_tokens": 10054,
+        "reference_model_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0"
       },
       "manifest_artifacts_verified": 24,
       "model_identity": {
@@ -1684,7 +1746,18 @@
         "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
         "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
         "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
-        "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282"
+        "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+        "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+        "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+        "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e"
+      },
+      "progress": {
+        "training_tokens": 281,
+        "optimizer_steps": 4,
+        "microsteps": 32,
+        "processed_tokens": 6594,
+        "processed_nonpadding_tokens": 6594,
+        "reference_model_hash": "2d5de1b40a52b70c6078a444b3861df975977c72a4c9c1b2d5e91e7446d24b58"
       },
       "manifest_artifacts_verified": 19,
       "model_identity": {
@@ -1884,7 +1957,17 @@
         "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
         "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
         "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
-        "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9"
+        "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+        "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+        "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109"
+      },
+      "progress": {
+        "training_tokens": 421,
+        "optimizer_steps": 5,
+        "microsteps": 40,
+        "processed_tokens": 10054,
+        "processed_nonpadding_tokens": 10054,
+        "reference_model_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72"
       },
       "manifest_artifacts_verified": 25,
       "model_identity": {

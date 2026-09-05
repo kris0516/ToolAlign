@@ -230,3 +230,13 @@ def test_checkpoint_timing_uses_real_writer_and_restores(tmp_path):
 def test_probe_cannot_expand_into_formal_training(change):
     with pytest.raises(ValueError):
         replace(Budget(), **change).validate()
+
+
+@pytest.mark.parametrize("system,machine", [("Linux", "aarch64"), ("Darwin", "x86_64")])
+def test_unsupported_platform_rejected_before_loading(monkeypatch, system, machine):
+    from toolalign.training.compatibility import execution
+
+    monkeypatch.setattr(execution.platform, "system", lambda: system)
+    monkeypatch.setattr(execution.platform, "machine", lambda: machine)
+    with pytest.raises(ValueError, match="Darwin arm64"):
+        execution.prepare_config({})

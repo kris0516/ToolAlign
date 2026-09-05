@@ -24,6 +24,7 @@ def summarize(root: Path) -> dict:
         resources = load(directory / "resources.json")
         result = load(directory / "result.json")
         partial = load(directory / "partial-result.json") or {}
+        progress = load(directory / "progress.json") or {}
         manifest = load(directory / "run.json")
         raw = result or partial
         record = {
@@ -48,6 +49,7 @@ def summarize(root: Path) -> dict:
             "dpo_checkpointing": config.get("fallback_grad_checkpoint", False),
             "sft_checkpointing": config.get("grad_checkpoint", False),
             "evidence_hashes": {},
+            "progress": progress,
         }
         for name in [
             "run.json",
@@ -59,6 +61,9 @@ def summarize(root: Path) -> dict:
             "token-audit.json",
             "sft-steps.json",
             "fallback-dpo-steps.json",
+            "progress.json",
+            "events.json",
+            "failure.json",
         ]:
             if (directory / name).exists():
                 record["evidence_hashes"][name] = file_hash(directory / name)
