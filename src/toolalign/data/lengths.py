@@ -120,6 +120,8 @@ class LocalTokenizer:
                 + "\n</tool_call>"
                 for c in action["tool_calls"]
             )
+            if action["content"]:
+                completion = action["content"] + "\n" + completion
         else:
             completion = action["content"]
         prompt_ids = self.encode(prompt_text)

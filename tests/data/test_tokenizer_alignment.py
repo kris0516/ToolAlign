@@ -56,3 +56,13 @@ def test_real_sequence_against_independent_hf_reference(tokenizer, case):
     else:
         with pytest.raises(DataError, match="prompt_completion_boundary_changed"):
             tokenizer.normalized(case["example"])
+
+
+def test_tool_call_action_keeps_its_accompanying_text(tokenizer):
+    example = cases()[0]["example"]
+    example["expected_action"]["content"] = "Checking the original note."
+    sequence = tokenizer.training_sequence(example)
+    assert sequence["completion_text"].startswith("Checking the original note.\n<tool_call>")
+    assert sequence["sequence_ids"][:-1] == tokenizer.encode(
+        sequence["prompt_text"] + sequence["completion_text"]
+    )
