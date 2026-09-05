@@ -175,3 +175,16 @@ def test_original_smoke_cases_are_stable_train_only():
     assert {s["kind"] for s in samples} == {"call", "observation", "no_tool", "clarify"}
     assert all(s["messages"][-1]["role"] in {"user", "tool"} for s in samples)
     assert digest(samples) == digest(smoke_samples())
+
+
+def test_fallback_label_mask_is_explicitly_shifted():
+    from toolalign.training.compatibility.fallback_probe import fallback_masks
+
+    ids, masks = padded_batch(
+        [row(), replace(row(), token_ids=(1, 2, 3, 4, 9), completion_mask=(0, 0, 1, 1, 1))], 0, 8
+    )
+    shifted = fallback_masks(masks)
+    assert shifted == [[0, 1, 1, 0, 0], [0, 1, 1, 1, 0]]
+    assert sum(shifted[0][:-1]) == 2
+    assert sum(shifted[1][:-1]) == 3
+    assert ids[0][4] == 0 and shifted[0][3] == 0

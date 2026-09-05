@@ -29,3 +29,11 @@ T1 全部私有环境、原始模型、缓存和制品规划上限20GiB；全项
 原始模型 identity 包含实际文件 SHA-256；每次模型 probe 使用冻结 run.v1，详细 token IDs/masks、微步、处理/监督 token、资源采样和源码 hash 在配套私有 JSON。暖机、同步训练时间、validation/forward、checkpoint I/O 分开。SFT smoke checkpoint 仅是诊断 reference，绝不标作已验收 P04 SFT；正式 DPO 仍须独立验收的 SFT 身份。
 
 模型数值门槛补充（运行前固定）：同 checkpoint 跨库重载全部首决策 logits 与抽样 completion logps absolute tolerance `1e-5`，greedy token IDs 必须相同；人工 CPU float32 仍为 `2e-6`。原始 BF16 模型的候选原生 DPO 路径初始 ln2 容差 `0.02`；超过则不执行原生 DPO 更新，只登记失败诊断。显式 float32 completion/reference 计算的初始 ln2 容差仍为 `2e-6`。这些门槛不表示正式 DPO 已通过。
+
+## 首选失败后的唯一备选（第二次 smoke 前登记）
+
+首轮0.6B原生 mlx-tune 初始 DPO loss `0.9140625` 超过 ln2±0.02，未执行更新。只切换到已指定的 mlx-lm-lora 3.1.2。使用其原生 `train_dpo`、AdamW、sigmoid loss 和独立冻结 SFT smoke reference；默认 collator 的错位 mask 由明确的 completion collator 替换（通过临时替换该模块 iterator，finally 恢复）。没有改动原生 optimizer/训练循环，不使用 QAT 或 sequence chunking。
+
+备选预算为8微步、accumulation8、预期1次optimizer更新，LR5e-6、beta0.1；总预算仍40微步/900秒/131072训练处理token。要求相同 shape 下 policy=reference 初始 ln2±2e-6；原生 float32 score 与不补齐 reference cache 的绝对误差≤0.02（不同 BF16 kernel shape 允许的另列容差），文件/参数hash必须一致、重载 logits≤1e-5。第二次运行依然独立记录，首轮负结果保留。
+
+1.7B 每bucket采用112个SFT微步（前8暖机、104可测，满足100目标且完整累积8），备选DPO8微步；总120微步、524288训练逻辑处理token、900秒上限。容量输入由原创上下文扩展到 bucket-64 左右，保证拒绝响应有长度余量；它不是P02真实长度分布，不能用来宣称真实任务耗时。

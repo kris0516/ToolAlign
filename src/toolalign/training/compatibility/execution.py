@@ -160,7 +160,7 @@ def new_manifest(config: dict) -> dict:
         "data_manifest_hash": config["data_manifest_hash"],
         "model": config["model_identity"],
         "reference_model_hash": None,
-        "backend": "mlx-lm SFT / mlx-tune DPO compatibility",
+        "backend": "mlx-lm SFT / " + config.get("dpo_backend", "mlx-tune") + " DPO compatibility",
         "dependency_versions": config["dependency_versions"],
         "seed": 42,
         "hardware": {k: hw[k] for k in ("platform", "machine", "memory_bytes", "accelerator")},

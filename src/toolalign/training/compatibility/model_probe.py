@@ -541,112 +541,34 @@ def run_model_probe(config: dict, root: Path) -> dict:
             "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
             "native_initial_loss_atol": native_tolerance,
         }
-    elif config.get("dpo_steps", 0):
-        from mlx_tune import DPOConfig, DPOTrainer
+    result["primary_dpo"] = dict(result["dpo"])
+    if config.get("dpo_backend") == "mlx-lm-lora":
+        # Free the first migration's policy before loading the sole fallback policy.
+        import gc
 
-        native_batches = []
-        update_seconds = []
-        original_adamw = optim.AdamW
+        from .fallback_probe import run_fallback
 
-        # Instrument the real optimizer: preserve behavior, count actual update calls.
-        class ObservedAdamW(original_adamw):
-            def update(self, actual, gradients):
-                tick = time.perf_counter()
-                out = super().update(actual, gradients)
-                mx.eval(actual.parameters(), self.state)
-                update_seconds.append(time.perf_counter() - tick)
-                i = len(update_seconds)
-                chosen, rejected = preference_rows[(i - 1) % len(preference_rows)]
-                progress["microsteps"] += 1
-                progress["optimizer_steps"] += 1
-                progress["training_tokens"] += sum(chosen.completion_mask) + sum(
-                    rejected.completion_mask
-                )
-                progress["processed_tokens"] += len(chosen.token_ids) + len(rejected.token_ids) - 2
-                progress["processed_nonpadding_tokens"] += (
-                    len(chosen.token_ids) + len(rejected.token_ids) - 2
-                )
-                check()
-                return out
-
-        class CheckedDPOTrainer(DPOTrainer):
-            def _prepare_dpo_batches(self):
-                batch = super()._prepare_dpo_batches()
-                for entry, (chosen, rejected) in zip(batch, preference_rows):
-                    if entry["chosen_ids"] != list(chosen.token_ids) or entry[
-                        "rejected_ids"
-                    ] != list(rejected.token_ids):
-                        raise ValueError("Native DPO tokenizer changed completion or truncated")
-                    entry["prompt_length"] = chosen.prompt_length
-                native_batches.extend(batch)
-                return batch
-
-        dpo_args = DPOConfig(
-            output_dir=str(root / "dpo"),
-            learning_rate=5e-6,
-            per_device_train_batch_size=1,
-            gradient_accumulation_steps=config.get("dpo_accumulation", 1),
-            max_steps=config["dpo_steps"],
-            logging_steps=1,
-            save_steps=config["dpo_steps"],
-            max_seq_length=limit,
-            precompute_ref_logprobs=True,
-            beta=0.1,
-            warmup_steps=0,
+        wrapper.model = None
+        policy = None
+        fresh_model = None
+        fresh = None
+        gc.collect()
+        mx.clear_cache()
+        result["dpo"] = run_fallback(
+            config,
+            root,
+            model,
+            preference_rows,
+            refs,
+            identity,
+            adapter_config,
+            final_hashes,
+            parameter_hashes,
+            progress,
+            events,
+            check,
+            timed,
         )
-        trainer = CheckedDPOTrainer(wrapper, preference_samples, tokenizer=tokenizer, args=dpo_args)
-        optim.AdamW = ObservedAdamW
-        try:
-            with preserve_wired_limit(mx, events):
-                _, dpo_seconds = timed("native_dpo_train", trainer.train)
-        finally:
-            optim.AdamW = original_adamw
-        dpo_hashes, _ = timed("dpo_parameter_hash", lambda: parameter_hashes(policy))
-        if any(
-            dpo_hashes[key] != policy_hashes[key] for key in policy_hashes if key not in declared
-        ):
-            raise ValueError("DPO modified frozen base")
-        frozen_after, _ = timed("frozen_reference_recheck", lambda: parameter_hashes(model))
-        if frozen_after != final_hashes:
-            raise ValueError("SFT reference changed during DPO")
-        refs_after, _ = timed(
-            "frozen_reference_logps_recheck",
-            lambda: [(score(model, c), score(model, r)) for c, r in preference_rows],
-        )
-        if refs_after != refs:
-            raise ValueError("Frozen reference log-probabilities changed")
-        identity.assert_unchanged(
-            ReferenceIdentity(
-                identity.base_hash,
-                file_hash(adapter_root / "adapters.safetensors"),
-                identity.tokenizer_hash,
-                identity.template_hash,
-                identity.quantization,
-                identity.code_hash,
-                identity.stage,
-            )
-        )
-        write_json(root / "native-reference-cache.json", native_batches)
-        dpo_saved = root / "dpo" / "adapters"
-        meta2 = json.loads((dpo_saved / "adapter_config.json").read_text())
-        verify_adapter_metadata(
-            {**lora, "num_layers": len(model.layers)},
-            {**meta2["lora_parameters"], "num_layers": meta2["num_layers"]},
-        )
-        result["dpo"] = {
-            "status": "PASS",
-            "backend": "mlx-tune native DPO",
-            "microsteps": config["dpo_steps"],
-            "optimizer_steps": len(update_seconds),
-            "configured_accumulation": config.get("dpo_accumulation", 1),
-            "wall_seconds": dpo_seconds,
-            "optimizer_eval_seconds": update_seconds,
-            "reference_hash_and_outputs_unchanged": True,
-            "only_adapter_updated": True,
-            "native_initial_loss_atol": native_tolerance,
-            "formal_training": False,
-            "reference_stage": "sft_smoke",
-        }
     result["mlx_peak_bytes"] = mx.get_peak_memory()
     result["progress"] = progress
     result["status"] = "PASS" if result["dpo"]["status"] != "FAIL" else "PARTIAL"
