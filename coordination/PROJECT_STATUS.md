@@ -10,12 +10,12 @@
 | 规划内容提交 | `a74b4e44b1be72c1fd254e1a24e91b28ee52639c` |
 | 规划/协作基线 | plan-v0.1 / coordination.v1 |
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
-| S0 模型/推理 | gpt-6-astra / 最高；保留用户当前设置，禁止工具覆盖；给 S0 的消息省略 model/thinking |
+| S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；公共支持包合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 并验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | T1/P01 与 D1/P02 两个实现任务进行中；R1 已完成 P00 与 S0-SHARED-01 PASS，可继续纯 CPU 审查 |
-| 子任务派发模型 | gpt-6-astra / xhigh（极高）；仅独立对话，此等级不适用于 S0 |
+| 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |

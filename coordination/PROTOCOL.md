@@ -12,9 +12,9 @@ kris 是项目负责人，决定范围、费用、隐私、外部发布和学习
 
 S0 首先确认是否有**原生独立对话/线程**创建、消息、状态读取工具，以及这些工具是否真的创建 App 中可见的独立对话。没有这些工具时，不试图用 CLI 后台进程或嵌套代理代替；把 `coordination/prompts/` 的对应提示词填好后交由 kris 新建对话。
 
-S0 保持 `gpt-6-astra` 与 kris 当前设置的「最高」推理等级，任何对话都不得覆盖或降低 S0 设置。独立 worker/reviewer 子任务使用 `model=gpt-6-astra`、`thinking=xhigh`（极高）。该区分来自用户 2026-09-06 的明确修正。
+用户最新要求：S0 和全部独立 worker/reviewer 一律 `model=gpt-6-astra`、`thinking=max`（App 中文「最高」）。本机中文标签已核验 max 对应最高；不能把 xhigh/极高或 ultra 当作此要求的替代。此前子任务 xhigh 规则全部废止。
 
-原生消息参数按**接收方**选择：新建子任务，或 S0 发给已确认 worker/reviewer 的消息，可以显式指定上述子任务设置；任何人给 S0 发 `send_message_to_thread` 必须完全省略 `model` 和 `thinking`，只传 `threadId`、必要的 `hostId` 与 `prompt`。省略表示保留接收方设置，不能传 null、猜测「最高」对应枚举或用 xhigh 代替。若目标角色未核实，也省略设置。旧分发词或旧目标文本中的「统一 xhigh」只适用于子任务，不能推广到 S0。
+原生创建/授权调整任务时显式使用 gpt-6-astra / max，普通任务间消息可省略设置以保留 max。给 S0 的回报完全省略 `model` 和 `thinking`，只传 `threadId`、必要的 `hostId` 与 `prompt`；不得从历史分发词恢复 xhigh。任何恢复、自动跟进和再分发都读取最新 AGENTS/GOAL，历史实验与派发记录仅保留实际旧值，不构成新授权。
 
 最多两个同时活跃的实现对话；R1 CPU 审查可独立进行。
 

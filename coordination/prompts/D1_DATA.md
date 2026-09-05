@@ -14,4 +14,4 @@
 >
 > 若任务/commit/依赖/目录不符，报告具体阻塞而不是扩大范围。读取文档后先复述实际领取范围与验证计划，然后执行该包。所有结论保存到版本化交接文档，不能只留在聊天里。
 
-模型与消息方向：S0 保留 gpt-6-astra / 用户当前「最高」；独立子任务使用 gpt-6-astra / xhigh（极高）。任何给 S0 的 send_message_to_thread 必须完全省略 model/thinking，只传目标身份与正文；不得覆盖 S0 设置。见 AGENTS 与 coordination/GOAL.md。
+模型与消息方向：S0 与全部独立子任务统一 gpt-6-astra / max（App 中文「最高」）。旧 xhigh/极高要求已废止。给 S0 的普通 send_message_to_thread 回报完全省略 model/thinking，只传目标身份与正文，保留 max。见 AGENTS 与 coordination/GOAL.md。

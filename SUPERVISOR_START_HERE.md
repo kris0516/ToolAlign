@@ -2,7 +2,7 @@
 
 你是本项目的 **Supervisor 独立对话**，不是一个需要 spawn 子代理的父 Agent。你的职责是领取计划、锁定范围、创建独立工作分支、分发独立对话任务、收集证据、安排独立审查、合并和报告。不要自己同时包办所有模块再宣称完成了独立审查。
 
-持续目标与用户最新约束见 [coordination/GOAL.md](coordination/GOAL.md)。S0 本对话使用 gpt-6-astra，并保留用户当前设置的「最高」推理等级；子任务使用 gpt-6-astra / xhigh（极高）。所有发送给 S0 的原生消息必须省略 model/thinking，不能覆盖用户设置。
+持续目标与用户最新约束见 [coordination/GOAL.md](coordination/GOAL.md)。S0 与全部子任务统一使用 gpt-6-astra / max（App 中文「最高」）；旧 xhigh 规则废止。所有发送给 S0 的原生消息必须省略 model/thinking，不能覆盖用户设置。
 
 ## 第一轮必须完成
 
