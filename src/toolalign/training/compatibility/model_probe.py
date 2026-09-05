@@ -25,7 +25,7 @@ from .core import (
     verify_reload,
     write_json,
 )
-from .execution import preserve_wired_limit
+from .execution import measure_checkpoint_io, preserve_wired_limit
 from .numerical import mlx_completion_ce, mlx_completion_logps, mlx_standard_dpo
 from .samples import encode_sample, smoke_samples
 
@@ -312,7 +312,7 @@ def run_model_probe(config: dict, root: Path) -> dict:
         grad_accumulation_steps=accumulation,
         clear_cache_threshold=1024**3,
     )
-    with preserve_wired_limit(mx, events):
+    with preserve_wired_limit(mx, events), measure_checkpoint_io(mx, events, "sft"):
         _, train_seconds = timed(
             "sft_trainer_total",
             lambda: train(
@@ -578,6 +578,19 @@ def run_model_probe(config: dict, root: Path) -> dict:
             check,
             timed,
         )
+    result["checkpoint_io"] = {
+        phase: sum(
+            event["seconds"]
+            for event in events
+            if event.get("event") == "checkpoint_write" and event.get("phase") == phase
+        )
+        for phase in ("sft", "dpo")
+    }
+    result["phase_seconds"] = {
+        event["event"]: event["seconds"]
+        for event in events
+        if "seconds" in event and event["event"] != "checkpoint_write"
+    }
     result["mlx_peak_bytes"] = mx.get_peak_memory()
     result["progress"] = progress
     result["status"] = "PASS" if result["dpo"]["status"] != "FAIL" else "PARTIAL"

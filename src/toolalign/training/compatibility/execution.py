@@ -253,17 +253,29 @@ def worker(config: dict, root: Path) -> int:
     import traceback
 
     def operation():
-        write_json(root / "lease-acquired.json", {"acquired": True, "time": utc_now()})
-        if config["mode"] == "math":
-            from .numerical import check_numerics
+        # Keep flock held until this dedicated worker process actually exits. In
+        # particular, exception tracebacks may retain model tensors; releasing the
+        # lease while unwinding would admit another model before those tensors die.
+        code = 2
+        try:
+            write_json(root / "lease-acquired.json", {"acquired": True, "time": utc_now()})
+            if config["mode"] == "math":
+                from .numerical import check_numerics
 
-            result = check_numerics()
-        else:
-            from .model_probe import run_model_probe
+                result = check_numerics()
+            else:
+                from .model_probe import run_model_probe
 
-            result = run_model_probe(config, root)
-        write_json(root / "result.json", result)
-        return 0
+                result = run_model_probe(config, root)
+            write_json(root / "result.json", result)
+            code = 0
+        except Exception as exc:
+            traceback.print_exc()
+            write_json(root / "failure.json", {"type": type(exc).__name__, "message": str(exc)})
+        finally:
+            sys.stdout.flush()
+            sys.stderr.flush()
+        os._exit(code)  # OS releases GPU residency and the leased descriptor together.
 
     try:
         return leased_call(config, operation)
@@ -354,7 +366,11 @@ def launch(config_path: Path) -> int:
         finally:
             if process.poll() is None:
                 process.terminate()
-                process.wait(timeout=10)
+                try:
+                    process.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait()
     exit_code = process.returncode
     if stop_reason:
         exit_code = 124
@@ -399,3 +415,30 @@ def launch(config_path: Path) -> int:
         )
     )
     return exit_code
+
+
+@contextmanager
+def measure_checkpoint_io(mx, events: list, phase: str):
+    """Time real upstream safetensors writes separately from model compute."""
+    original = mx.save_safetensors
+
+    def measured(path, weights, *args, **kwargs):
+        mx.synchronize()
+        begin = time.perf_counter()
+        result = original(path, weights, *args, **kwargs)
+        mx.synchronize()
+        events.append(
+            {
+                "event": "checkpoint_write",
+                "phase": phase,
+                "file": Path(path).name,
+                "seconds": time.perf_counter() - begin,
+            }
+        )
+        return result
+
+    mx.save_safetensors = measured
+    try:
+        yield
+    finally:
+        mx.save_safetensors = original

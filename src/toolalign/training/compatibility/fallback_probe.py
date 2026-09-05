@@ -22,7 +22,7 @@ from .core import (
     verify_reload,
     write_json,
 )
-from .execution import preserve_wired_limit
+from .execution import measure_checkpoint_io, preserve_wired_limit
 from .numerical import mlx_completion_logps
 
 
@@ -221,7 +221,7 @@ def run_fallback(
     original_iterator = backend.iterate_dpo_batches
     backend.iterate_dpo_batches = batches
     try:
-        with preserve_wired_limit(mx, events):
+        with preserve_wired_limit(mx, events), measure_checkpoint_io(mx, events, "dpo"):
             _, train_seconds = timed(
                 "fallback_native_dpo_train",
                 lambda: backend.train_dpo(
@@ -301,8 +301,8 @@ def run_fallback(
         "initial_ln2": initial_losses,
         "loss_after": after_losses,
         "wall_seconds": train_seconds,
-        "measured_microsteps_after_first_compile": max(0, len(reports) - 1),
-        "measured_seconds_after_first_compile": sum(r["synchronized_seconds"] for r in reports[1:]),
+        "measured_microsteps_after_first_warmup": max(0, len(reports) - 1),
+        "measured_seconds_after_first_warmup": sum(r["synchronized_seconds"] for r in reports[1:]),
         "warmup_seconds": reports[0]["synchronized_seconds"] if reports else None,
         "reference_hash_and_outputs_unchanged": True,
         "reference_stage": "sft_smoke",
