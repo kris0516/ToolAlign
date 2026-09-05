@@ -36,7 +36,7 @@
 
 ## ADR-0008｜CPU 契约、离线 schema 子集与冻结摘要
 
-日期：2026-09-06；基线同 ADR-0007；状态：P00 候选，待 R1 和 main 集成。
+日期：2026-09-06；基线同 ADR-0007；状态：R1-r2 已独立通过，S0 ACCEPTED；待 main 集成验证。
 
 选择 Python 3.11–3.14 + jsonschema Draft 2020-12，五类严格 wire record、六个独立 Protocol，额外检查字段关联。备选 Pydantic 或手写完整 validator 未采用；保持数据/接口可用 JSON 跨 backend 使用，并避免基础包导入 MLX/PyTorch。依赖用 uv.lock 固定。schema、validator、interfaces、protocol config 以 contracts.v1.lock.json 记录精确字节。
 
@@ -55,10 +55,12 @@
 
 ## ADR-0010｜P00 独立审查后的冻结候选修正
 
-日期：2026-09-06；被审候选 `15706079c9516197b67dd59a19a0d0c4aa5adea8`；状态：S0 已修复，自测通过；待独立复核。
+日期：2026-09-06；首轮被审候选 `15706079c9516197b67dd59a19a0d0c4aa5adea8`；状态：修复后已独立复核 PASS。
 
 R1 原始审查提交 `66521f8`，结论 FAIL：两项 P1（类型不适用关键词可隐藏禁用 schema、公开扫描只读取工作副本）和三项 P2（自由映射键回显、身份 regex 末尾换行、目标调用 ID 与历史碰撞）。实际独立 probes 为 36 PASS / 10 FAIL；未发现本次候选真实秘密泄漏、联网或任意执行。S0 保留原始报告，不能把原有基础测试通过当作 R1 已通过。
 
 采用最小修复：按 type 限定 schema 关键词；扫描 index blob 与工作副本；错误只显示可信 schema 路径；所有身份/时间 pattern 严格完整匹配；历史/目标 call ID 联合查重。全部五项修复，不仅处理 P1。新增对应负例与正向多步衔接测试。既有 wire 字段和六个 Protocol 不变，修复发生在首次冻结/合并之前，保留 v1 候选并重新记录字节摘要。
 
 备选为接受 P2 并记录限制；未采用，因为这些问题可以小范围修复且直接影响后续数据一致性。验证：基础 tests、原始 R1 probes、公开扫描、冻结摘要、wheel 与 CI；精确结果记入后续 handoff，再由独立任务复核。回退：保留未合并分支和原始失败报告，若复核失败继续阻塞 P00，禁止派发 P01–P03。
+
+复核结果：R1-r2 对 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 给出 PASS，独立证据提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`；58 + 46 + 72 项 CPU 检查及独立 wheel 安装通过，五类问题全部关闭。S0 以 fast-forward 保留该审查提交原 SHA；其后只有 S0 验收文档登记，生产实现与被审候选一致。合并 main 后仍需集成检查才允许下一批。

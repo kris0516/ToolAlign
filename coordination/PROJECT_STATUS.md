@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_READY_FOR_REVIEW**。
+更新时间：2026-09-06。当前交付状态：**P00_ACCEPTED**，待合并与 main 验证。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -13,7 +13,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | P00 / `work/p00-bootstrap-contracts` |
 | 当前契约 | toolalign.contracts.v1 候选；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | 1 个独立 R1 审查任务已创建并返回审查提交；实现 worker 为 0 |
+| 独立实现/reviewer 对话 | 两轮独立 R1 审查任务均已返回提交；R1-r2 PASS；实现 worker 为 0 |
 | 派发模型 | gpt-6-astra / xhigh（极高）；仅独立对话 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -32,4 +32,4 @@ P00 自测 → R1 独立审查精确 head → S0 合并 main → main 重验。�
 
 ## 恢复入口
 
-先读 AGENTS、BOARD、DECISIONS、当前任务包及最近 handoff，核对 Git 与 GPU 锁，再读取本地私有对话映射。未提交变更不能作为交接完成证据；R1 不批准自身实现。R1 已对候选 1570607 给出 FAIL（2 个 P1、3 个 P2）；五项已由 S0 在 6c71c9c 修复；58 项基础 + 46 项原始 R1 probes 通过，等待新候选的独立复核。
+先读 AGENTS、BOARD、DECISIONS、当前任务包及最近 handoff，核对 Git 与 GPU 锁，再读取本地私有对话映射。未提交变更不能作为交接完成证据；R1 不批准自身实现。首轮 FAIL 的五项由 S0 在 `6c71c9c` 修复；R1-r2 对精确候选 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 独立复核 PASS，剩余 P0/P1/P2 均为 0。审查提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1` 已快进纳入 P00 分支；58 项基础、46 项原始探针、72 项新增探针全部通过。见 [独立复核交接](handoffs/P00-review-r2.md)。P01–P03 仍等待 main 验证。
