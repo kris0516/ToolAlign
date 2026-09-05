@@ -13,3 +13,9 @@
 # P00 CPU dependency note
 
 P00 使用 jsonschema 4.26.0 及锁定的传递依赖；测试与打包使用 pytest、ruff、hatchling、uv。版本和来源解析记录于 `uv.lock`/`pyproject.toml`。这些包各自保留上游许可证，仓库 MIT 仅覆盖原创内容；没有复制它们的源码或重新许可。正式模型/数据的许可验收仍由 P01/P02 完成。
+
+## P01 optional compatibility dependencies
+
+可选 compatibility extra 只含固定版本的 MLX、MLX-LM、PyTorch 与 psutil，传递依赖由 uv.lock 记录。PyTorch 2.14.0 的分发许可为复合 SPDX，不能将所有内容概括为 BSD；准确元数据链接与限定见 [兼容性环境](docs/14_COMPATIBILITY_ENVIRONMENT.md)。mlx-tune 尚未作为正式 DPO 依赖纳入。
+
+ToolACE 历史监督数据固定来源 revision 与 Apache-2.0 声明，适配与署名按 [来源政策](docs/13_TOOLACE_SOURCE_POLICY.md) 保存。数据描述不提供真实 API 的执行授权，也没有将来源工具宣称为只读。

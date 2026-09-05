@@ -66,3 +66,25 @@ R1 原始审查提交 `66521f8`，结论 FAIL：两项 P1（类型不适用关�
 复核结果：R1-r2 对 `5d30e1b4bd5e2284abbe59a5f16b2966f85feb87` 给出 PASS，独立证据提交 `441d31bebd5ca4d46755642f94966c07bbcc4ad1`；58 + 46 + 72 项 CPU 检查及独立 wheel 安装通过，五类问题全部关闭。S0 以 fast-forward 保留该审查提交原 SHA；其后只有 S0 验收文档登记，生产实现与被审候选一致。合并 main 后仍需集成检查才允许下一批。
 
 集成结果：最终 head `708642448395be91357275a9a26def981a9f4110` 的 Python 3.11/3.14 CI 通过；PR #2 合并为 `cd091e3a53986b59b170baf5b746644f369135d1`。S0 在该 main 提交重验 176 项 CPU 测试、lint、冻结摘要、公开扫描与 CLI，均退出 0；P00 达到 VERIFIED。
+
+## ADR-0011｜P01 兼容性依赖作为可选环境
+
+日期：2026-09-06；基线 `4cfbe1a5b8d93c20d7b11ec14b31757a574d0903`；状态：候选，待独立 R1 和 main 验证。
+
+T1 在私有 Python 3.14.7 环境完成候选安装，尚未给出正式训练验收。S0 独立核对 PyPI 固定版元数据后，选择 `compatibility` extra：mlx 0.32.2、mlx-lm 0.31.3、torch 2.14.0、psutil 7.2.2；前三级仅 Darwin arm64 生效。保留默认 CPU 基础包；不用整份私有 87 包 freeze 取代项目锁。传递依赖由 uv 实际解析。模型任务依然需要 GPULease、预算与本机证据。
+
+备选为将 MLX/Torch 设为默认依赖；未采用，因为数据/契约 CPU CI 不应要求这些包或误装 Linux CUDA 依赖。mlx-tune 仍为探索候选；T1 的 mask/reference/内存限制风险另由 P01 实测，不随本决定批准正式 DPO。影响是 P01 可在审查后使用固定可复现兼容环境；不更改任何冻结 wire/Protocol。
+
+验证：锁定解析、默认 CPU 环境无 MLX/Torch、Darwin arm64 可选环境的 metadata、跨平台解析计划、契约/lint/公开扫描与原 CPU 回归；具体结果在 S0 交接。回滚：停止依赖此环境的运行，非强制 revert 本次 optional/lock 变更，保留日志与已生成制品，不擅自清除缓存。
+
+## ADR-0012｜ToolACE 历史工具的显式适配与无执行绑定
+
+日期：2026-09-06；基线同 ADR-0011；状态：候选，待独立 R1 和 main 验证。
+
+D1 先审计前 32 条/142 个真实工具，全部缺项目副作用字段且根类型为 dict；S0 阅读代表记录并核对来源卡。直接把来源当冻结 wire 将无法产出有效数据；静默放宽 validator 会破坏 P00 门。选择独立、版本化的来源政策，保留冻结契约字节，明确记录类型别名、项目主动收窄、默认值 annotation、工具改名及来源 lineage。
+
+ToolACE 只作为历史监督数据，其原始副作用信息为 unknown。wire 的 sandbox_only 表示本项目最多允许另行实现/审查的本地 fixture，而非原始 API 的事实分类；dataset manifest 必须同时登记 historical_supervision_only 与 execution_binding=none。使用 ta_ 名称空间，不从数据注册执行器，不把潜在写入 API 标为 read_only。P03 必须验证未绑定工具被拒绝。规则与具体排除条件见 docs/13_TOOLACE_SOURCE_POLICY.md 和 configs/source_toolace.v1.json。
+
+备选为新增更宽 wire 类型、丢弃全部 ToolACE 或随意移除写工具；未采用，因为本轮观察到的主要差异可显式适配，而真实执行权限仍由独立 registry 控制。不是无损转换：补闭合/长度边界主动缩小允许集合，所有受影响原记录必须计数并通过新边界；不删除未知约束来提高留存率。来源许可、人工审查与 G-DATA 仍分别验收。
+
+验证：R1 检查规则与冻结语义/任务边界的关系；D1 后续实现必须对规定负例和两次重建留证，人工包展示转换前后；P03 后续验证无自动注册。回滚：停止该政策对应数据版本，恢复严格隔离，保留原始输入/变更日志与排除分母，不用未审的新 policy 替换已有实验身份。
