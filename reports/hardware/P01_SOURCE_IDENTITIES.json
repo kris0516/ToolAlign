@@ -23,7 +23,9 @@
     "version": "3.1.2",
     "pypi": "https://pypi.org/project/mlx-lm-lora/3.1.2/",
     "files": {
-      "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6"
+      "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6",
+      "mlx_lm_lora/utils.py": "262485b6f6c87557084823328a042d52e439935cda37c50e34dee4d4c3378206",
+      "mlx_lm_lora/trainer/sft_trainer.py": "4f5f04d99ddb03b3b4a46365998e36467411c67525fd5baad6fddef19b45b85c"
     }
   }
 }

@@ -6,6 +6,7 @@
       "version": "0.32.2",
       "python_requires": ">=3.10",
       "license_expression": null,
+      "license_classifiers": [],
       "wheel_tags": [
         "cp314-cp314-macosx_26_0_arm64"
       ],
@@ -15,10 +16,25 @@
       }
     },
     {
+      "name": "mlx-metal",
+      "version": "0.32.2",
+      "python_requires": ">=3.10",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "py3-none-macosx_26_0_arm64"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx-metal/0.32.2/",
+      "candidate_wheel_sha256": {
+        "mlx_metal-0.32.2-py3-none-macosx_26_0_arm64.whl": "e6abeac9ac5265830c9c1541b6f96e9be37a85c2446763a46ad466c63a3837ab"
+      }
+    },
+    {
       "name": "mlx-lm",
       "version": "0.31.3",
       "python_requires": ">=3.8",
       "license_expression": null,
+      "license_classifiers": [],
       "wheel_tags": [
         "py3-none-any"
       ],
@@ -32,6 +48,9 @@
       "version": "0.6.0",
       "python_requires": ">=3.9",
       "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
       "wheel_tags": [
         "py3-none-any"
       ],
@@ -45,6 +64,7 @@
       "version": "3.1.2",
       "python_requires": ">=3.8",
       "license_expression": null,
+      "license_classifiers": [],
       "wheel_tags": [
         "py3-none-any"
       ],
@@ -58,6 +78,7 @@
       "version": "2.14.0",
       "python_requires": ">=3.10",
       "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_classifiers": [],
       "wheel_tags": [
         "cp314-cp314-macosx_14_0_arm64"
       ],
@@ -71,6 +92,7 @@
       "version": "5.16.1",
       "python_requires": ">=3.10.0",
       "license_expression": null,
+      "license_classifiers": [],
       "wheel_tags": [
         "py3-none-any"
       ],
@@ -84,6 +106,9 @@
       "version": "1.30.0",
       "python_requires": ">=3.10.0",
       "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
       "wheel_tags": [
         "py3-none-any"
       ],
@@ -97,9 +122,14 @@
       "version": "7.2.2",
       "python_requires": ">=3.6",
       "license_expression": null,
+      "license_classifiers": [],
       "wheel_tags": [
         "cp36-abi3-macosx_11_0_arm64"
-      ]
+      ],
+      "pypi_url": "https://pypi.org/project/psutil/7.2.2/",
+      "candidate_wheel_sha256": {
+        "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979"
+      }
     }
   ]
 }
