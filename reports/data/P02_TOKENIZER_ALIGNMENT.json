@@ -1,0 +1,594 @@
+{
+  "status": "CPU_TOKENIZER_ALIGNMENT_ONLY_P02_PENDING",
+  "implementation_commit": "85ebcd23762068ec24d2c08a3f45f677c024d1ca",
+  "primary_alignment_commit": "7be53fae63013aa5485321b92da9087da34bda66",
+  "t1_policy_read_only_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+  "t1_read_only_file_hashes": {
+    "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+    "src/toolalign/training/compatibility/execution.py": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726"
+  },
+  "comparison": {
+    "case_count": 16,
+    "local_evidence_sha256": "22ccb3e0ef402754ec17950fa04e45e96ff3ffdc4c0ef15c898b1ca2ee237292",
+    "local_packages": {
+      "Jinja2": "3.1.6",
+      "tokenizers": "0.22.2"
+    },
+    "reference_evidence_sha256": "1ee85145c9c54b08774782dae43616a99ee6b201193f6c082e4b9175eb264adb",
+    "reference_packages": {
+      "Jinja2": "3.1.6",
+      "tokenizers": "0.23.2",
+      "transformers": "5.16.1"
+    },
+    "results": [
+      {
+        "completion_tokens_if_stable": 32,
+        "concatenated_tokens": 244,
+        "exact_fields_match": true,
+        "id": "chinese_specials",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 213,
+        "sequence_ids_hash": "d9ad204a59fec58458684b6ae0740713309d165e4cd67335339008ba81c9d4b4",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 245
+      },
+      {
+        "completion_tokens_if_stable": 8,
+        "concatenated_tokens": 200,
+        "exact_fields_match": true,
+        "id": "clarification",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 193,
+        "sequence_ids_hash": "5c19292a14b018c06d82b66466d89d0fe734914893aad0d3c7de7b1cb2e81399",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 201
+      },
+      {
+        "completion_tokens_if_stable": 21,
+        "concatenated_tokens": 226,
+        "exact_fields_match": true,
+        "id": "conversation_after_final",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 206,
+        "sequence_ids_hash": "79ffe97c979e7876ef6e8ccd2be916f97966a2f11ec3c1ea135b2be4aea7c316",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 227
+      },
+      {
+        "completion_tokens_if_stable": 3,
+        "concatenated_tokens": 19,
+        "exact_fields_match": true,
+        "id": "empty_system_and_user",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 17,
+        "sequence_ids_hash": "ca1d4cc293e40023590e663c05dab11e7e149815b5b2c41af07fa7136f38c690",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 20
+      },
+      {
+        "completion_tokens_if_stable": 3,
+        "concatenated_tokens": 34,
+        "exact_fields_match": true,
+        "id": "history_reasoning_tag",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 32,
+        "sequence_ids_hash": "745ab836da6e0c1ca11c8f5aa40f0856a8f5ec61f60fa3a916bf045fcc247631",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 35
+      },
+      {
+        "completion_tokens_if_stable": 4,
+        "concatenated_tokens": 22,
+        "exact_fields_match": true,
+        "id": "leading_crlf",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 19,
+        "sequence_ids_hash": "980cf4b258229675083c72caa0dc41bd2f777138da74f954c38203b9860fa283",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 23
+      },
+      {
+        "completion_tokens_if_stable": null,
+        "concatenated_tokens": 22,
+        "exact_fields_match": true,
+        "id": "leading_newline",
+        "length_policy_matches": true,
+        "prefix_stable": false,
+        "prompt_tokens": 20,
+        "sequence_ids_hash": "fce3fe4d52209bbfc262c3377e3cf63f28c191511231b01719ca6e3b99f238f0",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 23
+      },
+      {
+        "completion_tokens_if_stable": 3,
+        "concatenated_tokens": 26,
+        "exact_fields_match": true,
+        "id": "leading_tab",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 24,
+        "sequence_ids_hash": "bb9e71f101759cb6ec157e244364795d85ce8e470e305765bab8907b3e62b40d",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 27
+      },
+      {
+        "completion_tokens_if_stable": null,
+        "concatenated_tokens": 23,
+        "exact_fields_match": true,
+        "id": "leading_two_newlines",
+        "length_policy_matches": true,
+        "prefix_stable": false,
+        "prompt_tokens": 21,
+        "sequence_ids_hash": "e719badaa5d0d2d18ef53e916d0395640bb6f9915ea9ce96efde21a7e0d9035b",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 24
+      },
+      {
+        "completion_tokens_if_stable": 2,
+        "concatenated_tokens": 23,
+        "exact_fields_match": true,
+        "id": "literal_eos",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 22,
+        "sequence_ids_hash": "6e4ff459a5dd8405da28b74a974e209f3100aed96a6c407e8066af0dd53f81e9",
+        "terminal_eos_run": 2,
+        "total_tokens_including_appended_eos": 24
+      },
+      {
+        "completion_tokens_if_stable": 3,
+        "concatenated_tokens": 19,
+        "exact_fields_match": true,
+        "id": "no_tools",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 17,
+        "sequence_ids_hash": "2d70627e1200edea4f96d5ecac2be87749db7c4a5bd7b61d0601d7aba63ff1b9",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 20
+      },
+      {
+        "completion_tokens_if_stable": 7,
+        "concatenated_tokens": 234,
+        "exact_fields_match": true,
+        "id": "observation",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 228,
+        "sequence_ids_hash": "c4bfb726d60f2e32443dce57ccc7c1238b9db0304c1dcf50a2f513614ada6c95",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 235
+      },
+      {
+        "completion_tokens_if_stable": 5,
+        "concatenated_tokens": 267,
+        "exact_fields_match": true,
+        "id": "parallel_observations",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 263,
+        "sequence_ids_hash": "3ee0f98b629e6ff1d3d6d9812604c79e85e536e9ba209995021882b51b3fa3dd",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 268
+      },
+      {
+        "completion_tokens_if_stable": 42,
+        "concatenated_tokens": 238,
+        "exact_fields_match": true,
+        "id": "parallel_tools",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 197,
+        "sequence_ids_hash": "ccf7fde665c7ce2bb81e416edc3a74a5ecc893792e81f3430b4252ef9f7d81a0",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 239
+      },
+      {
+        "completion_tokens_if_stable": 7,
+        "concatenated_tokens": 25,
+        "exact_fields_match": true,
+        "id": "refusal",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 19,
+        "sequence_ids_hash": "b418acc9c7c28993127c5e8ba4568224e8ace14c1a362f53b0741386e65c2143",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 26
+      },
+      {
+        "completion_tokens_if_stable": 21,
+        "concatenated_tokens": 210,
+        "exact_fields_match": true,
+        "id": "single_tool",
+        "length_policy_matches": true,
+        "prefix_stable": true,
+        "prompt_tokens": 190,
+        "sequence_ids_hash": "5b2d2456495d483b1bc2b4db6fe8f3b85354d766a3fceecf3b7eae7285c9d77e",
+        "terminal_eos_run": 1,
+        "total_tokens_including_appended_eos": 211
+      }
+    ],
+    "stable_case_count": 14
+  },
+  "baseline_measurements": [
+    {
+      "id": "single_tool",
+      "old_normalized_tokens": 212,
+      "hf_concatenated_plus_eos_tokens": 211,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "parallel_tools",
+      "old_normalized_tokens": 240,
+      "hf_concatenated_plus_eos_tokens": 239,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "observation",
+      "old_normalized_tokens": 236,
+      "hf_concatenated_plus_eos_tokens": 235,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "parallel_observations",
+      "old_normalized_tokens": 269,
+      "hf_concatenated_plus_eos_tokens": 268,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "conversation_after_final",
+      "old_normalized_tokens": 228,
+      "hf_concatenated_plus_eos_tokens": 227,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "no_tools",
+      "old_normalized_tokens": 21,
+      "hf_concatenated_plus_eos_tokens": 20,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "clarification",
+      "old_normalized_tokens": 202,
+      "hf_concatenated_plus_eos_tokens": 201,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "refusal",
+      "old_normalized_tokens": 27,
+      "hf_concatenated_plus_eos_tokens": 26,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "chinese_specials",
+      "old_normalized_tokens": 246,
+      "hf_concatenated_plus_eos_tokens": 245,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "empty_system_and_user",
+      "old_normalized_tokens": 21,
+      "hf_concatenated_plus_eos_tokens": 20,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "leading_tab",
+      "old_normalized_tokens": 28,
+      "hf_concatenated_plus_eos_tokens": 27,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "leading_newline",
+      "old_normalized_tokens": 25,
+      "hf_concatenated_plus_eos_tokens": 23,
+      "prefix_stable": false,
+      "old_difference": 2
+    },
+    {
+      "id": "leading_two_newlines",
+      "old_normalized_tokens": 26,
+      "hf_concatenated_plus_eos_tokens": 24,
+      "prefix_stable": false,
+      "old_difference": 2
+    },
+    {
+      "id": "leading_crlf",
+      "old_normalized_tokens": 24,
+      "hf_concatenated_plus_eos_tokens": 23,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "literal_eos",
+      "old_normalized_tokens": 25,
+      "hf_concatenated_plus_eos_tokens": 24,
+      "prefix_stable": true,
+      "old_difference": 1
+    },
+    {
+      "id": "history_reasoning_tag",
+      "old_normalized_tokens": 36,
+      "hf_concatenated_plus_eos_tokens": 35,
+      "prefix_stable": true,
+      "old_difference": 1
+    }
+  ],
+  "baseline_artifact_sha256": "27b495d87252c8526a82d78863bce72c6ab731bca20c9c089a2f1cca9ce8a5ce",
+  "commands": [
+    {
+      "label": "tokenizer-comparison",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tests/data/compare_tokenizers.py",
+        "--local",
+        ".toolalign-local/tokenizer-final-local.json",
+        "--reference",
+        ".toolalign-local/tokenizer-final-hf.json",
+        "--output",
+        ".toolalign-local/tokenizer-final-comparison.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:10:13.521078+00:00",
+      "elapsed_seconds": 0.08877491601742804,
+      "exit_code": 0,
+      "log_sha256": "b5fda279bd43624869df38b3db8c19800181698e799e387627fc3f18383b2ed7",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-contract",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:10:12.364317+00:00",
+      "elapsed_seconds": 0.037047124933451414,
+      "exit_code": 0,
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-core-tests",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:10:12.340983+00:00",
+      "elapsed_seconds": 2.230659083928913,
+      "exit_code": 0,
+      "log_sha256": "05f6c64571aaa04d70617797000163efccb56ebc8511a129dc1a9667dbe3b928",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-hf",
+      "command": [
+        ".toolalign-local/tokenizer-reference-venv/bin/python",
+        "tests/data/tokenizer_crosscheck.py",
+        "--engine",
+        "hf",
+        "--output",
+        ".toolalign-local/tokenizer-final-hf.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:09:55.956171+00:00",
+      "elapsed_seconds": 1.2666152911260724,
+      "exit_code": 0,
+      "log_sha256": "fdb95112ce90efc5b10a5ff161b101c97d4455691941d5341f012aca15426764",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-local",
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "tests/data/tokenizer_crosscheck.py",
+        "--engine",
+        "local",
+        "--output",
+        ".toolalign-local/tokenizer-final-local.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:09:55.960475+00:00",
+      "elapsed_seconds": 0.4068076661787927,
+      "exit_code": 0,
+      "log_sha256": "2896e077981698587c6181640df3800dd6a16a35026156f2589fe9d1dcbe927f",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-preserve-old-r2",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "compare",
+        ".toolalign-local/checkpoint-a/manifest.json",
+        ".toolalign-local/checkpoint-b/manifest.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:12:55.507835+00:00",
+      "elapsed_seconds": 0.14145329198800027,
+      "exit_code": 0,
+      "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+      "git_head": "85ebcd23762068ec24d2c08a3f45f677c024d1ca"
+    },
+    {
+      "label": "tokenizer-preserve-old",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "compare",
+        ".toolalign-local/checkpoint-a/manifest.json",
+        ".toolalign-local/checkpoint-b/manifest.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:09:55.956177+00:00",
+      "elapsed_seconds": 0.22373062488622963,
+      "exit_code": 0,
+      "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-public-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:14:46.124540+00:00",
+      "elapsed_seconds": 2.030949540901929,
+      "exit_code": 0,
+      "log_sha256": "104d8b7baa996c9a38853189842a7033cded0591bbf355d6ab055ce33146a3be",
+      "git_head": "85ebcd23762068ec24d2c08a3f45f677c024d1ca"
+    },
+    {
+      "label": "tokenizer-real-tests-r2",
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": ".toolalign-local/verified-source/qwen"
+      },
+      "started_at_utc": "2026-09-05T23:12:14.875052+00:00",
+      "elapsed_seconds": 2.7421655838843435,
+      "exit_code": 0,
+      "log_sha256": "2fce1a9f4ba0a41fa33316b4a7f9d6a30c782465fc66069a34ca6b11f742d2d2",
+      "git_head": "85ebcd23762068ec24d2c08a3f45f677c024d1ca"
+    },
+    {
+      "label": "tokenizer-real-tests",
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": ".toolalign-local/verified-source/qwen"
+      },
+      "started_at_utc": "2026-09-05T23:09:55.977252+00:00",
+      "elapsed_seconds": 2.532240333966911,
+      "exit_code": 0,
+      "log_sha256": "66df3c025e772e227531378d38d15f9c07823fd1c095312be3847a44ca27481f",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    },
+    {
+      "label": "tokenizer-ruff-r2",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:12:55.359414+00:00",
+      "elapsed_seconds": 0.10797970811836421,
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "git_head": "85ebcd23762068ec24d2c08a3f45f677c024d1ca"
+    },
+    {
+      "label": "tokenizer-ruff",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T23:10:12.351208+00:00",
+      "elapsed_seconds": 0.05004837503656745,
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "git_head": "7be53fae63013aa5485321b92da9087da34bda66"
+    }
+  ],
+  "old_build_manifest_hash": "c3f283fd26598acf7dd7716fb6351a164f7891f12ad3ed9b1a60f2f5c0b2c562",
+  "old_build_artifacts_preserved": 14,
+  "disk_usage_kib": {
+    ".toolalign-local": 389916,
+    ".venv": 35068
+  },
+  "known_reference_probe_issue": "Initial evidence collector treated HF BatchEncoding as dict; switched to collections.abc.Mapping. This was a collector shape error, not tokenizer divergence.",
+  "limits": [
+    "16 original fixtures only; no universal cross-version equivalence claim",
+    "Source raw stats unchanged; no ToolACE source policy adopted",
+    "No model, training, BFCL, kris review or deployment run"
+  ]
+}
