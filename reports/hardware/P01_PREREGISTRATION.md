@@ -41,3 +41,5 @@ T1 全部私有环境、原始模型、缓存和制品规划上限20GiB；全项
 第三次0.6B smoke前修正：第二次备选运行的非编译初始化检查通过，但进一步核对**实际训练日志**发现，第一次optimizer更新之前loss交替为0.6945998073与0.6798114181，未满足预登记严格ln2容差。第二次运行的程序性PASS不足以验收，明确降级为 `FAIL_TRAINING_PATH_LN2`；原始JSON/日志不改写。已补充训练回调门槛，使第一个累积周期任一实际loss偏差即停止。使用MLX官方诊断开关 [`mx.disable_compile()`](https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.disable_compile.html) 在专属备选进程阶段禁用编译优化，保留同一backend、dtype、loss、collator、LR、beta与2e-6门槛。该修正验证计算路径，没有放宽门槛或更换第二个备选。
 
 第四次0.6B smoke前修正：第三次在reference cache形成之后才切换编译模式，触发reference score门槛，退出2且DPO更新0。由此要求**整个模型进程**从加载、SFT、reference预计算到DPO和重载保持同一编译模式，且该模式与依赖版本进入reference cache身份。microbatch1的chosen/rejected各按自身完整长度输入，避免不必要的共同补齐；没有修改completion、截断或放宽容差。第三次失败仍保留，原始错误未捕获具体score差值，不能补写成已测数字。
+
+1536档资源恢复：首次校准已完成112个SFT微步，但DPO尚无已记录微步时，外层系统pressure变为2，退出124；末次采样swap增长33,161,216 bytes，没有达到1GiB阈值，压力是实际停止原因。重新启动前pressure已恢复1。第二次1536校准只启用备选原生 `grad_checkpoint=True` 降低DPO激活占用；SFT仍False。checkpointing配置进入reference身份，不提高内存/墙钟/步数预算；再通过资源门后才进入2048。

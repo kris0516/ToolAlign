@@ -7,6 +7,7 @@ from toolalign.runtime import GPULease
 
 
 def test_competing_model_entry_does_not_import_or_load(tmp_path):
+    subprocess.run(["git", "init", "--quiet", str(tmp_path)], check=True)
     marker = tmp_path / "model-loaded"
     code = """
 from pathlib import Path
@@ -28,10 +29,12 @@ except LockBusy:
         run_id="p01-test-owner",
         expected_job="CPU contention test",
         memory_strategy="no model imports",
+        repository=tmp_path,
     ):
         result = subprocess.run(
             [sys.executable, "-c", code, str(marker)],
             env=env,
+            cwd=tmp_path,
             capture_output=True,
             text=True,
             timeout=10,
@@ -51,3 +54,35 @@ assert not any(name in sys.modules for name in ('mlx.core', 'mlx_lm', 'torch', '
         [sys.executable, "-c", code], capture_output=True, text=True, timeout=10
     )
     assert result.returncode == 0, result.stderr
+
+
+def test_worker_holds_lease_until_process_exit(tmp_path):
+    subprocess.run(["git", "init", "--quiet", str(tmp_path)], check=True)
+    code = """
+import json, sys
+from pathlib import Path
+from toolalign.runtime import inspect_gpu_lock
+from toolalign.training.compatibility import numerical
+from toolalign.training.compatibility.execution import worker
+numerical.check_numerics = lambda: {'held_during_operation': inspect_gpu_lock()['held']}
+config = {'run_id':'p01-worker-exit','mode':'math','budget':{},'lock_timeout_seconds':0}
+worker(config, Path(sys.argv[1]))
+raise RuntimeError('dedicated worker must exit inside the lease')
+"""
+    env = dict(os.environ)
+    env["PYTHONPATH"] = str(Path(__file__).resolve().parents[3] / "src")
+    result = subprocess.run(
+        [sys.executable, "-c", code, str(tmp_path)],
+        env=env,
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert result.returncode == 0, result.stderr
+    import json
+
+    from toolalign.runtime import inspect_gpu_lock
+
+    assert json.loads((tmp_path / "result.json").read_text())["held_during_operation"] is True
+    assert inspect_gpu_lock(tmp_path)["held"] is False

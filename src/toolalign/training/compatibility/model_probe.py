@@ -394,6 +394,8 @@ def run_model_probe(config: dict, root: Path) -> dict:
                 "source_hash": config["source_hash"],
                 "dependencies": config["dependency_versions"],
                 "compile_disabled": config.get("fallback_disable_compile", False),
+                "sft_grad_checkpoint": config.get("grad_checkpoint", False),
+                "dpo_grad_checkpoint": config.get("fallback_grad_checkpoint", False),
             }
         ),
         "sft_smoke",

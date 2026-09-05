@@ -214,7 +214,7 @@ def run_fallback(
         max_seq_length=limit,
         adapter_file=str(dpo_root / "adapters.safetensors"),
         beta=0.1,
-        grad_checkpoint=False,
+        grad_checkpoint=config.get("fallback_grad_checkpoint", False),
         seq_step_size=None,
         qat_enable=False,
     )
@@ -297,6 +297,7 @@ def run_fallback(
         "optimizer_steps": int(optimizer.step.item()),
         "configured_accumulation": accumulation,
         "compilation_disabled": config.get("fallback_disable_compile", False),
+        "gradient_checkpointing": config.get("fallback_grad_checkpoint", False),
         "training_path_initial_losses": [r["train_loss"] for r in reports[:accumulation]],
         "initial_ln2": initial_losses,
         "loss_after": after_losses,

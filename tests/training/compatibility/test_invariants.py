@@ -197,3 +197,22 @@ def test_initial_gate_checks_actual_training_loss():
     for loss in [0.6945998072624207, 0.679811418056488, 0.9140625, float("nan")]:
         with pytest.raises(ValueError):
             assert_initial_dpo_loss(loss)
+
+
+def test_checkpoint_timing_uses_real_writer_and_restores(tmp_path):
+    from toolalign.training.compatibility.execution import measure_checkpoint_io
+
+    calls = []
+
+    def writer(path, values):
+        calls.append(values)
+        path.write_text("checkpoint")
+
+    fake = SimpleNamespace(save_safetensors=writer, synchronize=lambda: None)
+    events = []
+    with measure_checkpoint_io(fake, events, "sft"):
+        fake.save_safetensors(tmp_path / "adapter", {"weights": 1})
+    assert fake.save_safetensors is writer
+    assert calls == [{"weights": 1}]
+    assert events[0]["phase"] == "sft"
+    assert events[0]["seconds"] >= 0
