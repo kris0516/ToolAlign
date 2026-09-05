@@ -4,7 +4,7 @@
 
 | 任务 | 负责人角色 | 依赖 | 当前状态 | 基线/证据 |
 |---|---|---|---|---|
-| [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | CHANGES_REQUESTED | base `0f152e2`；分支 `work/p00-bootstrap-contracts`；R1-r1 FAIL（2×P1、3×P2）；S0 修复后复核 |
+| [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | READY_FOR_REVIEW | base `0f152e2`；分支 `work/p00-bootstrap-contracts`；R1-r1 FAIL 已修复；实现 6c71c9c；等待独立复核 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | BLOCKED | NOT_RUN |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | BLOCKED | NOT_RUN |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | BLOCKED | NOT_RUN |
