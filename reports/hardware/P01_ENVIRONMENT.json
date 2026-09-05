@@ -131,5 +131,46 @@
         "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979"
       }
     }
+  ],
+  "installed_license_audit": [
+    {
+      "name": "mlx-tune",
+      "version": "0.6.0",
+      "metadata_license": "Apache-2.0",
+      "wheel_license_files": [
+        {
+          "relative_path": "mlx_tune-0.6.0.dist-info/licenses/LICENSE",
+          "sha256": "f45b671981baeeb94b5a5e2142d1df171c707035c7f05a99f83d63c77f3610f0",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": true
+    },
+    {
+      "name": "mlx-lm-lora",
+      "version": "3.1.2",
+      "metadata_license": "MIT",
+      "wheel_license_files": [
+        {
+          "relative_path": "mlx_lm_lora-3.1.2.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": false
+    },
+    {
+      "name": "datasets",
+      "version": "3.6.0",
+      "metadata_license": "Apache 2.0",
+      "wheel_license_files": [
+        {
+          "relative_path": "datasets-3.6.0.dist-info/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": true
+    }
   ]
 }

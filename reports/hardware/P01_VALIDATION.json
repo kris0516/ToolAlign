@@ -1,0 +1,166 @@
+{
+  "scope": "P01 worker self-test; pending R1/S0 acceptance",
+  "implementation_commit": "eed03e88d5cc88f6db8b3845f2e7d5c9967c9c02",
+  "checks": [
+    {
+      "name": "final-sync",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "started_at": "2026-09-05T23:35:04.152444+00:00",
+      "wall_seconds": 0.012917083920910954,
+      "exit_code": 0,
+      "sha256": "f8a39c9104864d5bfc057d1a75ccf0a4475e0ccdf0bc7f15c9843da021afe263"
+    },
+    {
+      "name": "final-cpu",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/S0-SHARED-01/test_boundaries.py"
+      ],
+      "started_at": "2026-09-05T23:35:04.146688+00:00",
+      "wall_seconds": 3.2983029999304563,
+      "exit_code": 0,
+      "sha256": "9a9c237ea973d3e594f38eea910b036153fff8da8ffe39faf33e7b26152538c4"
+    },
+    {
+      "name": "compatibility-cpu",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests/training/compatibility/"
+      ],
+      "started_at": "2026-09-05T23:35:04.159742+00:00",
+      "wall_seconds": 0.5226872081402689,
+      "exit_code": 0,
+      "sha256": "f9bac75717a879111143ef4ef60f937d1deddf0104241eb4458530fd407f090f"
+    },
+    {
+      "name": "final-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-05T23:35:04.168437+00:00",
+      "wall_seconds": 0.022935332963243127,
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "final-freeze",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "started_at": "2026-09-05T23:35:04.178417+00:00",
+      "wall_seconds": 0.029683375032618642,
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+    },
+    {
+      "name": "cli-help",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.training.compatibility",
+        "--help"
+      ],
+      "started_at": "2026-09-05T23:35:04.186444+00:00",
+      "wall_seconds": 0.03780895797535777,
+      "exit_code": 0,
+      "sha256": "fbec7db94886031c567d9804ed218da3e80385abed4dd6d01915aded47f3bf0d"
+    },
+    {
+      "name": "wheel-build",
+      "command": [
+        "uv",
+        "build",
+        "--wheel"
+      ],
+      "started_at": "2026-09-05T23:22:05.536081+00:00",
+      "wall_seconds": 0.16746570798568428,
+      "exit_code": 0,
+      "sha256": "80e16a0917ab4f1a266a0da6b5103979a00ae1febef9f131007c81086f91a859"
+    },
+    {
+      "name": "wheel-verify",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P00/verify_wheel.py"
+      ],
+      "started_at": "2026-09-05T23:23:40.018153+00:00",
+      "wall_seconds": 1.1240181669127196,
+      "exit_code": 0,
+      "sha256": "91636a06fcd05a649510a99667f4a55c35ba008a5d9cc5312a6a4345e68f4c59"
+    },
+    {
+      "name": "sdist-selection",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/hardware/P01_CHECK_SDIST_SELECTION.py"
+      ],
+      "started_at": "2026-09-05T23:28:28.362739+00:00",
+      "wall_seconds": 0.3056065409909934,
+      "exit_code": 1,
+      "sha256": "a130b5507c8a09c8ed9c513fb5fccf65ab46026a423dfee48362bb0936a21e56"
+    },
+    {
+      "name": "final-public",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "started_at": "2026-09-05T23:36:55.910949+00:00",
+      "wall_seconds": 1.8503274170216173,
+      "exit_code": 0,
+      "sha256": "d8d1d7def0c5303e60e9ca4dc9c7192be403ffadce5ef815267bc290f671edaf"
+    }
+  ],
+  "cpu_checks_passed": 274,
+  "p01_cpu_checks_passed": 41,
+  "wheel_sha256": "e07b3d0defcbbab7dd6f684702eefea1bb7dfd4591995f7a40e8674211db3e37",
+  "sdist_selection": {
+    "selected_files": 29241,
+    "selected_bytes": 7128391528,
+    "private_files": 29116,
+    "git_marker_is_file": true,
+    "archive_created": false
+  },
+  "sdist_build": "STOPPED_BY_OWNER_DURING_COMPRESSION; NO_SDIST_CREATED; NO_UPLOAD",
+  "sdist_root_cause": "UNCONFIRMED; possible worktree VCS ignore discovery difference"
+}
