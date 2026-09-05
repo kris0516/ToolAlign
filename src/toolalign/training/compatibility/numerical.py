@@ -156,6 +156,49 @@ def check_numerics() -> dict:
         50.0,
     )
     assert abs(fallback_value.item() - tdpo.item()) < 2e-6
+    # Compare gradients of the actual fallback score/loss functions, independently
+    # against a PyTorch log_softmax+gather implementation on a trainable toy table.
+    native_table = Fixed()
+    cmask = mx.array([[0, 1, 1, 0, 0, 0]], dtype=mx.float32)
+    rejected_ids = mx.array([[1, 2, 5, 0, 0, 0]])
+    rmask = mx.array([[0, 1, 0, 0, 0, 0]], dtype=mx.float32)
+
+    def actual_fallback(m):
+        chosen_score = get_token_scores(m, row_ids, cmask).sum(-1)
+        rejected_score = get_token_scores(m, rejected_ids, rmask).sum(-1)
+        return fallback_dpo(
+            chosen_score,
+            rejected_score,
+            mx.array([-2.3]),
+            mx.array([-4.5]),
+            cmask,
+            rmask,
+            0.1,
+            50.0,
+        )[0]
+
+    native_loss, native_grad = nn.value_and_grad(native_table, actual_fallback)(native_table)
+    torch_table = torch.tensor(np.array(native_table.table), requires_grad=True)
+
+    def independent_score(ids_array, label_mask):
+        t_ids = torch.tensor(np.array(ids_array), dtype=torch.long)
+        selected = torch.log_softmax(torch_table[t_ids[:, :-1]], dim=-1)
+        gathered = selected.gather(-1, t_ids[:, 1:, None]).squeeze(-1)
+        return (gathered * torch.tensor(label_mask)).sum(-1)
+
+    torch_native = torch_standard_dpo(
+        independent_score(row_ids, [[0, 1, 1, 0, 0]]),
+        independent_score(rejected_ids, [[0, 1, 0, 0, 0]]),
+        torch.tensor([-2.3]),
+        torch.tensor([-4.5]),
+    )
+    torch_native.backward()
+    mx.eval(native_loss, native_grad)
+    native_loss_error = abs(native_loss.item() - torch_native.item())
+    native_grad_error = float(
+        np.max(np.abs(np.array(native_grad["table"]) - torch_table.grad.numpy()))
+    )
+    assert native_loss_error < 2e-6 and native_grad_error < 2e-6
     # Prefer explicit reference values. The primary library's default drifts with policy.
     from mlx_tune.losses import dpo_loss as primary_dpo
 
@@ -177,6 +220,8 @@ def check_numerics() -> dict:
         "status": "PASS",
         "device": "MLX CPU and PyTorch CPU",
         "dtype": "float32",
+        "fallback_actual_loss_abs_error": native_loss_error,
+        "fallback_actual_gradient_max_abs_error": native_grad_error,
         "tolerances": tolerances,
         "ce_loss": ce.item(),
         "ce_loss_abs_error": ce_error,

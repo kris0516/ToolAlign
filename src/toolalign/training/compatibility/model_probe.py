@@ -80,13 +80,21 @@ def run_model_probe(config: dict, root: Path) -> dict:
 
     def check():
         mx.synchronize()
+        measured = {
+            "mlx_peak_bytes": mx.get_peak_memory(),
+            "mlx_active_bytes": mx.get_active_memory(),
+            "mlx_cache_bytes": mx.get_cache_memory(),
+            "wall_seconds": time.monotonic() - started,
+        }
+        write_json(root / "device-resources.json", measured)
+        # Persist completed work before a stop exception, including the final completed microstep.
+        flush()
         budget.check(
-            wall=time.monotonic() - started,
+            wall=measured["wall_seconds"],
             microsteps=progress["microsteps"],
             processed_tokens=progress["processed_tokens"],
-            mlx_bytes=mx.get_peak_memory(),
+            mlx_bytes=measured["mlx_peak_bytes"],
         )
-        flush()
 
     def timed(name, operation):
         check()
