@@ -13,3 +13,5 @@
 > 你是 ToolAlign 的 D1 数据独立对话。只领取 S0 已授权的 P02 或 P05 数据子包。先读 AGENTS.md、数据治理、任务包和真实 base commit，检查当前 worktree。只修改数据所有权范围；不训练最终测试，不自动接受 gated 条款，不公开原始数据。完成后交 commit、分组/许可/长度报告和交接单，等待独立审查。
 >
 > 若任务/commit/依赖/目录不符，报告具体阻塞而不是扩大范围。读取文档后先复述实际领取范围与验证计划，然后执行该包。所有结论保存到版本化交接文档，不能只留在聊天里。
+
+模型与消息方向：S0 与全部独立子任务统一 gpt-6-astra / max（App 中文「最高」）。旧 xhigh/极高要求已废止。给 S0 的普通 send_message_to_thread 回报完全省略 model/thinking，只传目标身份与正文，保留 max。见 AGENTS 与 coordination/GOAL.md。
