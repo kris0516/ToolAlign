@@ -12,6 +12,7 @@ import importlib.metadata
 import json
 import os
 import sys
+import tempfile
 from pathlib import Path
 
 from .format import TEMPLATE_SHA256, ModelIOError, format_identity
@@ -55,6 +56,41 @@ def _source_bytes(root: Path) -> dict[str, bytes]:
             raise ModelIOError("tokenizer_source_hash_mismatch")
         result[name] = data
     return result
+
+
+def _reference_from_snapshot(data: dict[str, bytes], template: str):
+    """Load real HF from a private snapshot of the verified buffers, eagerly.
+
+    The caller's directory can be updated while HF opens its inputs. Never give
+    that mutable directory to HF, or copy its unverified overrides/extra files.
+    Only these three verified buffers enter a fresh directory; it is read-only
+    during loading and removed on success or exception. This binds ordinary
+    source-directory updates, not arbitrary same-user OS tampering.
+    """
+    from transformers import AutoTokenizer
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="toolalign-qwen-tokenizer-") as temporary:
+            snapshot = Path(temporary)
+            for name in _FILES:
+                with (snapshot / name).open("xb") as stream:
+                    stream.write(data[name])
+                (snapshot / name).chmod(0o400)
+            snapshot.chmod(0o500)
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(
+                    str(snapshot), local_files_only=True, trust_remote_code=False
+                )
+                if tokenizer.chat_template != template:
+                    raise ModelIOError("loaded_tokenizer_source_mismatch")
+            finally:
+                # Restore directory write permission only for our own cleanup.
+                snapshot.chmod(0o700)
+        return tokenizer
+    except ModelIOError:
+        raise
+    except (OSError, ValueError) as exc:
+        raise ModelIOError("tokenizer_reference_snapshot_load_failed") from exc
 
 
 class OfflineQwenTokenizer:
@@ -102,13 +138,7 @@ class OfflineQwenTokenizer:
             packages["transformers"] = importlib.metadata.version("transformers")
             if packages["transformers"] != "5.16.1" or packages["tokenizers"] != "0.23.2":
                 raise ModelIOError("unsupported_reference_package_identity")
-            from transformers import AutoTokenizer
-
-            self._tokenizer = AutoTokenizer.from_pretrained(
-                str(root), local_files_only=True, trust_remote_code=False
-            )
-            if self._tokenizer.chat_template != template or _source_bytes(root) != data:
-                raise ModelIOError("loaded_tokenizer_source_mismatch")
+            self._tokenizer = _reference_from_snapshot(data, template)
             self._eos_token_id = self._tokenizer.eos_token_id
         if model_modules_loaded():
             raise ModelIOError("model_dependency_imported")
