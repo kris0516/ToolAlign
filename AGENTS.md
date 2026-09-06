@@ -72,6 +72,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | SFT接口CPU中间证据与入口限制 | S0核对13例新collator完整数组、两执行提交源码与164当前路径；CPU train在上游读取Metal属性时阻塞，原两失败/进程回收保持。T1继续其余CPU测试/打包，完整候选/R1未验收，见[中间证据](reports/S0_P04_SFT_CPU_INTERMEDIATE.md) |
 | 2026-09-06 | SFT接口CPU部分正式交接 | 完整33d6248已普通推送/T1原生空闲；S0核对2083路径、18原命令、三归档与安装。970/2为T1自测，原生train入口仍阻塞；R1精确范围READY待派发，见[交接证据](reports/S0_P04_SFT_CPU_HANDOFF.md) |
 | 2026-09-06 | SFT接口CPU独立审查实际派发 | 核验R1旧轮completed/idle与干净40252f8后，按完整d65592e原生派发精确33d6248，gpt-6-astra/max，新轮ACTIVE；[Draft PR10](https://github.com/kris0516/ToolAlign/pull/10)候选双Python CI通过，实际合并300bda3/390文件绑定核验；384候选/13授权intake通过，正式结论待交付 |
+| 2026-09-07 | SFT接口CPU独立验收与隔离集成 | 原R1 PASS800480b已交付/原生空闲；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、新三归档及安装7命令通过，见[证据](reports/S0_P04_SFT_CPU_INTEGRATION.md)。CPU部分ACCEPTED，PR10最终CI/main待完成；原生训练入口与人工门槛保持 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -97,7 +98,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。PR9实际合并42eaa50，原R1 PASS40252f8保持；最终双Python CI与main919CPU/2 HF-only跳过、现存三归档/49安装包文件绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。T1完整[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)候选33d6248已交付并原生结束，D1/E1/T1空闲；精确[R1范围](coordination/tasks/P04_SFT_CPU_REVIEW.md)已按完整d65592e原生派发，新轮ACTIVE，384候选/13授权intake已核验，正式结论待交付，[Draft PR10](https://github.com/kris0516/ToolAlign/pull/10)候选双Python CI已通过并核对实际合并源码。最多两个实现加独立CPU R1、单一GPU租约约束保持。CPU部分尚待独立验收，原生train入口阻塞与尾周期/checkpoint缺项保留；实际材料页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练尚未放行。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。见[本轮证据](reports/S0_P04_SFT_CPU_INTEGRATION.md)。T1/D1/E1/R1均已结束本轮，S0继续最终集成。最多两个实现、独立R1及单一GPU租约约束保持；实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行。
 
 ## 工作记录
 

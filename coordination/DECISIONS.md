@@ -172,7 +172,7 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 
 ## ADR-0020｜已验收训练绑定后的SFT接口CPU准备
 
-日期：2026-09-06；状态：CPU_IMPLEMENTATION_DISPATCHED，已按完整e42536d原生派发T1并核验新轮ACTIVE，尚未候选交付或验收。代码基线为PR9实际main `42eaa50a9519efe96d60b49f07cfbd106b36778c`；P00/P01受限G1/P03/共用格式/训练绑定的CPU前提已验证，语义与token/mask人工、实际页面、真实0.6B容量及正式模型门槛继续待完成。S0将可独立进行的CPU数据/collator/数值适配拆为[P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md)，不把完整P04改名或登记完成。
+日期：2026-09-06；状态：CPU_PREPARATION_ACCEPTED，原R1 PASS800480b已完成，S0普通集成487c92d的1014CPU/2跳过、三新归档与隔离安装通过；最终CI/main待验证，详见[证据](../reports/S0_P04_SFT_CPU_INTEGRATION.md)。完整原生trainer入口仍BLOCKED，上游/数据/人工边界保持。代码基线为PR9实际main `42eaa50a9519efe96d60b49f07cfbd106b36778c`；P00/P01受限G1/P03/共用格式/训练绑定的CPU前提已验证，语义与token/mask人工、实际页面、真实0.6B容量及正式模型门槛继续待完成。S0将可独立进行的CPU数据/collator/数值适配拆为[P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md)，不把完整P04改名或登记完成。
 
 本机已锁MLX-LM 0.31.3的trainer源码hash为ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe，datasets源码hash为fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17。S0重新读取原件：默认iterator按长度排序/重排并允许截断；default_loss的padding额外监督已有P01真实反例；train只在完整累积周期更新，内置最后validation发生在最后微步之前。源码依据和旧负结果不改写为新模型运行。
 
@@ -181,3 +181,5 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 本轮允许已核对的原13例通过新collator及极小原创MLX/PyTorch CPU数值模块对照。框架replay实际持共享租约、强制CPU、独立自有进程和≤300秒/4GiB RSS/2线程/2次更新的每次上限；不加载预训练模型、不对P02真实数据优化、不创建环境或下载依赖。该数值许可不改变原training_authorized=false或人工门槛。精确参数仅来自[S0配置原件](tasks/P04_SFT_CPU_CONFIG.v1.json)，T1在唯一新配置例外中逐字节复制。
 
 备选为等待人工后再实现全部衔接，或直接沿用默认dataset/loss/循环；前者把可独立验证的代码也挂起，后者不满足已选数据顺序、mask和尾周期要求。当前选择只提前完成必要CPU实现，未来真实model/optimizer/生成仍须按完整P04独立验收。若实际上游注入点不能满足边界，保留最小反例并交S0具体处理，不fork通用训练框架、改vendor、降数值门或隐去失败。
+
+ADR-0020接收补记（2026-09-07）：默认prepare不依赖框架入口，固定数据/视图/collator与纯结构接口可独立接收。原生train_toy_segments/post_update_score的实际更新、尾周期、evaluate与保存重载未通过，不作为已验收trainer使用；保留原KeyError，后续兼容修订须另定精确范围，不由CPU部分PASS自动放行正式P04。
