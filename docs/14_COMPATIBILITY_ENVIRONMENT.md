@@ -22,3 +22,5 @@ uv sync --locked --extra compatibility --python 3.14
 Darwin arm64 markers 避免 Linux CI 因 PyTorch 的 Linux 依赖引入 CUDA。选择 extra 不授予模型加载/GPU 权限；实际入口仍须检查平台、获得 GPULease、固定模型来源并实施预算。PyTorch 小张量参考显式使用 CPU，不能默认切到 MPS。未支持的平台选择 extra 只会得到适用依赖，不能据此宣称 MLX 可用；P01 CLI 应明确拒绝不支持的模型执行环境。
 
 `mlx-tune` 暂不加入正式依赖；T1 报告的自动 set_wired_limit、reference 与 accumulation/mask 风险仍待最小复现。私有探索环境与公共 compatibility extra 必须分别登记，不能将成功安装解释为正式 DPO backend 通过。P01 若确需其他直接库或不同版本，向 S0 提交实证后再更新锁文件。
+
+P01 后续可选备选/完整重放与源码包边界的候选更新见 [环境与打包说明](15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md)。原 compatibility 四个直接 pin 保持；可选传递依赖变化须以该候选独立审查与新 lock 为准。

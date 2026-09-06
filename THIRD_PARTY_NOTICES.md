@@ -19,3 +19,8 @@ P00 使用 jsonschema 4.26.0 及锁定的传递依赖；测试与打包使用 py
 可选 compatibility extra 只含固定版本的 MLX、MLX-LM、PyTorch 与 psutil，传递依赖由 uv.lock 记录。PyTorch 2.14.0 的分发许可为复合 SPDX，不能将所有内容概括为 BSD；准确元数据链接与限定见 [兼容性环境](docs/14_COMPATIBILITY_ENVIRONMENT.md)。mlx-tune 尚未作为正式 DPO 依赖纳入。
 
 ToolACE 历史监督数据固定来源 revision 与 Apache-2.0 声明，适配与署名按 [来源政策](docs/13_TOOLACE_SOURCE_POLICY.md) 保存。数据描述不提供真实 API 的执行授权，也没有将来源工具宣称为只读。
+
+
+## P01 replay and fallback candidate dependencies
+
+S0-SHARED-02 候选增加 `dpo`（mlx-lm-lora 3.1.2、datasets 3.6.0）及 `p01-replay`（mlx-tune 0.6.0，仅复现失败首选与跨库检查），不把安装视作正式 DPO 批准。mlx-tune 与 datasets 的 metadata/随包 LICENSE 均为 Apache-2.0；mlx-lm-lora metadata 写 MIT，而 wheel LICENSE 为 Apache License 2.0，保留这一差异，不重新许可依赖实现。具体固定来源、LICENSE 摘要和边界见 [报告](reports/S0_SHARED_02.md) 与 [说明](docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md)。

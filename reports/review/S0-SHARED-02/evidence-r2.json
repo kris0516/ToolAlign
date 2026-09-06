@@ -1,0 +1,262 @@
+{
+  "task": "S0-SHARED-02-review-r2",
+  "reviewer": "R1",
+  "date": "2026-09-06",
+  "verdict": "FAIL",
+  "remaining_findings": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 0
+  },
+  "candidate": "81489292c7ba54875c7de1f156bd1696fe4ed0a7",
+  "task_base": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+  "previous_candidate": "55a330b6a1c10d14959895f2a3617597962569f3",
+  "previous_review": "cfbc1529e9bc946c42a26a0070528217ab8eafff",
+  "branch": "review/shared-02-r2",
+  "environment": {
+    "macOS": "26.5.1",
+    "machine": "arm64",
+    "python": "3.14.7",
+    "git_core_ignorecase": "true, detected by git init; not set by reviewer"
+  },
+  "evidence_policy": "Hashes describe full private stdout/stderr logs. Public argument paths use placeholders where needed. Navigation and ordinary file reads are not reported as tests.",
+  "runs": [
+    {
+      "name": "cpu-sync",
+      "exit_code": 0,
+      "sha256": "91597704bc5423f7afefaab3d3c5ab7d38c8be9f1d71cf184914e6ec7d31d837",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ]
+    },
+    {
+      "name": "source-boundary-85",
+      "exit_code": 0,
+      "sha256": "d596c16ae0c7d29cec9cf585f71c612912b64892d29b6fe1290c198a6f1ff92c",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ]
+    },
+    {
+      "name": "original-r1-probe",
+      "exit_code": 0,
+      "sha256": "6f3a88156e4464f47abbf306ef4920cd3630bbff44a4a303aca8543b97d874be",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-new-nested"
+      ],
+      "interpretation": "Original R1 source unchanged; its four lowercase nested probes now pass."
+    },
+    {
+      "name": "cpu-regression",
+      "exit_code": 0,
+      "sha256": "1bb71f03726384eb6407a864bd9bab906f92c8993631f8b2bfa6862a56740d2f",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ]
+    },
+    {
+      "name": "case-variants",
+      "exit_code": 1,
+      "sha256": "2c0db872a93c150e42c38c8b1177c75992fa95a0162416d69aab85b34bbd3ac7",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py",
+        "case-variants"
+      ],
+      "interpretation": "P1: automatically detected Git core.ignorecase=true; all 21 ignored case variants enter actual sdist, source 7 enter each wheel. No Git setting forced."
+    },
+    {
+      "name": "lowercase",
+      "exit_code": 0,
+      "sha256": "886580f917fa0901b19314af43027f65614342b9f912b3b2b9b3759135a364a4",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py",
+        "lowercase"
+      ],
+      "interpretation": "21 lowercase probes excluded from all three archive routes; public files and .env.example retained."
+    },
+    {
+      "name": "freeze",
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ]
+    },
+    {
+      "name": "lint",
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ]
+    },
+    {
+      "name": "old-control",
+      "exit_code": 0,
+      "sha256": "0aa4420c96c200f7908f49ec73a37b9a20226e9878fa91300c4b411ede79e6bb",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py",
+        "old-control"
+      ],
+      "interpretation": "Exit 0 confirms the old candidate defect in a synthetic fixture. Leaks are expected only for this old-config control."
+    },
+    {
+      "name": "public-install",
+      "exit_code": 0,
+      "sha256": "80daa272aec57c801a31fa980ea02791b0e1e7fd609f5d0552cf9a3f840857b0",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_public_install_r2.py"
+      ],
+      "interpretation": "Fresh build in a tiny public-only Git worktree, followed by original P00 isolated wheel verifier; no real private input."
+    },
+    {
+      "name": "unchanged-inputs",
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "cfbc1529e9bc946c42a26a0070528217ab8eafff",
+        "81489292c7ba54875c7de1f156bd1696fe4ed0a7",
+        "--",
+        "uv.lock",
+        "THIRD_PARTY_NOTICES.md",
+        "docs/14_COMPATIBILITY_ENVIRONMENT.md",
+        ".gitignore",
+        "src",
+        "configs",
+        "tests",
+        "contracts.v1.lock.json",
+        "coordination/PROTOCOL.md",
+        "coordination/GOAL.md",
+        ".github/workflows/cpu.yml",
+        "coordination/handoffs/S0-SHARED-02-review-r1.md",
+        "reports/review/S0-SHARED-02"
+      ],
+      "interpretation": "Exact committed bytes checked before inheriting previous dependency/license and historical-review evidence."
+    },
+    {
+      "name": "public-candidate",
+      "exit_code": 0,
+      "sha256": "3131deb568085c1718b5c1f85f57b120319b3c1e4918f4c451a2780262adf7ca",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ]
+    },
+    {
+      "name": "pyproject-scope",
+      "exit_code": 0,
+      "sha256": "cbf642e304e436fdc51b19e78e61e9f4609e06f9d01c439b8df813e350bf5e42",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        ".toolalign-local/review-shared-02-r2/check_pyproject_scope.py"
+      ]
+    },
+    {
+      "name": "metadata-recheck",
+      "exit_code": 0,
+      "sha256": "2e30405043c6f316242eb27cde1c641390e766878d8cf01fd418c7d500222745",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_dependencies.py",
+        "--dpo-site-packages",
+        "<private-dpo-site-packages>",
+        "--replay-site-packages",
+        "<private-replay-site-packages>"
+      ],
+      "interpretation": "Read-only dist-info and exports; no ML imports/installation. Wheel metadata input hash matches the newly built public fixture wheel."
+    },
+    {
+      "name": "public-review",
+      "exit_code": 0,
+      "sha256": "d95c06c960a1c67ca73de383b1ab2249830032bf61bab774c29a0f22bea6385d",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ]
+    }
+  ],
+  "new_script_sha256": {
+    "probe_case_boundaries_r2.py": "ce8aaacf911502cdfe7e81f5feb381a5985f7de2e3762e98199677e8a78bd693",
+    "verify_public_install_r2.py": "06584df2dfd9dfbfc64124ca3dffeb493d873d8903e1830179d39cd7dcf1aae7"
+  },
+  "private_pyproject_scope_script_sha256": "586f3f856dbe9c825489d2ddbfa8e8275ca5dadfaaa1f03dba31697dd86925dd",
+  "inherited_evidence": "First-round dependency/license facts retained only after exact lock, declaration, source, and historical-evidence comparisons; installed metadata rechecked without imports.",
+  "not_run": [
+    "ML import/model/tensor/GPU/training",
+    "P01/P02/P03 full implementation acceptance",
+    "D1 archive or extraction-log inspection",
+    "Cross-platform real installation",
+    "Repeat upstream metadata/wheel downloads",
+    "Final GitHub CI",
+    "main integration",
+    "S0 subsequent unpublished fix"
+  ]
+}
