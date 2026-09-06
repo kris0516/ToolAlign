@@ -119,7 +119,7 @@ S0已收取并完整读取原始review `aaae5a4395dbdd73fd487f80174599ffd3ef9be3
 
 ## P01-R1-r3｜启动初始化修复的独立复审授权
 
-状态：READY_FOR_DISPATCH；R1只有收到S0原生消息给出的本段完整authorization_commit后开始。T1完整新候选 `9fe3cbe3a067725c37dc213bbf38f9c90ceb5066` 已普通推送/原生completed/idle；已测实现 `2efc7a55ea0dcc77a97cd7f5a82e95515c32de00`，原review aaae5a4经merge `65437ea2323f21e6c4c1d7e5b916282209dbd25a` 保留。S0完整读取交接/两处生产diff/新回归及包探针，核对85项日志/元数据/结果/探针/包hash、9个允许差异、174份不变原文件。原两初始化反例before实际2失败，after通过；T1自测280个不同pytest与14条隔离安装命令通过，仍非独立验收。
+状态：IN_PROGRESS；S0已按本段完整授权实际派发并核验R1新轮次ACTIVE。T1完整新候选 `9fe3cbe3a067725c37dc213bbf38f9c90ceb5066` 已普通推送/原生completed/idle；已测实现 `2efc7a55ea0dcc77a97cd7f5a82e95515c32de00`，原review aaae5a4经merge `65437ea2323f21e6c4c1d7e5b916282209dbd25a` 保留。S0完整读取交接/两处生产diff/新回归及包探针，核对85项日志/元数据/结果/探针/包hash、9个允许差异、174份不变原文件。原两初始化反例before实际2失败，after通过；T1自测280个不同pytest与14条隔离安装命令通过，仍非独立验收。
 
 R1在自己的同一独立任务/隔离worktree，从上述精确完整9fe3cbe新建 `review/p01-r3`，保留原review/p03-r2及所有旧审查分支。只允许新增 `reports/review/P01-r3/` 与 `coordination/handoffs/P01-review-r3.md`。所有被审候选、原两轮R1文件、T1回归、旧交接/FAIL/raw、公共契约/runtime/configs/依赖/锁/状态/ADR和其他worktree均只读。生产base仍37c00de，不接新main或P02/新格式实现。
 
@@ -132,3 +132,5 @@ F2/F3已由原精确aaae5a4独立关闭，fallback/core/numerical/model_probe/sa
 gpt-6-astra/max，纯CPU、新增私有制品/环境2GiB，可复用自己现有已锁CPU环境，无MLX/模型/Torch/tokenizer导入或下载/GPU/费用/P04/P05。输出精确候选PASS/FAIL/BLOCKED、剩余P0/P1/P2、实际命令/退出码/完整hash、原证据保全和NOT_RUN；提交独立review SHA后结束本轮，S0负责后续CI/集成/main验证。S0已核验R1的P03-r2原生completed/idle及正式PASS a78071b，实际接续派发另记。
 
 新9fe3cbe的CI34013781146已由S0读取workflow和Python3.11/3.14两jobs全部步骤，均成功；CI不替代本轮R1独立复审，原始记录见[GitHub Actions](https://github.com/kris0516/ToolAlign/actions/runs/34013781146)。
+
+2026-09-06 P01-R1-r3实际派发：S0再次核验R1前轮P03-r2已completed/idle、原a78071b保全后，按完整授权79814897340537c232ddc7e1814fc6d4ecb503bb及精确9fe3cbe原生派发，gpt-6-astra/max，新轮次已确认ACTIVE。

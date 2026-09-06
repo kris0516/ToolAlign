@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。T1启动修复9fe3cbe已交付/原生空闲，S0核验85项hash及174份不变原文件，R1-r3范围已准备。P03独立PASS a78071b已完整核验139项hash及158份候选字节，CPU代码ACCEPTED，待最终CI/合并/main验证。D1按0c94ad5原生启动P02-format-r2共用模块/完整新序列CPU审计并确认ACTIVE。P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。T1启动修复9fe3cbe已交付/原生空闲，S0核验85项hash及174份不变原文件，R1-r3按7981489已原生派发/确认ACTIVE。P03独立PASS a78071b已完整核验139项hash及158份候选字节，CPU代码ACCEPTED，待最终CI/合并/main验证。D1按0c94ad5原生启动P02-format-r2共用模块/完整新序列CPU审计并确认ACTIVE。P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P02合并2ec1767且主干技术验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1已交付/空闲、R1已交P03/空闲并待新P01-r3派发；E1空闲，最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1已交付/空闲，R1按7981489独立审9fe3cbe的P01-r3已活跃；E1空闲，最多两个实现约束保持 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -86,3 +86,5 @@ D1完整角色比较现已交付6c3d330e4b28be0fbc93c273bb2576f7317c69a8，S0核
 T1新完整候选9fe3cbe3a067725c37dc213bbf38f9c90ceb5066普通推送/原生completed/idle，原review经65437ea普通merge保留；S0完整读取两处生产diff、新回归/报告/包探针和正式交接，核对85项hash与9个允许改动/174份不变原文件。原两初始化反例before确实2失败，after实际failed/ended_at/resources/summary齐备且异常对象、缺测/零已执行工作准确；280个不同pytest和14条隔离命令为T1自测。新P01-R1-r3精确候选范围已准备，旧FAIL/历史负结果不改写。
 
 R1对3598cef正式P03-r2 PASS，review a78071bf6ac40f2729e090e1828a1c6022cd8d00严格以其为父，仅6份新增文件，全部158份被审文件不变。S0完整读取新报告/31项独立探针和核对/安装脚本，核验139项日志/结果/源码/安装流/归档hash。原54项及其余335项通过，无skip/xfail；新增31项源路径与安装路径重复验证通过、不重复计数，原三问题全关闭；新实际sdist及默认/显式重建wheel、16条安装命令和各旧FAIL/开发失败保持。R1原生completed/idle已核验；CPU代码达到ACCEPTED，待S0最终集成/CI/main验证，未运行真实MLX/Qwen或正式评测。
+
+最新实际复审接续：S0重新核验R1的P03-r2已completed/idle后，以完整授权79814897340537c232ddc7e1814fc6d4ecb503bb和精确9fe3cbe3a067725c37dc213bbf38f9c90ceb5066原生派发P01-R1-r3，gpt-6-astra/max，新轮次已确认ACTIVE。原a78071b已按原SHA发布review/p03-r2；S0负责P03后续集成，R1继续独立P01不等待其合并。
