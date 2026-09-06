@@ -150,7 +150,7 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 
 ## P02-format-review-r2｜修复后的独立复审准备
 
-本段为READY，尚未派发。待审精确candidate为`8c439f683b9d6b04919ff1f7184d8924ccf82f9f`，已由D1正式交接/普通推送，包含修复b4dc1cf和以6c82d29普通merge保留的公开原review2942e568。S0已核对原报告全部发现、完整修复范围、真实before/after、最终验证及封存；原7bada FAIL/P2=1保持。R1原轮completed/idle及干净公开2942已核验，实际派发仍须原生消息给出完整authorization_commit和该精确candidate。R1在自己的隔离worktree从该候选建立`review/p02-format-r2`，gpt-6-astra/max；不自行接随后main/P01，不重启仍活跃的旧轮次。
+状态：IN_PROGRESS；S0已按完整41233633ac9aeaf72e66b280908bc0156149c0f2原生派发并核验新轮ACTIVE，见末段实际记录。待审精确candidate为`8c439f683b9d6b04919ff1f7184d8924ccf82f9f`，已由D1正式交接/普通推送，包含修复b4dc1cf和以6c82d29普通merge保留的公开原review2942e568。S0已核对原报告全部发现、完整修复范围、真实before/after、最终验证及封存；原7bada FAIL/P2=1保持。R1原轮completed/idle及干净公开2942已核验，完整authorization_commit和该精确candidate已由原生消息送达。R1在自己的隔离worktree从该候选建立`review/p02-format-r2`，gpt-6-astra/max；不自行接随后main/P01，不重启仍活跃的旧轮次。
 
 只新增`reports/review/P02-format-r2/`及`coordination/handoffs/P02-format-review-r2.md`。全部候选实现/测试/描述/提案/旧数据及manifest、人审材料、原review/失败证据、公共状态/ADR/依赖/配置和其他worktree只读；不能自行修实现后签通过。复核D1实际差异是否仅属c6c02a5及后续S0精确同步范围，原review以普通merge保留，原P01/P03和data材料没有夹带改动。
 
@@ -188,3 +188,6 @@ F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。�
 
 
 2026-09-06修复交接核验：D1最终8c439f6、三份公开证据和completion已正式收到，S0范围证明e3e71a50486d12f4b0b11a3b3a148b1a24ebbcfeb0b12f4043692e0671ce6e3b及封存附证5212c4c81a4a82909e6cd261ddd1e81db05308d77969ea49f91ccc0ba0a0ca31均为实际检查结果。修复只有一个生产文件和一个新测试，原234候选文件与12份公开R1材料保持，f708不在公开历史；最终8c只在已测6c82上更新三份本轮证据。39组本轮原始命令和542私有制品封存保持，CI34021506781两个Python jobs所有步骤通过。R1复审仍按上段完整独立范围执行，不因D1自测或S0证据核对直接签PASS；原同名test_independent检查可按已有两组分开调用，保留各组实际分母，勿改旧测试/全局规则。
+
+
+2026-09-06实际复审派发：D1原轮completed/idle已确认；S0再次核验R1原轮completed/idle和干净2942后，按完整授权41233633ac9aeaf72e66b280908bc0156149c0f2原生发送精确8c439f683b9d6b04919ff1f7184d8924ccf82f9f的P02-format-review-r2，显式gpt-6-astra/max，已核验原生新轮ACTIVE。分发词与真实任务映射仅私有保存；原准备范围全部保持，不接随后main/P01、不修改旧原探针/失败、不新建环境或重跑无差异的全量。PR8继续Draft，等待正式独立结论与S0最终集成。
