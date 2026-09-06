@@ -11,3 +11,5 @@
 R1 只允许编辑 `coordination/handoffs/S0-SHARED-02-review-r1.md` 与 `reports/review/S0-SHARED-02/`。不修候选、不加载模型、不导入 ML 后端、不改正式状态。默认 CPU 安装与跨平台静态解析不等同于模型验收；有问题按具体 P0/P1/P2 报告。
 
 S0 交接：`coordination/handoffs/S0-SHARED-02-r1.md`。精确候选在完成自查后固定，R1 PASS、最终 CI 和 main 集成验证前不发布新共享基线。
+
+首轮候选 `55a330b` 被 R1 `cfbc152` 判为 FAIL（P1一项）。S0 修订 `c175bc7` 并保留原 FAIL，完整新候选在复审消息中固定。复审允许 R1 新增 `coordination/handoffs/S0-SHARED-02-review-r2.md` 及上述审查目录内的新证据；旧报告/失败探针不覆盖。重点验证递归目录内部的忽略文件同时从实际 sdist 和直接 wheel 排除，其余依赖/许可结论按未改变字节保留并检查相关回归。

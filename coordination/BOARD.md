@@ -26,4 +26,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4) 候选 `55a330b` 已交独立 R1；新增备选/历史重放环境与显式源码包范围，尚未发布新基线。旧基线禁止默认源码包构建/发行，CPU实现与wheel可继续。
+公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4) 首轮 `55a330b` 被 R1 `cfbc152` 判 FAIL（嵌套私有文件泄入一项 P1）；修订 `c175bc7` 自测 85 个归档探针与 176 CPU 通过，待新精确候选复审。尚未发布新基线，旧基线禁止默认源码包构建/发行，CPU实现与wheel可继续。
