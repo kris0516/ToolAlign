@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE｜请求截止时间测试的确定性复现与修复
 
-状态：IN_PROGRESS；S0核验E1上一轮completed/notLoaded及干净3598cef后，已按完整`fa1ea86361223171a06b5d082a3731b63a00a74a`原生派发并核验新轮ACTIVE，显式gpt-6-astra/max。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
+状态：READY_FOR_REVIEW；E1完整947144f已交付/普通推送，原生completed/idle已核验。授权仍为完整`fa1ea86361223171a06b5d082a3731b63a00a74a`，gpt-6-astra/max；待[R1精确候选独立审查](P03_CI_DEADLINE_REVIEW.md)。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
 
 | 字段 | 本轮值 |
 |---|---|

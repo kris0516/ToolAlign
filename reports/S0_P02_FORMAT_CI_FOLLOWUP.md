@@ -24,3 +24,16 @@ S0自己的第一次证据核验脚本误写了既有场景的名称前缀，exi
 GitHub连接器返回的完整decoded job log按UTF-8私有保存，SHA-256 `81931c5cd7ba3fe8c8cfa1aa4dc172220682c28ed2247359422b584092225013`；失败证据 `fc0e5d6f6720318cb35511d64a75e754298ac1d7d402b1176287928e5e14f77b` 绑定实际job/head/checkout及四份未变文件。测试、harness、executor和isolation在当前已验收main与失败候选字节相同；未按绿色的3.11或旧本机结果忽略失败，也未重复运行CI来覆盖它。
 
 E1的[限域CPU跟进](../coordination/tasks/P03_CI_DEADLINE.md)已按完整`fa1ea86361223171a06b5d082a3731b63a00a74a`原生派发，gpt-6-astra/max，新轮ACTIVE已核验；要求受控慢启动/阶段证明、实际阻塞与回收、有效负向控制及精确候选R1复核。PR8保持Draft；格式代码为ACCEPTED，最终集成/main仍未VERIFIED。09:09 UTC共享GPU租约空闲，人审填写副本100行仍0 reviewer/0 verdict，hash保持；G-DATA/P04及完整P00–P09目标未完成。
+
+
+## E1正式修复交接与R1准备
+
+E1完整候选 `947144fa2dd248113f6db412f120cdae5483c9b8` 已普通推送并读回一致，parent为实测代码 `f69c6a309ff45980c21c2119016f4c5cf8acf8b7`，tree `198606c59676c2fd5e92056d7217dc22c0ee2d8e`。原生本轮completed/idle已核验。仅目标测试、新局部helper与三份交接文档改变；不变生产实现保持原验收范围。
+
+受控0.8秒真实启动复现旧0.6秒测试在operation_started断言失败，请求约704.64ms到期、实际工具停止/回收。新测试按真实启动前/阻塞后阶段推进明确的测试时钟；绕过请求单调约束时，原tool_timeout收尾虽仍得到harness timed_out，共用正向断言实际拒绝。700/1100ms为测试时钟值，不是性能。精确f69完整CPU实际657 passed/0 skipped，含三例及17项真实CPU tokenizer；日志 `1fa81e480d9e787753593260df074b7a5b4457ed6c75ddc5fe48dd67b91f7f01`。
+
+S0完整读取测试/helper、三份交接及验证脚本，核对282候选文件、277原文件不变、15条公开命令与最终19条原始命令、1818件旧文件及2660件新封存条目；集合重叠，实际4767个文件路径。直接解析三份新归档：sdist194485B/89成员，默认和显式重建wheel96713B/47成员；42份生产包载荷与4a1保持，两个新wheel与从精确4a1的45份输入直接构建的基线wheel全部字节相同。证明 `dc09b0aa83cd74e57bae7d8b2641a503b26561f2217398afc750a34011e79c06`；它是交接证据核验，不能替代R1独立结论。
+
+E1保留原失败、负向预期exit1及两次调用设置失败；其辅助inline核对错误只保留交互记录、无独立原stdout/hash，这项限制如实披露。S0首次核对脚本误将旧证据限定在单一私有目录，遗漏三份已记录的历史dist归档，exit1日志 `8d5cbba4370010e214217ac4608494314de867567bea3634f9e5af5fffccef2d` 保留；仅补充三个确切合法路径后通过，日志 `d3452fd5677efc8b7f7858db8298fcf516634e951a56eba8a5ea611d49002988`，候选未变。
+
+[R1精确候选审查范围](../coordination/tasks/P03_CI_DEADLINE_REVIEW.md)READY，尚未原生派发。PR8仍为2b11b7f/Draft；原CI失败未覆盖，新测试独立验收、最终组合CI/main仍待完成，G-DATA/P04保持未放行。
