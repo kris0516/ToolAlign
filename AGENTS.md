@@ -86,7 +86,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU任务、新格式及截止时间测试修订已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)实际合并36b6988，最终CI34029892077两个Python jobs所有步骤成功，main843项CPU通过、2项HF-only跳过，337文件及实际归档载荷绑定通过，见[主干证据](reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原7bada FAIL/P2=1、CI34024093376失败及所有历史数据/审查保持。D1/T1/E1/R1暂无新任务，最多两个实现加独立CPU R1、单一GPU租约约束保持。P02/G-DATA仍待kris实际语义审查及训练配置绑定；P04正式训练尚未授权，下一步准备这些未完成输入。
+P00、共享支持、P01受限兼容校准、P03 CPU任务、新格式及截止时间测试修订已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)实际合并36b6988，最终CI34029892077两个Python jobs所有步骤成功，main843项CPU通过、2项HF-only跳过，337文件及实际归档载荷绑定通过，见[主干证据](reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原7bada FAIL/P2=1、CI34024093376失败及所有历史数据/审查保持。D1的[P02-TRAINING-BINDING](coordination/tasks/P02_TRAINING_BINDING.md) CPU范围已READY、尚未原生派发；T1/E1/R1暂无新任务，最多两个实现加独立CPU R1、单一GPU租约约束保持。P02/G-DATA仍待kris实际语义审查及训练配置绑定；P04正式训练尚未授权，下一步准备这些未完成输入。
 
 ## 工作记录
 

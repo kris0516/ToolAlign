@@ -199,3 +199,6 @@ R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PAS
 
 
 2026-09-06新格式主干验收：原b9f7567 PASS与截止时间修订原1531892 PASS通过普通merge进入PR8；最终CI34029892077双Python所有步骤成功，实际合并36b6988并完成main843CPU/2 HF-only skipped及归档字节绑定，P02-FORMAT-v1技术范围VERIFIED，见[S0主干证据](../../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。整包仍为MERGED：G-DATA语义审查及训练选择/配置/manifest绑定尚未完成；原数据、人审和测量保持，不由格式验收自动放行P04。
+
+
+后续P02-TRAINING-BINDING仅CPU范围已由S0单独准备，见[任务](P02_TRAINING_BINDING.md)及ADR-0019；当前READY、未派发。原work/p02-data及历史产物保持，新分支从已验收36b6988开始。新配置由S0精确原件控制；G-DATA语义与P04训练不因候选选择/人工材料准备而通过。

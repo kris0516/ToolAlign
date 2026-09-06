@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1/T1/E1/R1暂无新任务，P04正式训练尚未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1的P02-TRAINING-BINDING CPU范围已READY但尚未派发；T1/E1/R1暂无新任务，P04正式训练尚未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -135,3 +135,6 @@ E1截止时间测试完整947144f已普通推送/交接并结束；S0核对4767�
 
 
 新格式与截止时间修订实际主干验收：PR8最终head b3d07dd7c0db90085efb647ff7e740fdfbec240b，CI34029892077两Python jobs所有步骤成功；实际main36b6988af6b4e0125b59fb81b1cea142233e14a2与CI/head同tree76fd03e8f86e9892c1ab51c8e8bdd15ea2d28be4。11:23–11:25 UTC在main实际843 passed/2 HF-only skipped、lint/契约/公开扫描和现存三归档直接解析均通过；337文件、100 sdist Git文件及47 wheel载荷匹配main，未新增构建/安装或重写旧测量。摘要b1c14a83774efa975f489a89ff71b4e98411e5ae06902b817d0abf7eea747602，详见主干证据。两项技术范围VERIFIED；11:26 UTC共享GPU空闲，人审100行仍0 reviewer/0 verdict，G-DATA/训练绑定及P04人工检查继续待完成。
+
+
+S0依据ADR-0019准备P02-TRAINING-BINDING：从已验证36b6988进行纯CPU固定选择与13例人工序列材料，smoke1536档固定排名取1600、formal2048档全部合格train，validation按各档全取；原数据/测量/人审保持，原目标全为tool_calls的限制明确登记。精确配置原件及新分支/所有权已写入任务，当前READY未派发。正式模型、G-DATA人审及P04真实trainer门槛不由本准备放行。

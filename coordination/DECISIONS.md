@@ -151,3 +151,20 @@ G1-SFT 单独标 PASS：MLX-LM 0.31.3 的固定mask/身份、保存重载及受�
 影响：P01工程阻断关闭，P03已验证；后续T1只能在相应精确授权中使用已锁环境和这些身份/停止原则。不会因G1通过自动启动正式训练或采用未审新格式；P02人审、ADR-0017实现与新序列/配置绑定仍需分别通过。P05的reference必须来自后续真正验收的SFT checkpoint，当前smoke reference不能冒用。长时训练、量化对照和完整真实harness仍按后续任务实测。
 
 备选为继续修首选DPO或新增第三个训练库；均未采用，因为既定唯一备选已有独立数值和受限模型证据，继续扩展会偏离计划。回退：若后续真实配置与校准假设不相容，停止对应运行、保留原制品和负结果，重新给出具体修订/授权；不得自行抬高预算、重写原G1证据或引入第三个backend。
+
+
+ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合并36b6988，最终双Python CI34029892077及main843CPU/2 HF-only skipped与实际归档绑定通过。该格式实现现为VERIFIED，原规范/描述符字节与旧FAIL/测量均保持；G-DATA和P04训练门槛独立，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。
+
+## ADR-0019｜固定训练选择与人工token/mask材料的CPU准备
+
+日期：2026-09-06；状态：SELECTED_FOR_CPU_IMPLEMENTATION，尚未形成训练选集验收或授权模型运行。已验证代码基线36b6988。选择规则由S0在[精确配置原件](tasks/P02_TRAINING_BINDING_CONFIG.v1.json)给出，D1仅在[P02-TRAINING-BINDING授权](tasks/P02_TRAINING_BINDING.md)中实现；新候选仍需独立R1及S0主干验收。
+
+使用原已验收ToolACE数据及原v1表示审计，仅从train/validation生成新的私有派生选择。每行须保持Example、source/group/split/目标身份，表示成功、总长P+C+唯一EOS不超过profile cap、C含EOS不超过256。正式1.7B数据规则为2048档全部合格行；0.6B smoke为1536档按固定seed42的稳定hash排名取1600条train，validation分别使用各档全部合格行。排名键为canonical_hash(["toolalign.training-selection.v1",42,example_id])，hash升序、同hash按example_id升序；输出顺序固定，无放回。不得按模型分数、最终测试或BFCL选样本。
+
+已有train/validation只读算术为2048档6013/217、1536档3618/197；这些只是既有统计的核对值，实际新选集及输出hash须由本轮生成后验收。1024档只有985条train，无法达到原1k–2k不重复smoke目标；因此选择1536档1600条，保留正式6k–10k目标。0.6B在1536的新格式真实容量尚未测量，正式训练前另做有租约与预算的小型前置检查，不能套用1.7B速度或按此CPU决定启动模型。
+
+所选每行记录最小可容纳的1024/1536/2048右padding桶，保持顺序，不截断/packing/重复或静默丢尾批；这里只绑定数据，不实现trainer。以未来microbatch1/累积8作算术时，1600条为200组；6013条为751组加5尾微步，真实尾批缩放与checkpoint验证仍由P04另行实现验收。P+目标长度合格不保证P+预留256生成token也合格，另列该计数，不能据此修改推理协议或评测分母。
+
+原8228条目标实际全为tool_calls，新选择保持该覆盖限制，不声称包含final/clarify/refuse监督。准备10条实际已选train样本的CPU token/mask材料，并另列三类原创协议检查例；原创补充例不进入训练选集。材料展示完整目标/边界/唯一EOS/shift/右padding及空白人工判定；不能把模型自查写成kris审阅，也不能用这次离线材料代替未来真实trainer的mask核验。
+
+原8,228行native测量和R1一次reference全量仍保留旧代码/环境/时间；本轮只读旧指标选择并用少量明确样本实际核对当前格式，禁止无差异全量重跑。公开仅代码、配置、去敏hash/统计及原创fixtures，所有选中原文/IDs/token数组和人工材料私有保存。G-DATA语义人审与训练配置绑定分别待验收，配置training_authorized固定false。若输入/表示身份不符或后续人工要求修数据，停止该绑定的使用，以新版本/新授权处理，保留旧选择及失败；不改写原数据或抬高预算。

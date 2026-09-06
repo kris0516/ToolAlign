@@ -1,6 +1,6 @@
 # 16｜Action JSON、消息投影与序列身份
 
-2026-09-06，ADR-0017。状态：**已选定实现规范，尚未实现验收或启用正式训练**。规范描述为 [model_io.action-json.v1.json](../configs/model_io.action-json.v1.json)；`format_id=toolalign.action-json.qwen3-message-roles.v1`。本规范不修改冻结 `toolalign.contracts.v1`，也不替代 G-DATA、G1 或 P04 的模型与人工检查。
+2026-09-06，ADR-0017。状态：**实现已在36b6988通过独立R1、最终CI及main技术验收；正式训练尚未授权**，见[S0主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。规范描述为 [model_io.action-json.v1.json](../configs/model_io.action-json.v1.json)；`format_id=toolalign.action-json.qwen3-message-roles.v1`。本规范不修改冻结 `toolalign.contracts.v1`，也不替代 G-DATA、G1 或 P04 的模型与人工检查。
 
 ## 选择依据
 
