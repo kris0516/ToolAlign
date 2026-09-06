@@ -1,0 +1,2111 @@
+{
+  "authorization_commit": "52f9c57a50eaf580a1a90bc5c4b8bd028c83b903",
+  "candidate_commit": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+  "candidate_merge": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+  "candidate_scope_from_sync_base": {
+    "deletions": 1,
+    "files": 19,
+    "insertions": 3263
+  },
+  "candidate_tracked_files_byte_unchanged": 146,
+  "candidate_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "ended_at": "2026-09-06T03:11:59.485172+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "core-sync.log",
+      "name": "core-sync",
+      "sha256": "3e2716fdca7c983cacd74f3d76c02fa50f9488bd809edba89bcc66ccba287cc9",
+      "started_at": "2026-09-06T03:11:59.455277+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ],
+      "ended_at": "2026-09-06T03:12:24.447188+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "cpu-regression.log",
+      "name": "cpu-regression",
+      "sha256": "815305d42ac69da6fd024a5b2b8695bb574256e2d52415f55d70dab9fea5b93f",
+      "started_at": "2026-09-06T03:11:59.552804+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "--basetemp=.toolalign-local/review-p03/lifecycle-initial"
+      ],
+      "ended_at": "2026-09-06T03:19:24.422686+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F1: 3 passed / 2 failed; the final 54-test run supersedes these intermediate counts.",
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "initial-lifecycle-probes.log",
+      "name": "initial-lifecycle-probes",
+      "sha256": "cca06a0597b2eb3deba2477f11aff29f817c0940d58abb2b2b034fc0db6ca7fc",
+      "started_at": "2026-09-06T03:19:23.631224+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "-k",
+        "real_blocking",
+        "--basetemp=.toolalign-local/review-p03/blocking-proof"
+      ],
+      "ended_at": "2026-09-06T03:21:32.559741+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "real-blocking-reaping.log",
+      "name": "real-blocking-reaping",
+      "sha256": "64f8ead942e548bb4d9c8c55daa6465daadcc8ab825e9ece6e1a885d4813e065",
+      "started_at": "2026-09-06T03:21:29.370109+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_semantics.py",
+        "--basetemp=.toolalign-local/review-p03/semantics"
+      ],
+      "ended_at": "2026-09-06T03:28:17.630198+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "semantic-and-binding-probes.log",
+      "name": "semantic-and-binding-probes",
+      "sha256": "b86c96016498d2964535c51ef391fa4055263defa467672e48749823d94cf222",
+      "started_at": "2026-09-06T03:28:11.775075+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_semantics.py",
+        "-k",
+        "boolean_is or retry_budget or 257_token or oversize_multibyte",
+        "--basetemp=.toolalign-local/review-p03/budget-proof"
+      ],
+      "ended_at": "2026-09-06T03:31:07.923571+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "expanded-semantic-budgets.log",
+      "name": "expanded-semantic-budgets",
+      "sha256": "a9ba205058bd541f19ca2e87cfe7cdf7941d44caca0f39105fda4e544f628531",
+      "started_at": "2026-09-06T03:31:06.531376+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "-k",
+        "observation_before_execution or shared_monotonic",
+        "--basetemp=.toolalign-local/review-p03/trace-clock-proof"
+      ],
+      "ended_at": "2026-09-06T03:32:46.418763+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F3: invalid causal trace scored success; monotonic deadline control passed (1 passed / 1 failed).",
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "trace-order-and-clock.log",
+      "name": "trace-order-and-clock",
+      "sha256": "e414199cc8e0cc7c8640e0ca14ba07c511e1a5ac9ba5aa95c4cfaed2d55775a1",
+      "started_at": "2026-09-06T03:32:45.081373+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "from pathlib import Path\nimport hashlib,json\nbase=Path('<E1_WORKTREE>')\nexpected={'dist/toolalign-0.0.1.tar.gz':'a095ab30fbd3ffc35689253164be79b70dc0061d80078f80bb47c88d9a54178f','dist/toolalign-0.0.1-py3-none-any.whl':'e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c','.toolalign-local/p03-base-r2/rebuilt/toolalign-0.0.1-py3-none-any.whl':'e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c'}\nout=Path('.toolalign-local/review-p03/e1-frozen-packages');out.mkdir()\nmanifest={}\nfor relative,digest in expected.items():\n path=base/relative;data=path.read_bytes();actual=hashlib.sha256(data).hexdigest()\n assert actual==digest,relative\n name=('rebuilt-' if 'rebuilt/' in relative else '')+path.name\n (out/name).write_bytes(data)\n manifest[relative]={'sha256':actual,'bytes':len(data),'snapshot_filename':name}\n(out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\\n')\nprint(json.dumps(manifest,indent=2))\n"
+      ],
+      "ended_at": "2026-09-06T03:34:12.128911+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "freeze-historical-packages.log",
+      "name": "freeze-historical-packages",
+      "sha256": "8ecb85f7ffe1d0715c7681034992e9cfe0dff7cf62db756fb674b3716591b838",
+      "started_at": "2026-09-06T03:34:12.092497+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03/audit_p03_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--package-snapshot",
+        ".toolalign-local/review-p03/e1-frozen-packages",
+        "--output",
+        ".toolalign-local/review-p03/historical-audit.json"
+      ],
+      "ended_at": "2026-09-06T03:37:40.585339+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "historical-evidence.log",
+      "name": "historical-evidence",
+      "sha256": "52f028c703d94ddfac7c15d9709c6f6e30e0436f0ede61ee2831a0c8307f2bfc",
+      "started_at": "2026-09-06T03:37:39.547522+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "-k",
+        "directory_cleanup",
+        "--basetemp=.toolalign-local/review-p03/cleanup-proof"
+      ],
+      "ended_at": "2026-09-06T03:39:41.221178+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F2: both original CPU cases raised ValueError after the actual Process was closed (2 failed).",
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "cleanup-failure-probes.log",
+      "name": "cleanup-failure-probes",
+      "sha256": "5f645c1ed155d96c8cdd3ad035323a3635d0616592352a8135524a9fcdd91a7b",
+      "started_at": "2026-09-06T03:39:40.743431+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--out-dir",
+        ".toolalign-local/review-p03/build"
+      ],
+      "ended_at": "2026-09-06T03:39:41.638763+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "package-build.log",
+      "name": "package-build",
+      "sha256": "e17826860b152bcf563930df90acfc5022aac6fbdcce59a3dff86f3cdb7fe524",
+      "started_at": "2026-09-06T03:39:41.265914+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p03/rebuilt",
+        ".toolalign-local/review-p03/build/toolalign-0.0.1.tar.gz"
+      ],
+      "ended_at": "2026-09-06T03:40:58.547992+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "wheel-from-actual-sdist.log",
+      "name": "wheel-from-actual-sdist",
+      "sha256": "6f38e4999039370a6dadc3fa345e976c8d366d82b7fec832b99bc0f5e04421cd",
+      "started_at": "2026-09-06T03:40:58.340551+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p03/direct-wheel"
+      ],
+      "ended_at": "2026-09-06T03:40:58.789454+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "direct-wheel.log",
+      "name": "direct-wheel",
+      "sha256": "32c27f9d09366eea43574a6682cdd8abb8d157d095e0ba75e84d8eb0281f6dc6",
+      "started_at": "2026-09-06T03:40:58.592532+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "reports/review/P03/"
+      ],
+      "ended_at": "2026-09-06T03:41:48.323813+00:00",
+      "exit_code": 1,
+      "failure_classification": "R1 test import-order error (I001), corrected only in the new review files before the final lint and test runs; not a candidate defect.",
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "review-lint-initial.log",
+      "name": "review-lint-initial",
+      "sha256": "fa882f1e2734842eba8c5dacb97a233c3aaf435da9416e65b610f63ff0e95435",
+      "started_at": "2026-09-06T03:41:48.283262+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03/verify_p03_package.py"
+      ],
+      "ended_at": "2026-09-06T03:44:37.966130+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "isolated-package-verification.log",
+      "name": "isolated-package-verification",
+      "sha256": "762b6347d052d8ce0b44a0317944b93239c83b7085090d3143f3c8f8e83e78dc",
+      "started_at": "2026-09-06T03:44:34.648302+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03/audit_p03_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--package-snapshot",
+        ".toolalign-local/review-p03/e1-frozen-packages",
+        "--output",
+        ".toolalign-local/review-p03/historical-audit-final.json"
+      ],
+      "ended_at": "2026-09-06T03:46:14.814275+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "final-historical-audit.log",
+      "name": "final-historical-audit",
+      "sha256": "52f028c703d94ddfac7c15d9709c6f6e30e0436f0ede61ee2831a0c8307f2bfc",
+      "started_at": "2026-09-06T03:46:13.727971+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "--basetemp=.toolalign-local/review-p03/final-probes"
+      ],
+      "ended_at": "2026-09-06T03:46:24.649826+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F1/F2/F3: 49 passed / 5 failed; four blocking lifecycle failures and one nonblocking oracle failure, no xfail.",
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "final-independent-probes.log",
+      "name": "final-independent-probes",
+      "sha256": "f76c90afc0f3c80adcd20b7230db3d5d73b012ca61d20c4c209d0b5d5e7adbf5",
+      "started_at": "2026-09-06T03:46:12.561118+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "ended_at": "2026-09-06T03:46:52.324114+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "final-lint.log",
+      "name": "final-lint",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T03:46:52.277497+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "ended_at": "2026-09-06T03:46:52.432261+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "contract-freeze.log",
+      "name": "contract-freeze",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T03:46:52.390179+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import importlib.metadata,importlib.util,json,platform,subprocess,sys,tomllib\nfrom pathlib import Path\nroot=Path.cwd()\npackages={item.metadata['Name']:item.version for item in importlib.metadata.distributions()}\nlock={item['name'].lower().replace('_','-'):item['version'] for item in tomllib.loads((root/'uv.lock').read_text())['package']}\nfor name,version in packages.items():assert lock[name.lower().replace('_','-')]==version,(name,version)\nassert all(importlib.util.find_spec(name) is None for name in ['mlx','mlx_lm','torch','transformers'])\nblocks={}\nfor name in ['.venv','.toolalign-local/review-p03']:\n result=subprocess.check_output(['du','-sk',name],text=True).split()[0]\n blocks[name]=int(result)*1024\nrecord={'python':sys.version.split()[0],'platform':platform.platform(),'machine':platform.machine(),'distributions':packages,'allocated_disk_bytes':blocks,'all_installed_versions_match_lock':True,'model_packages_available':[]}\nPath('.toolalign-local/review-p03/environment.json').write_text(json.dumps(record,indent=2,sort_keys=True)+'\\n')\nprint(json.dumps(record,indent=2,sort_keys=True))\n"
+      ],
+      "ended_at": "2026-09-06T03:46:52.582383+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+      "log": "cpu-environment.log",
+      "name": "cpu-environment",
+      "sha256": "84f452a7a885c5adde2a72f2f3bbcf61a8b6bbf10c0a49762b7e9e6eb8e55c7b",
+      "started_at": "2026-09-06T03:46:52.498354+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "ended_at": "2026-09-06T03:59:30.198328+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "b37aa6503166cdbd68b99b8751ffe9d3b7c6cc92",
+      "log": "public-content.log",
+      "name": "public-content",
+      "sha256": "1c7650d394be6ba16e102fb345bd345bebd3a84a551749fbfc3cf0300cfbf9e4",
+      "started_at": "2026-09-06T03:59:28.073696+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/review-p03/verify_scope.py"
+      ],
+      "ended_at": "2026-09-06T03:59:41.020862+00:00",
+      "exit_code": 0,
+      "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+      "index_tree": "b37aa6503166cdbd68b99b8751ffe9d3b7c6cc92",
+      "log": "scope-and-staged-diff.log",
+      "name": "scope-and-staged-diff",
+      "sha256": "a65bc7b5f0a55dc485eff6f08d60bce86e32c2e960b09d6e9d3427a324b645ad",
+      "started_at": "2026-09-06T03:59:39.841231+00:00"
+    }
+  ],
+  "contract_lock_sha256": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "cpu_counts": {
+    "applicable_original_pytest_passed": 309,
+    "composition": {
+      "P00_r2_review": 72,
+      "P00_review": 46,
+      "P03": 133,
+      "core": 58
+    },
+    "counts_are_not_coverage_percentages": true,
+    "historical_57_shared_snapshot_tests_included": false,
+    "historical_original_191_count_is_not_current_total": true,
+    "independent_by_file": {
+      "lifecycle": {
+        "failed": 4,
+        "passed": 8
+      },
+      "semantics": {
+        "failed": 1,
+        "passed": 41
+      }
+    },
+    "independent_pytest_failed": 5,
+    "independent_pytest_passed": 49,
+    "independent_pytest_total": 54,
+    "intermediate_repeated_probes_added_to_final_count": false
+  },
+  "date": "2026-09-06",
+  "environment": {
+    "all_installed_versions_match_lock": true,
+    "allocated_disk_bytes": {
+      ".toolalign-local/review-p03": 4444160,
+      ".venv": 36245504
+    },
+    "distributions": {
+      "Pygments": "2.21.0",
+      "attrs": "26.1.0",
+      "iniconfig": "2.3.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "pytest": "9.0.2",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "ruff": "0.15.0",
+      "toolalign": "0.0.1"
+    },
+    "machine": "arm64",
+    "model_packages_available": [],
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "findings": [
+    {
+      "blocking": true,
+      "end": 231,
+      "file": "src/toolalign/evaluation/harness.py",
+      "fix_direction": "Make stop notification best effort; always perform owned cleanup and return terminal trace, known usage and a failure reason without repeating a failing stop write.",
+      "id": "F1",
+      "limits": "No real CLI fault run or measured denominator inflation; the missing return is observed, CLI early abort is a control-flow inference.",
+      "priority": "P1",
+      "proof": "Two original CPU cases (normal final and raw parse failure), injecting only parent stop.json EIO; both generated outputs with known 13 input / 9 output token counters, both raised OSError with no HarnessResult.",
+      "related_location": "src/toolalign/evaluation/harness.py:413-417",
+      "start": 225,
+      "summary": "Failure to write the parent-owned stop packet re-enters finish and raises again before returning terminal evidence; finally still reaps the real child."
+    },
+    {
+      "blocking": true,
+      "end": 126,
+      "file": "src/toolalign/tools/isolation.py",
+      "fix_direction": "Track process reaping, handle closure and temporary-directory cleanup separately; repeated close must stay valid after any cleanup failure and preserve terminal result plus the actual cleanup error.",
+      "id": "F2",
+      "priority": "P1",
+      "proof": "Two independently authored CPU cases on the frozen candidate; directory cleanup EIO after actual process exit 0 and handle close caused ValueError: process object is closed. Directory remained until explicit review-only safety cleanup.",
+      "provenance": "S0 reported the same failure category while the review was active; the review independently reproduced it without reading E1 uncommitted tests or adopting a fix.",
+      "related_location": "src/toolalign/tools/isolation.py:107-111; src/toolalign/evaluation/harness.py:413-417",
+      "start": 124,
+      "summary": "Temporary-directory cleanup can raise after process.close() but before the closed flag, so later cleanup re-enters a closed Process, masks the original error and prevents terminal evidence."
+    },
+    {
+      "blocking": false,
+      "end": 116,
+      "file": "src/toolalign/evaluation/oracles/semantic.py",
+      "fix_direction": "Validate an ordered pending-call sequence before strategy matching; reject unreliable order with unknown without changing the frozen schema.",
+      "id": "F3",
+      "limits": "No claim that LocalHarness currently emits such traces; independent audits found correct causal order in all 180 historical plus 90 new installed demo events.",
+      "priority": "P2",
+      "proof": "Start from an independently authored successful case, swap execution and observation, preserve identities and monotonic latency, renumber indices and validate every wire event; expected unknown, observed success.",
+      "start": 104,
+      "summary": "Separately flattening calls and observations loses causal order; a wire-valid trace with observation before execution still scores success."
+    }
+  ],
+  "findings_counts": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 1
+  },
+  "frozen_contract_files": {
+    "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15",
+    "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+    "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69"
+  },
+  "gate": {
+    "P03_full_candidate": "FAIL",
+    "blocking_findings": [
+      "F1",
+      "F2"
+    ],
+    "nonblocking_findings": [
+      "F3"
+    ]
+  },
+  "historical_evidence_audit": {
+    "archives": {
+      "default-wheel": {
+        "archive_files": 29,
+        "bytes": 37042,
+        "generated_metadata_files": 5,
+        "sha256": "e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "rebuilt-wheel": {
+        "archive_files": 29,
+        "bytes": 37042,
+        "generated_metadata_files": 5,
+        "sha256": "e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "sdist": {
+        "archive_files": 50,
+        "bytes": 112760,
+        "generated_metadata_files": 1,
+        "sha256": "a095ab30fbd3ffc35689253164be79b70dc0061d80078f80bb47c88d9a54178f",
+        "tracked_files_matched": 49,
+        "untracked_payloads": 0
+      }
+    },
+    "base_r2_command_count": 16,
+    "candidate": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+    "candidate_changed_files": [
+      "coordination/handoffs/P03-base-r2.md",
+      "coordination/handoffs/P03-r1.md",
+      "reports/harness/P03_BASE_R2_VERIFICATION.md",
+      "reports/harness/P03_CPU_VERIFICATION.md",
+      "reports/harness/README.md",
+      "src/toolalign/evaluation/harness.py",
+      "src/toolalign/evaluation/oracles/__init__.py",
+      "src/toolalign/evaluation/oracles/semantic.py",
+      "src/toolalign/tools/__init__.py",
+      "src/toolalign/tools/__main__.py",
+      "src/toolalign/tools/_json.py",
+      "src/toolalign/tools/catalog.py",
+      "src/toolalign/tools/executor.py",
+      "src/toolalign/tools/isolation.py",
+      "src/toolalign/tools/registry.py",
+      "src/toolalign/tools/scripted.py",
+      "tests/evaluation/harness/test_harness.py",
+      "tests/fixtures/tools/development.json",
+      "tests/tools/test_registry_executor.py"
+    ],
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "tests/fixtures/tools/development.json",
+          "--output",
+          ".toolalign-local/p03/demo-candidate"
+        ],
+        "elapsed_seconds": 1.6753090838901699,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "demo-commit",
+        "log_bytes": 1335,
+        "log_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396",
+        "started_at": "2026-09-06T00:30:38.645157+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "-c",
+          "import json,platform,sys,subprocess; print(json.dumps({\"python\":sys.version,\"platform\":platform.platform(),\"machine\":platform.machine(),\"cpu\":subprocess.check_output([\"sysctl\",\"-n\",\"machdep.cpu.brand_string\"],text=True).strip(),\"memory_bytes\":int(subprocess.check_output([\"sysctl\",\"-n\",\"hw.memsize\"],text=True))},indent=2))"
+        ],
+        "elapsed_seconds": 0.03900162479840219,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "environment-commit",
+        "log_bytes": 202,
+        "log_sha256": "6fb8773ff291b0a4321e4be2c5796f1a3695e1f5ab63bdf2598be38eacfe2dc1",
+        "started_at": "2026-09-06T00:31:37.506784+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.02986358292400837,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "freeze-code",
+        "log_bytes": 39,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T00:27:00.123147+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.028010624926537275,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "freeze-commit",
+        "log_bytes": 39,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T00:31:37.488697+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.026269207941368222,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "b4fef76c9ef9831da9baa4decb1b5e4fe2ccf50d",
+        "label": "freeze-handoff",
+        "log_bytes": 39,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T00:38:08.359780+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "elapsed_seconds": 0.07242308394052088,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "help-code",
+        "log_bytes": 363,
+        "log_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356",
+        "started_at": "2026-09-06T00:27:00.144654+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 1.8843677078839391,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "public-code",
+        "log_bytes": 92,
+        "log_sha256": "5d9ff74e39c20e56944028aece9c284f7b3aed12854225b591bcd599af185365",
+        "started_at": "2026-09-06T00:27:00.156499+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 1.5936923751141876,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "public-final-code",
+        "log_bytes": 92,
+        "log_sha256": "5d9ff74e39c20e56944028aece9c284f7b3aed12854225b591bcd599af185365",
+        "started_at": "2026-09-06T00:30:25.696696+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 1.6569310419727117,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "b4fef76c9ef9831da9baa4decb1b5e4fe2ccf50d",
+        "label": "public-handoff",
+        "log_bytes": 92,
+        "log_sha256": "d95c06c960a1c67ca73de383b1ab2249830032bf61bab774c29a0f22bea6385d",
+        "started_at": "2026-09-06T00:38:08.350010+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "elapsed_seconds": 22.205426458036527,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "pytest-code",
+        "log_bytes": 261,
+        "log_sha256": "3d1a8f4a12a1882567568224f0c9723e800dae4c7ed2e1e55c1c7e5024e78a68",
+        "started_at": "2026-09-06T00:27:00.113648+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "elapsed_seconds": 21.956245915964246,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "pytest-commit",
+        "log_bytes": 261,
+        "log_sha256": "5d0830a9749a3df56744fb4a29858b0f6bf7684632e095e9ce10c4abb2be40b9",
+        "started_at": "2026-09-06T00:32:10.608739+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "elapsed_seconds": 21.996748958015814,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "6ad34ab0e496a835f634ac4e1571a736798393fa",
+        "label": "pytest-final-code",
+        "log_bytes": 261,
+        "log_sha256": "076fd90c68f56444bb22c6906fd84457b32d09645b78c3210f3e9ba85216dfc9",
+        "started_at": "2026-09-06T00:28:03.336225+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "elapsed_seconds": 0.08396879187785089,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "registry-commit",
+        "log_bytes": 8177,
+        "log_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5",
+        "started_at": "2026-09-06T00:31:37.495800+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.026263666804879904,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "ruff-code",
+        "log_bytes": 19,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T00:27:00.134170+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.021225708071142435,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "ruff-final-code",
+        "log_bytes": 19,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T00:30:25.693765+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.021078000077977777,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "b4fef76c9ef9831da9baa4decb1b5e4fe2ccf50d",
+        "label": "ruff-handoff",
+        "log_bytes": 19,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T00:38:08.334052+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--name-only",
+          "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+          "HEAD"
+        ],
+        "elapsed_seconds": 0.009244041983038187,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "scope-commit",
+        "log_bytes": 522,
+        "log_sha256": "47bc4ee9d8fc1313f1e8ef3188ba70dbf2124c59b6dc83d33f3939dc4a2ba70b",
+        "started_at": "2026-09-06T00:32:10.518193+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "sync",
+          "--locked",
+          "--python",
+          "3.14"
+        ],
+        "elapsed_seconds": 0.010609374847263098,
+        "exit_code": 0,
+        "group": "original",
+        "head": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+        "index_tree": "7f2e601ee48aeac6078ced283711bd9d6d7779bb",
+        "label": "sync-code",
+        "log_bytes": 58,
+        "log_sha256": "9c778d73ab68fb80eaf6a4adbf5ea6b760119ec24acb029dbfcc5185a5fc034e",
+        "started_at": "2026-09-06T00:26:47.885729+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests/tools/",
+          "tests/evaluation/harness/"
+        ],
+        "elapsed_seconds": 20.80139987496659,
+        "exit_code": 0,
+        "group": "original",
+        "head": "8afb114bd14e69d3a2138212ab423147809fed63",
+        "index_tree": "c4230035c29dae8598504cb71d06b56a8fb12cba",
+        "label": "targeted-commit",
+        "log_bytes": 181,
+        "log_sha256": "9b135dfcfa9d4f702f34bfe71b3f6945296c8979631360cdf3c1366010a922a3",
+        "started_at": "2026-09-06T00:30:37.479993+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "--with",
+          "hatchling==1.27.0",
+          "python",
+          "reports/review/S0-SHARED-02/probe_additional_boundaries_r3.py"
+        ],
+        "elapsed_seconds": 3.258846875047311,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "additional-canary",
+        "log_bytes": 859,
+        "log_sha256": "7e0cf34222b4a5b45d2e9d5129cd149fa89289b70598e582b876719101a04537",
+        "started_at": "2026-09-06T01:26:28.230897+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          ".toolalign-local/p03-base-r2/inspect_archives.py"
+        ],
+        "elapsed_seconds": 0.3731707080733031,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "artifact-inspection-corrected",
+        "log_bytes": 1297,
+        "log_sha256": "7109107e593c049a0d6d065a180dbff465aef461c85df79204f54543d2a1162c",
+        "started_at": "2026-09-06T01:28:10.412688+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          ".toolalign-local/p03-base-r2/inspect_archives.py"
+        ],
+        "elapsed_seconds": 0.36402870807796717,
+        "exit_code": 1,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "artifact-inspection",
+        "log_bytes": 492,
+        "log_sha256": "f5dcc5fe9b300c43f1c6c26a62e6e6cd38eddc1c6f9f6b7d067e8b7941c94b71",
+        "started_at": "2026-09-06T01:26:27.811922+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build"
+        ],
+        "elapsed_seconds": 0.3399067921563983,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "build",
+        "log_bytes": 179,
+        "log_sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+        "started_at": "2026-09-06T01:23:55.222804+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests",
+          "reports/review/P00/test_independent.py",
+          "reports/review/P00-r2/test_revision_boundaries.py"
+        ],
+        "elapsed_seconds": 24.19192924979143,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "cpu",
+        "log_bytes": 421,
+        "log_sha256": "cfa7ec544f2552516dcaf8a812b049c693e8461e141d84175c0b1b70457472c1",
+        "started_at": "2026-09-06T01:20:31.747047+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.02882500016130507,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "freeze",
+        "log_bytes": 39,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T01:20:31.773051+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          ".toolalign-local/p03-base-r2/verify_install.py"
+        ],
+        "elapsed_seconds": 4.936577833024785,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "isolated-install",
+        "log_bytes": 992,
+        "log_sha256": "15948e3c943ffa303a4a77e090b5c69948d047ce45ee44e54797af1e663e5346",
+        "started_at": "2026-09-06T01:28:10.843174+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "merge",
+          "--no-ff",
+          "f2a271be616cdb53c01e8d671029f31ae140c037",
+          "-m",
+          "merge: sync P03 with verified shared CPU packaging baseline"
+        ],
+        "elapsed_seconds": 0.03206420806236565,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "merge",
+        "log_bytes": 3572,
+        "log_sha256": "7a35f41eea56fbc7ebafa76d57c7c19ee17837fce402004187a02c38c5d45bb8",
+        "started_at": "2026-09-06T01:18:50.236336+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.087101416895166,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "public-final",
+        "log_bytes": 92,
+        "log_sha256": "4143e4e6c2ac76a45a3a8b1baf5a6dd2d40a787d326c680054161af523000950",
+        "started_at": "2026-09-06T01:37:08.567873+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.3726125420071185,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "public",
+        "log_bytes": 92,
+        "log_sha256": "ad4e3c8d6e3deb619f9ac0f34b5e45707f44b4589c4147424d01c7d2362b9095",
+        "started_at": "2026-09-06T01:20:31.785794+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "push",
+          "-u",
+          "origin",
+          "work/p03-execution-harness"
+        ],
+        "elapsed_seconds": 2.1335299171041697,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "push",
+        "log_bytes": 419,
+        "log_sha256": "6c1e7aea609d139b94092700465dec2c8f44e3d45a2278e1d78f0d0a2c18de85",
+        "started_at": "2026-09-06T01:38:23.095844+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build",
+          "--wheel",
+          "--out-dir",
+          ".toolalign-local/p03-base-r2/rebuilt",
+          "dist/toolalign-0.0.1.tar.gz"
+        ],
+        "elapsed_seconds": 0.17895620898343623,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "rebuilt-wheel",
+        "log_bytes": 132,
+        "log_sha256": "f9190e2a692506b39af139d8c5152550e3e4f160f09e173a6bb27387c9ec2d11",
+        "started_at": "2026-09-06T01:26:27.574983+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "ls-remote",
+          "--exit-code",
+          "origin",
+          "refs/heads/work/p03-execution-harness"
+        ],
+        "elapsed_seconds": 0.9973001249600202,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "remote-head",
+        "log_bytes": 79,
+        "log_sha256": "8a07f038f05ecfe9e2c9c2aa83f0c30083892ef55e8c71d4a49b422ebb59bdab",
+        "started_at": "2026-09-06T01:40:01.844154+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.05558066605590284,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "ruff",
+        "log_bytes": 19,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T01:20:31.760099+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_source_distribution.py"
+        ],
+        "elapsed_seconds": 0.8127279581967741,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "source-canary",
+        "log_bytes": 251,
+        "log_sha256": "e08abd64a116a575ce2a993a45d0e84c05f0f359e3d60dfa192247308410fd72",
+        "started_at": "2026-09-06T01:23:54.351848+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "sync",
+          "--locked",
+          "--python",
+          "3.14"
+        ],
+        "elapsed_seconds": 0.31687300000339746,
+        "exit_code": 0,
+        "group": "base-r2",
+        "head": "86c5e8abaf0a6518fda0d33dba1b68eb6815737a",
+        "index_tree": "969724e49233c44bd282694f973095a4cec0d3b0",
+        "label": "sync",
+        "log_bytes": 343,
+        "log_sha256": "1bf0a7707bd4636ea27da8dde5f7dc742a55e834aa1ec6b97b33705b76f438d0",
+        "started_at": "2026-09-06T01:20:31.366786+00:00"
+      }
+    ],
+    "demos": {
+      "base-r2-installed": {
+        "actual_process_liveness_now": "NOT_INFERRED_FROM_HISTORICAL_RECORDS",
+        "artifact_sha256": {
+          "case-00.json": "b0dab8c2d66942ce56bcb5913147ad23377305dcec49152c3514022c87ce07ea",
+          "case-01.json": "26d51b31f32a76d5a6dc5cff11e0aa5eb514a433d52e8bd349a56071041eeceb",
+          "case-02.json": "58a503e60fce92496bd54fe6ae964c8770be65d8f28fc5dfcebf21b354e1a85b",
+          "case-03.json": "779d308e27d01b0467a942b82785f4c91afdf650e3a16b4a82687fee6681d736",
+          "case-04.json": "26c6df8c0996b3eeac21a213577d10337def6beaac73bbabcaf78164d7f381f8",
+          "case-05.json": "fbe70ffa123b499440fde1d1b17bb1ea15aafc75712dd099c44afe5482cd3567",
+          "case-06.json": "feaef3f84b54901b144be2a8854c151acf798bea912c1c5e261a98797f964d70",
+          "case-07.json": "5d20ca998fcbd6f3f0ee39abc244e4ede591442c2ab5e8ec61b78fc0ed20cc22",
+          "case-08.json": "8c38915a000f31640171b1889b86cc54ee1e46984dd252776e648bff97e1893b",
+          "case-09.json": "0ce2564c5ba8288c49ff886ece37d9854dfcabce24fc761061aa6f5014c2c2e0",
+          "summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+        },
+        "counts": {
+          "cases": 10,
+          "model_decisions": 20,
+          "operations_started": 20,
+          "owned_processes": 20,
+          "reaped_processes": 20,
+          "synthetic_input_tokens": 220,
+          "synthetic_output_tokens": 140,
+          "tool_rounds": 10,
+          "trace_events": 90
+        },
+        "tool_results": {
+          "completed": 9,
+          "error": 1
+        }
+      },
+      "original-candidate": {
+        "actual_process_liveness_now": "NOT_INFERRED_FROM_HISTORICAL_RECORDS",
+        "artifact_sha256": {
+          "case-00.json": "c56314bf9a64e15ec9f569ab713fcea2d8e31b3bf23ee2d5e482401c0c825a82",
+          "case-01.json": "264413babee850c9ab6950331b3ebcce5310ed3c3c1650788e29e163c9e416ac",
+          "case-02.json": "ccacac578533b84ac85027025fe32c4865d2638e1a4f3128e958b83b35c46e98",
+          "case-03.json": "0095210ab3d7091703cf77375a0e7cf468f17708ac9ab90a358b24c991363072",
+          "case-04.json": "4945ab5f6ec2e616b92b60e573ff06e1d85e97c13bb8f1307a790e98032a328a",
+          "case-05.json": "f98983ddce727e02ef095fa354b54e6a8bebac8a1235b16d4f5c7b516e05f1d8",
+          "case-06.json": "84823ee02eea020e9184ba0c232b7a717b90ef5d0f9b6f82312d9b949c43bdb6",
+          "case-07.json": "28d8f5975dec89fc5631c8a06ff9d4d5c11a3bf5e7b98af540f1f5d83709132d",
+          "case-08.json": "5351de07e5fdac9379b8fb8feb0415d2dfea7c32afe7b66b33b3f0a5485aa9a0",
+          "case-09.json": "d0681a2b5d09d3575cd5f5002b70e6819da4d28a107507b766e9102210967d34",
+          "summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+        },
+        "counts": {
+          "cases": 10,
+          "model_decisions": 20,
+          "operations_started": 20,
+          "owned_processes": 20,
+          "reaped_processes": 20,
+          "synthetic_input_tokens": 220,
+          "synthetic_output_tokens": 140,
+          "tool_rounds": 10,
+          "trace_events": 90
+        },
+        "tool_results": {
+          "completed": 9,
+          "error": 1
+        }
+      }
+    },
+    "historical_installed_blocking_probe": {
+      "blocking_checks": {
+        "model-cancelled": "cancelled",
+        "model-timed_out": "timed_out",
+        "tool-cancelled": "cancelled",
+        "tool-timed_out": "timed_out"
+      },
+      "frozen_schema_available": true,
+      "installed_modules": 4,
+      "ml_imports": 0,
+      "module_origins_inside_venv": true,
+      "owned_reaped_processes": 4,
+      "owned_started_processes": 4,
+      "registry_hash": "6cf0ff5e0b775068ddd9690e66414eee97725865d520e8df37072bc53d4085b8"
+    },
+    "historical_installed_commands": [
+      {
+        "argv": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "label": "export",
+        "log_sha256": "ed5c0c2b85489d6ca568a40b9716f4aab3a4f659aeed8c73d2abfc10469dec7d"
+      },
+      {
+        "argv": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv"
+        ],
+        "exit_code": 0,
+        "label": "venv",
+        "log_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "label": "dependencies",
+        "log_sha256": "4d33a6468cdda81bac4cdff85369d923c2efa562c1c204aff305e4e91eba01d4"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "--no-deps",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "label": "wheel-install",
+        "log_sha256": "d792ac6cb1107ea97191b6cc298665002361cdeee035537e1d15251132fb7fe5"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python"
+        ],
+        "exit_code": 0,
+        "label": "dependency-check",
+        "log_sha256": "441817e617b651f1d95ad67b0dee2d164507fb3d20eb505d518a52384b2123a2"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "label": "digest",
+        "log_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/example.json"
+        ],
+        "exit_code": 0,
+        "label": "validate-example",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/tool.json"
+        ],
+        "exit_code": 0,
+        "label": "validate-tool",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/preference.json"
+        ],
+        "exit_code": 0,
+        "label": "validate-preference",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/run.json"
+        ],
+        "exit_code": 0,
+        "label": "validate-run",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/trace.json"
+        ],
+        "exit_code": 0,
+        "label": "validate-trace",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "exit_code": 0,
+        "label": "tools-help",
+        "log_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "exit_code": 0,
+        "label": "registry",
+        "log_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/development.json",
+          "--output",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/demo"
+        ],
+        "exit_code": 0,
+        "label": "demo",
+        "log_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/installed_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/process-checks",
+          "<E1_WORKTREE>/.toolalign-local/p03-base-r2/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "label": "process-probe",
+        "log_sha256": "375cae82c8daa0cb76a545bfd02e1d497164f1b436660ace5725104d1d1d058f"
+      }
+    ],
+    "original_command_count": 19,
+    "original_private_files_unchanged": {
+      "checks/demo-commit.json": "88af3925402a733efa95f047687e09b0808068fd68760d5c18194cd8e9b494bd",
+      "checks/demo-commit.log": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396",
+      "checks/environment-commit.json": "9a7d2099b9c7c3e0677fd31ecf4270c270dbffffe033e5c2eebb23b70a2cf8f5",
+      "checks/environment-commit.log": "6fb8773ff291b0a4321e4be2c5796f1a3695e1f5ab63bdf2598be38eacfe2dc1",
+      "checks/freeze-code.json": "8371d20eaba7188f825e80d590d14ecbfbfd9246d8c48596ce3b0a23f9326610",
+      "checks/freeze-code.log": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "checks/freeze-commit.json": "ba94adb27a2e393926d41b0be9cffe2c81c913dcb5f107b44139010ba6d29fb5",
+      "checks/freeze-commit.log": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "checks/freeze-handoff.json": "02b1bce625918a9544fe7fc011327a3bda4ed417fff7ddef95500c3ea0440125",
+      "checks/freeze-handoff.log": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "checks/help-code.json": "d51eac5ed0f4833e40dc7316ab7c01c1ee9aaae4537a0b183d24a83daa8919d0",
+      "checks/help-code.log": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356",
+      "checks/public-code.json": "41b96fe7956fb5d6c219055b9482d968800d3c064f61fd8c0ac7210bcf0729bf",
+      "checks/public-code.log": "5d9ff74e39c20e56944028aece9c284f7b3aed12854225b591bcd599af185365",
+      "checks/public-final-code.json": "55a3133c6a5a9019cbf565585c603c5ebc935765c63a2cbae1de6a050962f432",
+      "checks/public-final-code.log": "5d9ff74e39c20e56944028aece9c284f7b3aed12854225b591bcd599af185365",
+      "checks/public-handoff.json": "cfd789f415f69cd508ebc2eacb91ab54c7ad5ed7c93c233aea72837e4ed0f824",
+      "checks/public-handoff.log": "d95c06c960a1c67ca73de383b1ab2249830032bf61bab774c29a0f22bea6385d",
+      "checks/pytest-code.json": "5364de7ef0d7c5c20b60bc7bc106299d877491f58b070f98559f950829ee7508",
+      "checks/pytest-code.log": "3d1a8f4a12a1882567568224f0c9723e800dae4c7ed2e1e55c1c7e5024e78a68",
+      "checks/pytest-commit.json": "28239b2e3593d1521ad0819a6efa321bd71cabca5703b79bc82b29355475f75d",
+      "checks/pytest-commit.log": "5d0830a9749a3df56744fb4a29858b0f6bf7684632e095e9ce10c4abb2be40b9",
+      "checks/pytest-final-code.json": "cee34f9d2232fbe4eda0236f4aedc5525c3ecc047b47d7324567edaef9ecbf9a",
+      "checks/pytest-final-code.log": "076fd90c68f56444bb22c6906fd84457b32d09645b78c3210f3e9ba85216dfc9",
+      "checks/registry-commit.json": "fc03efb6af3c425e76b1b0d83e10d18076ae61a3559837c0d8e3f9469c189fe5",
+      "checks/registry-commit.log": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5",
+      "checks/ruff-code.json": "a0341731b77e655038d22e687beb6d26eea590903e66276a277f3f1c2499fabf",
+      "checks/ruff-code.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "checks/ruff-final-code.json": "925f1a1e6b2dd884c090bbc864855ee340add586618e6987feb2af770db0150a",
+      "checks/ruff-final-code.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "checks/ruff-handoff.json": "7a8b78ab8d6ab6658665c7bc9f374366ee89ae7835d19754b74700eb8883a2d3",
+      "checks/ruff-handoff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "checks/scope-commit.json": "5008a19ca0f3359c6ceec65b46a5d614791d502cc97f7eb3fd467a3228f28df3",
+      "checks/scope-commit.log": "47bc4ee9d8fc1313f1e8ef3188ba70dbf2124c59b6dc83d33f3939dc4a2ba70b",
+      "checks/sync-code.json": "60d7fdb7bebf938e1bc586a67b3dad518b4cfc27e45b6ca445806e66f9f8ffeb",
+      "checks/sync-code.log": "9c778d73ab68fb80eaf6a4adbf5ea6b760119ec24acb029dbfcc5185a5fc034e",
+      "checks/targeted-commit.json": "d171e07a64b941f1b85565b9dd9b2696234dd52e533eb084fc7102c2c723adec",
+      "checks/targeted-commit.log": "9b135dfcfa9d4f702f34bfe71b3f6945296c8979631360cdf3c1366010a922a3",
+      "demo-artifact-manifest.json": "fef663978791a1ff109da62602410525531c41f52c4b092531b0481487e3c6f8",
+      "demo-candidate/case-00.json": "c56314bf9a64e15ec9f569ab713fcea2d8e31b3bf23ee2d5e482401c0c825a82",
+      "demo-candidate/case-01.json": "264413babee850c9ab6950331b3ebcce5310ed3c3c1650788e29e163c9e416ac",
+      "demo-candidate/case-02.json": "ccacac578533b84ac85027025fe32c4865d2638e1a4f3128e958b83b35c46e98",
+      "demo-candidate/case-03.json": "0095210ab3d7091703cf77375a0e7cf468f17708ac9ab90a358b24c991363072",
+      "demo-candidate/case-04.json": "4945ab5f6ec2e616b92b60e573ff06e1d85e97c13bb8f1307a790e98032a328a",
+      "demo-candidate/case-05.json": "f98983ddce727e02ef095fa354b54e6a8bebac8a1235b16d4f5c7b516e05f1d8",
+      "demo-candidate/case-06.json": "84823ee02eea020e9184ba0c232b7a717b90ef5d0f9b6f82312d9b949c43bdb6",
+      "demo-candidate/case-07.json": "28d8f5975dec89fc5631c8a06ff9d4d5c11a3bf5e7b98af540f1f5d83709132d",
+      "demo-candidate/case-08.json": "5351de07e5fdac9379b8fb8feb0415d2dfea7c32afe7b66b33b3f0a5485aa9a0",
+      "demo-candidate/case-09.json": "d0681a2b5d09d3575cd5f5002b70e6819da4d28a107507b766e9102210967d34",
+      "demo-candidate/summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396",
+      "demo-initial/case-00.json": "4c1b445e834ce2e76bb2d22a5bc0cd1cf7cd46346359a3c2aac1bdf523c974db",
+      "demo-initial/case-01.json": "0ee5e1731720ff552757522a8cc0403b7af8afa5b5da7911cf9c1c63b4860d45",
+      "demo-initial/case-02.json": "b084c1222d737ffae34cb796f5c44d76b49faf3122943734f96a9671baee2d5f",
+      "demo-initial/case-03.json": "107f5ddb21e56c31a8078ba42ed0624aaee0087c43ba28bb33d853572bd74524",
+      "demo-initial/case-04.json": "bedbb3c8447653efaeb0b1f434f0564e444d744e769a41f31b5b806e89cff424",
+      "demo-initial/case-05.json": "8c640c97fb476f569e49f35eb8820fdf72c8c44edc4681f2a83fe5c17777db25",
+      "demo-initial/case-06.json": "a1732a123ca5127665e609fe67bc6c56fa70e02b67ec154ed9081eb754410277",
+      "demo-initial/case-07.json": "ff54c3aa4555323853b853c43e14ea99b86e50217e4699f039c788c82afe29c1",
+      "demo-initial/case-08.json": "9b360926b88b31d7ba67b0a294c46ab1cf8f97de861429e0826bf105b617a91c",
+      "demo-initial/case-09.json": "3e115af1342ac27fe95ebd1ec649921905cb6391a7bdaea99026dc8514f7424a",
+      "demo-initial/summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396",
+      "handoff-manifest.json": "c67280c8e32d0a93aa715d44b557b8d2f3f5a3539ca327d0223f475563626211",
+      "run_check.py": "0993aca0ad5f88270d72e467203f03070f75e922c015d55b43c3ba599a2951c5"
+    },
+    "original_public_files_bound_to_both_commits": {
+      "coordination/handoffs/P03-r1.md": "a310b8b67ece8d610ffaec2b0aeba85ded6f3cb5309e388373db7ef731428486",
+      "reports/harness/P03_CPU_VERIFICATION.md": "c1108d55b9f72ffea1eb7cf753ded8c828a5f0a46436c804d954436797d356aa",
+      "reports/harness/README.md": "ff2d6cd47185a9efe719b6136ef695fe4ac203806e59854bcc24b861ddb64cc1",
+      "src/toolalign/evaluation/harness.py": "de6b508a93e47df11c0d10ccce967c438684dc62775ac2f7dcdfcc4ccc57520c",
+      "src/toolalign/evaluation/oracles/__init__.py": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+      "src/toolalign/evaluation/oracles/semantic.py": "3d14b16f66df5cc1d55f92c699c10b8a2d4a48ae46327e229ecd3c82f13d21b2",
+      "src/toolalign/tools/__init__.py": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+      "src/toolalign/tools/__main__.py": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+      "src/toolalign/tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "src/toolalign/tools/catalog.py": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+      "src/toolalign/tools/executor.py": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "src/toolalign/tools/isolation.py": "5b1c81e8b60fda1c8e534774619eabe4798eddaebfdcd9ca592c7e83f413690c",
+      "src/toolalign/tools/registry.py": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+      "src/toolalign/tools/scripted.py": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc",
+      "tests/evaluation/harness/test_harness.py": "f43ae42822cab11281e3a9b1d89c56e12d162a7582b32dfa679610563e58c467",
+      "tests/fixtures/tools/development.json": "973a4a18c7a2372bd479a34a3df31300843737c293ab4f184170c85d94ce3b2d",
+      "tests/tools/test_registry_executor.py": "942f0b88a84d54dcc59336bc4bd56c9b4a322789d9e9776b263b393b8a360717"
+    },
+    "own_new_ml_or_model_execution": "NOT_RUN",
+    "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385"
+  },
+  "implementation_commit": "8afb114bd14e69d3a2138212ab423147809fed63",
+  "model_boundary": "Only original lightweight importable/pickleable CPU backend configuration and child generate were exercised; real loaded MLX objects and P04 lazy model loading remain NOT_RUN.",
+  "not_run": [
+    "MLX/Torch/Transformers/model/tokenizer imports or weights in this review",
+    "GPU training, inference, memory, throughput or long-duration performance",
+    "P04 real ModelBackend or P06 formal evaluation/BFCL/final tests",
+    "R1 Python 3.11/3.12/3.13 runtime verification",
+    "Repeated unchanged S0 shared 241/18 and 45/21 canary investigations",
+    "CLI fault injection or a measured denominator-inflation experiment",
+    "E1 active repair worktree source, future repair candidate or uncommitted tests",
+    "P02 kris semantic approval",
+    "Business writes, paid cloud/API, model/data upload or public inference serving"
+  ],
+  "observations": {
+    "F1": [
+      {
+        "actual_exitcode": -15,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_stop_packet_write_failure0/stop-failure-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "final",
+        "owned_pid_absent_from_active_children": true,
+        "raised_exception": "OSError",
+        "raw_sha256": "2129116d0de1d1af195bd987b55ab330ddee9e120926496520889c5046b650e1",
+        "returned_harness_result": false,
+        "stop_write_attempts": 2
+      },
+      {
+        "actual_exitcode": -15,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_stop_packet_write_failure1/stop-failure-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "parse_error",
+        "owned_pid_absent_from_active_children": true,
+        "raised_exception": "OSError",
+        "raw_sha256": "a74a34292701a970617fb5b9398f7d0da22e616a0fb10747ffc7ba69f0c3c6a8",
+        "returned_harness_result": false,
+        "stop_write_attempts": 2
+      }
+    ],
+    "F2": [
+      {
+        "actual_exitcode": 0,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_directory_cleanup_failure0/cleanup-failure-observation.json",
+        "cleanup_observations": [
+          {
+            "actual_process_handle_closed": true,
+            "candidate_close_completed": false,
+            "directory_remained_after_candidate": true
+          }
+        ],
+        "directory_absent_after_review": true,
+        "mode": "final",
+        "owned_pid_absent_from_active_children": true,
+        "raised_exception": {
+          "message": "process object is closed",
+          "type": "ValueError"
+        },
+        "raw_sha256": "93415339392731ef308cc5812218cb1178b34917cd127a97d870fe6945c294db",
+        "remaining_owned_directory_removed_by_review_safety_cleanup": true,
+        "returned_harness_result": false
+      },
+      {
+        "actual_exitcode": 0,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_directory_cleanup_failure1/cleanup-failure-observation.json",
+        "cleanup_observations": [
+          {
+            "actual_process_handle_closed": true,
+            "candidate_close_completed": false,
+            "directory_remained_after_candidate": true
+          }
+        ],
+        "directory_absent_after_review": true,
+        "mode": "parse_error",
+        "owned_pid_absent_from_active_children": true,
+        "raised_exception": {
+          "message": "process object is closed",
+          "type": "ValueError"
+        },
+        "raw_sha256": "9b4178f6a7c2d6f70b5bcc5c6e79b2e935a6204db5576eef93bdfbd893267240",
+        "remaining_owned_directory_removed_by_review_safety_cleanup": true,
+        "returned_harness_result": false
+      }
+    ],
+    "F3": [
+      {
+        "all_wire_records_valid": true,
+        "artifact": "final-probes/test_oracle_marks_observation_0/invalid-trace-observation.json",
+        "events": [
+          "received",
+          "validated",
+          "generating",
+          "parsing",
+          "observing",
+          "tool_execution",
+          "generating",
+          "parsing",
+          "finalized"
+        ],
+        "outcome": "success",
+        "raw_sha256": "79ec417297a70031ccbc00ec125a40c619b8b3c3ecd07f8f4b233505565ad03f",
+        "reason": "Semantic answer and permitted execution agree"
+      }
+    ],
+    "real_blocking_controls": [
+      {
+        "actual_exitcode": -15,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_real_blocking_operations_0/blocking-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "timed_out",
+        "model_ignored_sigterm": false,
+        "operation": "tool",
+        "operation_started": true,
+        "owned_pid_absent_from_active_children": true,
+        "raw_sha256": "526c770938c9f3486a1ada69dc3859b97a104a872e653e8408d4d5cdd1837c22",
+        "reaped": true,
+        "separate_process_remained_alive": true,
+        "stopped": true
+      },
+      {
+        "actual_exitcode": -15,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_real_blocking_operations_1/blocking-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "cancelled",
+        "model_ignored_sigterm": false,
+        "operation": "tool",
+        "operation_started": true,
+        "owned_pid_absent_from_active_children": true,
+        "raw_sha256": "e2577da03414124b036de1b86450223e66134e524c2feda579d48fc748fb2d35",
+        "reaped": true,
+        "separate_process_remained_alive": true,
+        "stopped": true
+      },
+      {
+        "actual_exitcode": -9,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_real_blocking_operations_2/blocking-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "timed_out",
+        "model_ignored_sigterm": true,
+        "operation": "model",
+        "operation_started": true,
+        "owned_pid_absent_from_active_children": true,
+        "raw_sha256": "2c46858e2620e56be324980843f99014f227459e77ea536cbc272846d18eb0c7",
+        "reaped": true,
+        "separate_process_remained_alive": true,
+        "stopped": true
+      },
+      {
+        "actual_exitcode": -9,
+        "actual_process_alive_before_handle_close": false,
+        "artifact": "final-probes/test_real_blocking_operations_3/blocking-observation.json",
+        "directory_absent_after_review": true,
+        "mode": "cancelled",
+        "model_ignored_sigterm": true,
+        "operation": "model",
+        "operation_started": true,
+        "owned_pid_absent_from_active_children": true,
+        "raw_sha256": "4aec67b830b43e647703f9ddb3df9c63e9e56b31dce9b39611613fc1495d75f5",
+        "reaped": true,
+        "separate_process_remained_alive": true,
+        "stopped": true
+      }
+    ]
+  },
+  "original_authorization_commit": "e882594da84359b7f6ced7dd6aefdb9c7ce06209",
+  "original_candidate": "85e0905fc82da4504d73bf7eb489c1f1a0d227a7",
+  "original_code_base": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+  "package_evidence": {
+    "archives": {
+      "default-wheel": {
+        "archive_files": 29,
+        "bytes": 37042,
+        "generated_metadata_files": 5,
+        "sha256": "e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "direct-wheel": {
+        "archive_files": 29,
+        "bytes": 37042,
+        "generated_metadata_files": 5,
+        "sha256": "e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "rebuilt-wheel": {
+        "archive_files": 29,
+        "bytes": 37042,
+        "generated_metadata_files": 5,
+        "sha256": "e9d559cd0cfd17dc66b24f88455b1a138599a59faa476a34d3fb9d76c19a891c",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "sdist": {
+        "archive_files": 50,
+        "bytes": 112760,
+        "generated_metadata_files": 1,
+        "sha256": "a095ab30fbd3ffc35689253164be79b70dc0061d80078f80bb47c88d9a54178f",
+        "tracked_files_matched": 49,
+        "untracked_payloads": 0
+      }
+    },
+    "candidate": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "name": "export-default",
+        "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+        "stdout_sha256": "55d542e383008cabdb2ff90fec822307bf52f07628a9043fc045aeaa504f7511"
+      },
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv"
+        ],
+        "exit_code": 0,
+        "name": "new-environment",
+        "stderr_sha256": "9e56cde719b2002996b0a29bcbf9a26df4f22aacf402402903a510fa836ea2bc",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "name": "install-hashed-default-dependencies",
+        "stderr_sha256": "7781276cd2d799a00c04e302365ea8448e2046fe9fba0a9d95e5d20e29fa103d",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "--no-deps",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "name": "install-rebuilt-wheel",
+        "stderr_sha256": "652e12840bf7f34d92343120fc39b8c0e93c8db24859b2964d684a6b22f66494",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python"
+        ],
+        "exit_code": 0,
+        "name": "dependency-consistency",
+        "stderr_sha256": "a2e6dda2b02dd8d7dd039b793f1277d8c329376b2c06915dcd9afce73ab77ed5",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "name": "installed-contract",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/example.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-example",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/tool.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-tool",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/preference.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-preference",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/run.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-run",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/trace.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-trace",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "exit_code": 0,
+        "name": "installed-tools-help",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "exit_code": 0,
+        "name": "installed-registry",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/away-from-source/development.json",
+          "--output",
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/demo"
+        ],
+        "exit_code": 0,
+        "name": "installed-scripted-demo",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03/package-check/venv/bin/python",
+          "-I",
+          "-c",
+          "\nimport importlib,importlib.metadata,importlib.util,json,sys\nfrom pathlib import Path\nnames=['toolalign.tools','toolalign.tools.__main__','toolalign.tools._json',\n       'toolalign.tools.catalog','toolalign.tools.executor','toolalign.tools.isolation',\n       'toolalign.tools.registry','toolalign.tools.scripted','toolalign.evaluation.harness',\n       'toolalign.evaluation.oracles','toolalign.evaluation.oracles.semantic']\nfor name in names:\n    module=importlib.import_module(name)\n    assert Path(module.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())\nfor name in ('mlx','mlx_lm','torch','transformers'):\n    assert name not in sys.modules and importlib.util.find_spec(name) is None\nprint(json.dumps({'python_version':sys.version.split()[0], 'isolated_flag':sys.flags.isolated,\n                  'p03_modules_inside_installed_prefix':names,'model_packages_available':[],\n                  'distributions':{p.metadata['Name']:p.version for p in importlib.metadata.distributions()}},sort_keys=True))\n"
+        ],
+        "exit_code": 0,
+        "name": "installed-module-origins",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a46003a0a3b0c3b9c5bb6b01fb1e91bb7f83ff167d1d1f28d042dffbab0623c4"
+      }
+    ],
+    "installed_demo": {
+      "actual_process_liveness_now": "NOT_INFERRED_FROM_HISTORICAL_RECORDS",
+      "artifact_sha256": {
+        "case-00.json": "8386d8137ee4110c16d0999d2ee7a9497301dd00afd1b898ff59c8ec632cdb8c",
+        "case-01.json": "09ce5b645ad74926475bf8dc025d73de48c53b853371ebad9cc51119f28acb51",
+        "case-02.json": "d8cf5bd3e7f48323728979082a56182111440efaa52ba2c8a722ee3d2b263077",
+        "case-03.json": "5977d245619ce0e26601b5db464634294cc63aff82a322badd644ffc253e6569",
+        "case-04.json": "0629a685075d40afd5881303f282d27d266aa0c85c40f3005b22ef0f40c8a36e",
+        "case-05.json": "910b947ea80092cf00b3c61666f938dfa32c2514f7023c7993df37e93a723126",
+        "case-06.json": "59a99a2e01eca3efc72511faae090d51527b5f55c393851d84fdb99e8325b93d",
+        "case-07.json": "3a58fe000d722066ff5cd443449f0878a648ef7c2e685102c2d9ce12ab59e0ba",
+        "case-08.json": "835271ed6ad90a11e679afd043eefd3c2cecf7eba3685f2c84782209f703c5dc",
+        "case-09.json": "094c467dfa91dec08033af3157f64b17cd5fcccb0dc4dc8c891e23a7c4af729b",
+        "summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      "counts": {
+        "cases": 10,
+        "model_decisions": 20,
+        "operations_started": 20,
+        "owned_processes": 20,
+        "reaped_processes": 20,
+        "synthetic_input_tokens": 220,
+        "synthetic_output_tokens": 140,
+        "tool_rounds": 10,
+        "trace_events": 90
+      },
+      "tool_results": {
+        "completed": 9,
+        "error": 1
+      }
+    },
+    "module_evidence": {
+      "distributions": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "toolalign": "0.0.1"
+      },
+      "isolated_flag": 1,
+      "model_packages_available": [],
+      "p03_modules_inside_installed_prefix": [
+        "toolalign.tools",
+        "toolalign.tools.__main__",
+        "toolalign.tools._json",
+        "toolalign.tools.catalog",
+        "toolalign.tools.executor",
+        "toolalign.tools.isolation",
+        "toolalign.tools.registry",
+        "toolalign.tools.scripted",
+        "toolalign.evaluation.harness",
+        "toolalign.evaluation.oracles",
+        "toolalign.evaluation.oracles.semantic"
+      ],
+      "python_version": "3.14.7"
+    },
+    "real_model_backend": "NOT_RUN",
+    "source_tree_imported_by_installed_commands": false
+  },
+  "private_artifact_hashes": {
+    "environment.json": "84f452a7a885c5adde2a72f2f3bbcf61a8b6bbf10c0a49762b7e9e6eb8e55c7b",
+    "historical-audit-final.json": "8516f9ecc7f898c01e3422bd168369cec0aba4bf2d50e50ad9c81d7f652ddeba",
+    "package-check/evidence.json": "4ea0aef64d84af6e6390949e6009526902bca0857d1a799b49385c54faa854d5"
+  },
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "review_branch": "review/p03-r1",
+  "review_probe_hashes": {
+    "reports/review/P03/audit_p03_evidence.py": "339652d95ef961aa77de1439a27b07e358fc2b2c9efa398b12cd6be1954b877f",
+    "reports/review/P03/test_p03_lifecycle.py": "fdcca8199fd2963274d5603e9d4f2831973452b150bd17bb5ca8fbd4c1cc2874",
+    "reports/review/P03/test_p03_semantics.py": "a8bd4b3a0fff0f1e12c81d173e274718321d9800ddf0e928326bda043ff437ee",
+    "reports/review/P03/verify_p03_package.py": "51b380b21532f443a6914a906ddc497198a35b2d34992665e8351ff399d586fc"
+  },
+  "reviewer": "R1",
+  "sync_authorization_commit": "f2a271be616cdb53c01e8d671029f31ae140c037",
+  "task": "P03-review-r1",
+  "verdict": "FAIL"
+}
