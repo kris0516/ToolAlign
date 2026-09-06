@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：IN_PROGRESS；S0 于 2026-09-06 授权本任务并核对原生独立对话、code_base 与工作分支。P00 已在 `cd091e3a53986b59b170baf5b746644f369135d1` 合并并验证；本包 code_base 为随后仅更新协调/证据文档的 `ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：READY_FOR_REVIEW；候选 `f97bb0de346c220871962a5689014a379fe19c83` 已正式交付且任务空闲，尚待共享基线同步与独立R1。S0 于 2026-09-06 授权本任务并核对原生独立对话、code_base 与工作分支。P00 已在 `cd091e3a53986b59b170baf5b746644f369135d1` 合并并验证；本包 code_base 为随后仅更新协调/证据文档的 `ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
