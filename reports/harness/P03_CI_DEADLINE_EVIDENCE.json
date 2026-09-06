@@ -1,0 +1,825 @@
+{
+  "task": "P03-CI-DEADLINE",
+  "status": "WORKER_SELF_CHECKED_AWAITING_INDEPENDENT_R1",
+  "authorization_commit": "fa1ea86361223171a06b5d082a3731b63a00a74a",
+  "base_commit": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+  "branch": "work/p03-ci-deadline",
+  "code_commit": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+  "code_parent": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+  "code_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+  "delivery_documents_only_after_code_commit": true,
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "code_files": {
+    "tests/evaluation/harness/test_harness.py": "af310542d8bcf5aad86f54bcac6487d2be225f20ebc06e8eb692254eeedf0850",
+    "tests/evaluation/harness/deadline_cases.py": "0b121de0d3b65b3ba5078b28556cbd17592a2ac7ef6f48c421bd94dd46be4046"
+  },
+  "ci_trigger": {
+    "checked_at_utc": "2026-09-06T09:22:05.988904+00:00",
+    "run_id": 34024093376,
+    "job_id": 101461871550,
+    "head": "2b11b7fad69957324ecfa671bac71552ec3501b7",
+    "base": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+    "CI_checkout_merge": "8f34b502e2d7ffeda9026d3dda0efaecc06cbca1",
+    "decoded_log_utf8_sha256": "81931c5cd7ba3fe8c8cfa1aa4dc172220682c28ed2247359422b584092225013",
+    "decoded_log_bytes": 25164,
+    "transport_json_sha256": "bf38e9d3ec2f7528b3f58dc32aab5ac1344e4250f1814d0a19ec7e959710194e",
+    "failure": "tests/evaluation/harness/test_harness.py::test_monotonic_request_deadline_survives_tool_wall_clock_jump",
+    "failure_condition": "tool operation_started is False; terminal timed_out, latency<1500 and one model/tool round assertions had passed",
+    "pytest": {
+      "failed": 1,
+      "passed": 484,
+      "skipped": 48,
+      "seconds": 86.61
+    },
+    "python": "3.14.7",
+    "os": "Ubuntu 24.04.4",
+    "same_bytes_as_verified_main": {
+      "tests/evaluation/harness/test_harness.py": "f43ae42822cab11281e3a9b1d89c56e12d162a7582b32dfa679610563e58c467",
+      "src/toolalign/tools/executor.py": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "src/toolalign/tools/isolation.py": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+      "src/toolalign/evaluation/harness.py": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987"
+    },
+    "assessment": "Test assumes tool operation starts within total 0.6s request budget. This assumption is not guaranteed by spawn. Production regression is not established by this log; E1 will independently diagnose and repair the bounded regression test.",
+    "reruns": 0,
+    "merge_authorized_now": false
+  },
+  "original_reproduction": {
+    "head": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+    "source_state": "original tracked test plus an untracked helper and a private launcher",
+    "original_test_sha256": "f43ae42822cab11281e3a9b1d89c56e12d162a7582b32dfa679610563e58c467",
+    "untracked_helper_sha256": "5b1cf8b3dad34a2fde357cae21b8e57ed444bd38bec45c770c3e61f2e35846ef",
+    "private_launcher_sha256": "2b7cdf5f5d7f42f23d4877c03f7d8c7e7867233127db7769d10cbf084ff7b91a",
+    "tool_before_close": {
+      "alive": true,
+      "starting": true,
+      "ready": false,
+      "executing": false,
+      "result_present": false
+    },
+    "real_terminal_latency_ms": 704.643583856523,
+    "terminal": "timed_out",
+    "budget": {
+      "model_decisions": 1,
+      "tool_rounds": 1,
+      "input_tokens": 11,
+      "output_tokens": 7
+    },
+    "process_records": [
+      {
+        "directory_cleaned": true,
+        "exitcode": 0,
+        "label": "model",
+        "operation_started": true,
+        "reaped": true,
+        "stopped": false
+      },
+      {
+        "directory_cleaned": true,
+        "exitcode": -15,
+        "label": "tool",
+        "operation_started": false,
+        "reaped": true,
+        "stopped": true
+      }
+    ],
+    "log_sha256": "110f7f434feb77fe2ea096f31eb1b1608c957a025c48112f66aaf346cc68fedd",
+    "same_original_failure_reruns": 0,
+    "archive_of_original_bytes_preserved": true
+  },
+  "clock_and_process_scope": {
+    "real_spawn": true,
+    "real_child_startup_delay_seconds": 0.8,
+    "request_budget_seconds": 0.6,
+    "production_tool_cap_seconds": 1.0,
+    "parent_monotonic_clock_offsets_seconds": [
+      0,
+      0.7,
+      1.1
+    ],
+    "executor_utc_remaining_double_seconds": 10000,
+    "fallback_tool_poll_real_wait_seconds": 0.2,
+    "independent_external_cancellation_timer_seconds": 10,
+    "global_time_module_patched": false,
+    "clock_advances_to_1_1_only_if_tool_wait_continues_polling": true,
+    "negative_control": "Bypass only _RequestCancellation monotonic expiry; preserve caller cancellation and the original executor per-tool deadline.",
+    "result_or_reaping_faked": false,
+    "latency_is_a_performance_measurement": false
+  },
+  "full_cpu_controls": [
+    {
+      "sha256": "67c0db511775b1c42571400547284317aaf80b2921463b9a59f1e52ff9edd8dc",
+      "stage": "startup",
+      "bypass_request": false,
+      "activation": {
+        "alive": true,
+        "executing": false,
+        "blocking": false,
+        "result_present": false,
+        "elapsed_seconds": 0.923863457981497
+      },
+      "watchdog_fired": false,
+      "observed": {
+        "call_id": "c1",
+        "status": "cancelled",
+        "output": null,
+        "error_code": "cancelled",
+        "retryable": false
+      },
+      "observed_latency_ms": 700.0000000000028,
+      "terminal": "timed_out",
+      "process_records": [
+        {
+          "directory_cleaned": true,
+          "exitcode": 0,
+          "label": "model",
+          "operation_started": true,
+          "reaped": true,
+          "stopped": false
+        },
+        {
+          "directory_cleaned": true,
+          "exitcode": -15,
+          "label": "tool",
+          "operation_started": false,
+          "reaped": true,
+          "stopped": true
+        }
+      ],
+      "remaining_owned_directories": [],
+      "elapsed_seconds": 1.0143335000611842
+    },
+    {
+      "sha256": "2c47e5412bc5439b8e56cc9172a7ca81144af6eb78e9cfd69363b04a4e533a08",
+      "stage": "blocking",
+      "bypass_request": false,
+      "activation": {
+        "alive": true,
+        "executing": true,
+        "blocking": true,
+        "result_present": false,
+        "elapsed_seconds": 0.9904606670606881
+      },
+      "watchdog_fired": false,
+      "observed": {
+        "call_id": "c1",
+        "status": "cancelled",
+        "output": null,
+        "error_code": "cancelled",
+        "retryable": false
+      },
+      "observed_latency_ms": 700.0000000000028,
+      "terminal": "timed_out",
+      "process_records": [
+        {
+          "directory_cleaned": true,
+          "exitcode": 0,
+          "label": "model",
+          "operation_started": true,
+          "reaped": true,
+          "stopped": false
+        },
+        {
+          "directory_cleaned": true,
+          "exitcode": -15,
+          "label": "tool",
+          "operation_started": true,
+          "reaped": true,
+          "stopped": true
+        }
+      ],
+      "remaining_owned_directories": [],
+      "elapsed_seconds": 1.0677309590391815
+    },
+    {
+      "sha256": "f822692c2f29907e51d9bf66c4c075aa6433bd72e8cb3b42f50546209090267f",
+      "stage": "blocking",
+      "bypass_request": true,
+      "activation": {
+        "alive": true,
+        "executing": true,
+        "blocking": true,
+        "result_present": false,
+        "elapsed_seconds": 1.0019059169571847
+      },
+      "watchdog_fired": false,
+      "observed": {
+        "call_id": "c1",
+        "status": "timed_out",
+        "output": null,
+        "error_code": "tool_timeout",
+        "retryable": true
+      },
+      "observed_latency_ms": 1099.9999999999943,
+      "terminal": "timed_out",
+      "process_records": [
+        {
+          "directory_cleaned": true,
+          "exitcode": 0,
+          "label": "model",
+          "operation_started": true,
+          "reaped": true,
+          "stopped": false
+        },
+        {
+          "directory_cleaned": true,
+          "exitcode": -15,
+          "label": "tool",
+          "operation_started": true,
+          "reaped": true,
+          "stopped": true
+        }
+      ],
+      "remaining_owned_directories": [],
+      "elapsed_seconds": 1.3024255000054836
+    }
+  ],
+  "full_cpu": {
+    "passed": 657,
+    "failed": 0,
+    "skipped": 0,
+    "xfail": 0,
+    "includes_real_cpu_tokenizer_tests": 17,
+    "includes_deadline_cases": 3,
+    "additional_count_over_baseline_suite": 2,
+    "pytest_reported_seconds": 48.04,
+    "log_sha256": "1fa81e480d9e787753593260df074b7a5b4457ed6c75ddc5fe48dd67b91f7f01"
+  },
+  "preserved_failures": [
+    {
+      "label": "original-slow-start",
+      "classification": "Expected reproduction of the original false assertion",
+      "exit_code": 1
+    },
+    {
+      "label": "negative-control",
+      "classification": "Expected rejection by the same positive assertion",
+      "exit_code": 1
+    },
+    {
+      "label": "full-cpu",
+      "classification": "Invocation environment lacked psutil; collection stopped",
+      "exit_code": 2
+    },
+    {
+      "label": "full-cpu-r2",
+      "classification": "Invocation placed basetemp under .toolalign-local, invalidating the old P02 public-path test setup",
+      "exit_code": 1,
+      "passed": 639,
+      "skipped": 17,
+      "failed": 1
+    },
+    {
+      "invocation": "uv run --locked python - (inline auxiliary preservation check)",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "exit_code": 1,
+      "raw_output": "interactive tool output only; no separate stdout file captured",
+      "raw_output_sha256": null,
+      "cause": "Compared the manifest record object {sha256, bytes} directly with a SHA-256 string; therefore every record was falsely flagged before later checks ran.",
+      "files_mutated": 0,
+      "correction": "Read record.sha256 and record.bytes explicitly; verify_preservation.py keeps all 1818 entries and verifies both fields.",
+      "deadline_reproduction_repeated": false
+    }
+  ],
+  "environment": {
+    "python": "3.14.7 (main, Aug 14 2026, 15:24:10) [Clang 22.1.3 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "packages": [
+      {
+        "name": "anyio",
+        "version": "4.15.1"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "filelock",
+        "version": "3.32.5"
+      },
+      {
+        "name": "fsspec",
+        "version": "2026.7.0"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "hf-xet",
+        "version": "1.6.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "huggingface_hub",
+        "version": "1.30.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.19"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.3"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "pytest",
+        "version": "9.0.2"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3"
+      },
+      {
+        "name": "tokenizers",
+        "version": "0.22.2"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.70.0"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      }
+    ],
+    "borrowed_source_sha256": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "access.json": "d0fd0c16875c6cb7bf7e579ebe5a3f92f80ab558185dc7bd7b2337f31098b2f4",
+      "api.json": "3867400b9368c002e17372a681b0a7a042c6639fd466f26e4255da251e49dd7f",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    },
+    "borrowed_environment_and_source_read_only": true,
+    "bytecode_writes_disabled_for_borrowed_environment_run": true,
+    "new_cpu_support_before_borrowed_environment": "One psutil==7.2.2 target install, offline with uv.lock hashes; existing .venv and lock unchanged."
+  },
+  "archives": {
+    "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+    "archives": [
+      {
+        "route": "sdist",
+        "filename": "toolalign-0.0.1.tar.gz",
+        "bytes": 194485,
+        "sha256": "eed6c038c31170a0fb4957b8286e01f20b0ecf96c64514f05f9b97a1040a76fc",
+        "archive_files": 89,
+        "tracked_files_matched": 88,
+        "generated_metadata_files": 1,
+        "untracked_payloads": 0,
+        "missing_expected_files": 0
+      },
+      {
+        "route": "default-wheel",
+        "filename": "toolalign-0.0.1-py3-none-any.whl",
+        "bytes": 96713,
+        "sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+        "archive_files": 47,
+        "tracked_files_matched": 42,
+        "generated_metadata_files": 5,
+        "untracked_payloads": 0,
+        "missing_expected_files": 0
+      },
+      {
+        "route": "rebuilt-wheel",
+        "filename": "toolalign-0.0.1-py3-none-any.whl",
+        "bytes": 96713,
+        "sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+        "archive_files": 47,
+        "tracked_files_matched": 42,
+        "generated_metadata_files": 5,
+        "untracked_payloads": 0,
+        "missing_expected_files": 0
+      }
+    ],
+    "schema_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "all_tracked_package_bytes_equal": true,
+    "baseline_source_commit": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+    "baseline_source_unchanged": true,
+    "default_and_rebuilt_wheels_identical": true,
+    "baseline_wheel_sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+    "production_wheel_unchanged": true
+  },
+  "verification_helpers": {
+    "run_check.py": "0993aca0ad5f88270d72e467203f03070f75e922c015d55b43c3ba599a2951c5",
+    "test_original_deadline.py": "2b7cdf5f5d7f42f23d4877c03f7d8c7e7867233127db7769d10cbf084ff7b91a",
+    "deadline_cases.before.py": "5b1cf8b3dad34a2fde357cae21b8e57ed444bd38bec45c770c3e61f2e35846ef",
+    "test_negative_control.py": "fd9d6aa25e3d03c9838b2dc026134fbee07dacff6adda812e8c325df4110b11f",
+    "inspect_archives.py": "4b53a6ace758279ae89ee5ff86b84bdb2079317a6f1507ef7bdc06ffeb5ed364",
+    "verify_preservation.py": "b12061833c0b90c50192b3ffdf5a1f800eaa92caa73c37c7bc788f5492ee18e4"
+  },
+  "preservation": {
+    "prior_private_files": 1818,
+    "prior_private_unchanged": 1818,
+    "old_refs": {
+      "work/p03-execution-harness": "3598cef2efb99e2990e384812a028902964cf494",
+      "origin/work/p03-execution-harness": "84084770bf07f32647af36ac748bf76326e74ed1"
+    },
+    "original_failure_bytes_preserved": true,
+    "controls_uncommitted_bytes_equal_code_commit": true,
+    "code_commit": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+    "baseline_files_unchanged": 277,
+    "authorized_baseline_change": [
+      "tests/evaluation/harness/test_harness.py"
+    ],
+    "borrowed_tokenizer_files_unchanged": 5
+  },
+  "private_evidence_sha256": {
+    "original-slow-start-summary.json": "19627874c9ba96ecab4618b5ffa213bfe1e79c89c2709f49c1fea8500ee010ab",
+    "controls-worktree.json": "66cec9b2414befb9a480845a85f0134f69dcebc077858430e9f761d4a6820c07",
+    "full-environment.json": "832fe40f2996d520c406ae4f25caed4cbc0ff411c0f6393aec2cae9c23dc4dfc",
+    "full-cpu-r3-probe-summary.json": "98e8fa6542ca7c7ad1523f91df1fac23f44f3336589fbb6e2c6d8f33eaa547d5",
+    "baseline-package-inputs.json": "638ad4d5097f8d21baaf71f16dc7a4812622ccb47bf775ac0ba0f8cf81845108",
+    "artifact-verification.json": "b2a2409acc8c0b25913aa4c95da3e358f5239ced1ff4ac4f661bdbf0bd46af3f",
+    "preservation-verification.json": "efe9830ac7393f54b9fd15622c6a5aa940ddb790b86ca7ab27b7f5132b676c45",
+    "preservation-first-attempt.json": "82e4148db31387c548b0a030cfa56e5ac2e9a888e1a4113ba7a99706ac491fd7",
+    "psutil-locked.txt": "56a677559bd08e9f992502678b2dc12aeedf864b921f88f7cc6dbe1dc297395e"
+  },
+  "checks": [
+    {
+      "label": "original-slow-start",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        ".toolalign-local/p03-ci-deadline/test_original_deadline.py",
+        "--basetemp=.toolalign-local/p03-ci-deadline/original-slow-start"
+      ],
+      "started_at": "2026-09-06T09:40:24.093788+00:00",
+      "elapsed_seconds": 0.950508665991947,
+      "exit_code": 1,
+      "log_sha256": "110f7f434feb77fe2ea096f31eb1b1608c957a025c48112f66aaf346cc68fedd",
+      "head": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+      "index_tree": "96607de2530fc16b0337b0d08a50ba521dc4074e",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "deadline-controls",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests/evaluation/harness/test_harness.py::test_monotonic_request_deadline_survives_tool_wall_clock_jump",
+        "--basetemp=.toolalign-local/p03-ci-deadline/deadline-controls"
+      ],
+      "started_at": "2026-09-06T09:42:08.944392+00:00",
+      "elapsed_seconds": 3.732848667073995,
+      "exit_code": 0,
+      "log_sha256": "04abbde499bc1bea6ae1b68a1efa521c15addbb6b24302b4a9db439fcd656f61",
+      "head": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+      "index_tree": "96607de2530fc16b0337b0d08a50ba521dc4074e",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "negative-control",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        ".toolalign-local/p03-ci-deadline/test_negative_control.py",
+        "--basetemp=.toolalign-local/p03-ci-deadline/negative-control"
+      ],
+      "started_at": "2026-09-06T09:43:01.964632+00:00",
+      "elapsed_seconds": 1.5171750418376178,
+      "exit_code": 1,
+      "log_sha256": "248d9bf09baf52331867791ff17ce8dc1d12d1ed0e33b390c194114dfb17274b",
+      "head": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+      "index_tree": "96607de2530fc16b0337b0d08a50ba521dc4074e",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "full-cpu",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p03-ci-deadline/full-cpu"
+      ],
+      "started_at": "2026-09-06T09:44:42.623356+00:00",
+      "elapsed_seconds": 0.3517929578665644,
+      "exit_code": 2,
+      "log_sha256": "2a8de6e0e4827e37d07a5db0d4cea623e96fcf3370223bd33bab9afe080b65a7",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "cpu-support",
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--target",
+        ".toolalign-local/p03-ci-deadline/cpu-support",
+        "--no-deps",
+        "--require-hashes",
+        "-r",
+        ".toolalign-local/p03-ci-deadline/psutil-locked.txt"
+      ],
+      "started_at": "2026-09-06T09:45:26.405522+00:00",
+      "elapsed_seconds": 0.01739099994301796,
+      "exit_code": 0,
+      "log_sha256": "07c6a34a2142959f9101c85436ddb40ef8853dbd4f6064282f3149ddba4117db",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "full-cpu-r2",
+      "command": [
+        "env",
+        "PYTHONPATH=src:.toolalign-local/p03-ci-deadline/cpu-support",
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p03-ci-deadline/full-cpu-r2"
+      ],
+      "started_at": "2026-09-06T09:45:41.459733+00:00",
+      "elapsed_seconds": 54.21785574988462,
+      "exit_code": 1,
+      "log_sha256": "fe4b278964a5bcdaca7c1beac780869c5a7af7d0f09e4d49d9e0ef551f7f3529",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "full-cpu-r3",
+      "command": [
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=src",
+        "TOOLALIGN_TOKENIZER_DIR=${P03_TOKENIZER_DIR}",
+        "${P03_CPU_PYTHON}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=${P03_PYTEST_TEMP}"
+      ],
+      "started_at": "2026-09-06T09:48:13.468094+00:00",
+      "elapsed_seconds": 48.19729262497276,
+      "exit_code": 0,
+      "log_sha256": "1fa81e480d9e787753593260df074b7a5b4457ed6c75ddc5fe48dd67b91f7f01",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "lint",
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-06T09:46:35.943720+00:00",
+      "elapsed_seconds": 0.03049825015477836,
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "freeze",
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "started_at": "2026-09-06T09:46:35.946838+00:00",
+      "elapsed_seconds": 0.0314177090767771,
+      "exit_code": 0,
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "public",
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "started_at": "2026-09-06T09:46:35.957787+00:00",
+      "elapsed_seconds": 4.081362541997805,
+      "exit_code": 0,
+      "log_sha256": "ab18e42bb051cf03aa8c3d2a4e2286b633d25c02d522fc117e651697652fa4c0",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "build",
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--out-dir",
+        ".toolalign-local/p03-ci-deadline/dist"
+      ],
+      "started_at": "2026-09-06T09:46:25.320720+00:00",
+      "elapsed_seconds": 0.38156925002112985,
+      "exit_code": 0,
+      "log_sha256": "be888e205d5c4c6292e7860ebc0c9d42f51ffe49e8045150444e12977ba6162a",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "rebuild",
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/p03-ci-deadline/rebuilt",
+        ".toolalign-local/p03-ci-deadline/dist/toolalign-0.0.1.tar.gz"
+      ],
+      "started_at": "2026-09-06T09:47:04.343688+00:00",
+      "elapsed_seconds": 0.1909182919189334,
+      "exit_code": 0,
+      "log_sha256": "83628e343ff5b6f0a0a9592a34e9e58badacd23e1e65ce86f0419cf615936aeb",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "baseline-wheel",
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/p03-ci-deadline/baseline-dist",
+        ".toolalign-local/p03-ci-deadline/baseline-package"
+      ],
+      "started_at": "2026-09-06T09:48:46.751307+00:00",
+      "elapsed_seconds": 0.18637979100458324,
+      "exit_code": 0,
+      "log_sha256": "6af6b6cbdd84f6768b56c736d2503b99a4175c5245a0b29e7432e182d10dd72a",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "archives",
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--locked",
+        "python",
+        ".toolalign-local/p03-ci-deadline/inspect_archives.py"
+      ],
+      "started_at": "2026-09-06T09:48:57.856163+00:00",
+      "elapsed_seconds": 1.0810816660523415,
+      "exit_code": 0,
+      "log_sha256": "b2a2409acc8c0b25913aa4c95da3e358f5239ced1ff4ac4f661bdbf0bd46af3f",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    },
+    {
+      "label": "preservation",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        ".toolalign-local/p03-ci-deadline/verify_preservation.py"
+      ],
+      "started_at": "2026-09-06T09:53:11.044424+00:00",
+      "elapsed_seconds": 0.18388412497006357,
+      "exit_code": 0,
+      "log_sha256": "efe9830ac7393f54b9fd15622c6a5aa940ddb790b86ca7ab27b7f5132b676c45",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "index_tree": "9c637b38f3155551e4d8b73b76db1ce0a53c3639",
+      "command_path_placeholders": true
+    }
+  ],
+  "not_run": [
+    "Independent R1 review of this candidate",
+    "New GitHub CI / Linux / Python 3.11 execution by E1",
+    "New model format, model-framework imports, model loading, GPU, training, BFCL or formal evaluation",
+    "Fresh isolated installation of the identical production wheel",
+    "Main merge, service deployment, cloud fees or public model/data upload"
+  ]
+}
