@@ -1,0 +1,247 @@
+{
+  "task": "S0-SHARED-02-review-r3",
+  "reviewer": "R1",
+  "date": "2026-09-06",
+  "verdict": "PASS",
+  "remaining_findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "candidate": "f8ec7ff040053f11e073b6858e1f849e888d4ac2",
+  "task_base": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+  "previous_candidate": "81489292c7ba54875c7de1f156bd1696fe4ed0a7",
+  "previous_review": "f4af080e80380023ecac9c5262754faedb344b05",
+  "branch": "review/shared-02-r3",
+  "environment": {
+    "macOS": "26.5.1",
+    "machine": "arm64",
+    "python": "3.14.7",
+    "review_fixture_git_ignorecase": "true, detected by git init; not forced by R1 probes"
+  },
+  "evidence_policy": "Hashes describe full private raw stdout/stderr. Previous failures and previous probe sources remain unchanged. Ordinary navigation/reads are not counted as tests.",
+  "runs": [
+    {
+      "name": "cpu-sync",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "exit_code": 0,
+      "sha256": "33e4351b405a6bec2f560cdcbb1d325b298cc5403efa0c9a980abab6750b386b"
+    },
+    {
+      "name": "source-boundary-241",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ],
+      "exit_code": 0,
+      "sha256": "6f3c9c2dc775500b66f39eba29098b21202fb8ed3f389f03709e1603afedad77",
+      "interpretation": "R1 independently ran the candidate check: 241 private probes excluded, 18 public controls retained. Git case setting is local to its synthetic repository."
+    },
+    {
+      "name": "public-install",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_public_install_r2.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d633752bce847a82ec6c8d25cbabbe4da06966ed516c040216ef8dc7fbd1602e",
+      "interpretation": "Fresh tracked-public-only worktree build and original isolated P00 wheel installation/CLI verifier."
+    },
+    {
+      "name": "prior-case-variants",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py",
+        "case-variants"
+      ],
+      "exit_code": 0,
+      "sha256": "8e3cd55571baa9c48335121bbe198ce9062a54a19461946ba27b6a3a7e151acd",
+      "interpretation": "Original r2 probe unchanged; former 21/7/7 leaks now 0/0/0 with native detected Git ignorecase=true and Hatch VCS rules=0."
+    },
+    {
+      "name": "prior-lowercase",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py",
+        "lowercase"
+      ],
+      "exit_code": 0,
+      "sha256": "886580f917fa0901b19314af43027f65614342b9f912b3b2b9b3759135a364a4",
+      "interpretation": "Original r2 lowercase probe unchanged; all three archive routes preserve the public controls and exclude private files."
+    },
+    {
+      "name": "lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 1,
+      "sha256": "11f7d26003e2d025fd154df4354ce22a6c875faf3b256df9ebdc8bb8eb5c1e36",
+      "interpretation": "Exit 1 is the new r3 review script import-group blank line only; no candidate implementation failure. Original raw output retained."
+    },
+    {
+      "name": "extra-boundaries",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_additional_boundaries_r3.py"
+      ],
+      "exit_code": 0,
+      "sha256": "23bf1d1e5261985ddeea1d5e035590b2e7a1c57e6ebcbb1ec2201b6e42e9b2c9",
+      "interpretation": "45 additional private and 21 public synthetic inputs; all three archive routes checked. Initial review source had only a lint formatting error."
+    },
+    {
+      "name": "lint-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "interpretation": "Only the review-script import blank line was removed; full lint now passes."
+    },
+    {
+      "name": "freeze",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+    },
+    {
+      "name": "cpu-regression",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f907e88ca77e1c4ccb6c03433020712bac068539f51b2babc8f03d8115134ef8"
+    },
+    {
+      "name": "unchanged-inputs",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "f4af080e80380023ecac9c5262754faedb344b05",
+        "f8ec7ff040053f11e073b6858e1f849e888d4ac2",
+        "--",
+        "src",
+        "configs",
+        "tests",
+        "uv.lock",
+        "THIRD_PARTY_NOTICES.md",
+        ".gitignore",
+        ".github/workflows/cpu.yml",
+        "docs/14_COMPATIBILITY_ENVIRONMENT.md",
+        "contracts.v1.lock.json",
+        "coordination/PROTOCOL.md",
+        "coordination/GOAL.md",
+        "coordination/handoffs/S0-SHARED-02-review-r1.md",
+        "coordination/handoffs/S0-SHARED-02-review-r2.md",
+        "reports/review/S0-SHARED-02"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpretation": "Exact committed dependency, contract, source and historical evidence bytes preserved; previous ML-environment/license evidence inherited within this unchanged scope."
+    },
+    {
+      "name": "pyproject-scope",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        ".toolalign-local/review-shared-02-r2/check_pyproject_scope.py"
+      ],
+      "exit_code": 0,
+      "sha256": "cbf642e304e436fdc51b19e78e61e9f4609e06f9d01c439b8df813e350bf5e42",
+      "interpretation": "Previous private read-only checker reused; all TOML fields outside packaging excludes remain unchanged."
+    },
+    {
+      "name": "extra-boundaries-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_additional_boundaries_r3.py"
+      ],
+      "exit_code": 0,
+      "sha256": "23bf1d1e5261985ddeea1d5e035590b2e7a1c57e6ebcbb1ec2201b6e42e9b2c9",
+      "interpretation": "Final review script rerun after import formatting; no behavior or safety assertion changed."
+    },
+    {
+      "name": "public-review",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c82d98b3955cbe331e9100c778b0bb60fef577fe6af13ba91bcecb7ac52387fc"
+    }
+  ],
+  "new_probe_sha256": "6384a3b71eb1cb9c727e12d9b725a48ff0a59bd49f43a2f31b49bc165cc1263e",
+  "initial_probe_sha256": "50c276bd576aaba97c71603f9be3e71f5633d1c8f5317bef27b27878101f83ff",
+  "scope_checker_sha256": "586f3f856dbe9c825489d2ddbfa8e8275ca5dadfaaa1f03dba31697dd86925dd",
+  "inherited_evidence": "Prior 69/90 ML environment, platform and fixed-license facts retained after unchanged lock/declarations/protected source/history checks; no new ML metadata audit or download claimed.",
+  "not_run": [
+    "ML imports/models/tensors/GPU/training",
+    "Complete ML extras installation or 69/90 environment re-audit",
+    "Repeat upstream downloads/research",
+    "Cross-platform real installation",
+    "P01/P02/P03 complete acceptance",
+    "D1 archive or extraction-log inspection",
+    "Final GitHub CI",
+    "main merge/integration"
+  ]
+}
