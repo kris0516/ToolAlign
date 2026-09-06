@@ -51,3 +51,6 @@ S0/worker在实际实现前把上述验收转换成可运行命令与预期，�
 
 
 P02的[训练绑定CPU准备](P02_TRAINING_BINDING.md)已READY未派发。其13例token/mask材料为10条实际已选train与3条单列原创非调用Action，后者不加入训练；现有目标全为tool_calls。未来P04须把实际trainer/collator行为与已审材料连接，再完成真实人工、尾批和checkpoint验收。本段不领取或授权正式P04。
+
+
+上述P02训练绑定CPU准备已按完整5d2c6b6原生派发D1并核验ACTIVE；该实际派发不构成正式P04领取/模型训练授权，待候选和人工门槛。

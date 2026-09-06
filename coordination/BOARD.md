@@ -10,7 +10,7 @@
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | VERIFIED | R1-r3 PASS 7e20706；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并d10722e，最终双Python CI与main655CPU/21条隔离命令通过；[G1分项证据](../reports/S0_P01_MAIN_VERIFICATION.md)，首选DPO旧FAIL保留 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
-| [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1 | 已验证36b6988、ADR-0019 | READY | S0固定CPU选择规则及配置原件；尚未原生派发，G-DATA/P04训练保持未授权 |
+| [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1 | 已验证36b6988、ADR-0019 | IN_PROGRESS | S0按完整5d2c6b6原生派发并核验D1新轮ACTIVE，gpt-6-astra/max；选择/人工材料候选待交付，G-DATA/P04训练未授权 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
@@ -30,4 +30,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：新格式8c与截止时间测试修订947经原R1 PASS、最终双Python CI和main验证，PR8已合并36b6988，两项技术范围VERIFIED。D1/T1/E1/R1暂无新任务；G-DATA语义审查、训练绑定及P04人工token/mask仍待完成，无新GPU作业。
+公共跟进：新格式8c与截止时间测试修订947经原R1 PASS、最终双Python CI和main验证，PR8已合并36b6988，两项技术范围VERIFIED。D1已实际启动P02-TRAINING-BINDING纯CPU轮次，T1/E1/R1无新任务；G-DATA语义审查、训练绑定及P04人工token/mask仍待完成，无新GPU作业。

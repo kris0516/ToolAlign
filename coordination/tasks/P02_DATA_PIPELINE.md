@@ -202,3 +202,6 @@ R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PAS
 
 
 后续P02-TRAINING-BINDING仅CPU范围已由S0单独准备，见[任务](P02_TRAINING_BINDING.md)及ADR-0019；当前READY、未派发。原work/p02-data及历史产物保持，新分支从已验收36b6988开始。新配置由S0精确原件控制；G-DATA语义与P04训练不因候选选择/人工材料准备而通过。
+
+
+训练绑定CPU范围已按完整5d2c6b6实际派发D1并核验新轮ACTIVE，gpt-6-astra/max；严格执行独立任务文件的来源、选择、人工材料及只读边界。候选和独立验收尚未交付，不放行G-DATA/P04。

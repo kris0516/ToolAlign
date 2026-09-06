@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1的P02-TRAINING-BINDING CPU范围已READY但尚未派发；T1/E1/R1暂无新任务，P04正式训练尚未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1的P02-TRAINING-BINDING CPU范围已按完整5d2c6b6原生派发并核验ACTIVE；T1/E1/R1暂无新任务，P04正式训练尚未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR8合并36b6988，新格式及截止时间修订主干验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；已主干验收，D1/T1/E1/R1暂无新任务 |
+| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；已主干验收；D1新训练绑定CPU轮次ACTIVE，T1/E1/R1无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -138,3 +138,6 @@ E1截止时间测试完整947144f已普通推送/交接并结束；S0核对4767�
 
 
 S0依据ADR-0019准备P02-TRAINING-BINDING：从已验证36b6988进行纯CPU固定选择与13例人工序列材料，smoke1536档固定排名取1600、formal2048档全部合格train，validation按各档全取；原数据/测量/人审保持，原目标全为tool_calls的限制明确登记。精确配置原件及新分支/所有权已写入任务，当前READY未派发。正式模型、G-DATA人审及P04真实trainer门槛不由本准备放行。
+
+
+训练绑定实际派发：S0再次确认D1原轮completed/notLoaded、干净8c439f6和授权/配置hash后，按完整5d2c6b66421a47ee71d3b5d0d3c3892354b10512发送P02-TRAINING-BINDING，gpt-6-astra/max，新原生轮ACTIVE已核验。当前仅D1一个CPU实现；新分支intake待确认，候选未交付，T1/E1/R1无新任务，无模型或GPU运行。
