@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：READY_FOR_REVIEW；R1继续审查冻结完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，整包结论尚未提交。针对R1已复现的收尾IPC问题，S0另授权E1在自己的分支准备定点修复，实际派发后登记；原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
+状态：IN_PROGRESS（E1定点修复；R1原候选审查继续）；R1继续审查冻结完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，整包结论尚未提交。针对R1已复现的收尾IPC问题，S0另授权E1在自己的分支准备定点修复，已按243821a原生派发并核验活跃；原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
@@ -63,3 +63,5 @@ E1上轮原生completed/notLoaded、工作树干净且HEAD79a15d9已核验。收
 仅CPU、gpt-6-astra/max；新增私有环境/制品2GiB，优先复用现有环境；无模型导入/下载/GPU/正式P04/P06或费用。当前T1另有一个CPU实现任务，派发后为两个实现加独立CPU R1，不再新增实现任务。按必要反例、适用完整CPU回归、lint/冻结/公开扫描、实际新包字节与隔离安装验证，未变共享调查不重复扩大。
 
 可先交独立复现或修复checkpoint，但不得把R1整包审查写成已结束或当前修复写成已验收。R1正式报告到达后，由S0给出原始review_commit及最终需关闭项；E1保留并非强制接入该原SHA，补齐所有授权项，再交最终完整candidate及P03-fix-r3。随后仍需R1对新精确候选独立复核，S0合并/main验证；不得直接按旧CI合并。
+
+2026-09-06 实际修复派发：S0已按完整授权`243821a988a12a6ff9f20b5fbb5ba1ae374d63c9`向现有E1原生派发本轮定点IPC复现/修复，gpt-6-astra/max，新轮次已核验活跃。R1已收到范围分离通知，继续完成冻结79a15d9的完整审查，不等待或混入E1新代码。原证据保持；目前T1/E1两个实现和独立CPU R1活跃。
