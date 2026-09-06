@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：IN_PROGRESS（R1退回后的CPU定点修复）；R1对完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`正式FAIL，P0=0/P1=2/P2=1，审查提交`ac6bdf78d57c6753865a24a1d216b90dc4478646`。T1已按授权a0a800b原生派发并核验活跃，定点修复范围见本文件末尾。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：READY_FOR_REVIEW（修复候选ac8095f）；T1已交付完整`ac8095faa58a98e143a8dc4d63042093e426feb0`并核验原生空闲，原R1对59b3802的FAIL（P1=2/P2=1、审查ac6bdf7）完整保留。修复自测和双Python CI通过，尚未独立复审。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -86,3 +86,13 @@
 本轮无MLX/模型导入或GPU重放，无权重下载、OS限制修改、费用或P04/P05扩展。具体疑点如必须GPU证明，先给S0最小命令及资源/停止预算，另行调度；本授权不包含该作业。交新完整candidate、两条基线的diff与文件清单、每项问题和命令/退出码/loghash、包成员/证据hash及FAIL/NOT_RUN。提交新handoff后结束本轮，S0安排R1对新候选复核；T1不自行合并或签验收。
 
 2026-09-06 实际修复派发：S0再次核验T1上轮completed/notLoaded、工作树干净且HEAD59b3802后，以完整授权`a0a800b2a544cb25e7eccad2dce12173acc77ea1`原生派发本轮F1/F2/F3修复，gpt-6-astra/max；新轮次已确认活跃。读取授权范围即可，不要求同步后续状态文档。当前只有T1一个实现任务及R1的P03 CPU审查活跃。
+
+## 修复候选的R1-r2复审授权范围
+
+S0已读取新交接`P01-fix-r3`和报告，核验22份日志/探针/私有结果hash、11个本轮授权改动路径、159个未变原候选文件及全部8份原R1文件。完整候选为`ac8095faa58a98e143a8dc4d63042093e426feb0`，已测实现`5c32e8a72e957df100691e0096d1413eed8ce8f9`，最后提交仅增4份交接/包核验/证据文件。[CI34010040450](https://github.com/kris0516/ToolAlign/actions/runs/34010040450)双Python所有步骤成功；T1自测245个不同pytest检查及17组CPU数学通过，不替代独立复审。
+
+本段仅准备范围，R1完成原P03报告并经S0核验原生空闲后，才按原生消息给出的完整authorization_commit启动。在自己的隔离worktree从上述完整候选建立`review/p01-r2`，仅新增`coordination/handoffs/P01-review-r2.md`和`reports/review/P01-r2/`。旧R1报告/探针、全部实现/配置/锁/协调及其他工作区只读，不修改原反例来取得通过。
+
+逐项复核原F1/P1监控错误的实际回收、终态、原异常与真实退出码，包含压力读取TimeoutExpired与普通child轮询的区分；原F2/P1已完成微步/optimizer/token/loss和非有限值的标准JSON失败记账，保持原数学/门槛；原F3/P2全部8份源码身份映射且历史raw不变。运行未修改原反例，独立检查修复及必要相邻失败/正常对照、完整适用CPU回归、lint/冻结/公开扫描、新包追踪字节与隔离安装。根据实际变化复核已有数学/模型证据绑定，未变的历史长校准不重复运行或重算为新GPU通过。
+
+gpt-6-astra/max，仅CPU，新增私有环境/制品2GiB；可复用自己已锁CPU环境。无MLX/模型导入、下载、GPU、P04/P05或费用。若具体问题必须GPU复现，提交最小命令和预算由S0另行调度。报告精确候选PASS/FAIL/BLOCKED、每项关闭或残留的P0/P1/P2、真实命令/退出码/loghash与NOT_RUN；提交新独立review commit后结束该轮等待S0，不自行改实现或合并。

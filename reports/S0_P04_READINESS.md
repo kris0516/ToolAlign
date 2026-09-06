@@ -26,6 +26,14 @@ checkpoint选择须用明确的validation集合和固定规则，每条分数绑
 
 ## 证据与下一步
 
+### 训练输出与评测raw语法尚未绑定
+
+S0在main `b71993a36999a14c0ae0eb34a431136e9d91c6c3`以`tests/fixtures/contracts/example.json`和已验证本地Qwen tokenizer运行当前`LocalTokenizer.training_sequence()`。completion为Qwen原生`<tool_call>`包裹的name/arguments对象；将这些精确字节送入P03候选`79a15d990fc27a9a33d033983c94eb92cccfb268`的原始`parse_action()`，得到`ContractError: Invalid JSON`。另用同一原创content构造合法final/clarify/refuse，当前训练序列三者相同，未编码kind。
+
+该CPU证明仅涉及表示层，不是模型生成或P03整包评测失败。私有证据JSON SHA-256为`f880bd901b58814ecc5ff834b355f75d25e2c4d50a2e278dcf2225c65d13c46f`，记录fixture、源码hash、精确结果与UTC。原18数据产物、训练配置和人审材料均未修改。
+
+正式训练前必须版本化共同输出语法、prompt/history投影、token/EOS边界及配置/manifest绑定。S0优先评估保留完整Action的JSON格式，并让D1准备仅CPU提案；目前尚未切换生产默认值。固定Qwen模板在传tools时会声明原生tool_call格式，assistant历史也有think标记处理；提案必须实际解决这些输入冲突和可逆性，不能只替换completion或在生成后悄悄包装raw。新格式如改变序列，需另建长度/序列manifest并保留原版本，人审语义材料的复用必须由其内容hash与语义投影证明。
+
 本次只读检查的私有JSON SHA-256为`53fad6074957f841df8ef6bb5eaf21a867ff220966a57f6cb1ff63786e1c28e8`，记录实际UTC、源码hash、AST位置、原生循环计数、限制及未授权方案。未修改T1工作区、未构造权重tensor、未运行GPU。
 
 S0在P01/P02/P03前提满足后再发布精确P04 code_base、配置授权、允许文件和模型预算。以上要求进入届时任务包与独立审查范围；当前没有正式训练、checkpoint选择或模型结果。

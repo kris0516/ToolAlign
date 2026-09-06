@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：IN_PROGRESS（E1定点修复；R1原候选审查继续）；R1继续审查冻结完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，整包结论尚未提交。针对R1已复现的收尾IPC问题，S0另授权E1在自己的分支准备定点修复，已按243821a原生派发并核验活跃；原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
+状态：IN_PROGRESS（正式退回，待E1最终修复）；R1对完整`79a15d990fc27a9a33d033983c94eb92cccfb268`正式FAIL，审查`f34f7c5a4eac54b18a2b092495f4ce8eaa334f98`，P1=2/P2=1。E1已有收尾修复checkpoint2195b2e，原生空闲，尚非完整交接/独立验收；最终授权见本文件末尾。原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
@@ -65,3 +65,13 @@ E1上轮原生completed/notLoaded、工作树干净且HEAD79a15d9已核验。收
 可先交独立复现或修复checkpoint，但不得把R1整包审查写成已结束或当前修复写成已验收。R1正式报告到达后，由S0给出原始review_commit及最终需关闭项；E1保留并非强制接入该原SHA，补齐所有授权项，再交最终完整candidate及P03-fix-r3。随后仍需R1对新精确候选独立复核，S0合并/main验证；不得直接按旧CI合并。
 
 2026-09-06 实际修复派发：S0已按完整授权`243821a988a12a6ff9f20b5fbb5ba1ae374d63c9`向现有E1原生派发本轮定点IPC复现/修复，gpt-6-astra/max，新轮次已核验活跃。R1已收到范围分离通知，继续完成冻结79a15d9的完整审查，不等待或混入E1新代码。原证据保持；目前T1/E1两个实现和独立CPU R1活跃。
+
+## 正式R1结果与E1最终修复授权
+
+R1正式review commit为`f34f7c5a4eac54b18a2b092495f4ce8eaa334f98`，严格以79a15d9为父，仅新增7个审查文件，146个原候选文件字节不变。S0已读完整报告和反例、核验22份命令日志、3份私有结果与4份探针hash；R1原生completed/idle已核验。结论FAIL：F1/P1停止通知EIO导致终态结果缺失，F2/P1目录清理EIO后访问已关闭Process覆盖原错误，F3/P2非阻断的oracle因果次序遗漏。原309项CPU通过，新增54项49通过/5失败；不把已回收误写成进程泄漏或实测CLI分母虚增。
+
+E1已交付`fde181d3319f36179298a4bec2a928a8354ee6b3`实现及`2195b2e4ea3219884c3a8c1eed26d413141daa65`checkpoint报告，S0读取两个实现diff、10项新测试与报告，确认原生空闲。自测319CPU、包/隔离安装通过不是独立验收。收到本段完整authorization_commit的原生消息后，在现有分支保留两提交，非强制merge原R1完整SHA；不改写原FAIL/探针/私有证据，不merge无关P01/P02。
+
+关闭F1/F2并运行原R1未修改的对应反例及正常/阻塞/预算对照，保留真实回收、目录状态、原parse失败、raw与已消耗用量。另明确授权关闭F3：仅对`src/toolalign/evaluation/oracles/semantic.py`增加必要的事件因果顺序/待完成调用核验，对先观察后执行等不可靠trace返回unknown，合法多解、多步恢复和实际失败含义不变；不泛化成新状态机。允许必要原创回归写入既有`tests/evaluation/harness/`。这是在原243821a范围外增加的具体oracle路径，其他原授权和只读边界不变。
+
+仅CPU、gpt-6-astra/max；新增私有环境/制品仍按本修复轮累计2GiB，复用已有环境。无需重复未变共享包调查；原checkpoint的测试如源码变化会受影响，则在最终提交复验对应完整CPU、原R1探针、lint/冻结/公开扫描及实际新包/隔离接口。保留修复前和checkpoint证据，旧报告不覆盖；新增最终`P03-fix-r3`及报告必须给出精确候选、各问题、实际命令/退出码/hash和NOT_RUN。无ML/模型/GPU/下载/P04/P06或费用，不因另行准备输出格式而混入真实后端或解析协议改动。最终结束该轮等待新精确候选的R1复审，E1不自行验收或合并。

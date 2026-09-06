@@ -60,3 +60,15 @@ R1以S0下一条原生消息的精确授权提交为准，在自己的隔离work
 只允许R1新增`coordination/handoffs/P02-review-r1.md`与`reports/review/P02/`。冻结契约、政策、候选实现、公共配置/状态/ADR及D1工作区全部只读，不先修被审实现再签通过。复核完整数据转换/工具与历史关联/prefix泄漏/分组及schema规范化隔离/tokenizer和长度/18产物与manifest一致/来源与许可/最终有效人审包；用独立原创反例及真实对应核查补充生产脚本，不能仅复用D1 parser作独立证明。
 
 仅CPU，新增私有环境和证据预算2GiB；允许在自己的私有环境按`reports/data/tokenizer-audit-environment.txt`固定清单安装CPU tokenizer依赖，原D1制品只读，绝不加载模型/GPU。两遍稳定数据已真实构建，不无理由重跑两遍；有具体疑点可做必要重现。100来源/114决策人审包需保持实际身份hash、内容转义与未填写状态，不能签kris判断；P02技术PASS仍不代表G-DATA通过。输出精确候选、PASS/FAIL/BLOCKED、P0/P1/P2、实际命令/退出码/完整loghash、独立review commit与NOT_RUN，提交后停止等待S0。
+
+## P02至P04输出格式的CPU方案准备授权
+
+P02代码已在2ec1767合并并完成main技术验证；G-DATA仍待kris实际人审和训练配置绑定。S0用公开契约fixture证明当前Qwen原生tool-call completion无法由冻结P03的Action JSON raw parser直接解析，且相同content的final/clarify/refuse序列相同。见[衔接证据](../../reports/S0_P04_READINESS.md)。这是正式训练前尚未定义的跨包格式绑定，不推翻原数据语义审查或伪称模型已生成失败。
+
+收到S0原生消息的完整授权SHA后，D1可在原隔离worktree/分支进行**报告和私有CPU原型**：以保留四种Action及call_id/arguments/content的显式JSON输出为优先方案，给出可供S0定稿的版本名、prompt/history/tool-schema编码、训练与推理共用投影入口以及兼容影响。只新增`reports/data/P02_OUTPUT_FORMAT_PROPOSAL.md`、必要原创公开小探针`reports/data/P02_OUTPUT_FORMAT_PROBE.py`和`coordination/handoffs/P02-format-proposal-r1.md`；当前不修改src/tests/manifest/依赖/冻结契约，不重建或覆盖原18产物及人审包/填写副本。无需合并新main或共享代码，本轮读取授权和已合并代码的精确blob即可。
+
+必须基于实际固定Qwen模板及P03 parser做小型CPU可复现证明：四种action和非ASCII/换行/引号/嵌套参数往返；多工具call_id和observation关联；多轮assistant历史、没有kind的历史Message不能猜造kind；工具schema仅来自ModelInput，expected_action/oracle不得进入prompt。检查原模板tools参数会插入原生tool_call指令、assistant中的字面think标记/控制token会触发模板处理等边界，并提出可逆编码和不相互冲突的prompt设计。优先保持官方chat_template原字节与non-thinking，只在显式版本化输入投影/输出序列中改变格式，禁止把生成后修复包装当raw格式通过。
+
+在已有固定本地tokenizer环境用公开/原创fixtures测prefix稳定、一个追加EOS、completion-only边界与序列hash。原0.22.2和P01 0.23.2的旧16例对齐已审过，不重复旧比较；新格式应明确后续需要的新跨实现对照、全量长度/序列manifest更新以及语义数据/人审hash能否保持。这里只准备新格式方案，不擅自切默认训练格式或截断/筛选数据，不根据测试集模型得分选择方案。
+
+gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB，复用现有环境。实际命令、退出码、源码/模板/样例/loghash、失败和限制写入报告，形成精确提案提交后结束该轮等待S0正式ADR/实现授权。该CPU准备不授权P04训练，也不替kris填写人审。
