@@ -42,4 +42,12 @@ S0 于19:36:51 UTC按完整授权`482f8991c97c33678583aa6c853a75c41fda0f0f`实�
 
 S0于19:46:53–19:47:03 UTC完成R1实际intake核验，证明SHA-256为`f1230ff51de59533f079f9505218ceb0bafd260e6db3474a036afaa99b42c191`：408候选、399不变基线、13份完整授权副本和身份与Git相符；51009份旧私有文件、原CPU审查1673份封存及9份公开材料保持，18个旧review refs和73个原对象保留。实际核对52784个当前文件与439条symlink原目标字符串，集合重合不重复计数。原800480b保留、原本机f708不在候选公开祖先；未新增S0框架运行。原R1 intake SHA-256为`1416b89b6118b8115b0b504139195cf329c8ead3e5a35e74cd423e07320876d4`。R1继续同一审查轮，候选尚未ACCEPTED。
 
+S0 于 19:59 UTC 核对 R1 五组实际 CPU 回执、原日志、固定 tokenizer 环境和每条命令前后的全部 408 候选字节：1050 passed、2 HF-only skips，110 subtests 另记；证明 SHA-256 为 `2c09795811514a6fe26d770e7572145e041fd2549b1479cc64c0d7c526b8a239`。20:34 UTC 又核对本轮 34 项新独立 CPU 探针、默认安装版 4 个 native CLI 场景和无租约拒绝；证明为 `67d995b40d75523d7446965d4266e2079b4664e69904d7ff214f120c1cbc8071`。34 项与原 1050 分开计数，安装版重复的原 44 项不累加。磁盘/监控/最终 stdout 诊断/启动/RSS 故障场景使用小型原创 CPU fixture，故障注入明确标记；5 个实际自有 CPU 子进程均已回收并再次确认 PID 不存在，未启动可选框架。旧控制器丢终态与重登记受阻的负例保留；当前控制器的失败终态、无法取得的诊断值为 null、以及失败后的新登记均有实际文件支持。
+
+R1 已实际用完本轮独立框架额度 2/2。两次均来自 R1 的新默认 wheel 安装 target：segmented 于 20:07:06–20:07:11 UTC 完成两次原生更新；第二次于 20:08:35–20:08:38 UTC 专门观测原单段 accumulation=8 分支，实际更新 1 次、丢 5 个尾微步，状态 EXPECTED_NEGATIVE。它不因进程 exit 0 被计为正确训练。S0 于 20:31:31–20:31:35 UTC 实际核对 3043 个原件/冻结/来源路径，证明 SHA-256 为 `7c71c6319f97ff3e1c63abff3b0aea2b87a85690ad87b57cd83b02d1b75330b4`。两轮完整 13 例数组、Torch 两步参考与实际 checkpoint 字节均与此前独立核验的 T1 原件一致；segmented 保持 8+5 分母、同一 model/optimizer/RNG、44 token 加权 score 和实际重载。两份 score 仍为 2.066978758031672 与 2.0616965131326155，选择 step 2。
+
+本次绑定 58 个安装包载荷，其中 Python 消费身份为 9 个 SFT 加 47 个支持源码；两份实际完整模块来源分别为 2412/2411，各含 30 个来自新 target 的 ToolAlign 模块。框架导入前真实 R1 owner 持有同一物理 OS 租约，GPU default/stream、Torch CPU 2+2、compile 保留与 wired-limit setter 恢复均有原记录。实际 wall 为 4.496296458877623 / 3.140921541955322 秒、峰值 RSS 为 400310272 / 400392192 字节、MLX peak 均为 5864 字节；两个子进程已回收、PID 不存在、锁释放、最终诊断错误为空。segmented 关闭时的一条 semaphore warning 保留；R1 于 20:20:30 UTC 只读检查原两条及本轮一条确切名称，均 ENOENT，这不是全局泄漏审计。
+
+S0 首次数值绑定辅助检查错误地将两个 JSON 包载荷也要求列入 Python 消费身份，故 exit 1；原脚本、日志和快照保留。修订后的新目录检查分别绑定 58 个包载荷与 56 个 Python 消费源码，exit 0；未改候选、R1 输出或重跑框架。本次 S0 新测试/框架运行均为 0。R1 已阶段回报上述数值和 CPU 结果，原生同一轮仍 ACTIVE；正式 review commit、完整封存和交接未收到，候选仍未 ACCEPTED，PR11 保持 Draft。
+
 原 CPU 上游 KeyError 仍有效。实际页面、kris 语义/token-mask 人审、真实模型容量、baseline/SFT/DPO、正式评测和部署均未完成；training_authorized=false，完整 P04 与 P00–P09 不因本候选交接而完成。
