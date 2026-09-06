@@ -39,10 +39,12 @@ PYTHONPATH=src TOOLALIGN_TOKENIZER_DIR="$TOOLALIGN_TOKENIZER_DIR" "$P02_CPU_PYTH
 | 产物 | Bytes / 文件数 | 内容核对 | SHA-256 |
 |---|---|---|---|
 | sdist | 135363 / 60 | 59 个追踪文件逐字节一致 + 生成 PKG-INFO | `36233176f3ddc1e5c70ef1d307bbfdace412cbf6d07f87ff30cc22934efd6f5a` |
-| direct wheel | 51292 / 29 | 24 个源码/资源逐字节一致 + 5 个固定 metadata 文件 | `bfe806be8e46617896ccae4ffab523c1132204d3150e5f6380e854f2e237f558` |
-| rebuilt wheel | 51292 / 29 | 从上述实际 sdist 重建，与 direct wheel 完全相同 | `bfe806be8e46617896ccae4ffab523c1132204d3150e5f6380e854f2e237f558` |
+| 默认 build wheel | 51292 / 29 | `uv build`从同次sdist生成；24 个源码/资源逐字节一致 + 5 个固定 metadata 文件 | `bfe806be8e46617896ccae4ffab523c1132204d3150e5f6380e854f2e237f558` |
+| 显式 rebuilt wheel | 51292 / 29 | 另一次从上述实际 sdist 重建，与默认 build wheel 完全相同 | `bfe806be8e46617896ccae4ffab523c1132204d3150e5f6380e854f2e237f558` |
 
 三份真实归档的未追踪载荷、缺失预期成员、源码字节差异均为 0；拒绝重复、符号链接与逃逸成员。与 D1/R1 早先的安全包比较，成员集合相同；sdist 仅 README.md/PKG-INFO 改变，wheel 仅 METADATA/RECORD 改变，均源于本次 README 更新。旧包先核对固定大小和已知 SHA 后才比较，没有读取先前失败的私有内容归档。
+
+2026-09-06 S0表述校正：原始`build.log`明确写明“Building wheel from source distribution”，因此此前表格及私有inventory中的`direct-wheel`只是误用的标签，不是一次额外的工作树直接wheel构建。上表已按实际命令纠正；原始驱动、日志、inventory与归档hash原样保留。本次正常P02 main构建未单独执行源码直接wheel路线，该项为NOT_RUN；上列共享边界检查中的多路线探针另按其自身证据解释。本校正没有重跑或改写原338CPU/包字节/隔离安装结果。
 
 隔离环境通过锁文件导出默认运行依赖，要求依赖 hash，随后以 `--no-deps` 安装 rebuilt wheel；清除 PYTHONPATH/PYTHONHOME，并以 `python -I` 从源码目录之外执行。
 

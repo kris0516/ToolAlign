@@ -55,7 +55,7 @@ kris人审请求已实际发出，材料为不变的100来源/114决策/34分层
 
 接续派发：R1在P02正式完成/原生IDLE后，按授权52f9c57a50eaf580a1a90bc5c4b8bd028c83b903收到完整P01候选59b3802c81aa6eceaf3609af88f288756bcb1581，gpt-6-astra/max；原生已确认新一轮活跃。仅CPU、历史模型证据只读，P01/P03仍未验收。
 
-P02集成现已完成：[PR5](https://github.com/kris0516/ToolAlign/pull/5)以最终head71a50ba合并为2ec17673c18ffbc817b1ff8512e53e44a11766a5，GitHub已读回closed/merged，本机main tree与最终CI head完全相同。[CI34006711558](https://github.com/kris0516/ToolAlign/actions/runs/34006711558)双Python所有步骤成功；实际main338CPU无skip、241/18归档探针、真实sdist/direct+rebuilt wheel、14条隔离安装/P02接口子命令通过。归档0未追踪载荷，24源码/资源字节一致；README导致的metadata差异已逐成员确认。完整命令/退出码/hash与限制见[主干技术证据](../reports/S0_P02_MAIN_VERIFICATION.md)。P02状态MERGED，人工语义与训练绑定仍未通过，P04保持未授权。
+P02集成现已完成：[PR5](https://github.com/kris0516/ToolAlign/pull/5)以最终head71a50ba合并为2ec17673c18ffbc817b1ff8512e53e44a11766a5，GitHub已读回closed/merged，本机main tree与最终CI head完全相同。[CI34006711558](https://github.com/kris0516/ToolAlign/actions/runs/34006711558)双Python所有步骤成功；实际main338CPU无skip、241/18归档探针、真实sdist及默认/显式重建wheel、14条隔离安装/P02接口子命令通过。默认wheel按原始日志由sdist生成，先前direct标签已在报告校正，未增加一次未执行的源码直接构建。归档0未追踪载荷，24源码/资源字节一致；README导致的metadata差异已逐成员确认。完整命令/退出码/hash与限制见[主干技术证据](../reports/S0_P02_MAIN_VERIFICATION.md)。P02状态MERGED，人工语义与训练绑定仍未通过，P04保持未授权。
 
 P01完整R1审查现已交接：`ac6bdf78d57c6753865a24a1d216b90dc4478646`直接以59b3802为父，8个新增审查文件、155个候选文件未变。结论FAIL（P0=0/P1=2/P2=1）：监控异常遗漏resources/run终态；备选DPO第8微步ln2失败漏记已经执行的更新；math-r2工作树源码与记录HEAD的说明需纠正。S0读取正式交接/反例，并核对24份命令日志、4份私有结果和5个探针hash，保留原SHA公开审查分支；[正式报告](https://github.com/kris0516/ToolAlign/blob/ac6bdf78d57c6753865a24a1d216b90dc4478646/reports/review/P01/README.md)。217CPU与17组独立数学对照通过，独立pytest4通过/3失败，不能抵消P1。原10个run和185项制品只读核对，历史受限模型结果不改写为本次重跑。
 
