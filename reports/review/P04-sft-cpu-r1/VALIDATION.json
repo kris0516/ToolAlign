@@ -1,0 +1,2421 @@
+{
+  "auxiliary_reads": "Unmatched ignored-directory search and nonexistent source-path read are not tests; no fabricated standalone log hashes or timestamps.",
+  "candidate": {
+    "authorization_commit": "d65592e5529f573f061355775fec071737233d12",
+    "branch": "review/p04-sft-cpu-r1",
+    "candidate": "33d6248e2c518ea777618224382bd30a3cc3433d",
+    "contract": "plan-v0.1 / coordination.v1 / toolalign.contracts.v1 / ADR-0017..0020",
+    "parent": "0c7c2671a64d49fe48c722375481b4cf7a5c82c8",
+    "tree": "1d2d5474ef87034e0184f8ebfa359345182e3356"
+  },
+  "candidate_identity": {
+    "added_files": {
+      "configs/sft-cpu.v1.json": {
+        "git_blob": "bf7439b10e50ff3ce7266e5810f535b2e43ae8cc",
+        "mode": "100644",
+        "sha256": "5aad6ff6db68ee4fe9bac0aa6104eaeff17bf948b509bfce3d14e3eac9d9aa29",
+        "size_bytes": 3340
+      },
+      "coordination/handoffs/P04-sft-cpu-r1.md": {
+        "git_blob": "1147e10e156dc58fd82c6b8d8bec73a8dbf26937",
+        "mode": "100644",
+        "sha256": "c10abb87da971fd302859b93189458077477e6f55362c578c57432aace515cf0",
+        "size_bytes": 4028
+      },
+      "reports/experiments/P04_SFT_CPU_COLLATOR.py": {
+        "git_blob": "7ca2ad516e5bdb750c35c83117d117c2f1affa4f",
+        "mode": "100644",
+        "sha256": "f594f00a4458d05be764a91c5e32bfdbc41451ad9e50ed0724fd3328e89411fa",
+        "size_bytes": 5316
+      },
+      "reports/experiments/P04_SFT_CPU_COMMAND.py": {
+        "git_blob": "53cda7024b175b94b6005c53d718192f000600f4",
+        "mode": "100644",
+        "sha256": "6bbbda89e7ed67d0582d680f3540f5ba2b24510c0e109d8c1ccaee661de6acfd",
+        "size_bytes": 3266
+      },
+      "reports/experiments/P04_SFT_CPU_EVIDENCE.py": {
+        "git_blob": "9be865a2beb8b8fc4d1dc13317d3c3477fa05d12",
+        "mode": "100644",
+        "sha256": "fc490e093a3a01745f3353a75408b7c4b1a8959f1d878287b41e83a988eb7581",
+        "size_bytes": 9328
+      },
+      "reports/experiments/P04_SFT_CPU_PACKAGE.py": {
+        "git_blob": "c02a451bc5e1f0e8bb3e25371692bf25c87ff3c9",
+        "mode": "100644",
+        "sha256": "b5a7e8529a438200c59341072d0448048402d48353a44ea417c14fc7144f3d4e",
+        "size_bytes": 9309
+      },
+      "reports/experiments/P04_SFT_CPU_REPORT.md": {
+        "git_blob": "5c6c223bdd3ce9462988f379896e771fffa57e46",
+        "mode": "100644",
+        "sha256": "4588757e5004392de69e0384ea68e3d0b859ddc31697ff8e073c2b86d2b55772",
+        "size_bytes": 10738
+      },
+      "reports/experiments/P04_SFT_CPU_TOY.py": {
+        "git_blob": "d2ea160d6dc44911daa17c720b9c9e57132737f2",
+        "mode": "100644",
+        "sha256": "3872ed4187b0754b9baa32525a6aa3b157e33c0d7ceb7b9d1336f34df4536ed0",
+        "size_bytes": 17502
+      },
+      "reports/experiments/P04_SFT_CPU_UPSTREAM_LIMIT.md": {
+        "git_blob": "1e34883b4c2d5e436f42732aa0c8e4afedc4a027",
+        "mode": "100644",
+        "sha256": "821b35460a4acda1e77dedcdb1a25d80e429dafded7fe3ca0fd440e7a469b367",
+        "size_bytes": 3012
+      },
+      "reports/experiments/P04_SFT_CPU_VALIDATION.json": {
+        "git_blob": "7cbf5a1f89bfda8f6d092c017bf046dd97d33839",
+        "mode": "100644",
+        "sha256": "ba93450f6dcd5a8aaff1f21d68499e1b3cdca45aa83fe78fc6229edfd3514a2a",
+        "size_bytes": 31354
+      },
+      "src/toolalign/training/sft/__init__.py": {
+        "git_blob": "cd5216d43a46bd42440444cb9dea3ce0a8a43fac",
+        "mode": "100644",
+        "sha256": "b052e5287fabcccd89f4ae5db85db8e87196322c14a597a8e234e8b3b4ad0696",
+        "size_bytes": 404
+      },
+      "src/toolalign/training/sft/__main__.py": {
+        "git_blob": "f164fb937633fcf4374f40483ec93a308528cd14",
+        "mode": "100644",
+        "sha256": "c3d013c50954b096ad29365c3e45e81b6726454a5204519301ce7f3daffef577",
+        "size_bytes": 1630
+      },
+      "src/toolalign/training/sft/collator.py": {
+        "git_blob": "d13fde4732a89b70e03ad25d5d2cdc619de1a902",
+        "mode": "100644",
+        "sha256": "2bee5bcba478134265f19e3c297d4f59b7e6a0edf6545af70c203a57a8ca72f7",
+        "size_bytes": 4615
+      },
+      "src/toolalign/training/sft/config.py": {
+        "git_blob": "8b4c7dce751012859a55c499e8c1322a1e060416",
+        "mode": "100644",
+        "sha256": "aede5020b8dce0a71b5d242251878c928c558a796775cfa4e37076a7ecd5fe98",
+        "size_bytes": 842
+      },
+      "src/toolalign/training/sft/data.py": {
+        "git_blob": "231dfb52dbad3140a81e5c435151742357bf520b",
+        "mode": "100644",
+        "sha256": "4d5e475f27f9699349a4e6fdf46f3187c05001fc0a97c47b4457e809844e45e9",
+        "size_bytes": 5602
+      },
+      "src/toolalign/training/sft/mlx_adapter.py": {
+        "git_blob": "dda931c907e373aed31dce3bc29ae974fead0a25",
+        "mode": "100644",
+        "sha256": "55911524849764a81d9a564519b84985e1f2385ea0f91ccb951e030bb2db4e9e",
+        "size_bytes": 9195
+      },
+      "src/toolalign/training/sft/plan.py": {
+        "git_blob": "25fff99afaed9fcef8be8482f29719b95bca7bd8",
+        "mode": "100644",
+        "sha256": "d10602b687eef366ef246fd697b4164f5b5af76d9c5dbd3a85d5f34c2326bbd6",
+        "size_bytes": 1739
+      },
+      "src/toolalign/training/sft/validation.py": {
+        "git_blob": "d507dab3842ffe23a037abb3a8e7066e2c260d91",
+        "mode": "100644",
+        "sha256": "6cb3cd18335cbf9c4bee9be6190ec5aa12a43875fa0c61e21f0b3fa47892b0f1",
+        "size_bytes": 4037
+      },
+      "tests/training/sft/sft_cases.py": {
+        "git_blob": "19d54028210a79e7d9c4db71e73ee37deba392cd",
+        "mode": "100644",
+        "sha256": "5e8b36d189fe45ecc35a45204e15d1be069aa46e8265293eb7c9c9b93b5a4f61",
+        "size_bytes": 2959
+      },
+      "tests/training/sft/test_preparation.py": {
+        "git_blob": "6026ac5ee01e1bd364fa758cdef48cf5f5c85c6a",
+        "mode": "100644",
+        "sha256": "22f9e465561a42a373ef4cf26d9f986690b4922c3de594b1d7373ef095d3b7d5",
+        "size_bytes": 9661
+      }
+    },
+    "additions": 20,
+    "candidate_files_mutated": 0,
+    "files": 384,
+    "later_main_merged": false,
+    "manifest_sha256": "4fae9e5e30d1b63dc07ccd4f395559753473e4f7790f7207053b726dcb0caa1c",
+    "unchanged_base_files": 364
+  },
+  "collator": {
+    "existing_complete_cases_compared": 13,
+    "method": "Construct common Sequence from existing complete IDs; compare original reference/native, T1 arrays and current collate_sequence/pad_sequence.",
+    "new_full_8228_tokenizations": 0,
+    "new_real_case_tokenizations": 0,
+    "new_selection_materializations": 0,
+    "original_protocol_cases": 3,
+    "real_train_cases": 10
+  },
+  "command_argument_policy": "Literal path substitutions within full strings only; original full argv, cwd, environment and raw logs retained privately. No commands were reconstructed as executed.",
+  "command_count": 21,
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "reports/review/P04-sft-cpu-r1/check_package.py",
+        "archives",
+        "--t1-private",
+        "{T1_PRIVATE}",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/archive-proof.json"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:46:20.697220+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "archive-audit",
+      "receipt_sha256": "8d8a84beb060d99042c453ca66077944b17c208482807c435c617f912ee41074",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:46:19.595819+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3e3582fe6407c353f85884c8f266070c92d7804e5872eed1076a02aaf4dbf543",
+      "wall_seconds": 1.0653074579313397
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "reports/review/P04-sft-cpu-r1/check_bound.py",
+        "--inputs",
+        ".toolalign-local/review-p04-sft-cpu-r1/inputs.json",
+        "--t1-private",
+        "{T1_PRIVATE}",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/bound"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:47:49.426801+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "bound-views-and-arrays",
+      "receipt_sha256": "57f57fcb589478fffdd517d0bff816e370e1f772025da070b5a770ef99fbebed",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:46:19.638285+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d9212d099bf7ae472364ff5c4934650aa86674e029f8a70d5114432d6beef6ab",
+      "wall_seconds": 89.75512574985623
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp={R1_SYSTEM_TEMP_2}"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:20:30.917965+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "cpu-combined",
+      "receipt_sha256": "85439c43b8b230b2593454ea9d660a4d150441900233afb2598e0ea004f1015a",
+      "recorded_source_file_count": 384,
+      "recorded_source_manifest_sha256": "45ee369e8ad80720a208b3faf2ae682396daf68fa5c232c60e81d5eba802718c",
+      "review_source_files": {},
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:19:37.442176+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c882962b3374776123cd779f632bde1c766d8bc5bf1d3d6ec4f11b52861244dc",
+      "wall_seconds": 53.43861495796591
+    },
+    {
+      "argv": [
+        "{R1_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-c",
+        "import sys,json,importlib.metadata; names=[\"jsonschema\",\"tokenizers\",\"Jinja2\",\"psutil\",\"pytest\",\"ruff\",\"mlx\",\"mlx-lm\",\"torch\",\"transformers\"]; versions={d.metadata[\"Name\"].lower():d.version for d in importlib.metadata.distributions()}; print(json.dumps({\"python\":sys.version,\"executable\":sys.executable,\"packages\":{n:versions.get(n.lower()) for n in names},\"frameworks_loaded\":sorted({n.split(\".\")[0] for n in sys.modules}&{\"mlx\",\"mlx_lm\",\"torch\",\"transformers\"}),\"bytecode_disabled\":sys.dont_write_bytecode}))"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:47:27.422917+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "environment-default",
+      "receipt_sha256": "2fe6f556ce05bb7f458e6d9afd0fa3b5138810cdaeb32e603db188a38777059c",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:47:27.344908+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "28d9662cc027f25406b57209e26454793e80eafbdb4e94e4157c9304d2ae368d",
+      "wall_seconds": 0.04527133284136653
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "-c",
+        "import sys,json,importlib.metadata; names=[\"jsonschema\",\"tokenizers\",\"Jinja2\",\"psutil\",\"pytest\",\"ruff\",\"mlx\",\"mlx-lm\",\"torch\",\"transformers\"]; versions={d.metadata[\"Name\"].lower():d.version for d in importlib.metadata.distributions()}; print(json.dumps({\"python\":sys.version,\"executable\":sys.executable,\"packages\":{n:versions.get(n.lower()) for n in names},\"frameworks_loaded\":sorted({n.split(\".\")[0] for n in sys.modules}&{\"mlx\",\"mlx_lm\",\"torch\",\"transformers\"}),\"bytecode_disabled\":sys.dont_write_bytecode}))"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:47:27.543800+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "environment-tokenizer-cpu",
+      "receipt_sha256": "b3d8283a8917d138324a71a405bc8564430beade15817bcf74b5cfbe520201d5",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:47:27.466742+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba0b664be3cc1bd683c42fec19b1ee7211f06acefbd119cc21876bd1956f1d05",
+      "wall_seconds": 0.04466629191301763
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py",
+        "--t1-private",
+        "{T1_PRIVATE}",
+        "--s0-evidence",
+        "{S0_EVIDENCE}",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/evidence-proof.json"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:31:46.569804+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "evidence-audit",
+      "receipt_sha256": "f794af15530cdb8a28b60eaa63b4fcdd12ae08f0bef1d0e496b885243a48b65b",
+      "recorded_source_file_count": 386,
+      "recorded_source_manifest_sha256": "867ff0fa805c1a219f93ff9cf46585b250f1ff137933a8bef3dcb73db447e74b",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:31:45.989432+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9db8bc837784706237d35718214bb6a1c2272595bc34076bc00c6b26ad020177",
+      "wall_seconds": 0.5463812090456486
+    },
+    {
+      "argv": [
+        "{S0_WORKTREE}/.venv/bin/python",
+        "-B",
+        "scripts/check_contract_freeze.py"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T17:01:35.714644+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "freeze",
+      "receipt_sha256": "16980b0c486f08541148f9aa098246975fbb21c49c081ee6048651e05e13e051",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T17:01:35.659921+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "wall_seconds": 0.020078582921996713
+    },
+    {
+      "argv": [
+        "{R1_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py",
+        "--basetemp={R1_SYSTEM_TEMP_5}"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:28:12.167470+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "independent-cpu",
+      "receipt_sha256": "c40063506f9c610263dac7bb3c51ecf6097a98c0a7eb95084a5154f1ae7fb160",
+      "recorded_source_file_count": 385,
+      "recorded_source_manifest_sha256": "7f8b549617dd84138c5e50f527933ad983d5b17d58b1aeccde318f128ef47a1d",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:28:11.926263+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c520741a8f554448e43c37390b4fa4b2a9d5d6c83aca84f839c18420104aabd7",
+      "wall_seconds": 0.2097845410462469
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "reports/review/P03-ci-deadline-r1/test_deadline_boundaries.py",
+        "--basetemp={R1_SYSTEM_TEMP_3}"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:19:49.191420+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "independent-deadline-review",
+      "receipt_sha256": "698927c8ddde466f9e80bbd4b609c8fa4d9a03266ae14e6f8833c9351d7750a1",
+      "recorded_source_file_count": 384,
+      "recorded_source_manifest_sha256": "45ee369e8ad80720a208b3faf2ae682396daf68fa5c232c60e81d5eba802718c",
+      "review_source_files": {},
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:19:37.397758+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "db7d9faf2e942cd19901409fe3e3a544ba65632fd57e468d9fed9a1a10c2a5ea",
+      "wall_seconds": 11.757406249875203
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "reports/review/P02-training-binding-r1/probe_training_binding.py",
+        "--basetemp={R1_SYSTEM_TEMP_4}"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:19:38.913455+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "independent-training-binding-review",
+      "receipt_sha256": "8f76fc2554fdff72b62d3c80a963698622a9dc9db4c0808aaeb2bcae10102526",
+      "recorded_source_file_count": 384,
+      "recorded_source_manifest_sha256": "45ee369e8ad80720a208b3faf2ae682396daf68fa5c232c60e81d5eba802718c",
+      "review_source_files": {},
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:19:37.466094+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0a81e6fb66eea751f5983ce48861ffbf63b70150129994afa824adf42134e817",
+      "wall_seconds": 1.4113324161153287
+    },
+    {
+      "argv": [
+        "uv",
+        "--cache-dir",
+        "{R1_PRIVATE}/install-cache",
+        "pip",
+        "install",
+        "--offline",
+        "--no-python-downloads",
+        "--python",
+        "{R1_WORKTREE}/.venv/bin/python",
+        "--target",
+        "{R1_PRIVATE}/installed-wheel",
+        "--no-deps",
+        "{T1_PRIVATE}/packages/default/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:48:53.732239+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "install-default-wheel",
+      "receipt_sha256": "e717c81f6714013bfb38c95d87995681bca0718820b44db3ca9bb4326a1759d8",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:48:53.658825+00:00",
+      "stderr_sha256": "c1a3a5d60f67cf04b42a5fa9a40c95c5af477e3348ddf4f7d564fa33f88843db",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wall_seconds": 0.04065395798534155
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py",
+        "--root",
+        ".",
+        "--target",
+        ".toolalign-local/review-p04-sft-cpu-r1/installed-wheel",
+        "--runtime",
+        "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+        "--wheel",
+        "{T1_PRIVATE}/packages/default/toolalign-0.0.1-py3-none-any.whl",
+        "--inputs",
+        ".toolalign-local/review-p04-sft-cpu-r1/inputs.json",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/package-tests"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:55:49.578384+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "installed-exercise",
+      "receipt_sha256": "636f684489a1cf63ffff2c3bc9e0d96f0b02fb62b4c19e66f52a4010d25ade89",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:54:57.067499+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "7a05634a95348b8d856870ded96af8042ef916b04708acf049afdd3bd2b0d58d",
+      "wall_seconds": 52.47377208387479
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-I",
+        "-S",
+        "reports/review/P04-sft-cpu-r1/check_package.py",
+        "installed",
+        "--target",
+        "{R1_PRIVATE}/installed-wheel",
+        "--runtime",
+        "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+        "--wheel",
+        "{T1_PRIVATE}/packages/default/toolalign-0.0.1-py3-none-any.whl",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/installed-origins.json"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:49:27.329396+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "installed-origins",
+      "receipt_sha256": "d79d16b0106272ffb68ff92c860e7c409a4cf17ccfb4ffd3693b502e1e5f418a",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:49:27.166186+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ae171573c261dccf88ea49354398de8ed918e65be615d443f9c45a767a68ff0e",
+      "wall_seconds": 0.12992799980565906
+    },
+    {
+      "argv": [
+        "{S0_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "."
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T17:01:35.752867+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "lint-all",
+      "receipt_sha256": "12646edb8a25aae31fbecdcec22428eabaa0343b92bda89a2c72666afc1ab6e8",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T17:01:35.681226+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.038181290961802006
+    },
+    {
+      "argv": [
+        "{S0_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "--no-respect-gitignore",
+        "reports/review/P04-sft-cpu-r1",
+        "reports/experiments/P04_SFT_CPU_COLLATOR.py",
+        "reports/experiments/P04_SFT_CPU_COMMAND.py",
+        "reports/experiments/P04_SFT_CPU_EVIDENCE.py",
+        "reports/experiments/P04_SFT_CPU_PACKAGE.py",
+        "reports/experiments/P04_SFT_CPU_TOY.py"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T17:01:35.778206+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "lint-explicit-reports",
+      "receipt_sha256": "4f9a0738ddb0f551b77f30e588975e9f3b496e244872a5ac055850e5c553539d",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T17:01:35.703858+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.04126841691322625
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py",
+        "supervise",
+        "--repository",
+        ".",
+        "--output",
+        ".toolalign-local/review-p04-sft-cpu-r1/numeric-once",
+        "--replay-python",
+        "{REPLAY_ENV}/bin/python"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:46:23.293987+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "MKL_NUM_THREADS": "2",
+        "OMP_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0",
+        "WANDB_MODE": "disabled"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "numeric-once",
+      "receipt_sha256": "5d13a7ee2fa2f02b388d2c736a92a454d12725348391e09c97f0d378dfeb4df4",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:46:19.615504+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "805e51b0512c19c5a872adcb0fd940e3f096dc7dd8af69e6dc1c9d8f6f87aea4",
+      "wall_seconds": 3.644990875152871
+    },
+    {
+      "argv": [
+        "{TOKENIZER_CPU_ENV}/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "reports/review/P02-format/test_independent.py",
+        "reports/review/P02-format/test_audit_denominators.py",
+        "--basetemp={R1_SYSTEM_TEMP_6}"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:19:37.773790+00:00",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "original-format-review",
+      "receipt_sha256": "0bb9a6ed546f5aa5d755ac35f825c9abef10c53d633b3dc30ab3ffba584a0e41",
+      "recorded_source_file_count": 384,
+      "recorded_source_manifest_sha256": "45ee369e8ad80720a208b3faf2ae682396daf68fa5c232c60e81d5eba802718c",
+      "review_source_files": {},
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:19:37.418583+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b40f7074b5c83beb3dfff0891b029118d9fc58ace31af2619271fdc35cab43e3",
+      "wall_seconds": 0.3200699579901993
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        ".toolalign-local/review-p04-sft-cpu-r1/preserve_end.py"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T17:07:10.552515+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 1,
+      "label": "preservation-end",
+      "receipt_sha256": "9331f5623b63970fbb8b6419ac0ca47eb1b48f4d55986caa151924f0d375eb3e",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T17:07:07.946515+00:00",
+      "stderr_sha256": "e406b604e3c895617bb4dfa3bb71008bc58c32257451cadba1f811a4a3a13ceb",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wall_seconds": 2.573309374973178
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        ".toolalign-local/review-p04-sft-cpu-r1/preserve_end.py"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T17:10:44.643124+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "preservation-end-r2",
+      "receipt_sha256": "2baeb04d214762c41b8ed24987f3971d041d0f511235921c3044a9942ac5ff41",
+      "recorded_source_file_count": 390,
+      "recorded_source_manifest_sha256": "142b908f544d5f67c92916c5a04e5b1baf3e708f0c0d17ed947f1da7e1607d81",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/exercise_installed.py": "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T17:10:41.688671+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e2c238c178cb2be848331ea02d5e6e8c556aaaad9ed9b9a53b6a6ca579b840db",
+      "wall_seconds": 2.9232073749881238
+    },
+    {
+      "argv": [
+        "{S0_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "--no-respect-gitignore",
+        "reports/review/P04-sft-cpu-r1"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:45:21.976378+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 0,
+      "label": "review-probe-lint",
+      "receipt_sha256": "4ccfb7ab73bf882197b7855231fd1622bf01e275e31c0590e4d29ea5b511e5d8",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "09be940e325682f0f1c43168636ed285defd8c20849eb2ad48dc7a51cd7f8005",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:45:21.921357+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.022736874874681234
+    },
+    {
+      "argv": [
+        "{S0_WORKTREE}/.venv/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "--no-respect-gitignore",
+        "reports/review/P04-sft-cpu-r1"
+      ],
+      "cwd": "{R1_WORKTREE}",
+      "ended_at_utc": "2026-09-06T16:44:55.293891+00:00",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      },
+      "error": null,
+      "exit_code": 1,
+      "label": "review-probe-lint-initial",
+      "receipt_sha256": "16b06d4aa5253c9c072f9edad9ad0caab6d8c2ab44f0dc34ab700a996c7526fe",
+      "recorded_source_file_count": 389,
+      "recorded_source_manifest_sha256": "d01c3f656a3e48c0327066cbfc5d945b6c808136eec85fdfeb8b888d4d3de2ba",
+      "review_source_files": {
+        "reports/review/P04-sft-cpu-r1/audit_evidence.py": "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9",
+        "reports/review/P04-sft-cpu-r1/check_bound.py": "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8",
+        "reports/review/P04-sft-cpu-r1/check_package.py": "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0",
+        "reports/review/P04-sft-cpu-r1/numeric_probe.py": "b36c703d88cfcb4f2d06009aba6de74b2b74a9374092d12845a31f3a18ea866c",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py": "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26"
+      },
+      "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+      "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+      "source_unchanged_during_command": true,
+      "started_at_utc": "2026-09-06T16:44:55.178354+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b150ffe46eb26d48fa9bdac840cca36da5efb259cf79def1158c10e9990afbc8",
+      "wall_seconds": 0.08386066695675254
+    }
+  ],
+  "cpu_counts": {
+    "baseline_groups_passed": [
+      895,
+      60,
+      2,
+      13
+    ],
+    "baseline_total_passed": 970,
+    "candidate_51_already_in_895": true,
+    "independent_passed_total": 1014,
+    "installed_44_repeat_not_added": true,
+    "original_r1_probes": 44,
+    "skip_reason": "HF snapshot cleanup applies only to reference engine; tests/model_io/test_snapshot.py:178",
+    "skipped": 2,
+    "subtests_not_added": 110
+  },
+  "decision": {
+    "accepted_native_checkpoint": false,
+    "cpu_preparation": "PASS",
+    "final_acceptance_owner": "S0",
+    "native_trainer": "BLOCKED_UPSTREAM_CPU_ENTRY",
+    "new_findings": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0
+    },
+    "training_authorized": false
+  },
+  "expected_negative_results": {
+    "installed_existing_config_training_exits": [
+      1,
+      1,
+      2
+    ],
+    "native_key_error_caught_child_exit": 0
+  },
+  "fixed_input_output_rejections": [
+    {
+      "error": "sft_config_file_hash_mismatch",
+      "input_sha256": "e689a1fe4f0dbeeb144acf8f570ed003c0de752ffb1374181b4a85a1bec1c0c7",
+      "kind": "sft_config_path"
+    },
+    {
+      "error": "public_selection_manifest_mismatch",
+      "input_sha256": "657dcfadc33fa0be9be5a9132740e43f2d353a8656589192e5eb67b5416bc021",
+      "kind": "public_selection_manifest_path"
+    },
+    {
+      "error": "config_file_hash_mismatch",
+      "input_sha256": "95f84b6b1795b1b9d9d408ab684c43545d9cabf0ca52d6bc46e2ace486b90dbf",
+      "kind": "config_path"
+    },
+    {
+      "error": "data_manifest_hash_mismatch",
+      "input_sha256": "4a56b404a647b1870a05a868b8bc3660d750f54907f2e9b03fa6d1bfd0cbbfa7",
+      "kind": "data_manifest_path"
+    },
+    {
+      "error": "protocol_hash_mismatch",
+      "input_sha256": "ebd2a39dc5a3f0b1e4e94188c27abf145f7c42ef441594f0108c4c19cb945a65",
+      "kind": "protocol_path"
+    },
+    {
+      "error": "representation_manifest_hash_mismatch",
+      "input_sha256": "ba5f17cb0235a9b73296c4c3123fe28ba0f4724c7641306f6a5e41ca37a4abdd",
+      "kind": "representation_path"
+    },
+    {
+      "error": "audit_file_hash_mismatch",
+      "input_sha256": "8b61da261cd2c25d264072f554e8ae89a26fd6ac9e59f81176db0f58549b3c0e",
+      "kind": "audit_path"
+    },
+    {
+      "error": "selection_artifact_set_mismatch",
+      "kind": "missing_selected_output"
+    }
+  ],
+  "gates": {
+    "G_DATA": "NOT_CLOSED",
+    "P04_formal_training": "NOT_AUTHORIZED",
+    "actual_browser_pages_observed": 0,
+    "actual_page_review": "PENDING",
+    "kris_semantic_review": "PENDING",
+    "kris_token_mask_review": "PENDING"
+  },
+  "generated_at_utc": "2026-09-06T17:18:05.931446+00:00",
+  "human": [
+    {
+      "human_fields_are_allowed_to_change": true,
+      "prior_sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+      "reviewer_filled": 0,
+      "rows": 100,
+      "sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+      "verdict_filled": 0
+    },
+    {
+      "human_fields_are_allowed_to_change": true,
+      "prior_sha256": "ab02b3c7d4b8cac8d12899edfc52fd9ce910ff1b90de0107c0197abc57b7dd4c",
+      "reviewer_filled": 0,
+      "rows": 13,
+      "sha256": "ab02b3c7d4b8cac8d12899edfc52fd9ce910ff1b90de0107c0197abc57b7dd4c",
+      "verdict_filled": 0
+    }
+  ],
+  "new_r1_failures_retained": [
+    {
+      "cause": "R1 numeric probe import formatting I001",
+      "exit_code": 1,
+      "label": "review-probe-lint-initial",
+      "resolution": "R1 source only; initial bytes reconstructed from recorded edits and verified against original hash."
+    },
+    {
+      "cause": "R1 checker wrongly required App-managed temporary diff ref names to persist.",
+      "exit_code": 1,
+      "label": "preservation-end",
+      "resolution": "Original helper saved; only temporary capture/checkpoint names allowed to retire, all old ref objects and review branches verified."
+    }
+  ],
+  "not_run": [
+    "actual native optimization loop",
+    "actual 8+5 microstep updates and tail numerics",
+    "native evaluate",
+    "checkpoint save/reload and post-tail Score binding",
+    "pretrained model loading",
+    "real P02 optimization",
+    "formal baseline/SFT/DPO",
+    "accepted_sft checkpoint",
+    "real model capacity preflight",
+    "BFCL evaluation",
+    "GPU tensors",
+    "browser navigation",
+    "R1 new package build",
+    "source direct wheel",
+    "final CI and main integration by R1"
+  ],
+  "numeric": {
+    "cpu_arrays_after_lease_and_device_configuration": true,
+    "device": {
+      "cpu_device_info": {
+        "architecture": "arm64",
+        "device_name": "Apple M5 Pro"
+      },
+      "framework_versions": {
+        "mlx": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "numpy": "2.5.2",
+        "torch": "2.14.0"
+      },
+      "metal_available": true,
+      "mlx_default": "Device(cpu, 0)",
+      "mlx_stream": "Device(cpu, 0)",
+      "torch_default": "cpu",
+      "torch_interop_threads": 2,
+      "torch_threads": 2
+    },
+    "entry": {
+      "checkpoint_created": false,
+      "exception_args": [
+        "max_recommended_working_set_size"
+      ],
+      "exception_type": "KeyError",
+      "iterator_visited": [],
+      "optimizer_step": 0,
+      "parameter_hash_after": "e024bbaa23be89829b80c80f2be6d780da3dbbb82e79c1e6379794229897f827",
+      "parameter_hash_before": "e024bbaa23be89829b80c80f2be6d780da3dbbb82e79c1e6379794229897f827",
+      "status": "EXPECTED_UPSTREAM_CPU_ENTRY_BLOCK",
+      "trainer_calls": 1,
+      "trainer_source": "{REPLAY_ENV}/lib/python3.14/site-packages/mlx_lm/tuner/trainer.py",
+      "trainer_source_sha256": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+      "wired_limit_events": [],
+      "wired_setter_restored": true
+    },
+    "original_case_metrics": {
+      "atol": 2e-06,
+      "default_loss_negative": {
+        "correct_loss": 1.5347585678100586,
+        "correct_tokens": 2,
+        "loss": 1.2920119762420654,
+        "tokens": 3
+      },
+      "ignored_loss_after": 1.5347585678100586,
+      "ignored_loss_before": 1.5347585678100586,
+      "ignored_loss_error": 0.0,
+      "largest_bucket": 8,
+      "max_errors": {
+        "gradient_error": 8.940696716308594e-08,
+        "loss_error": 2.384185791015625e-07,
+        "padding_gradient_error": 0.0,
+        "padding_loss_error": 0.0
+      },
+      "mlx_optimizer_updates": 0,
+      "model_parameters": 16,
+      "scope": "TOY_CPU",
+      "torch_optimizer_updates": 0,
+      "unique_original_cases": 13,
+      "vocabulary": 4
+    },
+    "process": {
+      "actual_child_exit": 0,
+      "cpu_children_launched": 1,
+      "exit_code": 0,
+      "own_pid_exists": false,
+      "own_process_reaped": true,
+      "peak_rss_bytes": 389185536,
+      "wall_seconds": 3.547687166137621
+    },
+    "result": {
+      "checkpoint_files": 0,
+      "entry_sha256": "1c9e8aa7096ad877750b02e6c2173dfe00de484a4ce6bdcb9e51fd4675f7c448",
+      "native_evaluate": "NOT_RUN",
+      "native_trainer": "BLOCKED_UPSTREAM_CPU_ENTRY",
+      "native_updates": 0,
+      "numbers_sha256": "b1783a532fa3e35a67efb677e30b819999fa546c80920ebecb28caa58fabbd2b",
+      "numerics": "PASS",
+      "status": "PASS_NUMERICS_WITH_EXPECTED_ENTRY_BLOCK",
+      "tail_updates": "NOT_RUN"
+    },
+    "second_numeric_child": false,
+    "shared_lock_released": true,
+    "vendor_or_device_api_patch": false
+  },
+  "original_evidence": {
+    "distinct_paths_verified": 2418,
+    "original_command_count": 18,
+    "original_commands": [
+      {
+        "argv": [
+          "env",
+          "PYTHONPATH={UV_CACHE}/archive-v0/24LHLnlh_iFZsaPf:{UV_CACHE}/archive-v0/OEDpJLjhgrIjca5z:{UV_CACHE}/archive-v0/1VfQD3aUbZvOPFhZ",
+          "uv",
+          "build",
+          "--offline",
+          "--no-python-downloads",
+          "--no-build-isolation",
+          "--python",
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "--out-dir",
+          ".toolalign-local/p04-sft-cpu-r1/packages/default"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:22:39.920734+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "build-default",
+        "receipt_sha256": "ba0bbc94cbadcfc8747992e99c54d9201cc1959a06072fef4fd381fdad636d81",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:22:39.619029+00:00",
+        "stderr_sha256": "759a1be9f6e0e669d8cda7d179d6a4b101f89bdaa55b615c098ff82ce186f184",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "wall_seconds": 0.27181824995204806
+      },
+      {
+        "argv": [
+          "env",
+          "PYTHONPATH={UV_CACHE}/archive-v0/24LHLnlh_iFZsaPf:{UV_CACHE}/archive-v0/OEDpJLjhgrIjca5z:{UV_CACHE}/archive-v0/1VfQD3aUbZvOPFhZ",
+          "uv",
+          "build",
+          "--offline",
+          "--no-python-downloads",
+          "--no-build-isolation",
+          "--python",
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "--wheel",
+          ".toolalign-local/p04-sft-cpu-r1/packages/default/toolalign-0.0.1.tar.gz",
+          "--out-dir",
+          ".toolalign-local/p04-sft-cpu-r1/packages/rebuilt"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:23:25.077083+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "build-rebuilt",
+        "receipt_sha256": "d97745630cc2a4276c240dd9327ee4e7b6954e9835ae7943e8e1f8d1bb969473",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:23:24.903219+00:00",
+        "stderr_sha256": "3c358bc09ca80b397ba749ffcb001b3b92dbc87ce7666b9486e5036daf29c145",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "wall_seconds": 0.13658308400772512
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "reports/experiments/P04_SFT_CPU_COLLATOR.py",
+          "--inputs",
+          ".toolalign-local/p04-sft-cpu-r1/inputs.json",
+          "--output",
+          ".toolalign-local/p04-sft-cpu-r1/collator"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:17:22.416247+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "collator",
+        "receipt_sha256": "4d8fb4a3d4d9acf38b70ac34ea0d040995e835c3c2ec672a125953e38d7e3d6f",
+        "source_head": "96fcbe1f34fc9d2afe1d9faf3935817d37b22d76",
+        "source_tree": "a64b9febee9d541a92c3a7e692aa149b264beadf",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:15:53.103070+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9d5c5dca654f509a0fd90092df6662732705e51bb42d7ea1f71980d2ca797bae",
+        "wall_seconds": 89.28106333385222
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "tests",
+          "reports/review/P00/test_independent.py",
+          "reports/review/P00-r2/test_revision_boundaries.py",
+          "reports/review/P02/test_p02_boundaries.py",
+          "reports/review/P03/test_p03_lifecycle.py",
+          "reports/review/P03/test_p03_semantics.py",
+          "reports/review/P01/test_p01_processes.py",
+          "reports/review/P01/test_p01_failure_counters.py",
+          "reports/review/P01-r2/test_p01_r2_regressions.py",
+          "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+          "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+          "--basetemp=/tmp/toolalign-t1-p04-cpu-combined-r1"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:24:19.729543+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "{T1_WORKTREE}/src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "cpu-combined",
+        "receipt_sha256": "16ac0dfadd338346e6e8771ae9599ed07db07f53e4df38ece19d54ff4f478ea2",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:23:26.422965+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c49163b5bba1616a96ac85ec6f977fd7df7808c3b81b402843c652eaf2ccdb9a",
+        "wall_seconds": 53.273476749891415
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_contract_freeze.py"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:38:27.526811+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "final-freeze",
+        "receipt_sha256": "a18c1943231d7bfaa8dc69e5ecaf923b7a4ca8e67743ea1c29447168615cbffd",
+        "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+        "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:38:27.471783+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "wall_seconds": 0.020652208011597395
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "-m",
+          "ruff",
+          "check",
+          "--no-cache",
+          "."
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:38:27.575781+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "final-lint",
+        "receipt_sha256": "b1cbcab92816cd3e7f0d0d7aa53142b487c224098c66b39e3d0b6cb27c5ad2fa",
+        "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+        "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:38:27.494464+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "wall_seconds": 0.04830420785583556
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "-m",
+          "ruff",
+          "check",
+          "--no-cache",
+          "--no-respect-gitignore",
+          "reports/experiments"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:38:27.537818+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "final-lint-reports",
+        "receipt_sha256": "08cf13b8a89854b667b5c583722f4a3c182fc511ed7f646d4715ca2f2c30f222",
+        "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+        "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:38:27.452447+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "wall_seconds": 0.04794345796108246
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_public_content.py"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:38:32.635023+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "final-public",
+        "receipt_sha256": "60cb6a2a78f979207bad993067b9343f32fb1671a3b7ac74e667f7c5be151826",
+        "source_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+        "source_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:38:27.518629+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8b1204a539b89cfa6cbfec42deef10afb94cf47fb0ed72ea23dda2a9c69ded1a",
+        "wall_seconds": 5.078963458072394
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_contract_freeze.py"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:28:36.551764+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "freeze",
+        "receipt_sha256": "fef9f2c5ab58c55a7f00baffed2fe4362a8414d69ab8556d5fddfca40f3b1421",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:28:36.498289+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "wall_seconds": 0.023698958102613688
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "reports/review/P03-ci-deadline-r1/test_deadline_boundaries.py",
+          "--basetemp=/tmp/toolalign-t1-p04-independent-deadline-review-r1"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:24:31.844743+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "{T1_WORKTREE}/src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "independent-deadline-review",
+        "receipt_sha256": "967533cf88ed4996ea9af244d7981d5d3466a18f0f05626e7937c369591542b0",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:24:20.117438+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6f8c24f6ae2e6797a0ce5479e071fd93b94737d09c7cbd318423fcde91cd4d8e",
+        "wall_seconds": 11.696100750006735
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "reports/review/P02-training-binding-r1/probe_training_binding.py"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:24:33.375039+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "{T1_WORKTREE}/src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "independent-training-binding-review",
+        "receipt_sha256": "67a03b9331ca799b5f26ec2e831e8d43a4cc50b3c5132e31c3d2840f3b3ff8da",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:24:31.892823+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "61435dff963483db52a2fabd8f6dac28e4ccd4a5e1b8acb2bca80b156f3dc680",
+        "wall_seconds": 1.448990250006318
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "-m",
+          "ruff",
+          "check",
+          "--no-cache",
+          "."
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:28:36.422661+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "lint",
+        "receipt_sha256": "52a03380a4f1cc950f372bd4e50a8e613ef66b9fccc5f577048c6109a6ac0426",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:28:36.313228+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "wall_seconds": 0.07761504198424518
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "tests/training/sft",
+          "--basetemp=/tmp/toolalign-t1-p04-new-cpu-r1"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:22:39.546022+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "new-cpu",
+        "receipt_sha256": "033c4d351fae4d2dd35cbd299c7db9d6ad3c43e8b95fca6752f61a6355e8368a",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:22:39.304640+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b1e61cb15c70338ab3850ed28211b1ccca8f01e0f7a3ca762b8f684cd3d41218",
+        "wall_seconds": 0.20973891695030034
+      },
+      {
+        "argv": [
+          "{TOKENIZER_CPU_ENV}/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "reports/review/P02-format/test_independent.py",
+          "reports/review/P02-format/test_audit_denominators.py",
+          "--basetemp=/tmp/toolalign-t1-p04-original-format-review-r1"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:24:20.073144+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "{T1_WORKTREE}/src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TOOLALIGN_TOKENIZER_DIR": "{D1_WORKTREE}/.toolalign-local/verified-source/qwen",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "original-format-review",
+        "receipt_sha256": "e0560c6f79f7376779d8b8657bea729428466a4a568b0178cc287bdc9f62b7ee",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:24:19.776659+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c2350f7426fb821eb74effafd0b34dceca5ee54874061463dffa6905366a6c35",
+        "wall_seconds": 0.263017833000049
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "reports/experiments/P04_SFT_CPU_PACKAGE.py",
+          "verify",
+          "--root",
+          ".",
+          "--archives",
+          ".toolalign-local/p04-sft-cpu-r1/packages",
+          "--output",
+          ".toolalign-local/p04-sft-cpu-r1/package-check",
+          "--runtime",
+          "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+          "--inputs",
+          ".toolalign-local/p04-sft-cpu-r1/inputs.json"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:24:58.333753+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "package",
+        "receipt_sha256": "3df9ad44a4f7163eaad734d0583e5c4e3dc3da3b3ae292500cf15a9699fa2b75",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:23:25.153407+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b5ad4b02b7ef0b42ba67f66b812dda8cc15e46aa82d81a0d786bc799ab47d642",
+        "wall_seconds": 93.15032254206017
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_public_content.py"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:28:41.625639+00:00",
+        "environment": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src"
+        },
+        "error": null,
+        "exit_code": 0,
+        "label": "public-pre-report",
+        "receipt_sha256": "188857271abceb28159c12972943cffb1712d6db2b0eca253f893624c2be9c4e",
+        "source_head": "eefc142ce159c1564076dff7d3f17156412de699",
+        "source_tree": "4b355f1022465195711306d16c5f48d826f8d1ee",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:28:36.647060+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9469fa12e624b3021f2ac2e85da9199075c85cbe17e9fe653fa9204d33c71ab6",
+        "wall_seconds": 4.949039790779352
+      },
+      {
+        "argv": [
+          ".toolalign-local/base-r2/venv-replay/bin/python",
+          "-B",
+          "reports/experiments/P04_SFT_CPU_TOY.py",
+          "supervise",
+          "--mode",
+          "segmented",
+          "--repository",
+          ".",
+          "--output",
+          ".toolalign-local/p04-sft-cpu-r1/toy-segmented"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:16:18.565703+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "MKL_NUM_THREADS": "2",
+          "OMP_NUM_THREADS": "2",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0",
+          "WANDB_MODE": "disabled"
+        },
+        "error": null,
+        "exit_code": 1,
+        "label": "toy-segmented",
+        "receipt_sha256": "4b8ace532cc45dfeda18094ae87cf0821c23c0fc6df21d398c35ab52ca423d83",
+        "source_head": "96fcbe1f34fc9d2afe1d9faf3935817d37b22d76",
+        "source_tree": "a64b9febee9d541a92c3a7e692aa149b264beadf",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:16:12.125962+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "697e327b1c705a692f9870cfdd6412a746b6fe68392668abf17dda4da61b7a75",
+        "wall_seconds": 6.4089402090758085
+      },
+      {
+        "argv": [
+          ".toolalign-local/base-r2/venv-replay/bin/python",
+          "-B",
+          "reports/experiments/P04_SFT_CPU_TOY.py",
+          "supervise",
+          "--mode",
+          "segmented",
+          "--repository",
+          ".",
+          "--output",
+          ".toolalign-local/p04-sft-cpu-r1/toy-segmented-r2"
+        ],
+        "cwd": "{T1_WORKTREE}",
+        "ended_at_utc": "2026-09-06T15:18:32.965005+00:00",
+        "environment": {
+          "HF_HUB_OFFLINE": "1",
+          "MKL_NUM_THREADS": "2",
+          "OMP_NUM_THREADS": "2",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "src",
+          "TOKENIZERS_PARALLELISM": "false",
+          "TRANSFORMERS_OFFLINE": "1",
+          "USE_FLAX": "0",
+          "USE_TF": "0",
+          "USE_TORCH": "0",
+          "WANDB_MODE": "disabled"
+        },
+        "error": null,
+        "exit_code": 1,
+        "label": "toy-segmented-r2",
+        "receipt_sha256": "d4af54ea00cee417fec9c274817324102fd128b028d5838f88bdcce768ce0528",
+        "source_head": "9e71552c22b4ed5daf4e4a66e24816bd61f53092",
+        "source_tree": "1cd12373f8807122f146ebb31adee72796de1686",
+        "source_unchanged_during_command": true,
+        "started_at_utc": "2026-09-06T15:18:29.970316+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6195cb7772aec0b679eba34acbfcddb64c5811ee6f492e3618c015ee9593c47f",
+        "wall_seconds": 2.9636764579918236
+      }
+    ],
+    "original_trials": [
+      {
+        "failure": {
+          "message": "",
+          "type": "AssertionError"
+        },
+        "label": "toy-segmented",
+        "pid_exists_at_review": false,
+        "supervision": {
+          "actual_child_exit": 1,
+          "exit_code": 1,
+          "own_pid_exists": false,
+          "own_process_reaped": true,
+          "peak_rss_bytes": 388268032,
+          "wall_seconds": 6.272457959130406
+        }
+      },
+      {
+        "failure": {
+          "message": "'max_recommended_working_set_size'",
+          "type": "KeyError"
+        },
+        "label": "toy-segmented-r2",
+        "pid_exists_at_review": false,
+        "supervision": {
+          "actual_child_exit": 1,
+          "exit_code": 1,
+          "own_pid_exists": false,
+          "own_process_reaped": true,
+          "peak_rss_bytes": 389775360,
+          "wall_seconds": 2.8635463749524206
+        }
+      }
+    ],
+    "s0_archive_proof_sha256": "c2abc373dc6b55e5fbd2bd2215361a5da8d241d52bb182929e5a3785f4a8f946",
+    "s0_handoff_proof_sha256": "f59023785bc7888806ea053015c30d43ecee27cc7046a211867d9daeb2e878b3",
+    "s0_intermediate_proof_sha256": "42d0eb64846943c440f6f468aceea55f56af264701bcb226c037d39dd852960d",
+    "t1_completion_sha256": "7cc60a30519b6f6011b33616b40a8b24a3712d813e48051ec6b04d33c823e151",
+    "t1_public_index_sha256": "ba93450f6dcd5a8aaff1f21d68499e1b3cdca45aa83fe78fc6229edfd3514a2a",
+    "t1_sealed_files": 248
+  },
+  "packages": {
+    "existing_t1_archives": {
+      "default_wheel": {
+        "member_count": 62,
+        "member_manifest_sha256": "928dc3bea9b4202523c6ba1cc7a8c87de772f5d17afab1244fc0f973077587af",
+        "metadata_and_record_verified": true,
+        "path": "{T1_PRIVATE}/packages/default/toolalign-0.0.1-py3-none-any.whl",
+        "sha256": "936256e277cdf3ae7c43668dc4ad358c4249de24a17273e721936f7584cbee33",
+        "size_bytes": 129868
+      },
+      "rebuilt_wheel": {
+        "member_count": 62,
+        "member_manifest_sha256": "928dc3bea9b4202523c6ba1cc7a8c87de772f5d17afab1244fc0f973077587af",
+        "metadata_and_record_verified": true,
+        "path": "{T1_PRIVATE}/packages/rebuilt/toolalign-0.0.1-py3-none-any.whl",
+        "sha256": "936256e277cdf3ae7c43668dc4ad358c4249de24a17273e721936f7584cbee33",
+        "size_bytes": 129868
+      },
+      "sdist": {
+        "member_count": 119,
+        "member_manifest_sha256": "5c7fcaf7a0d818bfc3d83190ac0f3f1c0f7d141bfec7bc666354069948dbda96",
+        "path": "{T1_PRIVATE}/packages/default/toolalign-0.0.1.tar.gz",
+        "sha256": "54ca695f640014ac03128e5dd33534d913f097c8a22019af7fae90f746183655",
+        "size_bytes": 243688
+      }
+    },
+    "installed_module_count": 27,
+    "new_default_wheel_installs": 1,
+    "new_dependency_downloads": 0,
+    "new_environment_count": 0,
+    "new_r1_builds": 0,
+    "new_sft_module_count": 8,
+    "non_source_cwd_exercise": {
+      "commands": [
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/check_package.py",
+            "installed",
+            "--target",
+            "{R1_PRIVATE}/installed-wheel",
+            "--runtime",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--wheel",
+            "{T1_PRIVATE}/packages/default/toolalign-0.0.1-py3-none-any.whl",
+            "--output",
+            "{R1_PRIVATE}/package-tests/origins.json"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:54:57.197579+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "label": "origins",
+          "started_at_utc": "2026-09-06T16:54:57.127058+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ae171573c261dccf88ea49354398de8ed918e65be615d443f9c45a767a68ff0e"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; import pytest; raise SystemExit(pytest.main(sys.argv[1:]))",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/probe_cpu.py",
+            "--basetemp={R1_SYSTEM_TEMP_1}"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:54:57.386999+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "label": "original-probes",
+          "started_at_utc": "2026-09-06T16:54:57.198034+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "18b4045681189cd2509eb491e43dbeaa10e75d710a029e2c69e724be81a14604"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.training.sft.__main__ import main; raise SystemExit(main())",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--help"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:54:57.447325+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "label": "help",
+          "started_at_utc": "2026-09-06T16:54:57.387173+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "8ffed0308539da9c092d46da1f4f29054a07e0e14d16611cd750fcf548e1d994"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.training.sft.__main__ import main; raise SystemExit(main())",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--sft-config-path",
+            "{R1_WORKTREE}/configs/sft-cpu.v1.json",
+            "--public-selection-manifest-path",
+            "{R1_WORKTREE}/data/manifests/training-selection.v1.json",
+            "--selection-path",
+            "{D1_WORKTREE}/.toolalign-local/training-binding-r1/selection-a",
+            "--config-path",
+            "{R1_WORKTREE}/configs/training-data.v1.json",
+            "--data-manifest-path",
+            "{D1_WORKTREE}/.toolalign-local/policy-a/manifest.json",
+            "--representation-path",
+            "{R1_WORKTREE}/data/manifests/model-io-sequences.v1.json",
+            "--audit-path",
+            "{D1_WORKTREE}/.toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+            "--protocol-path",
+            "{R1_WORKTREE}/configs/protocol.v1.json",
+            "--output",
+            "{R1_PRIVATE}/package-tests/prepared"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:55:49.383350+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "label": "prepare",
+          "started_at_utc": "2026-09-06T16:54:57.447497+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "52cd77a04e12417b18dafae7a6447dfe1007a57780434743a4ace076d87da4c9"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.training.sft.__main__ import main; raise SystemExit(main())",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--sft-config-path",
+            "{R1_WORKTREE}/configs/sft-cpu.v1.json",
+            "--public-selection-manifest-path",
+            "{R1_WORKTREE}/data/manifests/training-selection.v1.json",
+            "--selection-path",
+            "{D1_WORKTREE}/.toolalign-local/training-binding-r1/selection-a",
+            "--config-path",
+            "{R1_WORKTREE}/configs/training-data.v1.json",
+            "--data-manifest-path",
+            "{D1_WORKTREE}/.toolalign-local/policy-a/manifest.json",
+            "--representation-path",
+            "{R1_WORKTREE}/data/manifests/model-io-sequences.v1.json",
+            "--audit-path",
+            "{D1_WORKTREE}/.toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+            "--protocol-path",
+            "{R1_WORKTREE}/configs/protocol.v1.json",
+            "--output",
+            "{R1_PRIVATE}/package-tests/prepared"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:55:49.444642+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 1,
+          "expected_exit_code": 1,
+          "label": "reject-existing",
+          "started_at_utc": "2026-09-06T16:55:49.383617+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "5118cd61e1cdcce8b131dac0a386f92f1af7834f36dfcea280e28b81d97df8a2"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.training.sft.__main__ import main; raise SystemExit(main())",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--sft-config-path",
+            "{R1_PRIVATE}/package-tests/invalid-sft-config.json",
+            "--public-selection-manifest-path",
+            "{R1_WORKTREE}/data/manifests/training-selection.v1.json",
+            "--selection-path",
+            "{D1_WORKTREE}/.toolalign-local/training-binding-r1/selection-a",
+            "--config-path",
+            "{R1_WORKTREE}/configs/training-data.v1.json",
+            "--data-manifest-path",
+            "{D1_WORKTREE}/.toolalign-local/policy-a/manifest.json",
+            "--representation-path",
+            "{R1_WORKTREE}/data/manifests/model-io-sequences.v1.json",
+            "--audit-path",
+            "{D1_WORKTREE}/.toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+            "--protocol-path",
+            "{R1_WORKTREE}/configs/protocol.v1.json",
+            "--output",
+            "{R1_PRIVATE}/package-tests/rejected-config"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:55:49.504526+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 1,
+          "expected_exit_code": 1,
+          "label": "reject-config",
+          "started_at_utc": "2026-09-06T16:55:49.444895+00:00",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "67fa632537473bff2e10b741850a74c779c094c2991c7836b2efe1e92f03504c"
+        },
+        {
+          "argv": [
+            "{R1_WORKTREE}/.venv/bin/python",
+            "-B",
+            "-I",
+            "-S",
+            "-c",
+            "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.training.sft.__main__ import main; raise SystemExit(main())",
+            "{R1_PRIVATE}/installed-wheel",
+            "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+            "--sft-config-path",
+            "{R1_WORKTREE}/configs/sft-cpu.v1.json",
+            "--public-selection-manifest-path",
+            "{R1_WORKTREE}/data/manifests/training-selection.v1.json",
+            "--selection-path",
+            "{D1_WORKTREE}/.toolalign-local/training-binding-r1/selection-a",
+            "--config-path",
+            "{R1_WORKTREE}/configs/training-data.v1.json",
+            "--data-manifest-path",
+            "{D1_WORKTREE}/.toolalign-local/policy-a/manifest.json",
+            "--representation-path",
+            "{R1_WORKTREE}/data/manifests/model-io-sequences.v1.json",
+            "--audit-path",
+            "{D1_WORKTREE}/.toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+            "--protocol-path",
+            "{R1_WORKTREE}/configs/protocol.v1.json",
+            "--output",
+            "{R1_PRIVATE}/package-tests/rejected-train",
+            "--train"
+          ],
+          "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+          "ended_at_utc": "2026-09-06T16:55:49.563925+00:00",
+          "environment": {
+            "HF_HUB_OFFLINE": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TOOLALIGN_REVIEW_CONFIG": "{R1_WORKTREE}/configs/training-data.v1.json",
+            "TOOLALIGN_REVIEW_TARGET": "{R1_PRIVATE}/installed-wheel",
+            "TRANSFORMERS_OFFLINE": "1",
+            "USE_FLAX": "0",
+            "USE_TF": "0",
+            "USE_TORCH": "0"
+          },
+          "exit_code": 2,
+          "expected_exit_code": 2,
+          "label": "reject-training",
+          "started_at_utc": "2026-09-06T16:55:49.504731+00:00",
+          "stderr_sha256": "f3c7cd3ab36759c98284cde9d6b55f5df52a1b23c82ccbea3120f4ab3efec78a",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "count": 7,
+      "cwd": "{R1_PRIVATE}/package-tests/non-source-cwd",
+      "expected_rejections": 3,
+      "new_default_target": "{R1_PRIVATE}/installed-wheel",
+      "new_dependencies": 0,
+      "new_environments": 0,
+      "origin_proof_sha256": "45638520211fd6e25755180d7238b3f4fd923627a61075e5ffd067f5313001c9",
+      "original_probe_repeat_added_to_count": false,
+      "preparation_sha256": "52cd77a04e12417b18dafae7a6447dfe1007a57780434743a4ace076d87da4c9",
+      "read_only_runtime": "{T1_WORKTREE}/.venv/lib/python3.14/site-packages",
+      "source_cwd_imports": 0,
+      "status": "PASS"
+    },
+    "optional_modules_unavailable": 11,
+    "sdist_git_files": 118,
+    "source_direct_wheel": "NOT_RUN",
+    "wheel_package_files": 57
+  },
+  "path_aliases": [
+    "{D1_WORKTREE}",
+    "{R1_PRIVATE}",
+    "{R1_SYSTEM_TEMP_1}",
+    "{R1_SYSTEM_TEMP_2}",
+    "{R1_SYSTEM_TEMP_3}",
+    "{R1_SYSTEM_TEMP_4}",
+    "{R1_SYSTEM_TEMP_5}",
+    "{R1_SYSTEM_TEMP_6}",
+    "{R1_WORKTREE}",
+    "{REPLAY_ENV}",
+    "{S0_EVIDENCE}",
+    "{S0_WORKTREE}",
+    "{T1_PRIVATE}",
+    "{T1_WORKTREE}",
+    "{TOKENIZER_CPU_ENV}",
+    "{UV_CACHE}"
+  ],
+  "post_index_evidence": "Public scan, exact index/Git objects, regular push/remote readback and final inventory are executed after this index is frozen and bound by private completion; no self-reference.",
+  "preservation": {
+    "app_managed_temporary_diff_ref_names_retired": 2,
+    "candidate_files_unchanged": 384,
+    "checked_at_utc": "2026-09-06T17:10:44.510628+00:00",
+    "new_artifact_byte_count_scope": "Before preservation-end.json and later small publication artifacts; final total in completion.",
+    "new_artifact_bytes": 162835816,
+    "new_artifact_limit_bytes": 2147483648,
+    "numeric_child_pid_exists": false,
+    "old_private_files_unchanged": 50685,
+    "old_ref_objects_retained": 66,
+    "old_review_branches_unchanged": true,
+    "old_symlinks_unchanged": 283,
+    "previous_review_files_unchanged": 7,
+    "previous_sealed_entries_unchanged": 1562,
+    "retired_ref_objects_still_present": true,
+    "unsafe_original_commit_in_public_ancestry": false,
+    "unsafe_original_commit_present": true
+  },
+  "proof_files": {
+    "archive-proof.json": {
+      "sha256": "6fdef84123e38c4ce54109903d670b8776236f83686f049d2c7cd1bd6f355846",
+      "size_bytes": 28647
+    },
+    "bound/summary.json": {
+      "sha256": "ec3ff5f08bd84e73dd719dfe6f0da0bc1532ee026a11c586748d00070b36be02",
+      "size_bytes": 13673
+    },
+    "evidence-proof.json": {
+      "sha256": "5c192897abee795ac40481dc3cd4223d5eccae7413e2d53f00c30e997df39493",
+      "size_bytes": 905802
+    },
+    "intake.json": {
+      "sha256": "12b23bea4cb31368061d13c5c6be2ddf563efdbb848727ff3300c299d7100527",
+      "size_bytes": 114075
+    },
+    "numeric-once/device.json": {
+      "sha256": "a8be6ad80e98c38eb8cedeeb67c21adf873704bc0ea3cb2a651050ed5cbf1ed9",
+      "size_bytes": 388
+    },
+    "numeric-once/entry-traceback.log": {
+      "sha256": "fdb5f33180120b6e13d65543d54b7a91c2cd564abbf3aaa86c1dfb5062996bea",
+      "size_bytes": 858
+    },
+    "numeric-once/entry.json": {
+      "sha256": "1c9e8aa7096ad877750b02e6c2173dfe00de484a4ce6bdcb9e51fd4675f7c448",
+      "size_bytes": 754
+    },
+    "numeric-once/numbers.json": {
+      "sha256": "b1783a532fa3e35a67efb677e30b819999fa546c80920ebecb28caa58fabbd2b",
+      "size_bytes": 27909
+    },
+    "numeric-once/result.json": {
+      "sha256": "1c033660dafd2fa7833622ee6aedf89667c941576cdef903ba1e8d5f9535e06a",
+      "size_bytes": 413
+    },
+    "numeric-once/supervision.json": {
+      "sha256": "f259b8e6841c99db388224a254d1a6140f0bb09c2574edd841cacfd05759e210",
+      "size_bytes": 4281
+    },
+    "package-tests/origins.json": {
+      "sha256": "45638520211fd6e25755180d7238b3f4fd923627a61075e5ffd067f5313001c9",
+      "size_bytes": 8612
+    },
+    "package-tests/summary.json": {
+      "sha256": "41bd9143db5876c49af2008e56a1d347bde8531fc0f787faf202b4ee35c242bf",
+      "size_bytes": 16296
+    },
+    "preservation-end.json": {
+      "sha256": "f8fd8e309e861c99bebfe527b89dcbc693ef02e530209987cec98daefe69457f",
+      "size_bytes": 14570802
+    },
+    "preserve_end-initial.py": {
+      "sha256": "1e372941c45fdef5bb85b4daf5d480d5a9d27eb9ee62dd7769fd2d0e0d1215e0",
+      "size_bytes": 7830
+    },
+    "preserve_end.py": {
+      "sha256": "cefb97689a8ceee34e10c79e8ec5ff2d3d2c89c3d9e6518a3a83042385f5aa6e",
+      "size_bytes": 8151
+    },
+    "prior-preservation.json": {
+      "sha256": "602fd67b27b35f45334de6644a4731857e67152b77f79a6934b82a7912574790",
+      "size_bytes": 14685907
+    }
+  },
+  "review_commit_identity": "Containing Git commit; exact commit/parent/tree and remote readback bound by final private completion.",
+  "reviewer": {
+    "alias": "R1",
+    "model": "gpt-6-astra",
+    "thinking": "max"
+  },
+  "schema_version": "toolalign.review.p04-sft-cpu.r1",
+  "source_execution": {
+    "commands_tree": "1d2d5474ef87034e0184f8ebfa359345182e3356",
+    "original_epochs_verified": {
+      "0c7c2671a64d49fe48c722375481b4cf7a5c82c8": {
+        "file_count": 380,
+        "manifest_sha256": "06283887800fcd8f0dd401c4084d3390d38b8b1ec54495828d3c222737d2f0c3"
+      },
+      "33d6248e2c518ea777618224382bd30a3cc3433d": {
+        "file_count": 384,
+        "manifest_sha256": "45ee369e8ad80720a208b3faf2ae682396daf68fa5c232c60e81d5eba802718c"
+      },
+      "42eaa50a9519efe96d60b49f07cfbd106b36778c": {
+        "file_count": 364,
+        "manifest_sha256": "b4b868345ed0bde9212fa26b65ae9f2441433339b8dd1911706a72d07559028d"
+      },
+      "96fcbe1f34fc9d2afe1d9faf3935817d37b22d76": {
+        "file_count": 378,
+        "manifest_sha256": "76439149dc3e4e6475282f2f55bea4d18a31acc2c9206dd5e831e25141bb97a9"
+      },
+      "9e71552c22b4ed5daf4e4a66e24816bd61f53092": {
+        "file_count": 378,
+        "manifest_sha256": "ad7db17ead1f7465cca764d84d49891d09092239a84227d641f5507d784b17cb"
+      },
+      "9fe3cbe3a067725c37dc213bbf38f9c90ceb5066": {
+        "file_count": 183,
+        "manifest_sha256": "245be80f247f9b7a2e5d9addd8dd502b0cf6e712dec4a237fda51fcfa996d106"
+      },
+      "eefc142ce159c1564076dff7d3f17156412de699": {
+        "file_count": 379,
+        "manifest_sha256": "60274dca7272c149e5c54f45b656700df07c6a5f6acb1f7161ea2e6c5dbdffaa"
+      }
+    },
+    "original_measured_core_files_equal_final": 108,
+    "r1_commands_head": "33d6248e2c518ea777618224382bd30a3cc3433d",
+    "review_source_versions": {
+      "336f7b617c606a04581499f41f7a61c9f65577b2a25c3e2371926cbebfcc276a": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/numeric_probe.py"
+      },
+      "72f8da1d9cbb66bd44683829eb9f4cca325fdd9892e7f1845c3479d108c4250d": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/exercise_installed.py"
+      },
+      "7bfcc06fbadcb35d7916a5fe2c98009d50ec4cb3e54e91de9a3c260c2bf584e0": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/check_package.py"
+      },
+      "b36c703d88cfcb4f2d06009aba6de74b2b74a9374092d12845a31f3a18ea866c": {
+        "method": "reconstructed_from_recorded_edit_and_verified_against_original_command_hash",
+        "path": "{R1_PRIVATE}/review-source-epochs/b36c703d88cfcb4f2d06009aba6de74b2b74a9374092d12845a31f3a18ea866c-numeric_probe.py"
+      },
+      "db4e46ee485fa3bbc3df763012dbe367ef9bd45d80424554e46f4096dcc739d9": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/audit_evidence.py"
+      },
+      "de7dcc4cb400b0ed1f05897c2bc4c1dfa7715a6e9d788f10a95d6bb7d2136e26": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/probe_cpu.py"
+      },
+      "f41748c0f2a01af7b3fd6f10401972acef85c222c3382e1e2dc0339a3f93eac8": {
+        "method": "current_unchanged_executed_source",
+        "path": "{R1_WORKTREE}/reports/review/P04-sft-cpu-r1/check_bound.py"
+      }
+    }
+  },
+  "task_id": "P04-SFT-CPU-R1",
+  "views": {
+    "formal": {
+      "train": {
+        "all_original_values_equal": true,
+        "buckets": {
+          "1024": 985,
+          "1536": 2633,
+          "2048": 2395
+        },
+        "count": 6013,
+        "identity_sha256": "43bbe027d65b37845c3a551460eb632b87be1bf461a3cebe783247a50936a8a9"
+      },
+      "validation": {
+        "all_original_values_equal": true,
+        "buckets": {
+          "1024": 74,
+          "1536": 123,
+          "2048": 20
+        },
+        "count": 217,
+        "identity_sha256": "f8ca56d242761da1ed5a23bbc2c5dba443c1a81f657c0c2165538ac140ad6ca5"
+      }
+    },
+    "smoke": {
+      "train": {
+        "all_original_values_equal": true,
+        "buckets": {
+          "1024": 429,
+          "1536": 1171
+        },
+        "count": 1600,
+        "identity_sha256": "db96988c1968e1232e93adcbe974c30a5a1b76681ff68c66edca8af039af533c"
+      },
+      "validation": {
+        "all_original_values_equal": true,
+        "buckets": {
+          "1024": 74,
+          "1536": 123
+        },
+        "count": 197,
+        "identity_sha256": "cd82b5142a6575e51d1654dc179ea9fe85d6c18f6fb10eb4d9553c0b464c899b"
+      }
+    }
+  }
+}
