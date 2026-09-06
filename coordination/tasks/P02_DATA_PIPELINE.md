@@ -77,7 +77,7 @@ gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB�
 
 ## P02-format-r2｜共用 v1 格式与新序列审计授权
 
-状态：READY_FOR_DISPATCH；只有收到S0包含本次完整authorization_commit的原生消息后才开始。原提案和角色比较已交付为 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8`，比较实现 `ac3c99b10e46deef745b624be14acfacff2cb369`；S0核验正式handoff、68项hash、167份不变原文件及D1原生completed/idle。原A结果、失败、比较及其SHA保留。
+状态：IN_PROGRESS；S0已按下述完整授权实际派发并核验新轮次ACTIVE。原提案和角色比较已交付为 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8`，比较实现 `ac3c99b10e46deef745b624be14acfacff2cb369`；S0核验正式handoff、68项hash、167份不变原文件及D1原生completed/idle。原A结果、失败、比较及其SHA保留。
 
 - owner仍为D1、同一独立任务/`work/p02-data`/原worktree；gpt-6-astra/max，不创建新任务或sub-agent。
 - 已验证生产输入为P02合并 `2ec17673c18ffbc817b1ff8512e53e44a11766a5`；本次协调基线为main `201e3a1f697a567f843754e465e57d8227660264`。先读取并保存本次完整授权中的AGENTS/协议/本任务/ADR-0017/格式规范；从干净6c3d330以普通merge接入本次授权提交，保留所有父提交和原提案，不reset/rebase/cherry-pick，不改写较新远端。
@@ -99,3 +99,11 @@ gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB�
 验收入口由实现交接给出实际命令，以下仍为PLANNED：新model_io正负例、同12例真实跨实现CPU对照、新全量序列审计、适用完整既有CPU/真实tokenizer回归、lint/冻结/公开扫描、当前实际sdist/default wheel/显式sdist重建wheel与成员字节绑定、新默认CPU隔离安装的导入/投影/编码/序列接口。默认wheel的构建来源如实记录，未做源码直接构建就写NOT_RUN。原data模块、全部产物、人审包及填写副本hash保持证据必须可复查。
 
 完成时交精确候选SHA/父提交/范围、所有命令退出码/日志hash、旧证据保全、新manifest/统计和失败/NOT_RUN；只推送普通可快进分支并结束该轮待独立R1。此授权不批准正式格式验收、训练选集、G-DATA人审、P04/P05或真实推理；P04至少10条token/mask人工检查仍需后续完成。
+
+2026-09-06 P02-format-r2实际派发：S0再次核验D1原生completed/idle、干净HEAD6c3d330后，按完整授权0c94ad58a78d30cd88a9ad86ac8e8d8c83b2442c原生派发本范围，gpt-6-astra/max，新轮次已确认ACTIVE。该授权内的规范/范围保持，以原精确提交为准，无需因随后S0状态更新自行merge新main。
+
+### 已验证 P03 的同轮同步授权
+
+P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最终双Python CI及main551CPU/归档/18条隔离命令验证，见[S0证据](../../reports/S0_P03_MAIN_VERIFICATION.md)。收到S0本段精确授权SHA的原生消息后，D1在当前P02-format-r2同一活动轮次于安全提交点普通merge该提交，保留当前格式实现、原提案及所有既有证据；不重启任务，不reset/rebase/cherry-pick或替换工作树。
+
+新main只提供已验收P03与S0记录，不扩大D1文件所有权。原0c94ad5的最终格式规范/描述、原data模块及人审材料边界保持。CPU审计可以直接导入此已验证的`toolalign.tools._json.parse_action`，源码SHA-256仍为`15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b`，与先前允许的私有副本完全相同；报告记录实际来源，不篡改旧记录。已完成的新序列审计在源码/输入/hash均相同的情况下可以沿用，不因本次merge重复8,228例或另造全量输出。最终组合CPU/包/隔离接口验证须绑定新完整候选；没有模型/GPU/P04/P06授权。此处为准备好的同步范围，实际派发单独登记。

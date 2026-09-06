@@ -43,6 +43,9 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | P01复审再退回、P03最终修复交付 | P01原review aaae5a4正式FAIL，剩余启动初始化P1，原F2/F3关闭；26项hash已核对。E1候选3598cef已交付/空闲，389CPU自测和双Python CI通过、待R1-r2；T1定点修复与R1接续范围已准备 |
 | 2026-09-06 | P01启动修复与P03独立复审实际接续 | 核验R1上一轮completed/idle后，按完整cbb6d46原生派发T1 P01-fix-r4与R1审3598的P03-r2，gpt-6-astra/max，新轮次均ACTIVE；D1原提案比较继续、E1空闲，无新GPU |
 | 2026-09-06 | 共同格式选择与D1新范围 | D1角色比较6c3d330已交付/空闲，68项hash及167份原文件已核对；ADR-0017选定角色保留Action JSON v1，P02-format-r2仅CPU共用模块/新序列审计范围已准备，尚未派发；P03正式review a78071b PASS已收到待S0核验 |
+| 2026-09-06 | D1格式实现实际派发与P01/P03交接核验 | D1按完整0c94ad5原生派发/ACTIVE；T1新9fe3cbe交付/空闲、85项hash核验，待R1-r3；P03 R1-r2 PASS a78071b的139项hash及158份候选字节核验，CPU代码ACCEPTED待集成 |
+| 2026-09-06 | P01第三轮独立复审实际派发 | S0核验R1的P03轮completed/idle后，按完整7981489原生派发精确9fe3cbe的P01-r3，gpt-6-astra/max，新轮ACTIVE；T1/E1空闲、D1新格式CPU实现继续 |
+| 2026-09-06 | P03执行器主干集成 | VERIFIED；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，R1-r2 PASS a78071b原SHA保持；最终双Python CI、main551CPU和18条隔离安装命令通过，见[主干证据](reports/S0_P03_MAIN_VERIFICATION.md)。范围为CPU工具/oracle/scripted接口，真实模型与正式评测仍NOT_RUN |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -68,7 +71,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00已冻结、合并并验证；P02数据代码已合并且main技术验证通过。T1按cbb6d46继续修复P01启动初始化P1。R1已交付对3598cef的P03-r2正式PASS（review a78071b），待S0完整核验、最终CI/合并/main组合验证，E1空闲。D1角色比较6c3d330已交付/原生空闲；S0以ADR-0017选择保留消息角色的Action JSON v1，并准备P02-format-r2共用模块与全量新序列CPU审计授权，尚未实际派发。最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查和训练绑定，P04尚未授权；既有人工请求继续等待本人结果。
+P00和共享支持包已验证，P02原数据代码已合并并完成主干技术验证。T1新启动修复9fe3cbe已交付/原生空闲，85项证据hash及174份不变原文件已核验；R1-r3已按7981489原生派发并确认活跃。P03已在29a5e4c合并，最终双Python CI、main551CPU与18条隔离安装命令通过，CPU任务VERIFIED，E1空闲；真实模型与正式评测仍NOT_RUN。D1已按0c94ad5原生启动P02-format-r2共用模块及新序列CPU审计；S0现准备同步已验证P03基线，原数据和人审材料保持。最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查和训练绑定，P04尚未授权。
 
 ## 工作记录
 

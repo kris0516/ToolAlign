@@ -1,0 +1,484 @@
+{
+  "purpose": "public-original-development",
+  "license": "MIT",
+  "cases": [
+    {
+      "id": "dev-document",
+      "group": "document-version",
+      "category": "version_document",
+      "prompt": "For atlas 1.1, report the documented timeout and release date as object, version, date and timeout {value,unit}.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"lookup_version_document\",\"arguments\":{\"resource_id\":\"atlas-1.1\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"object\\\":\\\"atlas\\\",\\\"version\\\":\\\"1.1\\\",\\\"date\\\":\\\"2026-09-01\\\",\\\"timeout\\\":{\\\"value\\\":1200,\\\"unit\\\":\\\"ms\\\"}}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "object": "atlas",
+            "version": "1.1",
+            "date": "2026-09-01",
+            "timeout": {
+              "value": 1200,
+              "unit": "ms"
+            }
+          }
+        },
+        {
+          "kind": "final",
+          "value": {
+            "object": "atlas",
+            "version": "1.1",
+            "date": "2026-09-01",
+            "timeout": {
+              "value": 1.2,
+              "unit": "s"
+            }
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "lookup_version_document",
+            "arguments": {
+              "resource_id": "atlas-1.1"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-1.1",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "timeout_ms": 1200,
+              "minimum_runtime": "3.12",
+              "report_id": "atlas-110"
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ],
+        [
+          {
+            "name": "lookup_version_document",
+            "arguments": {
+              "resource_id": "atlas-1.1"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-1.1",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "timeout_ms": 1200,
+              "minimum_runtime": "3.12",
+              "report_id": "atlas-110"
+            },
+            "error_code": null,
+            "retryable": false
+          },
+          {
+            "name": "convert_numeric_units",
+            "arguments": {
+              "value": 1200,
+              "from_unit": "ms",
+              "to_unit": "s"
+            },
+            "status": "completed",
+            "output": {
+              "value": 1200,
+              "from_unit": "ms",
+              "to_unit": "s",
+              "converted_value": 1.2
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-report",
+      "group": "report-counts",
+      "category": "build_report",
+      "prompt": "Return the object, version, date, passed and failed test counts from atlas-110.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-110\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"object\\\":\\\"atlas\\\",\\\"version\\\":\\\"1.1\\\",\\\"date\\\":\\\"2026-09-01\\\",\\\"passed\\\":12,\\\"failed\\\":0}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "object": "atlas",
+            "version": "1.1",
+            "date": "2026-09-01",
+            "passed": 12,
+            "failed": 0
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "query_build_report",
+            "arguments": {
+              "report_id": "atlas-110"
+            },
+            "status": "completed",
+            "output": {
+              "report_id": "atlas-110",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "passed": 12,
+              "failed": 0,
+              "duration_ms": 1200
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-logs",
+      "group": "dated-log-filter",
+      "category": "log_filter",
+      "prompt": "Count error entries in atlas-september for 2026-09-01; return resource_id, date, level and count.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"filter_build_logs\",\"arguments\":{\"resource_id\":\"atlas-september\",\"date\":\"2026-09-01\",\"level\":\"error\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"resource_id\\\":\\\"atlas-september\\\",\\\"date\\\":\\\"2026-09-01\\\",\\\"level\\\":\\\"error\\\",\\\"count\\\":1}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "resource_id": "atlas-september",
+            "date": "2026-09-01",
+            "level": "error",
+            "count": 1
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "filter_build_logs",
+            "arguments": {
+              "resource_id": "atlas-september",
+              "date": "2026-09-01",
+              "level": "error"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-september",
+              "date": "2026-09-01",
+              "level": "error",
+              "rows": [
+                {
+                  "date": "2026-09-01",
+                  "level": "error",
+                  "message": "Cache unavailable"
+                }
+              ],
+              "count": 1
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-aggregate",
+      "group": "record-mean",
+      "category": "record_aggregate",
+      "prompt": "Calculate mean duration_ms for atlas-runs on 2026-09-01; return resource_id, date and mean_duration_ms.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"aggregate_run_records\",\"arguments\":{\"resource_id\":\"atlas-runs\",\"date\":\"2026-09-01\",\"field\":\"duration_ms\",\"operation\":\"mean\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"resource_id\\\":\\\"atlas-runs\\\",\\\"date\\\":\\\"2026-09-01\\\",\\\"mean_duration_ms\\\":1200}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "resource_id": "atlas-runs",
+            "date": "2026-09-01",
+            "mean_duration_ms": 1200
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "aggregate_run_records",
+            "arguments": {
+              "resource_id": "atlas-runs",
+              "date": "2026-09-01",
+              "field": "duration_ms",
+              "operation": "mean"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-runs",
+              "date": "2026-09-01",
+              "field": "duration_ms",
+              "operation": "mean",
+              "value": 1200,
+              "count": 2
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-compatibility",
+      "group": "minimum-runtime",
+      "category": "version_compatibility",
+      "prompt": "Check atlas-1.1 compatibility with runtime 3.11; return resource_id, runtime_version, minimum_runtime and compatible.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"compare_version_compatibility\",\"arguments\":{\"resource_id\":\"atlas-1.1\",\"runtime_version\":\"3.11\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"resource_id\\\":\\\"atlas-1.1\\\",\\\"runtime_version\\\":\\\"3.11\\\",\\\"minimum_runtime\\\":\\\"3.12\\\",\\\"compatible\\\":false}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "resource_id": "atlas-1.1",
+            "runtime_version": "3.11",
+            "minimum_runtime": "3.12",
+            "compatible": false
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "compare_version_compatibility",
+            "arguments": {
+              "resource_id": "atlas-1.1",
+              "runtime_version": "3.11"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-1.1",
+              "runtime_version": "3.11",
+              "minimum_runtime": "3.12",
+              "compatible": false
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-conversion",
+      "group": "binary-units",
+      "category": "numeric_conversion",
+      "prompt": "Use the conversion tool to convert 1536 KiB into MiB; return value and unit.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"convert_numeric_units\",\"arguments\":{\"value\":1536,\"from_unit\":\"KiB\",\"to_unit\":\"MiB\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"value\\\":1.5,\\\"unit\\\":\\\"MiB\\\"}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "value": 1.5,
+            "unit": "MiB"
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "convert_numeric_units",
+            "arguments": {
+              "value": 1536,
+              "from_unit": "KiB",
+              "to_unit": "MiB"
+            },
+            "status": "completed",
+            "output": {
+              "value": 1536,
+              "from_unit": "KiB",
+              "to_unit": "MiB",
+              "converted_value": 1.5
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-no-tool",
+      "group": "supplied-arithmetic",
+      "category": "no_tool",
+      "prompt": "The supplied values are 2 and 3. Add them without tools and return value.",
+      "scripted_responses": [
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"value\\\":5}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "value": 5
+          }
+        }
+      ],
+      "strategies": [
+        []
+      ]
+    },
+    {
+      "id": "dev-clarify",
+      "group": "missing-version",
+      "category": "clarification",
+      "prompt": "Find the documented timeout for atlas. If a version is missing, ask for it with a clarify action containing object and missing.",
+      "scripted_responses": [
+        "{\"kind\":\"clarify\",\"tool_calls\":[],\"content\":\"{\\\"object\\\":\\\"atlas\\\",\\\"missing\\\":[\\\"version\\\"]}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "clarify",
+          "value": {
+            "object": "atlas",
+            "missing": [
+              "version"
+            ]
+          }
+        }
+      ],
+      "strategies": [
+        []
+      ]
+    },
+    {
+      "id": "dev-dependent",
+      "group": "document-report-dependency",
+      "category": "multi_step",
+      "prompt": "Read the atlas-1.1 version document, then use its report_id to query the build report. Return report_id, passed and failed.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"lookup_version_document\",\"arguments\":{\"resource_id\":\"atlas-1.1\"}}],\"content\":\"\"}",
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c2\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-110\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"report_id\\\":\\\"atlas-110\\\",\\\"passed\\\":12,\\\"failed\\\":0}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "report_id": "atlas-110",
+            "passed": 12,
+            "failed": 0
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "lookup_version_document",
+            "arguments": {
+              "resource_id": "atlas-1.1"
+            },
+            "status": "completed",
+            "output": {
+              "resource_id": "atlas-1.1",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "timeout_ms": 1200,
+              "minimum_runtime": "3.12",
+              "report_id": "atlas-110"
+            },
+            "error_code": null,
+            "retryable": false
+          },
+          {
+            "name": "query_build_report",
+            "arguments": {
+              "report_id": "atlas-110"
+            },
+            "status": "completed",
+            "output": {
+              "report_id": "atlas-110",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "passed": 12,
+              "failed": 0,
+              "duration_ms": 1200
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dev-recovery",
+      "group": "retryable-build-fault",
+      "category": "fault_recovery",
+      "prompt": "Return the object, version, date, passed and failed counts in atlas-110; one temporary fixture failure may be retried.",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c1\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-110\"}}],\"content\":\"\"}",
+        "{\"kind\":\"tool_calls\",\"tool_calls\":[{\"call_id\":\"c2\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-110\"}}],\"content\":\"\"}",
+        "{\"kind\":\"final\",\"tool_calls\":[],\"content\":\"{\\\"object\\\":\\\"atlas\\\",\\\"version\\\":\\\"1.1\\\",\\\"date\\\":\\\"2026-09-01\\\",\\\"passed\\\":12,\\\"failed\\\":0}\"}"
+      ],
+      "answers": [
+        {
+          "kind": "final",
+          "value": {
+            "object": "atlas",
+            "version": "1.1",
+            "date": "2026-09-01",
+            "passed": 12,
+            "failed": 0
+          }
+        }
+      ],
+      "strategies": [
+        [
+          {
+            "name": "query_build_report",
+            "arguments": {
+              "report_id": "atlas-110"
+            },
+            "status": "error",
+            "output": null,
+            "error_code": "injected_transient",
+            "retryable": true
+          },
+          {
+            "name": "query_build_report",
+            "arguments": {
+              "report_id": "atlas-110"
+            },
+            "status": "completed",
+            "output": {
+              "report_id": "atlas-110",
+              "object": "atlas",
+              "version": "1.1",
+              "date": "2026-09-01",
+              "passed": 12,
+              "failed": 0,
+              "duration_ms": 1200
+            },
+            "error_code": null,
+            "retryable": false
+          }
+        ]
+      ],
+      "faults": {
+        "query_build_report": [
+          "transient",
+          null
+        ]
+      }
+    }
+  ]
+}
