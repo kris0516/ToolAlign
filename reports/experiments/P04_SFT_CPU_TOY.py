@@ -94,8 +94,15 @@ def numerics(root, mode, lease):
         return difference
 
     metrics, model = [], Table()
-    assert tuple(mx.array(0).__dlpack_device__()) == (1, 0)
+    # MLX v0.32.2 array.cpp returns (8, 0) whenever Metal is available,
+    # irrespective of the operation stream. DLPack is not execution evidence.
+    dlpack_device = tuple(mx.array(0).__dlpack_device__())
+    assert dlpack_device == ((8, 0) if mx.metal.is_available() else (1, 0))
     assert mx.default_stream(mx.cpu).device == mx.cpu
+    save(root / "device-before-numerics.json", {"default": str(mx.default_device()),
+        "operation_stream": str(mx.default_stream(mx.cpu).device), "dlpack": dlpack_device,
+        "dlpack_meaning": "hardware interoperability, not operation placement",
+        "torch": str(torch.tensor(0).device)})
     assert torch.tensor(0).device.type == "cpu"
     grad_fn = nn.value_and_grad(model, completion_loss)
     for rank, batch, seq in cases:
@@ -222,7 +229,8 @@ def numerics(root, mode, lease):
                   parameter_content_sha256=parameter_hash(model),
                   framework_versions={p: __import__("importlib.metadata", fromlist=["version"]).version(p)
                                       for p in ("mlx", "mlx-lm", "torch", "numpy")})
-    assert result["device"]["mlx_array_dlpack"] == [1, 0]
+    assert result["device"]["mlx_array_dlpack"] == list(dlpack_device)
+    assert mx.default_device() == mx.cpu and mx.default_stream(mx.cpu).device == mx.cpu
     save(root / "TOY_CPU-result.json", result)
 
 
