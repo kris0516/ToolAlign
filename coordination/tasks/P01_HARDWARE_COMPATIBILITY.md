@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：READY_FOR_REVIEW；T1启动初始化修复完整9fe3cbe3a067725c37dc213bbf38f9c90ceb5066已交付/普通推送/原生空闲，S0核验85项证据hash与174份不变原文件；R1-r3精确复审范围见末尾。原P01/R1各候选、FAIL和模型负结果保持。原code_base与首次领取记录在下方保留，尚未验收G1或授权P04。
+状态：ACCEPTED（独立技术复审通过，待最终集成）；R1-r3对精确9fe3cbe3a067725c37dc213bbf38f9c90ceb5066正式PASS，review `7e207060539df682691b4d149e68b7ab4ffc3175`，P0/P1/P2均0。S0读取完整交接/原创探针/审计与包核验代码，核对178项证据hash及183份不变候选字节；R1原生completed/idle。旧FAIL/历史模型负结果保持，待最终CI/合并/main验证，G1未正式签通过，P04未授权。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 

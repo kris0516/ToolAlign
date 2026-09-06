@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。T1启动修复9fe3cbe已交付/原生空闲，R1-r3按7981489独立复审仍活跃。P03原review a78071b已保留，PR7合并29a5e4c；最终双Python CI及main551CPU/18条隔离安装命令通过。D1按0c94ad5实施P02-format-r2共用模块/完整新序列CPU审计，S0准备同步已验证P03基线。P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。P01精确9fe3cbe的独立R1-r3 PASS 7e20706已完整核验178项hash和183份不变候选字节，R1原生空闲，代码ACCEPTED待最终集成。P03原review a78071b已保留，PR7合并29a5e4c；最终双Python CI及main551CPU/18条隔离安装命令通过。D1按0c94ad5实施P02-format-r2共用模块/完整新序列CPU审计，已按5212b24原生同轮同步并由D1确认普通merge已验证P03。P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P03合并29a5e4c且主干验证通过，P02技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1已交付/空闲，R1按7981489独立审9fe3cbe的P01-r3已活跃；E1空闲，最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1/E1空闲，R1正式P01-r3 PASS已交付/原生空闲，S0负责集成；最多两个实现约束保持 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01启动修复9fe3cbe等待R1正式复审结论与集成，G1仍未签通过。P03已在29a5e4c完成最终CI/合并/main验证，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。训练与评测共同格式已按ADR-0017选择，尚未实现验收，见[衔接证据](../reports/S0_P04_READINESS.md)与[格式规范](../docs/16_MODEL_IO_FORMAT.md)。P04尚未授权，最多两个实现的约束保持。
+P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01启动修复9fe3cbe已有独立R1-r3正式PASS，S0核验完成，待最终CI/合并/main验证，G1仍未签通过。P03已在29a5e4c完成最终CI/合并/main验证，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。训练与评测共同格式已按ADR-0017选择，尚未实现验收，见[衔接证据](../reports/S0_P04_READINESS.md)与[格式规范](../docs/16_MODEL_IO_FORMAT.md)。P04尚未授权，最多两个实现的约束保持。
 
 ## 恢复入口
 
@@ -90,3 +90,5 @@ R1对3598cef正式P03-r2 PASS，review a78071bf6ac40f2729e090e1828a1c6022cd8d00�
 最新实际复审接续：S0重新核验R1的P03-r2已completed/idle后，以完整授权79814897340537c232ddc7e1814fc6d4ecb503bb和精确9fe3cbe3a067725c37dc213bbf38f9c90ceb5066原生派发P01-R1-r3，gpt-6-astra/max，新轮次已确认ACTIVE。原a78071b已按原SHA发布review/p03-r2；S0负责P03后续集成，R1继续独立P01不等待其合并。
 
 P03实际主干验收：S0普通整合原a78071b和当前main为84084770bf07f32647af36ac748bf76326e74ed1，受保护公共路径及P03被审字节保持；CI34014772645双Python jobs所有步骤成功。[PR7](https://github.com/kris0516/ToolAlign/pull/7)实际合并29a5e4c6affa2b822717fd3184b25ccb756e1651，GitHub closed/merged与本机相同tree均已读回。实际main551CPU无skip、真实sdist/默认和显式重建wheel、18条新隔离命令及P02/P03组合接口通过，P03 CPU任务VERIFIED，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。首跑因S0临时目录放置导致的550通过/1失败保留，仅更换basetemp后全过；未改实现/测试。新installed demo10/10为scripted，31项已有独立反例为安装复验，不重复计数。05:59:42UTC共享GPU锁为空闲，人审副本100行0判定/0reviewer未变。D1同轮同步已验证P03基线的范围现已准备，原0c94ad5格式规范和授权边界继续适用；尚待原生发送。
+
+P01第三轮复审正式交接：原review 7e207060539df682691b4d149e68b7ab4ffc3175直接以9fe3cbe为父，只新增6份审查文件、183份候选字节未变。S0完整读取handoff/README/13场景探针/审计及包核验器，实际核对178项日志/结果/公开文件/子进程制品/归档hash；私有证明SHA-256为badf039e7a08908e1457d2a5423df89ce1eb0d2c0401336b5c88e062ad189b56。R2-F1及原F2/F3均关闭；原29反例+251适用CPU检查通过，新增13场景通过，安装重复13不再加计。17条命令保留两条遗漏PYTHONPATH导致的exit2；只修调用后通过。新实际三份包及15安装命令均通过；旧17数学/185载荷按不变身份沿用，92份历史小文件已由R1重核，不伪称重跑模型。R1原生completed/idle已核验，P01代码ACCEPTED待S0最终CI/合并/main验证。D1已实际收到5212b24同步授权并确认同轮普通merge已验证P03，原格式CPU交付继续，未签人审或启动模型。
