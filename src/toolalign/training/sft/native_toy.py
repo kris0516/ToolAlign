@@ -440,7 +440,8 @@ def _validate_output(repository, output):
     return root, output
 
 
-def _disk_bytes(root):
+def _disk_bytes(root, *, limit=2 * 1024**3):
+    require(type(limit) is int and 0 < limit <= 2 * 1024**3, "native_private_disk_budget")
     total = 0
     for path in root.rglob("*"):
         # CPU rejection tests intentionally create links. Count the stored link
@@ -448,7 +449,7 @@ def _disk_bytes(root):
         # separately reject links where they would be consumed or written.
         if path.is_symlink() or path.is_file():
             total += path.lstat().st_size
-    require(total <= 2 * 1024**3, "native_private_disk_budget")
+    require(total <= limit, "native_private_disk_budget")
     return total
 
 
@@ -496,13 +497,23 @@ def _child():
         code = 0
     except BaseException as exc:
         traceback.print_exc()
-        _save(root / "failure.json", {"type": type(exc).__name__, "message": str(exc)})
+        try:
+            _save(root / "failure.json", {"type": type(exc).__name__, "message": str(exc)})
+        except BaseException:
+            traceback.print_exc()
     finally:
-        _save(root / "child-terminal.json", {"ended_at": _utc(), "exit_code": code,
-            "lease_held_until_process_exit": lease is not None and lease._handle is not None})
-        sys.stdout.flush()
-        sys.stderr.flush()
-        os._exit(code)  # The OS releases Metal state and the leased fd together.
+        try:
+            _save(root / "child-terminal.json", {"ended_at": _utc(), "exit_code": code,
+                "lease_held_until_process_exit": lease is not None and lease._handle is not None})
+        except BaseException:
+            code = 1
+            traceback.print_exc()
+        finally:
+            try:
+                sys.stdout.flush()
+                sys.stderr.flush()
+            finally:
+                os._exit(code)  # Release Metal and the fd together even if a diagnostic write fails.
 
 
 def supervise(args):
@@ -539,54 +550,88 @@ def supervise(args):
     environment.update(HF_HUB_OFFLINE="1", TRANSFORMERS_OFFLINE="1", HF_HUB_DISABLE_TELEMETRY="1",
                        HF_HUB_DISABLE_IMPLICIT_TOKEN="1", WANDB_MODE="disabled", TOKENIZERS_PARALLELISM="false",
                        OMP_NUM_THREADS="2", MKL_NUM_THREADS="2")
+    return _supervise_process(root=root, output=output, repository=args.repository,
+        command=command, environment=environment, identities=identities,
+        reservation=reservation, monitor=psutil)
+
+
+def _supervise_process(*, root, output, repository, command, environment, identities, reservation, monitor):
+    """Bound a single owned process; failed diagnostics never suppress its terminal.
+
+    The public entry supplies its fixed child command and psutil. CPU lifecycle
+    tests exercise this same supervisor with an actual small owned process.
+    """
     process, peak, samples, error = None, 0, [], None
+    diagnostic_errors = []
     start, started_at = time.monotonic(), _utc()
+    stage = "launch"
     try:
         with (output / "stdout.log").open("xb") as stdout, (output / "stderr.log").open("xb") as stderr:
-            try:
-                process = subprocess.Popen(command, stdout=stdout, stderr=stderr, cwd=output, env=environment)
-                own = psutil.Process(process.pid)
-                while process.poll() is None:
-                    try:
-                        rss = own.memory_info().rss
-                        peak = max(peak, rss)
-                        elapsed = time.monotonic() - start
-                        samples.append({"elapsed_seconds": elapsed, "rss_bytes": rss})
-                        require(elapsed <= 300 and rss <= 4 * 1024**3, "native_wall_or_rss_budget")
-                        _disk_bytes(root)
-                    except psutil.NoSuchProcess:
-                        break
-                    try:
-                        process.wait(timeout=0.1)
-                    except subprocess.TimeoutExpired:
-                        pass
-            finally:
-                if process is not None:
-                    if process.poll() is None:
-                        process.terminate()
-                        try:
-                            process.wait(timeout=5)
-                        except subprocess.TimeoutExpired:
-                            process.kill()
-                    process.wait()
+            process = subprocess.Popen(command, stdout=stdout, stderr=stderr, cwd=output, env=environment)
+            own = monitor.Process(process.pid)
+            stage = "monitor"
+            while process.poll() is None:
+                try:
+                    rss = own.memory_info().rss
+                    peak = max(peak, rss)
+                    elapsed = time.monotonic() - start
+                    samples.append({"elapsed_seconds": elapsed, "rss_bytes": rss})
+                    require(elapsed <= 300 and rss <= 4 * 1024**3, "native_wall_or_rss_budget")
+                    _disk_bytes(root)
+                except monitor.NoSuchProcess:
+                    break
+                try:
+                    process.wait(timeout=0.1)
+                except subprocess.TimeoutExpired:
+                    pass
     except BaseException as exc:
-        error = {"type": type(exc).__name__, "message": str(exc)}
-    code = 1 if error or process is None else process.returncode
-    unchanged = identities == consumer_identity()
-    if not unchanged:
-        code = 1
+        error = {"stage": stage, "type": type(exc).__name__, "message": str(exc)}
+    finally:
+        if process is not None:
+            try:
+                if process.poll() is None:
+                    try:
+                        process.terminate()
+                    except ProcessLookupError:
+                        pass
+                    try:
+                        process.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        try:
+                            process.kill()
+                        except ProcessLookupError:
+                            pass
+                process.wait()
+            except BaseException as exc:
+                diagnostic_errors.append({"stage": "reap", "type": type(exc).__name__, "message": str(exc)})
+
+    def diagnostic(stage, operation):
+        try:
+            return operation()
+        except BaseException as exc:
+            diagnostic_errors.append({"stage": stage, "type": type(exc).__name__, "message": str(exc)})
+            return None
+
+    unchanged = diagnostic("consumer_identity", lambda: identities == consumer_identity())
+    pid_exists = diagnostic("pid_exists", lambda: process is not None and monitor.pid_exists(process.pid))
+    lock_after = diagnostic("lock_after", lambda: inspect_gpu_lock(repository))
+    disk_bytes = diagnostic("private_disk_bytes", lambda: _disk_bytes(root))
+    stdout_sha = diagnostic("stdout_hash", lambda: _sha(output / "stdout.log"))
+    stderr_sha = diagnostic("stderr_hash", lambda: _sha(output / "stderr.log"))
+    actual_exit = None if process is None else process.returncode
+    code = 1 if (error or diagnostic_errors or not unchanged or pid_exists is not False
+                 or type(actual_exit) is not int) else actual_exit
     result = {"argv": command, "cwd": str(output), "started_at": started_at, "ended_at": _utc(),
         "environment_overrides": {key: environment[key] for key in ("HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE",
             "HF_HUB_DISABLE_TELEMETRY", "HF_HUB_DISABLE_IMPLICIT_TOKEN", "WANDB_MODE",
-            "TOKENIZERS_PARALLELISM", "OMP_NUM_THREADS", "MKL_NUM_THREADS")},
-        "pid": None if process is None else process.pid, "actual_child_exit": None if process is None else process.returncode,
+            "TOKENIZERS_PARALLELISM", "OMP_NUM_THREADS", "MKL_NUM_THREADS") if key in environment},
+        "pid": None if process is None else process.pid, "actual_child_exit": actual_exit,
         "exit_code": code, "error": error, "wall_seconds": time.monotonic() - start,
         "peak_rss_bytes": peak, "samples": samples,
         "own_process_reaped": process is not None and process.returncode is not None,
-        "own_pid_exists": process is not None and psutil.pid_exists(process.pid),
-        "lock_after": inspect_gpu_lock(args.repository), "consumer_unchanged": unchanged,
-        "private_disk_bytes": _disk_bytes(root), "stdout_sha256": _sha(output / "stdout.log"),
-        "stderr_sha256": _sha(output / "stderr.log"), "launch_number": reservation["launch_number"]}
+        "own_pid_exists": pid_exists, "lock_after": lock_after, "consumer_unchanged": unchanged,
+        "private_disk_bytes": disk_bytes, "stdout_sha256": stdout_sha, "stderr_sha256": stderr_sha,
+        "launch_number": reservation["launch_number"], "diagnostic_errors": diagnostic_errors}
     _save(output / "supervision.json", result)
     print(json.dumps({k: result[k] for k in ("exit_code", "wall_seconds", "peak_rss_bytes",
         "own_process_reaped", "own_pid_exists", "launch_number")}))

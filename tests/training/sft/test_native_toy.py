@@ -14,12 +14,15 @@ import os
 import subprocess
 import sys
 from dataclasses import replace
+from functools import partial
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
+import toolalign.training.sft.native_toy as native_module
 from toolalign.data.common import DataError
-from toolalign.runtime.gpu_lock import GPULease
+from toolalign.runtime.gpu_lock import GPULease, inspect_gpu_lock
 from toolalign.training.sft.config import consumer_identity as cpu_identity
 from toolalign.training.sft.mlx_adapter import backend
 from toolalign.training.sft.native_toy import (
@@ -286,3 +289,79 @@ def test_success_or_running_mode_never_replayed(repository, terminal):
         (output / "supervision.json").write_text(json.dumps(terminal))
     with pytest.raises(DataError, match="native_success_or_active_mode_must_not_repeat"):
         _reserve(root, root / "second", "source_segmented", {})
+
+
+class CPUProcessMonitor:
+    """Read actual OS RSS/PID for the small child without an optional dependency."""
+
+    NoSuchProcess = ProcessLookupError
+
+    class Process:
+        def __init__(self, pid):
+            self.pid = pid
+
+        def memory_info(self):
+            result = subprocess.run(["ps", "-p", str(self.pid), "-o", "rss="],
+                                    capture_output=True, text=True, check=False)
+            if result.returncode or not result.stdout.strip():
+                raise ProcessLookupError(self.pid)
+            return SimpleNamespace(rss=int(result.stdout.strip()) * 1024)
+
+    @staticmethod
+    def pid_exists(pid):
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            return False
+        return True
+
+
+@pytest.mark.parametrize("fail_lock_diagnostic", [False, True])
+def test_real_disk_failure_reaps_child_and_retains_terminal(repository, tmp_path,
+                                                           monkeypatch, fail_lock_diagnostic):
+    # The actual small file crosses a scaled test threshold in the same disk
+    # checker. The CLI's fixed 2 GiB limit and actual framework ledger are untouched.
+    root = tmp_path / "cpu-supervisor-fixture"
+    output = root / "owned-child"
+    output.mkdir(parents=True)
+    reservation = _reserve(root, output, "source_segmented", {"fixture": "CPU_ONLY"})
+    monkeypatch.setattr(native_module, "_disk_bytes", partial(_disk_bytes, limit=4096))
+    if fail_lock_diagnostic:
+        def fail(_):
+            raise OSError("original final lock diagnostic failure")
+
+        monkeypatch.setattr(native_module, "inspect_gpu_lock", fail)
+    program = """
+import json, os, sys, time
+from pathlib import Path
+from toolalign.runtime.gpu_lock import GPULease
+repository, output = map(Path, sys.argv[1:])
+with GPULease(task_id='CPU-native-terminal-test', worker_alias='test', run_id='owned',
+              expected_job='no frameworks', memory_strategy='small CPU process', repository=repository):
+    (output / 'ready.json').write_text(json.dumps({'pid': os.getpid(), 'numeric_modules':
+        sorted({'mlx', 'mlx_lm', 'numpy', 'torch'} & {n.split('.')[0] for n in sys.modules})}))
+    (output / 'actual-small-budget-overflow').write_bytes(b'x' * 5000)
+    time.sleep(20)
+"""
+    environment = os.environ.copy()
+    environment["PYTHONPATH"] = str(Path(native_module.__file__).resolve().parents[3])
+    code = native_module._supervise_process(root=root, output=output, repository=repository,
+        command=[sys.executable, "-B", "-c", program, str(repository), str(output)],
+        environment=environment, identities=consumer_identity(), reservation=reservation,
+        monitor=CPUProcessMonitor)
+    assert code == 1
+    terminal = json.loads((output / "supervision.json").read_text())
+    ready = json.loads((output / "ready.json").read_text())
+    assert ready["numeric_modules"] == [] and ready["pid"] == terminal["pid"]
+    assert terminal["error"]["message"] == "native_private_disk_budget"
+    assert terminal["error"]["stage"] == "monitor"
+    assert terminal["actual_child_exit"] != 0 and terminal["own_process_reaped"]
+    assert terminal["own_pid_exists"] is False and not CPUProcessMonitor.pid_exists(ready["pid"])
+    lock = inspect_gpu_lock(repository)
+    assert not lock["held"] and lock["last_owner"]["pid"] == ready["pid"]
+    assert terminal["private_disk_bytes"] is None
+    assert {d["stage"] for d in terminal["diagnostic_errors"]} == (
+        {"private_disk_bytes", "lock_after"} if fail_lock_diagnostic else {"private_disk_bytes"})
+    assert terminal["stdout_sha256"] == hashlib.sha256((output / "stdout.log").read_bytes()).hexdigest()
+    assert terminal["stderr_sha256"] == hashlib.sha256((output / "stderr.log").read_bytes()).hexdigest()
+    assert _reserve(root, root / "new-attempt", "source_segmented", {})["launch_number"] == 2
