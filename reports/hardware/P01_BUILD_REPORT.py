@@ -37,7 +37,7 @@ def summarize(root: Path) -> dict:
             "wall_seconds": resources["wall_seconds"],
             "peak_rss_bytes": resources["peak_rss_bytes"],
             "max_swap_growth_bytes": max(
-                (s["swap_growth_bytes"] for s in resources["samples"]), default=0
+                (s["swap_growth_bytes"] for s in resources["samples"]), default=None
             ),
             "max_pressure_level": max((s["pressure"] for s in resources["samples"]), default=None),
             "model_id": config.get("model_id"),
@@ -51,6 +51,13 @@ def summarize(root: Path) -> dict:
             "evidence_hashes": {},
             "progress": progress,
         }
+        if "child_started" in resources:
+            record.update({
+                "child_started": resources["child_started"],
+                "raw_process_exit_code": resources["raw_process_exit_code"],
+                "initial_swap_bytes": resources["initial_swap_bytes"],
+                "failure_stage": resources["failure_stage"],
+            })
         for name in [
             "run.json",
             "config.json",
@@ -124,7 +131,10 @@ def summarize(root: Path) -> dict:
         callback_failures = [s["failure"] for s in steps if s.get("failure")]
         if callback_failures:
             record["training_callback_failure"] = callback_failures[-1]
-        if resources.get("monitor_error"):
+        if resources.get("initialization_error"):
+            record["initialization_error_type"] = resources["initialization_error"]["type"]
+            record["assessment"] = "FAILED_INITIALIZATION"
+        elif resources.get("monitor_error"):
             record["monitor_error_type"] = resources["monitor_error"]["type"]
             record["assessment"] = "FAILED_MONITOR"
         elif resources["exit_code"] != 0:

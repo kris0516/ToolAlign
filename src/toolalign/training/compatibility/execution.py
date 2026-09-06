@@ -314,87 +314,105 @@ def launch(config_path: Path) -> int:
     root.mkdir(parents=True, exist_ok=False)
     prepared = root / "config.json"
     write_json(prepared, config)
-    if config["mode"] != "math":
-        write_json(root / "run.json", new_manifest(config))
     budget = Budget(**config["budget"])
-    env = os.environ.copy()
-    env.update(
-        {
-            "HF_HUB_OFFLINE": "1",
-            "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
-            "HF_HUB_DISABLE_TELEMETRY": "1",
-            "WANDB_MODE": "disabled",
-            "TOKENIZERS_PARALLELISM": "false",
-        }
-    )
-    initial_swap = psutil.swap_memory().used
     started = time.monotonic()
     stop_reason = None
     monitor_error = None
-    peak_rss = 0
+    initialization_error = None
+    failure_stage = None
+    process = None
+    initial_swap = None
+    peak_rss = None
     samples = []
-    with (root / "stdout.log").open("w") as log:
-        process = subprocess.Popen(
-            [
-                sys.executable,
-                "-m",
-                "toolalign.training.compatibility",
-                "_worker",
-                "--config",
-                str(prepared),
-            ],
-            stdout=log,
-            stderr=subprocess.STDOUT,
-            env=env,
+    if config["mode"] != "math":
+        write_json(root / "run.json", new_manifest(config))
+    stage = "environment"
+    try:
+        env = os.environ.copy()
+        env.update(
+            {
+                "HF_HUB_OFFLINE": "1",
+                "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
+                "HF_HUB_DISABLE_TELEMETRY": "1",
+                "WANDB_MODE": "disabled",
+                "TOKENIZERS_PARALLELISM": "false",
+            }
         )
-        try:
-            own = psutil.Process(process.pid)
-            while process.poll() is None:
-                try:
-                    rss = own.memory_info().rss
-                    peak_rss = max(peak_rss, rss)
-                    swap = max(0, psutil.swap_memory().used - initial_swap)
-                    pressure = int(
-                        subprocess.check_output(
-                            ["sysctl", "-n", "kern.memorystatus_vm_pressure_level"], text=True
-                        ).strip()
-                    )
-                    wall = time.monotonic() - started
-                    samples.append(
-                        {
-                            "wall_seconds": wall,
-                            "rss_bytes": rss,
-                            "swap_growth_bytes": swap,
-                            "pressure": pressure,
-                        }
-                    )
-                    budget.check(
-                        wall=wall, rss_bytes=rss, swap_growth_bytes=swap, pressure=pressure
-                    )
+        stage = "initial_swap"
+        initial_swap = psutil.swap_memory().used
+        stage = "stdout_open"
+        with (root / "stdout.log").open("w") as log:
+            try:
+                stage = "popen"
+                process = subprocess.Popen(
+                    [
+                        sys.executable,
+                        "-m",
+                        "toolalign.training.compatibility",
+                        "_worker",
+                        "--config",
+                        str(prepared),
+                    ],
+                    stdout=log,
+                    stderr=subprocess.STDOUT,
+                    env=env,
+                )
+                stage = "monitor"
+                own = psutil.Process(process.pid)
+                while process.poll() is None:
                     try:
-                        process.wait(timeout=1)
+                        rss = own.memory_info().rss
+                        peak_rss = rss if peak_rss is None else max(peak_rss, rss)
+                        swap = max(0, psutil.swap_memory().used - initial_swap)
+                        pressure = int(
+                            subprocess.check_output(
+                                ["sysctl", "-n", "kern.memorystatus_vm_pressure_level"], text=True
+                            ).strip()
+                        )
+                        wall = time.monotonic() - started
+                        samples.append(
+                            {
+                                "wall_seconds": wall,
+                                "rss_bytes": rss,
+                                "swap_growth_bytes": swap,
+                                "pressure": pressure,
+                            }
+                        )
+                        budget.check(
+                            wall=wall, rss_bytes=rss, swap_growth_bytes=swap, pressure=pressure
+                        )
+                        try:
+                            process.wait(timeout=1)
+                        except subprocess.TimeoutExpired:
+                            pass
+                    except psutil.NoSuchProcess:
+                        break
+            finally:
+                # Popen may fail before handing us a child. Only a Process we
+                # actually own can be terminated/reaped, before closing its log.
+                if process is not None and process.poll() is None:
+                    process.terminate()
+                    try:
+                        process.wait(timeout=10)
                     except subprocess.TimeoutExpired:
-                        pass
-                except psutil.NoSuchProcess:
-                    break
-        except (BudgetExceeded, KeyboardInterrupt) as exc:
-            stop_reason = str(exc) or type(exc).__name__
-        except Exception as exc:
-            # An unreadable sample is a failed monitor, never evidence that the
-            # worker is safe to continue. Preserve the exception until the owned
-            # child is reaped AND its terminal records have been written.
+                        process.kill()
+                        process.wait()
+    except (BudgetExceeded, KeyboardInterrupt) as exc:
+        failure_stage = stage
+        stop_reason = str(exc) or type(exc).__name__
+    except Exception as exc:
+        failure_stage = stage
+        # Keep the original exception until the registered attempt is finalized;
+        # an unavailable baseline or failed launch is not a healthy measurement.
+        if process is None:
+            initialization_error = exc
+            stop_reason = "initialization_error"
+        else:
             monitor_error = exc
             stop_reason = "monitor_error"
-        finally:
-            if process.poll() is None:
-                process.terminate()
-                try:
-                    process.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait()
-    exit_code = process.returncode
-    if monitor_error is not None:
+    child_exit_code = process.returncode if process is not None else None
+    exit_code = child_exit_code
+    if initialization_error is not None or monitor_error is not None:
         exit_code = 1  # The original exception is re-raised after finalization.
     elif stop_reason:
         exit_code = 124
@@ -404,20 +422,26 @@ def launch(config_path: Path) -> int:
             "wall_seconds": time.monotonic() - started,
             "peak_rss_bytes": peak_rss,
             "initial_swap_bytes": initial_swap,
+            "child_started": process is not None,
+            "failure_stage": failure_stage,
             "stop_reason": stop_reason,
+            "initialization_error": (
+                {"type": type(initialization_error).__name__, "message": str(initialization_error)}
+                if initialization_error is not None else None
+            ),
             "monitor_error": (
                 {"type": type(monitor_error).__name__, "message": str(monitor_error)}
                 if monitor_error is not None else None
             ),
             "samples": samples,
             "budget": asdict(budget),
-            "raw_process_exit_code": process.returncode,
+            "raw_process_exit_code": child_exit_code,
             "exit_code": exit_code,
         },
     )
     if config["mode"] != "math":
         record = json.loads((root / "run.json").read_text())
-        if (root / "progress.json").exists():
+        if process is not None and (root / "progress.json").exists():
             progress = json.loads((root / "progress.json").read_text())
             record["training_tokens"] = progress["training_tokens"]
             record["optimizer_steps"] = progress["optimizer_steps"]
@@ -442,6 +466,8 @@ def launch(config_path: Path) -> int:
             }
         )
     )
+    if initialization_error is not None:
+        raise initialization_error
     if monitor_error is not None:
         raise monitor_error
     return exit_code
