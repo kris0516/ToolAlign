@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：IN_PROGRESS（正式退回，待E1最终修复）；R1对完整`79a15d990fc27a9a33d033983c94eb92cccfb268`正式FAIL，审查`f34f7c5a4eac54b18a2b092495f4ce8eaa334f98`，P1=2/P2=1。E1已有收尾修复checkpoint2195b2e，原生空闲，尚非完整交接/独立验收；最终授权见本文件末尾。原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
+状态：READY_FOR_REVIEW（最终修复候选）；E1完整`3598cef2efb99e2990e384812a028902964cf494`已交付并核验原生空闲，原R1对79a15d9的FAIL及f34f7c5原SHA保留。389项CPU自测和双Python CI通过，尚未独立复审或验收；新复审授权见末尾。owner E1，branch `work/p03-execution-harness`；原code_base97466a2及全部原始交付保持。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
@@ -77,3 +77,17 @@ E1已交付`fde181d3319f36179298a4bec2a928a8354ee6b3`实现及`2195b2e4ea3219884
 仅CPU、gpt-6-astra/max；新增私有环境/制品仍按本修复轮累计2GiB，复用已有环境。无需重复未变共享包调查；原checkpoint的测试如源码变化会受影响，则在最终提交复验对应完整CPU、原R1探针、lint/冻结/公开扫描及实际新包/隔离接口。保留修复前和checkpoint证据，旧报告不覆盖；新增最终`P03-fix-r3`及报告必须给出精确候选、各问题、实际命令/退出码/hash和NOT_RUN。无ML/模型/GPU/下载/P04/P06或费用，不因另行准备输出格式而混入真实后端或解析协议改动。最终结束该轮等待新精确候选的R1复审，E1不自行验收或合并。
 
 2026-09-06实际最终修复接续：S0核验E1 checkpoint轮次completed/idle及干净2195b2e后，以完整授权fd67511ef4cb7853bb75b0b106ec4692a9d36be8原生派发本范围并给出原f34f7c5，gpt-6-astra/max，新轮次已确认ACTIVE；原R1与checkpoint证据均保留。
+
+## 最终修复候选的R1-r2独立复审授权
+
+E1最终完整candidate为`3598cef2efb99e2990e384812a028902964cf494`；原review `f34f7c5a4eac54b18a2b092495f4ce8eaa334f98`以非强制merge `5fe4e905cf43af04e744d3801b19472bd839c67a`接入，父提交为原checkpoint2195b2e与原review。F1/F2实现fde181d和checkpoint保留，最终F3实现为`8d11225861214141de3da77c2b5eaf1752fc43b2`；3598相对8d只新增最终交接和报告两份文件。
+
+S0已完整读取最终P03-fix-r3/报告、三个生产路径及必要原创回归，独立核对16份命令日志、3份归档和1份隔离结果hash，原7份R1文件全部未改。相对原79a15d9仅15个路径（E1自有8份及原R1的7份）。自测389项通过=原309+E1新26+原R1的54，不重复计数；原checkpoint53通过/1失败F3保留。实际新sdist/默认及显式重建wheel、隔离17命令与新停止/目录异常/因果顺序接口通过。[CI34011754142](https://github.com/kris0516/ToolAlign/actions/runs/34011754142)的Python3.11/3.14所有步骤成功。这些仍为worker/CI证据，不是R1对新候选的验收。
+
+本段先准备范围。R1结束当前P01-r2并经S0核验原生空闲后，才按S0给出的完整authorization_commit在自己的隔离worktree从3598新建`review/p03-r2`。只新增`coordination/handoffs/P03-review-r2.md`及`reports/review/P03-r2/`，全部被审src/tests/原R1/配置/锁/协调状态及E1工作区只读，不修改原探针或先修实现再签通过。
+
+逐项独立复核F1停止通知EIO后的实际自有进程回收、原parse失败和终态结果/trace；F2目录cleanup异常后Process关闭、幂等再关闭、保留原错误和已消耗预算；F3观察/执行顺序与待完成调用关联、不可靠trace为unknown，合法多解、多轮恢复和真实失败不变。运行未修改的原54项反例，增加必要相邻故障与合法对照，不能仅用实现者测试或只看终态字段。oracle在追加finalized前已被harness调用，应验证合法调用时点，不引入不符合接口的终态先决条件。
+
+按实际变化复核完整适用CPU、真实进入阻塞的模型/工具timeout/cancel、自有进程已退出且回收及无关进程存活、完整分母/用量/raw保留、lint/冻结/公开扫描、实际新包当前Git字节与隔离安装接口。原P03完整审查与17份初版公开/63份私有来源、checkpoint和最终修复证据按hash只读绑定，旧失败保持；未变共享包canary和历史演示不无理由反复扩大。记录实际构建来源，不把由sdist生成的默认wheel误称为源码直接构建。
+
+仅CPU、gpt-6-astra/max，新增私有环境/制品2GiB，复用自己已有适用锁环境。无ML/模型/tokenizer导入、权重下载、GPU/P04/P06/BFCL/最终隐藏集/费用，scripted成功不是真实MLX可用性或模型分数。输出精确3598的PASS/FAIL/BLOCKED、P0/P1/P2、每项关闭/残留、独立命令/退出码/loghash及NOT_RUN。提交新独立review SHA后结束该轮等待S0，不自行合并或扩大到真实模型后端/输出格式实现。

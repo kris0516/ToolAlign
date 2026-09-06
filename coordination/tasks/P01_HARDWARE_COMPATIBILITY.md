@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：READY_FOR_REVIEW（修复候选ac8095f）；T1已交付完整`ac8095faa58a98e143a8dc4d63042093e426feb0`并核验原生空闲，原R1对59b3802的FAIL（P1=2/P2=1、审查ac6bdf7）完整保留。修复自测和双Python CI通过，尚未独立复审。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：CHANGES_REQUESTED（R1-r2正式FAIL）；完整候选`ac8095faa58a98e143a8dc4d63042093e426feb0`仍有启动初始化P1，审查`aaae5a4395dbdd73fd487f80174599ffd3ef9be3`，P0=0/P1=1/P2=0。原F2/F3关闭，原候选/两轮FAIL/历史模型证据保持。T1原生空闲，下一轮CPU定点修复授权见末尾；尚未派发。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -98,3 +98,19 @@ S0已读取新交接`P01-fix-r3`和报告，核验22份日志/探针/私有结�
 gpt-6-astra/max，仅CPU，新增私有环境/制品2GiB；可复用自己已锁CPU环境。无MLX/模型导入、下载、GPU、P04/P05或费用。若具体问题必须GPU复现，提交最小命令和预算由S0另行调度。报告精确候选PASS/FAIL/BLOCKED、每项关闭或残留的P0/P1/P2、真实命令/退出码/loghash与NOT_RUN；提交新独立review commit后结束该轮等待S0，不自行改实现或合并。
 
 2026-09-06实际复审派发：S0核验R1的P03轮次completed/idle后，以完整授权fd67511ef4cb7853bb75b0b106ec4692a9d36be8和精确ac8095f原生派发本P01-r2范围，gpt-6-astra/max，新轮次已确认ACTIVE。
+
+## R1-r2退回后的T1启动初始化修复授权
+
+S0已收取并完整读取原始review `aaae5a4395dbdd73fd487f80174599ffd3ef9be3`，严格以ac8095f为父，新增6份审查文件、170份候选文件未变；18份命令日志、5份私有结果/审计副本及3份探针hash均独立核对。结论FAIL，P0=0/P1=1/P2=0。原7项通过，完整适用238项通过，新增22项20通过/2失败；17组CPU数学通过。各组计数不重复相加。
+
+唯一R2-F1/P1：已登记running尝试后，初始swap读取和Popen在保护try之外。初始swap EIO为0次Popen，Popen EAGAIN为1次调用；两例实际child均0，原异常传播，但无resources、无终态，报告summary遗漏该尝试。原F1运行期分支和F2已执行DPO工作/非有限数记账、F3八份历史源码映射已独立关闭，不能将本次初始化残留称为新模型或算法失败。
+
+收到S0原生消息给出的本段完整authorization_commit后，T1在现有`work/p01-compatibility`从ac8095f非强制merge上述原始review SHA；原SHA、原FAIL、原探针/日志全部保留，不reset/rebase/cherry-pick改写。读取本授权，无需merge新main/P02或后续协调文档。先运行未修改的两个初始化反例保存before证据，再做必要修复。
+
+把已登记尝试的初始化和进程创建纳入可靠终态收尾：保留原异常对象/错误事实、failed与ended_at、可被实际报告汇总的resources；明确是否启动child、真实退出码和缺测。没有创建child时只能记录未启动和null真实child退出，不把未测RSS/swap/pressure写成健康读数。仅回收真实持有的Process，不扫描PID或影响无关进程；零已执行工作可如实为零，不虚构token、微步或更新。保留成功、普通wait超时、运行期监控异常、预算/取消/租约路径。并不要求在磁盘全面不可写时仍保证写出证据。
+
+本轮允许改动仅为`src/toolalign/training/compatibility/execution.py`、必要的`reports/hardware/P01_BUILD_REPORT.py`、`tests/training/compatibility/`的必要原创回归；可新增`reports/hardware/P01_FIX_R4*`及`coordination/handoffs/P01-fix-r4.md`。原所有R1文件、P01-r1/base-r2/fix-r3、旧FIX_R3证据和原始模型/失败材料只读；fallback/core/numerical/model_probe/samples、数学/mask/reference/阈值、公共契约/runtime/configs/依赖/锁/检查脚本/README/协调状态均只读。确需边界外改动先交具体依据给S0，继续范围内工作。
+
+仅CPU、gpt-6-astra/max，新增私有环境/制品2GiB，复用已锁环境；无模型/MLX/GPU/下载/费用/P04/P05。按实际改动运行未修改原R1七项和新R1二十二项、必要相邻初始化/正常/失败对照、完整适用CPU回归与报告检查、lint/冻结/公开扫描、实际新包逐成员字节和隔离安装/报告接口。未变数学/十次旧run/185制品可在确认身份不变后引用独立证据，不重复长校准或将历史结果记成本轮GPU通过。
+
+交付精确完整candidate、原review接入关系、允许范围diff、before/after实际命令/退出码/loghash、准确缺测和历史保持、失败/NOT_RUN及P01-fix-r4；自测不是验收。交接后结束该轮，S0再安排R1对新完整候选复审并决定集成。当前E1已完成修复/原生空闲；D1仍做CPU提案比较，T1派发后最多两个实现加独立CPU R1。
