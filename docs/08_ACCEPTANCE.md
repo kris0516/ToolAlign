@@ -22,7 +22,7 @@
 
 `v0.3.0-serving`：增加 G5、本机 API 复现与优化结果；只证明本地范围。
 
-计划包标记 `plan-v0.1`，不冒用功能 release 标签；当前没有任何训练或模型结果。
+计划包标记 `plan-v0.1`，不冒用功能 release 标签。P01受限兼容性smoke与容量校准不等同正式模型训练或功能release；当前实测及未完成项见[项目状态](../coordination/PROJECT_STATUS.md)。
 
 ## 3. 不采用虚假百分制
 

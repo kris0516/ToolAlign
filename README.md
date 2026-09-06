@@ -4,7 +4,7 @@
 
 ToolAlign 是一个以 Apple Silicon 为主要实验环境的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态：P00 和共享支持已验证；P02 数据流程通过独立技术审查，人工语义审查与整包验收仍待完成；P01/P03 候选待各包验收。** CPU 包提供版本化契约、跨 worktree GPU 锁及可追溯的数据转换/分组切分。[P02 技术审查](reports/review/P02/README.md)记录精确候选与证据，阶段验收以[真实状态](coordination/PROJECT_STATUS.md)为准。尚无正式训练结果、已执行的正式 benchmark 或上线的推理服务。十天是目标工作安排；结果栏在实测前保持 `NOT_RUN`。
+> **当前状态：P00、共享支持、P01 受限兼容校准与 P03 CPU 执行器已独立验收并完成主干验证。** [P01/G1 证据](reports/S0_P01_MAIN_VERIFICATION.md)分别记录 SFT 和唯一 DPO 备选的兼容结论；[P03 证据](reports/S0_P03_MAIN_VERIFICATION.md)覆盖本地工具、oracle 与 scripted 接口。P02 数据代码技术验证通过，人工语义审查、新共同格式和训练绑定仍待完成。阶段验收以[真实状态](coordination/PROJECT_STATUS.md)为准；正式训练、benchmark 和推理服务尚未验收，下面的正式结果栏保持 `NOT_RUN`。
 
 ## CPU 基础检查
 
@@ -16,6 +16,8 @@ uv run --locked python scripts/check_contract_freeze.py
 uv run --locked python scripts/check_public_content.py
 uv run --locked toolalign validate tests/fixtures/contracts/example.json
 uv run --locked python -m toolalign.data --help
+uv run --locked python -m toolalign.tools --help
+uv run --locked python -m toolalign.training.compatibility --help
 ```
 
 仅安装 CPU 基础依赖，不加载模型。离线运行需要事先安装锁定依赖。契约和文件所有权见 [P00 契约说明](docs/12_CONTRACTS_V1.md)；锁定依赖见 `uv.lock`。历史 `MANIFEST.sha256` 仅对应原始规划包，当前发布依据为 Git commit 与阶段证据。

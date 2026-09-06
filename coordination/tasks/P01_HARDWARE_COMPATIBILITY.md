@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：ACCEPTED（独立技术复审通过，待最终集成）；R1-r3对精确9fe3cbe3a067725c37dc213bbf38f9c90ceb5066正式PASS，review `7e207060539df682691b4d149e68b7ab4ffc3175`，P0/P1/P2均0。S0读取完整交接/原创探针/审计与包核验代码，核对178项证据hash及183份不变候选字节；R1原生completed/idle。旧FAIL/历史模型负结果保持，待最终CI/合并/main验证，G1未正式签通过，P04未授权。
+状态：VERIFIED（限定本包受限兼容性与校准）；R1-r3对精确9fe3cbe正式PASS，原review `7e207060539df682691b4d149e68b7ab4ffc3175`保持；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并`d10722e491d6a8efe26b8248efb9c19cc2216742`，最终双Python CI与实际main655CPU/21条隔离命令通过，见[S0分项验收](../../reports/S0_P01_MAIN_VERIFICATION.md)。G1-SFT与唯一DPO备选在已审配置PASS，首选DPO仍FAIL；原负结果与历史制品保持。T1/R1空闲，P04/P05正式训练和完整真实harness未授权或执行。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
