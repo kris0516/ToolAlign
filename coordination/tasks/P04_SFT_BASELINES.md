@@ -66,3 +66,5 @@ ADR-0021另准备[P04-SFT-NATIVE-TOY](P04_SFT_NATIVE_TOY.md)，基线50867c0，�
 
 
 P04-SFT-NATIVE-TOY已按完整de86568原生派发T1并核验新轮ACTIVE；该实际派发仍仅为固定原创数值子包，原生结果/独立审查和本包正式训练门槛保持待完成。
+
+P04-SFT-NATIVE-TOY现有S0中间证据：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。见[原数值与终态修复](../../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。该有限原创子包仍不构成本包真实模型baseline/SFT验收。

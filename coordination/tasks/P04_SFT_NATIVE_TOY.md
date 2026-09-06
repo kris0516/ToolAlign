@@ -1,6 +1,6 @@
 # P04-SFT-NATIVE-TOY｜原生 GPU 尾周期与状态绑定验证
 
-状态：IN_PROGRESS，T1已按完整`de86568d73ee77bbf92b6f749a39a9ab38955836`原生派发并核验新轮ACTIVE；实际新分支work/p04-sft-native-toy/50867c0及输入intake已核验，尚无数值验收。S0 依据 ADR-0021 授权一个新的有限数值子包；CPU 准备已 VERIFIED，完整 P04 和人工门槛保持未完成。
+状态：IN_PROGRESS，T1已按完整`de86568d73ee77bbf92b6f749a39a9ab38955836`原生派发并核验新轮ACTIVE；实际新分支work/p04-sft-native-toy/50867c0及输入intake已核验；534445b两次原GPU数值和fae3d60监督器修订已有S0定点证据，完整候选/R1待验收。S0 依据 ADR-0021 授权一个新的有限数值子包；CPU 准备已 VERIFIED，完整 P04 和人工门槛保持未完成。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -58,3 +58,5 @@
 
 
 18:21:46–18:21:49 UTC，S0直接核验新branch/HEAD/原生身份、11份授权副本、精确配置/固定cases、401份基线当前字节与1559份原私有制品，共1976当前路径通过；已有环境的五个版本及trainer/datasets原件hash以metadata只读核对，无S0框架导入/数值replay。证明SHA-256为7158cd8cddf70f3cf45df0c461d3e2518ff21c51f762faf0f647398f993b46e7。intake已验收，T1继续同一授权；实现、数值和独立R1验收仍待完成。
+
+18:49–18:57 UTC中间核验：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。原数值证明563a3e83a6682f33a2b869833d15aaca4a03310241cb3e26fa0b82fcfffcd9d1，监督器定点回归证明d387826e624d5c44724481eacbbab9de24d32ffe8a280e572d0a95836fa6d314；见[S0报告](../../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。原配置与五次T1框架限额保持。

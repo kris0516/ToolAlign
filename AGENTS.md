@@ -76,6 +76,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | SFT接口CPU主干验收 | VERIFIED（CPU准备）；[PR10](https://github.com/kris0516/ToolAlign/pull/10)合并e28f1db，原R1 PASS800480b保持；最终双Python CI与main1014CPU/2跳过、三归档/57安装包文件绑定通过，见[主干证据](reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。完整原生训练与人工门槛仍未通过 |
 | 2026-09-07 | 原生SFT固定原创数值范围 | ADR-0021及[P04-SFT-NATIVE-TOY](coordination/tasks/P04_SFT_NATIVE_TOY.md)已READY，基线50867c0、GPU原生接口/Torch CPU参考、13原创例/64参数；尚未派发/运行，人工与正式P04门槛保持 |
 | 2026-09-07 | 原生SFT固定原创数值实际派发 | 已核验T1上一轮completed/idle及干净33d6248，按完整de86568原生派发，gpt-6-astra/max，新轮ACTIVE已确认；新branch/input intake与数值验收待完成 |
+| 2026-09-07 | 原生SFT固定toy中间核验 | S0核对534445b两次原GPU数值/实际checkpoint；fae3d60监督器终态修复定点CPU回归通过，完整候选/R1仍待完成，见[证据](reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -101,7 +102,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均已VERIFIED。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU轮均已结束；T1已按ADR-0021及完整de86568原生接[P04-SFT-NATIVE-TOY](coordination/tasks/P04_SFT_NATIVE_TOY.md)，新轮ACTIVE已确认，实际新branch/50867c0、授权和输入intake已核验；实现/数值验收待完成。D1/E1/R1无新任务。最多两个实现、独立R1和单一GPU租约约束保持。实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均已VERIFIED。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU轮均已结束；T1已按ADR-0021及完整de86568原生接[P04-SFT-NATIVE-TOY](coordination/tasks/P04_SFT_NATIVE_TOY.md)，新轮ACTIVE已确认，实际新branch/50867c0、授权和输入intake已核验；S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。见[中间证据](reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。D1/E1/R1无新任务。最多两个实现、独立R1和单一GPU租约约束保持。实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行。
 
 ## 工作记录
 
