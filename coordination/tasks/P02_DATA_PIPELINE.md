@@ -77,7 +77,7 @@ gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB�
 
 ## P02-format-r2｜共用 v1 格式与新序列审计授权
 
-状态：IN_PROGRESS；S0已按下述完整授权实际派发并核验新轮次ACTIVE。原提案和角色比较已交付为 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8`，比较实现 `ac3c99b10e46deef745b624be14acfacff2cb369`；S0核验正式handoff、68项hash、167份不变原文件及D1原生completed/idle。原A结果、失败、比较及其SHA保留。
+状态：READY_FOR_REVIEW；D1已交付完整`7bada2e451d43dae4b3ed532d5efa310fc8e6a57`且原生completed/idle，R1实际派发见末段。原提案和角色比较已交付为 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8`，比较实现 `ac3c99b10e46deef745b624be14acfacff2cb369`；S0核验正式handoff、68项hash、167份不变原文件及D1原生completed/idle。原A结果、失败、比较及其SHA保留。
 
 - owner仍为D1、同一独立任务/`work/p02-data`/原worktree；gpt-6-astra/max，不创建新任务或sub-agent。
 - 已验证生产输入为P02合并 `2ec17673c18ffbc817b1ff8512e53e44a11766a5`；本次协调基线为main `201e3a1f697a567f843754e465e57d8227660264`。先读取并保存本次完整授权中的AGENTS/协议/本任务/ADR-0017/格式规范；从干净6c3d330以普通merge接入本次授权提交，保留所有父提交和原提案，不reset/rebase/cherry-pick，不改写较新远端。
@@ -127,3 +127,5 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 仅CPU，新增私有环境/证据累计2GiB。优先复用自己已有适用固定CPU环境；若需要额外reference环境，只用本机缓存离线安装与交接清单/现有锁核对的必要CPU tokenizer依赖并保存实际版本/hash，不修改旧环境身份，不下载权重或新依赖。reference允许tokenizer-only Transformers5.16.1/tokenizers0.23.2/Jinja3.1.6，导入前禁用Torch/TF/Flax并启用离线限制、实际断言未加载模型模块。禁止MLX/Torch/模型类/权重/GPU/训练/P04/P05/P06/BFCL及费用；pure callbacks不应强制0.22.2版本。
 
 输出精确候选的PASS/FAIL/BLOCKED、P0/P1/P2、规范与源/安装路径逐项证据、命令/退出码/hash、原失败和NOT_RUN。提交新的独立review SHA后结束该轮等待S0。格式技术PASS仍不等于G-DATA、人审、训练选集或模型质量通过，不能自行改ADR/状态或合并main。
+
+2026-09-06实际独立审查派发：S0收到并核对D1最终7bada2e451d43dae4b3ed532d5efa310fc8e6a57及正式handoff，713项checksum和217个原公共文件字节匹配。重新确认R1上一轮completed/idle后，按完整授权1de90781e42a3693b112aafcf585a905bc052d63原生派发精确7bada的新格式独立审查，gpt-6-astra/max，已确认新轮ACTIVE。D1随后原生completed/idle核验完成；本轮仅CPU新格式审查，不授权P04或替代kris语义判断。

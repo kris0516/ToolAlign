@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。D1按0c94ad5继续格式CPU交付，已按5212b24普通merge已验证P03；T1/E1/R1空闲。P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。D1完整新格式7bada2e已交付/空闲；R1按完整1de9078独立审该精确候选，新轮ACTIVE，gpt-6-astra/max、仅CPU。T1/E1空闲，P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1/E1/R1空闲，P01/P03已完成主干验收；最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | R1独立审新格式7bada2e，T1/E1/D1空闲；P01/P03已完成主干验收，最多两个实现约束保持 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -94,3 +94,5 @@ P03实际主干验收：S0普通整合原a78071b和当前main为84084770bf07f326
 P01第三轮复审正式交接：原review 7e207060539df682691b4d149e68b7ab4ffc3175直接以9fe3cbe为父，只新增6份审查文件、183份候选字节未变。S0完整读取handoff/README/13场景探针/审计及包核验器，实际核对178项日志/结果/公开文件/子进程制品/归档hash；私有证明SHA-256为badf039e7a08908e1457d2a5423df89ce1eb0d2c0401336b5c88e062ad189b56。R2-F1及原F2/F3均关闭；原29反例+251适用CPU检查通过，新增13场景通过，安装重复13不再加计。17条命令保留两条遗漏PYTHONPATH导致的exit2；只修调用后通过。新实际三份包及15安装命令均通过；旧17数学/185载荷按不变身份沿用，92份历史小文件已由R1重核，不伪称重跑模型。R1原生completed/idle已核验，P01代码ACCEPTED待S0最终CI/合并/main验证。D1已实际收到5212b24同步授权并确认同轮普通merge已验证P03，原格式CPU交付继续，未签人审或启动模型。
 
 P01实际主干验收：S0普通整合原7e20706与当前main为90b29363b4d2ba8003ed7af17fa359960702b33c，214个既有main路径与61个P01被审路径均未变。CI34016103173双Python所有步骤成功，PR6合并d10722e491d6a8efe26b8248efb9c19cc2216742，GitHub closed/merged与本机相同tree已读回。main655CPU无skip、实际sdist与默认/显式重建wheel、42源码字节和21条新隔离命令全部通过；13个P01和31个P03边界是安装重复验证，不再计为新增独立检查。见[S0主干/G1证据](../reports/S0_P01_MAIN_VERIFICATION.md)，摘要hash b1b603dc68763cbf89969dde2356d92335a992504e3fcba4a8085d7337149326。P01达到VERIFIED，G1-SFT与唯一mlx-lm-lora备选在原受限配置PASS，mlx-tune首选FAIL及所有旧失败保持，原数学/模型证据本轮未重跑。06:22:51UTC共享GPU锁空闲，人审副本100行0判定/0reviewer及原hash不变。D1仍做原格式CPU交付，P02/G-DATA与P04前提未因本次合并而跳过。
+
+新格式正式交接与实际审查派发：D1完整候选7bada2e451d43dae4b3ed532d5efa310fc8e6a57（父9f4e7a3、tree fdf0c10）已普通推送并核验原生completed/idle。S0读取新模块/测试/审计/包探针和正式报告，独立核验713项checksum（completion1、公开18、私有620、37条命令的metadata/log共74），214个既有5212b24主干文件和3份原提案逐字节不变；证明SHA-256为06f72e150ac85e5703f163b718f1f755354495ac057aeb6c9f931cfb58e29d33。五个model_io实现/资源从唯一全量测量b33a55f至最终保持，原P03 parser身份一致，旧开发失败保留。D1最终664CPU无skip、实际三归档与10条默认CPU隔离命令通过；8,228行完整分母中总长>2048为1,351、C含EOS>256为269，统计交集6,685没有成为训练选集。这些为实现方证据，尚不构成新格式验收。S0再次确认R1上一轮completed/idle后，以完整授权1de90781e42a3693b112aafcf585a905bc052d63原生派发该精确candidate的P02-format-review-r1，gpt-6-astra/max，新轮ACTIVE。原数据、全部人审材料和填写副本保持；无新模型/GPU/P04授权。
