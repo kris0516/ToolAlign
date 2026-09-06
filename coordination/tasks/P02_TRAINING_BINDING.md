@@ -80,3 +80,5 @@
 12:07 UTC，S0独立计算固定规则的[选择身份参考](../../reports/S0_P02_TRAINING_BINDING_REFERENCE.md)，摘要0f82eac7：smoke预期1600/197、formal6013/217，私有逐例排名/hash/桶及互斥排除分母已保存，供候选交付时核对。该检查未导入D1实现、未重新分词或生成训练Example JSONL；不替代D1两次实际物化、13例材料或R1。D1原轮仍ACTIVE，授权配置未变。
 
 12:16 UTC，S0已将D1在526f93d的两次实际物化与该独立参考逐例核对；384文件路径、345份源码快照/Git字节、每遍13稳定文件及原记录/排名/桶/完整排除通过，证明b96605d2。两次build时间和输出目录独立，稳定manifest均为eb4bbfe6。此为选择产物预核验，候选整包/13例材料/安装/独立R1仍待交付，D1继续同一ACTIVE轮次。
+
+12:33 UTC，S0已核对reference/native各13例的原始命令/来源、完整数组及静态HTML，94文件路径通过，证明f33c7f53；另核对28份人工副本/空白CSV，证明d36eabac。本机审阅说明已准备。原始浏览器拒绝回执b2abc9c6已核验，实际页面渲染0页/NOT_RUN，禁止替代绕过；实际页面观察与kris人工判断仍未完成。用户可填写独立人工副本的reviewer/verdict/time/notes，保留case_id/category；reference/native冻结证据只读。D1整包交接/R1继续待完成。

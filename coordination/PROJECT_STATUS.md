@@ -148,3 +148,5 @@ D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-
 12:07 UTC，S0从固定原train/validation和历史audit独立计算[选择身份参考](../reports/S0_P02_TRAINING_BINDING_REFERENCE.md)，实际exit0、16.44秒，摘要0f82eac7f0b20a9a7d64168a2368952a349a944a1a741807b0c4c94148633f69。参考预期smoke1600/197、formal6013/217及对应subset成立；排名身份、padding桶和互斥排除分母已封存，未执行D1开发模块或重新分词/物化训练记录。smoke所选train中1173条能在1536内预留完整256生成token；该统计不改变规则或放行模型容量。D1继续同一CPU轮次，候选/R1/人工门槛待完成。
 
 12:16 UTC，D1的526f93d checkpoint两次实际build已由S0交叉核对，证明b96605d2cb167db8ae8b4e045182b6bb2b22365fbfcf616f9514299ca6ed74f2：两份原始命令/时间及345源码快照与Git一致，每遍13稳定文件字节相同，逐例原字段、身份顺序、排名、桶、audit和完整排除均符合S0先前独立参考。该检查共384路径、4.49秒exit0，S0未重新分词或物化。选择产物预核验通过，D1仍ACTIVE，13例材料、完整交接/安装与R1未完成，P04授权保持待门槛。
+
+训练人工材料预核验：S0于12:33 UTC独立读取94文件路径并核对13例两engine既有完整数组、历史身份和静态HTML，证明f33c7f536aa1b0c8acdb1a243d09604f91f96e18e3c05826c07875d4c2e93b4d；另核对28份独立人工副本，证明d36eabac，13行人工字段均空，本机入口说明已准备。原浏览器file URL导航被URL安全策略拒绝并禁止绕过，S0核验完整回执b2abc9c6；实际渲染0页/NOT_RUN，静态检查不关闭实际页面及人工门槛。D1继续正式交接，整包R1和P04尚未放行。
