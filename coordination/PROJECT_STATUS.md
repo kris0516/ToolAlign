@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR10已合并e28f1db并完成最终CI/main验证，CPU部分VERIFIED，原R1 PASS800480b保持；原生CPU train上游入口阻塞 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/D1/E1/R1本轮均原生结束；模型/推理保持gpt-6-astra/max，未派发新框架或模型运行 |
+| 独立实现/reviewer 对话 | T1/D1/E1/R1本轮均原生结束；新P04-SFT-NATIVE-TOY已READY尚未派发，模型/推理gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -22,14 +22,14 @@
 | 当前实现 | 已验收CPU基础包/契约/GPU锁、P01受限兼容校准、P03本地工具/oracle/scripted接口；P02数据流程技术验证通过，整包待审 |
 | 已验收训练/数据/评测/服务 | P02代码技术集成通过；数据语义、训练、正式评测与服务均无整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
-| 重 GPU 作业 | P01历史校准已结束，当前未派发新GPU作业；任何后续加载仍须实际取得共享租约 |
+| 重 GPU 作业 | P01历史校准已结束；ADR-0021的固定原创GPU数值范围READY尚未派发，执行必须先实际取得共享租约 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
 
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P01受限G1-SFT及唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03在29a5e4c、共用格式在36b6988、训练数据/配置/manifest绑定在42eaa50分别完成独立审查、最终CI和main CPU验证。P02整包VERIFIED与G-DATA仍需kris实际语义审查；13例实际页面和token/mask人工判断、新collator的CPU验证与准备功能已VERIFIED；完整原生trainer及容量验证保持未完成。P04正式训练未授权，最多两个实现及单一GPU租约约束保持。
+P00和共享支持包验收保持。P01受限G1-SFT及唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03在29a5e4c、共用格式在36b6988、训练数据/配置/manifest绑定在42eaa50分别完成独立审查、最终CI和main CPU验证。P02整包VERIFIED与G-DATA仍需kris实际语义审查；13例实际页面和token/mask人工判断仍未完成；新collator的CPU验证与准备功能已VERIFIED，完整原生trainer及容量验证保持未完成。P04正式训练未授权，最多两个实现及单一GPU租约约束保持。
 
 ## 恢复入口
 
@@ -184,3 +184,6 @@ R1于16:16 UTC实际切至干净review/p04-sft-cpu-r1/33d6248并回报领取。S
 17:40 UTC，R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。S0本轮16条检查全部exit0，实际399文件与Git/命令首尾hash一致，原review与候选保持；[本轮证据](../reports/S0_P04_SFT_CPU_INTEGRATION.md)。
 
 17:50 UTC，PR10以最终cfe5dbe普通合并e28f1db；17:54 UTC main验证完成。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。本轮12条main命令均exit0，源码400文件与最终head/CI一致；现存安装7条接口执行时间仍保留原487c92d，main只复核57份安装包文件的字节与原origin/日志，无新build/install/API运行。见[主干证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。
+
+
+S0新范围（2026-09-07）：[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)按ADR-0021 READY，code_base50867c0，精确配置fb06634d。在单一共享租约及有限预算内验证固定13原创例的GPU原生8+5更新、evaluate与checkpoint，对照Torch CPU。尚未派发/运行，旧CPU入口负结果与人工/真实模型门槛保持。

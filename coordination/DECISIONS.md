@@ -185,3 +185,16 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 ADR-0020接收补记（2026-09-07）：默认prepare不依赖框架入口，固定数据/视图/collator与纯结构接口可独立接收。原生train_toy_segments/post_update_score的实际更新、尾周期、evaluate与保存重载未通过，不作为已验收trainer使用；保留原KeyError，后续兼容修订须另定精确范围，不由CPU部分PASS自动放行正式P04。
 
 ADR-0020主干补记：CPU准备已按原SHA独立审查、普通合并并完成最终CI/main验证；完整原生trainer入口、真实更新/尾周期/checkpoint、人工与正式模型门仍独立未完成。
+
+
+## ADR-0021｜原生 GPU 上的固定原创 SFT 数值验证
+
+日期：2026-09-07；状态：READY，尚未派发/运行。PR10 的 CPU 准备已普通合并为 e28f1db 并在实际 main 完成1014项CPU检查/2项HF-only跳过；验证发布基线为 `50867c0be43d110df6c3620c94022fcfdaf779b5`。上游CPU入口KeyError和0次MLX更新仍是有效负结果，完整P04及人工门槛未完成。
+
+S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新增[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)及[精确S0配置](tasks/P04_SFT_NATIVE_TOY_CONFIG.v1.json)，复用旧13例/8词表/64参数初值和SGD0.07，真实运行8+5两次更新、native evaluate和checkpoint保存重载，与独立Torch CPU参考对照；另一次单段13微步的上游尾批丢失作为负例。验证集复用原创样例只检查状态记账，不宣称真实模型质量或泛化效果。
+
+这是一项新限域GPU许可，不改原CPU配置及入口默认CPU限制，不伪造Metal设备属性来宣称CPU成功。只在原生公开注入点做有限适配，保留上游train/evaluate/compile；P01的wired-limit抑制上下文可原样复用，不能调用系统setter或改其源码。新的score scope必须显式TOY_NATIVE_GPU并拒绝跨scope混选，原CPU/formal门槛保持。
+
+现有replay环境只读，先实际取得共享OS租约再导入框架、明确GPU stream/Torch CPU；每个子进程最多2更新/300秒/4GiB RSS/1GiB MLX peak memory，私有新增2GiB、Torch最多2线程。T1最多5次框架子进程启动（失败计入），预期三次分别为源码正例/源码负例/安装版正例，另外两次仅用于真实失败修订。每次保留原始数值/源码/命令/资源/终态，租约持有至真实进程退出；R1的新运行须后续独立授权。
+
+不加载预训练模型，不优化P02真实数据，不新增实际13例或全量tokenization，不改训练选择，不开展baseline/容量/SFT/DPO正式模型任务。配置training_authorized=false、实际页面与kris语义/token-mask人工待审保持。旧P01/P04分支、原CPU两次失败与R1审查原SHA/制品均保全，新的执行时间与源码身份独立记录。此子包PASS仍须独立R1、S0普通合并、CI/main验证，不能直接登记完整P04完成。
