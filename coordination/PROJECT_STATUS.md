@@ -60,3 +60,5 @@ P02集成现已完成：[PR5](https://github.com/kris0516/ToolAlign/pull/5)以�
 P01完整R1审查现已交接：`ac6bdf78d57c6753865a24a1d216b90dc4478646`直接以59b3802为父，8个新增审查文件、155个候选文件未变。结论FAIL（P0=0/P1=2/P2=1）：监控异常遗漏resources/run终态；备选DPO第8微步ln2失败漏记已经执行的更新；math-r2工作树源码与记录HEAD的说明需纠正。S0读取正式交接/反例，并核对24份命令日志、4份私有结果和5个探针hash，保留原SHA公开审查分支；[正式报告](https://github.com/kris0516/ToolAlign/blob/ac6bdf78d57c6753865a24a1d216b90dc4478646/reports/review/P01/README.md)。217CPU与17组独立数学对照通过，独立pytest4通过/3失败，不能抵消P1。原10个run和185项制品只读核对，历史受限模型结果不改写为本次重跑。
 
 S0已准备T1的F1/F2定点修复及F3来源映射授权，原候选、FAIL和raw保持。R1该轮completed/idle已核验，按52f9c57和精确79a15d9实际派发P03并确认活跃；仅CPU、不启动模型。T1已按授权a0a800b原生派发并核验活跃，D1/E1空闲。P02人审请求继续等待本人结果，P04的10条token/mask人工核对属于后续训练验收，尚未执行。
+
+P03审查中的稳定反例已由R1回报：stop.json写入失败后finish重复抛错，child被真实回收但缺HarnessResult/终态trace，正常和raw解析失败场景均复现。正式整包结论仍未提交。S0核对精确源码后授权E1在自己原79a15d9分支复现并定点修复，待实际派发；R1继续审冻结原候选，新修复另候复核。E1原生终态及干净HEAD已核验；派发后与T1合计两个实现，不新增第三个。

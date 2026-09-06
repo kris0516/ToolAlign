@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：READY_FOR_REVIEW；同步后完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`已交付、远端读回且原生空闲；owner E1；原候选`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`保留，待独立R1。原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
+状态：READY_FOR_REVIEW；R1继续审查冻结完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，整包结论尚未提交。针对R1已复现的收尾IPC问题，S0另授权E1在自己的分支准备定点修复，实际派发后登记；原79a15d9及`85e0905fc82da4504d73bf7eb489c1f1a0d227a7`完整保留。owner E1；原code_base`97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；原authorization_commit`e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch`work/p03-execution-harness`。真实原生任务身份和隔离worktree/分支已核验，最多两个活跃实现任务。保留首派授权副本和原始基线。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
@@ -49,3 +49,17 @@ PLANNED/尚未实现：uv run --locked pytest -q tests/tools/ tests/evaluation/h
 输出精确候选、PASS/FAIL/BLOCKED、P0/P1/P2、实际命令/退出码/loghash、独立review commit和未测项；不先修被审实现再签通过，提交报告后结束本轮等待S0。
 
 2026-09-06 实际审查派发：S0收到P01正式FAIL审查ac6bdf7并核验该轮completed/idle后，按原范围授权`52f9c57a50eaf580a1a90bc5c4b8bd028c83b903`向现有R1原生派发完整P03候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，gpt-6-astra/max，已确认新一轮活跃。候选、仅CPU/2GiB预算、只增审查文件的范围不变；P01由T1另行定点修复，不由R1修改实现。
+
+## 收尾IPC反例的E1并行定点修复授权
+
+2026-09-06，R1报告了稳定反例，但**尚未提交整包审查结论**：`finish()`写`stop.json`抛OSError后，外层异常分支再次调用finish并重复失败；finally实际回收child，调用方却收不到HarnessResult和终态trace。正常回答与raw解析失败两种场景均由R1用已进入generate的真实CPU child复现，三个正常/解析/崩溃对照通过。S0另已读取精确79a15d9的harness.py223–242、413–417及OwnedProcess.close控制流，确认该异常出口需要处理。
+
+E1上轮原生completed/notLoaded、工作树干净且HEAD79a15d9已核验。收到S0给出本段完整authorization_commit的原生消息后，在原`work/p03-execution-harness`从79a15d9继续；仅此定点修复与必要回归。不要改变或移动原候选，不merge无关P01/P02或后续协调文档。R1继续在自己的冻结79a15d9审查分支复核整包，E1新代码不成为本轮被审候选。
+
+本轮应先在E1自己的CPU环境复现上述两种失败并保留原始结果，再修复：收尾信号写入失败仍可靠关闭/回收明确自有进程，返回有失败事实的合法HarnessResult/trace、完整分母和已消耗预算。不能反复重入同一失败写入、遗失原parse_failure或已有raw/计数，不能把未回收进程写成reaped，不能影响无关进程。保存正常终态/解析错误/后端崩溃及实际阻塞timeout/cancel的原行为。相邻清理错误如需处理，给出具体反例及范围；不泛化为新IPC框架。
+
+允许修改`src/toolalign/evaluation/harness.py`、必要的`src/toolalign/tools/isolation.py`、`tests/evaluation/harness/`、必要的`tests/tools/`、`reports/harness/`，允许新增`coordination/handoffs/P03-fix-r3.md`。原P03-r1/P03-base-r2、全部R1文件、原始私有交付、其他worktree、公共contracts/runtime/configs/依赖/检查脚本/状态/ADR只读。原公开报告可追加准确修订范围；旧证据不得被覆盖成修复后实测。
+
+仅CPU、gpt-6-astra/max；新增私有环境/制品2GiB，优先复用现有环境；无模型导入/下载/GPU/正式P04/P06或费用。当前T1另有一个CPU实现任务，派发后为两个实现加独立CPU R1，不再新增实现任务。按必要反例、适用完整CPU回归、lint/冻结/公开扫描、实际新包字节与隔离安装验证，未变共享调查不重复扩大。
+
+可先交独立复现或修复checkpoint，但不得把R1整包审查写成已结束或当前修复写成已验收。R1正式报告到达后，由S0给出原始review_commit及最终需关闭项；E1保留并非强制接入该原SHA，补齐所有授权项，再交最终完整candidate及P03-fix-r3。随后仍需R1对新精确候选独立复核，S0合并/main验证；不得直接按旧CI合并。
