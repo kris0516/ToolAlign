@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02数据代码已MERGED且main技术验证通过，整包/G-DATA仍待kris实际语义审查和训练配置绑定。T1/D1/E1原生空闲，R1已接续完整P01 CPU/历史模型证据审查，P03等待。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02数据代码已MERGED且main技术验证通过，整包/G-DATA仍待kris实际语义审查和训练配置绑定。P01经R1正式FAIL，T1的CPU定点修复范围已授权、待实际派发；R1已接续P03完整CPU审查并核验活跃。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P02合并2ec1767且主干技术验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1候选59b3802、D1候选b0d8d83、E1候选79a15d9均已交付/原生空闲；R1正在完整P01审查 |
+| 独立实现/reviewer 对话 | T1候选59b3802已退回修复、T1原生终态已核验；D1/E1已交付空闲；R1按52f9c57审完整P03候选79a15d9 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00自测、R1精确head独立审查、S0合并与main重验均已满足。P02最终PR5 CI/main技术集成已通过，代码为MERGED；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。R1的P02轮次已终止，S0核验IDLE后派发P01并确认原生活跃；P03仍在队列。P04尚未授权，后续仍最多两个并行实现。
+P00自测、R1精确head独立审查、S0合并与main重验均已满足。P02最终PR5 CI/main技术集成已通过，代码为MERGED；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01当前有两个P1未关闭，不能验收；R1该轮终态已核验，现已接续P03活跃。T1定点修复范围已授权，实际执行另登记。P04尚未授权，后续仍最多两个并行实现。
 
 ## 恢复入口
 
@@ -56,3 +56,7 @@ kris人审请求已实际发出，材料为不变的100来源/114决策/34分层
 接续派发：R1在P02正式完成/原生IDLE后，按授权52f9c57a50eaf580a1a90bc5c4b8bd028c83b903收到完整P01候选59b3802c81aa6eceaf3609af88f288756bcb1581，gpt-6-astra/max；原生已确认新一轮活跃。仅CPU、历史模型证据只读，P01/P03仍未验收。
 
 P02集成现已完成：[PR5](https://github.com/kris0516/ToolAlign/pull/5)以最终head71a50ba合并为2ec17673c18ffbc817b1ff8512e53e44a11766a5，GitHub已读回closed/merged，本机main tree与最终CI head完全相同。[CI34006711558](https://github.com/kris0516/ToolAlign/actions/runs/34006711558)双Python所有步骤成功；实际main338CPU无skip、241/18归档探针、真实sdist/direct+rebuilt wheel、14条隔离安装/P02接口子命令通过。归档0未追踪载荷，24源码/资源字节一致；README导致的metadata差异已逐成员确认。完整命令/退出码/hash与限制见[主干技术证据](../reports/S0_P02_MAIN_VERIFICATION.md)。P02状态MERGED，人工语义与训练绑定仍未通过，P04保持未授权。
+
+P01完整R1审查现已交接：`ac6bdf78d57c6753865a24a1d216b90dc4478646`直接以59b3802为父，8个新增审查文件、155个候选文件未变。结论FAIL（P0=0/P1=2/P2=1）：监控异常遗漏resources/run终态；备选DPO第8微步ln2失败漏记已经执行的更新；math-r2工作树源码与记录HEAD的说明需纠正。S0读取正式交接/反例，并核对24份命令日志、4份私有结果和5个探针hash，保留原SHA公开审查分支；[正式报告](https://github.com/kris0516/ToolAlign/blob/ac6bdf78d57c6753865a24a1d216b90dc4478646/reports/review/P01/README.md)。217CPU与17组独立数学对照通过，独立pytest4通过/3失败，不能抵消P1。原10个run和185项制品只读核对，历史受限模型结果不改写为本次重跑。
+
+S0已准备T1的F1/F2定点修复及F3来源映射授权，原候选、FAIL和raw保持。R1该轮completed/idle已核验，按52f9c57和精确79a15d9实际派发P03并确认活跃；仅CPU、不启动模型。T1待原生派发，D1/E1空闲。P02人审请求继续等待本人结果，P04的10条token/mask人工核对属于后续训练验收，尚未执行。

@@ -47,3 +47,5 @@ PLANNED/尚未实现：uv run --locked pytest -q tests/tools/ tests/evaluation/h
 仅CPU，新增私有环境与审查制品预算2GiB。核验新309CPU计数口径、原始10/10 scripted demo和归档/隔离安装证据；scripted合成token不可写为Qwen/BFCL或吞吐实证。父进程轻量可pickle后端与子进程generate/懒加载只是接口构造前提，已加载MLX对象仍NOT_RUN；不自行扩大为P04真实后端或P06正式评测。必要包检查应绑定当前追踪字节与冻结资源，避免无限重复已经通过且字节未变的共享调查。
 
 输出精确候选、PASS/FAIL/BLOCKED、P0/P1/P2、实际命令/退出码/loghash、独立review commit和未测项；不先修被审实现再签通过，提交报告后结束本轮等待S0。
+
+2026-09-06 实际审查派发：S0收到P01正式FAIL审查ac6bdf7并核验该轮completed/idle后，按原范围授权`52f9c57a50eaf580a1a90bc5c4b8bd028c83b903`向现有R1原生派发完整P03候选`79a15d990fc27a9a33d033983c94eb92cccfb268`，gpt-6-astra/max，已确认新一轮活跃。候选、仅CPU/2GiB预算、只增审查文件的范围不变；P01由T1另行定点修复，不由R1修改实现。

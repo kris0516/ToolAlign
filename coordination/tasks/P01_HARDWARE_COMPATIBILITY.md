@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：READY_FOR_REVIEW；CPU基线同步完成，完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`已交付并核验原生空闲；原候选`f97bb0de346c220871962a5689014a379fe19c83`保留，尚待独立R1。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：CHANGES_REQUESTED；R1对完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`正式FAIL，P0=0/P1=2/P2=1，审查提交`ac6bdf78d57c6753865a24a1d216b90dc4478646`。T1定点修复范围见本文件末尾，实际启动以S0原生消息为准。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -70,3 +70,17 @@
 按精确候选输出PASS/FAIL/BLOCKED、P0/P1/P2、命令/退出码/loghash、独立review commit与NOT_RUN，提交报告后结束本轮等待S0；不修改实现后给自身修复签通过。
 
 2026-09-06 实际派发：S0已收取P02技术PASS原始审查提交8e4fdbd并核验该轮终止/原生IDLE，随后以本范围授权`52f9c57a50eaf580a1a90bc5c4b8bd028c83b903`原生派发完整P01候选59b3802，gpt-6-astra/max；已确认R1新一轮活跃。P02人审由kris单独进行，不由本次审查代签。上述范围准备已转为实际派发，候选、预算与文件所有权不变。
+
+## R1-r1退回后的T1定点修复授权
+
+2026-09-06，R1正式审查提交为`ac6bdf78d57c6753865a24a1d216b90dc4478646`，父提交正是59b3802；只新增8个审查文件，原155个候选文件字节不变。S0已读取[报告及原始反例](https://github.com/kris0516/ToolAlign/blob/ac6bdf78d57c6753865a24a1d216b90dc4478646/reports/review/P01/README.md)，核对24份命令日志、4份私有结果与5个探针hash，并保留原SHA推送审查分支。217项适用CPU回归通过，独立pytest为4通过/3失败；两个P1阻断当前G1(SFT/DPO)，不是对未重跑模型的额外失败声明。
+
+收到S0给出本段完整authorization_commit的原生消息后，T1在现有`work/p01-compatibility`从59b3802非强制接入上述R1原始提交，不reset/rebase或改写旧证据。沿用已验证共享生产base37c00de；读取最新授权即可，本次无需合并无关P02实现或反复追随协调文档。R1文件全部只读。模型gpt-6-astra/max；当前仅此一个拟派实现任务，最多两个实现并行的规则不变。
+
+- F1/P1：资源采样异常时先可靠回收自有child，保留异常类型/原因、实际child退出码、resources和run.v1的failed终态及ended_at。覆盖sysctl命令失败和非整数压力读数；未知压力不得当正常，正常/预算/取消/租约路径不能失去原有回收或证据。只处理本任务明确拥有的进程。
+- F2/P1：备选DPO回调第8微步前上游已经完成optimizer.update，ln(2)失败不能抹去该步实际loss、微步、token与optimizer计数。可靠记录已执行工作及失败事实后停止；保持首次真实累积周期的逐步门槛和2e-6容差，不改mask/reference/数学或校准配置来绕过问题。检查同一记账路径的非有限loss异常，输出保持标准JSON。
+- F3/P2：澄清math-r2记录HEAD `aaab75ed5d993f9354f11f74b58edb67d0af45c3`与实际工作树源码的区别，全部8份实际源码hash映射到`47c03404bab043e85b417cd8a6d0432dc2f85479`。在当前去敏报告登记可恢复映射；原HEAD/source hash/raw及旧报告提交保持原样，不把历史run改写成修复代码实测。
+
+允许修改仍为`src/toolalign/training/compatibility/`、`tests/training/compatibility/`、`reports/hardware/`，另允许新增`coordination/handoffs/P01-fix-r3.md`。原P01-r1/P01-base-r2和R1交接原文、公共契约/runtime/configs/依赖/检查脚本/README/AGENTS/协调状态均只读。只做必要修复及CPU反例、完整适用CPU回归、lint/冻结/公开扫描、实际新sdist/wheel追踪字节与隔离默认CPU安装核对。复用未变锁环境，新增私有制品/环境预算2GiB；不无理由重查依赖或重跑旧长校准。
+
+本轮无MLX/模型导入或GPU重放，无权重下载、OS限制修改、费用或P04/P05扩展。具体疑点如必须GPU证明，先给S0最小命令及资源/停止预算，另行调度；本授权不包含该作业。交新完整candidate、两条基线的diff与文件清单、每项问题和命令/退出码/loghash、包成员/证据hash及FAIL/NOT_RUN。提交新handoff后结束本轮，S0安排R1对新候选复核；T1不自行合并或签验收。
