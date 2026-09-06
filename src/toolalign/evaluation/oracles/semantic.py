@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from decimal import Decimal
 
-from toolalign.contracts import ContractError, validate_record
+from toolalign.contracts import ContractError, canonical_hash, validate_record
 from toolalign.contracts.interfaces import TaskScore
 from toolalign.tools._json import clone, decode, validate_part
 
@@ -96,34 +96,43 @@ class SemanticOracle:
                 for event in events
             ):
                 return score("unknown", "Mixed trace identities")
-            if any(
-                event["event"] in ("rejected", "budget_exhausted", "timed_out", "cancelled")
-                for event in events
-            ):
-                return score("failure", "Execution terminated unsuccessfully")
-            attempts = [
-                event["tool_call"]
-                for event in events
-                if event["event"] == "tool_execution" and event["tool_call"]
-            ]
-            observations = [event for event in events if event["event"] == "observing"]
-            if len(attempts) != len(observations):
-                return score("failure", "Incomplete tool execution")
-            actual = []
-            for call, event in zip(attempts, observations):
+            actual, pending = [], None
+            for event in events:
+                # The local executor is sequential: an observation must consume
+                # the exact preceding unfinished call, never a future call.
+                if event["event"] == "tool_execution":
+                    if pending is not None or event["tool_call"] is None:
+                        return score("unknown", "Invalid tool execution order")
+                    pending = event["tool_call"]
+                    continue
+                if event["event"] != "observing":
+                    continue
                 result = event["tool_result"]
-                if result is None or result["call_id"] != call["call_id"]:
-                    return score("failure", "Missing matching observation")
+                if (
+                    pending is None
+                    or canonical_hash(event["tool_call"]) != canonical_hash(pending)
+                    or result is None
+                    or result["call_id"] != pending["call_id"]
+                ):
+                    return score("unknown", "Observation without matching pending execution")
                 actual.append(
                     {
-                        "name": call["name"],
-                        "arguments": call["arguments"],
+                        "name": pending["name"],
+                        "arguments": pending["arguments"],
                         "status": result["status"],
                         "output": result["output"],
                         "error_code": result["error_code"],
                         "retryable": result["retryable"],
                     }
                 )
+                pending = None
+            if any(
+                event["event"] in ("rejected", "budget_exhausted", "timed_out", "cancelled")
+                for event in events
+            ):
+                return score("failure", "Execution terminated unsuccessfully")
+            if pending is not None:
+                return score("failure", "Incomplete tool execution")
             if not any(equivalent(actual, strategy) for strategy in payload["strategies"]):
                 return score("failure", "Object, date, version or permitted strategy mismatch")
             if final_result is None:
