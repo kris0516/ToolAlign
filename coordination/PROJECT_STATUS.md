@@ -190,3 +190,6 @@ S0新范围（2026-09-07）：[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)�
 
 
 原生派发已确认：T1上一轮completed/idle、旧CPU分支干净33d6248，S0按完整de86568派发固定原创P04-SFT-NATIVE-TOY，gpt-6-astra/max，新轮ACTIVE；新branch/输入intake待核验，未登记实际GPU更新或原生PASS。原CPU准备VERIFIED与正式P04/人工待审状态保持。
+
+
+P04-SFT-NATIVE-TOY intake于18:21:46–18:21:49 UTC由S0核验通过：1976当前路径，含401基线文件、11授权副本、1559原私有制品、精确配置与实际身份；原scope/预算保持。T1实际work/p04-sft-native-toy/50867c0继续实现，原生数值和独立R1尚未验收。

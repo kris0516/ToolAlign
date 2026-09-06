@@ -101,7 +101,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均已VERIFIED。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU轮均已结束；T1已按ADR-0021及完整de86568原生接[P04-SFT-NATIVE-TOY](coordination/tasks/P04_SFT_NATIVE_TOY.md)，新轮ACTIVE已确认，新branch/输入intake和数值验收待完成。D1/E1/R1无新任务。最多两个实现、独立R1和单一GPU租约约束保持。实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均已VERIFIED。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU轮均已结束；T1已按ADR-0021及完整de86568原生接[P04-SFT-NATIVE-TOY](coordination/tasks/P04_SFT_NATIVE_TOY.md)，新轮ACTIVE已确认，实际新branch/50867c0、授权和输入intake已核验；实现/数值验收待完成。D1/E1/R1无新任务。最多两个实现、独立R1和单一GPU租约约束保持。实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行。
 
 ## 工作记录
 

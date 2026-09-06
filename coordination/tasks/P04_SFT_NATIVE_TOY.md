@@ -1,6 +1,6 @@
 # P04-SFT-NATIVE-TOY｜原生 GPU 尾周期与状态绑定验证
 
-状态：IN_PROGRESS，T1已按完整`de86568d73ee77bbf92b6f749a39a9ab38955836`原生派发并核验新轮ACTIVE；新分支/输入intake待确认，尚无数值验收。S0 依据 ADR-0021 授权一个新的有限数值子包；CPU 准备已 VERIFIED，完整 P04 和人工门槛保持未完成。
+状态：IN_PROGRESS，T1已按完整`de86568d73ee77bbf92b6f749a39a9ab38955836`原生派发并核验新轮ACTIVE；实际新分支work/p04-sft-native-toy/50867c0及输入intake已核验，尚无数值验收。S0 依据 ADR-0021 授权一个新的有限数值子包；CPU 准备已 VERIFIED，完整 P04 和人工门槛保持未完成。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -55,3 +55,6 @@
 实际新构建 sdist、默认 wheel 与显式 sdist 重建 wheel，逐成员对 Git、metadata、entry points、license 和完整 RECORD。用现有默认环境的新 target 离线 `--no-deps` 安装，非源码 cwd 验证默认 CPU prepare/帮助/拒绝路径、全部模块实际 origins 和无可选框架导入。再用现有 replay 环境与新的安装 target 运行一次上述 bounded installed segmented，确保新增 native 模块及两份变更模块实际来自 wheel、无源码路径回退；此数值运行计入五次限额。普通源码直接 wheel 未运行则如实 NOT_RUN。
 
 交付完整 candidate/parents/tree/所有权 diff、精确授权与配置 hash、源码及实际命令 epoch、原始 argv/cwd/环境/UTC/退出码/完整日志 hash、三份归档/安装版 origins、全部数值状态与资源清理、旧 P01/P04 refs/制品保全。公开只原创代码和去敏统计/hash；完整数组、绝对路径、任务ID及日志私有保存。原样普通推送新分支，提交 handoff 后结束本轮，等待独立 R1 与 S0；不得把自测写成整包已验收或继续领取正式 P04。
+
+
+18:21:46–18:21:49 UTC，S0直接核验新branch/HEAD/原生身份、11份授权副本、精确配置/固定cases、401份基线当前字节与1559份原私有制品，共1976当前路径通过；已有环境的五个版本及trainer/datasets原件hash以metadata只读核对，无S0框架导入/数值replay。证明SHA-256为7158cd8cddf70f3cf45df0c461d3e2518ff21c51f762faf0f647398f993b46e7。intake已验收，T1继续同一授权；实现、数值和独立R1验收仍待完成。
