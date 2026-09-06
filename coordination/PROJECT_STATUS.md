@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR9验证完成；T1完整P04-SFT-CPU候选33d6248已交付/原生空闲，S0交接核对2083路径通过；精确R1范围READY未派发，CPU train上游入口阻塞保持 |
+| 当前任务/分支 | S0 main；PR9验证完成；T1完整P04-SFT-CPU候选33d6248已交付/原生空闲；R1按完整d65592e实际派发并确认新轮ACTIVE，intake待确认；Draft PR10候选双Python CI通过/390文件绑定，CPU train上游入口阻塞保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/D1/E1原轮均已结束；R1旧训练绑定审查completed/notLoaded已核验，新P04-SFT-CPU-R1待原生派发；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | T1/D1/E1原轮均已结束；R1旧训练绑定审查completed/notLoaded及干净40252f8核验后，新P04-SFT-CPU-R1已实际派发/ACTIVE；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -174,3 +174,7 @@ S0按ADR-0020准备P04-SFT-CPU范围，T1拟从已验证42eaa50新建work/p04-sf
 15:27 UTC，S0核对164个当前文件路径及96fcbe1/9e71552两历史执行提交各378份Git源码，13例新collator完整数组与原native/reference/人工副本一致，86份原制品匹配先前R1证明。原两次CPU数值失败完整保留：首次DLPack探针误判，修正后实际MLX-LM在CPU默认设备下读取Metal属性失败；两进程已回收、PID再次确认不存在、共享租约空闲。loss/gradient初步数值存在，actual MLX更新仍0，尾周期与checkpoint绑定未运行成功。证明42d0eb64846943c440f6f468aceea55f56af264701bcb226c037d39dd852960d，见[中间证据](../reports/S0_P04_SFT_CPU_INTERMEDIATE.md)。T1继续同一轮其余CPU测试/打包/交接，未派发R1或扩大框架修订/真实训练许可；两份人工填写副本仍0 reviewer/0 verdict。
 
 P04-SFT-CPU最终交接：完整33d6248已普通推送/远端一致、T1于15:43:54 UTC原生completed/idle。S0于15:51 UTC核对2083当前文件路径、384候选/364不变基线、248封存文件、18原命令和三份归档/10安装记录，证明f59023785bc7888806ea053015c30d43ecee27cc7046a211867d9daeb2e878b3；[交接证据](../reports/S0_P04_SFT_CPU_HANDOFF.md)。四组970/2为T1自测=原919+新51，子项不重复计数。候选仅CPU部分待审，actual MLX更新0、尾周期/checkpoint/evaluate仍NOT_RUN；R1旧轮空闲已核验，新精确审查范围READY未派发。两人工表及页面门槛保持。
+
+16:05 UTC，S0再次核验R1原轮completed/notLoaded、干净40252f8及完整授权d65592e/候选33d远端一致，实际发送P04-SFT-CPU-R1，显式gpt-6-astra/max；新原生轮ACTIVE已确认，intake与独立结论待交付。分发前证明67f7860f837e7aae195eed494275e5a050d100884b227609c37c0979a1e800a0绑定370授权文件、384候选文件与原completion/索引。16:06 UTC创建[Draft PR10](https://github.com/kris0516/ToolAlign/pull/10)，head为精确33d，候选CI34044414304已实际启动。CPU功能与完整原生trainer路径分开审查；旧失败、NOT_RUN及人工/正式P04门槛保持，详见[交接证据](../reports/S0_P04_SFT_CPU_HANDOFF.md)。
+
+16:12 UTC，S0核验PR10候选CI34044414304的3.11/3.14各14步骤全部成功，各601 passed/48私有CPU tokenizer前提缺失skip、另46 P00通过。两个原日志均绑定实际checkout300bda3912a96102cc905303ea8dc686c728d112，parents=d65592e+33d6248，390文件与两原分支精确并集相同；证明779edd112eb06810c643503f1443fb76c90ff710a24be549cd9df785f5b43345。四契约、公开扫描及241私有canary/18公开fixture的三归档路线通过。PR保持Draft，R1同轮ACTIVE/intake待交付；本次无新S0 build/install，候选CI不代替独立审查、最终main或人工门槛。

@@ -1,6 +1,6 @@
 # P04-SFT-CPU-R1｜CPU 准备与已知上游限制独立审查
 
-状态：READY，尚未原生派发。T1 最终候选已交付、普通推送并核验原生 completed/idle；S0 已核对 2083 个文件路径及原始命令/归档/安装。被审交付明确为 CPU_PARTIAL_UPSTREAM_BLOCKED，不是完整 trainer 或正式 P04。
+状态：IN_PROGRESS；S0 于 2026-09-06 16:05 UTC 核验原轮 completed/idle 和干净 40252f8 后，按完整 d65592e 原生派发，新轮 ACTIVE 已确认；新 branch/input intake 及正式结论待交付。T1 最终候选已交付、普通推送并核验原生 completed/idle；S0 已核对 2083 个文件路径及原始命令/归档/安装。被审交付明确为 CPU_PARTIAL_UPSTREAM_BLOCKED，不是完整 trainer 或正式 P04。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -8,7 +8,7 @@
 | 精确候选 / code_base | `33d6248e2c518ea777618224382bd30a3cc3433d` |
 | tree / parent | `1d2d5474ef87034e0184f8ebfa359345182e3356` / `0c7c2671a64d49fe48c722375481b4cf7a5c82c8` |
 | 实现基线 / T1 原授权 | `42eaa50a9519efe96d60b49f07cfbd106b36778c` / `e42536dd7c77d90ed33ab5354f288ab0f1c3d6c6` |
-| authorization_commit | S0 原生分发的完整协调 SHA，切换前读取并私有保存 |
+| authorization_commit | `d65592e5529f573f061355775fec071737233d12`，原生分发的完整协调 SHA，切换前读取并私有保存；后续状态补记不改被审范围 |
 | 新 branch | `review/p04-sft-cpu-r1`，从精确候选新建，保留旧 `review/p02-training-binding-r1` / `40252f8` 及全部旧 refs |
 | 模型 / 推理 | `gpt-6-astra` / `max`；不创建新任务或 sub-agent |
 | 协作 / 契约 | coordination.v1 / toolalign.contracts.v1 / plan-v0.1 / ADR-0017 至 0020 |

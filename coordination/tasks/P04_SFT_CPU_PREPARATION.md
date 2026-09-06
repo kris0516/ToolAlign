@@ -1,6 +1,6 @@
 # P04-SFT-CPU｜已绑定序列到实际SFT接口的CPU准备
 
-状态：READY_FOR_REVIEW（CPU部分）；完整33d6248已交付/普通推送、T1原生completed/idle。S0核对2083路径、18原命令、三归档/安装，见[交接证据](../../reports/S0_P04_SFT_CPU_HANDOFF.md)；精确[R1范围](P04_SFT_CPU_REVIEW.md)READY未派发。原生CPU train入口阻塞，尾周期/checkpoint/evaluate仍NOT_RUN；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。本包不领取正式P04模型训练或代签人工门槛。
+状态：READY_FOR_REVIEW（CPU部分），R1 IN_PROGRESS；完整33d6248已交付/普通推送、T1原生completed/idle。S0核对2083路径、18原命令、三归档/安装，见[交接证据](../../reports/S0_P04_SFT_CPU_HANDOFF.md)；精确[R1范围](P04_SFT_CPU_REVIEW.md)按完整d65592e实际派发，新轮ACTIVE，intake及结论待交付；[Draft PR10](https://github.com/kris0516/ToolAlign/pull/10)候选双Python CI已通过并核对实际合并源码。原生CPU train入口阻塞，尾周期/checkpoint/evaluate仍NOT_RUN；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。本包不领取正式P04模型训练或代签人工门槛。
 
 | 字段 | 本轮值 |
 |---|---|
