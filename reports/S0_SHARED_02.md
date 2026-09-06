@@ -1,6 +1,6 @@
 # S0-SHARED-02 自查与来源证据
 
-日期：2026-09-06；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**R1-r3 对完整候选 f8ec7ff 独立 PASS，两轮 P1 均关闭；待最终 CI、合并与 main 验证**。
+日期：2026-09-06；原base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**VERIFIED；R1-r3对f8ec7ff独立PASS，最终CI成功，PR4合并37c00de并完成main验证**。本文件保留开发/失败记录，最新验收见 [main报告](S0_SHARED_02_MAIN_VERIFICATION.md)。
 
 本包加入可选备选依赖与 P01 首选失败重放环境，并修复 App worktree 的源码包选择边界。生产冻结契约、runtime 与 T1/D1 实现均未修改。具体职责和复现命令见 [环境/源码包说明](../docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md)。
 
@@ -112,4 +112,6 @@ R1 对完整 `f8ec7ff040053f11e073b6858e1f849e888d4ac2` 给出 PASS，P0/P1/P2�
 
 被审候选的GitHub CPU CI [run 34001591651](https://github.com/kris0516/ToolAlign/actions/runs/34001591651) 两个Python jobs各步骤成功。S0整合r3新增报告及三个worker交接状态后只改变审查/协调文档，生产依赖、源码、配置、冻结与归档脚本字节未动；完整最终head仍须CI，然后合并并验证main。此处不将候选CI等同最终head检查。
 
-**NOT_RUN**：本候选环境的模型/数学/吞吐重放、最终整合head CI/main 验证、P01 本包验收、D1 人工质量门、P03 验收和 P04/P05 正式训练。
+最终整合head `7541e0d` 的 [CI run 34002514117](https://github.com/kris0516/ToolAlign/actions/runs/34002514117) 两个Python jobs全部成功。PR4合并 `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385` 后176CPU、两组实际归档边界、正常构建、实际产物追踪字节核对及隔离wheel安装均通过，正式达到共享包VERIFIED，详见 [main报告](S0_SHARED_02_MAIN_VERIFICATION.md)。
+
+**NOT_RUN**：本候选环境的模型/数学/吞吐重放、P01本包验收、D1人工质量门、P03验收和P04/P05正式训练。

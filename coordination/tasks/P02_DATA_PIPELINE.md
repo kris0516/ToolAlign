@@ -50,3 +50,5 @@ G-DATA 必须有 kris 的真实质量抽查。先准备可查看的分层样本�
 交接：`coordination/handoffs/P02-r1.md`。附 command/exit/log hash、来源与转换许可、实际 group/split 计数、错误/排除清单、人工包位置和未完成项；不得提交原始数据/私有路径。长度或 schema 兼容问题提交 S0，继续可独立的审计，不能自行降低数据门。
 
 2026-09-06 公共基线更新：S0 已授权采用已验证生产合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 及协调状态 `a6c8dd3c78b3674a242b4faacbb175f7b7c98303`。保留原 code_base/authorization 的历史记录，实际工作分支以非强制 merge 接入；新模型规则 gpt-6-astra/max 优先于首派任务副本。
+
+2026-09-06 第二次公共基线更新：S0-SHARED-02 已独立审查/CI/合并/main验证，生产base `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`。收到S0原生同步消息后，保留46f5465及两次真实构建/有效人审包，非强制merge本报告所在协调提交（完整SHA由消息给出）。仅CPU复核新base测试、固定真实tokenizer、包构建/隔离安装与既有数据manifest/人审输入hash；未改变数据代码/参数时不无理由全量重建，不填写人工判定。允许新增`coordination/handoffs/P02-base-r2.md`记录新完整候选、merge关系与实际结果，原P02-r1保留。

@@ -1,6 +1,6 @@
 # S0-SHARED-02｜P01 依赖重放与源码包边界
 
-状态：ACCEPTED；R1-r3 对精确 `f8ec7ff040053f11e073b6858e1f849e888d4ac2` PASS（P0/P1/P2均为0），审查 `ad3b5198c2c222512f51d0c529c8188d20827e41` 已保留原SHA整合；待最终CI、合并与main验证。owner S0；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`。
+状态：VERIFIED；R1-r3 对精确 `f8ec7ff040053f11e073b6858e1f849e888d4ac2` PASS（P0/P1/P2均为0），审查 `ad3b5198c2c222512f51d0c529c8188d20827e41` 保留原SHA整合；最终CI成功，PR4合并 `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385` 并完成main验证，见 [集成证据](../../reports/S0_SHARED_02_MAIN_VERIFICATION.md)。owner S0；原base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`。
 
 处理 T1 的具体共享申请：唯一备选 mlx-lm-lora 3.1.2、完整 P01 重放所需失败首选 mlx-tune 0.6.0，以及实际发现的 sdist 私有文件选择问题。保留默认 CPU 环境，复现已测传递依赖，明确安装与后端验收的区别。所有任务继续 gpt-6-astra/max；不新增实现对话。
 

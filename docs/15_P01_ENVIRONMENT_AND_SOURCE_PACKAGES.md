@@ -1,6 +1,6 @@
 # P01 可选环境与源码包边界
 
-状态：S0-SHARED-02 精确候选 `f8ec7ff` 已获独立 R1-r3 PASS（审查 `ad3b519`），待最终 CI、合并与 main 验证；不代表 P01 或正式 SFT/DPO 已验收。
+状态：S0-SHARED-02 已VERIFIED；精确候选 `f8ec7ff` 获独立R1-r3 PASS（审查 `ad3b519`），最终CI成功，PR4合并 `37c00de` 并完成 [main验证](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)。不代表P01或正式SFT/DPO已验收。
 
 ## 环境职责
 

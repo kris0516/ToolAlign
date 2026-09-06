@@ -28,6 +28,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | P01/T1 与 P02/D1 候选交接 | `f97bb0d` / `46f5465` 已交付并核验空闲；READY_FOR_REVIEW，P02另待kris语义审查；尚未验收 |
 | 2026-09-06 | P03/E1 候选交接 | `85e0905` 已交付并核验空闲；自测191项CPU、scripted demo 10/10、20个自有进程已回收；READY_FOR_REVIEW，尚未验收 |
 | 2026-09-06 | 公共P01环境/源码包边界独立审查 | R1-r3对`f8ec7ff` PASS，审查`ad3b519`；两轮P1关闭，旧FAIL保留；ACCEPTED，待最终CI/合并/main验证 |
+| 2026-09-06 | 公共P01环境/源码包边界主干集成 | VERIFIED；[PR4](https://github.com/kris0516/ToolAlign/pull/4)合并`37c00de`，最终双Python CI与main176CPU/归档/隔离安装通过，见 [main证据](reports/S0_SHARED_02_MAIN_VERIFICATION.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。

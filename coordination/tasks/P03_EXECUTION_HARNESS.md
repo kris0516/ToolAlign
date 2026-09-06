@@ -12,6 +12,8 @@ P00 冻结接口、S0-SHARED-01 来源政策均已合并验证。读取 AGENTS/G
 
 当前存在已知 App worktree sdist 私有文件选择问题，S0-SHARED-02/PR4 正在独立审查。**不要在本旧基线运行默认 uv build 或 sdist；CPU 实现/测试可继续，必要时只构建 wheel。** S0 发出修复后已验证 main SHA 再非强制 merge，不能自行采用未审共享候选。
 
+2026-09-06 更新：该共享包已在 `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385` 合并并验证，见 [main证据](../../reports/S0_SHARED_02_MAIN_VERIFICATION.md)。E1先保持空闲，待S0核验并发名额并发送原生同步消息后，非强制merge指定协调提交，保留85e0905与原始P03-r1；仅复核CPU/harness和当前包构建/隔离安装，不加载MLX/Qwen或扩展P04/P06。允许届时新增`coordination/handoffs/P03-base-r2.md`交新完整候选，旧基线禁止sdist的限制仍保留历史效力。
+
 ## 要交付的行为
 
 实现与冻结 ToolRegistry、ToolExecutor、TaskOracle 和 ModelBackend 相接的本地 harness。Registry 绑定明确的实现、版本和 schema hash，拒绝重复/冲突名称。ValidatedCall 是可伪造且内含可变 mapping 的 dataclass，execute 前重新核验当前 registry/hash/version、参数与策略，避免修改后继续执行。未知或未绑定的 ta_ 历史工具必须拒绝；dataset schema、sandbox_only 字段和来源 URL 都不提供执行权限。

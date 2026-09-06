@@ -127,3 +127,5 @@ S0-SHARED-01 集成结果：最终 head e9b33b0 的 CI 两个 Python jobs 全通
 第二轮 R1 对 8148929 发现 Git 的 Mac 大小写忽略语义与普通 Hatch glob 不一致。后续修订通过 ASCII 大小写字符类匹配同类私有路径，保留公开 `.env.example` 例外，不改变实际 Git/OS 配置。临时合成仓库以固定 ignorecase 条件检查 241 私有探针和 18 公开对照的三种真实归档；仍需新精确 SHA 独立复审，不以旧 CI 绿色替代。
 
 R1-r3最终对f8ec7ff独立PASS，审查ad3b519确认两轮P1关闭且P0/P1/P2均为0。原反例、241/18回归及新增45/21近边界反例通过，旧FAIL保留原文。仅共享包达到ACCEPTED；最终CI、合并和main验证完成前不发布给worker。
+
+ADR-0015/0016集成结果：最终head7541e0d双Python CI成功，PR4合并37c00de9abe92e6fb24a0c0e0b7361aa4bb90385；main176CPU、实际归档边界/构建及隔离wheel安装通过，现均VERIFIED。详见reports/S0_SHARED_02_MAIN_VERIFICATION.md。允许按最多两个worker同步已验证base，保留全部旧候选/失败；不由此提前验收P01/P02/P03或授权正式训练。
