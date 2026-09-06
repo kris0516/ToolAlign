@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE-R1｜截止时间测试独立审查
 
-状态：READY；待S0核验R1原轮终态后原生派发。准备文件不代表审查已开始。
+状态：IN_PROGRESS；S0核验R1原轮completed/idle和干净b9f7567后，于2026-09-06 10:15 UTC按完整授权原生派发，gpt-6-astra/max，新轮ACTIVE已核验。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -8,7 +8,7 @@
 | 精确被审候选 / code_base | `947144fa2dd248113f6db412f120cdae5483c9b8` |
 | E1测试代码提交 | `f69c6a309ff45980c21c2119016f4c5cf8acf8b7`，父为已验收main `4a1fa84d2d367ed037a1e39b1d4033f54a385e6a` |
 | E1授权 | `fa1ea86361223171a06b5d082a3731b63a00a74a`，见[P03-CI-DEADLINE](P03_CI_DEADLINE.md) |
-| authorization_commit | S0原生派发给出的本文件完整提交SHA；切换前以git show读取并私有保存 |
+| authorization_commit | `c91ea4f79e59e667fd008fab28aaca2e3efdbfe4`；切换前以git show读取并私有保存 |
 | 新审查分支 | `review/p03-ci-deadline-r1`；保留旧review/p02-format-r2和全部既有refs |
 | 模型 / 推理 | `gpt-6-astra` / `max` |
 | 契约 / 协作 | toolalign.contracts.v1 / coordination.v1 / plan-v0.1 |
@@ -18,7 +18,7 @@
 
 本轮只审查旧P03截止时间测试的修订及其证据。新格式8c439f6已由R1以原review b9f7567正式PASS；PR8最终组合2b11b7f在[CI34024093376](https://github.com/kris0516/ToolAlign/actions/runs/34024093376)的Python3.14失败。源测试与执行器在4a1和失败组合中相同，原始CI失败及S0核验见[跟进证据](../../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。不merge新格式或后续main，不把本轮结果代替最终组合CI/main验证。
 
-被审入口：`coordination/handoffs/P03-ci-deadline-r1.md`、`reports/harness/P03_CI_DEADLINE_VERIFICATION.md`、`reports/harness/P03_CI_DEADLINE_EVIDENCE.json`，以及与4a1的完整diff。E1完整候选身份与S0证据核验：S0核验282份候选字节、277份原文件保持、15条公开命令与最终19条原始命令、1818份旧私有文件及2660份新封存条目；集合重叠，实际核对4767个文件路径。证明SHA-256 `dc09b0aa83cd74e57bae7d8b2641a503b26561f2217398afc750a34011e79c06`。E1原生completed/idle已核验。。
+被审入口：`coordination/handoffs/P03-ci-deadline-r1.md`、`reports/harness/P03_CI_DEADLINE_VERIFICATION.md`、`reports/harness/P03_CI_DEADLINE_EVIDENCE.json`，以及与4a1的完整diff。E1完整候选身份与S0证据核验：S0核验282份候选字节、277份原文件保持、15条公开命令与最终19条原始命令、1818份旧私有文件及2660份新封存条目；集合重叠，实际核对4767个文件路径。证明SHA-256 `dc09b0aa83cd74e57bae7d8b2641a503b26561f2217398afc750a34011e79c06`。E1原生completed/idle已核验。
 
 仅允许新增 `reports/review/P03-ci-deadline-r1/` 下审查报告、证据索引和必要小型独立探针，以及本轮交接单。候选所有文件、src、测试、旧reports/review、依赖/配置/CI、协调状态、其他worktree和所有旧私有证据均只读。不得修改被审实现后签PASS；不能使用未去敏旧review提交作为公开祖先。原生任务ID、本机绝对路径和原始日志中的私有内容只存本机。
 

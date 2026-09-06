@@ -36,4 +36,4 @@ S0完整读取测试/helper、三份交接及验证脚本，核对282候选文�
 
 E1保留原失败、负向预期exit1及两次调用设置失败；其辅助inline核对错误只保留交互记录、无独立原stdout/hash，这项限制如实披露。S0首次核对脚本误将旧证据限定在单一私有目录，遗漏三份已记录的历史dist归档，exit1日志 `8d5cbba4370010e214217ac4608494314de867567bea3634f9e5af5fffccef2d` 保留；仅补充三个确切合法路径后通过，日志 `d3452fd5677efc8b7f7858db8298fcf516634e951a56eba8a5ea611d49002988`，候选未变。
 
-[R1精确候选审查范围](../coordination/tasks/P03_CI_DEADLINE_REVIEW.md)READY，尚未原生派发。PR8仍为2b11b7f/Draft；原CI失败未覆盖，新测试独立验收、最终组合CI/main仍待完成，G-DATA/P04保持未放行。
+[R1精确候选审查范围](../coordination/tasks/P03_CI_DEADLINE_REVIEW.md)已在完整协调提交`c91ea4f79e59e667fd008fab28aaca2e3efdbfe4`准备。10:15 UTC，S0再次以原生状态核验R1原轮completed/idle及干净b9f7567后，按该完整授权实际派发精确947，gpt-6-astra/max，新轮ACTIVE已核验；E1原生completed/idle保持。私有派发回执与新轮身份已保存。10:14 UTC共享GPU租约空闲，100行人审副本仍0 reviewer/0 verdict、hash保持。PR8仍为2b11b7f/Draft；原CI失败未覆盖，新测试独立验收、最终组合CI/main仍待完成，G-DATA/P04保持未放行。
