@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1继续审新格式7bada2e，稳定来源绑定缺陷已封存，D1定点修复范围已准备待派发；T1/E1/D1空闲，最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | R1继续审新格式7bada2e，D1按完整c6c02a5定点修复已原生ACTIVE；T1/E1无新任务，最多两个实现约束保持 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -105,3 +105,6 @@ S0隔离组合预检完成：在本地单独worktree普通合并main4e04f2a与�
 
 
 R1仍在冻结7bada2e的独立审查中，已用真实未替换的HF loader稳定复现来源身份绑定缺陷：私有来源同尺寸更新后恢复原hash，声明身份相同而感叹号token由0变30；native已核验buffer对照通过。S0完整读取当前探针/helper与结果，封存9项源码/原日志/命令/结果副本，证明hash d33051b56aea3fc8588c47aa26e713b20b0783aca0d4f74f0e631f1a1d836510。正式R1报告未到，不预写整包结论；D1已核验原生空闲和干净7bada，P02-format-fix-r3的CPU定点修复范围现已准备，尚未实际派发。原768CPU组合预检与候选CI通过保持为其实际范围，不能关闭此缺陷。
+
+
+新格式定点修复已实际派发：完整授权c6c02a5af084afe92c6e9f05d9d1c51392e805d0已push/readback；S0重新确认D1原生completed/idle及干净7bada后发送P02-format-fix-r3，gpt-6-astra/max，新轮ACTIVE。R1原审查仍ACTIVE且冻结7bada，继续独立封存正式结论，不等D1或混入修复。[Draft PR8](https://github.com/kris0516/ToolAlign/pull/8)说明已实际更新并读回，保留原候选CI与临时组合预检，明确该来源绑定缺陷未关闭。没有新GPU/P04或人审代填。
