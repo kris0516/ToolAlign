@@ -1,6 +1,6 @@
 # P02｜数据规范化、许可与分组隔离
 
-状态：IN_PROGRESS（CPU基线同步，授权`f2a271be616cdb53c01e8d671029f31ae140c037`，原生已核验活跃）；原候选 `46f546504f73588caa2e71aac316c3c312306df6` 保留，尚待新完整候选、独立R1与kris真实语义审查。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：READY_FOR_REVIEW；CPU基线同步完成，最终候选`b0d8d83750c48cd951c16b50cfa28a7898976e72`，原候选`46f546504f73588caa2e71aac316c3c312306df6`保留。尚待独立R1与kris真实语义审查。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -52,3 +52,11 @@ G-DATA 必须有 kris 的真实质量抽查。先准备可查看的分层样本�
 2026-09-06 公共基线更新：S0 已授权采用已验证生产合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 及协调状态 `a6c8dd3c78b3674a242b4faacbb175f7b7c98303`。保留原 code_base/authorization 的历史记录，实际工作分支以非强制 merge 接入；新模型规则 gpt-6-astra/max 优先于首派任务副本。
 
 2026-09-06 第二次公共基线更新：S0-SHARED-02 已独立审查/CI/合并/main验证，生产base `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`。收到S0原生同步消息后，保留46f5465及两次真实构建/有效人审包，非强制merge本报告所在协调提交（完整SHA由消息给出）。仅CPU复核新base测试、固定真实tokenizer、包构建/隔离安装与既有数据manifest/人审输入hash；未改变数据代码/参数时不无理由全量重建，不填写人工判定。允许新增`coordination/handoffs/P02-base-r2.md`记录新完整候选、merge关系与实际结果，原P02-r1保留。
+
+## 完整候选的独立技术审查授权
+
+R1以S0下一条原生消息的精确授权提交为准，在自己的隔离worktree新建`review/p02-r1`，审完整候选`b0d8d83750c48cd951c16b50cfa28a7898976e72`；生产base37c00de、同步授权f2a271b、D1受测merge9bbd7d7。S0已核对新增范围、正式P02-base-r2及旧数据实现/任务包字节不变；D1自测298CPU与真实包/隔离安装通过，不替代R1。
+
+只允许R1新增`coordination/handoffs/P02-review-r1.md`与`reports/review/P02/`。冻结契约、政策、候选实现、公共配置/状态/ADR及D1工作区全部只读，不先修被审实现再签通过。复核完整数据转换/工具与历史关联/prefix泄漏/分组及schema规范化隔离/tokenizer和长度/18产物与manifest一致/来源与许可/最终有效人审包；用独立原创反例及真实对应核查补充生产脚本，不能仅复用D1 parser作独立证明。
+
+仅CPU，新增私有环境和证据预算2GiB；允许在自己的私有环境按`reports/data/tokenizer-audit-environment.txt`固定清单安装CPU tokenizer依赖，原D1制品只读，绝不加载模型/GPU。两遍稳定数据已真实构建，不无理由重跑两遍；有具体疑点可做必要重现。100来源/114决策人审包需保持实际身份hash、内容转义与未填写状态，不能签kris判断；P02技术PASS仍不代表G-DATA通过。输出精确候选、PASS/FAIL/BLOCKED、P0/P1/P2、实际命令/退出码/完整loghash、独立review commit与NOT_RUN，提交后停止等待S0。
