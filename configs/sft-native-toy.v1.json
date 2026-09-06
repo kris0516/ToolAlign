@@ -1,0 +1,113 @@
+{
+  "config_version": "toolalign.sft-native-toy.v1",
+  "status": "ORIGINAL_TOY_ONLY",
+  "scope": "TOY_NATIVE_GPU",
+  "training_authorized": false,
+  "original_toy_optimization_authorized": true,
+  "verified_code_base": "50867c0be43d110df6c3620c94022fcfdaf779b5",
+  "preserved_cpu_config_sha256": "5aad6ff6db68ee4fe9bac0aa6104eaeff17bf948b509bfce3d14e3eac9d9aa29",
+  "original_cpu_cases_file_sha256": "df4b87001074e9fab6c3a330cf516dca17cfab1bb7505d97025ceeb31d3b5b47",
+  "original_cpu_case_generator_sha256": "3872ed4187b0754b9baa32525a6aa3b157e33c0d7ceb7b9d1336f34df4536ed0",
+  "backend": {
+    "name": "mlx-lm",
+    "version": "0.31.3",
+    "mlx_version": "0.32.2",
+    "torch_version": "2.14.0",
+    "numpy_version": "2.5.2",
+    "psutil_version": "7.2.2",
+    "trainer_source_sha256": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+    "datasets_source_sha256": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17",
+    "mlx_device": "gpu",
+    "torch_device": "cpu",
+    "preserve_upstream_compile": true
+  },
+  "original_cases": {
+    "unique_examples": 13,
+    "vocabulary": 8,
+    "table_shape": [
+      8,
+      8
+    ],
+    "parameter_elements": 64,
+    "dtype": "float32",
+    "initial_values": "(arange(64, float32).reshape(8, 8) - 31.0) / 97.0",
+    "right_padding_bucket": 16,
+    "eos_token_id": 7,
+    "pad_token_id": 0,
+    "validation": "same 13 original cases; state bookkeeping only",
+    "all_numeric_arrays_must_match_original": true
+  },
+  "optimization": {
+    "name": "SGD",
+    "learning_rate": 0.07,
+    "momentum": 0.0,
+    "weight_decay": 0.0,
+    "seed": 42,
+    "micro_batch_size": 1,
+    "segmented_microsteps": [
+      8,
+      5
+    ],
+    "gradient_divisors": [
+      8,
+      5
+    ],
+    "gradient_reduction": "equal_mean_of_per_example_completion_token_mean_losses",
+    "retain_model_optimizer_rng": true,
+    "unsegmented_negative": {
+      "microsteps": 13,
+      "gradient_divisor": 8,
+      "expected_actual_updates": 1,
+      "expected_lost_tail_microsteps": 5
+    }
+  },
+  "validation": {
+    "timing": "post_update_including_final_tail",
+    "reduction": "total_completion_ce_sum_divided_by_total_supervised_tokens",
+    "binding": [
+      "actual_parameter_content_sha256",
+      "checkpoint_file_sha256",
+      "original_case_identity",
+      "optimizer_step",
+      "processed_microsteps"
+    ],
+    "selection_rule": "minimum_finite_validation_ce_then_earliest_optimizer_step_then_checkpoint_sha256",
+    "reject_cross_scope_scores": true
+  },
+  "limits": {
+    "framework_child_launches_max": 5,
+    "expected_successful_replays": [
+      "source_segmented",
+      "source_unsegmented_negative",
+      "installed_segmented"
+    ],
+    "examples_max": 13,
+    "sequence_tokens_max": 16,
+    "vocabulary_max": 16,
+    "parameter_elements_max": 4096,
+    "optimizer_updates_per_backend_per_child_max": 2,
+    "wall_seconds_per_child_max": 300,
+    "rss_bytes_per_child_max": 4294967296,
+    "mlx_peak_memory_bytes_max": 1073741824,
+    "new_private_artifacts_bytes_max": 2147483648,
+    "torch_threads_max": 2,
+    "numeric_absolute_tolerance": 2e-06,
+    "shared_lease_until_process_exit": true
+  },
+  "not_authorized": [
+    "pretrained_model_loading",
+    "optimization_on_actual_P02_examples",
+    "formal_training_or_baseline_generation",
+    "new_actual_selected_or_protocol_tokenizations",
+    "full_8228_retokenization",
+    "new_environment_or_dependency_download",
+    "training_data_or_selection_mutation",
+    "final_test_or_BFCL_access_for_training",
+    "browser_navigation_workaround",
+    "human_verdict_prefilling",
+    "external_tracking_or_upload",
+    "vendor_edits_or_fake_device_metadata",
+    "replacement_upstream_training_loop",
+    "disable_or_monkeypatch_upstream_compile"
+  ]
+}

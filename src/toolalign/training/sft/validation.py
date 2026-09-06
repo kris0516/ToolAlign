@@ -25,7 +25,8 @@ def parameter_content_hash(entries):
 
 class ValidationTotals:
     def __init__(self, *, profile, split, expected_ids):
-        require(profile in ("smoke", "formal", "TOY_CPU") and split == "validation", "validation_scope_mismatch")
+        require(profile in ("smoke", "formal", "TOY_CPU", "TOY_NATIVE_GPU")
+                and split == "validation", "validation_scope_mismatch")
         self.profile, self.split = profile, split
         self.expected_ids = tuple(expected_ids)
         require(self.expected_ids and len(set(self.expected_ids)) == len(self.expected_ids),
@@ -67,7 +68,8 @@ class Score:
 
 
 def validate_score(score):
-    require(type(score) is Score and score.scope == "TOY_CPU" and score.profile == "TOY_CPU",
+    require(type(score) is Score and score.scope in ("TOY_CPU", "TOY_NATIVE_GPU")
+            and score.profile == score.scope,
             "only_toy_score_authorized")
     for digest in (score.selection_sha256, score.validation_identity_sha256,
                    score.parameter_content_sha256, score.checkpoint_file_sha256):
