@@ -148,8 +148,9 @@ def test_validation_weights_by_supervised_tokens_and_checks_exact_coverage():
     totals.add(example_id="a", profile="smoke", split="validation", ce_sum=2.0, tokens=1)
     with pytest.raises(DataError, match="incomplete"):
         totals.finish()
-    totals.add(example_id="b", profile="smoke", split="validation", ce_sum=12.0, tokens=6)
-    assert totals.finish() == 2.0
+    totals.add(example_id="b", profile="smoke", split="validation", ce_sum=18.0, tokens=6)
+    assert totals.finish() == 20.0 / 7
+    assert totals.finish() != (2.0 + 3.0) / 2
     with pytest.raises(DataError):
         totals.add(example_id="b", profile="smoke", split="validation", ce_sum=2.0, tokens=1)
 
