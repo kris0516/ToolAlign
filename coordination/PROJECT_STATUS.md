@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR9验证完成；T1完整P04-SFT-CPU候选33d6248已交付/原生空闲；R1按完整d65592e实际派发并确认新轮ACTIVE，intake待确认；Draft PR10候选双Python CI通过/390文件绑定，CPU train上游入口阻塞保持 |
+| 当前任务/分支 | S0 main；PR9验证完成；T1完整P04-SFT-CPU候选33d6248已交付/原生空闲；R1按完整d65592e实际派发并确认新轮ACTIVE，384候选/13授权intake已核验；Draft PR10候选双Python CI通过/390文件绑定，CPU train上游入口阻塞保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | T1/D1/E1原轮均已结束；R1旧训练绑定审查completed/notLoaded及干净40252f8核验后，新P04-SFT-CPU-R1已实际派发/ACTIVE；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
@@ -178,3 +178,5 @@ P04-SFT-CPU最终交接：完整33d6248已普通推送/远端一致、T1于15:43
 16:05 UTC，S0再次核验R1原轮completed/notLoaded、干净40252f8及完整授权d65592e/候选33d远端一致，实际发送P04-SFT-CPU-R1，显式gpt-6-astra/max；新原生轮ACTIVE已确认，intake与独立结论待交付。分发前证明67f7860f837e7aae195eed494275e5a050d100884b227609c37c0979a1e800a0绑定370授权文件、384候选文件与原completion/索引。16:06 UTC创建[Draft PR10](https://github.com/kris0516/ToolAlign/pull/10)，head为精确33d，候选CI34044414304已实际启动。CPU功能与完整原生trainer路径分开审查；旧失败、NOT_RUN及人工/正式P04门槛保持，详见[交接证据](../reports/S0_P04_SFT_CPU_HANDOFF.md)。
 
 16:12 UTC，S0核验PR10候选CI34044414304的3.11/3.14各14步骤全部成功，各601 passed/48私有CPU tokenizer前提缺失skip、另46 P00通过。两个原日志均绑定实际checkout300bda3912a96102cc905303ea8dc686c728d112，parents=d65592e+33d6248，390文件与两原分支精确并集相同；证明779edd112eb06810c643503f1443fb76c90ff710a24be549cd9df785f5b43345。四契约、公开扫描及241私有canary/18公开fixture的三归档路线通过。PR保持Draft，R1同轮ACTIVE/intake待交付；本次无新S0 build/install，候选CI不代替独立审查、最终main或人工门槛。
+
+R1于16:16 UTC实际切至干净review/p04-sft-cpu-r1/33d6248并回报领取。S0于16:22 UTC核对1965个当前路径：384候选、13授权副本、原1562封存制品和身份/证明；7份原公开审查与40252f8、精确配置5aad均保持，证明99cfa569284dca72924acc004f9423836b1e17847592c22a933f82653da785d0。初次S0附加保全检查误把1347份旧系统临时制品限于R1私有根而exit1，原记录保留，按原completion精确白名单复核全数匹配；没有修改候选或原证据。R1继续同一轮独立审查，结论待交付。

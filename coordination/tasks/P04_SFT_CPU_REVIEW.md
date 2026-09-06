@@ -1,6 +1,6 @@
 # P04-SFT-CPU-R1｜CPU 准备与已知上游限制独立审查
 
-状态：IN_PROGRESS；S0 于 2026-09-06 16:05 UTC 核验原轮 completed/idle 和干净 40252f8 后，按完整 d65592e 原生派发，新轮 ACTIVE 已确认；新 branch/input intake 及正式结论待交付。T1 最终候选已交付、普通推送并核验原生 completed/idle；S0 已核对 2083 个文件路径及原始命令/归档/安装。被审交付明确为 CPU_PARTIAL_UPSTREAM_BLOCKED，不是完整 trainer 或正式 P04。
+状态：IN_PROGRESS；S0 于 2026-09-06 16:05 UTC 核验原轮 completed/idle 和干净 40252f8 后，按完整 d65592e 原生派发，新轮 ACTIVE 已确认；R1 已于 16:16 UTC 切至精确候选的新分支，S0 于 16:22 UTC 核验 384 候选/13 授权副本与旧 1562 封存文件，intake 通过，正式结论待交付。T1 最终候选已交付、普通推送并核验原生 completed/idle；S0 已核对 2083 个文件路径及原始命令/归档/安装。被审交付明确为 CPU_PARTIAL_UPSTREAM_BLOCKED，不是完整 trainer 或正式 P04。
 
 | 字段 | 本轮值 |
 |---|---|
