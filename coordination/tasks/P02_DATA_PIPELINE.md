@@ -74,3 +74,28 @@ P02代码已在2ec1767合并并完成main技术验证；G-DATA仍待kris实际�
 gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB，复用现有环境。实际命令、退出码、源码/模板/样例/loghash、失败和限制写入报告，形成精确提案提交后结束该轮等待S0正式ADR/实现授权。该CPU准备不授权P04训练，也不替kris填写人审。
 
 2026-09-06实际提案派发：S0核验D1原轮completed/notLoaded、干净HEAD b0d8d83750c48cd951c16b50cfa28a7898976e72后，以完整授权fd67511ef4cb7853bb75b0b106ec4692a9d36be8原生派发本范围，gpt-6-astra/max，新轮次已确认ACTIVE。仅提案，暂不推送原本地分支覆盖S0已整合的较新远端，不重复向kris发人审请求。
+
+## P02-format-r2｜共用 v1 格式与新序列审计授权
+
+状态：READY_FOR_DISPATCH；只有收到S0包含本次完整authorization_commit的原生消息后才开始。原提案和角色比较已交付为 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8`，比较实现 `ac3c99b10e46deef745b624be14acfacff2cb369`；S0核验正式handoff、68项hash、167份不变原文件及D1原生completed/idle。原A结果、失败、比较及其SHA保留。
+
+- owner仍为D1、同一独立任务/`work/p02-data`/原worktree；gpt-6-astra/max，不创建新任务或sub-agent。
+- 已验证生产输入为P02合并 `2ec17673c18ffbc817b1ff8512e53e44a11766a5`；本次协调基线为main `201e3a1f697a567f843754e465e57d8227660264`。先读取并保存本次完整授权中的AGENTS/协议/本任务/ADR-0017/格式规范；从干净6c3d330以普通merge接入本次授权提交，保留所有父提交和原提案，不reset/rebase/cherry-pick，不改写较新远端。
+- 本次允许新增 `src/toolalign/model_io/`、`tests/model_io/`、`reports/data/P02_FORMAT_V1*`、`coordination/handoffs/P02-format-r2.md`，以及只含去敏身份/hash/统计的新 `data/manifests/model-io-sequences.v1.json`。原三份提案文件只读，使用新报告交接实现。
+- 原11个 `src/toolalign/data/` 模块、旧tests/data/、原manifest及data-build模块清单、所有18项原产物、100来源/114决策人审包和填写副本只读。其余公共路径包括contracts/runtime/训练/执行器、configs/locks/依赖/CI/检查脚本、S0状态/ADR全部只读；必要公共申请交S0。不能替换旧LocalTokenizer默认格式、原长度表、标签或切分。
+
+实现严格遵循 [最终v1规范](../../docs/16_MODEL_IO_FORMAT.md) 和其精确描述文件。共用入口独立接收并验证ModelInput，不伪造Example或目标值来通过validator，不导入tokenizers/Transformers/MLX/Torch。冻结schema和关联语义是实际边界，历史调用参数不能自行增加冻结规则之外的当前catalog约束。完整Action编码与prompt入口分开；训练Example另经冻结完整验证。有限原生JSON、额外键/历史关联/重复ID、合法内容保留、控制标记转义和不修改调用者输入须有实际正负例。
+
+模块在wheel隔离安装后应自足；若复制规范为包资源或常量，必须校验与S0描述及instruction精确字节/hash一致，不能依赖源码cwd。纯序列接口使用显式renderer/encoder/EOS，或独立可选CPU适配器；不把0.22.2门禁强加0.23.2调用者，不加载模型或实现训练backend。编码P+C、核对P前缀、一个追加EOS、completion-only与next-token shift边界需可复核；异常身份不符直接失败，不静默回退。
+
+只复用D1已有固定tokenizer环境及reference环境。本次显式允许离线tokenizer-only AutoTokenizer（local_files_only=True、trust_remote_code=False；导入前禁用Torch/TF/Flax并核对实际模块无MLX/Torch）；禁止模型类/权重/GPU/联网下载或新环境。使用与固定0.6B/1.7B一致的三个已有小来源文件与只读来源metadata，记录各revision/文件与原模板hash。对最终v1同12个原创/公开fixture重新做0.22.2与实际reference Transformers/tokenizers路径对照，逐项比较完整P/C/IDs/sequence/EOS/mask；不把旧提案或旧16例结果当作本次结果，不声称模型行为通过。
+
+本次显式授权对原固定8,228个Example做一次新的CPU格式/序列全量审计：先核对原data-build canonical hash及实际输入文件hash，逐例保留example/source/ModelInput/Action身份、各split和原目标值，不重新转换来源、分组、筛选或截断。产物写到新的私有版本目录，禁止覆盖已存在输出。新manifest绑定格式描述/指令/源码、模型/tokenizer/模板/渲染参数/协议、原数据及各新产物hash；逐例字段和统计按docs16，含prompt/C含不含EOS/总token的P50/P90/P95/P99、raw字节/节点/深度与原P03 parser状态、1024/1536/2048上下文与256响应预算分别计数。失败和超限仍计入完整8,228分母，明确每个原因，不把成功子集偷偷用作训练集合。最终测试集仅做固定表示层审计，不运行模型评分或据此选格式/训练参数。
+
+原P03 parse_action可用S0提供的精确只读源码副本在私有审计脚本核对（源码hash须先匹配）；不把未验收P03分支合入D1、不复制替代parser进生产、不引入由数据指定Python路径的执行接口。合法Action经转义后仍可能触及既有raw限制，如实保留原parser错误和完整分母，不放宽限制。若P03已通过并由S0发布新合并基线，再按S0明确同步消息采用，不能自行提前集成。
+
+资源：仅CPU，复用现有环境，新增私有制品累计2GiB，不加载模型、不联网下载、无新费用。全量新序列审计只有这次格式改变所需的一遍；确定性以同一原创/允许开发小集复跑和独立逐项校核证明，不重复旧两遍数据构建。保留原输出/失败/命令；任何原始身份不匹配立即报告，继续独立可做的纯代码检查。
+
+验收入口由实现交接给出实际命令，以下仍为PLANNED：新model_io正负例、同12例真实跨实现CPU对照、新全量序列审计、适用完整既有CPU/真实tokenizer回归、lint/冻结/公开扫描、当前实际sdist/default wheel/显式sdist重建wheel与成员字节绑定、新默认CPU隔离安装的导入/投影/编码/序列接口。默认wheel的构建来源如实记录，未做源码直接构建就写NOT_RUN。原data模块、全部产物、人审包及填写副本hash保持证据必须可复查。
+
+完成时交精确候选SHA/父提交/范围、所有命令退出码/日志hash、旧证据保全、新manifest/统计和失败/NOT_RUN；只推送普通可快进分支并结束该轮待独立R1。此授权不批准正式格式验收、训练选集、G-DATA人审、P04/P05或真实推理；P04至少10条token/mask人工检查仍需后续完成。

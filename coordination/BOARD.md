@@ -9,7 +9,8 @@
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | IN_PROGRESS | ac8095f复审FAIL，原review aaae5a4/P1=1，F2/F3关闭；T1已按cbb6d46原生派发启动初始化修复/活跃；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)保持 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
-| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | 最终3598cef已交付/E1空闲，389CPU自测及双Python CI通过；R1-r2已按cbb6d46派发/活跃，原FAIL保留；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)保持 |
+| [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md#p02-format-r2共用-v1-格式与新序列审计授权) 共用格式与序列 | D1 | P02代码、ADR-0017 | READY | 6c3d330角色比较已交付/空闲，68项hash核对；仅CPU实现与8,228例新序列审计范围已准备，待实际派发 |
+| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | R1-r2对3598cef正式PASS（review a78071b）已收到，待S0完整核验及最终集成；E1空闲，原FAIL保留；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)保持 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -27,4 +28,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：共享包和P02主干技术验证保持。S0按cbb6d46已原生派发并确认T1初始化修复与R1审P03新3598活跃；R1上轮正式FAIL aaae5a4和completed/idle先已核验，E1空闲。D1仍在fd67511的CPU提案范围作角色保留方案比较，初版c23b513未批准生产。当前最多T1/D1两个实现加CPU R1。人审一次请求待答，原材料和填写副本保持，不代签判断。
+公共跟进：T1按cbb6d46继续CPU初始化修复；R1的P03正式PASS a78071b已到，待S0读取/完整核验，不能直接标VERIFIED。D1角色比较6c3d330已交付并核验原生空闲，ADR-0017与P02-format-r2仅CPU实现授权已准备，实际派发另记；最多两个实现约束保持。kris人审原请求、材料及填写副本保留，不代签判断。
