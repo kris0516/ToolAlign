@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P02数据代码MERGED，G-DATA仍待kris人审及训练配置绑定。新格式修复8c439f6获独立R1正式PASS，review b9f7567按原SHA公开；格式代码ACCEPTED，原7bada FAIL/P2=1保持。S0最终普通组合2b11b7f已推送PR8；CI34024093376的3.11全部通过、3.14在已有P03截止时间测试失败，最终main验收暂停，PR8仍Draft。E1完整947144f修订获R1正式PASS，原review1531892已发布；657CPU及另2探针通过，S0核验1641路径和最终封存，R1原生completed/idle。测试修订ACCEPTED，S0接续普通组合/最终CI/main验证；D1/T1/E1/R1无新任务，无新GPU或P04授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1/T1/E1/R1暂无新任务，P04正式训练尚未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
+| 当前任务/分支 | S0 main；PR8合并36b6988，新格式及截止时间修订主干验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；D1/T1/E1/R1无新任务，等待S0最终组合验收 |
+| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；已主干验收，D1/T1/E1/R1暂无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01已合并并验证main，G1-SFT与唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03已在29a5e4c完成最终CI/合并/main验证，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。训练与评测共同格式已按ADR-0017选择，尚未实现验收，见[衔接证据](../reports/S0_P04_READINESS.md)与[格式规范](../docs/16_MODEL_IO_FORMAT.md)。P04尚未授权，最多两个实现的约束保持。
+P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01已合并并验证main，G1-SFT与唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03已在29a5e4c完成最终CI/合并/main验证，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。训练与评测共同格式已按ADR-0017实现并在36b6988完成main验收，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。训练数据/配置绑定及P04人工token/mask尚未完成；P04正式训练未授权，最多两个实现的约束保持。
 
 ## 恢复入口
 
@@ -132,3 +132,6 @@ E1截止时间测试完整947144f已普通推送/交接并结束；S0核对4767�
 10:15 UTC，S0再次以原生状态确认R1旧轮completed/idle和干净b9f7567，再按完整c91ea4f79e59e667fd008fab28aaca2e3efdbfe4正式派发精确947的P03-CI-DEADLINE-R1，gpt-6-astra/max，新轮ACTIVE已核验。10:14 UTC共享GPU租约空闲，100行人审副本仍0 reviewer/0 verdict；未新增GPU/P04授权，PR8最终CI/main仍待完成。
 
 截止时间修订独立验收：R1对947144fa2dd248113f6db412f120cdae5483c9b8正式PASS，review1531892a9e49b69283ef07f3142b221693483628按原SHA发布，原生completed/idle已核验。S0核对1641路径，包括282候选不变、6个新review文件、1346个封存条目与20条命令；证明0abed1b5099fc389167e587ff06b56e51ec85e7a4f8317dc818edd34b555ab83，集合不相加。原失败/负向控制与两项R1辅助检查错误保持；测试修订ACCEPTED，组合CPU/归档/最终CI/main另行验证。11:01 UTC共享GPU空闲，人审100行仍未填写。
+
+
+新格式与截止时间修订实际主干验收：PR8最终head b3d07dd7c0db90085efb647ff7e740fdfbec240b，CI34029892077两Python jobs所有步骤成功；实际main36b6988af6b4e0125b59fb81b1cea142233e14a2与CI/head同tree76fd03e8f86e9892c1ab51c8e8bdd15ea2d28be4。11:23–11:25 UTC在main实际843 passed/2 HF-only skipped、lint/契约/公开扫描和现存三归档直接解析均通过；337文件、100 sdist Git文件及47 wheel载荷匹配main，未新增构建/安装或重写旧测量。摘要b1c14a83774efa975f489a89ff71b4e98411e5ae06902b817d0abf7eea747602，详见主干证据。两项技术范围VERIFIED；11:26 UTC共享GPU空闲，人审100行仍0 reviewer/0 verdict，G-DATA/训练绑定及P04人工检查继续待完成。

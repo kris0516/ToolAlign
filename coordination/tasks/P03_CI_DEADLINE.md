@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE｜请求截止时间测试的确定性复现与修复
 
-状态：ACCEPTED；E1完整947144f获[R1精确候选独立审查](P03_CI_DEADLINE_REVIEW.md)正式PASS，原review1531892已发布，S0封存核验通过；R1/E1均已结束，待最终组合CI与main验证。E1原授权仍为完整`fa1ea86361223171a06b5d082a3731b63a00a74a`，gpt-6-astra/max。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
+状态：VERIFIED；E1完整947144f获[R1精确候选独立审查](P03_CI_DEADLINE_REVIEW.md)正式PASS，原review1531892已发布，S0封存核验通过；R1/E1均已结束；PR8已合并36b6988并通过最终CI/main验证。E1原授权仍为完整`fa1ea86361223171a06b5d082a3731b63a00a74a`，gpt-6-astra/max。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -48,3 +48,6 @@ code_base 与失败候选的以下文件字节完全相同：
 只有一个 E1 实现；D1/T1/R1均无新工作。仅 CPU，新增私有制品累计上限2GiB；不新建 ML 环境、下载模型、导入模型框架、占GPU、运行正式评测/BFCL、写人审或发生费用。不 push 现有 P03/格式 PR 分支，不合 main，不改旧 refs。允许在完整交接后普通推送本轮新 `work/p03-ci-deadline` 分支，原始 SHA 和失败保持。
 
 交接包含精确候选/parent/tree、允许路径差异、原/新测试各自 hash、实际正负控制/回归/归档命令与日志 hash、所有失败和 NOT_RUN。没有实际观察到的状态不签通过。提交后结束本轮，等待 R1 对该精确候选独立复核；S0随后普通集成该修复与已审格式，再运行最终CI/main验收。准备本任务不等于派发，R1原格式PASS也不自动批准此测试修订。
+
+
+2026-09-06 S0主干验收：原候选947144f与原review1531892按原SHA随PR8普通合并36b6988，最终CI34029892077的Python3.11/3.14全部步骤成功，实际main843CPU/2 HF-only skipped及归档绑定通过。P03-CI-DEADLINE技术范围VERIFIED；旧CI失败、真实负向控制与全部原证据保持，见[主干记录](../../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。E1/R1本轮已结束，无新派发。

@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE-R1｜截止时间测试独立审查
 
-状态：ACCEPTED；R1对精确947144f正式PASS，P0/P1/P2均0；[原审查提交1531892](https://github.com/kris0516/ToolAlign/blob/1531892a9e49b69283ef07f3142b221693483628/reports/review/P03-ci-deadline-r1/README.md)已发布，S0核对1641路径与最终封存，原生completed/idle已核验。本轮按完整c91ea4f授权、gpt-6-astra/max完成；最终组合CI/main另行验证。
+状态：VERIFIED；R1对精确947144f正式PASS，P0/P1/P2均0；[原审查提交1531892](https://github.com/kris0516/ToolAlign/blob/1531892a9e49b69283ef07f3142b221693483628/reports/review/P03-ci-deadline-r1/README.md)已发布，S0核对1641路径与最终封存，原生completed/idle已核验。本轮按完整c91ea4f授权、gpt-6-astra/max完成；最终组合随PR8合并36b6988，双Python CI与main验证通过。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -38,3 +38,6 @@ Ruff、冻结契约与公开内容扫描必须通过；必要的独立探针应�
 仅CPU，复用既有纯CPU环境和已核验tokenizer来源，原路径由S0私有派发；不安装新环境、下载模型、导入模型框架、占GPU、训练/正式评测/BFCL、填写人审或产生费用。新增私有制品上限2GiB。D1/T1/E1没有并行实现授权；R1是独立审查，不占实现名额。
 
 输出明确PASS/FAIL/BLOCKED与P0/P1/P2，列精确被审candidate、review commit、parent/tree、命令和原始日志hash、来源/制品身份、实际进程清理、失败与NOT_RUN。形成完整交接、提交本轮允许的新文件后结束并回报S0，等待S0验收和普通集成；不合main、不推旧分支、不自行重跑或合并PR8。R1 PASS不自动完成最终组合CI/main、G-DATA或P04门槛。
+
+
+2026-09-06 S0主干验收：原候选947144f与原review1531892按原SHA随PR8普通合并36b6988，最终CI34029892077的Python3.11/3.14全部步骤成功，实际main843CPU/2 HF-only skipped及归档绑定通过。P03-CI-DEADLINE技术范围VERIFIED；旧CI失败、真实负向控制与全部原证据保持，见[主干记录](../../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。E1/R1本轮已结束，无新派发。

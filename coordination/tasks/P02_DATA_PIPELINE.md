@@ -196,3 +196,6 @@ F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。�
 ## 新格式复审接受与最终CI跟进
 
 R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PASS，P0/P1/P2均0，原F1关闭及旧FAIL保持；S0范围/证据/最终封存与原生completed/idle核验通过。原SHA已发布并普通整合当前main为2b11b7f。格式代码ACCEPTED，最终CI34024093376的Python3.14旧P03截止时间测试失败，PR8保持Draft、main尚未验收。[E1限域修订947144f](P03_CI_DEADLINE.md)已获R1正式PASS/review1531892，原SHA发布及S0封存核验通过；S0接续组合与最终CI/main。D1保持空闲，无新格式或数据改动。原人审/训练绑定门槛保持，见[S0记录](../../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。
+
+
+2026-09-06新格式主干验收：原b9f7567 PASS与截止时间修订原1531892 PASS通过普通merge进入PR8；最终CI34029892077双Python所有步骤成功，实际合并36b6988并完成main843CPU/2 HF-only skipped及归档字节绑定，P02-FORMAT-v1技术范围VERIFIED，见[S0主干证据](../../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。整包仍为MERGED：G-DATA语义审查及训练选择/配置/manifest绑定尚未完成；原数据、人审和测量保持，不由格式验收自动放行P04。

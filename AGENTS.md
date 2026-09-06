@@ -60,6 +60,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 截止时间测试正式交付与复核准备 | E1完整947144f交付/原生空闲，657CPU自查通过；S0核对4767路径、19原始命令及实际归档，R1精确审查READY，见[证据](reports/S0_P02_FORMAT_CI_FOLLOWUP.md) |
 | 2026-09-06 | 截止时间测试独立审查实际派发 | 核验R1旧轮completed/idle及干净b9f7567后，按完整c91ea4f原生派发精确947144f的CPU独立审查，gpt-6-astra/max，新轮ACTIVE；E1已结束，无新实现/GPU/P04授权 |
 | 2026-09-06 | 截止时间测试独立审查验收 | R1对947144f正式PASS/P0/P1/P2均0，review1531892原SHA已发布；657CPU及另2边界探针通过，S0核对1641路径/20原命令/实际归档，R1原生空闲；测试修订ACCEPTED待组合CI/main |
+| 2026-09-06 | 共用格式及截止时间修订主干验收 | VERIFIED；[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原b9f7567/1531892 PASS保持；最终双Python CI与main843CPU/2 HF-only skipped、实际归档绑定通过，见[主干证据](reports/S0_P02_FORMAT_MAIN_VERIFICATION.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -85,7 +86,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准和P03 CPU任务已VERIFIED。新格式修复8c439f6获R1正式PASS，原b9f7567审查已按原SHA发布并普通集成，格式代码ACCEPTED。最终PR8候选2b11b7f的CI中3.11通过，3.14已有P03测试对0.6秒内启动工具的假设失败；[E1限域测试跟进](coordination/tasks/P03_CI_DEADLINE.md)完整947144f已获[独立R1](coordination/tasks/P03_CI_DEADLINE_REVIEW.md)正式PASS，原review1531892发布/S0封存核验通过，修订ACCEPTED；R1原生completed/idle，待S0普通组合与最终CI/main。主干尚未合格式，不忽略CI失败，原7bada FAIL/P2=1及所有数据/审查保持。D1/T1/E1/R1均无新任务，最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查及训练绑定，P04尚未授权。
+P00、共享支持、P01受限兼容校准、P03 CPU任务、新格式及截止时间测试修订已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)实际合并36b6988，最终CI34029892077两个Python jobs所有步骤成功，main843项CPU通过、2项HF-only跳过，337文件及实际归档载荷绑定通过，见[主干证据](reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原7bada FAIL/P2=1、CI34024093376失败及所有历史数据/审查保持。D1/T1/E1/R1暂无新任务，最多两个实现加独立CPU R1、单一GPU租约约束保持。P02/G-DATA仍待kris实际语义审查及训练配置绑定；P04正式训练尚未授权，下一步准备这些未完成输入。
 
 ## 工作记录
 
