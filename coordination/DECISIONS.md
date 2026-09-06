@@ -189,7 +189,7 @@ ADR-0020主干补记：CPU准备已按原SHA独立审查、普通合并并完成
 
 ## ADR-0021｜原生 GPU 上的固定原创 SFT 数值验证
 
-日期：2026-09-07；状态：DISPATCHED，T1已按完整de86568原生派发并核验新轮ACTIVE；新分支/50867c0及输入intake已由S0核验；两次534445b原GPU数值及fae3d60监督器定点修复已做S0中间核验，完整候选/R1仍待完成。PR10 的 CPU 准备已普通合并为 e28f1db 并在实际 main 完成1014项CPU检查/2项HF-only跳过；验证发布基线为 `50867c0be43d110df6c3620c94022fcfdaf779b5`。上游CPU入口KeyError和0次MLX更新仍是有效负结果，完整P04及人工门槛未完成。
+日期：2026-09-07；状态：READY_FOR_REVIEW。T1完整f7326d1已交付/原生空闲，S0已核对完整候选、三次实际数值及封存，独立R1仍待完成。PR10 的 CPU 准备已普通合并为 e28f1db 并在实际 main 完成1014项CPU检查/2项HF-only跳过；验证发布基线为 `50867c0be43d110df6c3620c94022fcfdaf779b5`。上游CPU入口KeyError和0次MLX更新仍是有效负结果，完整P04及人工门槛未完成。
 
 S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新增[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)及[精确S0配置](tasks/P04_SFT_NATIVE_TOY_CONFIG.v1.json)，复用旧13例/8词表/64参数初值和SGD0.07，真实运行8+5两次更新、native evaluate和checkpoint保存重载，与独立Torch CPU参考对照；另一次单段13微步的上游尾批丢失作为负例。验证集复用原创样例只检查状态记账，不宣称真实模型质量或泛化效果。
 
@@ -200,3 +200,5 @@ S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新�
 不加载预训练模型，不优化P02真实数据，不新增实际13例或全量tokenization，不改训练选择，不开展baseline/容量/SFT/DPO正式模型任务。配置training_authorized=false、实际页面与kris语义/token-mask人工待审保持。旧P01/P04分支、原CPU两次失败与R1审查原SHA/制品均保全，新的执行时间与源码身份独立记录。此子包PASS仍须独立R1、S0普通合并、CI/main验证，不能直接登记完整P04完成。
 
 ADR-0021中间证据补记：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。原成功源码数值保持534445b epoch；监督器修订形成fae3d60新epoch，不能将历史成功运行改写为修复后重跑。原13 rank/12种数值载荷、负结果和shutdown warning保留，见[S0中间证据](../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。
+
+ADR-0021独立审查准备：T1精确f7326d1和原生completed/idle已核验，S0完整交接证明见[报告](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。[R1新范围](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)READY未派发；独立新安装target至少一次原13例GPU segmented复核，本轮R1最多两次框架启动，第二次仅真实失败修订或有明确必要的原尾批反例。每次仍先共享OS租约/最多2更新/300秒/4GiB RSS/1GiB MLX，真实owner记R1；不使用T1未用额度，不改原配置，不放行正式P04。
