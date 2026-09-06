@@ -1,0 +1,2517 @@
+{
+  "authorization_commit": "1de90781e42a3693b112aafcf585a905bc052d63",
+  "branch": "review/p02-format-r1-public",
+  "candidate": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+  "candidate_parent": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+  "candidate_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+  "counts": {
+    "archives": 3,
+    "default_installed_check_commands": 10,
+    "existing_pytest_passed": 664,
+    "full_reference_passes": 1,
+    "full_reference_rows": 8228,
+    "installed_or_repo_identity_repeats_are_not_new_scenarios": true,
+    "logged_top_level_validation_commands": 30,
+    "new_independent_pytest_passed": 60,
+    "same_original_fixture_scenarios": 12,
+    "snapshot_interleaving_scenarios": 2,
+    "static_source_scenarios": 10
+  },
+  "environment": {
+    "actual_reference_packages": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "annotated-doc": "0.0.5",
+      "anyio": "4.15.1",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "click": "8.5.0",
+      "filelock": "3.32.5",
+      "fsspec": "2025.3.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.30.0",
+      "idna": "3.19",
+      "iniconfig": "2.3.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "numpy": "2.5.2",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "pytest": "9.0.2",
+      "referencing": "0.37.0",
+      "regex": "2026.9.3",
+      "rich": "15.0.0",
+      "rpds-py": "2026.6.3",
+      "safetensors": "0.8.0",
+      "shellingham": "1.5.4",
+      "tokenizers": "0.23.2",
+      "tqdm": "4.70.0",
+      "transformers": "5.16.1",
+      "typer": "0.27.2",
+      "typing_extensions": "4.16.0"
+    },
+    "actual_reused_native_packages": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "anyio": "4.15.1",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "click": "8.5.0",
+      "filelock": "3.32.5",
+      "fsspec": "2026.7.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.30.0",
+      "idna": "3.19",
+      "iniconfig": "2.3.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "pytest": "9.0.2",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "tokenizers": "0.22.2",
+      "tqdm": "4.70.0",
+      "typing_extensions": "4.16.0"
+    },
+    "model_modules_loaded": [],
+    "optional_installed_probes_use_existing_tokenizer_environments_not_bare_default_target": true,
+    "reference_loader_source_hashes": {
+      "models/auto/tokenization_auto.py": "3f0a1b610d84902edcde538bcd89089c63a56e5cff21802c4ed32fd320172522",
+      "models/qwen2/tokenization_qwen2.py": "fac4e6576bfe2369731be147a4e530f262bdf32f2ac50436f96f0d8bdd2fc628",
+      "tokenization_utils_base.py": "520a914d0dcc873f8c8788e60ad3007f7db032c82c0b2b2c44ee7f44f2cdad8e",
+      "tokenization_utils_tokenizers.py": "bf921a160f483c7a32973952ed82a08c7d8982f769726bd220933aae2df98de8",
+      "utils/hub.py": "e6d2f051acabd11f43cd1ed6e0b1e4d0bd69a9b254d511e9b597187f6a92d8e9"
+    },
+    "reference_pins": {
+      "all_selected_versions_match_candidate_uv_lock": true,
+      "initial_preparation_error": "First in-memory requirements generator assumed all D1 reference versions were in current uv.lock; KeyError fsspec 2026.7.0 before any requirement file or install; corrected by selecting the exact current-lock fsspec version.",
+      "pinned_packages": 37,
+      "requirements_sha256": "4ca57846f814c6ec0ef053efe851f75a9a6f37d6f4564061d36340ac03e5c8e8",
+      "selected_changes_from_D1_record": [
+        {
+          "D1_recorded_reference": "2026.7.0",
+          "name": "fsspec",
+          "selected_current_lock": "2025.3.0"
+        }
+      ]
+    }
+  },
+  "evidence_seal_note": "This public index covers the listed validation commands. Final publication/scope checks and review commit identity are retained in the private completion record and native handoff to avoid self-reference.",
+  "executed_evidence_sources_sha256": {
+    "coordination/handoffs/P02-format-review-r1.md": "62fd89c2483d918a939a056e9ddd8afe5bce3e9f53a31c560cfae1a05f083b39",
+    "reports/review/P02-format/.ruff.toml": "059df780f90fc3c79e80cb38b15b63e6e0c922547f1c94c1fc718d9e4de74543",
+    "reports/review/P02-format/README.md": "3b0d0e34c946e983c8b5aab2eedf4a043f4209348ed623ec167a4dacf9799ce2",
+    "reports/review/P02-format/review_evidence.py": "6723e966e561bd9c49218ae4da955f0ff1eab91d18c2a61dde0617b3177a8aa8",
+    "reports/review/P02-format/review_full_audit.py": "f4057b12abae721ab1b9d822977620614f9d1cf2006f8f84d137994131790575",
+    "reports/review/P02-format/review_package.py": "7837d26ce0e798ea0e5e2d56d266848f45d610e9ecb39f2606b4bc17a5bc402a",
+    "reports/review/P02-format/review_snapshot.py": "5b3f55d7fdddb2399b5ca7a8d0558dbbc51ce45715a163ec49b806d1ef37f2fc",
+    "reports/review/P02-format/review_support.py": "3e712ce8358bae5e1f489fc898af7d75f326e37e7d6bb792f7a23cd0e13903a9",
+    "reports/review/P02-format/review_tokenizers.py": "cd16584169c42861ada99567a89a22f4a59d33a55fd8b20a94df4095320d7ee3",
+    "reports/review/P02-format/test_audit_denominators.py": "9f27291dcbb6d4aa41c185a85e40c7e8f7fd3b8277984335d7eae4dcc48545bc",
+    "reports/review/P02-format/test_independent.py": "c16abd4224d9677f382bba00ca5f9e05b4b228225604e81afcc1aa8401031e26"
+  },
+  "failure_classification": {
+    "candidate_defect": [
+      "snapshot-same-size-reference",
+      "snapshot-installed-reference"
+    ],
+    "frozen_review_only_lint_style_exceptions": "reports/review/P02-format/.ruff.toml; no candidate/global configuration change",
+    "preparation_error_before_install": "fsspec version absent from current uv.lock; corrected to exact current-lock 2025.3.0",
+    "reviewer_errors_retained": [
+      "existing-664",
+      "sources-reference",
+      "sources-reference-r2",
+      "sources-reference-r3",
+      "lint-current"
+    ]
+  },
+  "finding_F1": {
+    "actual_loaded_state_equal": false,
+    "baseline_backend_state_sha256": "a373b7ff0c52176575a72ede185c306613ef1c01a2346f900f3b631ce1dc23f9",
+    "baseline_exclamation_ids": [
+      0
+    ],
+    "declared_identity_equal": true,
+    "end_line": 110,
+    "file": "src/toolalign/model_io/offline.py",
+    "filesystem_events": [
+      "tokenizer_json_read_1",
+      "replace_after_verified_json_snapshot",
+      "tokenizer_json_read_2",
+      "tokenizer_json_read_3",
+      "restore_before_final_hash_read"
+    ],
+    "loader_methods_and_return_values_patched": false,
+    "observed_backend_state_sha256": "748f7b64298cf6ec3e9a1641b1dd32dcbe82088f174c434987cbcd6b4b46a0fa",
+    "observed_exclamation_ids": [
+      30
+    ],
+    "replacement_sha256": "5340fa498d7bf49141374d0e053184d08be2264116272b25a3ed4d2d80213da7",
+    "severity": "P2",
+    "source_and_installed_result_identical": true,
+    "source_before_after_hashes": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    },
+    "start_line": 107
+  },
+  "full_reference": {
+    "all": {
+      "budgets": {
+        "context_1024_context_and_response_pass": {
+          "denominator": 8228,
+          "over": 7008,
+          "pass": 1220,
+          "unmeasured": 0
+        },
+        "context_1024_prompt_plus_reserved_response_pass": {
+          "denominator": 8228,
+          "over": 7886,
+          "pass": 342,
+          "unmeasured": 0
+        },
+        "context_1024_total_including_eos_pass": {
+          "denominator": 8228,
+          "over": 7008,
+          "pass": 1220,
+          "unmeasured": 0
+        },
+        "context_1536_context_and_response_pass": {
+          "denominator": 8228,
+          "over": 4013,
+          "pass": 4215,
+          "unmeasured": 0
+        },
+        "context_1536_prompt_plus_reserved_response_pass": {
+          "denominator": 8228,
+          "over": 4918,
+          "pass": 3310,
+          "unmeasured": 0
+        },
+        "context_1536_total_including_eos_pass": {
+          "denominator": 8228,
+          "over": 3920,
+          "pass": 4308,
+          "unmeasured": 0
+        },
+        "context_2048_context_and_response_pass": {
+          "denominator": 8228,
+          "over": 1543,
+          "pass": 6685,
+          "unmeasured": 0
+        },
+        "context_2048_prompt_plus_reserved_response_pass": {
+          "denominator": 8228,
+          "over": 1999,
+          "pass": 6229,
+          "unmeasured": 0
+        },
+        "context_2048_total_including_eos_pass": {
+          "denominator": 8228,
+          "over": 1351,
+          "pass": 6877,
+          "unmeasured": 0
+        },
+        "response_excluding_eos": {
+          "denominator": 8228,
+          "over": 261,
+          "pass": 7967,
+          "unmeasured": 0
+        },
+        "response_including_eos": {
+          "denominator": 8228,
+          "over": 269,
+          "pass": 7959,
+          "unmeasured": 0
+        }
+      },
+      "denominator": 8228,
+      "lengths": {
+        "action_depth": {
+          "denominator": 8228,
+          "max": 10,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 4,
+          "p90": 5,
+          "p95": 6,
+          "p99": 8
+        },
+        "action_native_utf8_bytes": {
+          "denominator": 8228,
+          "max": 2707,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 225,
+          "p90": 558,
+          "p95": 667,
+          "p99": 977
+        },
+        "action_nodes": {
+          "denominator": 8228,
+          "max": 217,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 12,
+          "p90": 28,
+          "p95": 34,
+          "p99": 53
+        },
+        "completion_tokens": {
+          "denominator": 8228,
+          "max": 1000,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 76,
+          "p90": 193,
+          "p95": 231,
+          "p99": 318
+        },
+        "completion_tokens_including_eos": {
+          "denominator": 8228,
+          "max": 1001,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 77,
+          "p90": 194,
+          "p95": 232,
+          "p99": 319
+        },
+        "completion_utf8_bytes": {
+          "denominator": 8228,
+          "max": 2707,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 225,
+          "p90": 558,
+          "p95": 667,
+          "p99": 991
+        },
+        "prompt_tokens": {
+          "denominator": 8228,
+          "max": 4561,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 1404,
+          "p90": 2124,
+          "p95": 2366,
+          "p99": 2822
+        },
+        "total_tokens": {
+          "denominator": 8228,
+          "max": 4615,
+          "measured": 8228,
+          "missing": 0,
+          "missing_reasons": {},
+          "p50": 1505,
+          "p90": 2239,
+          "p95": 2503,
+          "p99": 2939
+        }
+      },
+      "parser_accepted_exact": 8228,
+      "parser_errors": {},
+      "raw_limits": {
+        "raw_byte_cap_pass": {
+          "denominator": 8228,
+          "over": 0,
+          "pass": 8228,
+          "unmeasured": 0
+        },
+        "raw_depth_cap_pass": {
+          "denominator": 8228,
+          "over": 0,
+          "pass": 8228,
+          "unmeasured": 0
+        },
+        "raw_node_cap_pass": {
+          "denominator": 8228,
+          "over": 0,
+          "pass": 8228,
+          "unmeasured": 0
+        }
+      },
+      "sequence_errors": {}
+    },
+    "all_summaries_equal": true,
+    "by_split": {
+      "ood_test": {
+        "budgets": {
+          "context_1024_context_and_response_pass": {
+            "denominator": 264,
+            "over": 170,
+            "pass": 94,
+            "unmeasured": 0
+          },
+          "context_1024_prompt_plus_reserved_response_pass": {
+            "denominator": 264,
+            "over": 249,
+            "pass": 15,
+            "unmeasured": 0
+          },
+          "context_1024_total_including_eos_pass": {
+            "denominator": 264,
+            "over": 170,
+            "pass": 94,
+            "unmeasured": 0
+          },
+          "context_1536_context_and_response_pass": {
+            "denominator": 264,
+            "over": 34,
+            "pass": 230,
+            "unmeasured": 0
+          },
+          "context_1536_prompt_plus_reserved_response_pass": {
+            "denominator": 264,
+            "over": 53,
+            "pass": 211,
+            "unmeasured": 0
+          },
+          "context_1536_total_including_eos_pass": {
+            "denominator": 264,
+            "over": 28,
+            "pass": 236,
+            "unmeasured": 0
+          },
+          "context_2048_context_and_response_pass": {
+            "denominator": 264,
+            "over": 10,
+            "pass": 254,
+            "unmeasured": 0
+          },
+          "context_2048_prompt_plus_reserved_response_pass": {
+            "denominator": 264,
+            "over": 3,
+            "pass": 261,
+            "unmeasured": 0
+          },
+          "context_2048_total_including_eos_pass": {
+            "denominator": 264,
+            "over": 1,
+            "pass": 263,
+            "unmeasured": 0
+          },
+          "response_excluding_eos": {
+            "denominator": 264,
+            "over": 9,
+            "pass": 255,
+            "unmeasured": 0
+          },
+          "response_including_eos": {
+            "denominator": 264,
+            "over": 9,
+            "pass": 255,
+            "unmeasured": 0
+          }
+        },
+        "denominator": 264,
+        "lengths": {
+          "action_depth": {
+            "denominator": 264,
+            "max": 9,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 4,
+            "p90": 6,
+            "p95": 7,
+            "p99": 8
+          },
+          "action_native_utf8_bytes": {
+            "denominator": 264,
+            "max": 1068,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 277,
+            "p90": 597,
+            "p95": 702,
+            "p99": 941
+          },
+          "action_nodes": {
+            "denominator": 264,
+            "max": 99,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 15,
+            "p90": 32,
+            "p95": 38,
+            "p99": 60
+          },
+          "completion_tokens": {
+            "denominator": 264,
+            "max": 381,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 89,
+            "p90": 195,
+            "p95": 242,
+            "p99": 334
+          },
+          "completion_tokens_including_eos": {
+            "denominator": 264,
+            "max": 382,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 90,
+            "p90": 196,
+            "p95": 243,
+            "p99": 335
+          },
+          "completion_utf8_bytes": {
+            "denominator": 264,
+            "max": 1068,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 277,
+            "p90": 597,
+            "p95": 702,
+            "p99": 941
+          },
+          "prompt_tokens": {
+            "denominator": 264,
+            "max": 2000,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1028,
+            "p90": 1438,
+            "p95": 1597,
+            "p99": 1809
+          },
+          "total_tokens": {
+            "denominator": 264,
+            "max": 2091,
+            "measured": 264,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1144,
+            "p90": 1548,
+            "p95": 1698,
+            "p99": 1908
+          }
+        },
+        "parser_accepted_exact": 264,
+        "parser_errors": {},
+        "raw_limits": {
+          "raw_byte_cap_pass": {
+            "denominator": 264,
+            "over": 0,
+            "pass": 264,
+            "unmeasured": 0
+          },
+          "raw_depth_cap_pass": {
+            "denominator": 264,
+            "over": 0,
+            "pass": 264,
+            "unmeasured": 0
+          },
+          "raw_node_cap_pass": {
+            "denominator": 264,
+            "over": 0,
+            "pass": 264,
+            "unmeasured": 0
+          }
+        },
+        "sequence_errors": {}
+      },
+      "test": {
+        "budgets": {
+          "context_1024_context_and_response_pass": {
+            "denominator": 215,
+            "over": 148,
+            "pass": 67,
+            "unmeasured": 0
+          },
+          "context_1024_prompt_plus_reserved_response_pass": {
+            "denominator": 215,
+            "over": 205,
+            "pass": 10,
+            "unmeasured": 0
+          },
+          "context_1024_total_including_eos_pass": {
+            "denominator": 215,
+            "over": 148,
+            "pass": 67,
+            "unmeasured": 0
+          },
+          "context_1536_context_and_response_pass": {
+            "denominator": 215,
+            "over": 45,
+            "pass": 170,
+            "unmeasured": 0
+          },
+          "context_1536_prompt_plus_reserved_response_pass": {
+            "denominator": 215,
+            "over": 61,
+            "pass": 154,
+            "unmeasured": 0
+          },
+          "context_1536_total_including_eos_pass": {
+            "denominator": 215,
+            "over": 40,
+            "pass": 175,
+            "unmeasured": 0
+          },
+          "context_2048_context_and_response_pass": {
+            "denominator": 215,
+            "over": 14,
+            "pass": 201,
+            "unmeasured": 0
+          },
+          "context_2048_prompt_plus_reserved_response_pass": {
+            "denominator": 215,
+            "over": 5,
+            "pass": 210,
+            "unmeasured": 0
+          },
+          "context_2048_total_including_eos_pass": {
+            "denominator": 215,
+            "over": 3,
+            "pass": 212,
+            "unmeasured": 0
+          },
+          "response_excluding_eos": {
+            "denominator": 215,
+            "over": 13,
+            "pass": 202,
+            "unmeasured": 0
+          },
+          "response_including_eos": {
+            "denominator": 215,
+            "over": 13,
+            "pass": 202,
+            "unmeasured": 0
+          }
+        },
+        "denominator": 215,
+        "lengths": {
+          "action_depth": {
+            "denominator": 215,
+            "max": 9,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 4,
+            "p90": 7,
+            "p95": 8,
+            "p99": 8
+          },
+          "action_native_utf8_bytes": {
+            "denominator": 215,
+            "max": 1645,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 298,
+            "p90": 695,
+            "p95": 901,
+            "p99": 1444
+          },
+          "action_nodes": {
+            "denominator": 215,
+            "max": 70,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 16,
+            "p90": 37,
+            "p95": 48,
+            "p99": 64
+          },
+          "completion_tokens": {
+            "denominator": 215,
+            "max": 473,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 91,
+            "p90": 237,
+            "p95": 268,
+            "p99": 375
+          },
+          "completion_tokens_including_eos": {
+            "denominator": 215,
+            "max": 474,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 92,
+            "p90": 238,
+            "p95": 269,
+            "p99": 376
+          },
+          "completion_utf8_bytes": {
+            "denominator": 215,
+            "max": 1645,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 298,
+            "p90": 695,
+            "p95": 901,
+            "p99": 1448
+          },
+          "prompt_tokens": {
+            "denominator": 215,
+            "max": 1948,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1030,
+            "p90": 1534,
+            "p95": 1586,
+            "p99": 1887
+          },
+          "total_tokens": {
+            "denominator": 215,
+            "max": 2090,
+            "measured": 215,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1145,
+            "p90": 1698,
+            "p95": 1817,
+            "p99": 2050
+          }
+        },
+        "parser_accepted_exact": 215,
+        "parser_errors": {},
+        "raw_limits": {
+          "raw_byte_cap_pass": {
+            "denominator": 215,
+            "over": 0,
+            "pass": 215,
+            "unmeasured": 0
+          },
+          "raw_depth_cap_pass": {
+            "denominator": 215,
+            "over": 0,
+            "pass": 215,
+            "unmeasured": 0
+          },
+          "raw_node_cap_pass": {
+            "denominator": 215,
+            "over": 0,
+            "pass": 215,
+            "unmeasured": 0
+          }
+        },
+        "sequence_errors": {}
+      },
+      "train": {
+        "budgets": {
+          "context_1024_context_and_response_pass": {
+            "denominator": 7515,
+            "over": 6530,
+            "pass": 985,
+            "unmeasured": 0
+          },
+          "context_1024_prompt_plus_reserved_response_pass": {
+            "denominator": 7515,
+            "over": 7209,
+            "pass": 306,
+            "unmeasured": 0
+          },
+          "context_1024_total_including_eos_pass": {
+            "denominator": 7515,
+            "over": 6530,
+            "pass": 985,
+            "unmeasured": 0
+          },
+          "context_1536_context_and_response_pass": {
+            "denominator": 7515,
+            "over": 3897,
+            "pass": 3618,
+            "unmeasured": 0
+          },
+          "context_1536_prompt_plus_reserved_response_pass": {
+            "denominator": 7515,
+            "over": 4750,
+            "pass": 2765,
+            "unmeasured": 0
+          },
+          "context_1536_total_including_eos_pass": {
+            "denominator": 7515,
+            "over": 3820,
+            "pass": 3695,
+            "unmeasured": 0
+          },
+          "context_2048_context_and_response_pass": {
+            "denominator": 7515,
+            "over": 1502,
+            "pass": 6013,
+            "unmeasured": 0
+          },
+          "context_2048_prompt_plus_reserved_response_pass": {
+            "denominator": 7515,
+            "over": 1989,
+            "pass": 5526,
+            "unmeasured": 0
+          },
+          "context_2048_total_including_eos_pass": {
+            "denominator": 7515,
+            "over": 1344,
+            "pass": 6171,
+            "unmeasured": 0
+          },
+          "response_excluding_eos": {
+            "denominator": 7515,
+            "over": 222,
+            "pass": 7293,
+            "unmeasured": 0
+          },
+          "response_including_eos": {
+            "denominator": 7515,
+            "over": 230,
+            "pass": 7285,
+            "unmeasured": 0
+          }
+        },
+        "denominator": 7515,
+        "lengths": {
+          "action_depth": {
+            "denominator": 7515,
+            "max": 10,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 4,
+            "p90": 5,
+            "p95": 6,
+            "p99": 8
+          },
+          "action_native_utf8_bytes": {
+            "denominator": 7515,
+            "max": 2707,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 217,
+            "p90": 545,
+            "p95": 645,
+            "p99": 932
+          },
+          "action_nodes": {
+            "denominator": 7515,
+            "max": 217,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 12,
+            "p90": 28,
+            "p95": 34,
+            "p99": 52
+          },
+          "completion_tokens": {
+            "denominator": 7515,
+            "max": 1000,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 74,
+            "p90": 190,
+            "p95": 228,
+            "p99": 312
+          },
+          "completion_tokens_including_eos": {
+            "denominator": 7515,
+            "max": 1001,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 75,
+            "p90": 191,
+            "p95": 229,
+            "p99": 313
+          },
+          "completion_utf8_bytes": {
+            "denominator": 7515,
+            "max": 2707,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 217,
+            "p90": 545,
+            "p95": 645,
+            "p99": 934
+          },
+          "prompt_tokens": {
+            "denominator": 7515,
+            "max": 4561,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1445,
+            "p90": 2157,
+            "p95": 2394,
+            "p99": 2836
+          },
+          "total_tokens": {
+            "denominator": 7515,
+            "max": 4615,
+            "measured": 7515,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1547,
+            "p90": 2269,
+            "p95": 2529,
+            "p99": 2961
+          }
+        },
+        "parser_accepted_exact": 7515,
+        "parser_errors": {},
+        "raw_limits": {
+          "raw_byte_cap_pass": {
+            "denominator": 7515,
+            "over": 0,
+            "pass": 7515,
+            "unmeasured": 0
+          },
+          "raw_depth_cap_pass": {
+            "denominator": 7515,
+            "over": 0,
+            "pass": 7515,
+            "unmeasured": 0
+          },
+          "raw_node_cap_pass": {
+            "denominator": 7515,
+            "over": 0,
+            "pass": 7515,
+            "unmeasured": 0
+          }
+        },
+        "sequence_errors": {}
+      },
+      "validation": {
+        "budgets": {
+          "context_1024_context_and_response_pass": {
+            "denominator": 234,
+            "over": 160,
+            "pass": 74,
+            "unmeasured": 0
+          },
+          "context_1024_prompt_plus_reserved_response_pass": {
+            "denominator": 234,
+            "over": 223,
+            "pass": 11,
+            "unmeasured": 0
+          },
+          "context_1024_total_including_eos_pass": {
+            "denominator": 234,
+            "over": 160,
+            "pass": 74,
+            "unmeasured": 0
+          },
+          "context_1536_context_and_response_pass": {
+            "denominator": 234,
+            "over": 37,
+            "pass": 197,
+            "unmeasured": 0
+          },
+          "context_1536_prompt_plus_reserved_response_pass": {
+            "denominator": 234,
+            "over": 54,
+            "pass": 180,
+            "unmeasured": 0
+          },
+          "context_1536_total_including_eos_pass": {
+            "denominator": 234,
+            "over": 32,
+            "pass": 202,
+            "unmeasured": 0
+          },
+          "context_2048_context_and_response_pass": {
+            "denominator": 234,
+            "over": 17,
+            "pass": 217,
+            "unmeasured": 0
+          },
+          "context_2048_prompt_plus_reserved_response_pass": {
+            "denominator": 234,
+            "over": 2,
+            "pass": 232,
+            "unmeasured": 0
+          },
+          "context_2048_total_including_eos_pass": {
+            "denominator": 234,
+            "over": 3,
+            "pass": 231,
+            "unmeasured": 0
+          },
+          "response_excluding_eos": {
+            "denominator": 234,
+            "over": 17,
+            "pass": 217,
+            "unmeasured": 0
+          },
+          "response_including_eos": {
+            "denominator": 234,
+            "over": 17,
+            "pass": 217,
+            "unmeasured": 0
+          }
+        },
+        "denominator": 234,
+        "lengths": {
+          "action_depth": {
+            "denominator": 234,
+            "max": 8,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 4,
+            "p90": 7,
+            "p95": 7,
+            "p99": 8
+          },
+          "action_native_utf8_bytes": {
+            "denominator": 234,
+            "max": 1978,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 322,
+            "p90": 704,
+            "p95": 864,
+            "p99": 1226
+          },
+          "action_nodes": {
+            "denominator": 234,
+            "max": 130,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 18,
+            "p90": 37,
+            "p95": 45,
+            "p99": 91
+          },
+          "completion_tokens": {
+            "denominator": 234,
+            "max": 744,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 101,
+            "p90": 227,
+            "p95": 276,
+            "p99": 543
+          },
+          "completion_tokens_including_eos": {
+            "denominator": 234,
+            "max": 745,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 102,
+            "p90": 228,
+            "p95": 277,
+            "p99": 544
+          },
+          "completion_utf8_bytes": {
+            "denominator": 234,
+            "max": 1978,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 322,
+            "p90": 704,
+            "p95": 864,
+            "p99": 1226
+          },
+          "prompt_tokens": {
+            "denominator": 234,
+            "max": 2083,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1016,
+            "p90": 1401,
+            "p95": 1574,
+            "p99": 1781
+          },
+          "total_tokens": {
+            "denominator": 234,
+            "max": 2392,
+            "measured": 234,
+            "missing": 0,
+            "missing_reasons": {},
+            "p50": 1152,
+            "p90": 1605,
+            "p95": 1778,
+            "p99": 2074
+          }
+        },
+        "parser_accepted_exact": 234,
+        "parser_errors": {},
+        "raw_limits": {
+          "raw_byte_cap_pass": {
+            "denominator": 234,
+            "over": 0,
+            "pass": 234,
+            "unmeasured": 0
+          },
+          "raw_depth_cap_pass": {
+            "denominator": 234,
+            "over": 0,
+            "pass": 234,
+            "unmeasured": 0
+          },
+          "raw_node_cap_pass": {
+            "denominator": 234,
+            "over": 0,
+            "pass": 234,
+            "unmeasured": 0
+          }
+        },
+        "sequence_errors": {}
+      }
+    },
+    "candidate_rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "errors": [],
+    "full_reference_passes": 1,
+    "independent_row_bytes_equal": true,
+    "mismatches": [],
+    "rows": 8228,
+    "rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "status": "PASS",
+    "training_selection_or_scoring": "NOT_RUN"
+  },
+  "logged_commands": [
+    {
+      "command": [
+        "uv",
+        "venv",
+        "--offline",
+        "--no-python-downloads",
+        "--python",
+        "3.14",
+        ".toolalign-local/review-p02-format-r1/reference-env"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T06:51:31.670597+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "reference-venv.log",
+      "name": "reference-venv",
+      "sha256": "e457e2f1e82e8c1ea37af36e2db2a2e346e811cb6d8bd61aad360d878c80bddf",
+      "started_at": "2026-09-06T06:51:31.635348+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--python",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "--require-hashes",
+        "-r",
+        ".toolalign-local/review-p02-format-r1/reference-requirements.txt"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T06:52:32.793487+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "reference-install.log",
+      "name": "reference-install",
+      "sha256": "76ce3353b277fb0707db3f18574938a3852000e6a903e5e41439f29589ffcca4",
+      "started_at": "2026-09-06T06:52:32.538543+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "check",
+        "--python",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T06:57:39.642166+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "reference-pip-check.log",
+      "name": "reference-pip-check",
+      "sha256": "7be0ac6176b8a2ccc4c78b16202e65c4d2fcccb4486de46d7d482400c9ace0a8",
+      "started_at": "2026-09-06T06:57:39.606679+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-reference",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:01:31.874575+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-reference.log",
+      "name": "sources-reference",
+      "sha256": "f6502ccb5452226e5803496e7cb20f16483dde1ab688a09efe1c34c48cf9964c",
+      "started_at": "2026-09-06T07:01:30.399458+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-native",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:01:32.998220+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-native.log",
+      "name": "sources-native",
+      "sha256": "2e519bf7d97b25cf3de1f31313a9c8736980bc3bebdab5967f231f3682f93488",
+      "started_at": "2026-09-06T07:01:30.383139+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-reference-r2",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:02:39.700398+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-reference-r2.log",
+      "name": "sources-reference-r2",
+      "sha256": "a39bd81978838e1989240b7fbf91add5de1c12268053069ed8d727c050bee91b",
+      "started_at": "2026-09-06T07:02:38.552909+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-reference-r3",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:03:31.321615+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-reference-r3.log",
+      "name": "sources-reference-r3",
+      "sha256": "a7595eda3ffd03bbbf1c7ce36ee33638f347bf3ccfccab896a6c736ed4795870",
+      "started_at": "2026-09-06T07:03:28.120833+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        ".toolalign-local/review-p02-format-r1/cpu_pytest.py",
+        "-q",
+        "reports/review/P02-format/test_independent.py",
+        "--basetemp=$SYSTEM_TEMP/toolalign-r1-p02-format-independent-20260906"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:05:53.331647+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "independent-pure.log",
+      "name": "independent-pure",
+      "sha256": "52a5c9117312a4aa6fda5c4c9ee9913ae817eeab2388553e94f015aebbcfc5c9",
+      "started_at": "2026-09-06T07:05:53.066816+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "fixtures",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/fixtures-native",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:05:54.089916+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "fixtures-native.log",
+      "name": "fixtures-native",
+      "sha256": "ccc6f404118b664665418c1c5d42d7ea84016414f90449c15d63cec58e6675b6",
+      "started_at": "2026-09-06T07:05:53.085005+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "fixtures",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/fixtures-reference",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:06:39.529037+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "fixtures-reference.log",
+      "name": "fixtures-reference",
+      "sha256": "a3e5a7172568adcfcd3cdf4d230ceefac7aaf0db09647fc218bf5b42201a1e4e",
+      "started_at": "2026-09-06T07:06:38.095818+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOOLALIGN_TOKENIZER_DIR=$R1_ROOT/.toolalign-local/review-p02-format-r1/verified-source",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        ".toolalign-local/review-p02-format-r1/cpu_pytest.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "--basetemp=$SYSTEM_TEMP/toolalign-r1-p02-format-664-20260906"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:09:53.341270+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "existing-664.log",
+      "name": "existing-664",
+      "sha256": "e03b34e85ba6a09f82586f3af99ab09a1e9a5a83d9d9c2b051011189ca127908",
+      "started_at": "2026-09-06T06:51:31.617762+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-native-r2",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:10:38.244228+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-native-r2.log",
+      "name": "sources-native-r2",
+      "sha256": "1d5b1b6245e29f8fa7daae3240033f66032569341466a0495e9364824da71910",
+      "started_at": "2026-09-06T07:10:35.472654+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_tokenizers.py",
+        "sources",
+        "--root",
+        ".",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/sources-reference-r4",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:10:38.489146+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "sources-reference-r4.log",
+      "name": "sources-reference-r4",
+      "sha256": "3bea3cd0a5d1e1a677ce2b42a72980c815e4d7287e7839cd7ca5636264348e3c",
+      "started_at": "2026-09-06T07:10:35.439398+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_full_audit.py",
+        "--root",
+        ".",
+        "--worker",
+        "$D1_ROOT",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--audit",
+        "$D1_ROOT/.toolalign-local/format-v1-r2/sequences-v1-r1",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/full-reference-once"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:10:57.437012+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "full-reference-once.log",
+      "name": "full-reference-once",
+      "sha256": "63c2fc41b766e4ae939d0062a1b9c65634e9a492694a7a111d13891fb1fdfe18",
+      "started_at": "2026-09-06T07:10:35.454451+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOOLALIGN_TOKENIZER_DIR=$R1_ROOT/.toolalign-local/review-p02-format-r1/verified-source",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        ".toolalign-local/review-p02-format-r1/cpu_pytest.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "--basetemp=$SYSTEM_TEMP/toolalign-r1-p02-format-664-r2-20260906"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:12:07.586849+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "existing-664-r2.log",
+      "name": "existing-664-r2",
+      "sha256": "42c9b4d38d00003753ce20b65865f1066dab53ff79b6c6b48ceda2e710f584fd",
+      "started_at": "2026-09-06T07:11:26.674783+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--out-dir",
+        ".toolalign-local/review-p02-format-r1/archives/default"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:13:10.183668+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "build-default.log",
+      "name": "build-default",
+      "sha256": "38db0402e4b8e7fc1fc67e119b1b756398d44b870378c05e8e5a8dba2bfc4c88",
+      "started_at": "2026-09-06T07:13:09.785962+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-native",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:14:51.554731+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-native.log",
+      "name": "snapshot-native",
+      "sha256": "c84cfa0a9947f27f4df4a9f1cd2fe794aefac16be529f4d019d5f133fdc388c3",
+      "started_at": "2026-09-06T07:14:50.750480+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-reference",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:14:51.833444+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-reference.log",
+      "name": "snapshot-reference",
+      "sha256": "7716d99ef27091c2336381f7aefb67652e6fe8bbf6e11f56e8beef21dc8f537b",
+      "started_at": "2026-09-06T07:14:50.766931+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p02-format-r1/archives/rebuilt",
+        ".toolalign-local/review-p02-format-r1/archives/default/toolalign-0.0.1.tar.gz"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:14:52.092217+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "build-rebuilt.log",
+      "name": "build-rebuilt",
+      "sha256": "5e92dfb247b60f19dfe4ae1cfd7cb2a568d0400a1995015a1e47acc3175f609f",
+      "started_at": "2026-09-06T07:14:51.885305+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-same-size-native",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:15:38.125042+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-same-size-native.log",
+      "name": "snapshot-same-size-native",
+      "sha256": "c84cfa0a9947f27f4df4a9f1cd2fe794aefac16be529f4d019d5f133fdc388c3",
+      "started_at": "2026-09-06T07:15:37.303421+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-same-size-reference",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:15:38.568199+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-same-size-reference.log",
+      "name": "snapshot-same-size-reference",
+      "sha256": "9b1e5469b55f6487f2c3180cd94f85b7c9edb6c775592d73dcf92aa86034e48b",
+      "started_at": "2026-09-06T07:15:37.323147+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_package.py",
+        "--root",
+        ".",
+        "--archives",
+        ".toolalign-local/review-p02-format-r1/archives",
+        "--fixtures",
+        ".toolalign-local/review-p02-format-r1/fixtures-reference/result.json",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/package"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:18:01.359053+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "independent-package.log",
+      "name": "independent-package",
+      "sha256": "1acfbddc7012eefe5ed134dd0246b5d368dac2ecfc2a331e22e7a268b84f6613",
+      "started_at": "2026-09-06T07:17:58.657977+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:21:25.757601+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "lint-current.log",
+      "name": "lint-current",
+      "sha256": "f5916d85a501f2c50ea3accfc27325d05176d7d19d7e5e8aadfd4b5e6ae86bb9",
+      "started_at": "2026-09-06T07:21:25.675603+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        ".toolalign-local/review-p02-format-r1/cpu_pytest.py",
+        "-q",
+        "reports/review/P02-format/test_independent.py",
+        "reports/review/P02-format/test_audit_denominators.py",
+        "--basetemp=$SYSTEM_TEMP/toolalign-r1-p02-format-sixty-20260906"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:26:22.861386+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "independent-sixty.log",
+      "name": "independent-sixty",
+      "sha256": "d3283d43ea6bbbfafae4e7c8a20e74f3e7cd3414ec60741abc0b422227dcbe70",
+      "started_at": "2026-09-06T07:26:22.609773+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02-format/review_evidence.py",
+        "--root",
+        ".",
+        "--worker",
+        "$D1_ROOT",
+        "--private",
+        ".toolalign-local/review-p02-format-r1",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/evidence-bindings.json"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:26:25.012010+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "evidence-bindings.log",
+      "name": "evidence-bindings",
+      "sha256": "75096d5d95d32c723600b0e34513e1f892d07ffcf1bdccc88f24e484cba200f3",
+      "started_at": "2026-09-06T07:26:21.437741+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:27:44.358102+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "lint-final.log",
+      "name": "lint-final",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T07:27:44.318377+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-I",
+        ".toolalign-local/review-p02-format-r1/run-installed-snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-installed-native",
+        "--engine",
+        "tokenizers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:27:45.341097+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-installed-native.log",
+      "name": "snapshot-installed-native",
+      "sha256": "7ec7fb218e302a99d9b0b7c63e58fdb3722ce1bf6c0d13a273611eb4fa554382",
+      "started_at": "2026-09-06T07:27:44.519807+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/review-p02-format-r1/reference-env/bin/python",
+        "-I",
+        ".toolalign-local/review-p02-format-r1/run-installed-snapshot.py",
+        "--source",
+        ".toolalign-local/review-p02-format-r1/verified-source",
+        "--out",
+        ".toolalign-local/review-p02-format-r1/snapshot-installed-reference",
+        "--engine",
+        "transformers"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:27:45.763371+00:00",
+      "exit_code": 1,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "snapshot-installed-reference.log",
+      "name": "snapshot-installed-reference",
+      "sha256": "0f4c1f480337bdc66db72784f2e1b770b4610bbb80fec3152ed3120b9484f6e7",
+      "started_at": "2026-09-06T07:27:44.504438+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:36:04.127882+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "contract-freeze.log",
+      "name": "contract-freeze",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T07:36:04.094280+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "$R1_ROOT",
+      "ended_at": "2026-09-06T07:36:04.230319+00:00",
+      "exit_code": 0,
+      "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+      "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+      "log": "diff-check.log",
+      "name": "diff-check",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_at": "2026-09-06T07:36:04.206503+00:00"
+    }
+  ],
+  "model": "gpt-6-astra",
+  "nonzero_commands": {
+    "existing-664": {
+      "exit_code": 1,
+      "log_sha256": "e03b34e85ba6a09f82586f3af99ab09a1e9a5a83d9d9c2b051011189ca127908"
+    },
+    "lint-current": {
+      "exit_code": 1,
+      "log_sha256": "f5916d85a501f2c50ea3accfc27325d05176d7d19d7e5e8aadfd4b5e6ae86bb9"
+    },
+    "snapshot-installed-reference": {
+      "exit_code": 1,
+      "log_sha256": "0f4c1f480337bdc66db72784f2e1b770b4610bbb80fec3152ed3120b9484f6e7"
+    },
+    "snapshot-same-size-reference": {
+      "exit_code": 1,
+      "log_sha256": "9b1e5469b55f6487f2c3180cd94f85b7c9edb6c775592d73dcf92aa86034e48b"
+    },
+    "sources-reference": {
+      "exit_code": 1,
+      "log_sha256": "f6502ccb5452226e5803496e7cb20f16483dde1ab688a09efe1c34c48cf9964c"
+    },
+    "sources-reference-r2": {
+      "exit_code": 1,
+      "log_sha256": "a39bd81978838e1989240b7fbf91add5de1c12268053069ed8d727c050bee91b"
+    },
+    "sources-reference-r3": {
+      "exit_code": 1,
+      "log_sha256": "a7595eda3ffd03bbbf1c7ce36ee33638f347bf3ccfccab896a6c736ed4795870"
+    }
+  },
+  "not_rerun": [
+    "original_source_conversion",
+    "original_grouping",
+    "policy_a_and_b_builds",
+    "old_proposal_16_case_cross_library_comparison"
+  ],
+  "not_run": [
+    "direct_source_wheel",
+    "new_model_weights_or_dependencies_download",
+    "MLX_or_Torch_model_import",
+    "GPU_or_training",
+    "model_generation",
+    "BFCL_or_hidden_oracle_scoring",
+    "training_subset_selection",
+    "kris_semantic_review",
+    "P04_human_token_mask_or_packing_gradient_checks",
+    "G_DATA_or_main_acceptance"
+  ],
+  "package": {
+    "archive_manifest_sha256": "94d11176ce58dd81bf3c96bf23c1b359588e2eed4ac327d48dfd138cf8f516e7",
+    "archives": {
+      "default_wheel": {
+        "member_count": 44,
+        "sha256": "a0aac74f1667ff860c850f96fd210acef02818187e7a80fbed869640d88b13ea",
+        "size_bytes": 80146
+      },
+      "rebuilt_wheel": {
+        "member_count": 44,
+        "sha256": "a0aac74f1667ff860c850f96fd210acef02818187e7a80fbed869640d88b13ea",
+        "size_bytes": 80146
+      },
+      "sdist": {
+        "member_count": 87,
+        "sha256": "e75cc4c86f9268215776d742676e1017d0a8d820f7aa47f2d6749c0a0ad42c84",
+        "size_bytes": 180780
+      }
+    },
+    "candidate": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "export",
+          "--offline",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/runtime.txt"
+        ],
+        "exit_code": 0,
+        "name": "export",
+        "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+        "stdout_sha256": "d54203f52c8a390026b79f1bc8684a6070bd4ac9454fa4e0066e7f8f44a8747e"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--offline",
+          "--python",
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "--target",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "--require-hashes",
+          "-r",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/runtime.txt"
+        ],
+        "exit_code": 0,
+        "name": "dependencies",
+        "stderr_sha256": "fa5db213bcd0f98016c4c2837d2dfa4ccea7aea1b2ad1913b67bc4b714b6d787",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--offline",
+          "--python",
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "--target",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "--no-deps",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/archives/default/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "name": "default-wheel-install",
+        "stderr_sha256": "0e63d73cfd31359996fcc2c157c494dcd119cdf3f9ae5b88e2bff1f6b9c91f78",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "$SYSTEM_TEMP/installed-package-probe/probe.py",
+          "--installed",
+          "--target",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "--expected",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/expected.json",
+          "--out",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/installed-api.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-api",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "558070e3df9098645925d0934ea9875c2960c846f4daafd9649ff126daf1f222"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "name": "digest",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "validate",
+          "$R1_ROOT/tests/fixtures/contracts/example.json"
+        ],
+        "exit_code": 0,
+        "name": "validate-example",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "validate",
+          "$R1_ROOT/tests/fixtures/contracts/tool.json"
+        ],
+        "exit_code": 0,
+        "name": "validate-tool",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "validate",
+          "$R1_ROOT/tests/fixtures/contracts/preference.json"
+        ],
+        "exit_code": 0,
+        "name": "validate-preference",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "validate",
+          "$R1_ROOT/tests/fixtures/contracts/run.json"
+        ],
+        "exit_code": 0,
+        "name": "validate-run",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "$R1_ROOT/.toolalign-local/review-p02/tokenizer-env/bin/python",
+          "-I",
+          "-S",
+          "-c",
+          "import sys; sys.path.insert(0,sys.argv.pop(1)); from toolalign.cli import main; main()",
+          "$R1_ROOT/.toolalign-local/review-p02-format-r1/package/site-packages",
+          "validate",
+          "$R1_ROOT/tests/fixtures/contracts/trace.json"
+        ],
+        "exit_code": 0,
+        "name": "validate-trace",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      }
+    ],
+    "default_wheel_origin": "uv default build from same sdist",
+    "direct_source_wheel": "NOT_RUN",
+    "installed": {
+      "fixture_names": [
+        "public_contract_tool_call",
+        "same_content_final",
+        "same_content_clarify",
+        "same_content_refuse",
+        "leading_newlines",
+        "whitespace_content",
+        "nested_two_tools",
+        "history_observations_reversed",
+        "history_without_kind",
+        "literal_think_history",
+        "literal_control_tokens",
+        "legitimate_metadata_words"
+      ],
+      "imported_package_paths": {
+        "toolalign": "toolalign/__init__.py",
+        "toolalign.contracts": "toolalign/contracts/__init__.py",
+        "toolalign.contracts.interfaces": "toolalign/contracts/interfaces.py",
+        "toolalign.contracts.validation": "toolalign/contracts/validation.py",
+        "toolalign.model_io": "toolalign/model_io/__init__.py",
+        "toolalign.model_io.format": "toolalign/model_io/format.py",
+        "toolalign.model_io.sequence": "toolalign/model_io/sequence.py",
+        "toolalign.tools": "toolalign/tools/__init__.py",
+        "toolalign.tools._json": "toolalign/tools/_json.py",
+        "toolalign.tools.catalog": "toolalign/tools/catalog.py",
+        "toolalign.tools.executor": "toolalign/tools/executor.py",
+        "toolalign.tools.isolation": "toolalign/tools/isolation.py",
+        "toolalign.tools.registry": "toolalign/tools/registry.py"
+      },
+      "isolated_no_site": true,
+      "optional_or_model_imports": [],
+      "packages": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "toolalign": "0.0.1"
+      },
+      "sequence_callback_kind": "character_interface_double_not_Qwen",
+      "source_files": 39,
+      "source_tree_imports": 0,
+      "status": "PASS"
+    },
+    "installed_wheel": "default",
+    "status": "PASS"
+  },
+  "preservation": {
+    "D1_commands": {
+      "format-v1-build-default-r1": {
+        "command_metadata_sha256": "b91aad9d6cd0e8e0a9e84630f57a3dcf600e50d4099fc95defd8dd94259a70fb",
+        "exit_code": 0,
+        "log_sha256": "56a98180d7c0bf3f9715aade5d6de6bd76e218b39a3f2c8b375e11ad71925785"
+      },
+      "format-v1-build-default-r2": {
+        "command_metadata_sha256": "7fe8aaa1b04a7954dc540d9a6e5d788aa62c3d2ba983dc2006f6fc3067529bd1",
+        "exit_code": 0,
+        "log_sha256": "82d31ffae052a75fff03146d6f638542ff3241fceb8d999d6165edc635665189"
+      },
+      "format-v1-build-rebuilt-r1": {
+        "command_metadata_sha256": "c6d12cc9bf5cebf561c42d898d0a5c83c9eaa76b75a0598f68745a0e3362aa1a",
+        "exit_code": 0,
+        "log_sha256": "cca6f037c710b08b49487e3a2f46cd3da1add6ebbcad7584704cb82113e398af"
+      },
+      "format-v1-build-rebuilt-r2": {
+        "command_metadata_sha256": "5e84474dbecda1f9d2c9210404192b389883f546b72950415de719ec4cd83bc6",
+        "exit_code": 0,
+        "log_sha256": "5fd406bdb468e91cecd4224d6898a1737df16a7d83ebf066cce78e69fd4295b8"
+      },
+      "format-v1-combined-cpu-r1": {
+        "command_metadata_sha256": "7f8d9a22fbb2c86db2477b744ab1c1022d9ca3a37d39a58159f697fa5b584d9b",
+        "exit_code": 0,
+        "log_sha256": "89df8bfc37be3cac58b2c7766d8007e46376840adb185ea3e91e6ef6d037ede5"
+      },
+      "format-v1-combined-cpu-r2": {
+        "command_metadata_sha256": "02505e073627da1d4b632fbee80578abdd751e0cba990e9d67858e6f026ea8ea",
+        "exit_code": 0,
+        "log_sha256": "ab8992181072396d51b1a8e356e6eae93d595871cb730c297697fb1fcd790bd1"
+      },
+      "format-v1-contract-freeze-r1": {
+        "command_metadata_sha256": "0d1ff12cdf47383714e4883f09de06992258a42cbfc754005e855fada08b913e",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+      },
+      "format-v1-core-ruff-r1": {
+        "command_metadata_sha256": "98dc2e01f12e6fbdf3c54f8eb1bca55e6ccb89a355864849ea18415bb4633287",
+        "exit_code": 1,
+        "log_sha256": "1a8fca148b428c2fca12a2528c290ec92e4118de322431a8574abb2554c63809"
+      },
+      "format-v1-core-ruff-r2": {
+        "command_metadata_sha256": "2bc3f7db6bf3fc3382021e8f39ced162b563f50cbf22b88542d59f3fc8abe682",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-core-tests-r1": {
+        "command_metadata_sha256": "141f75e883421f65320955d680bfe775df68c743d8583f3e44092ec9f2c71670",
+        "exit_code": 0,
+        "log_sha256": "7238c76236333b679ed78143c540334d4412897298cfd354c4bec6f1d28fc627"
+      },
+      "format-v1-final-scope-r1": {
+        "command_metadata_sha256": "1a63c40d327f1f7819bb93fa1f4a3e12ddbbbc16eff70b5eddc4ad91f15360f9",
+        "exit_code": 0,
+        "log_sha256": "24086242808112407199da32a252b00256aef32409740be74baad82ad4669f7d"
+      },
+      "format-v1-final-scope-r2": {
+        "command_metadata_sha256": "5760e86de289a020862d36b68a11bb715b4187922380670e5ba6acd80ce9761f",
+        "exit_code": 0,
+        "log_sha256": "33de4dbcd6776c37567de3ea94c503e4db0bfc4f4f6ed4f232d535ba0df16c11"
+      },
+      "format-v1-final-source-lint-r1": {
+        "command_metadata_sha256": "7b420047cdedd3f788ee2047b3fb0f61f3d71ee447f90dfa88146627f4b52103",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-fixtures-compare-r1": {
+        "command_metadata_sha256": "fc2d8a31fc2556aedc8434c9669f2a8551b88de1df90b7aea6bbcac73c91ef74",
+        "exit_code": 0,
+        "log_sha256": "77d1f0c3d9c4011a98251521937cd20df728023c2f4d5e25ae42d4c70a64cfe9"
+      },
+      "format-v1-fixtures-native-r1": {
+        "command_metadata_sha256": "c71fbd0ea7841792999ced384c617c3e7b45f497ab2ffb6631f82c008aa0a8d1",
+        "exit_code": 0,
+        "log_sha256": "e7a14f7d96c7efffd1d203d5aeba835ab04262f4f6d7e1b32814ee07ee346b22"
+      },
+      "format-v1-fixtures-reference-r1": {
+        "command_metadata_sha256": "e2e94ed01e7143f330fcfa0721ca3c44d16ca79eca5c383180e48e1f93e459fc",
+        "exit_code": 0,
+        "log_sha256": "db53eca88ca401d41f6887331acf262e8092ddb99b4e3922fbc338903c5b2aa3"
+      },
+      "format-v1-freeze-final-r1": {
+        "command_metadata_sha256": "61bfbb73d401a93a7df7e9fc8cc0b4ea4e70caea060787724067096522fab967",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+      },
+      "format-v1-full-audit-r1": {
+        "command_metadata_sha256": "1af66cf301f32319437acc11369d9fc889a4c9627f357e79f07bef226d415e02",
+        "exit_code": 0,
+        "log_sha256": "8a3cee17dec439f606af4126d294a84e11255030ca1d4291572d52d4b98712ce"
+      },
+      "format-v1-full-lint-r1": {
+        "command_metadata_sha256": "a0b9d40dc83163d936e89acf4be9224e9bb47c824b09a7609f98ca830c5eb6ad",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-full-regression-r1": {
+        "command_metadata_sha256": "73c59fbe33096ce940256c61808ebf706645b45f3af07168b16275620c3d0b64",
+        "exit_code": 0,
+        "log_sha256": "913148d9ea9de590512bcc8b8d9ac78ad3fd57a90b23471f683cdea716487755"
+      },
+      "format-v1-initial-lint": {
+        "command_metadata_sha256": "6722174a1f6c59d1dbad513a499253fcae76d979b4a5107caa598139432e9eff",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-lint-final-r1": {
+        "command_metadata_sha256": "12d68f25d5d31c1853b7a49dbc4392978d1f7b333724b67092e28c27e3385802",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-lint-r3": {
+        "command_metadata_sha256": "7209134838eb4cedda9c9daa60f1263ba70cd6e847504452173c0fec4365da4c",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-merged-parser-r1": {
+        "command_metadata_sha256": "ec079480dc1811b77e6b15d822ed5608e5b0fee5b250101011fda24367ffb77e",
+        "exit_code": 0,
+        "log_sha256": "323e68a7cae01acb8c010e58ce906e141353e533c898e4fee0385f8b0f73b243"
+      },
+      "format-v1-package-lint-r1": {
+        "command_metadata_sha256": "b127597cbbd54d0d58adcd2525ccbbaed8a81ec1840a558d44c2c5e66a1017c1",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "format-v1-package-verification-r1": {
+        "command_metadata_sha256": "260cc1682d24dc28309adbc50e860506521b7d22f47813b9bc09933b0be705d8",
+        "exit_code": 1,
+        "log_sha256": "dbbaf910ab8b4fa9c99494eae9062808213ea602f0b1cc40553fae3ae2be247d"
+      },
+      "format-v1-package-verification-r2": {
+        "command_metadata_sha256": "57e10bb1736fffb70c5dfe1fdeb187fbf8ad8875c2cf13a1d7b344281005d7cf",
+        "exit_code": 0,
+        "log_sha256": "84da85d230ce42e2f6cee6b02f411bfb4ab4254424d719da946e406ffd2b53d3"
+      },
+      "format-v1-package-verification-r3": {
+        "command_metadata_sha256": "3268a62372bc5feb2dffb51cb32a2bcb07ed2967fd9cc00baefb1dd34e28bac8",
+        "exit_code": 0,
+        "log_sha256": "fd24d9d24e2a5d2679c2b086c88e8977817954525b3c9c7129b9ce40bc965a5c"
+      },
+      "format-v1-preservation-r1": {
+        "command_metadata_sha256": "b3a1c9c50b1788f14d74ae1b5dba198da8f6b9ada8557c166105b28a667e60d8",
+        "exit_code": 0,
+        "log_sha256": "999f3e1a0d0a0798f2897f67d31a7690e89e1367713bcd8e1ca01beb4ab5a7ab"
+      },
+      "format-v1-public-scan-final-r1": {
+        "command_metadata_sha256": "e5e854e0b2be1a3afe92aeaadee79860d68aa2f04302bcdfbec5175f01f077e2",
+        "exit_code": 0,
+        "log_sha256": "1a9b666545d97f29026afcdf72071d5301ed84f580992cb49a115737c04c546e"
+      },
+      "format-v1-public-scan-r1": {
+        "command_metadata_sha256": "0212b4d0e83cd20aaac77da53e4cfdfbe90330033fad14916931cf47920f4f51",
+        "exit_code": 0,
+        "log_sha256": "54a365a1af242cb578cc1febb63cce1dc8dc814ac7496489fc45ec9f314df551"
+      },
+      "format-v1-public-seal-r1": {
+        "command_metadata_sha256": "332c869a0387c41b88c83d5def44a81be4d794ef9bb7806795a3dd0de7a6713f",
+        "exit_code": 0,
+        "log_sha256": "1a9b666545d97f29026afcdf72071d5301ed84f580992cb49a115737c04c546e"
+      },
+      "format-v1-push-r1": {
+        "command_metadata_sha256": "9cd8cbe23d2a245bea64005ad961c347329d896eea3f26f7c521fca8c534b6f3",
+        "exit_code": 0,
+        "log_sha256": "994db3f8904037474989965afbeac9e59d3a7bf0455f7083dfe8c7e148a7715c"
+      },
+      "format-v1-raw-boundaries-r1": {
+        "command_metadata_sha256": "f05778e363f7f4c6bed204525fd40533dbf9feb3a9a1ea4ee49efa45a9e52edd",
+        "exit_code": 1,
+        "log_sha256": "0fa9f36d0870322e3b76ca163bbc1bde1348e7ef740b76b2d686dd27f2ff3029"
+      },
+      "format-v1-raw-boundaries-r2": {
+        "command_metadata_sha256": "769f358d39d762f1b4137c42f5c3cd2219cc370dfd2ee21a8e02e5d52a0eb91a",
+        "exit_code": 0,
+        "log_sha256": "c2cba0e5b1275bde99432021fd22a26635493fa35d0886fcd5cd38708b0f7cca"
+      },
+      "format-v1-real-tests-r1": {
+        "command_metadata_sha256": "8637865a88f85306f203321fdaeb4068da1e8f6892c2e6778442b7159552bb1c",
+        "exit_code": 0,
+        "log_sha256": "57d5d6c701b198e1052131ce8104d651f0541a0cd4e4e9f1d823239ee73a2638"
+      },
+      "format-v1-tests-r2": {
+        "command_metadata_sha256": "b0da7210ca977eba7a19401c35b2a472cb0dec3d175c652ffa8d1c9a4c394a9b",
+        "exit_code": 0,
+        "log_sha256": "4845aaf5e2da79e6de15f3a82f0ee9c05901f4ae04a07c25325090103c3b9df2"
+      }
+    },
+    "D1_failed_commands_retained": [
+      "format-v1-core-ruff-r1",
+      "format-v1-package-verification-r1",
+      "format-v1-raw-boundaries-r1"
+    ],
+    "D1_private_artifact_inventory_sha256": "990a2c1653d06dab808269010abbf29fb83c10f25c843090e8a030594989338c",
+    "D1_private_artifacts_verified": 620,
+    "candidate_files_verified_unchanged": 235,
+    "existing_review_branches": {
+      "review/p00-r1": "66521f8aad1a2ed529660b18aa099208c2e0bb09",
+      "review/p00-r2": "441d31bebd5ca4d46755642f94966c07bbcc4ad1",
+      "review/p01-r1": "ac6bdf78d57c6753865a24a1d216b90dc4478646",
+      "review/p01-r2": "aaae5a4395dbdd73fd487f80174599ffd3ef9be3",
+      "review/p01-r3": "7e207060539df682691b4d149e68b7ab4ffc3175",
+      "review/p02-r1": "8e4fdbd7374130c77262a57e55049f9cef4bf651",
+      "review/p03-r1": "f34f7c5a4eac54b18a2b092495f4ce8eaa334f98",
+      "review/p03-r2": "a78071bf6ac40f2729e090e1828a1c6022cd8d00",
+      "review/shared-01-r1": "8ceea3fbdd476ef0a5583e82e38473f1038dc650",
+      "review/shared-02-r1": "cfbc1529e9bc946c42a26a0070528217ab8eafff",
+      "review/shared-02-r2": "f4af080e80380023ecac9c5262754faedb344b05",
+      "review/shared-02-r3": "ad3b5198c2c222512f51d0c529c8188d20827e41"
+    },
+    "human_decisions": 114,
+    "human_sources": 100,
+    "human_submission_sha256": "d66c48c2fb59b97058d549c4efb7de207343083e3cc9cd6df03861ba069704c3",
+    "human_verdicts_and_reviewers_filled": 0,
+    "human_worksheet_sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+    "new_candidate_files": 18,
+    "protected_old_files": 217,
+    "source_proof_sha256": "83bafd8cfeedf25ef82f558ddb23eb5a1a333a2617cbaf2a461b9aadb24b7d3f"
+  },
+  "private_artifact_identities": {
+    "authorization-binding.json": {
+      "sha256": "f4750ecc634123726254cb58a496cd6bc1a4a3223666dcb8c7f8b8613679fd97",
+      "size_bytes": 1754
+    },
+    "capacity-snapshot.json": {
+      "sha256": "4782820bf9c7c621eccbdfb82aa3ed47c4e5a615625e44d9c885104538040d42",
+      "size_bytes": 343
+    },
+    "cpu_pytest.initial.py": {
+      "sha256": "bcbe33fd5b071fb5882ac98708d2a86a418418553fc58ac4f04a014743c8f37e",
+      "size_bytes": 921
+    },
+    "cpu_pytest.py": {
+      "sha256": "180466b2c0d055864c403df7cc410a514331b2d9bc1b29b1bfc4024f56263a23",
+      "size_bytes": 972
+    },
+    "evidence-bindings.json": {
+      "sha256": "65ad22dbdb1ed2f04120bdc63a1fc21c7029f38f9dd583c27a2dadf37fdaa240",
+      "size_bytes": 45848
+    },
+    "finding-f1-frozen.json": {
+      "sha256": "7366698d6ef17d6e821fd45d2b2a13c0a44c7f0a5f14a2e887e04b57877e6cf6",
+      "size_bytes": 659
+    },
+    "fixtures-native/result.json": {
+      "sha256": "680986e8c0858d8838596f31dbb18683aef281668771c7180a6f750804db3a43",
+      "size_bytes": 378620
+    },
+    "fixtures-reference/result.json": {
+      "sha256": "79fd96ef8f6d8d1d4fe454807218f3166fd54f2704becff1ef93056b2ae13e88",
+      "size_bytes": 378869
+    },
+    "full-reference-once/input-binding.json": {
+      "sha256": "743653717eccfc9fe255e9ce1e2bc60d281143db8c4af5dc10b5c27b81a97efe",
+      "size_bytes": 3656
+    },
+    "full-reference-once/result.json": {
+      "sha256": "22d9cb07fcee18c36d94da73c0160e399b83a6d4ad452106acc241263f4e5ce8",
+      "size_bytes": 13974
+    },
+    "full-reference-once/rows.jsonl": {
+      "sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+      "size_bytes": 25702461
+    },
+    "installed-snapshot-code/binding.json": {
+      "sha256": "ce38ed5014efb451e3323696aa78309857bf56187468e0d88086fd7f4f8640a0",
+      "size_bytes": 280
+    },
+    "package/archives.json": {
+      "sha256": "94d11176ce58dd81bf3c96bf23c1b359588e2eed4ac327d48dfd138cf8f516e7",
+      "size_bytes": 19397
+    },
+    "package/installed-api.json": {
+      "sha256": "19f11900a6d27b09db3216c77fe46de6c9d58d0c648aedae897719dfbc51f88e",
+      "size_bytes": 1616
+    },
+    "package/result.json": {
+      "sha256": "f4c27e5c1da4fcebfd98da981a25f4c84a441436a85e59b691fc77f151ea2958",
+      "size_bytes": 9985
+    },
+    "reference-requirements-binding.json": {
+      "sha256": "636de91b7b61058a81005a13461276a8948b93eebf1d4d71fc23e38ac5738ea5",
+      "size_bytes": 602
+    },
+    "reference-requirements.txt": {
+      "sha256": "4ca57846f814c6ec0ef053efe851f75a9a6f37d6f4564061d36340ac03e5c8e8",
+      "size_bytes": 15246
+    },
+    "review_snapshot.size_variant.py": {
+      "sha256": "3ea774d261b71daf99196618b7307acebb81d63d6ff85370a59466fdf5f1dd12",
+      "size_bytes": 5082
+    },
+    "review_support.guard-r2.py": {
+      "sha256": "dfd387fece5912c9f6cad4785a25f068ed7994dcabd850e4b5e66d36ef3d20b6",
+      "size_bytes": 5885
+    },
+    "review_support.initial.py": {
+      "sha256": "6717d0ab83d06bc11508c996d4e18870cf13b9642ef8c006dab734ebb6e444a5",
+      "size_bytes": 5463
+    },
+    "review_tokenizers.initial.py": {
+      "sha256": "5d23f5c0f2264caa81f13d8ff745abf24510aede0328d25d4c51da112e922a0b",
+      "size_bytes": 9251
+    },
+    "reviewer-initial-guard-error.json": {
+      "sha256": "ca8cfe4cb7a283ea9f09e1c6a08159bdd801cbb3ce41cdf33cfb1db08d43f868",
+      "size_bytes": 372
+    },
+    "reviewer-pytest-bootstrap-error.json": {
+      "sha256": "8740c1a91cefb14649c56c90eb575b4785ed1d6477a5018f3a7cd011b72cef2f",
+      "size_bytes": 353
+    },
+    "reviewer-second-guard-error.json": {
+      "sha256": "0ddd038c0f41af0d9cd9969cb6c9dbcaa90114d023f4a5b5dcb367706e56ced5",
+      "size_bytes": 394
+    },
+    "reviewer-third-probe-error.json": {
+      "sha256": "ba201f58a1bc235de89c69cc78006f42f7dc90746ecd275bd4f3e9f2b03f4bb4",
+      "size_bytes": 309
+    },
+    "run-installed-snapshot.py": {
+      "sha256": "0f74f5eca6fd7305abed43d69626888ac992a508a858271e115a680a12842250",
+      "size_bytes": 935
+    },
+    "run_evidence.py": {
+      "sha256": "0111ab482703e27c6587dee55b3ff7fcfc17aaf630dec347185d7b203dfbb1d0",
+      "size_bytes": 1212
+    },
+    "snapshot-installed-native/result.json": {
+      "sha256": "8c9805d1c8af0040052e6682f03f8979be6af66f1ee36b58936ea1788359d117",
+      "size_bytes": 3989
+    },
+    "snapshot-installed-reference/result.json": {
+      "sha256": "f9914dd049865afc3abe8ddc91a4f03897d0bdf2ccd4cc9918d5e4e5975dbaa1",
+      "size_bytes": 4120
+    },
+    "snapshot-native/result.json": {
+      "sha256": "58029a401a10e2c0a452e2c55a83be0f685b92e4543fbf61de5e540bf2724cd9",
+      "size_bytes": 3989
+    },
+    "snapshot-reference/result.json": {
+      "sha256": "e95b572758cb737af33c816f1016a64328e80190a51c2b87a8b21d06f3520e3e",
+      "size_bytes": 2513
+    },
+    "snapshot-same-size-native/result.json": {
+      "sha256": "8c9805d1c8af0040052e6682f03f8979be6af66f1ee36b58936ea1788359d117",
+      "size_bytes": 3989
+    },
+    "snapshot-same-size-reference/result.json": {
+      "sha256": "f9914dd049865afc3abe8ddc91a4f03897d0bdf2ccd4cc9918d5e4e5975dbaa1",
+      "size_bytes": 4120
+    },
+    "source-binding.json": {
+      "sha256": "2eab2067cb14cdfa5e70cfd716cfadee20d5bfc3cc0abdd39e96b9e8be6f7054",
+      "size_bytes": 601
+    },
+    "sources-native-r2/result.json": {
+      "sha256": "0e799254b5f8893f408002bb3fc777a30cff13aa2a466d1f2c17486e6c091264",
+      "size_bytes": 8431
+    },
+    "sources-reference-r4/result.json": {
+      "sha256": "2d9c9f40dd5a3d346b0973f2f13a52c027c5f87099be296ed39982abddcc9e0d",
+      "size_bytes": 7024
+    },
+    "task-identity.json": {
+      "sha256": "fc5b8e4bf263dd366e5a465d14dbda15caaae9207b225451b01a4d40f8d03ea6",
+      "size_bytes": 399
+    }
+  },
+  "private_capacity_snapshot": {
+    "limit_bytes": 2147483648,
+    "new_private_environment_and_evidence_under_capacity_limit": true,
+    "retained_allocated_unique_inode_bytes": 714752000,
+    "retained_logical_bytes": 699230040,
+    "retained_regular_files": 6184,
+    "temporary_test_write_traffic_or_peak": "NOT_MEASURED; this is not an I/O cumulative-write or peak-usage claim"
+  },
+  "publication_redaction": {
+    "authorization_commit": "085a61c2d0d12d3bde05658259e566aac6ec27ed",
+    "authorization_task_file_sha256": "8242cb15a7ed8883940a141399c017eb1aede077d5e5436a764c930cd6af4def",
+    "candidate_findings_and_actual_measurements": "UNCHANGED; P2=1 / FAIL; no measurement rerun",
+    "changed_public_materials": [
+      "reports/review/P02-format/evidence.json",
+      "reports/review/P02-format/README.md",
+      "coordination/handoffs/P02-format-review-r1.md"
+    ],
+    "mapping": "Public command strings use role placeholders ($R1_ROOT, $D1_ROOT, $SYSTEM_TEMP). The installed-api temporary script path is a role mapping, not literal argv. Original command, result and log hashes continue to bind unchanged private bytes.",
+    "new_public_review_branch": "review/p02-format-r1-public",
+    "new_public_review_sha": "Provided by native handoff to avoid self-reference; differs from original local SHA.",
+    "new_public_review_sole_parent": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+    "original_local_review_commit": "f7086413a9fedd9e2a473ac6d2869efff74ddad5",
+    "original_local_review_history": "Preserved locally and excluded from the clean public commit ancestry; never push the original commit or descendants.",
+    "private_correction_commits": [],
+    "protected_candidate_files": 235,
+    "protected_probes_and_ruff_config": 9,
+    "publication_error": "One temporary path in R1 derived publication metadata, identified by S0 before publication; not a candidate defect.",
+    "push_authority": "S0 after independent verification; R1 does not push any review branch.",
+    "status": "CLEAN_PUBLIC_MAPPING_PREPARED"
+  },
+  "reasoning": "max",
+  "recorded_at_utc": "2026-09-06T07:37:43.264526+00:00",
+  "review_status": "FAIL",
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 1
+  },
+  "source_identity": {
+    "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+  },
+  "source_review_branch": "review/p02-format-r1",
+  "task": "P02-format-review-r1"
+}
