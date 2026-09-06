@@ -129,3 +129,15 @@ S0-SHARED-01 集成结果：最终 head e9b33b0 的 CI 两个 Python jobs 全通
 R1-r3最终对f8ec7ff独立PASS，审查ad3b519确认两轮P1关闭且P0/P1/P2均为0。原反例、241/18回归及新增45/21近边界反例通过，旧FAIL保留原文。仅共享包达到ACCEPTED；最终CI、合并和main验证完成前不发布给worker。
 
 ADR-0015/0016集成结果：最终head7541e0d双Python CI成功，PR4合并37c00de9abe92e6fb24a0c0e0b7361aa4bb90385；main176CPU、实际归档边界/构建及隔离wheel安装通过，现均VERIFIED。详见reports/S0_SHARED_02_MAIN_VERIFICATION.md。允许按最多两个worker同步已验证base，保留全部旧候选/失败；不由此提前验收P01/P02/P03或授权正式训练。
+
+## ADR-0017｜共用 Action JSON 与保留 Message 角色的投影
+
+日期：2026-09-06；状态：SELECTED_FOR_IMPLEMENTATION，尚未实现验收或启用正式训练。决策基线 main `201e3a1f697a567f843754e465e57d8227660264`。规范见 [docs/16_MODEL_IO_FORMAT.md](../docs/16_MODEL_IO_FORMAT.md)，机器描述见 [model_io.action-json.v1.json](../configs/model_io.action-json.v1.json)。
+
+S0 实际证明旧 P02 原生 tool-call completion 不能直接通过 P03 Action JSON parser，且同 content 的 final/clarify/refuse 丢失 kind 区别。D1 的完整 CPU 比较候选 `6c3d330e4b28be0fbc93c273bb2576f7317c69a8` 在同 12 个原创/公开例上保留 ModelInput/Action 值；S0完整读取实现、报告和结果，核对68项证据hash及167份不变原文件。选择 B：固定 system 格式指令与工具 catalog，各原 Message 作为可逆 JSON record 保留模板输入 role，完整 Action 作为输出；官方模板、non-thinking 与冻结契约不变。tool 仍由官方模板转为 user/tool_response，历史 Message 不补 kind，模型 raw 不作生成后修复。
+
+备选 A 单 user envelope 也可值往返，但丢失原 system/assistant 控制段；B 保留这些结构，因此采用 B。B 的 JSON 引用内容和追加协议是否被模型正确理解仍需后续实测；CPU 不证明质量等价或提升。B 在小样本多39–93个prompt token，此差异并非纯角色消融或全量统计。正式版本仅将提案格式标记和指令首句的 v1-proposal 改为 v1，故新 prompt/sequence hash 必须重算。模板/tokenizer来源小文件已在固定0.6B/1.7B间只读核对一致，没有加载模型。
+
+影响：D1 新增纯共用 model_io 模块、CPU边界证明和完整8,228例的新序列审计，逐项绑定新格式/源码/模板/依赖/原数据身份；上下文1024/1536/2048与当前256响应上限分开计数，超限和失败仍计入完整分母。原数据代码、两遍18项产物、split/标签、原长度表及人审材料均保持。旧技术PASS对应旧实现，不能改写成新格式PASS。D1只在新的明确授权后实施，R1独立审查、S0集成验证后才可成为P04依赖。
+
+验证与回退：真实固定tokenizer对最终v1的同12例进行新跨实现CPU对照，验证原始字节/角色/prefix/EOS/mask/raw及独立负例；新全量长度仅为派生审计，不是训练选集或模型评分。G-DATA、G1、P03及P04人工/真实模型门仍独立。若实现或后续模型不满足目标，停止该格式后续实验、保留所有原证据，以新ADR/版本修订，不覆盖旧身份或隐去失败。
