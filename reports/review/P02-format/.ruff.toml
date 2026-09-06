@@ -1,0 +1,10 @@
+# Preserve exact bytes of already executed evidence and the reproduction shared
+# with S0. These named review attachments retain only style/unused-import waivers;
+# the candidate and other review files continue to use the repository's rules.
+extend = "../../../pyproject.toml"
+
+[lint.per-file-ignores]
+"review_full_audit.py" = ["I001", "E731"]
+"review_package.py" = ["I001"]
+"review_snapshot.py" = ["F401"]
+"review_tokenizers.py" = ["I001", "E731"]
