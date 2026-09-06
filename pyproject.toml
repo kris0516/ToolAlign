@@ -19,14 +19,87 @@ compatibility = [
   "psutil==7.2.2",
 ]
 
+# Select together with compatibility; the tested DPO backend stays opt-in.
+dpo = [
+  "mlx-lm-lora==3.1.2; sys_platform == 'darwin' and platform_machine == 'arm64'",
+  "datasets==3.6.0; sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
+
+# Historical candidate checks only; this does not select mlx-tune for formal DPO.
+p01-replay = [
+  "mlx-tune==0.6.0; sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
+
 [project.scripts]
 toolalign = "toolalign.cli:main"
 
 [dependency-groups]
 dev = ["pytest==9.0.2", "ruff==0.15.0"]
 
+[tool.hatch.build]
+# Apply privacy exclusions to both archives even when Hatchling drops VCS rules
+# because an ancestor of an App worktree matches this project's .gitignore.
+# Explicit letter classes also cover Git's core.ignorecase=true behavior on Mac.
+exclude = [
+  ".[dD][sS]_[sS][tT][oO][rR][eE]",
+  ".[eE][nN][vV]",
+  ".[eE][nN][vV].*",
+  "!.[eE][nN][vV].[eE][xX][aA][mM][pP][lL][eE]",
+  "*.[pP][eE][mM]",
+  "*.[kK][eE][yY]",
+  "*[sS][eE][rR][vV][iI][cC][eE]-[aA][cC][cC][oO][uU][nN][tT]*.[jJ][sS][oO][nN]",
+  ".[vV][eE][nN][vV]/",
+  "[vV][eE][nN][vV]/",
+  "__[pP][yY][cC][aA][cC][hH][eE]__/",
+  "*.[pP][yY][cCoOdD]",
+  ".[pP][yY][tT][eE][sS][tT]_[cC][aA][cC][hH][eE]/",
+  ".[mM][yY][pP][yY]_[cC][aA][cC][hH][eE]/",
+  ".[rR][uU][fF][fF]_[cC][aA][cC][hH][eE]/",
+  ".[cC][oO][vV][eE][rR][aA][gG][eE]",
+  "[hH][tT][mM][lL][cC][oO][vV]/",
+  ".[tT][oO][oO][lL][aA][lL][iI][gG][nN]-[lL][oO][cC][aA][lL]/",
+  ".[cC][oO][dD][eE][xX]/",
+  ".[wW][oO][rR][kK][tT][rR][eE][eE][sS]/",
+  "[dD][aA][tT][aA]/[rR][aA][wW]/",
+  "[dD][aA][tT][aA]/[pP][rR][oO][cC][eE][sS][sS][eE][dD]/",
+  "[dD][aA][tT][aA]/[pP][rR][iI][vV][aA][tT][eE]/",
+  "[mM][oO][dD][eE][lL][sS]/",
+  "[cC][hH][eE][cC][kK][pP][oO][iI][nN][tT][sS]/",
+  "[aA][dD][aA][pP][tT][eE][rR][sS]/",
+  "[aA][rR][tT][iI][fF][aA][cC][tT][sS]/",
+  "[rR][uU][nN][sS]/",
+  "*.[sS][aA][fF][eE][tT][eE][nN][sS][oO][rR][sS]",
+  "*.[gG][gG][uU][fF]",
+  "*.[pP][tT]",
+  "*.[pP][tT][hH]",
+  "*.[bB][iI][nN]",
+  "*.[oO][nN][nN][xX]",
+  "*.[mM][lL][pP][aA][cC][kK][aA][gG][eE]/",
+  "*.[mM][lL][mM][oO][dD][eE][lL][cC]/",
+  "*.[lL][oO][gG]",
+  "[nN][oO][dD][eE]_[mM][oO][dD][uU][lL][eE][sS]/",
+  "[dD][iI][sS][tT]/",
+  "[bB][uU][iI][lL][dD]/",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/toolalign"]
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+  "src/toolalign",
+  "configs",
+  "tests",
+  "scripts/check_contract_freeze.py",
+  "scripts/check_public_content.py",
+  "scripts/check_source_distribution.py",
+  "contracts.v1.lock.json",
+  "pyproject.toml",
+  "uv.lock",
+  "README.md",
+  "LICENSE",
+  "THIRD_PARTY_NOTICES.md",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
