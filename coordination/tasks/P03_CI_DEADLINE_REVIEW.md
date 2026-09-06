@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE-R1｜截止时间测试独立审查
 
-状态：IN_PROGRESS；S0核验R1原轮completed/idle和干净b9f7567后，于2026-09-06 10:15 UTC按完整授权原生派发，gpt-6-astra/max，新轮ACTIVE已核验。
+状态：ACCEPTED；R1对精确947144f正式PASS，P0/P1/P2均0；[原审查提交1531892](https://github.com/kris0516/ToolAlign/blob/1531892a9e49b69283ef07f3142b221693483628/reports/review/P03-ci-deadline-r1/README.md)已发布，S0核对1641路径与最终封存，原生completed/idle已核验。本轮按完整c91ea4f授权、gpt-6-astra/max完成；最终组合CI/main另行验证。
 
 | 字段 | 本轮值 |
 |---|---|

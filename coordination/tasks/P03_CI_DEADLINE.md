@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE｜请求截止时间测试的确定性复现与修复
 
-状态：READY_FOR_REVIEW；E1完整947144f已交付/普通推送，原生completed/idle已核验。E1授权仍为完整`fa1ea86361223171a06b5d082a3731b63a00a74a`，gpt-6-astra/max；[R1精确候选独立审查](P03_CI_DEADLINE_REVIEW.md)已按完整c91ea4f原生派发/ACTIVE。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
+状态：ACCEPTED；E1完整947144f获[R1精确候选独立审查](P03_CI_DEADLINE_REVIEW.md)正式PASS，原review1531892已发布，S0封存核验通过；R1/E1均已结束，待最终组合CI与main验证。E1原授权仍为完整`fa1ea86361223171a06b5d082a3731b63a00a74a`，gpt-6-astra/max。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
 
 | 字段 | 本轮值 |
 |---|---|

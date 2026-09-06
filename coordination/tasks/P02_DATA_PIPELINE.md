@@ -195,4 +195,4 @@ F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。�
 
 ## 新格式复审接受与最终CI跟进
 
-R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PASS，P0/P1/P2均0，原F1关闭及旧FAIL保持；S0范围/证据/最终封存与原生completed/idle核验通过。原SHA已发布并普通整合当前main为2b11b7f。格式代码ACCEPTED，最终CI34024093376的Python3.14旧P03截止时间测试失败，PR8保持Draft、main尚未验收。由[E1限域CPU跟进](P03_CI_DEADLINE.md)修正测试时序假设并独立复核；D1保持空闲，无新格式或数据改动。原人审/训练绑定门槛保持，见[S0记录](../../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。
+R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PASS，P0/P1/P2均0，原F1关闭及旧FAIL保持；S0范围/证据/最终封存与原生completed/idle核验通过。原SHA已发布并普通整合当前main为2b11b7f。格式代码ACCEPTED，最终CI34024093376的Python3.14旧P03截止时间测试失败，PR8保持Draft、main尚未验收。[E1限域修订947144f](P03_CI_DEADLINE.md)已获R1正式PASS/review1531892，原SHA发布及S0封存核验通过；S0接续组合与最终CI/main。D1保持空闲，无新格式或数据改动。原人审/训练绑定门槛保持，见[S0记录](../../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。

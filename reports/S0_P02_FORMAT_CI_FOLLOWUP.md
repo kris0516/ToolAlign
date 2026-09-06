@@ -37,3 +37,14 @@ S0完整读取测试/helper、三份交接及验证脚本，核对282候选文�
 E1保留原失败、负向预期exit1及两次调用设置失败；其辅助inline核对错误只保留交互记录、无独立原stdout/hash，这项限制如实披露。S0首次核对脚本误将旧证据限定在单一私有目录，遗漏三份已记录的历史dist归档，exit1日志 `8d5cbba4370010e214217ac4608494314de867567bea3634f9e5af5fffccef2d` 保留；仅补充三个确切合法路径后通过，日志 `d3452fd5677efc8b7f7858db8298fcf516634e951a56eba8a5ea611d49002988`，候选未变。
 
 [R1精确候选审查范围](../coordination/tasks/P03_CI_DEADLINE_REVIEW.md)已在完整协调提交`c91ea4f79e59e667fd008fab28aaca2e3efdbfe4`准备。10:15 UTC，S0再次以原生状态核验R1原轮completed/idle及干净b9f7567后，按该完整授权实际派发精确947，gpt-6-astra/max，新轮ACTIVE已核验；E1原生completed/idle保持。私有派发回执与新轮身份已保存。10:14 UTC共享GPU租约空闲，100行人审副本仍0 reviewer/0 verdict、hash保持。PR8仍为2b11b7f/Draft；原CI失败未覆盖，新测试独立验收、最终组合CI/main仍待完成，G-DATA/P04保持未放行。
+
+
+## 截止时间修订独立审查验收
+
+R1对精确`947144fa2dd248113f6db412f120cdae5483c9b8`正式 **PASS，P0/P1/P2均0**；[原审查1531892](https://github.com/kris0516/ToolAlign/blob/1531892a9e49b69283ef07f3142b221693483628/reports/review/P03-ci-deadline-r1/README.md)已按原SHA发布，唯一parent为947，tree为`23cb1e08a276e854538448cc6687e54912a65a10`。R1原生本轮completed/idle已核验，无新任务。
+
+R1实际657 passed/0 skipped已含目标三例，另2个独立边界探针通过；旧启动假设与不捕获的请求绕过反例分别按预期exit1。7次相关运行的14个不同自有子进程均回收并清理目录；700/1100ms为测试时钟，真实watchdog退出为约10.11秒。R1两项辅助核验设置错误保留原源码和日志后修正，没有改被审实现；一次只读文件名拼错没有独立stdout的限制也如实保留。
+
+S0完整读取三个公开探针与私有记录/发布脚本，按最终commit核对282候选文件不变、6个新review文件、1346封存条目、20条原命令、14条公开完整命令与2条公开摘要、实际进程文件及公开去敏映射。四份实际构建文件直接解析：sdist89成员，三份wheel各47成员，42生产载荷及45份精确4a1基线包输入保持，metadata/RECORD一致。实际核对1641个文件路径，集合存在交集，不相加。封存为7,042,749逻辑bytes，低于2GiB；S0证明SHA-256 `0abed1b5099fc389167e587ff06b56e51ec85e7a4f8317dc818edd34b555ab83`，本次原始核验日志 `f5648584574c9ec63e3bc99194d3eb4f137cceba6ffb9108f212682997194e30`。288路径公开扫描与diff检查通过。
+
+测试修订ACCEPTED；S0接续将原review与当前main普通组合，执行组合CPU与归档检查，再提交新的最终CI。PR8原2b11b7f及CI34024093376失败保持，main尚未验收。11:01 UTC共享GPU空闲、人审副本100行仍0 reviewer/0 verdict；G-DATA、训练绑定及P04门槛保持未完成。
