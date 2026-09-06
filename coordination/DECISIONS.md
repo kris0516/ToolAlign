@@ -172,7 +172,7 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 
 ## ADR-0020｜已验收训练绑定后的SFT接口CPU准备
 
-日期：2026-09-06；状态：SELECTED_FOR_CPU_IMPLEMENTATION，尚未派发或验收。代码基线为PR9实际main `42eaa50a9519efe96d60b49f07cfbd106b36778c`；P00/P01受限G1/P03/共用格式/训练绑定的CPU前提已验证，语义与token/mask人工、实际页面、真实0.6B容量及正式模型门槛继续待完成。S0将可独立进行的CPU数据/collator/数值适配拆为[P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md)，不把完整P04改名或登记完成。
+日期：2026-09-06；状态：CPU_IMPLEMENTATION_DISPATCHED，已按完整e42536d原生派发T1并核验新轮ACTIVE，尚未候选交付或验收。代码基线为PR9实际main `42eaa50a9519efe96d60b49f07cfbd106b36778c`；P00/P01受限G1/P03/共用格式/训练绑定的CPU前提已验证，语义与token/mask人工、实际页面、真实0.6B容量及正式模型门槛继续待完成。S0将可独立进行的CPU数据/collator/数值适配拆为[P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md)，不把完整P04改名或登记完成。
 
 本机已锁MLX-LM 0.31.3的trainer源码hash为ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe，datasets源码hash为fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17。S0重新读取原件：默认iterator按长度排序/重排并允许截断；default_loss的padding额外监督已有P01真实反例；train只在完整累积周期更新，内置最后validation发生在最后微步之前。源码依据和旧负结果不改写为新模型运行。
 

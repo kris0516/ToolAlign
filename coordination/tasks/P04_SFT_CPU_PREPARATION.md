@@ -1,6 +1,6 @@
 # P04-SFT-CPU｜已绑定序列到实际SFT接口的CPU准备
 
-状态：READY，仅CPU实现与数值核验；尚未原生派发，不领取或授权P04正式模型训练。P02绑定在42eaa50完成独立R1/最终CI/main技术验证；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。这些人工门槛不由本包代签。
+状态：IN_PROGRESS（CPU）；S0已按完整e42536d原生派发T1、显式gpt-6-astra/max，并核验新的实际轮次ACTIVE。新分支与输入intake待T1确认。P02绑定在42eaa50完成独立R1/最终CI/main技术验证；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。本包不领取正式P04模型训练或代签人工门槛。
 
 | 字段 | 本轮值 |
 |---|---|
