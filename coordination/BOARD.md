@@ -7,8 +7,8 @@
 | [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | VERIFIED | R1-r2 PASS `5d30e1b`；审查 `441d31b`；合并 `cd091e3`；main 176 项 CPU 检查通过 |
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
-| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | T1 候选 `f97bb0d` 已交付/空闲；自测274CPU与模型校准，待公共打包修复及R1 |
-| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | READY_FOR_REVIEW | D1 候选 `46f5465` 已交付/空闲；自测8,228有效决策及两次18项产物一致，待R1与kris人审 |
+| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | IN_PROGRESS | 原候选`f97bb0d`保留；已派CPU基线同步（生产37c00de/授权f2a271b），待新完整候选与R1 |
+| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | IN_PROGRESS | 原候选`46f5465`保留；已派CPU基线同步（生产37c00de/授权f2a271b），8,228决策/两遍证据及未填人审保持 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | E1 候选 `85e0905` 已交付/空闲；自测191CPU、scripted demo 10/10与20自有进程回收；待共享基线及R1 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
@@ -27,4 +27,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4) 两轮嵌套/大小写 P1 均由R1-r3独立关闭。最终CI、合并和main验证已完成，[集成证据](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)发布生产base `37c00de`。D1/T1先同步，E1下一批；实际发送后登记活跃状态，仍最多两个实现任务。旧基线仍禁止默认源码包构建/发行。
+公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4) 两轮嵌套/大小写P1均由R1-r3独立关闭。[已验证生产base](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)为`37c00de`。D1/T1已收到授权`f2a271b`并原生核验活跃，均仅CPU同步；E1保持空闲待下一批，当前正好两个实现任务。旧基线仍禁止默认源码包构建/发行。
