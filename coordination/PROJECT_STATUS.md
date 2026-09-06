@@ -141,3 +141,6 @@ S0依据ADR-0019准备P02-TRAINING-BINDING：从已验证36b6988进行纯CPU固�
 
 
 训练绑定实际派发：S0再次确认D1原轮completed/notLoaded、干净8c439f6和授权/配置hash后，按完整5d2c6b66421a47ee71d3b5d0d3c3892354b10512发送P02-TRAINING-BINDING，gpt-6-astra/max，新原生轮ACTIVE已核验。当前仅D1一个CPU实现；新分支intake待确认，候选未交付，T1/E1/R1无新任务，无模型或GPU运行。
+
+
+D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-binding/36b6988，原8c分支保持；337份base、36原制品/2manifest、10授权副本及配置/audit/人审字节通过S0直接检查，证明dbc024e5157e218d85b1befcd343e24e227c0a4ac1b75b4f403d8e0aa89b5575。D1原生新轮继续ACTIVE并已回报开始实现；候选未交付，13例材料未验收，P04及人审门槛保持。

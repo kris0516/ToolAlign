@@ -73,3 +73,6 @@
 
 
 2026-09-06实际派发：S0再次核验D1上一轮completed/notLoaded和干净旧8c439f6、配置原件实际hash及授权远端后，按完整5d2c6b6发送本范围，原生新轮ACTIVE已核验。原branch和制品仍保留；新branch/code_base与输入intake待D1确认，未把仅派发当作候选交付。T1/E1/R1无新派发。
+
+
+11:57 UTC输入核验：D1已实际进入work/p02-training-binding，HEAD为精确36b6988，原work/p02-data仍为8c439f6。S0直接核对337份base字节、两个原构建的36项产物与2份manifest、10份授权副本、精确配置579d3d9及旧audit/人审hash，证明dbc024e5157e218d85b1befcd343e24e227c0a4ac1b75b4f403d8e0aa89b5575。D1首轮保全报告ceaabfa0与原日志15cce4f8已核对；其旧1162私有制品/76命令的本轮重核由D1执行，S0本次读取脚本并核对两个completion seal，不冒称再次全量重核。原人审100行仍0 reviewer/0 verdict；输入intake通过，候选实现/材料与独立审查尚未完成。
