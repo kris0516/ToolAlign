@@ -53,3 +53,45 @@
 NOT_RUN：生产格式切换、standalone ModelInput 生产 validator、新格式跨 tokenizer/1.7B 对照、全量新序列统计、模型生成、真实 MLX mask/padding/packing、SFT/DPO、GPU、P03 整包 harness、测试集/BFCL 评测、P04 token/mask 人审、独立 R1 审查。本轮未运行整套 pytest/包构建，因为只新增报告与独立小探针，生产文件字节未变。
 
 无模型/GPU/安装/下载/费用；未筛选或截断样本、重建/覆盖原产物或上传数据/模型。提交本交接后结束本轮，等待 S0 决定正式 ADR 和允许的实现范围。
+
+## 同轮追加交接：Message 角色与每响应预算比较
+
+S0 在原交接后追加了同一 `fd67511ef4cb7853bb75b0b106ec4692a9d36be8` 范围内的 CPU 比较。原提案 `429ff90d3c806398389f575d937dde7af2d845e0`、原交接 `c23b5136e596379000fcf4a9c2d1ce4bc9e27aec` 及全部原结果保留，未重写历史。**当前精确比较提交为 `ac3c99b10e46deef745b624be14acfacff2cb369`，直接以 c23b513 为父，仅修改原报告和原创探针；本节是其后的交接追加。** 最终完整候选 SHA 由原生回报给 S0。
+
+新报告[第 9 节](../../reports/data/P02_OUTPUT_FORMAT_PROPOSAL.md)明确比较 A 单 envelope 与 B `toolalign.action-json.qwen3-message-roles.v1-proposal`：B 使用新增 system 协议/catalog，每条原 Message 保持传入官方模板时的 role，完整 Message JSON 放在 content；不传 native tools/tool_calls。双方仍使用完全相同的 Action completion。两候选都未切换生产默认，不再以单 envelope 易于往返作为定稿理由。
+
+| 同 12 例的实际比较 | 结果 |
+|---|---|
+| 原证据复现 | 新计算 A 的全部 12 行 P/C/IDs/labels/hash 与原 r3 逐项相同，原结果文件仅读取 |
+| 实际 rendered prompt 逆向恢复 | A/B 均恢复全部 ModelInput 字段与相同 canonical hash；历史 kind 缺失保留，expected/oracle 不进入 prompt |
+| 角色位置 | B 的全部 21 个原 Message 在模板输入保留 role；输出控制段为 user→user 14、assistant→assistant 3、system→system 2、tool→user 2 |
+| 原 system 约束 | A 在 user envelope 的记录中；B 回到独立 native system 段中的 Message JSON。格式优先规则及 JSON 引用方式仍需模型验证 |
+| 工具 observation | 两个相邻 tool 消息被官方模板并入一个 user/tool_response 段；内部 ID 及反序关联完整保留，不声称 native tool 控制段原样保留 |
+| think/特殊 token | 两者均消除数据字面量的模板/特殊 ID 冲突；B 从实际控制段逐项核验，历史文本可逆、仅 generation prefix 留一对空 think 标记 |
+| P/C/token/sequence | 12 例 C 字节/hash/包括 EOS 的 completion IDs 完全相同；P/sequence hash 均不同；双方 prefix/EOS/监督边界通过 |
+| 成本 | B 每例多 39–93 个 prompt/total token；包含指令正文/catalog/包装/角色分段差异，不是纯 role 消融或全量成本估计 |
+| 每响应 256 上限 | 11 例规范 C+EOS 在预算内；原创控制例为 276 内容 token+1 EOS，两种计数口径都超限。其 target 前 256 token 的 raw 实际被 parser 拒绝为 Invalid JSON |
+
+控制例的全序列 A/B 为 1,181/1,233 token，说明可放入总上下文不等于可在当前响应上限完整生成。它仅用于边界检查；本次没有真实模型生成，也没有宣称所有 JSON 写法的最短长度。后续序列审计需单列响应预算/EOS计数、上下文、raw字节及parser边界；不能静默删样本、缩写标签或免费续写。
+
+结构结论是：B 满足本组例保留原 system/assistant 控制角色的目标，A 不满足；B 可作为后续候选，CPU 不能证明模型质量更高。B 的工具 catalog 移到 system、原 system 仍为 JSON 字符串、旧格式要求与协议优先关系、tool 被模板放到 user 中的解释规则均在报告中保留，待 S0 ADR 和真实模型/训练适配器验证。
+
+追加实际命令及日志（均复用原 CPU 环境）：
+
+| 命令/范围 | 退出码 | 完整 log SHA-256 |
+|---|---:|---|
+| `P02_OUTPUT_FORMAT_PROBE.py` 加 `--compare-roles-to` 原 r3，完整 argv 见报告 | 0 | `5e6e6bdd5a0938025b67dc59fda253dc17af4a9f4a414968288f327a093fe716` |
+| `.venv/bin/ruff check reports/data/P02_OUTPUT_FORMAT_PROBE.py` | 0 | `82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18` |
+| 原 `verify-preservation.py` 的本次只读检查 | 0 | `f1f684d4cd715fabe0ab988aac8c327657090c5cf075da9a922640604d59b2df` |
+| 私有 `verify-role-comparison.py` | 0 | `18b4d4ed924f14b2fd6d6fdcf52355c1f3f22e5808f7f53adabbebc626d1db88` |
+| `.venv/bin/python scripts/check_public_content.py`，170 路径 | 0 | `61186a06bf2a85c528548b80b369e98b6d78abf8aa755be6cc3e882ce1621c0c` |
+
+比较实际运行于 `2026-09-06T04:47:02.923087+00:00`；追加首轮通过，没有新增意外失败，原 r1 tuple 失败仍保留。精确制品：
+
+- 新探针：`31eb366ad7e222b6788b3c7d8684934d12ad71b2c171a44e2c989391f9dc94b8`；当前完整提案 Markdown：`02907e03825878b0ac3d91512d18be25c938794db5783ced495ab2b8991b5023`。
+- 比较结果 JSON：`a093e0dd16f6406597e3bf3fcb21149e0f6c07e7be3c5f086f9c93fc25c45d83`（1,075,515 bytes）；12 行 A/B P/C/sequence hash 索引：`c88980abe55ff5951393f2f4bf77b64a8ee5420efe08cdba1b7c63d1922177c6`。
+- 比较范围检查源码：`aa2aca35ea70b211ee4011529e36b7114afd38514d90f3a4ab8c662c6b40ce1c`；结果：`cd272f4bad702f0fa493c60e5a3628f278de21f51c7b3ea24ed71f053cbd1759`；本次人审/数据保留检查结果：`00768aeb0bf9851e1ee9c72fa9557e3552872ffd11da21ffe3e45bd3805fb4c7`。
+
+范围检查确认 167 个非允许路径的原追踪文件逐字节未变，原交接索引中的 16 个私有证据文件和 13 份命令记录/log 未变，原三个公开文件的私有快照与原 Git SHA 一致。两份原构建各 18 项、人审 100 来源/114 决策、填写副本 hash 与原结果一致；未写任何 verdict。检查时本轮累计私有目录/日志 2,221,523 bytes，不含本检查随后写入的结果和封存日志，仍远低于累计 2GiB；没有新增环境或安装。
+
+追加仍只改这三个允许文件，未接入 main 或推送远端；没有修改 src/tests/data/manifest/锁/契约/训练选择/协调状态。原 G-DATA、P04、独立审查及全部模型实验门槛未变。完成追加交接后结束本轮，等待 S0 正式 ADR/实现授权。
