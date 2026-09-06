@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：IN_PROGRESS；owner E1；code_base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；authorization_commit `e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch `work/p03-execution-harness`。真实原生任务身份和隔离 worktree/分支已核验。T1 已交付并停止，当前与 D1 并行，最多两个实现任务。先读取并保存授权副本，再从 code_base 建独立分支。
+状态：READY_FOR_REVIEW；owner E1；候选 `85e0905fc82da4504d73bf7eb489c1f1a0d227a7` 已正式交付且原生任务空闲，尚待共享基线同步与独立R1。code_base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；authorization_commit `e882594da84359b7f6ced7dd6aefdb9c7ce06209`；branch `work/p03-execution-harness`。真实原生任务身份和隔离 worktree/分支已核验；首派时T1已停止，E1与D1并行。最多两个活跃实现任务。保留首派授权副本和原始基线。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
