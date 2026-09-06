@@ -441,9 +441,11 @@ def _validate_output(repository, output):
 def _disk_bytes(root):
     total = 0
     for path in root.rglob("*"):
-        require(not path.is_symlink(), "native_private_symlink")
-        if path.is_file():
-            total += path.stat().st_size
+        # CPU rejection tests intentionally create links. Count the stored link
+        # bytes without following its target; numerical input/output guards
+        # separately reject links where they would be consumed or written.
+        if path.is_symlink() or path.is_file():
+            total += path.lstat().st_size
     require(total <= 2 * 1024**3, "native_private_disk_budget")
     return total
 

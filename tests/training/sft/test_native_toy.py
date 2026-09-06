@@ -29,6 +29,7 @@ from toolalign.training.sft.native_toy import (
     ROUND,
     SCOPE,
     _case_bounds,
+    _disk_bytes,
     _exact_json,
     _reserve,
     _validate_output,
@@ -249,6 +250,16 @@ def test_existing_output_and_outside_round_reject(repository):
         with pytest.raises(DataError, match="native_output_exists_or_outside_round"):
             _validate_output(repository, output)
     assert _validate_output(repository, root / "new")[1] == root / "new"
+
+
+def test_disk_count_does_not_follow_cpu_guard_fixture_links(tmp_path):
+    root = tmp_path / "round"
+    root.mkdir()
+    outside = tmp_path / "outside"
+    outside.write_bytes(b"x" * 1024)
+    link = root / "rejection-fixture-link"
+    link.symlink_to(outside)
+    assert _disk_bytes(root) == link.lstat().st_size < 1024
 
 
 def test_launch_ledger_counts_failures_and_refuses_sixth(repository):
