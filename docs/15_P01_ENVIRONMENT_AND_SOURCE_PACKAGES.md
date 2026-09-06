@@ -38,6 +38,8 @@ T1 在 App worktree 中枚举到私有环境、模型和日志进入默认 sdist
 
 本项目为 sdist 设置 `only-include`，仅选择项目代码、配置、测试、三个验证脚本及所需公开根文件。首轮独立审查发现：目录选择仍会纳入目录内部的被忽略文件，例如 configs 中的密钥和 src 中的权重。因此修订增加 `[tool.hatch.build].exclude`，将环境、密钥、模型、日志、运行制品和私有目录的显式排除同时应用于 sdist 与直接构建的 wheel，不依赖 Hatchling 是否保留 VCS 规则。新增私有路径类别时须同步检查打包排除和真实归档回归。
 
+第二轮独立审查进一步确认，Mac 上 Git 检测的 `core.ignorecase=true` 会忽略 `.PEM`、`.ENV` 等变体，而普通 Hatch glob 仍区分大小写。最终规则采用显式 ASCII 字母大小写字符类（例如 `*.[pP][eE][mM]`），覆盖文件名和私有目录的全部大小写组合；`.env.example` 的公开例外同样保留大小写匹配。不修改用户或仓库的实际 Git 设置来回避这一差异。
+
 研究报告、原始数据、权重、运行目录、环境与任务私有映射不属于源码包内容；完整研究证据仍通过 Git 仓库与受控私有原始记录交接。公开内容扫描负责索引/待提交内容，并不扫描被 Git 忽略的文件；它不能替代实际发行包内容检查。
 
 ```bash
@@ -46,6 +48,6 @@ uv build
 uv run --locked python reports/review/P00/verify_wheel.py
 ```
 
-新检查在临时 `.codex/worktrees` 下创建真正的 Git worktree，植入 85 个合成私有文件，覆盖根目录及 configs/tests/src 内部的密钥、权重、环境、日志和私有子目录。检查实际 tar、从该源码包重建的 wheel 以及直接由工作区构建的 wheel，核对泄漏探针和冻结 schema。检查已加入 CPU CI。测试不读取或打包用户真实权重，不上传任何制品。
+新检查在临时 `.codex/worktrees` 下创建真正的 Git worktree，植入 241 个合成私有文件，覆盖根目录及 configs/tests/src 内部的密钥、权重、环境、日志和私有子目录，包括大写/混合大小写。仅在临时合成仓库固定 `core.ignorecase=true`，使 Linux CI 也能复现 Mac 条件，并用 Git 实际核对忽略集合；每种变体使用独立父目录，避免 Mac 文件系统把它们覆盖为同一文件。另设 18 个公开对照，确认 `.env.example` 和普通公开文件仍保留。检查实际 tar、从该源码包重建的 wheel 以及直接由工作区构建的 wheel，并核对冻结 schema。检查已加入 CPU CI，不读取或打包用户真实权重，不上传任何制品。
 
 历史审查目录中的包结构/extra 精确断言绑定它们报告写明的旧候选。例如 S0-SHARED-01 的“只有一个 extra”是当时的快照，不是禁止后续合法新增 extra 的长期契约；保留原探针和旧结果，当前候选使用新的独立审查证据，不修改旧断言来制造当前全绿。

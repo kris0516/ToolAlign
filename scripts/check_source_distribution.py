@@ -13,6 +13,19 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 CANARY = b"TOOLALIGN_PRIVATE_BUILD_CANARY_" + os.urandom(16)
+
+
+def nested_canary(directory: str, relative: str, case: str) -> str:
+    if case == "original":
+        return f"{directory}/{relative}"
+    transformed = relative.upper() if case == "upper" else "".join(
+        char.upper() if index % 2 else char.lower() for index, char in enumerate(relative)
+    )
+    # Separate parents avoid overwriting lowercase fixtures on a case-insensitive
+    # filesystem, which would otherwise fail to exercise the variant's spelling.
+    return f"{directory}/case-{case}/{transformed}"
+
+
 PRIVATE_PATHS = (
     ".toolalign-local/source/record.json",
     ".toolalign-local/models/weights.safetensors",
@@ -22,7 +35,7 @@ PRIVATE_PATHS = (
     "unlisted-private-build-marker.txt",
     "src/toolalign/__pycache__/private-build-marker.pyc",
 ) + tuple(
-    f"{directory}/{relative}"
+    nested_canary(directory, relative, case)
     for directory in ("configs", "tests", "src/toolalign")
     for relative in (
         "private-build-marker.key", "private-build-marker.pem",
@@ -39,13 +52,21 @@ PRIVATE_PATHS = (
         "node_modules/private-build-marker.json", "build/private-build-marker.json",
         "dist/private-build-marker.json", "nested/.env.private-build-marker",
     )
+    for case in ("original", "upper", "mixed")
+)
+PUBLIC_CONTENT = b"TOOLALIGN_PUBLIC_BUILD_FIXTURE=" + os.urandom(16).hex().encode() + b"\n"
+PUBLIC_PATHS = tuple(
+    nested_canary(directory, relative, case)
+    for directory in ("configs", "tests", "src/toolalign")
+    for relative in (".env.example", "public-fixture.json")
+    for case in ("original", "upper", "mixed")
 )
 
 
-def run(args: list[str], cwd: Path) -> bytes:
+def run(args: list[str], cwd: Path, input_bytes: bytes | None = None) -> bytes:
     env = os.environ | {"GIT_CONFIG_NOSYSTEM": "1", "GIT_CONFIG_GLOBAL": os.devnull}
     result = subprocess.run(
-        args, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        args, cwd=cwd, env=env, input=input_bytes, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         timeout=60, check=False,
     )
     if result.returncode:
@@ -74,6 +95,8 @@ def main() -> None:
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, destination)
         run(["git", "init", "-q"], repository)
+        # Match the App's Mac behavior without changing any user Git config.
+        run(["git", "config", "--local", "core.ignorecase", "true"], repository)
         run(["git", "add", "."], repository)
         run([
             "git", "-c", "user.name=ToolAlign Packaging Check",
@@ -87,6 +110,17 @@ def main() -> None:
             path = checkout / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(CANARY)
+        for relative in PUBLIC_PATHS:
+            path = checkout / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(PUBLIC_CONTENT)
+
+        ignored = set(PRIVATE_PATHS) - {"unlisted-private-build-marker.txt"}
+        reported = run(
+            ["git", "check-ignore", "--stdin", "-z"], checkout,
+            ("\0".join(sorted(ignored)) + "\0").encode(),
+        )
+        assert set(reported.decode().split("\0")) - {""} == ignored
 
         archives = parent / "archives"
         run(["uv", "build", "--sdist", "--out-dir", str(archives)], checkout)
@@ -112,6 +146,7 @@ def main() -> None:
                 files[relative] = content
 
         assert not leaked, f"Source archive contains private build canaries: {sorted(leaked)}"
+        assert all(files.get(path) == PUBLIC_CONTENT for path in PUBLIC_PATHS)
 
         frozen_schema = (ROOT / "src/toolalign/contracts/v1.json").read_bytes()
         assert files["src/toolalign/contracts/v1.json"] == frozen_schema
@@ -131,11 +166,15 @@ def main() -> None:
                         f"{label} wheel contains a private build canary"
                     )
                 assert archive.read("toolalign/contracts/v1.json") == frozen_schema
+                for path in PUBLIC_PATHS:
+                    if path.startswith("src/toolalign/"):
+                        assert archive.read(path.removeprefix("src/")) == PUBLIC_CONTENT
         print(
             f"PASS: App-style .codex Git-worktree archives exclude {len(PRIVATE_PATHS)} "
-            "private canaries, including files inside allowed trees; "
+            "private canaries, including case variants inside allowed trees; "
             f"files={len(files)}, compressed_bytes={sdist.stat().st_size}; "
-            "direct and rebuilt wheels preserve the frozen schema"
+            f"{len(PUBLIC_PATHS)} public fixtures and the frozen schema remain intact "
+            "across sdist, direct and rebuilt wheels"
         )
 
 
