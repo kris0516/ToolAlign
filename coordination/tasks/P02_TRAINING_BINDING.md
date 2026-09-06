@@ -76,3 +76,5 @@
 
 
 11:57 UTC输入核验：D1已实际进入work/p02-training-binding，HEAD为精确36b6988，原work/p02-data仍为8c439f6。S0直接核对337份base字节、两个原构建的36项产物与2份manifest、10份授权副本、精确配置579d3d9及旧audit/人审hash，证明dbc024e5157e218d85b1befcd343e24e227c0a4ac1b75b4f403d8e0aa89b5575。D1首轮保全报告ceaabfa0与原日志15cce4f8已核对；其旧1162私有制品/76命令的本轮重核由D1执行，S0本次读取脚本并核对两个completion seal，不冒称再次全量重核。原人审100行仍0 reviewer/0 verdict；输入intake通过，候选实现/材料与独立审查尚未完成。
+
+12:07 UTC，S0独立计算固定规则的[选择身份参考](../../reports/S0_P02_TRAINING_BINDING_REFERENCE.md)，摘要0f82eac7：smoke预期1600/197、formal6013/217，私有逐例排名/hash/桶及互斥排除分母已保存，供候选交付时核对。该检查未导入D1实现、未重新分词或生成训练Example JSONL；不替代D1两次实际物化、13例材料或R1。D1原轮仍ACTIVE，授权配置未变。

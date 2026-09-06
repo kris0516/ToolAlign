@@ -144,3 +144,5 @@ S0依据ADR-0019准备P02-TRAINING-BINDING：从已验证36b6988进行纯CPU固�
 
 
 D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-binding/36b6988，原8c分支保持；337份base、36原制品/2manifest、10授权副本及配置/audit/人审字节通过S0直接检查，证明dbc024e5157e218d85b1befcd343e24e227c0a4ac1b75b4f403d8e0aa89b5575。D1原生新轮继续ACTIVE并已回报开始实现；候选未交付，13例材料未验收，P04及人审门槛保持。
+
+12:07 UTC，S0从固定原train/validation和历史audit独立计算[选择身份参考](../reports/S0_P02_TRAINING_BINDING_REFERENCE.md)，实际exit0、16.44秒，摘要0f82eac7f0b20a9a7d64168a2368952a349a944a1a741807b0c4c94148633f69。参考预期smoke1600/197、formal6013/217及对应subset成立；排名身份、padding桶和互斥排除分母已封存，未执行D1开发模块或重新分词/物化训练记录。smoke所选train中1173条能在1536内预留完整256生成token；该统计不改变规则或放行模型容量。D1继续同一CPU轮次，候选/R1/人工门槛待完成。
