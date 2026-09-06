@@ -23,9 +23,13 @@ def test_encoding_preserves_valid_actions_without_relaxing_raw_limits(boundary):
         action = {"kind": "tool_calls", "content": "", "tool_calls": [
             {"call_id": "current-1", "name": "original_tool", "arguments": {"value": value}},
         ]}
-        error = "JSON complexity limit"
+        # P03 decode wraps this inner ContractError (a ValueError subclass).
+        error = "Invalid JSON"
     assert validate_action(action) == action
     raw = encode_action(action)
     assert canonical_hash(json.loads(raw)) == canonical_hash(action)
-    with pytest.raises(ContractError, match=error):
+    with pytest.raises(ContractError, match=error) as caught:
         parse_action(raw)
+    if boundary != "escaped_bytes":
+        assert isinstance(caught.value.__cause__, ContractError)
+        assert str(caught.value.__cause__) == "JSON complexity limit"
