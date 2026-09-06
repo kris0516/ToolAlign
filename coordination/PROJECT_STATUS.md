@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED。P02完整候选获R1技术PASS，S0正在集成；P02/G-DATA仍待kris实际语义审查和训练配置绑定。T1/D1/E1原生空闲，R1已接续完整P01 CPU/历史模型证据审查，P03等待。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02数据代码已MERGED且main技术验证通过，整包/G-DATA仍待kris实际语义审查和训练配置绑定。T1/D1/E1原生空闲，R1已接续完整P01 CPU/历史模型证据审查，P03等待。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,15 +12,15 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 work/s0-p02-integration，整合P02技术PASS；共享生产base仍为已验证37c00de |
+| 当前任务/分支 | S0 main；P02合并2ec1767且主干技术验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | T1候选59b3802、D1候选b0d8d83、E1候选79a15d9均已交付/原生空闲；R1正在完整P01审查 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
-| 当前实现 | 已验收CPU基础包/契约/GPU锁；P02数据流程技术PASS正在集成，尚未整包验收 |
-| 已验收训练/数据/评测/服务 | 无；P01/P02/P03 候选已交付，均尚无本包验收 |
+| 当前实现 | 已验收CPU基础包/契约/GPU锁；P02数据流程已合并并验证技术集成，尚未整包验收 |
+| 已验收训练/数据/评测/服务 | P02代码技术集成通过；数据语义、训练、正式评测与服务均无整包验收 |
 | 已运行模型实验 | T1 已报告 0.6B smoke 与 1.7B 长度校准；尚未独立验收，不作为正式 SFT/DPO 结果 |
 | 重 GPU 作业 | P01历史校准已结束，当前未派发新GPU作业；任何后续加载仍须实际取得共享租约 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00自测、R1精确head独立审查、S0合并与main重验均已满足。P02技术PASS不是整包VERIFIED：当前待最终PR5 CI/main集成，以及kris实际语义审查和后续训练配置/manifest/窗口绑定。R1的P02轮次已终止，S0核验IDLE后派发P01并确认原生活跃；P03仍在队列。P04尚未授权，后续仍最多两个并行实现。
+P00自测、R1精确head独立审查、S0合并与main重验均已满足。P02最终PR5 CI/main技术集成已通过，代码为MERGED；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。R1的P02轮次已终止，S0核验IDLE后派发P01并确认原生活跃；P03仍在队列。P04尚未授权，后续仍最多两个并行实现。
 
 ## 恢复入口
 
@@ -54,3 +54,5 @@ P02最新技术验收：R1对完整b0d8d83750c48cd951c16b50cfa28a7898976e72给�
 kris人审请求已实际发出，材料为不变的100来源/114决策/34分层，先前冻结表与填写副本均空，尚未收到本人结果。R1新增的浏览器检查已实际完成：说明和一个展开样本可见、无横向溢出，500内容区另以解码值核对；不改写D1历史NOT_VERIFIED，也不声称逐页人工判定。来源61原turn5作为具体语义待决点交kris，不预设误标/通过。P05数值阈值未套用P02。
 
 接续派发：R1在P02正式完成/原生IDLE后，按授权52f9c57a50eaf580a1a90bc5c4b8bd028c83b903收到完整P01候选59b3802c81aa6eceaf3609af88f288756bcb1581，gpt-6-astra/max；原生已确认新一轮活跃。仅CPU、历史模型证据只读，P01/P03仍未验收。
+
+P02集成现已完成：[PR5](https://github.com/kris0516/ToolAlign/pull/5)以最终head71a50ba合并为2ec17673c18ffbc817b1ff8512e53e44a11766a5，GitHub已读回closed/merged，本机main tree与最终CI head完全相同。[CI34006711558](https://github.com/kris0516/ToolAlign/actions/runs/34006711558)双Python所有步骤成功；实际main338CPU无skip、241/18归档探针、真实sdist/direct+rebuilt wheel、14条隔离安装/P02接口子命令通过。归档0未追踪载荷，24源码/资源字节一致；README导致的metadata差异已逐成员确认。完整命令/退出码/hash与限制见[主干技术证据](../reports/S0_P02_MAIN_VERIFICATION.md)。P02状态MERGED，人工语义与训练绑定仍未通过，P04保持未授权。

@@ -1,6 +1,6 @@
 # P02｜数据规范化、许可与分组隔离
 
-状态：READY_FOR_REVIEW；完整候选`b0d8d83750c48cd951c16b50cfa28a7898976e72`已获R1技术PASS（审查`8e4fdbd7374130c77262a57e55049f9cef4bf651`），S0正在集成；kris真实语义审查请求已发，整包/G-DATA仍待审。原候选`46f546504f73588caa2e71aac316c3c312306df6`保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：MERGED；完整候选`b0d8d83750c48cd951c16b50cfa28a7898976e72`获R1技术PASS（审查`8e4fdbd7374130c77262a57e55049f9cef4bf651`），PR5合并为`2ec17673c18ffbc817b1ff8512e53e44a11766a5`，最终CI及main技术验证通过，见[集成证据](../../reports/S0_P02_MAIN_VERIFICATION.md)。kris真实语义审查请求已发，整包/G-DATA仍待审及训练配置绑定，不能标VERIFIED。原候选`46f546504f73588caa2e71aac316c3c312306df6`保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
