@@ -1,6 +1,6 @@
 # S0-SHARED-02 自查与来源证据
 
-日期：2026-09-06；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**两轮独立审查分别发现目录内部及大小写 P1；最新大小写修订已自查，待精确新 SHA 复审**。
+日期：2026-09-06；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**R1-r3 对完整候选 f8ec7ff 独立 PASS，两轮 P1 均关闭；待最终 CI、合并与 main 验证**。
 
 本包加入可选备选依赖与 P01 首选失败重放环境，并修复 App worktree 的源码包选择边界。生产冻结契约、runtime 与 T1/D1 实现均未修改。具体职责和复现命令见 [环境/源码包说明](../docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md)。
 
@@ -106,4 +106,10 @@ S0 将每个排除规则的 ASCII 字母展开为大小写字符类，覆盖相�
 
 R1-r2 正式 FAIL 提交 `f4af080e80380023ecac9c5262754faedb344b05` 已非强制 merge 并保留原 SHA。S0 重跑该原始脚本未强制改 Git 检测值：本机 ignorecase=true、Hatch VCS 规则仍为 0，大小写和小写场景的三条归档路径均无泄漏；30 个源码包公开文件和15个wheel公开文件对照保留。独立第三轮复审尚待完成。
 
-**NOT_RUN**：本候选环境的模型/数学/吞吐重放、最新大小写修订候选的 R1 复审/最终 CI/main 验证、P01 本包验收、D1 人工质量门、P03 验收和 P04/P05 正式训练。
+## 独立 r3 结论
+
+R1 对完整 `f8ec7ff040053f11e073b6858e1f849e888d4ac2` 给出 PASS，P0/P1/P2均为0；正式审查提交 `ad3b5198c2c222512f51d0c529c8188d20827e41` 以非强制merge保留原SHA。原r2未修改反例在相同Mac条件下由R1独立重跑，三种归档从21/7/7私有泄入变为0/0/0；241私有/18公开回归通过，新增45私有/21公开近边界反例也通过。R1本轮176CPU、正常公开构建及隔离安装全部通过，详细证据见 [r3交接](../coordination/handoffs/S0-SHARED-02-review-r3.md)。各组场景有重叠，不把数量相加为覆盖率。
+
+被审候选的GitHub CPU CI [run 34001591651](https://github.com/kris0516/ToolAlign/actions/runs/34001591651) 两个Python jobs各步骤成功。S0整合r3新增报告及三个worker交接状态后只改变审查/协调文档，生产依赖、源码、配置、冻结与归档脚本字节未动；完整最终head仍须CI，然后合并并验证main。此处不将候选CI等同最终head检查。
+
+**NOT_RUN**：本候选环境的模型/数学/吞吐重放、最终整合head CI/main 验证、P01 本包验收、D1 人工质量门、P03 验收和 P04/P05 正式训练。

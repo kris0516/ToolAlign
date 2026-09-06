@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；公共支持包合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 并验证 |
+| 当前任务/分支 | S0 work/shared-backend-packaging；S0-SHARED-02 独立PASS，正在最终CI与main集成；当前已发布main `9d1cdfd` |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/P01、D1/P02、E1/P03 已交付/空闲；R1 正在审 S0-SHARED-02 |
+| 独立实现/reviewer 对话 | T1/P01、D1/P02、E1/P03 已交付/空闲；R1 已提交 S0-SHARED-02-r3 PASS并空闲 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -37,7 +37,7 @@ P00 自测、R1 精确 head 独立审查、S0 合并与 main 重验均已满足�
 
 公共支持：S0-SHARED-01 已 VERIFIED，见 [main 集成证据](../reports/S0_SHARED_01_MAIN_VERIFICATION.md)。可选依赖/来源政策正式发布给 T1/D1；P01/P02/P03 候选尚待各包独立验收，不因公共支持通过而提前放行 P04。用户模型设置保护见 [GOAL](GOAL.md) 与 ADR-0014。
 
-P01 精确候选 f97bb0de346c220871962a5689014a379fe19c83，274项CPU与模型校准仅为T1自测；R1先关闭公共打包边界问题，再分别审完整P02/P01/P03。共享候选两轮发现的嵌套/大小写P1及FAIL报告均保留，最新精确复审候选为f8ec7ff；尚未发布已验证新基线。旧sdist选择可纳入私有目录，源码包发行暂停；D1已隔离一次未上传的失败tar，细节私有保存。三个worker仅在S0发布已验证main后同步新base。
+P01 精确候选 f97bb0de346c220871962a5689014a379fe19c83，274项CPU与模型校准仅为T1自测；下一批分别审完整P02/P01/P03。共享包R1-r3已对f8ec7ff独立PASS，审查ad3b519保留原SHA整合，两轮FAIL保持原文；尚待最终CI、合并和main验证后发布基线。旧sdist选择可纳入私有目录，旧基线源码包发行暂停；D1已隔离一次未上传的失败tar，细节私有保存。三个worker仅在S0发布已验证main后同步新base。
 
 P02 精确交接 `46f546504f73588caa2e71aac316c3c312306df6`，生产实现 `9be07a5`。D1 自测 355 项 CPU（包含 57 项旧共享快照），两次构建 18 项产物一致，最终 8,228 决策；这不构成独立验收。S0 已核对 100 来源/114 决策人审包及独立填写副本的 hash，判定字段全空，G-DATA 仍待审；实际渲染未验证。
 
