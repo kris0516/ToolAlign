@@ -1,6 +1,6 @@
 # P04-SFT-CPU｜已绑定序列到实际SFT接口的CPU准备
 
-状态：ACCEPTED（CPU准备部分）；R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。见[独立验收与集成](../../reports/S0_P04_SFT_CPU_INTEGRATION.md)。本包原授权与边界保持，不领取正式P04训练。
+状态：VERIFIED（CPU准备部分）；P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](../../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。下列原实现授权与限制保持；完整P04仍未领取正式训练。
 
 | 字段 | 本轮值 |
 |---|---|

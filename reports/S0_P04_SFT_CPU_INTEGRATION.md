@@ -69,3 +69,5 @@ S0使用已有CPU解释器及只读缓存依赖实际离线构建三份新归档
 17:40:43 UTC汇总核验通过，证明SHA为`15680ada768366d850cba4f6b7cfc9cbf8ee44068f8f8a3bf2bac44a2f06d09b`。四条本轮截止时间子进程记录确认wait/reap、handle关闭、目录清理，PID均不存在；共享GPU锁实际空闲。本轮文件占用观察值144,951,220 bytes低于2GiB，是收尾时点计数，不是不可变seal或RSS测量。100行语义与13行token/mask表仍0 reviewer/0 verdict，实际页面观察0，原浏览器拒绝与未完成项保留。
 
 最终CI、PR合并与实际main验证继续由S0完成；本次CPU准备接收不关闭完整P04、人工、真实模型容量、baseline/SFT/DPO/评测或服务部署。没有预训练模型加载、费用、公网接口或模型/数据上传。
+
+主干验收补记（2026-09-07）：P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[main证据](S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。此前记录仍保留各自实际执行时间与待办状态，不改写旧实验。

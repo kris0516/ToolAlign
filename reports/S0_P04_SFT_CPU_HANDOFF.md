@@ -51,3 +51,5 @@ S0 同时按原 completion 精确白名单重核旧 1562 封存制品、7 份公
 R1 继续同一实际原生轮次的 CPU 功能、原始负结果与归档/安装独立审查；intake 通过不代替正式 PASS/FAIL/BLOCKED 结论。PR10、上游 train 阻塞及全部人工/正式训练门槛维持上述边界。
 
 最新CPU接收补记（2026-09-07）：R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。详见[独立验收与集成](S0_P04_SFT_CPU_INTEGRATION.md)。本报告前述旧测量保留原执行范围，不改写为新运行。
+
+主干验收补记（2026-09-07）：P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[main证据](S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。此前记录仍保留各自实际执行时间与待办状态，不改写旧实验。

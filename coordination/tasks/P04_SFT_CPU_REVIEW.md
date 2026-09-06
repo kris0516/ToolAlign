@@ -1,6 +1,6 @@
 # P04-SFT-CPU-R1｜CPU 准备与已知上游限制独立审查
 
-状态：COMPLETE，CPU准备PASS，完整原生trainer BLOCKED_UPSTREAM_CPU_ENTRY；R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。见[S0接收记录](../../reports/S0_P04_SFT_CPU_INTEGRATION.md)。下列为本轮原精确授权，保持不变。
+状态：COMPLETE，CPU准备PASS且S0已完成主干验证；完整原生trainer BLOCKED_UPSTREAM_CPU_ENTRY。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[主干证据](../../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。以下为本轮原精确授权。
 
 | 字段 | 本轮值 |
 |---|---|

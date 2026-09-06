@@ -76,3 +76,5 @@ S0只读原8,228行派生指标文件（SHA-256 `36b8cbfe6773c08f7a28521a99ed878
 2026-09-06主干补记：训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[本次主干证据](S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。smoke1600/197及formal6013/217现在为已物化并核验的训练绑定；本文件中的旧候选/算术/待验记录保留原时间。实际材料页面观察、kris语义/token-mask判断及P04实际trainer/collator、尾批/checkpoint/容量与正式训练仍待完成。
 
 最新CPU接收补记（2026-09-07）：R1原800480b对33d6248的CPU准备正式PASS/P0/P1/P2均0，已原生completed/idle；S0核对56134路径/26原命令，普通集成487c92d实测1014CPU/2跳过、三新归档及新默认安装7条接口通过。CPU部分ACCEPTED，PR10最终CI/main待验证；原生train仍BLOCKED，实际尾周期/evaluate/checkpoint和人工/正式训练门槛保持。详见[独立验收与集成](S0_P04_SFT_CPU_INTEGRATION.md)。本报告前述旧测量保留原执行范围，不改写为新运行。
+
+主干验收补记（2026-09-07）：P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。见[main证据](S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。此前记录仍保留各自实际执行时间与待办状态，不改写旧实验。
