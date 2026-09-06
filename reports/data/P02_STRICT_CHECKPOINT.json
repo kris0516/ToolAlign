@@ -1,0 +1,589 @@
+{
+  "checkpoint_status": "STRICT_SOURCE_CHECKPOINT_NOT_P02_COMPLETE",
+  "implementation_commit": "2d745346675f049d1ee973620960bf31774c398c",
+  "audit": {
+    "accepted_example_lengths": {
+      "aggregate_token_shares": {
+        "completion_tokens": null,
+        "prompt_without_schema_tokens": null,
+        "schema_marginal_tokens": null
+      },
+      "attribution_decisions": 0,
+      "completion_tokens": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "p99": null
+      },
+      "prompt_tokens": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "p99": null
+      },
+      "prompt_without_schema_tokens": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "p99": null
+      },
+      "schema_marginal_tokens": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "p99": null
+      },
+      "total_tokens": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "p99": null
+      }
+    },
+    "decision_syntax_counts": {
+      "call_parseable": 9809,
+      "unlabelled_or_unparseable": 4010
+    },
+    "exact_duplicate_source_records": 3,
+    "final_category_counts": {},
+    "final_examples": 0,
+    "final_split_counts": {
+      "ood_test": 0,
+      "test": 0,
+      "train": 0,
+      "validation": 0
+    },
+    "grouping": {
+      "exact_key_edges": {
+        "schema": 21469,
+        "source": 3,
+        "template": 136,
+        "tool": 17618
+      },
+      "groups": 3517,
+      "largest_group_unique_records": 6716,
+      "method": "connected keys + MinHash64/16x4/Jaccard-trigram>=0.85-v1",
+      "near_candidate_pairs": 55538,
+      "near_duplicate_edges": 134,
+      "near_edges_hash": "bb79b424bfe337525d221c3ac9bfbe9387727e824d240f8b4625fba0cd417fe3"
+    },
+    "human_review": {
+      "sample_records": 100,
+      "status": "CANDIDATES_ONLY_NOT_REQUESTED",
+      "strata": 35
+    },
+    "normalization_candidates": 0,
+    "normalization_excluded_decisions": 13819,
+    "overlapping_exclusion_counts": {
+      "action_kind_unlabelled": 3727,
+      "ambiguous_tool_names": 128,
+      "call_parameter_invalid": 7,
+      "call_syntax_unsupported": 33,
+      "call_value_not_json": 115,
+      "invalid_history_prefix": 54,
+      "schema_array_unbounded": 2225,
+      "schema_contract_rejected": 13053,
+      "schema_keyword_unsupported": 6167,
+      "schema_object_unclosed": 13053,
+      "schema_properties_missing": 29,
+      "schema_string_unbounded": 12628,
+      "schema_type_unsupported": 13053,
+      "side_effect_unknown_or_forbidden": 13053,
+      "tool_name_incompatible": 12305,
+      "tool_runtime_metadata_missing": 13053,
+      "unsupported_tool_format": 518
+    },
+    "p05_preference_audit": "NOT_RUN",
+    "post_normalization_exclusions": {},
+    "primary_exclusion_counts": {
+      "action_kind_unlabelled": 3727,
+      "ambiguous_tool_names": 128,
+      "call_parameter_invalid": 7,
+      "call_syntax_unsupported": 33,
+      "call_value_not_json": 115,
+      "invalid_history_prefix": 14,
+      "schema_array_unbounded": 1823,
+      "schema_contract_rejected": 7972
+    },
+    "provisional_source_split_counts": {
+      "ood_test": 475,
+      "test": 381,
+      "train": 10033,
+      "validation": 411
+    },
+    "raw_assistant_decisions": 13819,
+    "raw_language_script_counts": {
+      "han": 10,
+      "han_and_latin": 15,
+      "latin": 11275
+    },
+    "raw_length_buckets": {
+      "le_2048": 13638,
+      "le_4096": 176,
+      "le_8192": 5
+    },
+    "raw_length_unmeasured_decisions": 0,
+    "raw_records": 11300,
+    "raw_source_length_status": "MEASURED_QUARANTINED_SOURCE_REPRESENTATION",
+    "raw_source_lengths": {
+      "aggregate_token_shares": {
+        "completion_tokens": 0.08529564066959594,
+        "prompt_without_schema_tokens": 0.38730124732133725,
+        "schema_marginal_tokens": 0.5274031120090669
+      },
+      "attribution_decisions": 13301,
+      "completion_tokens": {
+        "count": 13819,
+        "p50": 42,
+        "p90": 148,
+        "p95": 224,
+        "p99": 394
+      },
+      "prompt_tokens": {
+        "count": 13819,
+        "p50": 658,
+        "p90": 1184,
+        "p95": 1405,
+        "p99": 1963
+      },
+      "prompt_without_schema_tokens": {
+        "count": 13301,
+        "p50": 224,
+        "p90": 494,
+        "p95": 739,
+        "p99": 1276
+      },
+      "schema_marginal_tokens": {
+        "count": 13301,
+        "p50": 385,
+        "p90": 728,
+        "p95": 854,
+        "p99": 1101
+      },
+      "total_tokens": {
+        "count": 13819,
+        "p50": 712,
+        "p90": 1289,
+        "p95": 1533,
+        "p99": 2143
+      }
+    },
+    "record_reason_counts": {
+      "schema_array_unbounded": 1882,
+      "schema_contract_rejected": 10534,
+      "schema_keyword_unsupported": 4760,
+      "schema_object_unclosed": 10534,
+      "schema_properties_missing": 25,
+      "schema_string_unbounded": 10119,
+      "schema_type_unsupported": 10534,
+      "side_effect_unknown_or_forbidden": 10534,
+      "tool_name_incompatible": 9838,
+      "tool_runtime_metadata_missing": 10534,
+      "unsupported_tool_format": 518
+    },
+    "records_with_no_assistant_decision": 0,
+    "schema_catalog": {
+      "counts": {
+        "parsed_tool_format_records": 10782,
+        "schema_nodes": 120900,
+        "tool_occurrences": 33690,
+        "unparsed_tool_format_records": 518
+      },
+      "default_declared_type_to_value_type": {
+        "array:array": 12,
+        "boolean:boolean": 528,
+        "boolean:number": 3,
+        "boolean:string": 68,
+        "dict:object": 1,
+        "float:null": 7,
+        "float:number": 1586,
+        "float:string": 373,
+        "int:null": 27,
+        "int:number": 942,
+        "int:string": 63,
+        "string:boolean": 10,
+        "string:null": 33,
+        "string:number": 1,
+        "string:string": 7545,
+        "union:string": 14
+      },
+      "keyword_occurrences": {
+        "additionalProperties": 16,
+        "default": 11213,
+        "description": 82777,
+        "enum": 3068,
+        "examples": 59,
+        "format": 418,
+        "items": 3309,
+        "maxItems": 8,
+        "maxLength": 11,
+        "maximum": 451,
+        "minItems": 12,
+        "minLength": 10,
+        "minimum": 545,
+        "other": 117,
+        "pattern": 1336,
+        "properties": 37761,
+        "required": 36836,
+        "type": 120900
+      },
+      "node_types": {
+        "array": 3309,
+        "boolean": 1545,
+        "dict": 37791,
+        "float": 11463,
+        "int": 8454,
+        "string": 58240,
+        "union": 98
+      },
+      "root_types": {
+        "dict": 33690
+      }
+    },
+    "semantic_category_counts": {
+      "unknown": 13819
+    },
+    "split_intersections": {
+      "augmentation": 0,
+      "group": 0,
+      "schema": 0,
+      "source": 0,
+      "template": 0,
+      "tool": 0
+    },
+    "status": "AUTO_AUDIT_ONLY_G_DATA_PENDING",
+    "tool_finding_occurrences": {
+      "schema_array_unbounded": 2446,
+      "schema_contract_rejected": 33690,
+      "schema_keyword_unsupported": 7157,
+      "schema_object_unclosed": 33690,
+      "schema_properties_missing": 25,
+      "schema_string_unbounded": 27249,
+      "schema_type_unsupported": 33690,
+      "side_effect_unknown_or_forbidden": 33690,
+      "tool_name_incompatible": 31867,
+      "tool_runtime_metadata_missing": 33690
+    },
+    "tool_occurrences": 33690,
+    "training": "NOT_RUN",
+    "unique_raw_tools": 17961,
+    "xlam": "NOT_ACCESSED_OPTIONAL"
+  },
+  "build_manifest": {
+    "artifacts": {
+      "annotation-examples.json": "f16a06a417bfcbff29b63d12c82d02a1c44fa964c0d3e89e19b89ccf5991eb07",
+      "assignments.jsonl": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db",
+      "examples.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "human-review/index.html": "afbea55be957a1f9c702b40ff687a5a49f13f03cb68d0fcdcd50690474170b6c",
+      "human-review/manifest.json": "06360694515dae2dd2b5a7554e0e4bcc9e48c19efcffe3b401f9212df69aa937",
+      "human-review/review.csv": "219cb331f2ee4b83a958525eabb2c703050c7847fceed8164eae84355dd876da",
+      "human-review/samples.jsonl": "73ac00740ade19629012e113e7fa2f0dad4c21d6f00634894b6abd424efd5cf6",
+      "lineage.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ood_test.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "report.json": "9ae0c9384b9148ad86f6055eba079ca1995dcca566eee6878157ea198b458a26",
+      "source-index.jsonl": "9ebc3eefb6ca61b111f65778f81e6904997467a6496d3a36796a796676cf0e85",
+      "test.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "train.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "validation.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code_revision": "2d745346675f049d1ee973620960bf31774c398c",
+    "contract_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "manifest_version": "toolalign.data-build.v1",
+    "module_hashes": {
+      "__init__.py": "67e7b856ca6fe0f85513ec5c2e7825eb064e34786b7870184e7e12da656ffe63",
+      "__main__.py": "e02f86a9afc9f08f8bcf83d62a5626c8b8d659907c9845dc29d519c622a2041d",
+      "catalog.py": "777d43a8be8fe5e49f5b1e6f0ae4d904aa8a8c22c486a262341eae7dc339ff54",
+      "common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "grouping.py": "f91fd052228bc46c2407f3ec26392f51824a634f2d52c8aa9c6e0c0eeb464b47",
+      "lengths.py": "894d39a1ec7090404d75bb9de6213349ff72acc264912dea5b6f2e6b420b8a46",
+      "pipeline.py": "6b18b45f3f2030a6c6091bfd0af15a6e1336ebd0620383d69c73a8835071ce80",
+      "sources.py": "a6f20ef6dae8b0802f79f31915309ee40f65bcfa8da00e38a31e756130da87d6",
+      "toolace.py": "9320eda1cd6b67aff59f70db3fad4f4b7c233976316fff2f7fa4ebcf8dd482e2"
+    },
+    "parameters": {
+      "length_buckets": [
+        2048,
+        4096,
+        8192
+      ],
+      "max_tokens": 8192,
+      "ood_fraction": 0.1,
+      "review_sample_records": 100,
+      "seed": 17
+    },
+    "source_manifest_hash": "cf441d9343831500079f067dda52e831e6c987d34dfd36fa92a6c347a61a7e6d",
+    "tokenizer_manifest_hash": "d54bc893d0576ed9f380e07d8873d854bf6bd4233e7d9d7dfe461420f531bd6c"
+  },
+  "commands": [
+    {
+      "label": "checkpoint-build-a",
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "toolalign.data",
+        "build",
+        "--config",
+        ".toolalign-local/config-a.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:47:23.191269+00:00",
+      "elapsed_seconds": 24.884570042137057,
+      "exit_code": 0,
+      "log_sha256": "329292bd1ac4763cbc555e2c863f0ed53cc414d7e0e1a557b5e8fd175e9a6150",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-build-b",
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "toolalign.data",
+        "build",
+        "--config",
+        ".toolalign-local/config-b.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:48:01.391037+00:00",
+      "elapsed_seconds": 23.235550665995106,
+      "exit_code": 0,
+      "log_sha256": "329292bd1ac4763cbc555e2c863f0ed53cc414d7e0e1a557b5e8fd175e9a6150",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-cli-help",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "--help"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:48:04.382853+00:00",
+      "elapsed_seconds": 0.06765316613018513,
+      "exit_code": 0,
+      "log_sha256": "8b4d9d0f1ab206691f2448f39d00d91eb957ef040131acfa11b6fc59591a1e34",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-compare",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "compare",
+        ".toolalign-local/checkpoint-a/manifest.json",
+        ".toolalign-local/checkpoint-b/manifest.json"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:49:03.651656+00:00",
+      "elapsed_seconds": 0.09867733297869563,
+      "exit_code": 0,
+      "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-contract",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:47:24.340225+00:00",
+      "elapsed_seconds": 0.030922790989279747,
+      "exit_code": 0,
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-data-tests",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests/data/"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:47:50.805686+00:00",
+      "elapsed_seconds": 0.5005366669502109,
+      "exit_code": 0,
+      "log_sha256": "386dd32ab13a154801261b8de0e1e671c8a805e8814ac7cf488ced53ce79dfac",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-fetch-tokenizer",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "fetch",
+        "--manifest",
+        "data/manifests/qwen-source.v1.json",
+        "--destination",
+        ".toolalign-local/verified-source/qwen",
+        "--ca-file",
+        "/etc/ssl/cert.pem"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:46:52.483939+00:00",
+      "elapsed_seconds": 2.23021254199557,
+      "exit_code": 0,
+      "log_sha256": "a3050bdf808b1624fea74602bb60966a66c160c9d4cf149996642f277c94d7f2",
+      "git_head": "ebcaf586f8e65f5306259f6b134e1c5cce30cf48"
+    },
+    {
+      "label": "checkpoint-fetch-toolace",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "fetch",
+        "--manifest",
+        "data/manifests/toolace-source.v1.json",
+        "--destination",
+        ".toolalign-local/verified-source/toolace",
+        "--ca-file",
+        "/etc/ssl/cert.pem"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:46:08.675728+00:00",
+      "elapsed_seconds": 2.900151292094961,
+      "exit_code": 0,
+      "log_sha256": "9e74d67385e4b5c0ba80903eb6c88d9750813b129ee19cc1a35157ecbe964246",
+      "git_head": "ebcaf586f8e65f5306259f6b134e1c5cce30cf48"
+    },
+    {
+      "label": "checkpoint-public-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:50:39.403534+00:00",
+      "elapsed_seconds": 1.6946618750225753,
+      "exit_code": 0,
+      "log_sha256": "c66d2f8b0fd69d595b41b45db5178b59807fa1873171bb0a18993378c42df877",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-public",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:48:02.553962+00:00",
+      "elapsed_seconds": 1.7762633338570595,
+      "exit_code": 0,
+      "log_sha256": "35e5e041f036334e9917af1ed245a07517880e67239e369eba9923ef9e9b637d",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-pytest",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q"
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:47:24.335417+00:00",
+      "elapsed_seconds": 1.6594262078870088,
+      "exit_code": 0,
+      "log_sha256": "fd987edbfd540286ecc5d523d58a957bfc79666fd8ed5ff25e594b3cf4338113",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    },
+    {
+      "label": "checkpoint-ruff",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "started_at_utc": "2026-09-05T22:47:24.338376+00:00",
+      "elapsed_seconds": 0.022514041978865862,
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "git_head": "2d745346675f049d1ee973620960bf31774c398c"
+    }
+  ],
+  "disk_usage_kib": {
+    ".toolalign-local": 250148,
+    ".venv": 35068
+  },
+  "known_exploratory_failure": {
+    "command": "PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m toolalign.data build --config .toolalign-local/exploratory-config.json",
+    "exit_code": 2,
+    "log_sha256": "18ccf7ba013fa7353809765c5d9c5c62ea9da286eba16edcb2bf0b749cf8693b",
+    "trace_log_sha256": "a763472b580f0d54cf2d8485bf97fc8832f6e873efeafac40a4cc06ea69c40b6",
+    "cause": "Near-edge tuple passed to frozen JSON hash; changed to JSON lists and added a nonempty-near-edge regression test. Fixed before checkpoint commit."
+  }
+}
