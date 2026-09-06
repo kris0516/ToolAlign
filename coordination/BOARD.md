@@ -7,7 +7,7 @@
 | [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | VERIFIED | R1-r2 PASS `5d30e1b`；审查 `441d31b`；合并 `cd091e3`；main 176 项 CPU 检查通过 |
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | T1 候选 `f97bb0d` 已交付/空闲；自测274CPU与模型校准，待公共打包修复及R1 |
-| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | IN_PROGRESS | code_base `ebcaf58`；授权 `12aeb84`；原生独立任务/worktree 已核验；尚无验收结果 |
+| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | READY_FOR_REVIEW | D1 候选 `46f5465` 已交付/空闲；自测8,228有效决策及两次18项产物一致，待R1与kris人审 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | IN_PROGRESS | code_base `97466a2`；授权 `e882594`；真实原生任务及worktree/分支已核验；仅CPU，尚未验收 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
