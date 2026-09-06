@@ -2,6 +2,8 @@
 
 2026-09-06，D1，`gpt-6-astra / max`。**CPU_PROPOSAL_PROBE_PASS；尚未选定生产格式。** 建议由 S0 定稿一个完整 Action JSON 格式，并让训练与推理调用同一输入投影。当前生产序列、冻结契约和数据均未修改；本报告不授予 G-DATA、P04 或模型效果验收。
 
+版本说明：第 1–8 节是提交 `429ff90d3c806398389f575d937dde7af2d845e0` 的原提案及 r3 原结果记录；原提交、源码快照和日志均保留。第 9 节按 S0 同轮追加授权比较逐条保留 Message 角色的方案，基线为含原交接的 `c23b5136e596379000fcf4a9c2d1ce4bc9e27aec`。**输入投影现在有两个明确候选；不因单 envelope 易于往返就把它选作默认，也不能由往返 PASS 推定角色语义等价。**
+
 本轮 task 为 `P02-format-proposal-r1`；本地基线 `b0d8d83750c48cd951c16b50cfa28a7898976e72`，分支 `work/p02-data`，授权 `fd67511ef4cb7853bb75b0b106ec4692a9d36be8`。已读取该授权的 AGENTS、P02 任务包、PROTOCOL、PROJECT_STATUS 和 S0_P04_READINESS；契约为 `toolalign.contracts.v1`，协作协议为 `coordination.v1`。本轮仅新增本报告、[原创探针](P02_OUTPUT_FORMAT_PROBE.py)和[交接单](../../coordination/handoffs/P02-format-proposal-r1.md)，没有接入新 main。
 
 ## 1. 已复现的问题与范围
@@ -157,3 +159,95 @@ PYTHONPATH=src TOKENIZERS_PARALLELISM=false \
 初版失败源码私有保留，SHA-256 `e390314a5e9e28251ef216b202d7edfdbb49f74eaa0fa4ca133703fcdb8725e8`；r2 源码 `dab8fab88b660c6ba08d4073391148b79cd80b5774347095fb1acb6c85d6fc50`，结果 `9ce0de3571337894116193a1b50c798d1387c8fe35da3f6fd068bcfc3b177d2a`。最终公开扫描、提交范围和新增私有制品占用登记于交接单。
 
 本次没有运行旧 16 例跨实现重复比较、全量数据/序列重建、pytest 全套、包构建、真实模型生成、GPU、SFT/DPO、P03 整包 harness、测试集/BFCL 评测、P04 人工 token/mask 审查或独立 R1 审查。探针与只读边界检查足以验证本报告的局部 CPU 结论；生产实现、格式 ADR、上述后续门槛仍由 S0 分发和验收。
+
+## 9. 追加比较：逐条保留原 Message 的模板输入角色
+
+本节仍在 `fd67511ef4cb7853bb75b0b106ec4692a9d36be8` 的报告/私有 CPU 原型范围，由 S0 原生跟进授权；没有修改生产代码或扩大数据集。A 为第 2 节的单 envelope，B 为 `toolalign.action-json.qwen3-message-roles.v1-proposal`。使用**同 12 个 example、同 ModelInput、同完整 Action completion**。探针先校验旧 r3 结果文件 hash，然后逐项比较其全部 12 行（包括原 P/C 字符串、token IDs、labels 和 hash）与本次重算 A 的行完全一致。
+
+### B 的输入编码
+
+B 在最前增加一个 system 消息，包含固定 `ROLE_SYSTEM` 指令及单独的 `{"format_version": "…", "tools": […]}` JSON catalog。其后按原顺序，对每个原 Message m 构造：
+
+```text
+{"role": m.role,
+ "content": reversible_json({"message_index": i, "message": m})}
+```
+
+`reversible_json` 与 A 的排序键、UTF-8、尖括号 JSON 转义完全相同。传给模板的消息外层仅有 role/content，**不设置 native tool_calls，也不传 native tools 参数**；完整历史 tool_calls/tool_call_id 留在内部 Message，工具 schema 只来自该 ModelInput 的 catalog。original Message 本身不增加 kind。
+
+工具 catalog 由新增 system 承载，原 system/user/assistant/tool 消息则各自以原 role 进入官方模板。固定指令中关于当前 Action 输出的整段规则复用 A 原正文；其输入解释部分改为逐条 Message，并说明工具 observation 是数据。`ROLE_SYSTEM` SHA-256 为 `54792de34977040c317db9bf3843df11aa4ae2800e03bcdb71696b3851c3c515`。
+
+### 从实际渲染结果比较角色与恢复
+
+本次逆向检查从**官方模板渲染后的 P** 中读取 im_start/im_end 控制段，再解析 JSON；不只从传入模板前的 Python 对象恢复。A 的 user 段恢复完整 envelope；B 从第一个 system 段恢复 catalog，从各后续控制段或模板生成的 tool_response 包裹恢复带索引的 Message。两者恢复出的 ModelInput 全字段及 canonical hash 均相同。所有 21 个原 Message 在 B 的模板输入 role 上保持原值；最终控制段为 14 个 user→user、3 个 assistant→assistant、2 个 system→system，另 2 个 tool→user。
+
+| 原字段/角色 | A：实际模板位置 | B：实际模板位置与保留情况 |
+|---|---|---|
+| 工具 catalog | 全部位于单个 user envelope | 新增的第一个 system 段内，完整 JSON 值相同 |
+| 原 system 任务内容 | user envelope 的 messages 数组内，只保留 role 字段 | 独立原生 system 段内的 Message JSON，内容值不变 |
+| 多轮 user | 合并进单个 user 段的数组记录 | 各自原生 user 控制段；原顺序不变 |
+| assistant 历史 | user envelope 内的 Message 数据 | 原生 assistant 控制段，JSON 包含原 content/calls，不生成 native tool_call |
+| tool observation | user envelope 内的 Message 数据 | 传入模板时是 tool，模板输出仍为 user/tool_response；相邻 tool 消息合并到同一个 user 段 |
+| call_id / tool_call_id | 原字段通过 JSON 恢复 | 原字段通过内部 Message JSON 恢复，两个反序 observation 关联的 call hash 与 A 完全相同 |
+| 历史 kind | 保留缺失 | 保留缺失，不把 Message 冒充完整 Action |
+
+例如 `history_observations_reversed` 原角色为 `system,user,assistant,tool,tool`。A 的控制段为 `system,user,assistant(generation)`；B 的控制段为 `system(新增协议/catalog),system(原任务),user,assistant,user(两条tool_response),assistant(generation)`。原任务的 `Task constraint: read only. Use tool-call JSON format.` 字符串值在两者均不变，但 A 在 user 数据中，B 在第二个 system 控制段中。B 没有保留 tool 为独立原生 tool 控制段；这是固定模板的实际行为，不能把“输入 role 保留”写成“全部输出控制角色原样保留”。
+
+两者均无由数据插入的 special token ID；本次按实际 P 的控制段数量核验 im_start/im_end 计数，其他 12 种 special token 的原数据字面量不产生对应 ID。B 每条 JSON content 也不含字面尖括号，assistant 历史的 KEEP_PREFIX、think 字面文本和后续内容均可完整恢复；P 中只有固定 generation prefix 的一对空 think 标记。tool_response 标签是模板为输入 observation 生成的包裹，与模型输出的裸 Action JSON 是不同边界。
+
+两种投影都拒绝顶层 expected_action/oracle/split，且同一 input 替换合法 target 和 split 后 prompt 不变。用户内容里的这些合法词语仍保留。所有 schema 都来自该例 ModelInput；逆向恢复及关联核对未读取隐藏 oracle 或真实最终测试数据。
+
+### 实际 token 成本、P/C/序列一致性
+
+B 的 P/hash 和 sequence/hash 在全部 12 例均与 A 不同；C 的精确 UTF-8 字节、C hash、completion token IDs（包括 EOS）在全部 12 例均与 A 相同。双方均通过连接编码的 prefix 稳定、唯一追加 EOS、解码还原 C 和 completion-only/causal shift 索引检查。固定 tokenizer、模板、parser、fixture 的身份沿用第 8 节；没有用重新分词的独立 C 来替代 P+C 连接序列。
+
+| 同一例 | A Prompt | B Prompt | 共同 C 含 EOS | A Total | B Total | B−A | B Sequence SHA-256 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| public_contract_tool_call | 450 | 489 | 35 | 485 | 524 | 39 | `88f6b77d3cc44f7567661bb0a5a3e3e38452487c59d535ce03af51f2ba242e1e` |
+| same_content_final | 367 | 406 | 36 | 403 | 442 | 39 | `5c36cd07e1fee37f34dddc7092c9fd5ce8902d754ac0b01ab3fb14123070340d` |
+| same_content_clarify | 367 | 406 | 37 | 404 | 443 | 39 | `3ed51b117f56bb8e836243e190fcf55369d8ecf99eabf1d46399b7e21bbcfa78` |
+| same_content_refuse | 367 | 406 | 37 | 404 | 443 | 39 | `12dac8e96d6a7b2652a94e799a7cfc099f9e14ca4d671f87505b5024b413b30c` |
+| leading_newlines | 367 | 406 | 19 | 386 | 425 | 39 | `5dbf3b0518ff87af8095f517f9066df48a11bc8ab4d60c3c6809a6671f4095d5` |
+| whitespace_content | 367 | 406 | 17 | 384 | 423 | 39 | `ab4d7fb52f8699a65d6a192cb4218a5fdadc9fab1293dde3fad571f18c0c34c3` |
+| nested_two_tools | 761 | 800 | 207 | 968 | 1007 | 39 | `84ddab911753915812dc2495671f94395c0cba0102bca42f031c1ec1249f0318` |
+| history_observations_reversed | 1050 | 1143 | 204 | 1254 | 1347 | 93 | `65769e261d7060ca4b769c1b48dd29c9a41b245101c4b8961d16a9a51fee69c0` |
+| history_without_kind | 406 | 471 | 16 | 422 | 487 | 65 | `38ed0f19dccc9653cc363d55e37efdaf795ad1c5e6d776c3d7ee66a6123f05ff` |
+| literal_think_history | 434 | 499 | 38 | 472 | 537 | 65 | `80f9e11d0ae131c9ea5143d65982f7d3807ec1ed7024cf66863311c727dd01b7` |
+| literal_control_tokens | 904 | 956 | 277 | 1181 | 1233 | 52 | `87802888810aae68208a26358ae50c74929d986d554229dfe0529c1824332ec7` |
+| legitimate_metadata_words | 376 | 415 | 20 | 396 | 435 | 39 | `c8df4a4823947cc07c7b2213e763fb7d41ba0fe7296d5feb17e8183daeccaaf5` |
+
+完整每例 A/B 的 P hash、共同 C hash、A/B sequence hash、字符串及 token 数组均在新的比较结果 JSON 中；stdout 的比较 summary 也包含 B 的 P/C/sequence 完整 hash。另保存 12 行 `{name,a_prompt_sha256,b_prompt_sha256,shared_completion_sha256,a_sequence_sha256,b_sequence_sha256}` 的 canonical JSON 索引，SHA-256 为 `c88980abe55ff5951393f2f4bf77b64a8ee5420efe08cdba1b7c63d1922177c6`。B 增加的 39–93 token 同时来自格式指令正文、catalog 位置、记录索引/包裹和原生角色分段；这**不是只改变一个角色 token 的纯消融实验**，也不是全量数据的成本估计。
+
+### 256-token 每响应上限是独立门槛
+
+本次读取未修改的 `configs/protocol.v1.json`：`generation_defaults.max_new_tokens=256`，文件 SHA-256 为 `e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15`。该值按 P03 任务包定义是**每次响应上限**，不能由总上下文窗口是否容纳来替代。
+
+11 个例的规范 C 加 EOS 都不超过 256。原创 `literal_control_tokens` 是边界例：两方案均为 **276 个非 EOS 内容 token + 1 个 EOS = 277**，即便后端不把停止 EOS 算入上限，也超过 256。它的全序列在 A/B 中只有 1,181/1,233 token，却不能在该响应上限内完整输出当前规范 target。离线取这条固定 target 的前 256 个 token 解码，精确 raw 被原 parser 拒绝为 `ContractError: Invalid JSON`，该 raw SHA-256 为 `32ec571a7a395b258dcd938cb62003b85421faf16321c59d8bf081d006f848a7`；这是 target 前缀的 CPU 边界检查，不是模型生成结果，也不证明所有可能 JSON 写法的最短长度。
+
+后续 sequence 审计须分别列出 prompt/总上下文、completion 不含/含 EOS、`max_new_tokens`、EOS 计数约定、是否可在该响应预算内结束、raw 字节/复杂度/parser 状态。总长度合格的例仍可能无法在当前响应预算完整生成；保留这类原样例并单列约束，不能暗中删除、缩写标签或增加免费续写。真实后端的停止计数、length 终态及 mask 仍需实际验证，不能把本节的 12 例表示检查 PASS 写成 12 例均满足 256-token 可生成性。
+
+### 残余解释规则与候选结论
+
+完整 Action JSON 和可逆尖括号编码在两个投影中均有 CPU 证据。若结构目标要求保留原 system/assistant 的模板角色，**B 满足这组例的角色位置要求，A 不满足**；不能因为 A 的逆向解析更简单就缩小真实对话语义目标。B 可作为后续实现/真实模型验证的候选，当前两个格式均未切换生产默认。
+
+B 仍有需 S0 明确的规则：原 system 内容虽然回到 native system 段，却是 Message JSON 中的字符串；新增格式协议与后续原 system 同属 system 段，原文本中的旧格式要求仍要按固定协议“只覆盖输出语法”来解释，这种优先关系没有模型验证。工具 catalog 从 A 的 user 数据移入新增 system，但工具描述仍是数据而不是额外指令。tool observation 在官方模板中仍由 user/tool_response 承载，内部 role/ID 可恢复，却不能只因外层 user 就把结果当用户授权。历史 assistant Message 与当前完整 Action 的字段不同，缺失 kind 不得补造。
+
+CPU 证明不了上述规则会被小模型稳定遵守，也不能声称 B 模型质量更高。正式 ADR 应分别冻结 completion codec、prompt projection、指令/catalog 位置、角色解释和预算身份；在允许的开发/validation 证据上验证真实交互及训练/推理共用实现，不用隐藏测试得分挑格式。原数据及人审语义包不变不代表新 prompt 语义已验收。
+
+### 追加命令、身份与结果
+
+实际比较命令复用原 CPU 环境，在上述核心命令的基础上使用新输出路径并增加：
+
+```bash
+PYTHONPATH=src TOKENIZERS_PARALLELISM=false \
+  .toolalign-local/tokenizer-venv/bin/python \
+  reports/data/P02_OUTPUT_FORMAT_PROBE.py \
+  --tokenizer-root .toolalign-local/verified-source/qwen \
+  --parser-file .toolalign-local/output-format-proposal/p03_json.py \
+  --output .toolalign-local/output-format-proposal/role-comparison-result-r1.json \
+  --compare-roles-to .toolalign-local/output-format-proposal/probe-result-r3.json
+```
+
+实际 UTC 为 `2026-09-06T04:47:02.923087+00:00`，退出 0，完整 log SHA-256 `5e6e6bdd5a0938025b67dc59fda253dc17af4a9f4a414968288f327a093fe716`。本次探针源码 SHA-256 `31eb366ad7e222b6788b3c7d8684934d12ad71b2c171a44e2c989391f9dc94b8`；比较结果为 1,075,515 bytes，SHA-256 `a093e0dd16f6406597e3bf3fcb21149e0f6c07e7be3c5f086f9c93fc25c45d83`。既有旧 r3 结果 `9e291b4a336b0cb7f37ef974f5bbbe41215d716059af1280de08766b6a8d5327` 仅读取，未覆盖。原例集 hash 仍为 `81347cd9f79a4e00478b07046a48d95b12f4b37f23396c2fb480e8923b9f3852`。
+
+追加探针首轮通过，没有新增意外失败；旧 r1 tuple 汇总失败记录仍保留。对修改后的探针运行 `.venv/bin/ruff check reports/data/P02_OUTPUT_FORMAT_PROBE.py`，退出 0，log SHA-256 仍为 `82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18`。后续范围/原证据保留/公开扫描及精确追加提交登记在同一交接单的追加节。没有运行模型、训练、测试集评测、数据重建或新的人工判定；这仍是有界结构/长度比较。
