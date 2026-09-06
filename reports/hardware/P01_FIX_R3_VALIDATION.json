@@ -1,0 +1,895 @@
+{
+  "scope": "P01 fix-r3 worker CPU self-validation; independent R1 re-review pending",
+  "task": "P01-fix-r3",
+  "branch": "work/p01-compatibility",
+  "model": "gpt-6-astra",
+  "thinking": "max",
+  "contract_versions": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "authorization_commit": "a0a800b2a544cb25e7eccad2dce12173acc77ea1",
+  "merge_commit": "f020046055717f4fc5a821a61fb2664d989e6875",
+  "implementation_commit": "5c32e8a72e957df100691e0096d1413eed8ce8f9",
+  "final_candidate": "Exact full commit containing this evidence is reported by native T1 handoff; no self SHA embedded",
+  "regressions": {
+    "before_original_r1": {
+      "passed": 4,
+      "failed": 3,
+      "exit_code": 1
+    },
+    "after_original_r1": {
+      "passed": 7,
+      "failed": 0,
+      "exit_code": 0
+    },
+    "complete_applicable_cpu": {
+      "passed": 235,
+      "failed": 0,
+      "skipped": 0,
+      "previous": 217,
+      "new_default_tests": 18
+    },
+    "r1_plus_report_tests": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "original_r1": 7,
+      "new_report_tests": 3
+    },
+    "distinct_current_pytest_checks": 245,
+    "development_new_tests_run": {
+      "passed": 20,
+      "not_added_to_final_total": true
+    },
+    "historical_shared01_snapshot_tests": {
+      "count": 57,
+      "status": "NOT_RUN",
+      "reason": "old single-extra structure snapshot; unchanged"
+    }
+  },
+  "independent_cpu_math": {
+    "absolute_tolerance": 2e-06,
+    "cases": 17,
+    "device": "cpu",
+    "dtype": "float32",
+    "historical_fallback_mlx_reexecution": "NOT_RUN",
+    "masked_logits_and_padding_invariance": true,
+    "maximum_errors": {
+      "ce_gradient": 1.905478064223587e-08,
+      "ce_loss": 4.011570280404442e-07,
+      "dpo_gradient": 3.629568690738383e-09,
+      "dpo_loss": 8.22313996895474e-08
+    },
+    "mlx_or_model_import": false,
+    "reference_detached": true,
+    "same_tensor_initial_reference_retains_policy_gradient": true,
+    "seed": 3701,
+    "status": "PASS",
+    "threads": 2,
+    "torch": "2.14.0"
+  },
+  "failure_examples": {
+    "monitor": [
+      {
+        "error_type": "CalledProcessError",
+        "stop_reason": "monitor_error",
+        "exit_code": 1,
+        "raw_child_exit_code": -9,
+        "manifest_status": "failed",
+        "ended_at_present": true,
+        "peak_rss_retained": true,
+        "resources_sha256": "338d332b12a7413b383b9d8c577418aa2e9076d23b67fe95bc9ac558e13ad195",
+        "manifest_sha256": "2b2d4c77ebff5af8787a7def29f58dc1d2437539d495ddb3632cd2fdea20bc07"
+      },
+      {
+        "error_type": "ValueError",
+        "stop_reason": "monitor_error",
+        "exit_code": 1,
+        "raw_child_exit_code": -9,
+        "manifest_status": "failed",
+        "ended_at_present": true,
+        "peak_rss_retained": true,
+        "resources_sha256": "2b1943c59238e4851fa861beae0c0dbd4225b4195428c5b993f8ecf04a70bb92",
+        "manifest_sha256": "d4c4febf5d44420a3810bdc194b6b2993b2d0f29f0eadb55d00968c9180b8776"
+      }
+    ],
+    "callback": {
+      "kind": "verbatim callback CPU unit with stubbed MLX closure; upstream order from original R1 source audit",
+      "before": {
+        "callback_sha256": "eb9db51300dd484eda929a3b570ad6bdeb9a94838da792527038ab5f49a55e2e",
+        "upstream_optimizer_step_before_callback": 1,
+        "reported_progress_after_callback": {
+          "microsteps": 39,
+          "training_tokens": 400,
+          "processed_tokens": 1000,
+          "processed_nonpadding_tokens": 1000,
+          "optimizer_steps": 4
+        },
+        "bad_initial_loss": true
+      },
+      "after": {
+        "callback_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "upstream_optimizer_step_before_callback": 1,
+        "reported_progress_after_callback": {
+          "microsteps": 40,
+          "training_tokens": 404,
+          "processed_tokens": 1006,
+          "processed_nonpadding_tokens": 1006,
+          "optimizer_steps": 5
+        },
+        "bad_initial_loss": true
+      },
+      "actual_failure_record": {
+        "iteration": 8,
+        "train_loss": 0.6945998072624207,
+        "optimizer_steps": 1,
+        "processed_tokens": 6,
+        "nonpadding_tokens": 6,
+        "supervised_tokens": 4,
+        "status": "failed",
+        "failure": {
+          "type": "ValueError",
+          "message": "Training-path policy=reference loss violates initial ln2 gate"
+        }
+      },
+      "before_observation_sha256": "9f3295c4260f6f61f638a15c0c8ae5094fbce04ba18cb7aa26fa8cf1151c124a",
+      "after_observation_sha256": "e9cdbe3cac26db02672c0bf3f27bdd4d71062cf6769148f52cb5094762bc7772",
+      "failed_steps_sha256": "767c9bf5600457f9b9cc1dcf34c27262afd64029a3bba3d353f30bda7e95617d",
+      "gpu_failure_injection": "NOT_RUN"
+    }
+  },
+  "preservation": {
+    "baselines": {
+      "original_candidate": {
+        "changed_files": 19,
+        "commit": "59b3802c81aa6eceaf3609af88f288756bcb1581",
+        "files": [
+          {
+            "path": "coordination/handoffs/P01-fix-r3.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/handoffs/P01-review-r1.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BUILD_REPORT.py",
+            "status": "M"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_PACKAGE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_SOURCES.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_REPORT.md",
+            "status": "M"
+          },
+          {
+            "path": "reports/review/P01/README.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/audit_p01_evidence.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/check_p01_cpu_math.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/evidence.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/test_p01_failure_counters.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/test_p01_processes.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/verify_p01_package.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/execution.py",
+            "status": "M"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/fallback_probe.py",
+            "status": "M"
+          },
+          {
+            "path": "tests/training/compatibility/test_failure_accounting.py",
+            "status": "A"
+          }
+        ]
+      },
+      "original_review": {
+        "changed_files": 11,
+        "commit": "ac6bdf78d57c6753865a24a1d216b90dc4478646",
+        "files": [
+          {
+            "path": "coordination/handoffs/P01-fix-r3.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BUILD_REPORT.py",
+            "status": "M"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_PACKAGE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_SOURCES.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_REPORT.md",
+            "status": "M"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/execution.py",
+            "status": "M"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/fallback_probe.py",
+            "status": "M"
+          },
+          {
+            "path": "tests/training/compatibility/test_failure_accounting.py",
+            "status": "A"
+          }
+        ]
+      },
+      "production": {
+        "changed_files": 53,
+        "commit": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+        "files": [
+          {
+            "path": "AGENTS.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/BOARD.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/DECISIONS.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/PROJECT_STATUS.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/handoffs/P01-base-r2.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/handoffs/P01-fix-r3.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/handoffs/P01-r1.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/handoffs/P01-review-r1.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/tasks/P01_HARDWARE_COMPATIBILITY.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/tasks/P02_DATA_PIPELINE.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/tasks/P03_EXECUTION_HARNESS.md",
+            "status": "M"
+          },
+          {
+            "path": "coordination/tasks/S0_SHARED_02.md",
+            "status": "M"
+          },
+          {
+            "path": "docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md",
+            "status": "M"
+          },
+          {
+            "path": "reports/S0_SHARED_02.md",
+            "status": "M"
+          },
+          {
+            "path": "reports/S0_SHARED_02_MAIN_VERIFICATION.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BASE_R2_AUDIT.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BASE_R2_METADATA.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BASE_R2_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BASE_R2_TORCH_CPU.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BASE_R2_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BUILD_REPORT.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_CHECK_SDIST_SELECTION.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_ENVIRONMENT.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_EXPLORATION_REQUIREMENTS.txt",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_PACKAGE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_SOURCES.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R3_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_PREREGISTRATION.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_REPRODUCE.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_RESULTS.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_SOURCE_IDENTITIES.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/README.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/audit_p01_evidence.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/check_p01_cpu_math.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/evidence.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/test_p01_failure_counters.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/test_p01_processes.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01/verify_p01_package.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/__init__.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/__main__.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/core.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/execution.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/fallback_probe.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/model_probe.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/numerical.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/samples.py",
+            "status": "A"
+          },
+          {
+            "path": "tests/training/compatibility/test_failure_accounting.py",
+            "status": "A"
+          },
+          {
+            "path": "tests/training/compatibility/test_invariants.py",
+            "status": "A"
+          },
+          {
+            "path": "tests/training/compatibility/test_lease_entry.py",
+            "status": "A"
+          }
+        ]
+      }
+    },
+    "current_tracked_files": 170,
+    "historical_summary": {
+      "byte_identical": true,
+      "manifest_artifacts_verified": 185,
+      "runs": 10,
+      "sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd"
+    },
+    "implementation_commit": "5c32e8a72e957df100691e0096d1413eed8ce8f9",
+    "math_r2": {
+      "all_eight_sources_resolved": true,
+      "config_sha256": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+      "recorded_head_mismatches": [
+        "model_probe.py",
+        "numerical.py"
+      ],
+      "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241"
+    },
+    "preserved_files_sha256": {
+      "coordination/handoffs/P01-base-r2.md": "953c8ed9287857f8db06deba2c73ea5afef75481193dc03de916f21cf7be36da",
+      "coordination/handoffs/P01-r1.md": "7e8d8488fa2654cb137dbc8b1408c74ed268d76be8867a62be0a340960049feb",
+      "coordination/handoffs/P01-review-r1.md": "05bb971b15f97f80d825a04f898bc4df6ad4b85f2ffd5da715f4d1264d374350",
+      "reports/hardware/P01_RESULTS.json": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+      "reports/review/P01/README.md": "260756ca89f0a883667c891b1476722fd2f28da237a156fff01ce95068807d65",
+      "reports/review/P01/audit_p01_evidence.py": "a3b3f28a37c9e69d743a9468e9884070d4440628a55fdfc39e67c7da8ab2bee3",
+      "reports/review/P01/check_p01_cpu_math.py": "fdf6435880a7585a0a6e6637668d6774936e385096f5693e115fdb9784ea0bf0",
+      "reports/review/P01/evidence.json": "4724607dc40f74dec5d5532b53348fd75a630c9d6414d49430dd5d28a15f9ac5",
+      "reports/review/P01/test_p01_failure_counters.py": "a91f20cc2c0b755fb96fbc58588b32ab0b37e5ce64787912fb907e76a1efa202",
+      "reports/review/P01/test_p01_processes.py": "18b773979d4b3b958bebcfaa9c271becc705fd5e2d2882601681cba648270853",
+      "reports/review/P01/verify_p01_package.py": "46d9d9d76357709d1ddca7aead0e307475dc7db642c2f08d3e5077e14a325fc0"
+    },
+    "status": "PASS",
+    "unchanged_prior_candidate_files_byte_verified": 159
+  },
+  "package_validation": {
+    "archives": {
+      "toolalign-0.0.1-py3-none-any.whl": {
+        "all_eight_p01_modules_and_contract_schema_present": true,
+        "archive_files": 27,
+        "generated_metadata": [
+          "toolalign-0.0.1.dist-info/METADATA",
+          "toolalign-0.0.1.dist-info/WHEEL",
+          "toolalign-0.0.1.dist-info/entry_points.txt",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE",
+          "toolalign-0.0.1.dist-info/RECORD"
+        ],
+        "sha256": "941a1efb88b48cb8479ec9b5869c4db90984fd266e209933ef128b0792fa34e1",
+        "size_bytes": 44605,
+        "tracked_files_byte_identical": 22,
+        "untracked_payload_files": 0
+      },
+      "toolalign-0.0.1.tar.gz": {
+        "all_eight_p01_modules_and_contract_schema_present": true,
+        "archive_files": 48,
+        "generated_metadata": [
+          "PKG-INFO"
+        ],
+        "sha256": "024126435a5065ddae8e12c86272cc530ed4a8ae09eddd1fa2b0b0916d6ccf2e",
+        "size_bytes": 114450,
+        "tracked_files_byte_identical": 47,
+        "untracked_payload_files": 0
+      }
+    },
+    "default_cpu_only": true,
+    "installed_checks": [
+      {
+        "exit_code": 0,
+        "name": "export",
+        "stderr_sha256": "4178fef676ecb0344d286cee8513ec61e5ddd3328fa87b5b801eaef9c04c83fb",
+        "stdout_sha256": "6ea2111c08b07dbd7f1e0e0305f8a2acff104a8570d250bf998532475af5289c"
+      },
+      {
+        "exit_code": 0,
+        "name": "venv",
+        "stderr_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "dependencies",
+        "stderr_sha256": "6be4690b482a8a186ae9402f8c2bb82e047fcc976f17643d55f3a9b79456a502",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "wheel-install",
+        "stderr_sha256": "82d1061127f19232e6090d3e0da2d35eefde65d6b61d5589aac8a2ba80ca85ed",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "dependency-check",
+        "stderr_sha256": "441817e617b651f1d95ad67b0dee2d164507fb3d20eb505d518a52384b2123a2",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "installed-p01",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b7e5a72bf14f8588d82eb77c201334ce8d59885c06bbd43053818b1cbf6e0fd3"
+      },
+      {
+        "exit_code": 0,
+        "name": "p01-help",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c56054b15fea4aafb67bb5c9175d3213d5965831f085cd572346025f12c764c3"
+      },
+      {
+        "exit_code": 0,
+        "name": "contract-digest",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "exit_code": 0,
+        "name": "validate-example",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "exit_code": 0,
+        "name": "validate-tool",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "exit_code": 0,
+        "name": "validate-preference",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "exit_code": 0,
+        "name": "validate-run",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "exit_code": 0,
+        "name": "validate-trace",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      }
+    ],
+    "installed_probe": {
+      "installed_modules": 8,
+      "ml_packages_available": false
+    },
+    "model_loading": "NOT_RUN",
+    "p01_source_sha256": {
+      "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+      "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+    },
+    "status": "PASS"
+  },
+  "proof_files_sha256": {
+    ".toolalign-local/p01-fix-r3/cpu_pytest.py": "9d49500bbebfcb7bd60c459ad6458d04c99f0f26c50a8ce46fcbcac1d97fec13",
+    ".toolalign-local/p01-fix-r3/verify_preservation.py": "19083a4f87236321530c8951318fde2348b0b52f892b87be1494d58b1a61644b",
+    "tests/training/compatibility/test_failure_accounting.py": "1684b7406509241b45a2732ead1b73bc271c23c207ce6ec43583a0708e0b7cf8",
+    "reports/hardware/P01_BUILD_REPORT.py": "5f3d6f0f8cb18f40a3566b9629ce5c5a4dfaf82b7a1951a63d1ed35769f284bb",
+    "reports/hardware/P01_FIX_R3_PACKAGE.py": "b117b461adfac1cad7c057718163f2c42fee7b6d0fbe91c40b301b9f55a7a525",
+    "reports/hardware/P01_FIX_R3_REPORT_TESTS.py": "68914c452167d2d4dd1e7df56dc8f0227182eef401e92715d18ffb85210832c3",
+    "reports/hardware/P01_FIX_R3_SOURCES.json": "0dfd98503ea170bb7e6a621506ab794b2492b26e0ac75d692f7b5a1975eedaa4"
+  },
+  "private_output_sha256": {
+    "PACKAGE.json": "0b79000d55a0dc9a0ac2a3c6b5a500dc7c0c44ffcf3b16cee2de06e5a4e43f2c",
+    "PRESERVATION.json": "d6118f32878f6aec32163f702175a2aebdfc91c087e1cc475e6cea1c3bbc0dbb"
+  },
+  "commands": [
+    {
+      "name": "fix-r3-before-r1",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "--basetemp=.toolalign-local/p01-fix-r3/before-r1"
+      ],
+      "started_at": "2026-09-06T03:20:32.446417+00:00",
+      "wall_seconds": 2.3323640830349177,
+      "exit_code": 1,
+      "sha256": "9a72a5d40e46803e8276d5ff41f5b1bf59b17b8eec17639c70a2b82cd286ccb7"
+    },
+    {
+      "name": "fix-r3-after-r1",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "--basetemp=.toolalign-local/p01-fix-r3/after-r1"
+      ],
+      "started_at": "2026-09-06T03:23:50.331117+00:00",
+      "wall_seconds": 1.808417874854058,
+      "exit_code": 0,
+      "sha256": "e5d665629526c1638b21b4e23447f853afc3305e7b6b3c5a2460a980ee0864d9"
+    },
+    {
+      "name": "fix-r3-new-tests",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+        "-q",
+        "tests/training/compatibility/test_failure_accounting.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p01-fix-r3/new-tests"
+      ],
+      "started_at": "2026-09-06T03:30:24.364076+00:00",
+      "wall_seconds": 1.8270294580142945,
+      "exit_code": 0,
+      "sha256": "be28c3940a27237cebdeb039eb71326421f4b3f3cc9cab72f7914bd8dac681dc"
+    },
+    {
+      "name": "fix-r3-full-cpu",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "--basetemp=.toolalign-local/p01-fix-r3/full-cpu"
+      ],
+      "started_at": "2026-09-06T03:36:56.268656+00:00",
+      "wall_seconds": 5.4222378339618444,
+      "exit_code": 0,
+      "sha256": "c79aacc6ff80eaee075f51a58d3585b1264b971fe34641f85b3bf92a0a2253b9"
+    },
+    {
+      "name": "fix-r3-final-r1-probes",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p01-fix-r3/final-r1"
+      ],
+      "started_at": "2026-09-06T03:36:56.285000+00:00",
+      "wall_seconds": 1.8352459168527275,
+      "exit_code": 0,
+      "sha256": "a5013ca3f620c4c2960168f527d6773e1d802a531a175690f55a692aa6a0ece1"
+    },
+    {
+      "name": "fix-r3-r1-cpu-math",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        "reports/review/P01/check_p01_cpu_math.py"
+      ],
+      "started_at": "2026-09-06T03:36:56.321349+00:00",
+      "wall_seconds": 0.9170452079270035,
+      "exit_code": 0,
+      "sha256": "17307b5921a3e9089effd2d824e287b872ce23ea8e2a0b0fe6522f3cea8cc26e"
+    },
+    {
+      "name": "fix-r3-history-summary",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_BUILD_REPORT.py",
+        "--private-runs",
+        ".toolalign-local/runs",
+        "--output",
+        ".toolalign-local/p01-fix-r3/HISTORICAL_RESULTS.json"
+      ],
+      "started_at": "2026-09-06T03:36:56.303335+00:00",
+      "wall_seconds": 0.1847410830669105,
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "fix-r3-build",
+      "command": [
+        "uv",
+        "build"
+      ],
+      "started_at": "2026-09-06T03:39:20.884091+00:00",
+      "wall_seconds": 0.4592782079707831,
+      "exit_code": 0,
+      "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75"
+    },
+    {
+      "name": "fix-r3-package",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_FIX_R3_PACKAGE.py",
+        "--output",
+        ".toolalign-local/p01-fix-r3/PACKAGE.json"
+      ],
+      "started_at": "2026-09-06T03:39:40.638615+00:00",
+      "wall_seconds": 2.5017696251161397,
+      "exit_code": 0,
+      "sha256": "06cc35c40bab12ea778231d3cbed48024fb9c04394d108b08636090a079ee6b3"
+    },
+    {
+      "name": "fix-r3-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-06T03:39:40.672323+00:00",
+      "wall_seconds": 0.025299291126430035,
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "fix-r3-contract-freeze",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "started_at": "2026-09-06T03:39:40.655555+00:00",
+      "wall_seconds": 0.0309687911067158,
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+    },
+    {
+      "name": "fix-r3-preservation",
+      "command": [
+        "python3",
+        ".toolalign-local/p01-fix-r3/verify_preservation.py"
+      ],
+      "started_at": "2026-09-06T03:46:28.799998+00:00",
+      "wall_seconds": 1.4604179579764605,
+      "exit_code": 0,
+      "sha256": "45fad1ea1808298c0b45e36695df66cdf0b37d7f9eeb750fac244fbb646e1ea9"
+    },
+    {
+      "name": "fix-r3-public-content",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "started_at": "2026-09-06T03:47:28.320491+00:00",
+      "wall_seconds": 2.516570833977312,
+      "exit_code": 0,
+      "sha256": "61186a06bf2a85c528548b80b369e98b6d78abf8aa755be6cc3e882ce1621c0c"
+    }
+  ],
+  "budget": {
+    "new_private_budget_bytes": 2147483648,
+    "persistent_fix_evidence_and_logs_bytes_at_collection": 5756664,
+    "unchanged_locked_environments_reused": true,
+    "temporary_default_cpu_install_deleted": true,
+    "temporary_install_peak_bytes": "NOT_MEASURED",
+    "new_ml_environments": 0,
+    "model_downloads": 0
+  },
+  "not_run": [
+    "MLX or model import",
+    "GPU replay or fault injection",
+    "full MLX/Torch math replay",
+    "P04/P05 formal training",
+    "accepted_sft reference",
+    "kris token/mask human verification",
+    "formal preference generation",
+    "P03 complete harness / 256-token protocol",
+    "BFCL/final-test evaluation",
+    "long-run thermal/power stability",
+    "model or data upload",
+    "service deployment"
+  ]
+}

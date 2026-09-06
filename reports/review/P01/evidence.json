@@ -1,0 +1,1463 @@
+{
+  "authorization_commit": "52f9c57a50eaf580a1a90bc5c4b8bd028c83b903",
+  "candidate_commit": "59b3802c81aa6eceaf3609af88f288756bcb1581",
+  "candidate_merge": "17a003f2678682fd3c6a072eba2b105fafc87102",
+  "candidate_tracked_files_byte_unchanged": 155,
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "ended_at": "2026-09-06T02:28:32.988122+00:00",
+      "exit_code": 0,
+      "log": "core-sync.log",
+      "name": "core-sync",
+      "sha256": "c1eb46aab57925fbaef75de85964c75d5d8bb98e98d5545c9fbf68c22c9fc957",
+      "started_at": "2026-09-06T02:28:32.975874+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ],
+      "ended_at": "2026-09-06T02:28:36.555512+00:00",
+      "exit_code": 0,
+      "log": "cpu-regression.log",
+      "name": "cpu-regression",
+      "sha256": "3eff019f765a9a5c901fb70ec70f80ae9b785e2e880a310a3357964b153af673",
+      "started_at": "2026-09-06T02:28:33.057228+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "export",
+        "--locked",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay",
+        "--no-emit-project",
+        "--no-header",
+        "--no-annotate",
+        "--no-hashes",
+        "--format",
+        "requirements-txt",
+        "--output-file",
+        ".toolalign-local/review-p01/constraints.txt"
+      ],
+      "ended_at": "2026-09-06T02:30:15.541909+00:00",
+      "exit_code": 0,
+      "log": "locked-cpu-constraints.log",
+      "name": "locked-cpu-constraints",
+      "sha256": "9a9d7a368ef01b18828ac4f18da14d41bad455e2ca3c858ea11cbfcf8081594a",
+      "started_at": "2026-09-06T02:30:15.528647+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "venv",
+        "--python",
+        "3.14",
+        ".toolalign-local/review-p01/cpu-env"
+      ],
+      "ended_at": "2026-09-06T02:30:15.624306+00:00",
+      "exit_code": 0,
+      "log": "cpu-venv.log",
+      "name": "cpu-venv",
+      "sha256": "e47600c53b417ea33c0627f97fd148f2684c074822d6bbe130919da5d168b5be",
+      "started_at": "2026-09-06T02:30:15.615126+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--cache-dir",
+        ".toolalign-local/review-p01/uv-cache",
+        "--python",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "--constraint",
+        ".toolalign-local/review-p01/constraints.txt",
+        "torch==2.14.0",
+        "numpy==2.5.2",
+        "psutil==7.2.2",
+        "tokenizers==0.22.2",
+        "jinja2==3.1.6",
+        "jsonschema==4.26.0",
+        "pytest==9.0.2"
+      ],
+      "ended_at": "2026-09-06T02:30:15.900211+00:00",
+      "exit_code": 1,
+      "failure_classification": "R1 setup error: accidentally requested the earlier P02 tokenizer 0.22.2; the P01 lock correctly rejected it. Replaced by cpu-install-locked with 0.23.2.",
+      "log": "cpu-install.log",
+      "name": "cpu-install",
+      "sha256": "3811d56bb19b49977228f41d97a9efdbc45f7a93aa699485221b29800c2d6783",
+      "started_at": "2026-09-06T02:30:15.696643+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--cache-dir",
+        ".toolalign-local/review-p01/uv-cache",
+        "--python",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "--constraint",
+        ".toolalign-local/review-p01/constraints.txt",
+        "torch==2.14.0",
+        "numpy==2.5.2",
+        "psutil==7.2.2",
+        "tokenizers==0.23.2",
+        "jinja2==3.1.6",
+        "jsonschema==4.26.0",
+        "pytest==9.0.2"
+      ],
+      "ended_at": "2026-09-06T02:31:12.877080+00:00",
+      "exit_code": 0,
+      "log": "cpu-install-locked.log",
+      "name": "cpu-install-locked",
+      "sha256": "2d00fa80c433e2195e5893d8ad530e58e75e3e32b091f09928ee88070d5f2466",
+      "started_at": "2026-09-06T02:30:33.337322+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "--basetemp=.toolalign-local/review-p01/process-test-temp"
+      ],
+      "ended_at": "2026-09-06T02:33:30.787878+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F1: first math-mode negative probe, 3 passed and 2 failed; superseded by the stronger smoke-manifest negative probe.",
+      "log": "supervisor-probes.log",
+      "name": "supervisor-probes",
+      "sha256": "b28c87b03484e38176746ecb4ea8d5bd67e3a8c30fb95452ff0773090aace18b",
+      "started_at": "2026-09-06T02:33:28.311208+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/hardware/P01_BASE_R2_TORCH_CPU.py"
+      ],
+      "ended_at": "2026-09-06T02:33:37.931002+00:00",
+      "exit_code": 0,
+      "log": "locked-torch-reference.log",
+      "name": "locked-torch-reference",
+      "sha256": "596d33ee397ff90ee0a32090fb127c1627e411a7904184df0d9105187582ad3a",
+      "started_at": "2026-09-06T02:33:30.838939+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/check_p01_cpu_math.py"
+      ],
+      "ended_at": "2026-09-06T02:34:56.861926+00:00",
+      "exit_code": 0,
+      "log": "independent-cpu-math.log",
+      "name": "independent-cpu-math",
+      "sha256": "17307b5921a3e9089effd2d824e287b872ce23ea8e2a0b0fe6522f3cea8cc26e",
+      "started_at": "2026-09-06T02:34:56.399893+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/audit_p01_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p01/historical-audit.json"
+      ],
+      "ended_at": "2026-09-06T02:41:28.709184+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate documentation F3 discovered by checking the actual source hashes against the recorded math-r2 HEAD.",
+      "log": "historical-evidence.log",
+      "name": "historical-evidence",
+      "sha256": "7cddbb5b6451f892c6260f711a5bb10c3c34113ae26d92ace5a7c14a88a296c6",
+      "started_at": "2026-09-06T02:41:23.815991+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "ended_at": "2026-09-06T02:41:28.788623+00:00",
+      "exit_code": 0,
+      "log": "contracts-freeze.log",
+      "name": "contracts-freeze",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T02:41:28.760694+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/audit_p01_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p01/historical-audit.json"
+      ],
+      "ended_at": "2026-09-06T02:42:52.708701+00:00",
+      "exit_code": 0,
+      "log": "historical-evidence-resolved-source.log",
+      "name": "historical-evidence-resolved-source",
+      "sha256": "bb818421529398aa175e34c72352e22b2938830bc1d7c8ed3fd53ba4703a3599",
+      "started_at": "2026-09-06T02:42:46.923261+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "--basetemp=.toolalign-local/review-p01/failure-test-temp"
+      ],
+      "ended_at": "2026-09-06T02:45:35.423175+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate F1/F2: 4 passed, 3 failed. These failures remain open.",
+      "log": "independent-failure-probes.log",
+      "name": "independent-failure-probes",
+      "sha256": "915869a915dfe6a791b0aac32a761324c405a850ba43fa4dfe662e62468907fa",
+      "started_at": "2026-09-06T02:45:33.542073+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "ended_at": "2026-09-06T02:46:54.150491+00:00",
+      "exit_code": 0,
+      "log": "actual-package-build.log",
+      "name": "actual-package-build",
+      "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+      "started_at": "2026-09-06T02:46:53.795119+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ],
+      "ended_at": "2026-09-06T02:46:55.133021+00:00",
+      "exit_code": 0,
+      "log": "source-distribution-boundaries.log",
+      "name": "source-distribution-boundaries",
+      "sha256": "2fe77a49ef2ca6f59664fa6e47bc8ad9043c4224616dd51b361b2b08e40fae87",
+      "started_at": "2026-09-06T02:46:54.231399+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P00/verify_wheel.py"
+      ],
+      "ended_at": "2026-09-06T02:46:55.307705+00:00",
+      "exit_code": 0,
+      "log": "isolated-wheel.log",
+      "name": "isolated-wheel",
+      "sha256": "390edb43abaaf483f0ae93ff2d1a28e1f58a6aa7bc9353ab8a2f95dff03e8f37",
+      "started_at": "2026-09-06T02:46:54.201448+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_BUILD_REPORT.py",
+        "--private-runs",
+        "<T1_WORKTREE>/.toolalign-local/runs",
+        "--output",
+        ".toolalign-local/review-p01/rebuilt-worker-summary.json"
+      ],
+      "ended_at": "2026-09-06T02:49:20.428389+00:00",
+      "exit_code": 0,
+      "log": "rebuilt-worker-summary.log",
+      "name": "rebuilt-worker-summary",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_at": "2026-09-06T02:49:20.269367+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P01/verify_p01_package.py"
+      ],
+      "ended_at": "2026-09-06T02:51:02.338501+00:00",
+      "exit_code": 0,
+      "log": "p01-archive-and-installed-modules.log",
+      "name": "p01-archive-and-installed-modules",
+      "sha256": "fe9038ea66292842050d73dd7368272718b7d01e16768a980d3667514befc3c9",
+      "started_at": "2026-09-06T02:51:01.792758+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/audit_p01_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p01/historical-audit-final.json"
+      ],
+      "ended_at": "2026-09-06T02:54:13.845077+00:00",
+      "exit_code": 1,
+      "failure_classification": "R1 audit assumption error: applied final unpadded DPO accounting to the retained invalid smoke06-r2. Its recorded source used common padding; the corrected historical rule was independently verified.",
+      "log": "final-historical-evidence.log",
+      "name": "final-historical-evidence",
+      "sha256": "1f919e75713080814dc7bf33433e41e3603c61477d24c76435a897f35ce4f4ea",
+      "started_at": "2026-09-06T02:54:08.319807+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "ended_at": "2026-09-06T02:54:13.924722+00:00",
+      "exit_code": 0,
+      "log": "final-lint.log",
+      "name": "final-lint",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T02:54:13.892677+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/audit_p01_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p01/historical-audit-final.json"
+      ],
+      "ended_at": "2026-09-06T02:55:18.736493+00:00",
+      "exit_code": 0,
+      "log": "complete-historical-evidence.log",
+      "name": "complete-historical-evidence",
+      "sha256": "4eef09e75863260bde52eebdc65ca059377b144ac6f73ecd0e7a364f8c7086cc",
+      "started_at": "2026-09-06T02:55:12.995563+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "ended_at": "2026-09-06T03:06:35.167789+00:00",
+      "exit_code": 0,
+      "log": "release-lint.log",
+      "name": "release-lint",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T03:06:35.133903+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "ended_at": "2026-09-06T03:06:37.481746+00:00",
+      "exit_code": 0,
+      "log": "public-content.log",
+      "name": "public-content",
+      "sha256": "15257e072358989f5ac4fbb3ee53704447d20505e87a8e8cd9ddc5282a424176",
+      "started_at": "2026-09-06T03:06:35.233421+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import hashlib,json,subprocess\nfrom pathlib import Path\nroot=Path.cwd()\ncandidate='59b3802c81aa6eceaf3609af88f288756bcb1581'\ndef git(*args):return subprocess.check_output(['git',*args])\nassert git('rev-parse','HEAD').decode().strip()==candidate\nassert git('branch','--show-current').decode().strip()=='review/p01-r1'\nexpected=['coordination/handoffs/P01-review-r1.md']+[f'reports/review/P01/{name}' for name in ['README.md','audit_p01_evidence.py','check_p01_cpu_math.py','evidence.json','test_p01_failure_counters.py','test_p01_processes.py','verify_p01_package.py']]\nadded=git('diff','--cached','--name-status').decode().splitlines()\nassert sorted(added)==sorted('A\\t'+name for name in expected),added\nassert not git('diff','--name-only').strip()\nassert not git('ls-files','--others','--exclude-standard').strip()\nfiles=git('ls-tree','-r','--name-only',candidate).decode().splitlines()\nfor name in files:assert (root/name).read_bytes()==git('show',candidate+':'+name),name\nassert git('rev-parse','review/p02-r1').decode().strip()=='8e4fdbd7374130c77262a57e55049f9cef4bf651'\nsubprocess.run(['git','diff','--cached','--check'],check=True)\nprint(json.dumps({'result':'PASS','candidate_tracked_files_byte_unchanged':len(files),'only_added_paths':sorted(expected),'prior_p02_review_branch_preserved':True},sort_keys=True))\n"
+      ],
+      "ended_at": "2026-09-06T03:07:09.476080+00:00",
+      "exit_code": 0,
+      "log": "final-scope.log",
+      "name": "final-scope",
+      "sha256": "632b3e06c8ef7df766c9a12a0cb2c2b9b96c00fc1613de0281f8124dde6e148e",
+      "started_at": "2026-09-06T03:07:08.293811+00:00"
+    }
+  ],
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "cpu_counts": {
+    "applicable_original_pytest_passed": 217,
+    "composition": {
+      "P00_r2_review": 72,
+      "P00_review": 46,
+      "P01": 41,
+      "core": 58
+    },
+    "counts_are_not_coverage_percentages": true,
+    "historical_57_shared_snapshot_tests_included": false,
+    "independent_math_comparison_cases_passed": 17,
+    "independent_pytest_failed": 3,
+    "independent_pytest_passed": 4
+  },
+  "date": "2026-09-06",
+  "environment": {
+    "all_versions_match_uv_lock": true,
+    "allocated_private_bytes": 1364344832,
+    "authorized_private_bytes": 2147483648,
+    "distributions": {
+      "anyio": "4.15.1",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "click": "8.5.0",
+      "filelock": "3.32.5",
+      "fsspec": "2025.3.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface-hub": "1.30.0",
+      "idna": "3.19",
+      "iniconfig": "2.3.0",
+      "jinja2": "3.1.6",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "markupsafe": "3.0.3",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "2.5.2",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "psutil": "7.2.2",
+      "pygments": "2.21.0",
+      "pytest": "9.0.2",
+      "pyyaml": "6.0.3",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "setuptools": "84.0.0",
+      "sympy": "1.14.0",
+      "tokenizers": "0.23.2",
+      "torch": "2.14.0",
+      "tqdm": "4.70.0",
+      "typing-extensions": "4.16.0"
+    },
+    "installed_count": 34,
+    "no_mlx_or_model_packages_installed": true,
+    "python": "3.14.7"
+  },
+  "findings": [
+    {
+      "end": 378,
+      "file": "src/toolalign/training/compatibility/execution.py",
+      "id": "F1",
+      "priority": "P1",
+      "proof": "Real CPU-only inert child, injected sysctl failure/noninteger value; two failing smoke-manifest probes.",
+      "start": 355,
+      "summary": "Monitor exceptions reap the owned child but bypass terminal resources/run records; run remains running and summary omits it."
+    },
+    {
+      "end": 186,
+      "file": "src/toolalign/training/compatibility/fallback_probe.py",
+      "id": "F2",
+      "priority": "P1",
+      "proof": "Exact callback body isolated on CPU plus audited native trainer update/callback order. GPU fault injection NOT_RUN.",
+      "start": 182,
+      "summary": "The ln2 gate throws before recording the completed microstep, tokens and optimizer update; the boundary update already occurred upstream."
+    },
+    {
+      "blocking": false,
+      "end": 23,
+      "file": "reports/hardware/P01_REPORT.md",
+      "id": "F3",
+      "priority": "P2",
+      "raw_evidence_modified": false,
+      "start": 23,
+      "summary": "math-r2 source differs from its recorded HEAD; all eight recorded file hashes resolve to 47c03404bab043e85b417cd8a6d0432dc2f85479."
+    }
+  ],
+  "findings_counts": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 1
+  },
+  "gates": {
+    "G1_DPO": {
+      "acceptance": "FAIL",
+      "open_findings": [
+        "F1",
+        "F2"
+      ],
+      "primary_mlx_tune": "FAIL",
+      "sole_fallback_historical_bounded_functional_evidence": "SUPPORTED_WITH_FIXED_CONFIGURATION"
+    },
+    "G1_SFT": {
+      "acceptance": "FAIL",
+      "historical_bounded_functional_evidence": "SUPPORTED",
+      "open_findings": [
+        "F1"
+      ]
+    }
+  },
+  "historical_evidence_audit": {
+    "candidate": "59b3802c81aa6eceaf3609af88f288756bcb1581",
+    "gpu_reexecution": "NOT_RUN",
+    "historical": {
+      "model_files": {
+        "Qwen/Qwen3-0.6B": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "README.md": {
+            "sha256": "1ab64a26fcb3b461423b89a433a8c858f1bf8d4086f979cbb3ff878d47cf20e9",
+            "size_bytes": 13965
+          },
+          "config.json": {
+            "sha256": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+            "size_bytes": 726
+          },
+          "generation_config.json": {
+            "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+            "size_bytes": 239
+          },
+          "merges.txt": {
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+            "size_bytes": 1671853
+          },
+          "model.safetensors": {
+            "sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+            "size_bytes": 1503300328
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          },
+          "vocab.json": {
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+            "size_bytes": 2776833
+          }
+        },
+        "Qwen/Qwen3-1.7B": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "README.md": {
+            "sha256": "257e52c419dac2258852643f18af6c974f21f8c6c1b6f371b6cca6201cf29091",
+            "size_bytes": 13963
+          },
+          "config.json": {
+            "sha256": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+            "size_bytes": 726
+          },
+          "generation_config.json": {
+            "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+            "size_bytes": 239
+          },
+          "merges.txt": {
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+            "size_bytes": 1671853
+          },
+          "model-00001-of-00002.safetensors": {
+            "sha256": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+            "size_bytes": 3441185608
+          },
+          "model-00002-of-00002.safetensors": {
+            "sha256": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9",
+            "size_bytes": 622329984
+          },
+          "model.safetensors.index.json": {
+            "sha256": "0d660e94b165eb912669a5249dff44b83188c4777a07ddb9611fb78d91b0578d",
+            "size_bytes": 25605
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          },
+          "vocab.json": {
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+            "size_bytes": 2776833
+          }
+        }
+      },
+      "model_tensor_arrays_materialized": false,
+      "raw_weights_loaded_as_models": false,
+      "run_count": 10,
+      "runs": [
+        {
+          "assessment": "PASS",
+          "dpo_recorded_microsteps": 8,
+          "evidence_hashes": {
+            "config.json": "3cfb5e8927a3e2d49edcb3505dfe0eb89559fab391f0a5cac50c8e5f629fdb3d",
+            "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39",
+            "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+            "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+            "resources.json": "db211efd6ff1042657d0224b3f18124a2a4b7b5f9d528e06e1caa9ddf3c2387d",
+            "result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "run.json": "2adda5c8ac7b37f13a5e0342cdbabe884a31bee5566b833f896ba9ef907532da",
+            "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
+            "stdout.log": "5c0c1e107b5600e26a6ac23367d7aba3c07d592272b8a95a601f5ea664d35eab",
+            "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 25,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": 112,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 120,
+            "optimizer_steps": 15,
+            "processed_nonpadding_tokens": 122724,
+            "processed_tokens": 129892,
+            "reference_model_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e",
+            "training_tokens": 1120
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "source_dependencies_and_compile",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "aaab75ed5d993f9354f11f74b58edb67d0af45c3",
+          "run_id": "p01-calibrate17-1024-r1",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 104,
+          "sft_measured_seconds": 58.22920416551642,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "1559e6a7f12e222ec6198e1d55370604b16bf64bdb0ce8256faf41b3b49e94ec",
+          "stop_reason": null
+        },
+        {
+          "assessment": "STOPPED_RESOURCE",
+          "dpo_recorded_microsteps": 0,
+          "evidence_hashes": {
+            "config.json": "d408e85802da0e66b54e1b933013a58bbb4e05d4becd4e5d962f179e8ee36169",
+            "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049",
+            "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
+            "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+            "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
+            "run.json": "5a37f43e7f4caecbc4c8b59449a0268089a05a87333e25edf8d369764f0944cb",
+            "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+            "stdout.log": "098dc0185b90cc01bab5c6d2a52f08599566c56d995e5e2f1ef16a1849144398",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "exit_code": 124,
+          "manifest_artifacts_checked": 21,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": null,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 112,
+            "optimizer_steps": 14,
+            "processed_nonpadding_tokens": 164752,
+            "processed_tokens": 171920,
+            "reference_model_hash": "1bbd719d2b859f63fb3c67cbbc917e44382a359d59e02722b4a0fda697ae3c9e",
+            "training_tokens": 980
+          },
+          "raw_result_status": "RUNNING",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "source_dependencies_and_compile",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+          "run_id": "p01-calibrate17-1536-r1",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 104,
+          "sft_measured_seconds": 105.58223158237524,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241",
+          "stop_reason": "memory_pressure"
+        },
+        {
+          "assessment": "PASS",
+          "dpo_recorded_microsteps": 8,
+          "evidence_hashes": {
+            "config.json": "3329229f6993debf521504c2f8e8c10e4276207ae81254f70095c5a4c35f05f8",
+            "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e",
+            "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+            "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+            "resources.json": "6dc1099cdf9ab0a45fd18d147d5591c4d10840af55af96acccbbda4b6b8e5459",
+            "result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "run.json": "7d26cbfd229e7f43d71f57062fbbb98db29cd39bb64d3a8db4fa41d1f14305a7",
+            "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
+            "stdout.log": "3ec1099ac969939cbc4521e78ef3a6050c25f85c915ae20ed799ca6e76a44faf",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 26,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": 112,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 120,
+            "optimizer_steps": 15,
+            "processed_nonpadding_tokens": 188260,
+            "processed_tokens": 195428,
+            "reference_model_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974",
+            "training_tokens": 1120
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "source_dependencies_compile_and_checkpointing",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "fdb37c7fa8991f8d57bf48f3c690aa7d0b145611",
+          "run_id": "p01-calibrate17-1536-r2",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 104,
+          "sft_measured_seconds": 92.1476093379315,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "4a35ac9564255a38649a5d26d7990bef6189f5420d3c216e774409b02bdf6ae0",
+          "stop_reason": null
+        },
+        {
+          "assessment": "PASS",
+          "dpo_recorded_microsteps": 8,
+          "evidence_hashes": {
+            "config.json": "25726f3ea1e781a39b02523a2bd332dec4f8e027308d2bcca75420ad07681e49",
+            "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb",
+            "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+            "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+            "resources.json": "2d4150221774ec0e9dddc215399bb727227f0a22453a14774e6d11dec0b64fa1",
+            "result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "run.json": "8444892edb41716b9ad619f757fa6aef4580b50b5a5cd8d079d35b7488e94be2",
+            "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
+            "stdout.log": "ab65dc4ddaec74b2c7f100079d0d2cb42f7bad7bed224c726f7511cf5f7895f0",
+            "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 26,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": 112,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 120,
+            "optimizer_steps": 15,
+            "processed_nonpadding_tokens": 253796,
+            "processed_tokens": 260964,
+            "reference_model_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5",
+            "training_tokens": 1120
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "source_dependencies_compile_and_checkpointing",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "f60ff10c094b9232584ec7cc77b60836a473fc58",
+          "run_id": "p01-calibrate17-2048-r1",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 104,
+          "sft_measured_seconds": 153.92377096368,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "d5155e119f778b9e6435e0836aa320a28e9c750ea4dbb192da268c1ae2b04914",
+          "stop_reason": null
+        },
+        {
+          "assessment": "PASS",
+          "evidence_hashes": {
+            "config.json": "cd6845b8cc480bb28a9be85f8eddc97f8b840c60451b0e403e899a5333a674af",
+            "resources.json": "f22df2f2deab3038739416b463e5fd49b7946fedc7f2ef4970dab20dabac38ec",
+            "result.json": "65c4133fcf6bcd0f56aca21f6cbfa8e1ef5fff5cfd0cc2f8e0f2580b93f5dade",
+            "stdout.log": "6c202dd072f3bd22f999d0555e5b718b5474548fcc37e6ae6ecb25f7adc272db"
+          },
+          "exit_code": 0,
+          "math": {
+            "ce_gradient_max_abs_error": 1.4901161193847656e-08,
+            "ce_loss": 1.9298580884933472,
+            "ce_loss_abs_error": 1.1920928955078125e-07,
+            "device": "MLX CPU and PyTorch CPU",
+            "dpo_gradient_max_abs_error": 1.862645149230957e-09,
+            "dpo_loss": 0.6867221593856812,
+            "dpo_loss_abs_error": 5.960464477539063e-08,
+            "dtype": "float32",
+            "initial_ln2": 0.6931471824645996,
+            "masked_logits_invariance": true,
+            "right_padding_invariance": true,
+            "status": "PASS",
+            "tolerances": {
+              "gradient_atol": 2e-06,
+              "ln2_atol": 2e-06,
+              "loss_atol": 2e-06
+            },
+            "upstream_negative_probes": {
+              "mlx_lm_lora_padding": {
+                "includes_first_pad_logp": -1.8442885875701904,
+                "nonzero_target_positions": 4,
+                "status": "REPRODUCED",
+                "valid_nonpadding_next_tokens": 3
+              },
+              "mlx_lm_padding": {
+                "correct_loss": 2.430647373199463,
+                "expected_tokens": 2,
+                "status": "REPRODUCED",
+                "upstream_loss": 2.235194444656372,
+                "upstream_tokens": 3
+              },
+              "mlx_tune_missing_reference": {
+                "after_policy_change": 0.6931471824645996,
+                "before": 0.6931471824645996,
+                "interpretation": "Implicit stop-gradient policy reference drifts; explicit cache required",
+                "status": "REPRODUCED"
+              }
+            }
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "resolved_source_commit": null,
+          "run_id": "p01-math-r1",
+          "source_files_matched_to_commit": 0,
+          "source_hash": "6fd8535af7a63fd41eac9fdff9e34e30155aa6fb8756785430e0c187342fb73a"
+        },
+        {
+          "assessment": "PASS",
+          "evidence_hashes": {
+            "config.json": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+            "resources.json": "1aea9174281d07093d76a910c45b807d40303e429d156e214bb1690fd9142b54",
+            "result.json": "85b5a523c5820e993f9c0c936c8d5bfea1599f877a1577deec7bf0a4b567e501",
+            "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "exit_code": 0,
+          "math": {
+            "ce_gradient_max_abs_error": 1.4901161193847656e-08,
+            "ce_loss": 1.9298580884933472,
+            "ce_loss_abs_error": 1.1920928955078125e-07,
+            "device": "MLX CPU and PyTorch CPU",
+            "dpo_gradient_max_abs_error": 1.862645149230957e-09,
+            "dpo_loss": 0.6867221593856812,
+            "dpo_loss_abs_error": 5.960464477539063e-08,
+            "dtype": "float32",
+            "fallback_actual_gradient_max_abs_error": 1.862645149230957e-09,
+            "fallback_actual_loss_abs_error": 1.1920928955078125e-07,
+            "initial_ln2": 0.6931471824645996,
+            "masked_logits_invariance": true,
+            "right_padding_invariance": true,
+            "status": "PASS",
+            "tolerances": {
+              "gradient_atol": 2e-06,
+              "ln2_atol": 2e-06,
+              "loss_atol": 2e-06
+            },
+            "upstream_negative_probes": {
+              "mlx_lm_lora_padding": {
+                "includes_first_pad_logp": -1.8442885875701904,
+                "nonzero_target_positions": 4,
+                "status": "REPRODUCED",
+                "valid_nonpadding_next_tokens": 3
+              },
+              "mlx_lm_padding": {
+                "correct_loss": 2.430647373199463,
+                "expected_tokens": 2,
+                "status": "REPRODUCED",
+                "upstream_loss": 2.235194444656372,
+                "upstream_tokens": 3
+              },
+              "mlx_tune_missing_reference": {
+                "after_policy_change": 0.6931471824645996,
+                "before": 0.6931471824645996,
+                "interpretation": "Implicit stop-gradient policy reference drifts; explicit cache required",
+                "status": "REPRODUCED"
+              }
+            }
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [
+            "model_probe.py",
+            "numerical.py"
+          ],
+          "resolved_source_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+          "run_id": "p01-math-r2",
+          "source_files_matched_to_commit": 6,
+          "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241"
+        },
+        {
+          "assessment": "PARTIAL_SFT_PASS_DPO_FAILED",
+          "dpo_recorded_microsteps": 0,
+          "evidence_hashes": {
+            "config.json": "b785e53266ee0ed728f91e6d309f6f13ea1a4e5a450cfc92997fb2f59cfc0622",
+            "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df",
+            "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+            "resources.json": "c16e84d53901638b952cce98a166f811daf5a01497b77b982c3dc37a425e360a",
+            "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "run.json": "0ea49c8eb6b02e908c6943ce933b673f9ac9e63519a38d894063c88af93f74dc",
+            "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+            "stdout.log": "03e152c37e530bf4a93898bc941da740ba3ed28115ae0439e935a994304d15af",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 19,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": null,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 32,
+            "optimizer_steps": 4,
+            "processed_nonpadding_tokens": 6594,
+            "processed_tokens": 6594,
+            "reference_model_hash": "e413898e8ca16ea8feaed716c84edc6554c3951a397bd4cd1f8749d8c4db419d",
+            "training_tokens": 281
+          },
+          "raw_result_status": "PARTIAL",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "historical_source_hash_only",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "3f55ecf3d917f1d69a3b9b65d16a35708c43575f",
+          "run_id": "p01-smoke06-r1",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 24,
+          "sft_measured_seconds": 1.7047095415182412,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 7,
+          "source_hash": "18393f07d805fe456adc8f0727546e522225d749e33c5780f3978631f00cc4e0",
+          "stop_reason": null
+        },
+        {
+          "assessment": "FAIL_TRAINING_PATH_LN2",
+          "dpo_recorded_microsteps": 8,
+          "evidence_hashes": {
+            "config.json": "6e46d3ebfef1b8a1e43cb5dd44733958a1a14822189e3d0ec6daa358e025ce3b",
+            "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866",
+            "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+            "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+            "resources.json": "ad1a2c92325c977101329ce9cfcb800d5806e119afad3431e8463bf481c38f87",
+            "result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "run.json": "1d31e1fd41c9e1bc63422e16e3d6b37fa6c77af5e5c5f16d690b508db8dbad62",
+            "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
+            "stdout.log": "1d3734cd7adc44cc2896f6f02b935477f90ea70d7a43e669b42205c736ecaec6",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 24,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": 112,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 40,
+            "optimizer_steps": 5,
+            "processed_nonpadding_tokens": 10054,
+            "processed_tokens": 10122,
+            "reference_model_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0",
+            "training_tokens": 421
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "historical_source_hash_only",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "45f46705516bc8e2c37d69874f281989ed30a7af",
+          "run_id": "p01-smoke06-r2",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 24,
+          "sft_measured_seconds": 1.5678923758678138,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "7cdf0c8cf7121783535bedf299203f99863208c5f43a3c7c10a006e9dc07589d",
+          "stop_reason": null
+        },
+        {
+          "assessment": "FAILED",
+          "dpo_recorded_microsteps": 0,
+          "evidence_hashes": {
+            "config.json": "0efb9dae9b89dfe9d9896b5407e86763738fe1c7865da1a61b38f5143e8e03d1",
+            "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+            "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e",
+            "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
+            "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+            "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
+            "run.json": "4c0346e75719c7f41c78b152378c7e47b251344d5ee9ad29c7630c514a09da1a",
+            "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+            "stdout.log": "99b626d93d3c48bbc1869409780994f99a5b15e53dd0858d93b87dd7759ac74e",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "exit_code": 2,
+          "manifest_artifacts_checked": 19,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": null,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 32,
+            "optimizer_steps": 4,
+            "processed_nonpadding_tokens": 6594,
+            "processed_tokens": 6594,
+            "reference_model_hash": "2d5de1b40a52b70c6078a444b3861df975977c72a4c9c1b2d5e91e7446d24b58",
+            "training_tokens": 281
+          },
+          "raw_result_status": "RUNNING",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "historical_source_hash_only",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "a2df878a71c09f0ac810814f63c067df585294b8",
+          "run_id": "p01-smoke06-r3",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 24,
+          "sft_measured_seconds": 1.4940527500584722,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "8ea16f8bc1ccc83f588bdab673088aac07a8fb4e899b39673293679d12d67b91",
+          "stop_reason": null
+        },
+        {
+          "assessment": "PASS",
+          "dpo_recorded_microsteps": 8,
+          "evidence_hashes": {
+            "config.json": "7bc42965803c9dcea7b80c802e8fc5f589180a9e7df9dac732f97637c8bbb7fc",
+            "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109",
+            "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+            "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+            "resources.json": "387565e453f4e5a2596faa384fda76d7d7efccad713e0abf0532eecf8bd26d85",
+            "result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "run.json": "fde4390b4641bf2d5e8cbdebfb18265afc584927b7ae9a97c849f5643ae720a9",
+            "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
+            "stdout.log": "4fafafd02b4782bdb6b855c79dd6f41815e9c56b5324befa97473088fd4e5faa",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "exit_code": 0,
+          "manifest_artifacts_checked": 25,
+          "pair_prefixes_checked": 2,
+          "parameter_bytes": {
+            "base_arrays_bound_to_original_bytes": 310,
+            "declared_adapter_arrays": 112,
+            "dpo_changed_arrays": 112,
+            "saved_adapter_arrays_match_logged_hashes": true,
+            "sft_changed_arrays": 112
+          },
+          "progress": {
+            "microsteps": 40,
+            "optimizer_steps": 5,
+            "processed_nonpadding_tokens": 10054,
+            "processed_tokens": 10054,
+            "reference_model_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72",
+            "training_tokens": 421
+          },
+          "raw_result_status": "PASS",
+          "recorded_head_source_mismatches": [],
+          "reference_code_identity_rule": "source_dependencies_and_compile",
+          "reference_stage": "sft_smoke",
+          "resolved_source_commit": "59f80f7f82c7da85d143666c5136d22340fb9841",
+          "run_id": "p01-smoke06-r4",
+          "samples_retokenized": 32,
+          "sft_measured_microsteps": 24,
+          "sft_measured_seconds": 1.5391743348445743,
+          "sft_warmup_microsteps": 8,
+          "source_files_matched_to_commit": 8,
+          "source_hash": "1ce5ebb725533d76cb7dc06cf13c1a6e96bc22e1c8a15e10b6796d9b654b994c",
+          "stop_reason": null
+        }
+      ]
+    },
+    "metadata": {
+      "environments": [
+        {
+          "dev_only": {
+            "iniconfig": "2.3.0",
+            "pluggy": "1.6.0",
+            "pytest": "9.0.2",
+            "ruff": "0.15.0"
+          },
+          "extras": [
+            "compatibility",
+            "dpo"
+          ],
+          "installed_distributions": 69,
+          "runtime_count": 64,
+          "runtime_versions_match_exploration": true,
+          "upstream_source_files_verified": 7
+        },
+        {
+          "dev_only": {
+            "iniconfig": "2.3.0",
+            "pluggy": "1.6.0",
+            "pytest": "9.0.2",
+            "ruff": "0.15.0"
+          },
+          "extras": [
+            "compatibility",
+            "dpo",
+            "p01-replay"
+          ],
+          "installed_distributions": 90,
+          "runtime_count": 85,
+          "runtime_versions_match_exploration": true,
+          "upstream_source_files_verified": 11
+        }
+      ],
+      "preserved_previous_files": {
+        "coordination/handoffs/P01-r1.md": "7e8d8488fa2654cb137dbc8b1408c74ed268d76be8867a62be0a340960049feb",
+        "reports/hardware/P01_BUILD_REPORT.py": "3ff92fd45f7cc3d3fe9e4501681d0e0601194f67c77fbe5297f4da5b33bdfb34",
+        "reports/hardware/P01_CHECK_SDIST_SELECTION.py": "5d604291e258c5af67627ac743d4d85e7c8a466d0ecdaf9bb83039ef79fbfb02",
+        "reports/hardware/P01_ENVIRONMENT.json": "9bd6f8d54e16a7dc4130d07f1740541721185288e27e3b263198b1dc7a6d8941",
+        "reports/hardware/P01_EXPLORATION_REQUIREMENTS.txt": "962fb8cc1f6f76411a31720511667f8f0e2577de3a1b4017defe197ffca4db05",
+        "reports/hardware/P01_PREREGISTRATION.md": "a6638a2b04ffc5d20a0ffa06e04bc7850e1b597b5e0ca34db158b9cc0bc36977",
+        "reports/hardware/P01_REPORT.md": "47c403975014377d5a4425fe3bae51cb6c036fd4b4a95b485c064636f6be0f0f",
+        "reports/hardware/P01_REPRODUCE.md": "2ea54a56a7499b50f6f765f435781bb912fead0f19c23087e0e5eb0acb6ea282",
+        "reports/hardware/P01_RESULTS.json": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+        "reports/hardware/P01_SOURCE_IDENTITIES.json": "95d27bd6a0913e5de84228d60d8015595af0e57a7ad1a4481a52fa0c14e02f27",
+        "reports/hardware/P01_VALIDATION.json": "03d04077857ef4732933a942c6f4fea3f3a13ffcb6ef38c5f3023033a6d765ce",
+        "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+        "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+        "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+        "src/toolalign/training/compatibility/execution.py": "78c2fdcb0441c177c45af392984dd14784b1d454d80afe260ff6dcb47e6bfa05",
+        "src/toolalign/training/compatibility/fallback_probe.py": "7a3b85d389b37d44428bcc37423066fd9a0b6bdabdba35611f0d5651e32aebc9",
+        "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+        "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+        "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+        "tests/training/compatibility/test_invariants.py": "88ef39bc29a1c8f278cdff8c661dfa82a8aa7f9aaab299e9cd5367bcad00bb43",
+        "tests/training/compatibility/test_lease_entry.py": "b86b85d036975ca488f3b9de61da68f4ce2481acaf46d1138b175bbad0105035"
+      },
+      "raw_command_log_count": 27,
+      "raw_command_logs": [
+        {
+          "exit_code": 0,
+          "name": "final-sync",
+          "sha256": "f8a39c9104864d5bfc057d1a75ccf0a4475e0ccdf0bc7f15c9843da021afe263"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-cpu",
+          "sha256": "9a9c237ea973d3e594f38eea910b036153fff8da8ffe39faf33e7b26152538c4"
+        },
+        {
+          "exit_code": 0,
+          "name": "compatibility-cpu",
+          "sha256": "f9bac75717a879111143ef4ef60f937d1deddf0104241eb4458530fd407f090f"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-freeze",
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+        },
+        {
+          "exit_code": 0,
+          "name": "cli-help",
+          "sha256": "fbec7db94886031c567d9804ed218da3e80385abed4dd6d01915aded47f3bf0d"
+        },
+        {
+          "exit_code": 0,
+          "name": "wheel-build",
+          "sha256": "80e16a0917ab4f1a266a0da6b5103979a00ae1febef9f131007c81086f91a859"
+        },
+        {
+          "exit_code": 0,
+          "name": "wheel-verify",
+          "sha256": "91636a06fcd05a649510a99667f4a55c35ba008a5d9cc5312a6a4345e68f4c59"
+        },
+        {
+          "exit_code": 1,
+          "name": "sdist-selection",
+          "sha256": "a130b5507c8a09c8ed9c513fb5fccf65ab46026a423dfee48362bb0936a21e56"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-public",
+          "sha256": "d8d1d7def0c5303e60e9ca4dc9c7192be403ffadce5ef815267bc290f671edaf"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-audit",
+          "sha256": "778edc7c861dd09ca87040543fac40f42443f49efc4115d40af4bdd90b2c7381"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-build",
+          "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-cpu",
+          "sha256": "dba7a71c4670da709d3b2b2368eee4d475ff205e4a440b12177694c459f8872f"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-dpo-sync",
+          "sha256": "0b636e5d8b1ab3b1572c73d1534502c5acc5f7fd3bf8b0098bf3cdb9b8a50e9e"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-freeze",
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-lock-metadata",
+          "sha256": "2e30405043c6f316242eb27cde1c641390e766878d8cf01fd418c7d500222745"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-r3-boundaries",
+          "sha256": "14166e70f9dde4b7ad2f8347f2ada068ba6c6861cb02d7c327f6561bc3e071c1"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-replay-sync",
+          "sha256": "941b24714a0006a663f08b59c3a17fdf9809d17aa11cd6ed87ab2cbcab87aff3"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-retained-runs",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-selection",
+          "sha256": "f31946af228ad95080211d1c7b910448f0eec3e5ef61cd2922356a78e793293f"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-sync",
+          "sha256": "bbf46ff49965f9380be814c475706db6a92e730d3fbea39c6854ea1c68b77baa"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-synthetic-archives",
+          "sha256": "2fe77a49ef2ca6f59664fa6e47bc8ad9043c4224616dd51b361b2b08e40fae87"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-torch-cpu",
+          "sha256": "596d33ee397ff90ee0a32090fb127c1627e411a7904184df0d9105187582ad3a"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-wheel-install",
+          "sha256": "390edb43abaaf483f0ae93ff2d1a28e1f58a6aa7bc9353ab8a2f95dff03e8f37"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-final-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-final-public",
+          "sha256": "6171331215341b9ba9b0692b819da367a00fe397df6190bd5dd85530f2ee0551"
+        }
+      ]
+    },
+    "model_import": false,
+    "status": "PASS"
+  },
+  "implementation_commit": "eed03e88d5cc88f6db8b3845f2e7d5c9967c9c02",
+  "not_run": [
+    "R1 MLX or model imports",
+    "R1 GPU calibration or model reexecution",
+    "R1 GPU failure injection",
+    "full locked MLX/Torch math replay",
+    "P04/P05 formal SFT/DPO",
+    "accepted_sft reference training",
+    "P02 kris semantic review",
+    "P04 kris manual checks of at least 10 token/mask samples",
+    "P03 full harness and 256-output-token protocol",
+    "formal evaluation or BFCL/final tests",
+    "long-duration thermal/power/stability benchmarks",
+    "model or dataset upload",
+    "serving deployment"
+  ],
+  "original_candidate": "f97bb0de346c220871962a5689014a379fe19c83",
+  "package_evidence": {
+    "archives": {
+      "toolalign-0.0.1-py3-none-any.whl": {
+        "all_archive_files": 27,
+        "bytes": 44037,
+        "generated_metadata": [
+          "toolalign-0.0.1.dist-info/METADATA",
+          "toolalign-0.0.1.dist-info/WHEEL",
+          "toolalign-0.0.1.dist-info/entry_points.txt",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE",
+          "toolalign-0.0.1.dist-info/RECORD"
+        ],
+        "p01_modules": {
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "78c2fdcb0441c177c45af392984dd14784b1d454d80afe260ff6dcb47e6bfa05",
+          "src/toolalign/training/compatibility/fallback_probe.py": "7a3b85d389b37d44428bcc37423066fd9a0b6bdabdba35611f0d5651e32aebc9",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "sha256": "043e5d4508704d5637f7a9fef20dcb236c5223649def73b832750fa94dabd69b",
+        "tracked_files": 22,
+        "untracked_payload": 0
+      },
+      "toolalign-0.0.1.tar.gz": {
+        "all_archive_files": 47,
+        "bytes": 110865,
+        "generated_metadata": [
+          "PKG-INFO"
+        ],
+        "p01_modules": {
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "78c2fdcb0441c177c45af392984dd14784b1d454d80afe260ff6dcb47e6bfa05",
+          "src/toolalign/training/compatibility/fallback_probe.py": "7a3b85d389b37d44428bcc37423066fd9a0b6bdabdba35611f0d5651e32aebc9",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "sha256": "f74cd964bec2af10f673ac5104a88b9162a7cd27fb4a5e6398a9be621424c508",
+        "tracked_files": 46,
+        "untracked_payload": 0
+      }
+    },
+    "installed_checks": [
+      {
+        "exit_code": 0,
+        "name": "export",
+        "stderr_sha256": "4178fef676ecb0344d286cee8513ec61e5ddd3328fa87b5b801eaef9c04c83fb",
+        "stdout_sha256": "466e95cafba3e1478c06d1635321e59cfe64335c90d77f5ba2a9f6fab883ea65"
+      },
+      {
+        "exit_code": 0,
+        "name": "venv",
+        "stderr_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "dependencies",
+        "stderr_sha256": "cd3de2a31273749306e17c662c7ced7ec6247b24813afd43b719bbfa8b53c57d",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "wheel",
+        "stderr_sha256": "51c89b2d2d6ffd8592ceaeba4277e7d51b4a0241f70fdadf52e34b7feeb63a02",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "name": "p01-imports",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "dff0c9d60f90286cfd2bb5df83a7711e373fb8159bc7b3f381c942009dc88eb5"
+      },
+      {
+        "exit_code": 0,
+        "name": "p01-help",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c56054b15fea4aafb67bb5c9175d3213d5965831f085cd572346025f12c764c3"
+      }
+    ],
+    "model_loading": "NOT_RUN",
+    "status": "PASS"
+  },
+  "private_artifact_hashes": {
+    "cpu-environment.json": "cba803233806c16f5f31c0637a793f09cd2bcab04623ed666a7335f907db6293",
+    "historical-audit-final.json": "7e055bed99369c78d24d368af90be993c3b1fa11ba2a8b6dab6929e8f3187bcf",
+    "package-check/evidence.json": "624bae8ca70e04602b1525c11cc044e594320ed46d375117e9ac114bbaf174a5",
+    "rebuilt-worker-summary.json": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd"
+  },
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "review_branch": "review/p01-r1",
+  "review_probe_hashes": {
+    "reports/review/P01/audit_p01_evidence.py": "a3b3f28a37c9e69d743a9468e9884070d4440628a55fdfc39e67c7da8ab2bee3",
+    "reports/review/P01/check_p01_cpu_math.py": "fdf6435880a7585a0a6e6637668d6774936e385096f5693e115fdb9784ea0bf0",
+    "reports/review/P01/test_p01_failure_counters.py": "a91f20cc2c0b755fb96fbc58588b32ab0b37e5ce64787912fb907e76a1efa202",
+    "reports/review/P01/test_p01_processes.py": "18b773979d4b3b958bebcfaa9c271becc705fd5e2d2882601681cba648270853",
+    "reports/review/P01/verify_p01_package.py": "46d9d9d76357709d1ddca7aead0e307475dc7db642c2f08d3e5077e14a325fc0"
+  },
+  "reviewer": "R1",
+  "sync_authorization_commit": "f2a271be616cdb53c01e8d671029f31ae140c037",
+  "task": "P01-review-r1",
+  "verdict": "FAIL"
+}

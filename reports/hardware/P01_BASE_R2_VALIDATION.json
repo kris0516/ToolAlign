@@ -1,0 +1,348 @@
+{
+  "scope": "P01-base-r2 CPU synchronization self-test; pending independent P01 review",
+  "previous_candidate": "f97bb0de346c220871962a5689014a379fe19c83",
+  "code_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "authorization_commit": "f2a271be616cdb53c01e8d671029f31ae140c037",
+  "merge_commit": "17a003f2678682fd3c6a072eba2b105fafc87102",
+  "audit_script_commit": "e6825f657a359a812b44b8db96d7929efd9f77ff",
+  "checks": [
+    {
+      "name": "base-r2-audit",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_BASE_R2_AUDIT.py",
+        "--dpo-site-packages",
+        ".toolalign-local/base-r2/venv-dpo/lib/python3.14/site-packages",
+        "--replay-site-packages",
+        ".toolalign-local/base-r2/venv-replay/lib/python3.14/site-packages"
+      ],
+      "started_at": "2026-09-06T01:09:05.105596+00:00",
+      "wall_seconds": 0.3808323750272393,
+      "exit_code": 0,
+      "sha256": "778edc7c861dd09ca87040543fac40f42443f49efc4115d40af4bdd90b2c7381"
+    },
+    {
+      "name": "base-r2-build",
+      "command": [
+        "uv",
+        "build"
+      ],
+      "started_at": "2026-09-06T01:04:37.122925+00:00",
+      "wall_seconds": 0.35920879105105996,
+      "exit_code": 0,
+      "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75"
+    },
+    {
+      "name": "base-r2-cpu",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ],
+      "started_at": "2026-09-06T01:04:23.629254+00:00",
+      "wall_seconds": 3.5100532919168472,
+      "exit_code": 0,
+      "sha256": "dba7a71c4670da709d3b2b2368eee4d475ff205e4a440b12177694c459f8872f"
+    },
+    {
+      "name": "base-r2-dpo-sync",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/base-r2/venv-dpo",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo"
+      ],
+      "started_at": "2026-09-06T01:04:24.789476+00:00",
+      "wall_seconds": 0.30370087502524257,
+      "exit_code": 0,
+      "sha256": "0b636e5d8b1ab3b1572c73d1534502c5acc5f7fd3bf8b0098bf3cdb9b8a50e9e"
+    },
+    {
+      "name": "base-r2-freeze",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "started_at": "2026-09-06T01:04:23.654034+00:00",
+      "wall_seconds": 0.029176624957472086,
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+    },
+    {
+      "name": "base-r2-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-06T01:04:23.619561+00:00",
+      "wall_seconds": 0.02719987486489117,
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "base-r2-lock-metadata",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_dependencies.py",
+        "--dpo-site-packages",
+        ".toolalign-local/base-r2/venv-dpo/lib/python3.14/site-packages",
+        "--replay-site-packages",
+        ".toolalign-local/base-r2/venv-replay/lib/python3.14/site-packages"
+      ],
+      "started_at": "2026-09-06T01:05:31.127004+00:00",
+      "wall_seconds": 0.30634829099290073,
+      "exit_code": 0,
+      "sha256": "2e30405043c6f316242eb27cde1c641390e766878d8cf01fd418c7d500222745"
+    },
+    {
+      "name": "base-r2-r3-boundaries",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_additional_boundaries_r3.py"
+      ],
+      "started_at": "2026-09-06T01:05:31.116822+00:00",
+      "wall_seconds": 3.4293748328927904,
+      "exit_code": 0,
+      "sha256": "14166e70f9dde4b7ad2f8347f2ada068ba6c6861cb02d7c327f6561bc3e071c1"
+    },
+    {
+      "name": "base-r2-replay-sync",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/base-r2/venv-replay",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay"
+      ],
+      "started_at": "2026-09-06T01:04:36.693711+00:00",
+      "wall_seconds": 0.3863860829733312,
+      "exit_code": 0,
+      "sha256": "941b24714a0006a663f08b59c3a17fdf9809d17aa11cd6ed87ab2cbcab87aff3"
+    },
+    {
+      "name": "base-r2-retained-runs",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_BUILD_REPORT.py",
+        "--private-runs",
+        ".toolalign-local/runs",
+        "--output",
+        ".toolalign-local/base-r2/retained-runs.json"
+      ],
+      "started_at": "2026-09-06T01:09:05.100193+00:00",
+      "wall_seconds": 0.17955404217354953,
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "base-r2-selection",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/hardware/P01_CHECK_SDIST_SELECTION.py"
+      ],
+      "started_at": "2026-09-06T01:04:23.665426+00:00",
+      "wall_seconds": 0.055989749962463975,
+      "exit_code": 0,
+      "sha256": "f31946af228ad95080211d1c7b910448f0eec3e5ef61cd2922356a78e793293f"
+    },
+    {
+      "name": "base-r2-sync",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "started_at": "2026-09-06T01:04:10.616879+00:00",
+      "wall_seconds": 0.18016929109580815,
+      "exit_code": 0,
+      "sha256": "bbf46ff49965f9380be814c475706db6a92e730d3fbea39c6854ea1c68b77baa"
+    },
+    {
+      "name": "base-r2-synthetic-archives",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ],
+      "started_at": "2026-09-06T01:04:23.642321+00:00",
+      "wall_seconds": 0.8667956250719726,
+      "exit_code": 0,
+      "sha256": "2fe77a49ef2ca6f59664fa6e47bc8ad9043c4224616dd51b361b2b08e40fae87"
+    },
+    {
+      "name": "base-r2-torch-cpu",
+      "command": [
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        "reports/hardware/P01_BASE_R2_TORCH_CPU.py"
+      ],
+      "started_at": "2026-09-06T01:06:34.292156+00:00",
+      "wall_seconds": 7.866835916182026,
+      "exit_code": 0,
+      "sha256": "596d33ee397ff90ee0a32090fb127c1627e411a7904184df0d9105187582ad3a"
+    },
+    {
+      "name": "base-r2-wheel-install",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P00/verify_wheel.py"
+      ],
+      "started_at": "2026-09-06T01:05:31.137262+00:00",
+      "wall_seconds": 1.1438284998293966,
+      "exit_code": 0,
+      "sha256": "390edb43abaaf483f0ae93ff2d1a28e1f58a6aa7bc9353ab8a2f95dff03e8f37"
+    },
+    {
+      "name": "base-r2-final-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-06T01:13:49.490214+00:00",
+      "wall_seconds": 0.02247962518595159,
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "base-r2-final-public",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "started_at": "2026-09-06T01:13:49.481317+00:00",
+      "wall_seconds": 2.051526458002627,
+      "exit_code": 0,
+      "sha256": "6171331215341b9ba9b0692b819da367a00fe397df6190bd5dd85530f2ee0551"
+    }
+  ],
+  "cpu_tests_passed": 217,
+  "cpu_composition": {
+    "original_core": 58,
+    "p01": 41,
+    "p00_independent": 46,
+    "p00_r2": 72
+  },
+  "historical_shared01_snapshot": "NOT_APPLICABLE; 57 tests were bound to its old single-extra candidate; left unchanged",
+  "selection": {
+    "selected_files": 45,
+    "selected_bytes": 373065,
+    "private_files": 0,
+    "git_marker_is_file": true,
+    "archive_created": false
+  },
+  "artifacts": {
+    "toolalign-0.0.1-py3-none-any.whl": {
+      "archive_files": 27,
+      "generated_metadata": [
+        "toolalign-0.0.1.dist-info/METADATA",
+        "toolalign-0.0.1.dist-info/WHEEL",
+        "toolalign-0.0.1.dist-info/entry_points.txt",
+        "toolalign-0.0.1.dist-info/licenses/LICENSE",
+        "toolalign-0.0.1.dist-info/RECORD"
+      ],
+      "sha256": "043e5d4508704d5637f7a9fef20dcb236c5223649def73b832750fa94dabd69b",
+      "size_bytes": 44037,
+      "tracked_files_byte_identical": 22,
+      "untracked_payload_files": 0
+    },
+    "toolalign-0.0.1.tar.gz": {
+      "archive_files": 47,
+      "generated_metadata": [
+        "PKG-INFO"
+      ],
+      "sha256": "f74cd964bec2af10f673ac5104a88b9162a7cd27fb4a5e6398a9be621424c508",
+      "size_bytes": 110865,
+      "tracked_files_byte_identical": 46,
+      "untracked_payload_files": 0
+    }
+  },
+  "torch_cpu": {
+    "atol": 2e-06,
+    "ce_loss": 1.9298582077026367,
+    "device": "PyTorch CPU only",
+    "dpo_loss": 0.6867220997810364,
+    "dtype": "float32",
+    "errors": {
+      "ce_gradient_max_vs_analytic": 5.428978773480697e-09,
+      "ce_loss_vs_scalar": 7.69961308044742e-08,
+      "ce_vs_historical_mlx": 1.1920928955078125e-07,
+      "dpo_gradient_max_vs_analytic": 8.692344032057431e-10,
+      "dpo_loss_vs_scalar": 3.209551102667518e-08,
+      "dpo_vs_historical_mlx": 5.960464477539063e-08,
+      "ln2_abs_error": 1.904654323148236e-09
+    },
+    "full_mlx_torch_math_replay": "NOT_RUN",
+    "gpu_calibration": "NOT_RUN",
+    "initial_ln2": 0.6931471824645996,
+    "masked_logits_invariance": true,
+    "model_or_mlx_imported": false,
+    "reference_gradients_absent": true,
+    "status": "PASS",
+    "torch": "2.14.0"
+  },
+  "old_run_summary_identical": true,
+  "old_run_summary_sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+  "model_loading": "NOT_RUN",
+  "mlx_import": "NOT_RUN",
+  "new_gpu_calibration": "NOT_RUN",
+  "full_mlx_torch_math_replay": "NOT_RUN"
+}

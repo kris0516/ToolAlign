@@ -1,0 +1,56 @@
+{
+  "scope": "P01 R1-r1 F3 historical source attribution correction; no replay",
+  "run_id": "p01-math-r2",
+  "recorded_git_commit": "aaab75ed5d993f9354f11f74b58edb67d0af45c3",
+  "recorded_source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241",
+  "resolved_source_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+  "source_files": {
+    "__init__.py": {
+      "recorded_worktree_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "recorded_head_blob_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "resolved_commit_blob_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf"
+    },
+    "__main__.py": {
+      "recorded_worktree_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "recorded_head_blob_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "resolved_commit_blob_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219"
+    },
+    "core.py": {
+      "recorded_worktree_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b",
+      "recorded_head_blob_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b",
+      "resolved_commit_blob_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b"
+    },
+    "execution.py": {
+      "recorded_worktree_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726",
+      "recorded_head_blob_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726",
+      "resolved_commit_blob_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726"
+    },
+    "fallback_probe.py": {
+      "recorded_worktree_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e",
+      "recorded_head_blob_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e",
+      "resolved_commit_blob_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e"
+    },
+    "model_probe.py": {
+      "recorded_worktree_sha256": "d771ab74085e9e765197a256e5f99947da4e99be92b1315f0f3614cb5ee2cb94",
+      "recorded_head_blob_sha256": "4005bceb3f8e5b5074f0fa1f81f5d2dedc8e045012f6457c2e4452b7ba4917c5",
+      "resolved_commit_blob_sha256": "d771ab74085e9e765197a256e5f99947da4e99be92b1315f0f3614cb5ee2cb94"
+    },
+    "numerical.py": {
+      "recorded_worktree_sha256": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "recorded_head_blob_sha256": "b6598b5812cf6fa153a6de5abb0aa297ca50d40849cc584426df219788d19ee6",
+      "resolved_commit_blob_sha256": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1"
+    },
+    "samples.py": {
+      "recorded_worktree_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+      "recorded_head_blob_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+      "resolved_commit_blob_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+    }
+  },
+  "recorded_head_mismatches": [
+    "model_probe.py",
+    "numerical.py"
+  ],
+  "all_recorded_source_files_match_resolved_commit": true,
+  "raw_run_or_config_modified": false,
+  "gpu_or_math_reexecution": "NOT_RUN"
+}
