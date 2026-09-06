@@ -1,6 +1,6 @@
 # S0-SHARED-02 自查与来源证据
 
-日期：2026-09-06；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**自查通过，待独立 R1**。
+日期：2026-09-06；base `97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b`；branch `work/shared-backend-packaging`；结论：**首轮候选被独立审查发现 P1，已修订并自查，待精确新 SHA 复审**。
 
 本包加入可选备选依赖与 P01 首选失败重放环境，并修复 App worktree 的源码包选择边界。生产冻结契约、runtime 与 T1/D1 实现均未修改。具体职责和复现命令见 [环境/源码包说明](../docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md)。
 
@@ -34,7 +34,7 @@ S0 实际安装 compatibility+dpo 为 69 个 distributions，增加 p01-replay �
 
 T1 报告其真实 App worktree 默认选择会包含私有文件。S0 以相同 Hatchling 1.27.0 对该目录只读枚举：29,256 个文件、7,128,425,751 bytes，其中 29,129 个为私有目录文件。数量随 T1 新增日志变化；该快照不与 T1 早一时刻的计数强行等同。S0 未对真实私有输入生成源码包；T1 原构建已停止，无完成的该类发行包或上传。
 
-S0 读取固定版 `BuilderConfig.load_vcs_exclusion_patterns` 并检查实际 config，确认 ignore_vcs=False、已找到 .gitignore，但绝对项目根匹配 `.codex/` 时返回空 VCS 规则。合成 App 路径构建独立复现相同行为：旧 pyproject 的实际 tar 含 `.toolalign-local` 模拟源数据/权重、data/raw、models 和未列名根文件；显式 only-include 后全排除，tar 可重建 wheel。
+S0 读取固定版 `BuilderConfig.load_vcs_exclusion_patterns` 并检查实际 config，确认 ignore_vcs=False、已找到 .gitignore，但绝对项目根匹配 `.codex/` 时返回空 VCS 规则。合成 App 路径构建独立复现相同行为：旧 pyproject 的实际 tar 含 `.toolalign-local` 模拟源数据/权重、data/raw、models 和未列名根文件；首轮显式 only-include 排除了这些已测试探针，tar 可重建 wheel。该首轮测试未覆盖允许目录内部的密钥、权重等忽略文件，不能证明完整打包边界已修复。
 
 最初测试中的静态 canary 也出现在测试脚本源码，产生无效失败；已改为每次运行随机后缀，保留原日志。其后普通临时 worktree 只漏未列名根文件，.gitignore 对模拟私有目录有效；这使 S0 将触发条件继续定位到 `.codex` 祖先目录，避免错误归因于 .git 是文件。有效的最终测试使用 `.codex/worktrees` 下的真实 worktree，未修改断言掩盖缺陷。
 
@@ -45,7 +45,7 @@ S0 读取固定版 `BuilderConfig.load_vcs_exclusion_patterns` 并检查实际 c
 
 新脚本进入 CPU CI，实际检查内容而非只读配置文字；源码包保留公开代码、测试、配置和验证入口，包含完整冻结 schema。旧历史审查中绑定“恰一个 extra”的快照未改写，不宣称这些旧包结构断言适用于当前新增组。
 
-## 当前候选自查
+## 首轮候选自查（55a330b）
 
 | 命令 | 退出码 | 日志 SHA-256 |
 |---|---:|---|
@@ -63,4 +63,25 @@ S0 读取固定版 `BuilderConfig.load_vcs_exclusion_patterns` 并检查实际 c
 
 CPU 回归实际为 176 项（基础 58、P00 第一轮 46、P00-r2 72），全部通过；源码包回归、lint、冻结、真实构建与独立临时 wheel 安装也通过。没有把旧可选包结构快照算作新增候选通过。原始命令与日志保存在私有 `.toolalign-local/evidence/shared-dpo-support/`。
 
-**NOT_RUN**：本候选环境的模型/数学/吞吐重放、R1 独立复核、最终 CI/main 验证、P01 本包验收、D1 真实适配验收/人工质量门、P03 执行器和 P04/P05 正式训练。
+首轮 GitHub CPU CI run 33999550982 成功，但 R1 的独立嵌套文件探针仍失败，绿色 CI 不覆盖这个漏测场景，不能据此合并。
+
+## R1 发现后的修订
+
+R1 对精确 `55a330b6a1c10d14959895f2a3617597962569f3` 复现 configs 下的 key/pem、tests 下的 safetensors 与 src 下的 pt 合成文件进入真实 sdist，且同一工作区的公开扫描仍通过。问题在于目录级 only-include 仍允许其内部文件，Hatchling 此时已丢弃 VCS 排除。
+
+S0 保留原候选和失败证据，增加公共 Hatch build 显式排除，使源码包和直接 wheel 都排除密钥、模型、日志、私有映射、环境及运行目录。回归扩展至 85 个探针，分别检查 sdist、从 sdist 重建的 wheel、直接工作区 wheel 的实际字节。没有新增依赖或改动 ML 路径。
+
+| 修订检查 | 退出码 | 原始日志 SHA-256 |
+|---|---:|---|
+| 原 55a330b 配置，扩展至 85 个探针 | 1 | `d3bdddbac552972efdee4aeb76c14f2b8762e12befb79decce6900daa34a9694` |
+| 公共显式排除，实际三种归档检查 | 0 | `7207c38ecb12827ab40e7034dfb327d8e83e12d0ee9516911d862542cb2622a4` |
+| Ruff | 0 | `82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18` |
+| 冻结契约 | 0 | `cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190` |
+| 176 项 CPU 回归（命令同首轮） | 0 | `e380866f7acd8bd8b213fd774c1ba26bb73230482de1e794e26214f2716b968d` |
+| `uv build` | 0 | `c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75` |
+| 隔离 wheel 安装/契约验证 | 0 | `5d8d9f1957838b359448cd6d162bd1eee1bc1291da00ea12645a1c8ba303285e` |
+| 公开内容扫描 | 0 | `4721869e33fb716057a896a0ae81b98aee85e2b492d8c38819f293d76214cb4e` |
+
+D1 后来在旧基线构建出一次失败私有归档，107,953,843 bytes，6,792 个成员中 6,651 个为私有成员；已隔离为仅私有证据且没有上传。该事实更新了早先 T1/S0 未完成私有归档的时间快照，不删除早期失败记录，也不对 D1 的真实私有输入重复运行有缺陷打包。
+
+**NOT_RUN**：本候选环境的模型/数学/吞吐重放、修订候选 R1 复审/最终 CI/main 验证、P01 本包验收、D1 人工质量门、P03 验收和 P04/P05 正式训练。

@@ -32,11 +32,13 @@ mlx-tune 0.6.0 与 datasets 3.6.0 的 metadata 和随包 LICENSE 均为 Apache-2
 
 ## 源码包的显式选择
 
-T1 在 App worktree 中枚举到私有环境、模型和日志进入默认 sdist 文件选择，并停止了耗时构建。S0 用固定 Hatchling 1.27.0 只读复核了该选择；没有完成或上传含真实私有内容的源码包；T1 已停止该构建。
+T1 在 App worktree 中枚举到私有环境、模型和日志进入默认 sdist 文件选择，并停止了耗时构建。S0 用固定 Hatchling 1.27.0 只读复核该选择。T1 与 S0 当时未完成含真实私有内容的源码包；随后 D1 在旧基线的一次构建生成了含私有文件的失败归档，已移入私有证据目录并标记禁止发行，没有上传。不能把 T1 的停止记录扩展为所有任务从未生成过归档。
 
 原因已由固定源码和合成构建定位：Hatchling 的 `load_vcs_exclusion_patterns` 在绝对项目根匹配自身忽略规则时返回空规则。App worktree 位于 `.codex` 目录之下，项目 `.gitignore` 又排除 `.codex/`，因此触发了这一行为。普通 worktree 中 `.git` 是文件本身不足以解释问题。参见 [Hatch 显式选择配置](https://hatch.pypa.io/1.13/config/build/#explicit-selection)；实际版本仍锁定 1.27.0。
 
-本项目为 sdist 设置 `only-include`，仅选择项目代码、配置、测试、三个验证脚本及所需公开根文件，避免从整个项目根递归发现任意文件；另排除字节码和环境文件。研究报告、原始数据、权重、运行目录、环境与任务私有映射不属于源码包内容；完整研究证据仍通过 Git 仓库与受控私有原始记录交接。
+本项目为 sdist 设置 `only-include`，仅选择项目代码、配置、测试、三个验证脚本及所需公开根文件。首轮独立审查发现：目录选择仍会纳入目录内部的被忽略文件，例如 configs 中的密钥和 src 中的权重。因此修订增加 `[tool.hatch.build].exclude`，将环境、密钥、模型、日志、运行制品和私有目录的显式排除同时应用于 sdist 与直接构建的 wheel，不依赖 Hatchling 是否保留 VCS 规则。新增私有路径类别时须同步检查打包排除和真实归档回归。
+
+研究报告、原始数据、权重、运行目录、环境与任务私有映射不属于源码包内容；完整研究证据仍通过 Git 仓库与受控私有原始记录交接。公开内容扫描负责索引/待提交内容，并不扫描被 Git 忽略的文件；它不能替代实际发行包内容检查。
 
 ```bash
 uv run --locked python scripts/check_source_distribution.py
@@ -44,6 +46,6 @@ uv build
 uv run --locked python reports/review/P00/verify_wheel.py
 ```
 
-新检查在临时 `.codex/worktrees` 下创建真正的 Git worktree，植入合成私有文件，核对实际 tar 内容，再从该源码包构建 wheel 并核对冻结 schema。检查已加入 CPU CI。测试不读取或打包用户真实权重，不上传任何制品。
+新检查在临时 `.codex/worktrees` 下创建真正的 Git worktree，植入 85 个合成私有文件，覆盖根目录及 configs/tests/src 内部的密钥、权重、环境、日志和私有子目录。检查实际 tar、从该源码包重建的 wheel 以及直接由工作区构建的 wheel，核对泄漏探针和冻结 schema。检查已加入 CPU CI。测试不读取或打包用户真实权重，不上传任何制品。
 
 历史审查目录中的包结构/extra 精确断言绑定它们报告写明的旧候选。例如 S0-SHARED-01 的“只有一个 extra”是当时的快照，不是禁止后续合法新增 extra 的长期契约；保留原探针和旧结果，当前候选使用新的独立审查证据，不修改旧断言来制造当前全绿。

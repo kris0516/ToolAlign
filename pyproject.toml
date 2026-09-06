@@ -36,6 +36,19 @@ toolalign = "toolalign.cli:main"
 [dependency-groups]
 dev = ["pytest==9.0.2", "ruff==0.15.0"]
 
+[tool.hatch.build]
+# Apply privacy exclusions to both archives even when Hatchling drops VCS rules
+# because an ancestor of an App worktree matches this project's .gitignore.
+exclude = [
+  ".DS_Store", ".env", ".env.*", "!.env.example", "*.pem", "*.key",
+  "*service-account*.json", ".venv/", "venv/", "__pycache__/", "*.py[cod]",
+  ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".coverage", "htmlcov/",
+  ".toolalign-local/", ".codex/", ".worktrees/", "data/raw/", "data/processed/",
+  "data/private/", "models/", "checkpoints/", "adapters/", "artifacts/", "runs/",
+  "*.safetensors", "*.gguf", "*.pt", "*.pth", "*.bin", "*.onnx", "*.mlpackage/",
+  "*.mlmodelc/", "*.log", "node_modules/", "dist/", "build/",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/toolalign"]
 
@@ -54,7 +67,6 @@ only-include = [
   "LICENSE",
   "THIRD_PARTY_NOTICES.md",
 ]
-exclude = ["**/__pycache__", "**/*.py[cod]", "**/.DS_Store", ".env", ".env.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

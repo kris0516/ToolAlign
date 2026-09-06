@@ -1,4 +1,4 @@
-"""Build in a real Git worktree and reject private canaries in release archives."""
+"""Check real sdist and wheel bytes from an App-style synthetic Git worktree."""
 
 from __future__ import annotations
 
@@ -21,6 +21,24 @@ PRIVATE_PATHS = (
     "data/raw/private-build-marker.json",
     "unlisted-private-build-marker.txt",
     "src/toolalign/__pycache__/private-build-marker.pyc",
+) + tuple(
+    f"{directory}/{relative}"
+    for directory in ("configs", "tests", "src/toolalign")
+    for relative in (
+        "private-build-marker.key", "private-build-marker.pem",
+        "private-service-account.json", ".env", ".env.private-build-marker",
+        "private-build-marker.safetensors", "private-build-marker.gguf",
+        "private-build-marker.pt", "private-build-marker.pth", "private-build-marker.bin",
+        "private-build-marker.onnx", "private-build-marker.log",
+        "private-build-marker.mlpackage/record.json",
+        "private-build-marker.mlmodelc/record.json",
+        ".toolalign-local/private-build-marker.json", "models/private-build-marker.json",
+        "checkpoints/private-build-marker.json", "adapters/private-build-marker.json",
+        "artifacts/private-build-marker.json", "runs/private-build-marker.json",
+        ".venv/private-build-marker.json", "venv/private-build-marker.json",
+        "node_modules/private-build-marker.json", "build/private-build-marker.json",
+        "dist/private-build-marker.json", "nested/.env.private-build-marker",
+    )
 )
 
 
@@ -99,16 +117,25 @@ def main() -> None:
         assert files["src/toolalign/contracts/v1.json"] == frozen_schema
         for required in ("pyproject.toml", "LICENSE", "README.md", "configs/protocol.v1.json"):
             assert required in files
-        run(["uv", "build", "--wheel", "--out-dir", str(archives), str(sdist)], checkout)
-        (wheel,) = archives.glob("toolalign-*.whl")
-        with zipfile.ZipFile(wheel) as archive:
-            for name in archive.namelist():
-                assert CANARY not in archive.read(name), "Wheel contains a private build canary"
-            assert archive.read("toolalign/contracts/v1.json") == frozen_schema
+        # A clean sdist alone cannot prove a direct wheel build excludes ignored
+        # files inside src/toolalign; exercise both build inputs independently.
+        for label, source in (("from-sdist", str(sdist)), ("from-worktree", ".")):
+            destination = archives / label
+            run(["uv", "build", "--wheel", "--out-dir", str(destination), source], checkout)
+            (wheel,) = destination.glob("toolalign-*.whl")
+            assert wheel.stat().st_size < 10 * 1024**2
+            with zipfile.ZipFile(wheel) as archive:
+                assert sum(item.file_size for item in archive.infolist()) < 25 * 1024**2
+                for name in archive.namelist():
+                    assert CANARY not in archive.read(name), (
+                        f"{label} wheel contains a private build canary"
+                    )
+                assert archive.read("toolalign/contracts/v1.json") == frozen_schema
         print(
-            "PASS: App-style .codex Git-worktree sdist excludes all private canaries; "
+            f"PASS: App-style .codex Git-worktree archives exclude {len(PRIVATE_PATHS)} "
+            "private canaries, including files inside allowed trees; "
             f"files={len(files)}, compressed_bytes={sdist.stat().st_size}; "
-            "wheel rebuilt from sdist preserves the frozen schema"
+            "direct and rebuilt wheels preserve the frozen schema"
         )
 
 
