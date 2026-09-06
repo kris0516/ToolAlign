@@ -11,9 +11,13 @@
       "sha256": "a5672aeb79df254d9bb91651cff88824a2700a07d22c262687d4b8d08814663c",
       "size_bytes": 4037
     },
-    "assemble-public.py": {
+    "assemble-public.pre-review-sync.py": {
       "sha256": "821e4fa8cbd28bf1c4f456d32b8a2db86cf5d24e789d512a5378bbb01d5d643b",
       "size_bytes": 7638
+    },
+    "assemble-public.py": {
+      "sha256": "3dd800c26b14122d9abb7a6a85bebc9e1af4023be782002f3c6e17892788fc31",
+      "size_bytes": 8478
     },
     "authorization-manifest.json": {
       "sha256": "fe51bca66ba31162d14a0792c32ca6e81e4b0ee5decd77211a32d6c2925349ce",
@@ -27,13 +31,33 @@
       "sha256": "f9914dd049865afc3abe8ddc91a4f03897d0bdf2ccd4cc9918d5e4e5975dbaa1",
       "size_bytes": 4120
     },
+    "combined-tests.collection-error.py": {
+      "sha256": "f120ddd024f63d4491f6c0a9c79f78f8134f2508578f1fd8e4c7108b6c468bc9",
+      "size_bytes": 1027
+    },
+    "combined-tests.py": {
+      "sha256": "2fec2f89c0a6353b70e9140de99e2200ffcfca2c7171a152d999607f43a31354",
+      "size_bytes": 1368
+    },
+    "final-integration-verification.json": {
+      "sha256": "35844c96b4edc34e6ead742deefecf32465e340b0c53c4066b3cb9f185f489ba",
+      "size_bytes": 9995
+    },
     "final-scope-r1.json": {
       "sha256": "f6ed0297268d475dd70154b8f97dffa4c8368038d641c582add6b3e3679e8660",
       "size_bytes": 55944
     },
-    "final-scope.py": {
+    "final-scope-r2.json": {
+      "sha256": "5a90803e2c1adb72d4dac15a9c5a679edafa56601e86224b2748891ea75e3cf2",
+      "size_bytes": 60879
+    },
+    "final-scope.pre-review-sync.py": {
       "sha256": "d8a060da962715d37dbd293fd6923e6578901b4e3aff0ade2e556b9ff63e936c",
       "size_bytes": 6487
+    },
+    "final-scope.py": {
+      "sha256": "9a34c6603cd567f304464b291bdb953d1c199e11b66bad31720e03edce0db60c",
+      "size_bytes": 7213
     },
     "fixtures-native-r1/result.json": {
       "sha256": "680986e8c0858d8838596f31dbb18683aef281668771c7180a6f750804db3a43",
@@ -42,6 +66,190 @@
     "fixtures-reference-r1/result.json": {
       "sha256": "9e9a2ada92cea6a6445fa430927bcde78e2d8fa21f56453037c73ee917caa3fd",
       "size_bytes": 378869
+    },
+    "installed-default-wheel/toolalign-0.0.1.dist-info/direct_url.json": {
+      "sha256": "f0d1d4c018bf82e37da01d15a31e3e4057c011783dc87cf12fa250454d64c339",
+      "size_bytes": 159
+    },
+    "installed-default-wheel/toolalign-0.0.1.dist-info/entry_points.txt": {
+      "sha256": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+      "size_bytes": 49
+    },
+    "installed-default-wheel/toolalign-0.0.1.dist-info/uv_cache.json": {
+      "sha256": "74fe196a0fd3e965ad05d5eb918e1bcf2d4aa95f180e0a32010e3d6c19dc0361",
+      "size_bytes": 127
+    },
+    "installed-default-wheel/toolalign/__init__.py": {
+      "sha256": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+      "size_bytes": 104
+    },
+    "installed-default-wheel/toolalign/cli.py": {
+      "sha256": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+      "size_bytes": 2558
+    },
+    "installed-default-wheel/toolalign/contracts/__init__.py": {
+      "sha256": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+      "size_bytes": 448
+    },
+    "installed-default-wheel/toolalign/contracts/interfaces.py": {
+      "sha256": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+      "size_bytes": 4177
+    },
+    "installed-default-wheel/toolalign/contracts/v1.json": {
+      "sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+      "size_bytes": 23035
+    },
+    "installed-default-wheel/toolalign/contracts/validation.py": {
+      "sha256": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+      "size_bytes": 11306
+    },
+    "installed-default-wheel/toolalign/data/__init__.py": {
+      "sha256": "67e7b856ca6fe0f85513ec5c2e7825eb064e34786b7870184e7e12da656ffe63",
+      "size_bytes": 82
+    },
+    "installed-default-wheel/toolalign/data/__main__.py": {
+      "sha256": "e02f86a9afc9f08f8bcf83d62a5626c8b8d659907c9845dc29d519c622a2041d",
+      "size_bytes": 2587
+    },
+    "installed-default-wheel/toolalign/data/catalog.py": {
+      "sha256": "777d43a8be8fe5e49f5b1e6f0ae4d904aa8a8c22c486a262341eae7dc339ff54",
+      "size_bytes": 4091
+    },
+    "installed-default-wheel/toolalign/data/common.py": {
+      "sha256": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "size_bytes": 2837
+    },
+    "installed-default-wheel/toolalign/data/grouping.py": {
+      "sha256": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+      "size_bytes": 10967
+    },
+    "installed-default-wheel/toolalign/data/lengths.py": {
+      "sha256": "c661c975f2463d519f401fb302487edb2a293e5200c117f79656ba46f41b543a",
+      "size_bytes": 7757
+    },
+    "installed-default-wheel/toolalign/data/pipeline.py": {
+      "sha256": "24c6306e6412f55458cc58627e308cfed618e9bd5544ea5d30e054f1fe908c63",
+      "size_bytes": 24877
+    },
+    "installed-default-wheel/toolalign/data/review.py": {
+      "sha256": "ea24db05ec99d60d013e3c94227fe364f95d7043214582930c2ce94846f928cd",
+      "size_bytes": 9656
+    },
+    "installed-default-wheel/toolalign/data/source_policy.py": {
+      "sha256": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+      "size_bytes": 15842
+    },
+    "installed-default-wheel/toolalign/data/sources.py": {
+      "sha256": "a6f20ef6dae8b0802f79f31915309ee40f65bcfa8da00e38a31e756130da87d6",
+      "size_bytes": 3807
+    },
+    "installed-default-wheel/toolalign/data/toolace.py": {
+      "sha256": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+      "size_bytes": 19702
+    },
+    "installed-default-wheel/toolalign/evaluation/__init__.py": {
+      "sha256": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+      "size_bytes": 78
+    },
+    "installed-default-wheel/toolalign/evaluation/harness.py": {
+      "sha256": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+      "size_bytes": 19179
+    },
+    "installed-default-wheel/toolalign/evaluation/oracles/__init__.py": {
+      "sha256": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+      "size_bytes": 139
+    },
+    "installed-default-wheel/toolalign/evaluation/oracles/semantic.py": {
+      "sha256": "29291f5f0bdfd9cd1ad54711dc432b92375195dccb3e8f26670130cc68a8fb56",
+      "size_bytes": 6783
+    },
+    "installed-default-wheel/toolalign/inference/__init__.py": {
+      "sha256": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+      "size_bytes": 77
+    },
+    "installed-default-wheel/toolalign/model_io/__init__.py": {
+      "sha256": "a8694e6b6f4844b85007da098fd79a8b73cc43a5beae5b033ca9d0f559d14e34",
+      "size_bytes": 794
+    },
+    "installed-default-wheel/toolalign/model_io/descriptor.v1.json": {
+      "sha256": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+      "size_bytes": 3690
+    },
+    "installed-default-wheel/toolalign/model_io/format.py": {
+      "sha256": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+      "size_bytes": 6090
+    },
+    "installed-default-wheel/toolalign/model_io/offline.py": {
+      "sha256": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+      "size_bytes": 9957
+    },
+    "installed-default-wheel/toolalign/model_io/sequence.py": {
+      "sha256": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+      "size_bytes": 6135
+    },
+    "installed-default-wheel/toolalign/runtime/__init__.py": {
+      "sha256": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+      "size_bytes": 199
+    },
+    "installed-default-wheel/toolalign/runtime/gpu_lock.py": {
+      "sha256": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+      "size_bytes": 4244
+    },
+    "installed-default-wheel/toolalign/service/__init__.py": {
+      "sha256": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+      "size_bytes": 75
+    },
+    "installed-default-wheel/toolalign/tools/__init__.py": {
+      "sha256": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+      "size_bytes": 277
+    },
+    "installed-default-wheel/toolalign/tools/__main__.py": {
+      "sha256": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+      "size_bytes": 4865
+    },
+    "installed-default-wheel/toolalign/tools/_json.py": {
+      "sha256": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "size_bytes": 2967
+    },
+    "installed-default-wheel/toolalign/tools/catalog.py": {
+      "sha256": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+      "size_bytes": 6814
+    },
+    "installed-default-wheel/toolalign/tools/executor.py": {
+      "sha256": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "size_bytes": 5534
+    },
+    "installed-default-wheel/toolalign/tools/isolation.py": {
+      "sha256": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+      "size_bytes": 4611
+    },
+    "installed-default-wheel/toolalign/tools/registry.py": {
+      "sha256": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+      "size_bytes": 4882
+    },
+    "installed-default-wheel/toolalign/tools/scripted.py": {
+      "sha256": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc",
+      "size_bytes": 1844
+    },
+    "installed-default-wheel/toolalign/training/__init__.py": {
+      "sha256": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+      "size_bytes": 76
+    },
+    "installed-snapshot-native-r1/imports.json": {
+      "sha256": "1ab8f443e54913f3ea9eb0b67b2d29d1ac91323b0eed27b2b53bc8e96dd37a0d",
+      "size_bytes": 2736
+    },
+    "installed-snapshot-native-r1/result.json": {
+      "sha256": "8c9805d1c8af0040052e6682f03f8979be6af66f1ee36b58936ea1788359d117",
+      "size_bytes": 3989
+    },
+    "installed-snapshot-reference-r1/imports.json": {
+      "sha256": "ded9c641849559a099770afb07b46f06cb638ab72001e2e9a3af610755da521c",
+      "size_bytes": 2738
+    },
+    "installed-snapshot-reference-r1/result.json": {
+      "sha256": "a5672aeb79df254d9bb91651cff88824a2700a07d22c262687d4b8d08814663c",
+      "size_bytes": 4037
     },
     "package-verification-r1/archives.json": {
       "sha256": "7c2f9bc4cd6fc19b4f1daaf54f060003ea624ea106a9717f2a2bac38db559ec3",
@@ -115,6 +323,10 @@
       "sha256": "239bfd4ab678ac3cbe2baba935f3cc5b642aa15c3378995b671ec329d036aac9",
       "size_bytes": 80633
     },
+    "public-evidence-pre_review_integration.json": {
+      "sha256": "9adcd83a3a97bd6a59b14757f0e9429baf6185339dcdf09379aa9e733ed53444",
+      "size_bytes": 87478
+    },
     "review-sync-authorization/manifest.json": {
       "sha256": "7cccfbe16a386b2a1786fca956aa4f8ed6e5bc2e8b49316a813cb1be4552eee6",
       "size_bytes": 453
@@ -122,6 +334,14 @@
     "review-sync-authorization/s0-handoff-proof.json": {
       "sha256": "5ddfdd75918be89160cc3e3cc2a680ad4ebba9cb94be3ae0b0932393a171450d",
       "size_bytes": 160310
+    },
+    "review-sync-integration.json": {
+      "sha256": "cff1a68a8d39f12a8ffc6bcbad2ce09f8b38ace3a50388fbc0afb22a730b57f7",
+      "size_bytes": 2138
+    },
+    "run-installed-snapshot.py": {
+      "sha256": "c6b88264215f59fbac209d65e4ac587ad9a7721d3090051549154c17db1de6b7",
+      "size_bytes": 3375
     },
     "s0-snapshot/proof.json": {
       "sha256": "d33051b56aea3fc8588c47aa26e713b20b0783aca0d4f74f0e631f1a1d836510",
@@ -539,6 +759,10 @@
       "sha256": "f21b256452d062a427b2ec6119f3558bc74173d371542a943c399a7f28e2686f",
       "size_bytes": 28480
     },
+    "verify-integration.py": {
+      "sha256": "26e9452a437aaa55da318664a7017fdd71f4b01924faa4e3484324ce9648a9c8",
+      "size_bytes": 5468
+    },
     "verify-results.py": {
       "sha256": "9d3bcf3d8e707fe9c2330ac870e2b9fdfce05f5b88d7a5e97be6856c6e735014",
       "size_bytes": 5288
@@ -546,6 +770,7 @@
   },
   "authorization_commit": "c6c02a5af084afe92c6e9f05d9d1c51392e805d0",
   "code_change_commit": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+  "command_index_cutoff": "Includes validation commands completed before this index generation. Final content scans, commit/push/readback and the final all-files seal are separately bound in the private final completion record and native S0 handoff; no self-referential evidence hash is claimed.",
   "command_path_notation": "WORKTREE, PRIVATE and SYSTEM_TEMP are redacted role aliases. Published command arrays preserve other arguments; exact argv, actual system paths and full outputs remain in hash-bound private metadata/logs.",
   "commands": [
     {
@@ -704,6 +929,40 @@
     {
       "command": [
         ".venv/bin/python",
+        "PRIVATE/format-fix-r3/combined-tests.py"
+      ],
+      "elapsed_seconds": 0.30144670815207064,
+      "exit_code": 2,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-combined-cpu-r2",
+      "log_sha256": "84b483292697fe79d6e865e0541680c02f0e4d2b8328c46f3b35073a00bab0ac",
+      "private_command_metadata_sha256": "84f216d037200dbee9fe8bf37e789dea5666a552a1d172935ad5ef580a086cf8",
+      "started_at_utc": "2026-09-06T08:06:04.172803+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "PRIVATE/format-fix-r3/combined-tests.py"
+      ],
+      "elapsed_seconds": 45.290875459089875,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-combined-cpu-r3",
+      "log_sha256": "9231f5162e4a06e321360aca16a118141051fe7106fc355a88cc44796187924d",
+      "private_command_metadata_sha256": "541f5be1e6b5507efd14c9559c2bd5e953b607b802ccf0c12aedb7c605fbda4a",
+      "started_at_utc": "2026-09-06T08:06:49.415242+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
         "scripts/check_contract_freeze.py"
       ],
       "elapsed_seconds": 0.016515000024810433,
@@ -717,6 +976,40 @@
       "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
       "private_command_metadata_sha256": "f028b871529f59408e8f63627d7d3c35d21991797c41013580d66f5de142bb8c",
       "started_at_utc": "2026-09-06T07:53:28.907426+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "elapsed_seconds": 0.01659237500280142,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-final-contract-r2",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "private_command_metadata_sha256": "4eb9e241fac325a84a01ea3cb959d99a39c2edcc600b3ebeed5e53803681b55c",
+      "started_at_utc": "2026-09-06T08:15:37.376088+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "PRIVATE/format-fix-r3/verify-integration.py"
+      ],
+      "elapsed_seconds": 0.04303304199129343,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-final-integration-r1",
+      "log_sha256": "8152fa9f2cfdb78e1081131dd53672d72c062b04de7e4e8609e7457244da9b0c",
+      "private_command_metadata_sha256": "99bff99edfb5622bfa4a71caad2b60abcb7e0760a6f28e6f9a1add6701db6ca3",
+      "started_at_utc": "2026-09-06T08:11:10.393901+00:00"
     },
     {
       "command": [
@@ -737,6 +1030,26 @@
       "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
       "private_command_metadata_sha256": "487ed2620d94f7adced54f9ea799365f14f32986ea02888944698c2e64df74e2",
       "started_at_utc": "2026-09-06T07:53:28.854393+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.025224125012755394,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-final-lint-r2",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "0f6a859274b7db86b0d6fab8f57278353514d170f89b709dc565bc96a42214af",
+      "started_at_utc": "2026-09-06T08:06:04.189812+00:00"
     },
     {
       "command": [
@@ -772,6 +1085,24 @@
       "log_sha256": "d43bb61bc4bb0b5dbd8cb7ce99a681359eebe029a8b861da1de788332707183e",
       "private_command_metadata_sha256": "2c22ff220f6c2ab2eed246cd1ec78833ce00277430e23a9835798f3c86d4c373",
       "started_at_utc": "2026-09-06T07:56:24.338116+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "PRIVATE/format-fix-r3/final-scope.py",
+        "final-scope-r2.json"
+      ],
+      "elapsed_seconds": 2.0705385410692543,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-final-scope-r2",
+      "log_sha256": "423d9e3e017fec64bf4112434d5faad1133fcebb88fdfedfac71ab6b5c53da89",
+      "private_command_metadata_sha256": "f7860264e4dd23c74f22420c27fed02e90cbf73934688a58d563a75892762867",
+      "started_at_utc": "2026-09-06T08:15:37.393130+00:00"
     },
     {
       "command": [
@@ -824,6 +1155,91 @@
       "log_sha256": "dfff29ed5a1885f6563ef23616ff74ddd943d3043b20b121a0694fc36f832f32",
       "private_command_metadata_sha256": "32da269520eed220f9f6f3db5fde75c0a6e1b294ea8dacac36fe81da2e9aa171",
       "started_at_utc": "2026-09-06T07:44:33.665963+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--python",
+        ".venv/bin/python",
+        "--target",
+        "PRIVATE/format-fix-r3/installed-default-wheel",
+        "--no-deps",
+        "PRIVATE/format-fix-r3/packages/default/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "elapsed_seconds": 0.018666124902665615,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-install-default-wheel-r1",
+      "log_sha256": "52e758c1182c82042e825ab2be50a4dcd7a2a2680d733d3be8b8207d053de9fe",
+      "private_command_metadata_sha256": "38a8905f993639e294eb5c8829d0167d32989f034e9fed59d2a6dae82a1a865d",
+      "started_at_utc": "2026-09-06T08:06:50.587166+00:00"
+    },
+    {
+      "command": [
+        "PRIVATE/tokenizer-venv/bin/python",
+        "-I",
+        "PRIVATE/format-fix-r3/run-installed-snapshot.py",
+        "--target",
+        "PRIVATE/format-fix-r3/installed-default-wheel",
+        "--wheel",
+        "PRIVATE/format-fix-r3/packages/default/toolalign-0.0.1-py3-none-any.whl",
+        "--probe",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        "PRIVATE/verified-source/qwen",
+        "--out",
+        "PRIVATE/format-fix-r3/installed-snapshot-native-r1",
+        "--engine",
+        "tokenizers"
+      ],
+      "elapsed_seconds": 0.8197110828477889,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-installed-snapshot-native-r1",
+      "log_sha256": "3c3894fb4eaf1b4f202b303c9db71f40af3e13fa746b2f3f153ea92330e07aaf",
+      "private_command_metadata_sha256": "9a8b1c7cba1cc3e1ff9f76497f5c8a9685e9e6eac8c97ad38d3c220d5a864d09",
+      "started_at_utc": "2026-09-06T08:08:57.467566+00:00"
+    },
+    {
+      "command": [
+        "PRIVATE/tokenizer-reference-venv/bin/python",
+        "-I",
+        "PRIVATE/format-fix-r3/run-installed-snapshot.py",
+        "--target",
+        "PRIVATE/format-fix-r3/installed-default-wheel",
+        "--wheel",
+        "PRIVATE/format-fix-r3/packages/default/toolalign-0.0.1-py3-none-any.whl",
+        "--probe",
+        "reports/review/P02-format/review_snapshot.py",
+        "--source",
+        "PRIVATE/verified-source/qwen",
+        "--out",
+        "PRIVATE/format-fix-r3/installed-snapshot-reference-r1",
+        "--engine",
+        "transformers"
+      ],
+      "elapsed_seconds": 1.2523452499881387,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-installed-snapshot-reference-r1",
+      "log_sha256": "f81b0cfbdec7f679eb86dadbc2f97b40ca03f52462acf8ec97d5e5fe12f3b034",
+      "private_command_metadata_sha256": "59104992036e94200475188726beda1b9ce4466b0b20bc9a665a6ec6dd50a22e",
+      "started_at_utc": "2026-09-06T08:08:57.500552+00:00"
     },
     {
       "command": [
@@ -961,6 +1377,34 @@
     },
     {
       "command": [
+        "env",
+        "TOOLALIGN_TOKENIZER_DIR=PRIVATE/verified-source/qwen",
+        "TOOLALIGN_SNAPSHOT_ENGINE=transformers",
+        "USE_TORCH=0",
+        "USE_TF=0",
+        "USE_FLAX=0",
+        "HF_HUB_OFFLINE=1",
+        "TRANSFORMERS_OFFLINE=1",
+        "PRIVATE/tokenizer-reference-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io/test_snapshot.py"
+      ],
+      "elapsed_seconds": 8.175348832970485,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+      "label": "format-fix-r3-snapshot-tests-reference-r3",
+      "log_sha256": "277ec149846f16f137938d103fae9628fec45cf94d8fcbbfd22ff24ab3ee6faa",
+      "private_command_metadata_sha256": "a42aabaadd8609517e444eb2bbc008466b850695299195e7d75852e1883f4790",
+      "started_at_utc": "2026-09-06T08:06:04.159446+00:00"
+    },
+    {
+      "command": [
         "PRIVATE/tokenizer-venv/bin/python",
         "PRIVATE/format-fix-r3/s0-snapshot/review_tokenizers.py",
         "sources",
@@ -1029,8 +1473,653 @@
       "started_at_utc": "2026-09-06T07:47:14.970232+00:00"
     }
   ],
-  "generated_at_head": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+  "final-integration-verification": {
+    "actual_default_wheel_optional_probe_install_and_run_commit": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+    "actual_package_build_and_default_only_install_commit": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+    "combined_cpu": {
+      "existing_and_new_native": {
+        "passed": 675,
+        "skipped": 2
+      },
+      "original_R1_structure_and_statistics": {
+        "passed": 60,
+        "skipped": 0
+      },
+      "pytest_invocations": 2,
+      "reference_snapshot_separate": {
+        "overlaps_native_cases": true,
+        "passed": 13,
+        "skipped": 0
+      },
+      "sum_of_nonoverlapping_groups": {
+        "passed": 735,
+        "skipped": 2
+      }
+    },
+    "head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+    "installed_snapshot_checks": {
+      "native": {
+        "imported_toolalign_modules": {
+          "toolalign": {
+            "sha256": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+            "wheel_member": "toolalign/__init__.py"
+          },
+          "toolalign.contracts": {
+            "sha256": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+            "wheel_member": "toolalign/contracts/__init__.py"
+          },
+          "toolalign.contracts.validation": {
+            "sha256": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+            "wheel_member": "toolalign/contracts/validation.py"
+          },
+          "toolalign.model_io": {
+            "sha256": "a8694e6b6f4844b85007da098fd79a8b73cc43a5beae5b033ca9d0f559d14e34",
+            "wheel_member": "toolalign/model_io/__init__.py"
+          },
+          "toolalign.model_io.format": {
+            "sha256": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+            "wheel_member": "toolalign/model_io/format.py"
+          },
+          "toolalign.model_io.offline": {
+            "sha256": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+            "wheel_member": "toolalign/model_io/offline.py"
+          },
+          "toolalign.model_io.sequence": {
+            "sha256": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+            "wheel_member": "toolalign/model_io/sequence.py"
+          }
+        },
+        "imports_sha256": "1ab8f443e54913f3ea9eb0b67b2d29d1ac91323b0eed27b2b53bc8e96dd37a0d",
+        "python_isolated": true,
+        "result_equal_to_repaired_source_probe": true,
+        "result_sha256": "8c9805d1c8af0040052e6682f03f8979be6af66f1ee36b58936ea1788359d117",
+        "same_original_scenario_installation_repeat": true,
+        "source_imports": 0,
+        "verified_wheel_files": 39
+      },
+      "reference": {
+        "imported_toolalign_modules": {
+          "toolalign": {
+            "sha256": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+            "wheel_member": "toolalign/__init__.py"
+          },
+          "toolalign.contracts": {
+            "sha256": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+            "wheel_member": "toolalign/contracts/__init__.py"
+          },
+          "toolalign.contracts.validation": {
+            "sha256": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+            "wheel_member": "toolalign/contracts/validation.py"
+          },
+          "toolalign.model_io": {
+            "sha256": "a8694e6b6f4844b85007da098fd79a8b73cc43a5beae5b033ca9d0f559d14e34",
+            "wheel_member": "toolalign/model_io/__init__.py"
+          },
+          "toolalign.model_io.format": {
+            "sha256": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+            "wheel_member": "toolalign/model_io/format.py"
+          },
+          "toolalign.model_io.offline": {
+            "sha256": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+            "wheel_member": "toolalign/model_io/offline.py"
+          },
+          "toolalign.model_io.sequence": {
+            "sha256": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+            "wheel_member": "toolalign/model_io/sequence.py"
+          }
+        },
+        "imports_sha256": "ded9c641849559a099770afb07b46f06cb638ab72001e2e9a3af610755da521c",
+        "python_isolated": true,
+        "result_equal_to_repaired_source_probe": true,
+        "result_sha256": "a5672aeb79df254d9bb91651cff88824a2700a07d22c262687d4b8d08814663c",
+        "same_original_scenario_installation_repeat": true,
+        "source_imports": 0,
+        "verified_wheel_files": 39
+      }
+    },
+    "original_F1": {
+      "new_independent_review": "PENDING",
+      "original_review_status": "FAIL",
+      "severity": "P2"
+    },
+    "original_R1_full_reference": {
+      "actual_reference_packages": {
+        "Jinja2": "3.1.6",
+        "MarkupSafe": "3.0.3",
+        "PyYAML": "6.0.3",
+        "Pygments": "2.21.0",
+        "annotated-doc": "0.0.5",
+        "anyio": "4.15.1",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "click": "8.5.0",
+        "filelock": "3.32.5",
+        "fsspec": "2025.3.0",
+        "h11": "0.16.0",
+        "hf-xet": "1.6.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "huggingface_hub": "1.30.0",
+        "idna": "3.19",
+        "iniconfig": "2.3.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "markdown-it-py": "4.2.0",
+        "mdurl": "0.1.2",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pytest": "9.0.2",
+        "referencing": "0.37.0",
+        "regex": "2026.9.3",
+        "rich": "15.0.0",
+        "rpds-py": "2026.6.3",
+        "safetensors": "0.8.0",
+        "shellingham": "1.5.4",
+        "tokenizers": "0.23.2",
+        "tqdm": "4.70.0",
+        "transformers": "5.16.1",
+        "typer": "0.27.2",
+        "typing_extensions": "4.16.0"
+      },
+      "all_and_every_split_summaries_equal": true,
+      "new_full_measurement_passes": 0,
+      "original_command": {
+        "command": [
+          "env",
+          "PYTHONPATH=src",
+          "PRIVATE/review-p02-format-r1/reference-env/bin/python",
+          "reports/review/P02-format/review_full_audit.py",
+          "--root",
+          ".",
+          "--worker",
+          "$D1_ROOT",
+          "--source",
+          "PRIVATE/review-p02-format-r1/verified-source",
+          "--audit",
+          "$D1_ROOT/PRIVATE/format-v1-r2/sequences-v1-r1",
+          "--out",
+          "PRIVATE/review-p02-format-r1/full-reference-once"
+        ],
+        "cwd": "$R1_ROOT",
+        "ended_at": "2026-09-06T07:10:57.437012+00:00",
+        "exit_code": 0,
+        "head": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+        "head_after": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+        "index_tree": "fdf0c10eef3f5ea5d37506a0f8973edd4854ee98",
+        "log": "full-reference-once.log",
+        "name": "full-reference-once",
+        "sha256": "63c2fc41b766e4ae939d0062a1b9c65634e9a492694a7a111d13891fb1fdfe18",
+        "started_at": "2026-09-06T07:10:35.454451+00:00"
+      },
+      "original_private_artifact_identities": {
+        "full-reference-once/input-binding.json": {
+          "sha256": "743653717eccfc9fe255e9ce1e2bc60d281143db8c4af5dc10b5c27b81a97efe",
+          "size_bytes": 3656
+        },
+        "full-reference-once/result.json": {
+          "sha256": "22d9cb07fcee18c36d94da73c0160e399b83a6d4ad452106acc241263f4e5ce8",
+          "size_bytes": 13974
+        },
+        "full-reference-once/rows.jsonl": {
+          "sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+          "size_bytes": 25702461
+        }
+      },
+      "public_evidence_sha256": "06093fb7e3b2bffb9ff6ae4952f7c4bb9ee04f667855fa2d8357dd27bcf0b7ea",
+      "row_hash_equal_to_retained_native_file": true,
+      "rows": 8228,
+      "s0_proof_sha256": "5ddfdd75918be89160cc3e3cc2a680ad4ebba9cb94be3ae0b0932393a171450d",
+      "source": "Unmodified formal public evidence plus verified S0 handoff seal; no new full run and no direct R1 private files changed."
+    },
+    "package_builds_not_relabelled_or_repeated_for_review_only_merge": true,
+    "package_payload_equal_after_review_merge": {
+      "default_wheel": {
+        "archive_sha256": "239bfd4ab678ac3cbe2baba935f3cc5b642aa15c3378995b671ec329d036aac9",
+        "current_git_payload_files_equal": 39,
+        "members": 44
+      },
+      "rebuilt_wheel": {
+        "archive_sha256": "239bfd4ab678ac3cbe2baba935f3cc5b642aa15c3378995b671ec329d036aac9",
+        "current_git_payload_files_equal": 39,
+        "members": 44
+      },
+      "sdist": {
+        "archive_sha256": "2c6d911e5b185e36a82bcc7b9f854be7b0cac40bea61c57e38003272f37508af",
+        "current_git_payload_files_equal": 87,
+        "members": 88
+      }
+    },
+    "protected_review_files": {
+      "coordination/handoffs/P02-format-review-r1.md": "62fd89c2483d918a939a056e9ddd8afe5bce3e9f53a31c560cfae1a05f083b39",
+      "reports/review/P02-format/.ruff.toml": "059df780f90fc3c79e80cb38b15b63e6e0c922547f1c94c1fc718d9e4de74543",
+      "reports/review/P02-format/README.md": "3b0d0e34c946e983c8b5aab2eedf4a043f4209348ed623ec167a4dacf9799ce2",
+      "reports/review/P02-format/evidence.json": "06093fb7e3b2bffb9ff6ae4952f7c4bb9ee04f667855fa2d8357dd27bcf0b7ea",
+      "reports/review/P02-format/review_evidence.py": "6723e966e561bd9c49218ae4da955f0ff1eab91d18c2a61dde0617b3177a8aa8",
+      "reports/review/P02-format/review_full_audit.py": "f4057b12abae721ab1b9d822977620614f9d1cf2006f8f84d137994131790575",
+      "reports/review/P02-format/review_package.py": "7837d26ce0e798ea0e5e2d56d266848f45d610e9ecb39f2606b4bc17a5bc402a",
+      "reports/review/P02-format/review_snapshot.py": "5b3f55d7fdddb2399b5ca7a8d0558dbbc51ce45715a163ec49b806d1ef37f2fc",
+      "reports/review/P02-format/review_support.py": "3e712ce8358bae5e1f489fc898af7d75f326e37e7d6bb792f7a23cd0e13903a9",
+      "reports/review/P02-format/review_tokenizers.py": "cd16584169c42861ada99567a89a22f4a59d33a55fd8b20a94df4095320d7ee3",
+      "reports/review/P02-format/test_audit_denominators.py": "9f27291dcbb6d4aa41c185a85e40c7e8f7fd3b8277984335d7eae4dcc48545bc",
+      "reports/review/P02-format/test_independent.py": "c16abd4224d9677f382bba00ca5f9e05b4b228225604e81afcc1aa8401031e26"
+    },
+    "public_review_commit": "2942e568eae91d0292ad9691af133bbd8c33dd02",
+    "repair_source_commit": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+    "status": "PASS"
+  },
+  "generated_at_head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
   "independent_re_review": "PENDING_R1_DISPATCH_BY_S0",
+  "installed-snapshot-native-r1/result": {
+    "actual_loaded_state_equal": true,
+    "baseline_actual_state": {
+      "backend_state_sha256": "91a5d4d92157b8d3cdb2599dca8ff445ecec6fdaeab57904c229ece438493bca",
+      "decoder": {
+        "add_prefix_space": false,
+        "trim_offsets": false,
+        "type": "ByteLevel",
+        "use_regex": false
+      },
+      "eos": [
+        151645
+      ],
+      "normalizer": {
+        "type": "NFC"
+      },
+      "padding": null,
+      "pre_tokenizer": {
+        "pretokenizers": [
+          {
+            "behavior": "Isolated",
+            "invert": false,
+            "pattern": {
+              "Regex": "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?\\p{L}+|\\p{N}| ?[^\\s\\p{L}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+"
+            },
+            "type": "Split"
+          },
+          {
+            "add_prefix_space": false,
+            "trim_offsets": false,
+            "type": "ByteLevel",
+            "use_regex": false
+          }
+        ],
+        "type": "Sequence"
+      },
+      "sample_ids": [
+        19432,
+        11612,
+        31358,
+        29708,
+        20,
+        22,
+        51950,
+        3958,
+        220,
+        151644
+      ],
+      "truncation": null,
+      "vocab_size": 151669
+    },
+    "baseline_exclamation_ids": [
+      0
+    ],
+    "baseline_identity": {
+      "decoding_parameters": {
+        "clean_up_tokenization_spaces": null,
+        "skip_special_tokens": false
+      },
+      "encoding_parameters": {
+        "add_special_tokens": false
+      },
+      "engine": "tokenizers",
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 151645,
+      "files": {
+        "LICENSE": {
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "size_bytes": 11343
+        },
+        "tokenizer.json": {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "size_bytes": 11422654
+        },
+        "tokenizer_config.json": {
+          "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+          "size_bytes": 9732
+        }
+      },
+      "packages": {
+        "Jinja2": "3.1.6",
+        "tokenizers": "0.22.2"
+      },
+      "render_parameters": {
+        "add_generation_prompt": true,
+        "enable_thinking": false,
+        "tools": null
+      },
+      "repo_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    "declared_identity_equal": true,
+    "engine": "tokenizers",
+    "filesystem_events": [
+      "tokenizer_json_read_1",
+      "replace_after_verified_json_snapshot"
+    ],
+    "loader_methods_and_return_values_patched": false,
+    "model_modules_loaded": [],
+    "observed_actual_state": {
+      "backend_state_sha256": "91a5d4d92157b8d3cdb2599dca8ff445ecec6fdaeab57904c229ece438493bca",
+      "decoder": {
+        "add_prefix_space": false,
+        "trim_offsets": false,
+        "type": "ByteLevel",
+        "use_regex": false
+      },
+      "eos": [
+        151645
+      ],
+      "normalizer": {
+        "type": "NFC"
+      },
+      "padding": null,
+      "pre_tokenizer": {
+        "pretokenizers": [
+          {
+            "behavior": "Isolated",
+            "invert": false,
+            "pattern": {
+              "Regex": "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?\\p{L}+|\\p{N}| ?[^\\s\\p{L}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+"
+            },
+            "type": "Split"
+          },
+          {
+            "add_prefix_space": false,
+            "trim_offsets": false,
+            "type": "ByteLevel",
+            "use_regex": false
+          }
+        ],
+        "type": "Sequence"
+      },
+      "sample_ids": [
+        19432,
+        11612,
+        31358,
+        29708,
+        20,
+        22,
+        51950,
+        3958,
+        220,
+        151644
+      ],
+      "truncation": null,
+      "vocab_size": 151669
+    },
+    "observed_exclamation_ids": [
+      0
+    ],
+    "observed_identity": {
+      "decoding_parameters": {
+        "clean_up_tokenization_spaces": null,
+        "skip_special_tokens": false
+      },
+      "encoding_parameters": {
+        "add_special_tokens": false
+      },
+      "engine": "tokenizers",
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 151645,
+      "files": {
+        "LICENSE": {
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "size_bytes": 11343
+        },
+        "tokenizer.json": {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "size_bytes": 11422654
+        },
+        "tokenizer_config.json": {
+          "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+          "size_bytes": 9732
+        }
+      },
+      "packages": {
+        "Jinja2": "3.1.6",
+        "tokenizers": "0.22.2"
+      },
+      "render_parameters": {
+        "add_generation_prompt": true,
+        "enable_thinking": false,
+        "tools": null
+      },
+      "repo_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    "original_token_ids": {
+      "!": 0,
+      "?": 30
+    },
+    "rejection": null,
+    "replacement_sha256": "5340fa498d7bf49141374d0e053184d08be2264116272b25a3ed4d2d80213da7",
+    "source_before_after_hashes": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    },
+    "source_restored": true,
+    "status": "PASS"
+  },
+  "installed-snapshot-reference-r1/result": {
+    "actual_loaded_state_equal": true,
+    "baseline_actual_state": {
+      "backend_state_sha256": "a373b7ff0c52176575a72ede185c306613ef1c01a2346f900f3b631ce1dc23f9",
+      "decoder": {
+        "add_prefix_space": true,
+        "trim_offsets": true,
+        "type": "ByteLevel",
+        "use_regex": true
+      },
+      "eos": [
+        151645
+      ],
+      "normalizer": {
+        "type": "NFC"
+      },
+      "padding": null,
+      "pre_tokenizer": {
+        "pretokenizers": [
+          {
+            "behavior": "Isolated",
+            "invert": false,
+            "pattern": {
+              "Regex": "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?\\p{L}+|\\p{N}| ?[^\\s\\p{L}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+"
+            },
+            "type": "Split"
+          },
+          {
+            "add_prefix_space": false,
+            "trim_offsets": true,
+            "type": "ByteLevel",
+            "use_regex": false
+          }
+        ],
+        "type": "Sequence"
+      },
+      "sample_ids": [
+        19432,
+        11612,
+        31358,
+        29708,
+        20,
+        22,
+        51950,
+        3958,
+        220,
+        151644
+      ],
+      "truncation": null,
+      "vocab_size": 151669
+    },
+    "baseline_exclamation_ids": [
+      0
+    ],
+    "baseline_identity": {
+      "decoding_parameters": {
+        "clean_up_tokenization_spaces": false,
+        "skip_special_tokens": false
+      },
+      "encoding_parameters": {
+        "add_special_tokens": false
+      },
+      "engine": "transformers",
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 151645,
+      "files": {
+        "LICENSE": {
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "size_bytes": 11343
+        },
+        "tokenizer.json": {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "size_bytes": 11422654
+        },
+        "tokenizer_config.json": {
+          "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+          "size_bytes": 9732
+        }
+      },
+      "packages": {
+        "Jinja2": "3.1.6",
+        "tokenizers": "0.23.2",
+        "transformers": "5.16.1"
+      },
+      "render_parameters": {
+        "add_generation_prompt": true,
+        "enable_thinking": false,
+        "tools": null
+      },
+      "repo_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    "declared_identity_equal": true,
+    "engine": "transformers",
+    "filesystem_events": [
+      "tokenizer_json_read_1",
+      "replace_after_verified_json_snapshot"
+    ],
+    "loader_methods_and_return_values_patched": false,
+    "model_modules_loaded": [],
+    "observed_actual_state": {
+      "backend_state_sha256": "a373b7ff0c52176575a72ede185c306613ef1c01a2346f900f3b631ce1dc23f9",
+      "decoder": {
+        "add_prefix_space": true,
+        "trim_offsets": true,
+        "type": "ByteLevel",
+        "use_regex": true
+      },
+      "eos": [
+        151645
+      ],
+      "normalizer": {
+        "type": "NFC"
+      },
+      "padding": null,
+      "pre_tokenizer": {
+        "pretokenizers": [
+          {
+            "behavior": "Isolated",
+            "invert": false,
+            "pattern": {
+              "Regex": "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?\\p{L}+|\\p{N}| ?[^\\s\\p{L}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+"
+            },
+            "type": "Split"
+          },
+          {
+            "add_prefix_space": false,
+            "trim_offsets": true,
+            "type": "ByteLevel",
+            "use_regex": false
+          }
+        ],
+        "type": "Sequence"
+      },
+      "sample_ids": [
+        19432,
+        11612,
+        31358,
+        29708,
+        20,
+        22,
+        51950,
+        3958,
+        220,
+        151644
+      ],
+      "truncation": null,
+      "vocab_size": 151669
+    },
+    "observed_exclamation_ids": [
+      0
+    ],
+    "observed_identity": {
+      "decoding_parameters": {
+        "clean_up_tokenization_spaces": false,
+        "skip_special_tokens": false
+      },
+      "encoding_parameters": {
+        "add_special_tokens": false
+      },
+      "engine": "transformers",
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 151645,
+      "files": {
+        "LICENSE": {
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "size_bytes": 11343
+        },
+        "tokenizer.json": {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "size_bytes": 11422654
+        },
+        "tokenizer_config.json": {
+          "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+          "size_bytes": 9732
+        }
+      },
+      "packages": {
+        "Jinja2": "3.1.6",
+        "tokenizers": "0.23.2",
+        "transformers": "5.16.1"
+      },
+      "render_parameters": {
+        "add_generation_prompt": true,
+        "enable_thinking": false,
+        "tools": null
+      },
+      "repo_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    "original_token_ids": {
+      "!": 0,
+      "?": 30
+    },
+    "rejection": null,
+    "replacement_sha256": "5340fa498d7bf49141374d0e053184d08be2264116272b25a3ed4d2d80213da7",
+    "source_before_after_hashes": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    },
+    "source_restored": true,
+    "status": "PASS"
+  },
   "new_full_measurement_passes": 0,
   "new_tokenizer_environments": 0,
   "not_run": [
@@ -1372,8 +2461,8 @@
     "base": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
     "budget_accounting": "Retained files and command logs are measured. Temporary source copies and private HF snapshots are bounded by the recorded small tests and cleaned by their owners; cumulative transient writes were not instrumented and are not claimed as an exact measurement.",
     "budget_bytes": 2147483648,
-    "checked_at_utc": "2026-09-06T07:56:26.392463+00:00",
-    "head": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+    "checked_at_utc": "2026-09-06T08:15:39.437137+00:00",
+    "head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
     "human_review_preserved": {
       "frozen_artifact_hashes": {
         "human-review/exclusion-samples.jsonl": "b3b1a2f04bda68a50f852553bd0a79ceab910ac818d77e6a70e2f91d85eeb03b",
@@ -1399,6 +2488,21 @@
     },
     "new_full_measurements": 0,
     "new_public_paths": [
+      "coordination/handoffs/P02-format-fix-r3.md",
+      "coordination/handoffs/P02-format-review-r1.md",
+      "reports/data/P02_FORMAT_FIX_R3_EVIDENCE.json",
+      "reports/data/P02_FORMAT_FIX_R3_VERIFICATION.md",
+      "reports/review/P02-format/.ruff.toml",
+      "reports/review/P02-format/README.md",
+      "reports/review/P02-format/evidence.json",
+      "reports/review/P02-format/review_evidence.py",
+      "reports/review/P02-format/review_full_audit.py",
+      "reports/review/P02-format/review_package.py",
+      "reports/review/P02-format/review_snapshot.py",
+      "reports/review/P02-format/review_support.py",
+      "reports/review/P02-format/review_tokenizers.py",
+      "reports/review/P02-format/test_audit_denominators.py",
+      "reports/review/P02-format/test_independent.py",
       "tests/model_io/test_snapshot.py"
     ],
     "old_commands_preserved": {
@@ -1606,7 +2710,7 @@
       "sha256": "69bfa651bf8db9b2c77c11c4f8d55419a8af4196aba8ff6a69b5b3b0982e0f47",
       "size_bytes": 32643
     },
-    "old_reference_full_measurement": "NOT_PROVIDED_BY_S0_NOT_READ_OR_CHANGED",
+    "old_reference_full_measurement": "FORMAL_PUBLIC_HISTORICAL_SUMMARY_AND_S0_SEAL_READ; ALL_AND_SPLIT_SUMMARIES_AND_ROW_HASH_MATCH_OLD_NATIVE; NO_RERUN_OR_RELABEL",
     "original_build_manifests": {
       "policy-a": {
         "canonical_hash": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
@@ -1624,8 +2728,22 @@
       "rebuilt_wheel": 44,
       "sdist": 88
     },
-    "retained_new_log_bytes_before_scope_record": 36043,
-    "retained_new_private_bytes_before_scope_record": 278936001,
+    "protected_review_files": {
+      "coordination/handoffs/P02-format-review-r1.md": "62fd89c2483d918a939a056e9ddd8afe5bce3e9f53a31c560cfae1a05f083b39",
+      "reports/review/P02-format/.ruff.toml": "059df780f90fc3c79e80cb38b15b63e6e0c922547f1c94c1fc718d9e4de74543",
+      "reports/review/P02-format/README.md": "3b0d0e34c946e983c8b5aab2eedf4a043f4209348ed623ec167a4dacf9799ce2",
+      "reports/review/P02-format/evidence.json": "06093fb7e3b2bffb9ff6ae4952f7c4bb9ee04f667855fa2d8357dd27bcf0b7ea",
+      "reports/review/P02-format/review_evidence.py": "6723e966e561bd9c49218ae4da955f0ff1eab91d18c2a61dde0617b3177a8aa8",
+      "reports/review/P02-format/review_full_audit.py": "f4057b12abae721ab1b9d822977620614f9d1cf2006f8f84d137994131790575",
+      "reports/review/P02-format/review_package.py": "7837d26ce0e798ea0e5e2d56d266848f45d610e9ecb39f2606b4bc17a5bc402a",
+      "reports/review/P02-format/review_snapshot.py": "5b3f55d7fdddb2399b5ca7a8d0558dbbc51ce45715a163ec49b806d1ef37f2fc",
+      "reports/review/P02-format/review_support.py": "3e712ce8358bae5e1f489fc898af7d75f326e37e7d6bb792f7a23cd0e13903a9",
+      "reports/review/P02-format/review_tokenizers.py": "cd16584169c42861ada99567a89a22f4a59d33a55fd8b20a94df4095320d7ee3",
+      "reports/review/P02-format/test_audit_denominators.py": "9f27291dcbb6d4aa41c185a85e40c7e8f7fd3b8277984335d7eae4dcc48545bc",
+      "reports/review/P02-format/test_independent.py": "c16abd4224d9677f382bba00ca5f9e05b4b228225604e81afcc1aa8401031e26"
+    },
+    "retained_new_log_bytes_before_scope_record": 48475,
+    "retained_new_private_bytes_before_scope_record": 302511558,
     "status": "PASS",
     "tested_code_commit": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
     "tested_code_payload": {
@@ -1887,6 +3005,38 @@
         "size_bytes": 378869
       }
     }
+  },
+  "review-sync-integration": {
+    "at_utc": "2026-09-06T08:05:43.348574+00:00",
+    "authorization_commit": "6272ad512b947b9cf14c5f7201b7807f7f188e13",
+    "head": "6c82d29ddaade349d3e2a15f50d35214dbc7bf8d",
+    "main_or_P01_merged": false,
+    "ordinary_merge": true,
+    "original_F1_severity": "P2",
+    "original_local_review_not_in_ancestry": true,
+    "original_review_status": "FAIL",
+    "parents": [
+      "7b8ef310db214845ef5ac1fabfef1e37e9e05ab0",
+      "2942e568eae91d0292ad9691af133bbd8c33dd02"
+    ],
+    "production_fix_commit": "b4dc1cf5c7d8c551506a7015bca2400573e16857",
+    "protected_review_files": {
+      "coordination/handoffs/P02-format-review-r1.md": "62fd89c2483d918a939a056e9ddd8afe5bce3e9f53a31c560cfae1a05f083b39",
+      "reports/review/P02-format/.ruff.toml": "059df780f90fc3c79e80cb38b15b63e6e0c922547f1c94c1fc718d9e4de74543",
+      "reports/review/P02-format/README.md": "3b0d0e34c946e983c8b5aab2eedf4a043f4209348ed623ec167a4dacf9799ce2",
+      "reports/review/P02-format/evidence.json": "06093fb7e3b2bffb9ff6ae4952f7c4bb9ee04f667855fa2d8357dd27bcf0b7ea",
+      "reports/review/P02-format/review_evidence.py": "6723e966e561bd9c49218ae4da955f0ff1eab91d18c2a61dde0617b3177a8aa8",
+      "reports/review/P02-format/review_full_audit.py": "f4057b12abae721ab1b9d822977620614f9d1cf2006f8f84d137994131790575",
+      "reports/review/P02-format/review_package.py": "7837d26ce0e798ea0e5e2d56d266848f45d610e9ecb39f2606b4bc17a5bc402a",
+      "reports/review/P02-format/review_snapshot.py": "5b3f55d7fdddb2399b5ca7a8d0558dbbc51ce45715a163ec49b806d1ef37f2fc",
+      "reports/review/P02-format/review_support.py": "3e712ce8358bae5e1f489fc898af7d75f326e37e7d6bb792f7a23cd0e13903a9",
+      "reports/review/P02-format/review_tokenizers.py": "cd16584169c42861ada99567a89a22f4a59d33a55fd8b20a94df4095320d7ee3",
+      "reports/review/P02-format/test_audit_denominators.py": "9f27291dcbb6d4aa41c185a85e40c7e8f7fd3b8277984335d7eae4dcc48545bc",
+      "reports/review/P02-format/test_independent.py": "c16abd4224d9677f382bba00ca5f9e05b4b228225604e81afcc1aa8401031e26"
+    },
+    "review": "2942e568eae91d0292ad9691af133bbd8c33dd02",
+    "review_parent": "7bada2e451d43dae4b3ed532d5efa310fc8e6a57",
+    "status": "PASS"
   },
   "review_sync_authorization_commit": "6272ad512b947b9cf14c5f7201b7807f7f188e13",
   "snapshot_before_after": {
@@ -2164,11 +3314,12 @@
   },
   "source_epoch_mapping": {
     "before_runs": "Clean original 7bada2e and original offline.py 6d1a4474cf6cdc747de53b365426367e825ea844d3ebf0b1f36e54629a8b1d30.",
+    "combined_collection_failure": "At 6c82d29, one combined collection failed (exit 2) because two preserved reviews use test_independent.py. Original startup source and log remain. Private launcher now runs the original two groups separately with a multiprocessing main guard; no tests or collection rules changed.",
     "early_after_runs_and_source_probes": "HEAD remained 7bada2e; worktree offline.py was already f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3, exactly the later b4dc1cf blob. Do not relabel original git_head or time.",
     "first_snapshot_test_environment_note": "The original wrapper did not record TOOLALIGN_SNAPSHOT_ENGINE and HF flags supplied by its shell. That original metadata is unchanged. Child filesystem probes set offline/disabled-framework flags themselves. Successful r2 records all flags explicitly in argv.",
     "first_snapshot_test_failure": "Preserved source-r1 snapshot and original log; 7 failed / 6 passed due to test path aliases and insufficiently constrained vocab ID matching. Only tests changed before 13 passed.",
-    "fixtures_combined_and_packages": "Executed at b4dc1cf with final repair and test payload; later review-only integration does not rewrite those execution records."
+    "fixtures_combined_and_packages": "Initial fixtures/675/native and packages executed at b4dc1cf. After ordinary review merge 6c82d29, CPU groups 675+2 skips and 60 passed plus reference 13 passed were actually rerun. Default wheel was newly installed for both actual optional engine probes at 6c82d29. Original b4dc1cf build and default-only interface records were not rewritten."
   },
-  "status": "PRE_REVIEW_INTEGRATION",
+  "status": "READY_FOR_REVIEW",
   "task": "P02-format-fix-r3"
 }
