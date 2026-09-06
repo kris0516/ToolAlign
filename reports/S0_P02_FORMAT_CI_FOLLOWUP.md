@@ -23,4 +23,4 @@ S0自己的第一次证据核验脚本误写了既有场景的名称前缀，exi
 
 GitHub连接器返回的完整decoded job log按UTF-8私有保存，SHA-256 `81931c5cd7ba3fe8c8cfa1aa4dc172220682c28ed2247359422b584092225013`；失败证据 `fc0e5d6f6720318cb35511d64a75e754298ac1d7d402b1176287928e5e14f77b` 绑定实际job/head/checkout及四份未变文件。测试、harness、executor和isolation在当前已验收main与失败候选字节相同；未按绿色的3.11或旧本机结果忽略失败，也未重复运行CI来覆盖它。
 
-E1的[限域CPU跟进](../coordination/tasks/P03_CI_DEADLINE.md)已准备，要求受控慢启动/阶段证明、实际阻塞与回收、有效负向控制及精确候选R1复核。PR8保持Draft；格式代码为ACCEPTED，最终集成/main仍未VERIFIED。09:09 UTC共享GPU租约空闲，人审填写副本100行仍0 reviewer/0 verdict，hash保持；G-DATA/P04及完整P00–P09目标未完成。
+E1的[限域CPU跟进](../coordination/tasks/P03_CI_DEADLINE.md)已按完整`fa1ea86361223171a06b5d082a3731b63a00a74a`原生派发，gpt-6-astra/max，新轮ACTIVE已核验；要求受控慢启动/阶段证明、实际阻塞与回收、有效负向控制及精确候选R1复核。PR8保持Draft；格式代码为ACCEPTED，最终集成/main仍未VERIFIED。09:09 UTC共享GPU租约空闲，人审填写副本100行仍0 reviewer/0 verdict，hash保持；G-DATA/P04及完整P00–P09目标未完成。

@@ -56,7 +56,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 新格式修复正式交接与复审准备 | D1完整8c439f6已普通推送并正式交接；S0范围/证据1325项hash及最终封存625项检查通过，原2942审查保持，双Python CI34021506781全部步骤成功；READY_FOR_REVIEW，R1原轮空闲已核验、复审未派发 |
 | 2026-09-06 | 新格式修复独立复审实际派发 | D1最终8c439f6交接且原生completed/idle；S0再次核验R1原轮空闲/干净2942后，按完整4123363派发精确8c的P02-format-review-r2，gpt-6-astra/max，新轮ACTIVE |
 | 2026-09-06 | 格式修复与P01/P03组合预检 | S0隔离普通merge50f7589实际839 passed/2 HF-only skipped、三归档/10默认安装命令及两engine安装版原F1通过；保留S0环境前置失败，见[新预检](reports/S0_P02_FORMAT_PREFLIGHT_R2.md)；R1正式交接/最终CI/main仍待完成 |
-| 2026-09-06 | 新格式正式复审与最终CI跟进 | R1对8c正式PASS/P0/P1/P2均0，原review b9f7567已发布/普通集成为2b11b7f；R1原生completed/idle。最终CI34024093376的3.11通过、3.14旧P03截止时间测试失败；PR8 Draft、格式ACCEPTED待main，E1限域CPU测试修复READY，见[证据](reports/S0_P02_FORMAT_CI_FOLLOWUP.md) |
+| 2026-09-06 | 新格式正式复审与最终CI跟进 | R1对8c正式PASS/P0/P1/P2均0，原review b9f7567已发布/普通集成为2b11b7f；R1原生completed/idle。最终CI34024093376的3.11通过、3.14旧P03截止时间测试失败；PR8 Draft、格式ACCEPTED待main，E1限域CPU测试修复已按fa1ea86原生派发/ACTIVE，见[证据](reports/S0_P02_FORMAT_CI_FOLLOWUP.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -82,7 +82,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准和P03 CPU任务已VERIFIED。新格式修复8c439f6获R1正式PASS，原b9f7567审查已按原SHA发布并普通集成，格式代码ACCEPTED；R1原生completed/idle。最终PR8候选2b11b7f的CI中3.11通过，3.14已有P03测试对0.6秒内启动工具的假设失败；[E1限域测试跟进](coordination/tasks/P03_CI_DEADLINE.md)READY，尚未派发。主干尚未合格式，不忽略CI失败，原7bada FAIL/P2=1及所有数据/审查保持。D1/T1/R1无新工作，最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查及训练绑定，P04尚未授权。
+P00、共享支持、P01受限兼容校准和P03 CPU任务已VERIFIED。新格式修复8c439f6获R1正式PASS，原b9f7567审查已按原SHA发布并普通集成，格式代码ACCEPTED；R1原生completed/idle。最终PR8候选2b11b7f的CI中3.11通过，3.14已有P03测试对0.6秒内启动工具的假设失败；[E1限域测试跟进](coordination/tasks/P03_CI_DEADLINE.md)已按完整fa1ea86原生派发并核验新轮ACTIVE。主干尚未合格式，不忽略CI失败，原7bada FAIL/P2=1及所有数据/审查保持。D1/T1/R1无新工作，最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查及训练绑定，P04尚未授权。
 
 ## 工作记录
 

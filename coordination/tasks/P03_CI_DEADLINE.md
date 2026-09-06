@@ -1,6 +1,6 @@
 # P03-CI-DEADLINE｜请求截止时间测试的确定性复现与修复
 
-状态：READY；范围已准备，尚未原生派发。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
+状态：IN_PROGRESS；S0核验E1上一轮completed/notLoaded及干净3598cef后，已按完整`fa1ea86361223171a06b5d082a3731b63a00a74a`原生派发并核验新轮ACTIVE，显式gpt-6-astra/max。仅此 CPU 测试问题；不重开已验收的 P03 实现或新格式实现。
 
 | 字段 | 本轮值 |
 |---|---|
