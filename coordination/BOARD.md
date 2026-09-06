@@ -14,7 +14,7 @@
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
 | [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1；R1独立审查 | 技术基线42eaa50、ADR-0020 | VERIFIED（CPU部分） | 原R1 PASS800480b保持；[PR10](https://github.com/kris0516/ToolAlign/pull/10)合并e28f1db，最终双Python CI、main1014CPU/2跳过及三归档/57安装包文件绑定通过，见[证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。完整原生trainer仍BLOCKED |
-| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；后续独立R1 | CPU已验证50867c0、ADR-0021 | READY | 原13原创例/64参数、MLX GPU/Torch CPU；尚未派发或运行，CPU旧失败和人工门槛保持 |
+| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；后续独立R1 | CPU已验证50867c0、ADR-0021 | IN_PROGRESS | 按de86568原生派发T1并核验新轮ACTIVE；新分支/输入intake与数值验收待完成，旧CPU失败及人工门槛保持 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -32,4 +32,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。T1/D1/E1/R1均已结束本轮；S0另按ADR-0021准备P04-SFT-NATIVE-TOY固定原创GPU数值范围，READY尚未派发。真实模型与正式P04仍未授权。
+公共跟进：P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。原CPU轮均已结束；T1已按ADR-0021/de86568原生接P04-SFT-NATIVE-TOY并核验ACTIVE；新分支intake待确认。真实模型与正式P04仍未授权。

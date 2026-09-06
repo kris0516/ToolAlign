@@ -189,7 +189,7 @@ ADR-0020主干补记：CPU准备已按原SHA独立审查、普通合并并完成
 
 ## ADR-0021｜原生 GPU 上的固定原创 SFT 数值验证
 
-日期：2026-09-07；状态：READY，尚未派发/运行。PR10 的 CPU 准备已普通合并为 e28f1db 并在实际 main 完成1014项CPU检查/2项HF-only跳过；验证发布基线为 `50867c0be43d110df6c3620c94022fcfdaf779b5`。上游CPU入口KeyError和0次MLX更新仍是有效负结果，完整P04及人工门槛未完成。
+日期：2026-09-07；状态：DISPATCHED，T1已按完整de86568原生派发并核验新轮ACTIVE；新分支intake及数值结果待确认。PR10 的 CPU 准备已普通合并为 e28f1db 并在实际 main 完成1014项CPU检查/2项HF-only跳过；验证发布基线为 `50867c0be43d110df6c3620c94022fcfdaf779b5`。上游CPU入口KeyError和0次MLX更新仍是有效负结果，完整P04及人工门槛未完成。
 
 S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新增[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)及[精确S0配置](tasks/P04_SFT_NATIVE_TOY_CONFIG.v1.json)，复用旧13例/8词表/64参数初值和SGD0.07，真实运行8+5两次更新、native evaluate和checkpoint保存重载，与独立Torch CPU参考对照；另一次单段13微步的上游尾批丢失作为负例。验证集复用原创样例只检查状态记账，不宣称真实模型质量或泛化效果。
 

@@ -63,3 +63,6 @@ ADR-0020另行准备[P04-SFT-CPU](P04_SFT_CPU_PREPARATION.md)：先在已验证4
 
 
 ADR-0021另准备[P04-SFT-NATIVE-TOY](P04_SFT_NATIVE_TOY.md)，基线50867c0，仅固定13原创例/64参数的MLX GPU原生接口与Torch CPU参考数值验证，READY尚未派发。该子包验证尾周期/evaluate/checkpoint；不会读取真实训练样本作优化，不替代本包的人工、容量、baseline和SFT验收。
+
+
+P04-SFT-NATIVE-TOY已按完整de86568原生派发T1并核验新轮ACTIVE；该实际派发仍仅为固定原创数值子包，原生结果/独立审查和本包正式训练门槛保持待完成。

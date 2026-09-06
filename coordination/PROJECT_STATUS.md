@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR10已合并e28f1db并完成最终CI/main验证，CPU部分VERIFIED，原R1 PASS800480b保持；原生CPU train上游入口阻塞 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/D1/E1/R1本轮均原生结束；新P04-SFT-NATIVE-TOY已READY尚未派发，模型/推理gpt-6-astra/max |
+| 独立实现/reviewer 对话 | T1已按de86568原生接P04-SFT-NATIVE-TOY并确认新轮ACTIVE；D1/E1/R1无新任务，模型/推理gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -22,7 +22,7 @@
 | 当前实现 | 已验收CPU基础包/契约/GPU锁、P01受限兼容校准、P03本地工具/oracle/scripted接口；P02数据流程技术验证通过，整包待审 |
 | 已验收训练/数据/评测/服务 | P02代码技术集成通过；数据语义、训练、正式评测与服务均无整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
-| 重 GPU 作业 | P01历史校准已结束；ADR-0021的固定原创GPU数值范围READY尚未派发，执行必须先实际取得共享租约 |
+| 重 GPU 作业 | P01历史校准已结束；ADR-0021的固定原创GPU数值范围已派发T1，执行必须先实际取得共享租约；尚无数值结果验收 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
 
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
@@ -187,3 +187,6 @@ R1于16:16 UTC实际切至干净review/p04-sft-cpu-r1/33d6248并回报领取。S
 
 
 S0新范围（2026-09-07）：[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)按ADR-0021 READY，code_base50867c0，精确配置fb06634d。在单一共享租约及有限预算内验证固定13原创例的GPU原生8+5更新、evaluate与checkpoint，对照Torch CPU。尚未派发/运行，旧CPU入口负结果与人工/真实模型门槛保持。
+
+
+原生派发已确认：T1上一轮completed/idle、旧CPU分支干净33d6248，S0按完整de86568派发固定原创P04-SFT-NATIVE-TOY，gpt-6-astra/max，新轮ACTIVE；新branch/输入intake待核验，未登记实际GPU更新或原生PASS。原CPU准备VERIFIED与正式P04/人工待审状态保持。
