@@ -64,6 +64,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 训练选择与人工序列材料CPU派发 | D1按完整5d2c6b6原生派发并核验新轮ACTIVE，gpt-6-astra/max，code_base36b6988；固定选择及13例材料候选待交付/独立审查，G-DATA/P04训练未授权 |
 | 2026-09-06 | 训练绑定完整交接与独立审查准备 | D1完整f4f73c9交付/远端一致/原生空闲；S0核对3692路径、32本轮原命令及实际归档/安装记录，见[证据](reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。R1范围READY；实际页面观察及kris语义/token-mask人审仍待完成 |
 | 2026-09-06 | 训练绑定独立审查实际派发 | S0核验R1旧轮completed/空闲和干净1531892后，按完整5b553b4原生派发精确f4f73c9，gpt-6-astra/max，新轮ACTIVE已核验；D1/T1/E1无新实现，人工与P04门槛保持 |
+| 2026-09-06 | 训练绑定候选PR与审查intake | [Draft PR9](https://github.com/kris0516/ToolAlign/pull/9)精确f4候选CI34035350180双Python全部步骤通过；实际CI合并3e1e96e及356文件绑定已核验。R1的350候选/13授权副本intake通过、原轮继续ACTIVE；[证据](reports/S0_P02_TRAINING_BINDING_HANDOFF.md)，尚未独立验收/合并 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。

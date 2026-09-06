@@ -1,6 +1,6 @@
 # P02-TRAINING-BINDING-R1｜固定训练选择与序列材料独立审查
 
-状态：IN_PROGRESS；D1完整候选f4f73c9已交付、远端一致且原生completed/idle。S0核验R1旧轮已结束及干净1531892后，按完整5b553b4b7140f4e62209c904bc0b79e94dff8600原生派发本范围，gpt-6-astra/max，新轮ACTIVE已核验。新分支intake待确认；浏览器实际观察和kris人工判断仍未完成。
+状态：IN_PROGRESS；D1完整候选f4f73c9已交付、远端一致且原生completed/idle。S0按完整5b553b4b7140f4e62209c904bc0b79e94dff8600原生派发本范围，gpt-6-astra/max，新轮ACTIVE已核验。13:12 UTC新分支精确f4、350候选文件和13授权副本核对通过，证明c48dfbdb；独立审查继续。Draft PR9候选双Python CI通过，不替代R1结论；浏览器实际观察和kris人工判断仍未完成。
 
 | 字段 | 本轮值 |
 |---|---|

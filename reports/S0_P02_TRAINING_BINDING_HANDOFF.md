@@ -27,3 +27,15 @@ S0读取元数据摘要时曾直接索引早期intake没有的finished_at_utc而
 原浏览器file URL导航被URL安全策略拒绝，并明确禁止绕过；完整回执b2abc9c6已核验。实际渲染0页/NOT_RUN，静态检查不能关闭代表/最长/非ASCII页面观察及kris判断。原任务此项要求仍未完成。[R1审查范围](../coordination/tasks/P02_TRAINING_BINDING_REVIEW.md)保留该缺项，技术审查可继续。最终CI/main、G-DATA、P04真实trainer/collator、0.6B/1536容量与GPU授权均待对应门槛。
 
 13:03 UTC，S0在R1原生旧轮completed/notLoaded、干净1531892及D1终态再次核验后，按完整5b553b4b7140f4e62209c904bc0b79e94dff8600实际派发精确f4独立审查，gpt-6-astra/max；原生新轮ACTIVE已核验。分支intake和审查结论仍待交付。
+
+13:12 UTC，R1实际新分支review/p02-training-binding-r1位于精确f4，旧1531892审查分支保持；S0核对350份当前候选/Git/私有索引，以及13份授权副本与精确5b553b4的字节一致。R1任务身份、模型/推理、candidate/parent/tree相符；证明SHA `c48dfbdbc87ce0be374bc769d36cf3715d14ef1d7157cca6a44914950f65ece1`。这证明审查输入已正确接收，独立结论尚未产生，原生同一轮持续ACTIVE。
+
+[Draft PR9](https://github.com/kris0516/ToolAlign/pull/9)已建立，精确head为f4f73c9、当时base为18674a2。[候选CI34035350180](https://github.com/kris0516/ToolAlign/actions/runs/34035350180)的Python3.11/3.14两个job各14步骤全部成功，每个job实际550 passed/48 optional-tokenizer skipped，另46项P00审查通过；48项跳过均因CI未提供私有真实tokenizer来源/依赖。两个Python重复执行不增加独立测试分母。
+
+CI实际检出GitHub合并对象 `3e1e96eb8369125629faa6d497446961ef8b533a`，tree `036f09fd8e82f46dec5238b014f916b3a70a0bd7`，父分别为18674a2和f4f73c9。S0实际fetch该对象，13:17:55–13:18:02 UTC核对全部356 Git文件和完整CI日志：343份当时main文件保持，增加13候选文件；候选共享的10份较旧说明由main中的S0状态/规格更新替换，全部src/tests/configs及107 sdist输入/49生产包文件与候选一致。证明SHA `83601672630688c5ceb8f3a8843a1b25a1ef3bbbb7edc290ec6004924e329b8a`；实际检查exit0、7.30秒，日志SHA `f5c0afdafc7850a433d4c380fe22cff45735546d30b4ad6f46304d525ff58069`。
+
+完整CI解码日志按实际UTF-8逐字节保留：Python3.11为28598 bytes/SHA `84ad4b4df24a1bbcebaadfebb81f596efc5751e92bebe07a4c249185025cd821`，Python3.14为28485 bytes/SHA `6d698cd423bd7ab48f4c38ad17f9f26c6a0e684d4cd82197a89b7da0e64d4213`。lint、4契约和356路径公开扫描通过；既有归档canary探针实际检查241私有canary被排除、18公开fixture保持，覆盖sdist/direct/rebuilt路线。这是CI探针范围，不改写D1普通包的默认构建路线或其源码直接wheel NOT_RUN。
+
+首次S0只读合并映射检查误把所有共享说明差异限制为AGENTS/BOARD/PROJECT_STATUS三文件，实际还包含先前七份S0状态/规格更新，因此断言exit1；原输出/断言已保留。随后按完整实际diff明确十份说明文件、分别验证所有候选生产/测试/配置与包输入未变，得到上述独立成功记录。未修改候选或CI，也未重跑工作流掩盖失败。
+
+PR9保持Draft，候选CI不替代R1独立审查和后续最终组合CI/main验收。浏览器实际观察、两项kris人工判断、G-DATA/P04门槛继续保持未完成。
