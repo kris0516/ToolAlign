@@ -1,0 +1,312 @@
+{
+  "artifacts": {
+    "toolalign-0.0.1-py3-none-any.whl": {
+      "archive_files": 27,
+      "generated_metadata": [
+        "toolalign-0.0.1.dist-info/METADATA",
+        "toolalign-0.0.1.dist-info/WHEEL",
+        "toolalign-0.0.1.dist-info/entry_points.txt",
+        "toolalign-0.0.1.dist-info/licenses/LICENSE",
+        "toolalign-0.0.1.dist-info/RECORD"
+      ],
+      "sha256": "043e5d4508704d5637f7a9fef20dcb236c5223649def73b832750fa94dabd69b",
+      "size_bytes": 44037,
+      "tracked_files_byte_identical": 22,
+      "untracked_payload_files": 0
+    },
+    "toolalign-0.0.1.tar.gz": {
+      "archive_files": 47,
+      "generated_metadata": [
+        "PKG-INFO"
+      ],
+      "sha256": "f74cd964bec2af10f673ac5104a88b9162a7cd27fb4a5e6398a9be621424c508",
+      "size_bytes": 110865,
+      "tracked_files_byte_identical": 46,
+      "untracked_payload_files": 0
+    }
+  },
+  "audit_script_sha256": "aa134841845d78f61d2062230a2fae090d29d0212b57e9c5447e146d246fe34f",
+  "checked_commit": "e6825f657a359a812b44b8db96d7929efd9f77ff",
+  "environments": [
+    {
+      "absent_from_subset": [
+        "annotated-types",
+        "cffi",
+        "fastapi",
+        "llguidance",
+        "miniaudio",
+        "mlx-audio",
+        "mlx-embeddings",
+        "mlx-tune",
+        "mlx-vlm",
+        "opencv-python",
+        "pillow",
+        "pycparser",
+        "pydantic",
+        "pydantic-core",
+        "python-multipart",
+        "scipy",
+        "sounddevice",
+        "starlette",
+        "typing-inspection",
+        "uvicorn",
+        "websockets"
+      ],
+      "dev_only_versions": {
+        "iniconfig": "2.3.0",
+        "pluggy": "1.6.0",
+        "pytest": "9.0.2",
+        "ruff": "0.15.0"
+      },
+      "differences_from_exploration": {
+        "ruff": {
+          "installed": "0.15.0",
+          "recorded": null
+        }
+      },
+      "extras": [
+        "compatibility",
+        "dpo"
+      ],
+      "installed_count_with_project": 69,
+      "project": {
+        "toolalign": "0.0.1"
+      },
+      "runtime_versions": {
+        "aiohappyeyeballs": "2.7.1",
+        "aiohttp": "3.14.3",
+        "aiosignal": "1.4.0",
+        "annotated-doc": "0.0.5",
+        "anyio": "4.15.1",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "charset-normalizer": "3.5.1",
+        "click": "8.5.0",
+        "datasets": "3.6.0",
+        "dill": "0.3.8",
+        "filelock": "3.32.5",
+        "frozenlist": "1.8.0",
+        "fsspec": "2025.3.0",
+        "h11": "0.16.0",
+        "hf-xet": "1.6.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "huggingface-hub": "1.30.0",
+        "idna": "3.19",
+        "jinja2": "3.1.6",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.3",
+        "mdurl": "0.1.2",
+        "mlx": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-lm-lora": "3.1.2",
+        "mlx-metal": "0.32.2",
+        "mpmath": "1.3.0",
+        "multidict": "6.7.1",
+        "multiprocess": "0.70.16",
+        "networkx": "3.6.1",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pandas": "3.0.5",
+        "propcache": "0.5.2",
+        "protobuf": "7.36.1",
+        "psutil": "7.2.2",
+        "pyarrow": "25.0.1",
+        "pygments": "2.21.0",
+        "python-dateutil": "2.9.0.post0",
+        "pyyaml": "6.0.3",
+        "referencing": "0.37.0",
+        "regex": "2026.9.3",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "rpds-py": "2026.6.3",
+        "safetensors": "0.8.0",
+        "sentencepiece": "0.2.2",
+        "setuptools": "84.0.0",
+        "shellingham": "1.5.4",
+        "six": "1.17.0",
+        "sympy": "1.14.0",
+        "tokenizers": "0.23.2",
+        "torch": "2.14.0",
+        "tqdm": "4.70.0",
+        "transformers": "5.16.1",
+        "typer": "0.27.2",
+        "typing-extensions": "4.16.0",
+        "urllib3": "2.7.0",
+        "xxhash": "4.0.1",
+        "yarl": "1.24.5"
+      },
+      "unchanged_installed_candidate_source_hashes": {
+        "mlx-lm": {
+          "mlx_lm/tuner/datasets.py": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17",
+          "mlx_lm/tuner/lora.py": "4d3a8edab111d4ddba33398ba8700203db7b61621c39e9c348fdd50e57278b45",
+          "mlx_lm/tuner/trainer.py": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+          "mlx_lm/tuner/utils.py": "166eaf5e5f923113bed43614a5fb7319795fa0cac5a7fa319ea54e5f0045b553"
+        },
+        "mlx-lm-lora": {
+          "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6",
+          "mlx_lm_lora/trainer/sft_trainer.py": "4f5f04d99ddb03b3b4a46365998e36467411c67525fd5baad6fddef19b45b85c",
+          "mlx_lm_lora/utils.py": "262485b6f6c87557084823328a042d52e439935cda37c50e34dee4d4c3378206"
+        }
+      }
+    },
+    {
+      "absent_from_subset": [],
+      "dev_only_versions": {
+        "iniconfig": "2.3.0",
+        "pluggy": "1.6.0",
+        "pytest": "9.0.2",
+        "ruff": "0.15.0"
+      },
+      "differences_from_exploration": {
+        "ruff": {
+          "installed": "0.15.0",
+          "recorded": null
+        }
+      },
+      "extras": [
+        "compatibility",
+        "dpo",
+        "p01-replay"
+      ],
+      "installed_count_with_project": 90,
+      "project": {
+        "toolalign": "0.0.1"
+      },
+      "runtime_versions": {
+        "aiohappyeyeballs": "2.7.1",
+        "aiohttp": "3.14.3",
+        "aiosignal": "1.4.0",
+        "annotated-doc": "0.0.5",
+        "annotated-types": "0.8.0",
+        "anyio": "4.15.1",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "cffi": "2.1.1",
+        "charset-normalizer": "3.5.1",
+        "click": "8.5.0",
+        "datasets": "3.6.0",
+        "dill": "0.3.8",
+        "fastapi": "0.141.1",
+        "filelock": "3.32.5",
+        "frozenlist": "1.8.0",
+        "fsspec": "2025.3.0",
+        "h11": "0.16.0",
+        "hf-xet": "1.6.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "huggingface-hub": "1.30.0",
+        "idna": "3.19",
+        "jinja2": "3.1.6",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "llguidance": "1.8.0",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.3",
+        "mdurl": "0.1.2",
+        "miniaudio": "1.71",
+        "mlx": "0.32.2",
+        "mlx-audio": "0.5.1",
+        "mlx-embeddings": "0.1.0",
+        "mlx-lm": "0.31.3",
+        "mlx-lm-lora": "3.1.2",
+        "mlx-metal": "0.32.2",
+        "mlx-tune": "0.6.0",
+        "mlx-vlm": "0.6.17",
+        "mpmath": "1.3.0",
+        "multidict": "6.7.1",
+        "multiprocess": "0.70.16",
+        "networkx": "3.6.1",
+        "numpy": "2.5.2",
+        "opencv-python": "5.0.0.93",
+        "packaging": "26.3",
+        "pandas": "3.0.5",
+        "pillow": "12.3.0",
+        "propcache": "0.5.2",
+        "protobuf": "7.36.1",
+        "psutil": "7.2.2",
+        "pyarrow": "25.0.1",
+        "pycparser": "3.0",
+        "pydantic": "2.13.5",
+        "pydantic-core": "2.46.5",
+        "pygments": "2.21.0",
+        "python-dateutil": "2.9.0.post0",
+        "python-multipart": "0.0.32",
+        "pyyaml": "6.0.3",
+        "referencing": "0.37.0",
+        "regex": "2026.9.3",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "rpds-py": "2026.6.3",
+        "safetensors": "0.8.0",
+        "scipy": "1.18.1",
+        "sentencepiece": "0.2.2",
+        "setuptools": "84.0.0",
+        "shellingham": "1.5.4",
+        "six": "1.17.0",
+        "sounddevice": "0.5.6",
+        "starlette": "1.6.0",
+        "sympy": "1.14.0",
+        "tokenizers": "0.23.2",
+        "torch": "2.14.0",
+        "tqdm": "4.70.0",
+        "transformers": "5.16.1",
+        "typer": "0.27.2",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.7.0",
+        "uvicorn": "0.52.4",
+        "websockets": "17.1",
+        "xxhash": "4.0.1",
+        "yarl": "1.24.5"
+      },
+      "unchanged_installed_candidate_source_hashes": {
+        "mlx-lm": {
+          "mlx_lm/tuner/datasets.py": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17",
+          "mlx_lm/tuner/lora.py": "4d3a8edab111d4ddba33398ba8700203db7b61621c39e9c348fdd50e57278b45",
+          "mlx_lm/tuner/trainer.py": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+          "mlx_lm/tuner/utils.py": "166eaf5e5f923113bed43614a5fb7319795fa0cac5a7fa319ea54e5f0045b553"
+        },
+        "mlx-lm-lora": {
+          "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6",
+          "mlx_lm_lora/trainer/sft_trainer.py": "4f5f04d99ddb03b3b4a46365998e36467411c67525fd5baad6fddef19b45b85c",
+          "mlx_lm_lora/utils.py": "262485b6f6c87557084823328a042d52e439935cda37c50e34dee4d4c3378206"
+        },
+        "mlx-tune": {
+          "mlx_tune/_perf.py": "67dba4dc0dc6419fec8ee961067ec84d6773f315ca41d3f99c10122508e043db",
+          "mlx_tune/losses.py": "31762d5fb71e0b2a94eef902ea4cdf18e4f4bedb8ad815aefb43547739739779",
+          "mlx_tune/model.py": "7d952d5d65cc16d62c17d0861c0ada9ddd6dbacf423d8f85cfe565478fa26506",
+          "mlx_tune/rl_trainers.py": "4e6eb860c16083d3c0f642a264b7efc0c671cf09d63e2fc65950d3e325e3978c"
+        }
+      }
+    }
+  ],
+  "ml_packages_imported": false,
+  "preserved_previous_files": {
+    "coordination/handoffs/P01-r1.md": "7e8d8488fa2654cb137dbc8b1408c74ed268d76be8867a62be0a340960049feb",
+    "reports/hardware/P01_BUILD_REPORT.py": "3ff92fd45f7cc3d3fe9e4501681d0e0601194f67c77fbe5297f4da5b33bdfb34",
+    "reports/hardware/P01_CHECK_SDIST_SELECTION.py": "5d604291e258c5af67627ac743d4d85e7c8a466d0ecdaf9bb83039ef79fbfb02",
+    "reports/hardware/P01_ENVIRONMENT.json": "9bd6f8d54e16a7dc4130d07f1740541721185288e27e3b263198b1dc7a6d8941",
+    "reports/hardware/P01_EXPLORATION_REQUIREMENTS.txt": "962fb8cc1f6f76411a31720511667f8f0e2577de3a1b4017defe197ffca4db05",
+    "reports/hardware/P01_PREREGISTRATION.md": "a6638a2b04ffc5d20a0ffa06e04bc7850e1b597b5e0ca34db158b9cc0bc36977",
+    "reports/hardware/P01_REPORT.md": "47c403975014377d5a4425fe3bae51cb6c036fd4b4a95b485c064636f6be0f0f",
+    "reports/hardware/P01_REPRODUCE.md": "2ea54a56a7499b50f6f765f435781bb912fead0f19c23087e0e5eb0acb6ea282",
+    "reports/hardware/P01_RESULTS.json": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+    "reports/hardware/P01_SOURCE_IDENTITIES.json": "95d27bd6a0913e5de84228d60d8015595af0e57a7ad1a4481a52fa0c14e02f27",
+    "reports/hardware/P01_VALIDATION.json": "03d04077857ef4732933a942c6f4fea3f3a13ffcb6ef38c5f3023033a6d765ce",
+    "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+    "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+    "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+    "src/toolalign/training/compatibility/execution.py": "78c2fdcb0441c177c45af392984dd14784b1d454d80afe260ff6dcb47e6bfa05",
+    "src/toolalign/training/compatibility/fallback_probe.py": "7a3b85d389b37d44428bcc37423066fd9a0b6bdabdba35611f0d5651e32aebc9",
+    "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+    "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+    "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+    "tests/training/compatibility/test_invariants.py": "88ef39bc29a1c8f278cdff8c661dfa82a8aa7f9aaab299e9cd5367bcad00bb43",
+    "tests/training/compatibility/test_lease_entry.py": "b86b85d036975ca488f3b9de61da68f4ce2481acaf46d1138b175bbad0105035"
+  },
+  "previous_candidate": "f97bb0de346c220871962a5689014a379fe19c83",
+  "scope": "P01-base-r2 metadata/archive audit; no ML imports"
+}
