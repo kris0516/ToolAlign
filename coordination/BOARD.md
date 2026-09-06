@@ -9,7 +9,7 @@
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | VERIFIED | R1-r3 PASS 7e20706；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并d10722e，最终双Python CI与main655CPU/21条隔离命令通过；[G1分项证据](../reports/S0_P01_MAIN_VERIFICATION.md)，首选DPO旧FAIL保留 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
-| [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | READY_FOR_REVIEW | 候选7bada2e已交付/空闲；S0核验713项checksum及217份不变原文件，664CPU为D1自测；R1按完整1de9078原生派发并确认ACTIVE，未验收 |
+| [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | READY_FOR_REVIEW | [Draft PR8](https://github.com/kris0516/ToolAlign/pull/8)候选7bada2e，双Python CI34017408825通过；S0核验713项checksum及217份不变原文件，664CPU为D1自测；R1按完整1de9078审查ACTIVE，未验收 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
