@@ -69,6 +69,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 训练绑定CPU主干验收 | VERIFIED；[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50，原R1 PASS40252f8保持；最终双Python CI及main919CPU/2 HF-only skipped、现存三归档/49安装包字节绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)；实际页面及两项人审仍待完成 |
 | 2026-09-06 | SFT接口CPU准备范围 | 按ADR-0020准备T1的[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)，code_base42eaa50、精确S0配置、仅数据/collator/有限数值适配；READY未派发，人工与正式训练门槛保持 |
 | 2026-09-06 | SFT接口CPU准备实际派发 | 核验T1原轮completed/idle、干净9fe3cbe和完整e42536d授权后原生派发P04-SFT-CPU，gpt-6-astra/max，新轮ACTIVE已确认；新branch/input intake待确认，D1/E1/R1空闲；人工/真实模型门槛保持 |
+| 2026-09-06 | SFT接口CPU中间证据与入口限制 | S0核对13例新collator完整数组、两执行提交源码与164当前路径；CPU train在上游读取Metal属性时阻塞，原两失败/进程回收保持。T1继续其余CPU测试/打包，完整候选/R1未验收，见[中间证据](reports/S0_P04_SFT_CPU_INTERMEDIATE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。

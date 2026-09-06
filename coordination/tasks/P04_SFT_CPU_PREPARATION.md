@@ -68,3 +68,5 @@ Framework replay必须在独立自有进程先实际取得已有共享租约，�
 
 
 15:04 UTC，S0直接核对T1实际work/p04-sft-cpu/42eaa50、364基线文件、11份授权副本、配置5aad6ff6与原输入，1716个当前文件路径通过；另核对183份原P01 Git身份，原1310私有制品及两份selection共26个稳定文件保持。证明79b2a464f6d9d830a7753db6095e6d75179e905dd0f8feefd904be05a9b5c6d3。intake已验证，T1继续同一CPU实现轮；候选、数值replay和独立审查未验收，人工/真实模型门槛保持。
+
+15:27 UTC中间核验：13例新collator数组与原冻结材料一致，actual CPU train在MLX-LM入口读取Metal属性时失败；两次原失败及回收证据保留。S0已按本包上游限制分支反馈T1，继续其余CPU测试/真实打包与完整交接；不修改vendor或CPU默认设备来跨过入口，尾周期/checkpoint仍NOT_RUN。详见[中间证据](../../reports/S0_P04_SFT_CPU_INTERMEDIATE.md)，没有新增授权。
