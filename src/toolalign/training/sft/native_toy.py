@@ -424,6 +424,8 @@ def _numeric_body(mx, root, mode, config, original, dataset, environment):
                   metrics=metrics, device=device, memory=memory, numeric_atol=atol,
                   independent_reference_optimizer_updates=2, actual_model_parameters=64,
                   unique_original_examples=13, actual_largest_sequence=16, actual_vocabulary=8,
+                  original_count_semantics="13 fixed IDs; rank 1 and rank 13 retain identical payloads",
+                  distinct_numeric_payloads=len({canonical_hash(b.record()) for _, b in dataset}),
                   parameter_content_sha256=parameter_hash(model), environment=environment,
                   consumer_identity=consumer_identity(), origins=_origins(), training_authorized=False)
     _save(root / "result.json", result)
