@@ -330,6 +330,7 @@ def launch(config_path: Path) -> int:
     initial_swap = psutil.swap_memory().used
     started = time.monotonic()
     stop_reason = None
+    monitor_error = None
     peak_rss = 0
     samples = []
     with (root / "stdout.log").open("w") as log:
@@ -351,6 +352,7 @@ def launch(config_path: Path) -> int:
             while process.poll() is None:
                 try:
                     rss = own.memory_info().rss
+                    peak_rss = max(peak_rss, rss)
                     swap = max(0, psutil.swap_memory().used - initial_swap)
                     pressure = int(
                         subprocess.check_output(
@@ -358,7 +360,6 @@ def launch(config_path: Path) -> int:
                         ).strip()
                     )
                     wall = time.monotonic() - started
-                    peak_rss = max(peak_rss, rss)
                     samples.append(
                         {
                             "wall_seconds": wall,
@@ -370,19 +371,20 @@ def launch(config_path: Path) -> int:
                     budget.check(
                         wall=wall, rss_bytes=rss, swap_growth_bytes=swap, pressure=pressure
                     )
-                    process.wait(timeout=1)
-                except subprocess.TimeoutExpired:
-                    pass
+                    try:
+                        process.wait(timeout=1)
+                    except subprocess.TimeoutExpired:
+                        pass
                 except psutil.NoSuchProcess:
                     break
         except (BudgetExceeded, KeyboardInterrupt) as exc:
             stop_reason = str(exc) or type(exc).__name__
-            process.terminate()
-            try:
-                process.wait(timeout=10)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                process.wait()
+        except Exception as exc:
+            # An unreadable sample is a failed monitor, never evidence that the
+            # worker is safe to continue. Preserve the exception until the owned
+            # child is reaped AND its terminal records have been written.
+            monitor_error = exc
+            stop_reason = "monitor_error"
         finally:
             if process.poll() is None:
                 process.terminate()
@@ -392,7 +394,9 @@ def launch(config_path: Path) -> int:
                     process.kill()
                     process.wait()
     exit_code = process.returncode
-    if stop_reason:
+    if monitor_error is not None:
+        exit_code = 1  # The original exception is re-raised after finalization.
+    elif stop_reason:
         exit_code = 124
     write_json(
         root / "resources.json",
@@ -401,6 +405,10 @@ def launch(config_path: Path) -> int:
             "peak_rss_bytes": peak_rss,
             "initial_swap_bytes": initial_swap,
             "stop_reason": stop_reason,
+            "monitor_error": (
+                {"type": type(monitor_error).__name__, "message": str(monitor_error)}
+                if monitor_error is not None else None
+            ),
             "samples": samples,
             "budget": asdict(budget),
             "raw_process_exit_code": process.returncode,
@@ -434,6 +442,8 @@ def launch(config_path: Path) -> int:
             }
         )
     )
+    if monitor_error is not None:
+        raise monitor_error
     return exit_code
 
 

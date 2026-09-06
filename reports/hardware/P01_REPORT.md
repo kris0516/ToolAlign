@@ -20,7 +20,9 @@
 | [Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca) | `c1899de289a04d12100db370d81485cdf75e47ca` | Apache-2.0 | dry-run 权重约 1.5GB |
 | [Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B/tree/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e) | `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e` | Apache-2.0 | dry-run 权重约 4.1GB |
 
-运行前重新计算下载文件 SHA-256，并核对本地 Hugging Face revision/LFS 元数据。run.v1 绑定实际模型、adapter、tokenizer、template 和源码身份。原始训练内容、逐 token 审计、权重、adapter、配置及日志仅保留在私有目录。公开统计由报告脚本抽取；脚本逐个验证冻结 manifest 内制品的相对路径、大小和 hash。math-r1 是早期未提交代码的小张量检查，git_commit 仅指当时基线，精确代码以 source hash 为准；正式数值结论使用已提交实现的 math-r2。
+运行前重新计算下载文件 SHA-256，并核对本地 Hugging Face revision/LFS 元数据。run.v1 绑定实际模型、adapter、tokenizer、template 和源码身份。原始训练内容、逐 token 审计、权重、adapter、配置及日志仅保留在私有目录。公开统计由报告脚本抽取；脚本逐个验证冻结 manifest 内制品的相对路径、大小和 hash。math-r1 是早期未提交代码的小张量检查，git_commit 仅指当时基线，精确代码以 source hash 为准。math-r2 的数值结论来自当时工作树，不能将其记录 HEAD 直接称为“已提交实现”。
+
+R1-r1 F3 来源修正：math-r2 原配置记录 HEAD `aaab75ed5d993f9354f11f74b58edb67d0af45c3`，实际 `source_hash` 为 `17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241`。其 `model_probe.py`、`numerical.py` 与该 HEAD 的 blob 不同；全部8份实际源码 SHA-256 精确匹配后续提交 `47c03404bab043e85b417cd8a6d0432dc2f85479`。这是恢复历史工作树源码的映射，单独checkout记录HEAD不能重现新增备选梯度检查。原 `git_commit`、source/config/result hash及raw文件均保留，未将历史run改为新修复代码实测。逐文件映射见 [P01_FIX_R3_SOURCES.json](P01_FIX_R3_SOURCES.json)；旧报告版本仍在原候选提交中。
 
 ## 2. 实际计算路径与依赖申请
 
@@ -73,7 +75,7 @@ reference 是独立模型对象，包含真实 SFT smoke adapter，所有参数�
 | run | 提交 | 退出码 | 实际 SFT 微步/更新 | 实际 DPO 微步/更新 | 最终证据判定 |
 |---|---|---:|---:|---:|---|
 | math-r1 | ebcaf58 + source hash | 0 | — | — | 早期 CPU PASS |
-| math-r2 | aaab75e | 0 | — | — | CPU PASS，含真实备选独立梯度 |
+| math-r2 | aaab75e（记录HEAD；实际工作树映射47c0340） | 0 | — | — | CPU PASS，含真实备选独立梯度 |
 | smoke06-r1 | 3f55ecf | 0 | 32/4 | 0/0 | SFT PASS；首选 DPO FAIL |
 | smoke06-r2 | 45f4670 | 0 | 32/4 | 8/1 | **FAIL_TRAINING_PATH_LN2** |
 | smoke06-r3 | a2df878 | 2 | 32/4 | 0/0 | reference score gate FAIL |

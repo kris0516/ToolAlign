@@ -110,11 +110,27 @@ def summarize(root: Path) -> dict:
             if s["iteration"] <= config.get("fallback_accumulation", 8)
         ]
         if first_cycle:
-            record["actual_initial_training_loss_max_abs_error"] = max(
-                abs(x - math.log(2)) for x in first_cycle
+            nonfinite_initial = any(
+                not isinstance(x, (int, float)) or not math.isfinite(x) for x in first_cycle
             )
-        if resources["exit_code"] != 0:
+            if nonfinite_initial:
+                record["actual_initial_training_loss_has_nonfinite"] = True
+            else:
+                record["actual_initial_training_loss_max_abs_error"] = max(
+                    abs(x - math.log(2)) for x in first_cycle
+                )
+        else:
+            nonfinite_initial = False
+        callback_failures = [s["failure"] for s in steps if s.get("failure")]
+        if callback_failures:
+            record["training_callback_failure"] = callback_failures[-1]
+        if resources.get("monitor_error"):
+            record["monitor_error_type"] = resources["monitor_error"]["type"]
+            record["assessment"] = "FAILED_MONITOR"
+        elif resources["exit_code"] != 0:
             record["assessment"] = "STOPPED_RESOURCE" if resources["stop_reason"] else "FAILED"
+        elif nonfinite_initial or callback_failures:
+            record["assessment"] = "FAIL_TRAINING_PATH_LOSS"
         elif first_cycle and any(abs(x - math.log(2)) > 2e-6 for x in first_cycle):
             record["assessment"] = "FAIL_TRAINING_PATH_LN2"
         elif raw.get("status") == "PARTIAL":

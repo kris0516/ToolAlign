@@ -179,29 +179,54 @@ def run_fallback(
     class Callback:
         def on_train_loss_report(self, info):
             mx.synchronize()
-            if not math.isfinite(info["train_loss"]):
-                raise ValueError("Nonfinite fallback loss")
-            if info["iteration"] <= accumulation:
-                # Loss is measured before update, including the first accumulation boundary.
-                assert_initial_dpo_loss(info["train_loss"])
+            record = {k: v.item() if hasattr(v, "item") else v for k, v in info.items()}
+            failure = None
+            try:
+                if not math.isfinite(record["train_loss"]):
+                    raise ValueError("Nonfinite fallback loss")
+                if record["iteration"] <= accumulation:
+                    assert_initial_dpo_loss(record["train_loss"])
+            except ValueError as exc:
+                failure = exc
+            # The loss describes pre-update scoring, but upstream has already
+            # evaluated this microstep and applied any boundary optimizer update
+            # before calling us. A failed gate must not erase completed work.
             c, r = active_pair
             progress["microsteps"] += 1
             progress["training_tokens"] += sum(c.completion_mask) + sum(r.completion_mask)
             progress["processed_tokens"] += sum(len(x.token_ids) - 1 for x in active_pair)
             progress["processed_nonpadding_tokens"] += len(c.token_ids) + len(r.token_ids) - 2
-            progress["optimizer_steps"] = sft_optimizer_steps + int(optimizer.step.item())
-            record = {k: v.item() if hasattr(v, "item") else v for k, v in info.items()}
+            optimizer_steps = int(optimizer.step.item())
+            progress["optimizer_steps"] = sft_optimizer_steps + optimizer_steps
             record.update(
                 {
                     "synchronized_seconds": time.perf_counter() - iteration_start,
-                    "optimizer_steps": int(optimizer.step.item()),
+                    "optimizer_steps": optimizer_steps,
                     "processed_tokens": sum(len(x.token_ids) - 1 for x in active_pair),
                     "nonpadding_tokens": len(c.token_ids) + len(r.token_ids) - 2,
                     "supervised_tokens": sum(c.completion_mask) + sum(r.completion_mask),
                 }
             )
+            nonfinite = {
+                key: repr(value) for key, value in record.items()
+                if isinstance(value, float) and not math.isfinite(value)
+            }
+            if nonfinite:
+                # JSON has no numeric NaN/Infinity. Retain their exact categories
+                # separately, rather than losing the whole failure record.
+                for key in nonfinite:
+                    record[key] = None
+                record["nonfinite_values"] = nonfinite
+                if failure is None:
+                    failure = ValueError("Nonfinite fallback report metric")
+            if failure is not None:
+                record["status"] = "failed"
+                record["failure"] = {"type": type(failure).__name__, "message": str(failure)}
             reports.append(record)
             write_json(root / "fallback-dpo-steps.json", reports)
+            write_json(root / "progress.json", progress)
+            if failure is not None:
+                raise failure
             check()
 
     args = backend.DPOTrainingArgs(
