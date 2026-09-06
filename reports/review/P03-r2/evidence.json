@@ -1,0 +1,3942 @@
+{
+  "authorization_commit": "cbb6d4614c3b8e8f584315ac3bdad434544c3984",
+  "candidate_commit": "3598cef2efb99e2990e384812a028902964cf494",
+  "candidate_file_count_byte_unchanged": 158,
+  "candidate_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+  "closed_findings": [
+    {
+      "evidence": "Original stop EIO probes pass; combined failures preserve raw, parse, consumed budget, denominator and actual process reaping.",
+      "id": "F1",
+      "line": 224,
+      "original_priority": "P1",
+      "source": "src/toolalign/evaluation/harness.py",
+      "status": "CLOSED"
+    },
+    {
+      "evidence": "Original cleanup EIO probes pass; same original error retained across retries; actual handle closed exactly once; directory and returned snapshot remain truthful.",
+      "id": "F2",
+      "line": 109,
+      "original_priority": "P1",
+      "source": "src/toolalign/tools/isolation.py",
+      "status": "CLOSED"
+    },
+    {
+      "evidence": "Original reverse order probe is unknown; two real multi-call/retry baselines yield correct preterminal/legal and cross-call corruption results.",
+      "id": "F3",
+      "line": 99,
+      "original_priority": "P2",
+      "source": "src/toolalign/evaluation/oracles/semantic.py",
+      "status": "CLOSED"
+    }
+  ],
+  "commands": [
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "--basetemp=.toolalign-local/review-p03-r2/original-r1-54"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T04:56:01.563263+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "original-r1-54.log",
+      "name": "original-r1-54",
+      "sha256": "7aa02d11d99fb5482ca4294eb793da9b845ff1c1478e4cd2bb36cdbd691b5a09",
+      "started_at": "2026-09-06T04:55:49.499633+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "--basetemp=.toolalign-local/review-p03-r2/applicable-cpu"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T04:57:03.605923+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "applicable-cpu-335.log",
+      "name": "applicable-cpu-335",
+      "sha256": "8277c6646ca23d53a9b0602bfa75a7ec4742d24ce74c3bf81ac744da705135f4",
+      "started_at": "2026-09-06T04:56:29.671501+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/revision_probe.py",
+        "--output",
+        ".toolalign-local/review-p03-r2/revision-edges"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:02:00.157497+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "revision-edges.log",
+      "name": "revision-edges",
+      "sha256": "7f7c9f2693a654e03dd2cea2e2a551b6605f73f3d9e8083d61c0113c110e3f9e",
+      "started_at": "2026-09-06T05:01:56.120964+00:00"
+    },
+    {
+      "classification": "R1_AUDIT_HELPER_DEVELOPMENT_FAILURE",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/audit_revision_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p03-r2/historical-binding.json"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:05:34.264245+00:00",
+      "exit_code": 1,
+      "failure_reason": "manifest_row_structure",
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "historical-binding.log",
+      "name": "historical-binding",
+      "sha256": "90ef827fcd2f444fd2ebc8d251afd88e5e4af0eb447de4a6ef1d516de85a1fae",
+      "started_at": "2026-09-06T05:05:30.859842+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "build",
+        "--out-dir",
+        ".toolalign-local/review-p03-r2/build"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:05:42.961001+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "build-current.log",
+      "name": "build-current",
+      "sha256": "4e1eb09f152333e4e8548009ad2835f9fbedf900c641ebbb0b3cffce71c46a05",
+      "started_at": "2026-09-06T05:05:42.471820+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "build",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p03-r2/rebuilt",
+        ".toolalign-local/review-p03-r2/build/toolalign-0.0.1.tar.gz"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:05:49.401044+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "rebuild-from-sdist.log",
+      "name": "rebuild-from-sdist",
+      "sha256": "da774a8da0d835dad50454078e64f1b7a2437cd9303cc086b56748dc6c779e39",
+      "started_at": "2026-09-06T05:05:49.203871+00:00"
+    },
+    {
+      "classification": "R1_AUDIT_HELPER_DEVELOPMENT_FAILURE",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/audit_revision_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p03-r2/historical-binding.json"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:06:32.079659+00:00",
+      "exit_code": 1,
+      "failure_reason": "interpreter_symlinks",
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "historical-binding-final.log",
+      "name": "historical-binding-final",
+      "sha256": "75dba0232eb7d9b7eb020ba6beaade18615d6e7ec2b281d593340e7d2def4f01",
+      "started_at": "2026-09-06T05:06:28.543585+00:00"
+    },
+    {
+      "classification": "R1_AUDIT_HELPER_DEVELOPMENT_FAILURE",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/audit_revision_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p03-r2/historical-binding.json"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:08:05.011471+00:00",
+      "exit_code": 1,
+      "failure_reason": "untracked_dist_paths",
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "historical-binding-verified.log",
+      "name": "historical-binding-verified",
+      "sha256": "30fdc9a077d36dd515212cfb9a789d5d4884c7f281ffa5a30816615a999b3c19",
+      "started_at": "2026-09-06T05:08:00.638703+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/audit_revision_evidence.py",
+        "--e1-root",
+        "<E1_WORKTREE>",
+        "--output",
+        ".toolalign-local/review-p03-r2/historical-binding.json"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:09:18.609802+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "historical-binding-complete.log",
+      "name": "historical-binding-complete",
+      "sha256": "a8049213c4ca6cdc45331d8e0f752104410abaeaea0e81d36fa629c07ea57dc4",
+      "started_at": "2026-09-06T05:09:11.835780+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P03-r2/verify_revision_package.py"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:09:59.829884+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "installed-current-package.log",
+      "name": "installed-current-package",
+      "sha256": "b4cc4526e6ed00c5517ebb0076b29c28a0962f103a1b71f67e93c353426e4ad4",
+      "started_at": "2026-09-06T05:09:52.534737+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:10:16.958883+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "contract-freeze.log",
+      "name": "contract-freeze",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T05:10:16.913486+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:10:16.964796+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "lint.log",
+      "name": "lint",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T05:10:16.923446+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/review-p03-r2/environment_check.py"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:11:18.027231+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+      "log": "environment-resources.log",
+      "name": "environment-resources",
+      "sha256": "6603df309ec6876bbe97fd2809b55c03656a1827fac93bfaa02c05b72a93f782",
+      "started_at": "2026-09-06T05:11:17.937409+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:18:06.745607+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "54fdaa3eeff34c6a383353348d0912e6f14158ee",
+      "log": "public-content.log",
+      "name": "public-content",
+      "sha256": "412f4d55583602d36ae2c83d19d9a4124e41ba79063273eb572b45a5a5433f28",
+      "started_at": "2026-09-06T05:18:04.407685+00:00"
+    },
+    {
+      "classification": "PASS",
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/review-p03-r2/verify_scope.py"
+      ],
+      "cwd": "<R1_WORKTREE>",
+      "ended_at": "2026-09-06T05:18:24.312419+00:00",
+      "exit_code": 0,
+      "head": "3598cef2efb99e2990e384812a028902964cf494",
+      "head_after": "3598cef2efb99e2990e384812a028902964cf494",
+      "index_tree": "54fdaa3eeff34c6a383353348d0912e6f14158ee",
+      "log": "review-scope.log",
+      "name": "review-scope",
+      "sha256": "1819d4d449ed7b00395e7c01d4a124462b5a75c67b0f8f2a4b4aaf2cf3b01a06",
+      "started_at": "2026-09-06T05:18:23.016597+00:00"
+    }
+  ],
+  "contracts": [
+    "toolalign.contracts.v1",
+    "toolalign.protocol.v1",
+    "coordination.v1"
+  ],
+  "cpu_counts": {
+    "different_pytest_total": 389,
+    "installed_repeated_checks_added_to_unique_count": false,
+    "installed_repeated_script_checks": 31,
+    "new_r1_causal_actual_baseline_runs": 2,
+    "new_r1_causal_score_checks": 20,
+    "new_r1_script_checks": 31,
+    "new_r1_script_failed": 0,
+    "new_r1_script_lifecycle_cases": 11,
+    "original_base_pytest": 309,
+    "original_unmodified_r1_pytest": 54,
+    "other_applicable_pytest": 335,
+    "pytest_failed": 0,
+    "pytest_skipped": 0,
+    "pytest_xfailed": 0,
+    "worker_new_pytest": 26
+  },
+  "date": "2026-09-06",
+  "environment": {
+    "all_installed_versions_match_lock": true,
+    "allocated_disk_bytes": {
+      ".toolalign-local/review-p03-r2": 11923456,
+      ".venv": 36245504
+    },
+    "candidate_code_imported_from_own_worktree": true,
+    "distributions": {
+      "Pygments": "2.21.0",
+      "attrs": "26.1.0",
+      "iniconfig": "2.3.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "pytest": "9.0.2",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "ruff": "0.15.0",
+      "toolalign": "0.0.1"
+    },
+    "lock_sha256": "201b522e7917ac82dfd49ae6447a8f9481336800b282ea9b09c706403350c7da",
+    "machine": "arm64",
+    "model_packages_available": [],
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7",
+    "reused_core_environment": true
+  },
+  "findings_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "gate": "Independent CPU revision review only; S0 owns integration and later gates.",
+  "historical_binding": {
+    "archives": {
+      "checkpoint/default-wheel": {
+        "archive_files": 29,
+        "bytes": 37378,
+        "generated_metadata_files": 5,
+        "sha256": "0cee146112f6279d6621e00fc911a97411128e3c69b4fdb62683fd4690b21a7e",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "checkpoint/rebuilt-wheel": {
+        "archive_files": 29,
+        "bytes": 37378,
+        "generated_metadata_files": 5,
+        "sha256": "0cee146112f6279d6621e00fc911a97411128e3c69b4fdb62683fd4690b21a7e",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "checkpoint/sdist": {
+        "archive_files": 51,
+        "bytes": 115198,
+        "generated_metadata_files": 1,
+        "sha256": "72b95cf7211f4906b1a646e52fcf0c2f7caf9fecf773f3ef14e060474f663b83",
+        "tracked_files_matched": 50,
+        "untracked_payloads": 0
+      },
+      "final/default-wheel": {
+        "archive_files": 29,
+        "bytes": 37495,
+        "generated_metadata_files": 5,
+        "sha256": "c6f0a491bb92c516f5ba13ffc1ec00a40529935a46309f1df1ad4659d760faa1",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "final/rebuilt-wheel": {
+        "archive_files": 29,
+        "bytes": 37495,
+        "generated_metadata_files": 5,
+        "sha256": "c6f0a491bb92c516f5ba13ffc1ec00a40529935a46309f1df1ad4659d760faa1",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "final/sdist": {
+        "archive_files": 52,
+        "bytes": 116137,
+        "generated_metadata_files": 1,
+        "sha256": "622ed5b412d5275656880d364256ba255d868851aba86ab88e0e8effda87187c",
+        "tracked_files_matched": 51,
+        "untracked_payloads": 0
+      }
+    },
+    "candidate": "3598cef2efb99e2990e384812a028902964cf494",
+    "candidate_changed_paths": [
+      "coordination/handoffs/P03-fix-r3.md",
+      "coordination/handoffs/P03-review-r1.md",
+      "reports/harness/P03_FIX_R3_CHECKPOINT.md",
+      "reports/harness/P03_FIX_R3_VERIFICATION.md",
+      "reports/review/P03/README.md",
+      "reports/review/P03/audit_p03_evidence.py",
+      "reports/review/P03/evidence.json",
+      "reports/review/P03/test_p03_lifecycle.py",
+      "reports/review/P03/test_p03_semantics.py",
+      "reports/review/P03/verify_p03_package.py",
+      "src/toolalign/evaluation/harness.py",
+      "src/toolalign/evaluation/oracles/semantic.py",
+      "src/toolalign/tools/isolation.py",
+      "tests/evaluation/harness/test_finish_cleanup.py",
+      "tests/evaluation/harness/test_oracle_order.py"
+    ],
+    "candidate_files_unchanged": {
+      ".gitattributes": "6a89fc75b25a35f813ea67e9d73d78b39eb2ef979537437f1393726cad7f3fb5",
+      ".github/workflows/cpu.yml": "f0e9b0b9aac9dc287a6f2c813f8cc52ec1bd2cde24a0b8a5f89caad09b9ed9b9",
+      ".gitignore": "3137afcc31d5faf9fe870ab6a456eaa87255c870c8c3fb8c520633642afa7fb3",
+      "AGENTS.md": "b5d5e81b4442680ce978ce022a2b9bf2b9008cd2e059b1fc74cdecfba5122148",
+      "CHANGELOG.md": "88abc9a1db470450e081241a112837ebb82bfdbe86dc87ae1bb4d9a91465711f",
+      "LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a",
+      "MANIFEST.sha256": "14c4ccd30bb8ad17f6bb60d55e95ce122cc6d020c5a87413546a87eaaf245005",
+      "README.md": "b886194a207800c174986bf19c53f5e5b4473b23c311aed0efc52649e51d80af",
+      "SUPERVISOR_START_HERE.md": "878258669a79d44353f0c255671d0442b5068dbc9a41c1b4c43614042b1624b4",
+      "THIRD_PARTY_NOTICES.md": "acbfdb4c040a4f5ec53f355cfbb8c603f50958f860889140d8f751c4f89cdf4f",
+      "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15",
+      "configs/source_toolace.v1.json": "b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7",
+      "contracts.v1.lock.json": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+      "coordination/BOARD.md": "ea280beff99d9f1973fa30cdb6366b3cc04f0850131faedcc3f90998c5437eae",
+      "coordination/DECISIONS.md": "34de2008edda87ad890cffb1facbaa2d64f89e532ce1408cd2c7ee8b8732e15b",
+      "coordination/GOAL.md": "08af922418b48a552c9958751fbd5e5d002bdc2586f9264a4644ce12654fbc9a",
+      "coordination/PROJECT_STATUS.md": "8925370155ee44f318158defd5d3a57256a1c931b9d356562d9bed408c1dcee2",
+      "coordination/PROTOCOL.md": "bb126602bed16ce15badd0d47ed7740e73d2e8b3d3e9fabc9d2db54b58daf8b5",
+      "coordination/RESOURCE_LOCK.md": "4fd6826fee837a9e6af965ad7aafdb7a41c4ed386c023d3dd75521cbd6413122",
+      "coordination/handoffs/P00-r1.md": "2577fada8771ee6c6d6944aadb76c9da19e307da6c708206bf1697e263872b6c",
+      "coordination/handoffs/P00-r2.md": "32b6447459043de1d0dfcb4763d4ab14efe5bfc9dc4ad877ca44e07ff94f9988",
+      "coordination/handoffs/P00-review-r1.md": "01c793a49c00d7db2594a766c1ae2b79b10d8b40fbfb766c385344ca3ad12b22",
+      "coordination/handoffs/P00-review-r2.md": "fa5b1675159a271ca92af94b5333421378e9fa6033aa28a3cc06cb78f49eeb82",
+      "coordination/handoffs/P03-base-r2.md": "f7b08648a349da71fe1ac0f97ea4fe5295256f3fec55e891f2b91eb0400e9dde",
+      "coordination/handoffs/P03-fix-r3.md": "004175e6fe5451eb24ab82a52ebb3148dc879088dc96cc470317d7e3a08d46c7",
+      "coordination/handoffs/P03-r1.md": "a310b8b67ece8d610ffaec2b0aeba85ded6f3cb5309e388373db7ef731428486",
+      "coordination/handoffs/P03-review-r1.md": "c6202aed1f3ae7bcf6009aaa24144193744008264802e848d22d8daf58292149",
+      "coordination/handoffs/README.md": "301589fe596b2e1c3713719c379997644bc01d5bb765c6bddbef09e04d691255",
+      "coordination/handoffs/S0-SHARED-01-r1.md": "2072816815fc0b9664881e96dae3244503d5e5017364ee316e86073b08c06245",
+      "coordination/handoffs/S0-SHARED-01-review-r1.md": "53f40676b3e5accb543616b173ce02a7866636e9d967763d426ec719f4245814",
+      "coordination/handoffs/S0-SHARED-02-r1.md": "b25bdb44776ee6022b2a6bacea1c07299c34e29581768add99ff62d932a4c929",
+      "coordination/handoffs/S0-SHARED-02-review-r1.md": "49392d8e7923090a36db37a2e2c4dc39e3cb0093b0abcc6db542fd8a1744e5c4",
+      "coordination/handoffs/S0-SHARED-02-review-r2.md": "8dd8ebe3fdd3de01da10cf86008a6366a1e076ca4ea0797d84b15c034d676ed0",
+      "coordination/handoffs/S0-SHARED-02-review-r3.md": "922e30fd56b597a30cc9acbe23c5aefea44d7db5073a0ea7825247ede3c05ae7",
+      "coordination/prompts/D1_DATA.md": "5dd879ad89286a87c2ef0b042fd1524a4d847534d97c53dc0f8b87d83d64f8be",
+      "coordination/prompts/E1_EVALUATION.md": "eeb7aa2c4410f17828570164a8c3e8b5879241699320f225a6ea87d7f333bed9",
+      "coordination/prompts/I1_INFERENCE.md": "63a0bd6fe3eae8b397338a825142e7d40851dee1b19cc9aeb79fe88034d948a1",
+      "coordination/prompts/R1_REVIEW.md": "6542f03e5b2d509aeb82358ef1ef1edb15fd45e252686b5bb60e2c206ab383a8",
+      "coordination/prompts/S0_SUPERVISOR.md": "a0b22bc9b4a610b6a6dbd0f59d1dd75fad142d20394019f8aa4905247e7942d7",
+      "coordination/prompts/T1_TRAINING.md": "8a52e33b3ff4cf472e2aa6a3c3b234376587a87664972ee559cff206c6194f91",
+      "coordination/tasks/P00_BOOTSTRAP_CONTRACTS.md": "aaca7f199f6d031a75eac36db7ae50a2ec65c98e5bb8bbbbf5f1be0c2d7d2054",
+      "coordination/tasks/P01_HARDWARE_COMPATIBILITY.md": "1ab601d6056cde36e303235e0f22a305c9f3035dac23b1c27df738e17c49fddd",
+      "coordination/tasks/P02_DATA_PIPELINE.md": "e9da551509feadd106b939312f095a9eac1060507fb857c01399e2c34a21b947",
+      "coordination/tasks/P03_EXECUTION_HARNESS.md": "1e73f81ce9750ab4074cb9c689a06745651d105508940aba697104e0713ff238",
+      "coordination/tasks/P04_SFT_BASELINES.md": "34d19913680034e5c05d0368a6fb4cfcd308cc3bbc71624438b6e824e21ffe53",
+      "coordination/tasks/P05_PREFERENCE_DPO.md": "0d8e0aba3e6d44b80d222290084af49f5ff7fecbbc9806898da4d14faa44d66f",
+      "coordination/tasks/P06_EVALUATION_ABLATIONS.md": "4e31e313cd118321b61cb4565c5c1209dc78a3e225277b8266459d6e8f3d1186",
+      "coordination/tasks/P07_LOCAL_SERVING.md": "8f90455cb7d7a4d26a863fcebad424a3c85201183bf97273fb93045ad5fed7a6",
+      "coordination/tasks/P08_INDEPENDENT_REVIEW.md": "b7440d9af3c9e0acae45a83da125d3bf589f49e7f05879fffb0cdea593a646e0",
+      "coordination/tasks/P09_RELEASE_HANDOFF.md": "f150c41229f82b30f0d0807dd45fd85a40dc338280ba3929150968504540c332",
+      "coordination/tasks/S0_SHARED_01.md": "63e61dff85fc03e516a5d251d80f8a3f17a8175ee0b4271cabc440bc3c51c9e4",
+      "coordination/tasks/S0_SHARED_02.md": "7dc4a42ff5fcf0fca9320a49605c2c461bfa11e232fdd32668805ad454bdfb86",
+      "coordination/templates/EXPERIMENT.md": "858917549fd63ae01678d98e29e436082be89db68796c04118ce65e4d2c31766",
+      "coordination/templates/HANDOFF.md": "7af289a699a7db860dc1b22959167cdf81a5a051afcea3c9dea9486a92b2860b",
+      "coordination/templates/REVIEW.md": "33e75d46fb01002ae2b057ab994b289141be8007dbaaeb067ae21ee1f69551fc",
+      "coordination/templates/TASK.md": "f2e01e1cddb204870579e3263d1d9632fb8b8161b12dbf7438705af7c45e42b8",
+      "docs/00_MASTER_PLAN.md": "f76b1fad9de85e542be0f14772cb99f776f303c2374d6bd2ba0bc3c1c801fd7b",
+      "docs/01_ARCHITECTURE.md": "74032b16c4dec4b926cdb1d067cdb31feb9f9aea304d3210f1912e6443bc9130",
+      "docs/02_DATA_GOVERNANCE.md": "117475caed8f9769f76b607f7ebe82fb1247ccf0f8fd531ee773cbb005fce73e",
+      "docs/03_TRAINING_SPEC.md": "6a6ee3a86f0af380c22100b9b15b0e9add00f7001b6671dbebad829da8acb250",
+      "docs/04_EVALUATION_SPEC.md": "be5af8ec619c9d538c73a6d3d2396f971c6bfd77f587b418200e61fbe115282a",
+      "docs/05_APPLE_SILICON.md": "18af16c4ca8e18c898401e0ec3b09cbcd041d70a2d922a620f84db55cd1100d6",
+      "docs/06_DEPLOYMENT_ROADMAP.md": "6b9aec1ba706fade7c34297363136e547b2d44b45a6379ab6db74f973ef65fce",
+      "docs/07_RISKS.md": "8c61c38c0e546fad9625aa32b1cc3833314ae9faaecceeba9d419301c9aa1484",
+      "docs/08_ACCEPTANCE.md": "f4204d2f4051177a49ec18b73431f887e0bd4f1335efe322e0b1600a3bec8970",
+      "docs/09_SOURCES.md": "41457adc939105ada9f2635df3738a98536fddbba0af831a5b039dbc00501926",
+      "docs/10_LEARNING_DEFENSE.md": "0039ea199568e6ae466e3f1bd4cf4c96c9612d30d064ffa729bbdce53d55e57a",
+      "docs/11_REPOSITORY_BOOTSTRAP.md": "9eef248f5fb6e303a71f1059fe9e3c5d632604df1c9d8a9c5b2f3036975763df",
+      "docs/12_CONTRACTS_V1.md": "b2aca8c7c50588c04037be8ee5a52d2d2130168ecd713714c0309b2f76ba4e17",
+      "docs/13_TOOLACE_SOURCE_POLICY.md": "3f528fa7845e14583a6c6eb9809469bf44518675ee3d8faf3136ffb3d92a74aa",
+      "docs/14_COMPATIBILITY_ENVIRONMENT.md": "ace6b23b21d2285cdc869968354a3d85b41dde042ed70ba5d9df07f043bb982e",
+      "docs/15_P01_ENVIRONMENT_AND_SOURCE_PACKAGES.md": "249c34a571f9da39a925e094b106ea717c5d4b12ae3c6445344b97a081bdc957",
+      "pyproject.toml": "7b1a873f9709d6f50c0ef576f28e0b42a9818c7332bb7f5a436226fbe6eaba63",
+      "reports/P00_MAIN_VERIFICATION.md": "82f2f2095aa9c16c8c8901e0681b2ca300b0e0258e3991e08b3cb92f6de35fdc",
+      "reports/P00_REVISION_2.md": "2f487b9f9c100184d4e4c5e63fb8ab62acc7a9bd63ccbbf000799bbe4fffec33",
+      "reports/P00_SELF_CHECK.md": "5ccbf27a04544bfa428a10c07182ef11b013e4abd7c0e8b95f570eafbe39df60",
+      "reports/PLAN_SELF_CHECK_20260906.md": "277cf376a29043086c4d878399bdb1253b152f867eae7ac28d09853e38dabc1a",
+      "reports/S0_SHARED_01.md": "81798bcdfdcfb62827e51bb8e5891e31271cc1e28b8584670313c567e4f243bb",
+      "reports/S0_SHARED_01_MAIN_VERIFICATION.md": "ce5efcaee8c84f541af508e35a5ffe1f01317406bbae800eb94d5b18bf4e1494",
+      "reports/S0_SHARED_02.md": "b364c6e3880668ac6085889429fb3ed4eecd2c93984beaa054f967e5de7459b0",
+      "reports/S0_SHARED_02_MAIN_VERIFICATION.md": "e9856de1fc5535c0de1a4b48a0a55a0351412f1e114c795f32d54928b598c3b2",
+      "reports/harness/P03_BASE_R2_VERIFICATION.md": "b2d962e7a6c39dee31e0e9382b0dd75be53ee0b2493ef3418c1b601e2cc9680a",
+      "reports/harness/P03_CPU_VERIFICATION.md": "c1108d55b9f72ffea1eb7cf753ded8c828a5f0a46436c804d954436797d356aa",
+      "reports/harness/P03_FIX_R3_CHECKPOINT.md": "8a969f834b67d2b932749a3daae366317a2e126f1d44ca467dabdc5d254987c9",
+      "reports/harness/P03_FIX_R3_VERIFICATION.md": "b8d93bfe728ebee8e3043b287e9b6e5aa25795e616a3e824411b643ac13f68c4",
+      "reports/harness/README.md": "ff2d6cd47185a9efe719b6136ef695fe4ac203806e59854bcc24b861ddb64cc1",
+      "reports/review/P00-r2/README.md": "a86722293da161212583bf7a603d986d286ce4e768f850503a088165da027e96",
+      "reports/review/P00-r2/test_revision_boundaries.py": "3954bafab52b3dd5584bf775e929da75e2dd4f3c29795cc6e6976ccadf80b9b9",
+      "reports/review/P00-r2/verify_revision_scope.py": "398aeb6193c860561d75ba897a1d813ee8bd8499d28b52a42539f8bd1867313b",
+      "reports/review/P00/README.md": "e41a423bb3a835e9f438746006a9a22330107856da8664535b7380b4ba700076",
+      "reports/review/P00/test_independent.py": "2d743c718613fee8640d77d11271b35ec204ff4ed7e2955f0bc2b2ad15116a23",
+      "reports/review/P00/verify_wheel.py": "4a143960c63fd6d0457ca2e40c162aedf66652c65c6848c09ac86c1896f306d5",
+      "reports/review/P03/README.md": "51100882303f38532ab84ac7b794f2458b199b8bc7ecb4cbb21b536cb61c6e96",
+      "reports/review/P03/audit_p03_evidence.py": "339652d95ef961aa77de1439a27b07e358fc2b2c9efa398b12cd6be1954b877f",
+      "reports/review/P03/evidence.json": "104a2eba5f3ba801183f4e36a5d820c100f6d2dda3a75314896113eb7203a6da",
+      "reports/review/P03/test_p03_lifecycle.py": "fdcca8199fd2963274d5603e9d4f2831973452b150bd17bb5ca8fbd4c1cc2874",
+      "reports/review/P03/test_p03_semantics.py": "a8bd4b3a0fff0f1e12c81d173e274718321d9800ddf0e928326bda043ff437ee",
+      "reports/review/P03/verify_p03_package.py": "51b380b21532f443a6914a906ddc497198a35b2d34992665e8351ff399d586fc",
+      "reports/review/S0-SHARED-01/README.md": "fdb038a0220c49cad59db3d15e8fe1bc8e59653a1a7d00f87debae55b96f7813",
+      "reports/review/S0-SHARED-01/test_boundaries.py": "8a5b176def3d660a049d23a12c824418e999bc8da4da0fa8b249eea46f86f9f0",
+      "reports/review/S0-SHARED-01/verify_dependency_evidence.py": "199d8afc75a0eec961a29711fde9a2d3b751a8d97d215ab00233c280507f146c",
+      "reports/review/S0-SHARED-01/verify_source_evidence.py": "7181f33658fe61a6d3ea72a8734df31d8d728cad540d0a5a63f5350e7977e803",
+      "reports/review/S0-SHARED-02/README-r2.md": "37d9e3c0f58c7c663be7d041a798babf7453c7507fe66c20b21e49db5b014b7d",
+      "reports/review/S0-SHARED-02/README-r3.md": "4526be42a324ac89a531fff6b4c67a1e05ce4737ac97d97c0743b0846df6e8dd",
+      "reports/review/S0-SHARED-02/README.md": "e400772f7ee80b3997c6ae8b519bfd82d9dec7dabea835a4cf609f9075bcd796",
+      "reports/review/S0-SHARED-02/evidence-r2.json": "1938ff0c5e4b3f2ad89f2ca581fe8386c971c8a6e5ac0a50dc6dba14923dd6ec",
+      "reports/review/S0-SHARED-02/evidence-r3.json": "3cb3fde6511dd195ea8d09d1bc22bfd69788eda28ff46a3228b8215cf955e69e",
+      "reports/review/S0-SHARED-02/evidence.json": "3a2fbefd5c8c91f1ea204e9303dc83ec31e4d26466c214d8a61a8991305543d3",
+      "reports/review/S0-SHARED-02/probe_additional_boundaries_r3.py": "6384a3b71eb1cb9c727e12d9b725a48ff0a59bd49f43a2f31b49bc165cc1263e",
+      "reports/review/S0-SHARED-02/probe_case_boundaries_r2.py": "ce8aaacf911502cdfe7e81f5feb381a5985f7de2e3762e98199677e8a78bd693",
+      "reports/review/S0-SHARED-02/probe_sdist.py": "c8a085221518838823e026ac77dde62a887323fca6548949a9d07544d8082b8e",
+      "reports/review/S0-SHARED-02/verify_artifacts.py": "8fafcc5aae485530d8ca02582e0644a769e82af265ab7031a031eeebca825037",
+      "reports/review/S0-SHARED-02/verify_dependencies.py": "020467440701ad2241d679433e892a13d27587f867bdcc1e06d209de514b6350",
+      "reports/review/S0-SHARED-02/verify_public_install_r2.py": "06584df2dfd9dfbfc64124ca3dffeb493d873d8903e1830179d39cd7dcf1aae7",
+      "scripts/check_contract_freeze.py": "0d705c51da80f7894365ccf84b7dd8e0d537152bd26b1c4d341d9960d9a3a550",
+      "scripts/check_public_content.py": "1de22fa094e46697c18410484413f36d6a5efc79c98931f734890b43b7c473da",
+      "scripts/check_source_distribution.py": "14d5925dd89f0d752ba3cdcb2f1bc12f16d50aa6927c8cfe3f2c1b57a0004e74",
+      "scripts/publish_plan_repo.sh": "2201f4240d0b5f060ee0339f605035ddd3a2596d7b6e8dd8c51d58cfc8d0abfa",
+      "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+      "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+      "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+      "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+      "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+      "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+      "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+      "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+      "src/toolalign/evaluation/harness.py": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+      "src/toolalign/evaluation/oracles/__init__.py": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+      "src/toolalign/evaluation/oracles/semantic.py": "29291f5f0bdfd9cd1ad54711dc432b92375195dccb3e8f26670130cc68a8fb56",
+      "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+      "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+      "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+      "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+      "src/toolalign/tools/__init__.py": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+      "src/toolalign/tools/__main__.py": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+      "src/toolalign/tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "src/toolalign/tools/catalog.py": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+      "src/toolalign/tools/executor.py": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "src/toolalign/tools/isolation.py": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+      "src/toolalign/tools/registry.py": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+      "src/toolalign/tools/scripted.py": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc",
+      "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+      "tests/conftest.py": "24c10871de05db549d9937342f7c0ff8baaa6b63eeb9d36c7088233fed447b94",
+      "tests/contracts/test_records.py": "f3f6299f5dff75a77d645d9e588248e1772f3bf0151d44bbc76de5992b840438",
+      "tests/evaluation/harness/test_finish_cleanup.py": "b81acd8bea492da2f4483c21f7e6e0c48c30d4168ff3a9dde62682c9e21d005b",
+      "tests/evaluation/harness/test_harness.py": "f43ae42822cab11281e3a9b1d89c56e12d162a7582b32dfa679610563e58c467",
+      "tests/evaluation/harness/test_oracle_order.py": "b0ab78a74e461b3273df4ba58662ce793ff5f90a3f50c8f6cb1598a3c39e75fe",
+      "tests/fixtures/contracts/README.md": "944df675f983f6763e777d29156a5bb2fe794c7138e66695c8e8f50e25cdc880",
+      "tests/fixtures/contracts/example.json": "70e5b1aeba57245d9e997aa7d9e3296b1013e23119bff939164d705a60980bcd",
+      "tests/fixtures/contracts/preference.json": "c8326392e5e3d1f3902216be6bc89e4ea868f69bee4e50828c2922adc76d2aed",
+      "tests/fixtures/contracts/run.json": "4a4fafda9bb2d5495aead08f9d8075a5b7e83cc03515395197ebbe47f4366276",
+      "tests/fixtures/contracts/tool.json": "8788f4096b12052e96b64833782586ba7af05d2e870d3148c41554f7553f14fd",
+      "tests/fixtures/contracts/trace.json": "dcde3200f15dddd89cb4aac5decc93a14de0f1ab5987a015b81fbcb9bb5ff7e5",
+      "tests/fixtures/tools/development.json": "973a4a18c7a2372bd479a34a3df31300843737c293ab4f184170c85d94ce3b2d",
+      "tests/runtime/test_gpu_lock.py": "a235ec1f0d354d34600bd471b7249dc7bcb8ebaacc2ac00fe2b2b6dfc433241d",
+      "tests/test_public_content.py": "9b9c7c6086632c61e806b52cb486f43985da46c9f81c808bb9e837100779e8a8",
+      "tests/tools/test_registry_executor.py": "942f0b88a84d54dcc59336bc4bd56c9b4a322789d9e9776b263b393b8a360717",
+      "uv.lock": "201b522e7917ac82dfd49ae6447a8f9481336800b282ea9b09c706403350c7da"
+    },
+    "candidate_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+    "checkpoint_tracked_files_bound": 148,
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "-s",
+          "tests/evaluation/harness/test_finish_cleanup.py"
+        ],
+        "elapsed_seconds": 1.1070722499862313,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "after-cleanup",
+        "log_sha256": "fd8e7282a9fbdd5e6ac53b5e096f4216cd746e3393437bad68b59059f5f4287d",
+        "started_at": "2026-09-06T03:37:06.491105+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "-s",
+          "tests/evaluation/harness/test_finish_cleanup.py"
+        ],
+        "elapsed_seconds": 1.223692333092913,
+        "exit_code": 1,
+        "group": "checkpoint",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "before-cleanup",
+        "log_sha256": "b87624212b393863a8da0c8974e1e2065dc0029e0605db73894138230af2ca8d",
+        "started_at": "2026-09-06T03:35:11.155307+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build",
+          "--out-dir",
+          ".toolalign-local/p03-fix-r3/dist"
+        ],
+        "elapsed_seconds": 0.3715621249284595,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "build",
+        "log_sha256": "5f6e0fcb3668d106cf17fe7603c2a0b74db772e11aea316d6a67cdcdb697abb8",
+        "started_at": "2026-09-06T03:40:45.388464+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests/evaluation/harness/test_finish_cleanup.py"
+        ],
+        "elapsed_seconds": 5.6105525409802794,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "cleanup-regression",
+        "log_sha256": "ff72a0bcdcc48a829237a6e4f4022662c79709a2ac16462b6e8405f227ff2486",
+        "started_at": "2026-09-06T03:39:07.476742+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.03165316581726074,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "contract-freeze",
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T03:40:03.325737+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests",
+          "reports/review/P00/test_independent.py",
+          "reports/review/P00-r2/test_revision_boundaries.py"
+        ],
+        "elapsed_seconds": 30.86059408285655,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "cpu-full",
+        "log_sha256": "6c7401b97a2279c3a83920a07f3076dfee1c3105066672c45ec6a792cae21aef",
+        "started_at": "2026-09-06T03:40:03.298595+00:00"
+      },
+      {
+        "command": [
+          "python3",
+          ".toolalign-local/p03-fix-r3/inspect_archives.py"
+        ],
+        "elapsed_seconds": 0.4939792091026902,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "inspect-archives",
+        "log_sha256": "36cb4906aa78af802aa8f10bd280fb5832b6952c18fbb6c92fa65b4df7e42516",
+        "started_at": "2026-09-06T03:40:46.085526+00:00"
+      },
+      {
+        "command": [
+          "python3",
+          ".toolalign-local/p03-fix-r3/verify_install.py"
+        ],
+        "elapsed_seconds": 5.608539625070989,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "isolated-install",
+        "log_sha256": "13d2286709426fd9780eba6a65035d4688f2b6849bd712f0aa4b86c68b0d6209",
+        "started_at": "2026-09-06T03:42:02.157014+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "src/toolalign/evaluation/harness.py",
+          "src/toolalign/tools/isolation.py",
+          "tests/evaluation/harness/test_finish_cleanup.py"
+        ],
+        "elapsed_seconds": 0.026462916051968932,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "79a15d990fc27a9a33d033983c94eb92cccfb268",
+        "index_tree": "8069b4eca46494df1a98dca3042c8e2d68a12818",
+        "label": "lint-development",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T03:39:32.563983+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.026396000059321523,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "lint",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T03:40:03.310788+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.281059250002727,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4925277097985d17948875ea5af0140b8754f6eb",
+        "label": "public-checkpoint",
+        "log_sha256": "7decf3c11063633fb0d823cf1642b3516458a032c39513ce616ced094785f09e",
+        "started_at": "2026-09-06T03:46:08.119291+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.6630959999747574,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "public-content",
+        "log_sha256": "24b66178de1f8e827a6cdea5b08af6f874dd6c096a440904a019ae5aeab67b60",
+        "started_at": "2026-09-06T03:40:03.342481+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build",
+          "--wheel",
+          "--out-dir",
+          ".toolalign-local/p03-fix-r3/rebuilt",
+          ".toolalign-local/p03-fix-r3/dist/toolalign-0.0.1.tar.gz"
+        ],
+        "elapsed_seconds": 0.1911660418845713,
+        "exit_code": 0,
+        "group": "checkpoint",
+        "head": "fde181d3319f36179298a4bec2a928a8354ee6b3",
+        "index_tree": "4df73bc5a593610b65eb16ee3750f3c319f4184e",
+        "label": "rebuild-wheel",
+        "log_sha256": "68e2b6e6f85aa042b1d436610b3a4549947b61129f24976474dca3d104c6658f",
+        "started_at": "2026-09-06T03:40:45.828378+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build",
+          "--out-dir",
+          ".toolalign-local/p03-fix-r3/final/dist"
+        ],
+        "elapsed_seconds": 0.7149446250405163,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "build",
+        "log_sha256": "42606d885484151f5e285e15bd6a5a7adc50849f00b0a5d3781561c00f3818df",
+        "started_at": "2026-09-06T04:21:46.185092+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_contract_freeze.py"
+        ],
+        "elapsed_seconds": 0.031354499980807304,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "contract-freeze",
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "started_at": "2026-09-06T04:20:30.064995+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests",
+          "reports/review/P00/test_independent.py",
+          "reports/review/P00-r2/test_revision_boundaries.py",
+          "reports/review/P03/test_p03_semantics.py",
+          "reports/review/P03/test_p03_lifecycle.py",
+          "--basetemp=.toolalign-local/p03-fix-r3/final/full-cpu"
+        ],
+        "elapsed_seconds": 45.824373916955665,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "cpu-full",
+        "log_sha256": "5acb2ab177e0e0da54846b9ec70d08fcf6fbafcbc3fae8db4a64e6c8b2af01fa",
+        "started_at": "2026-09-06T04:20:30.048744+00:00"
+      },
+      {
+        "command": [
+          "python3",
+          ".toolalign-local/p03-fix-r3/final/inspect_archives.py"
+        ],
+        "elapsed_seconds": 0.47041762503795326,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "inspect-archives",
+        "log_sha256": "e92517451291d9d5e8d0d249c98ba38c0d4eab627d4bd42c3801adc7161081b1",
+        "started_at": "2026-09-06T04:21:47.210185+00:00"
+      },
+      {
+        "command": [
+          "python3",
+          ".toolalign-local/p03-fix-r3/final/verify_install.py"
+        ],
+        "elapsed_seconds": 5.850549540948123,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "isolated-install",
+        "log_sha256": "c2b838e5f0efc2748306c2d992b2a573ef2c824f7e88e98d7f0a9f5e2c432947",
+        "started_at": "2026-09-06T04:23:01.228309+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "src/toolalign/evaluation/oracles/semantic.py",
+          "tests/evaluation/harness/test_oracle_order.py"
+        ],
+        "elapsed_seconds": 0.02347891591489315,
+        "exit_code": 0,
+        "group": "final",
+        "head": "5fe4e905cf43af04e744d3801b19472bd839c67a",
+        "index_tree": "d60e29876835d900bd46b8a0529ed7ce60f7d6e1",
+        "label": "lint-development",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T04:18:59.893510+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "elapsed_seconds": 0.02613041689619422,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "lint",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "started_at": "2026-09-06T04:20:30.084172+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests/evaluation/harness/test_oracle_order.py",
+          "reports/review/P03/test_p03_semantics.py::test_oracle_marks_observation_before_execution_unknown",
+          "--basetemp=.toolalign-local/p03-fix-r3/final/oracle-after"
+        ],
+        "elapsed_seconds": 4.259893084177747,
+        "exit_code": 1,
+        "group": "final",
+        "head": "5fe4e905cf43af04e744d3801b19472bd839c67a",
+        "index_tree": "d60e29876835d900bd46b8a0529ed7ce60f7d6e1",
+        "label": "oracle-after",
+        "log_sha256": "09c3a8d7d69aff77ee7ca4bf27b67e15dc211c08ea0a3ac2201c6df5016c2920",
+        "started_at": "2026-09-06T04:16:07.885274+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests/evaluation/harness/test_oracle_order.py",
+          "--basetemp=.toolalign-local/p03-fix-r3/final/oracle-before"
+        ],
+        "elapsed_seconds": 4.022953041829169,
+        "exit_code": 1,
+        "group": "final",
+        "head": "5fe4e905cf43af04e744d3801b19472bd839c67a",
+        "index_tree": "d60e29876835d900bd46b8a0529ed7ce60f7d6e1",
+        "label": "oracle-before",
+        "log_sha256": "80caf03f7beeaa0ad0273b607a37d7d12540d120229b90096eccf0995935f87e",
+        "started_at": "2026-09-06T04:15:28.208424+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "tests/evaluation/harness/test_oracle_order.py",
+          "reports/review/P03/test_p03_semantics.py::test_oracle_marks_observation_before_execution_unknown",
+          "--basetemp=.toolalign-local/p03-fix-r3/final/oracle-final"
+        ],
+        "elapsed_seconds": 4.189291042042896,
+        "exit_code": 0,
+        "group": "final",
+        "head": "5fe4e905cf43af04e744d3801b19472bd839c67a",
+        "index_tree": "d60e29876835d900bd46b8a0529ed7ce60f7d6e1",
+        "label": "oracle-final",
+        "log_sha256": "fa09b8e4b0147900b166463ac7f299ae98cffb871f62c0e1bfca5d9882f783a8",
+        "started_at": "2026-09-06T04:18:58.718486+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.517736833076924,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "public-content",
+        "log_sha256": "4743d16035f35505dacd30b5017b3698b8613312764aec469b73430538af8481",
+        "started_at": "2026-09-06T04:20:30.101180+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/check_public_content.py"
+        ],
+        "elapsed_seconds": 2.4198797498829663,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+        "label": "public-final",
+        "log_sha256": "4b563e5e9114bcfd658c996a3fbc90e7717561df461aa6e220610cdebc0b5887",
+        "started_at": "2026-09-06T04:30:58.423953+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "push",
+          "origin",
+          "work/p03-execution-harness"
+        ],
+        "elapsed_seconds": 1.9500412079505622,
+        "exit_code": 0,
+        "group": "final",
+        "head": "3598cef2efb99e2990e384812a028902964cf494",
+        "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+        "label": "push",
+        "log_sha256": "ba22e1b313c52a0a01f7f71f0834cd857bb2527c2f25eb6cada5a1abb52bc924",
+        "started_at": "2026-09-06T04:32:17.165019+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "reports/review/P03/test_p03_semantics.py",
+          "reports/review/P03/test_p03_lifecycle.py",
+          "--basetemp=.toolalign-local/p03-fix-r3/final/r1-before"
+        ],
+        "elapsed_seconds": 12.124316333094612,
+        "exit_code": 1,
+        "group": "final",
+        "head": "5fe4e905cf43af04e744d3801b19472bd839c67a",
+        "index_tree": "d60e29876835d900bd46b8a0529ed7ce60f7d6e1",
+        "label": "r1-before",
+        "log_sha256": "6805b15d2cd01a1a1fbad4c669bda07062a6e75e59cd2fc08aa53a4be00d4614",
+        "started_at": "2026-09-06T04:11:47.612693+00:00"
+      },
+      {
+        "command": [
+          "uv",
+          "build",
+          "--wheel",
+          "--out-dir",
+          ".toolalign-local/p03-fix-r3/final/rebuilt",
+          ".toolalign-local/p03-fix-r3/final/dist/toolalign-0.0.1.tar.gz"
+        ],
+        "elapsed_seconds": 0.1813762909732759,
+        "exit_code": 0,
+        "group": "final",
+        "head": "8d11225861214141de3da77c2b5eaf1752fc43b2",
+        "index_tree": "90fc20c5d3d3c3e847e2b4b5fc6b8750ee588461",
+        "label": "rebuild-wheel",
+        "log_sha256": "5205905dd86cc20b3125781e0189c86890c2681716ec11f34f4dd082aa0da273",
+        "started_at": "2026-09-06T04:21:46.965416+00:00"
+      },
+      {
+        "command": [
+          "git",
+          "ls-remote",
+          "--exit-code",
+          "origin",
+          "refs/heads/work/p03-execution-harness"
+        ],
+        "elapsed_seconds": 0.5857737499754876,
+        "exit_code": 0,
+        "group": "final",
+        "head": "3598cef2efb99e2990e384812a028902964cf494",
+        "index_tree": "c818ddfd06eb0bf09dd6e17e4a1365ba8888aa1e",
+        "label": "remote-readback",
+        "log_sha256": "9065456beb1fc85954610abf2b527f63b9dd8f08b92a3ec96e003254e448ada1",
+        "started_at": "2026-09-06T04:32:51.139002+00:00"
+      }
+    ],
+    "final_installed_demo": {
+      "actual_process_liveness_now": "NOT_INFERRED_FROM_HISTORICAL_RECORDS",
+      "artifact_sha256": {
+        "case-00.json": "e9c1153028c1da19558acd2e46304cda5488c03215d68b33e543ff049e0514e2",
+        "case-01.json": "44252eb8705a0abbd781841e0c8b4aab0e8680291a8873ae0a10afa3759aab73",
+        "case-02.json": "f7b5569c8d0045228a9ce18bb84113f2601880caeb800e3fa494c7aafca0756b",
+        "case-03.json": "283f6d8ede1d8f17cde21cc62a32c779bb6dffc962c330b9629a9d615b8be4de",
+        "case-04.json": "5c5bb4313818fd5c5d005325519435b842b54bcc20247101193a4781ac1c5c15",
+        "case-05.json": "69b245f1953043db9f70ef1050b2bfbe8e41a18c2dc7bfbb60358d6badebc8dd",
+        "case-06.json": "2d8c62206a881169c5e7cfe1d5e3712fdcfea14eb8eddea2cf29d7fdf76f55e5",
+        "case-07.json": "6307a7016f7cc8074ef0b8ac2ad521721860cccbb30680b12bf92ecf51495aa5",
+        "case-08.json": "8bfafe0d5125bc458efdddc2d819562b5256db7513ca0b6e3da204b5287a7e9a",
+        "case-09.json": "de76d12d42d351c6c7a7d8538f3f68341449ee5665a385d90aa27fba9beab9bf",
+        "summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      "counts": {
+        "cases": 10,
+        "model_decisions": 20,
+        "operations_started": 20,
+        "owned_processes": 20,
+        "reaped_processes": 20,
+        "synthetic_input_tokens": 220,
+        "synthetic_output_tokens": 140,
+        "tool_rounds": 10,
+        "trace_events": 90
+      },
+      "tool_results": {
+        "completed": 9,
+        "error": 1
+      }
+    },
+    "helper_and_metadata_hashes": {
+      "checkpoint/artifact-verification.json": "36cb4906aa78af802aa8f10bd280fb5832b6952c18fbb6c92fa65b4df7e42516",
+      "checkpoint/before-summary.json": "3fd3ee1f3f7b8ae3a19e0cf0af5e60d307ea2e3359b64f731ddfc76de0805b18",
+      "checkpoint/cleanup-regression-worktree.json": "53b4008a491d3d91c25242f51355305d4fd41171a6bc48a3429fc7b7b80e8439",
+      "checkpoint/inspect_archives.py": "a21b2b64f12264526906a515515856943571dc08aa1c28da0c05343ace00aa8a",
+      "checkpoint/installed_cleanup_probe.py": "450c6054acde6a9861676a4917b30bb4d0c6f4502ce402b51997d411e8d17d75",
+      "checkpoint/installed_probe.py": "a868913030db0d2ac997b2bc8a0a032aca05374acbbec5e3a34e3a4f6beec44f",
+      "checkpoint/isolated-verification.json": "6fff03f5776639275ce49599a1f7248f3a3883ae47b29737db239b3f5bb262a1",
+      "checkpoint/preservation-after.json": "18328e6afa5309c5d77241448a35556465beab36905338df075a7d5e67be881d",
+      "checkpoint/preservation-before.json": "0b7a24c9fd83e1cc392fe750e0f709c090edcaf8b9ce525f57373227d66ddf63",
+      "checkpoint/run_check.py": "0993aca0ad5f88270d72e467203f03070f75e922c015d55b43c3ba599a2951c5",
+      "checkpoint/test_finish_cleanup.before.py": "5b5d880907c1c88095eca4555041cac86f44acdc454e079810539c1db9ed149d",
+      "checkpoint/verify_install.py": "9e4c115f16525f86ab56660d3b99ba203ae37bd3bc3e2718d8372c6da15f20c5",
+      "final/artifact-verification.json": "e92517451291d9d5e8d0d249c98ba38c0d4eab627d4bd42c3801adc7161081b1",
+      "final/inspect_archives.py": "edc2c7e1f018a52ac30c7b5839331004d4371b4b86a4bf06acd141e4d9472ca1",
+      "final/installed_cleanup_probe.py": "450c6054acde6a9861676a4917b30bb4d0c6f4502ce402b51997d411e8d17d75",
+      "final/installed_oracle_probe.py": "55afe8d33423babb1501119b7d1c9e666296a4b0a60bb823ea7e2aaea16910de",
+      "final/installed_probe.py": "a868913030db0d2ac997b2bc8a0a032aca05374acbbec5e3a34e3a4f6beec44f",
+      "final/isolated-verification.json": "fa7ee65e88817d1caeb309bf1e102c04d09eb65fcc524730ee338b313c9a9eec",
+      "final/merge-verification.json": "9d02aa1d5d4c44e0d822d07b20939a03821fe4756650aae24f1c8cc9b3f40b5c",
+      "final/oracle-after-initial-source.json": "3da190146bff58ae7979ada4efb5d69a3b52f2028951cd12d52d3725d7428650",
+      "final/oracle-before-source.json": "30dc875a923d7c908a13a75686905d3e244cb5775d379c20266fd8903f45fb42",
+      "final/oracle-final-worktree.json": "a2b0dc09b51d60451f50652a34738c512bebf3110dcb48c779e2c76e26dc47e6",
+      "final/original-review-files.json": "d22dc9821f21f8bedfd2cf15cb2c7c80a3d8ab70552bf709ec651cbd7d2e9498",
+      "final/preservation-after.json": "2f95d0896867940ff9b43be2b33f2ac4ccdd50f19acea3ad2ac2cab51b023fb5",
+      "final/preservation-before.json": "2b03f37c8aa35a74b462cd75cbf8631da8a0dbbeb8db7f26fe4391e930f77cd8",
+      "final/r1-after-observations.json": "73aa9df329761d3c739bb06ad4a2c2b5a815d7c5894b647e48f517e727692545",
+      "final/r1-before-observations.json": "28b73e2b24ad6403092dcf53a8576965f0d624693f53cc1722b1363fae672dbe",
+      "final/run_check.py": "0993aca0ad5f88270d72e467203f03070f75e922c015d55b43c3ba599a2951c5",
+      "final/semantic.after-initial.py": "c838a08bd7d0d67191db295d68ab83d01a37fae743501f378dad56f7e0ab741d",
+      "final/test_oracle_order.after-initial.py": "642ea78d9c9d60d8599bab03a8ab6a77e383633fa5f02f4a6396d3d467938a48",
+      "final/test_oracle_order.before.py": "642ea78d9c9d60d8599bab03a8ab6a77e383633fa5f02f4a6396d3d467938a48",
+      "final/verify_install.py": "a2b49457b0a602d3f1d7256054e70db7b0b14c4f3d06ffd5acc9cd61b697b866"
+    },
+    "installed_commands": [
+      {
+        "argv": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "export",
+        "log_sha256": "60e6161f1b132b81a3f2053fe585ab7ab01a9ab32e2cbd169c674b999290d68d"
+      },
+      {
+        "argv": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "venv",
+        "log_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "dependencies",
+        "log_sha256": "656a0718be0b9c16477d7fe44bb77922ade45cf18132b105c00bfc5f8db55326"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "--no-deps",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "wheel-install",
+        "log_sha256": "26b8d23c4fc07b9282327b3d4c92876e9c02547852a820a7a2cf2ad3fe35459a"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "dependency-check",
+        "log_sha256": "ae2dfea6eeea9cb2640f2f5b83ce128f68cbf5e6b41d03fba9c7a5e1976769b3"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "digest",
+        "log_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/example.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "validate-example",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/tool.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "validate-tool",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/preference.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "validate-preference",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/run.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "validate-run",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/trace.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "validate-trace",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "tools-help",
+        "log_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "registry",
+        "log_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/development.json",
+          "--output",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/demo"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "demo",
+        "log_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/installed_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/process-checks",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "process-probe",
+        "log_sha256": "375cae82c8daa0cb76a545bfd02e1d497164f1b436660ace5725104d1d1d058f"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/installed_cleanup_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/cleanup-checks",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "group": "checkpoint",
+        "label": "cleanup-probe",
+        "log_sha256": "6494705233ea963fe60b165cf7e947e5d16fa7783d02b933e8582d0f024fd67a"
+      },
+      {
+        "argv": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "export",
+        "log_sha256": "6941a97a4cb1c9cfd1294de64b5c067d54c0db4ec654dc9cc27b2ce6924b2a6c"
+      },
+      {
+        "argv": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "venv",
+        "log_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "dependencies",
+        "log_sha256": "423c99312d18cc1366ee16d8cce289aeaed1df49ce3458f59058fc2aa14f221d"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "--no-deps",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "wheel-install",
+        "log_sha256": "eacba4fd923278425c457ab9449ff88110a42f926d62401a9b0bc84386fb2919"
+      },
+      {
+        "argv": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "dependency-check",
+        "log_sha256": "6e3f813283105a55cd836ed5639f3704ab1b1645a1b91c5cc21bd986766a6e6a"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "digest",
+        "log_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/example.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "validate-example",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/tool.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "validate-tool",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/preference.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "validate-preference",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/run.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "validate-run",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/trace.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "validate-trace",
+        "log_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "tools-help",
+        "log_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "registry",
+        "log_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/development.json",
+          "--output",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/demo"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "demo",
+        "log_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/installed_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/process-checks",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "process-probe",
+        "log_sha256": "375cae82c8daa0cb76a545bfd02e1d497164f1b436660ace5725104d1d1d058f"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/installed_cleanup_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/cleanup-checks",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "cleanup-probe",
+        "log_sha256": "b3602c913e59e8341f0e4761fd8de349120230f6f57f5f8fa44062df385a65ef"
+      },
+      {
+        "argv": [
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/venv/bin/python",
+          "-I",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/installed_oracle_probe.py",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/demo",
+          "<E1_WORKTREE>/.toolalign-local/p03-fix-r3/final/isolated/fixtures/development.json"
+        ],
+        "exit_code": 0,
+        "group": "final",
+        "label": "oracle-probe",
+        "log_sha256": "3a8bb860dc3853cb9191ce695b9fa9379d6f3ba9c9d3fa212ccf22b8f97c682a"
+      }
+    ],
+    "old_shared_canaries_new_execution": "NOT_RUN_UNCHANGED_PREVIOUSLY_VERIFIED",
+    "original_historical_demo_artifacts_rehashed": 22,
+    "original_private_files_bound": 63,
+    "original_public_sources_bound": 17,
+    "original_review_commands_verified": 22,
+    "original_review_files": {
+      "coordination/handoffs/P03-review-r1.md": "c6202aed1f3ae7bcf6009aaa24144193744008264802e848d22d8daf58292149",
+      "reports/review/P03/README.md": "51100882303f38532ab84ac7b794f2458b199b8bc7ecb4cbb21b536cb61c6e96",
+      "reports/review/P03/audit_p03_evidence.py": "339652d95ef961aa77de1439a27b07e358fc2b2c9efa398b12cd6be1954b877f",
+      "reports/review/P03/evidence.json": "104a2eba5f3ba801183f4e36a5d820c100f6d2dda3a75314896113eb7203a6da",
+      "reports/review/P03/test_p03_lifecycle.py": "fdcca8199fd2963274d5603e9d4f2831973452b150bd17bb5ca8fbd4c1cc2874",
+      "reports/review/P03/test_p03_semantics.py": "a8bd4b3a0fff0f1e12c81d173e274718321d9800ddf0e928326bda043ff437ee",
+      "reports/review/P03/verify_p03_package.py": "51b380b21532f443a6914a906ddc497198a35b2d34992665e8351ff399d586fc"
+    },
+    "original_review_installed_commands_verified": 15,
+    "original_review_observations_verified": 9,
+    "original_review_private_results_verified": 3,
+    "original_review_verdict_unchanged": "FAIL",
+    "preserved_checkpoint_private_files": 741,
+    "preserved_interpreter_symlinks": 6,
+    "unchanged_original_files": 143,
+    "worker_source_or_scripts_executed": false,
+    "worker_worktree_modified": false
+  },
+  "new_r1_observations": {
+    "installed": {
+      "checks": [
+        {
+          "artifact": "package-check/revision-edges/close-retry-1/observation.json",
+          "name": "close-retry-1",
+          "proof": {
+            "directory_retry_succeeded": true,
+            "later_close_noop": true,
+            "original_error_identity_preserved": true,
+            "proof": {
+              "alive": false,
+              "cleanup_attempts": 1,
+              "exitcode": -15,
+              "handle_close_calls": 1,
+              "label": "model",
+              "present_in_active_children": false
+            }
+          },
+          "sha256": "ff30222d74f2e24b9cf7bb58966858e4f2423cf90fa0be00ff429e45c1949b07",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/close-retry-2/observation.json",
+          "name": "close-retry-2",
+          "proof": {
+            "directory_retry_succeeded": true,
+            "later_close_noop": true,
+            "original_error_identity_preserved": true,
+            "proof": {
+              "alive": false,
+              "cleanup_attempts": 2,
+              "exitcode": -15,
+              "handle_close_calls": 1,
+              "label": "model",
+              "present_in_active_children": false
+            }
+          },
+          "sha256": "b99d225790ac06be4c62c4b12b7378b55b04024bb804485fde7f3d3973c06fcc",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-final/observation.json",
+          "name": "combined-final",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "final",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "aa7bc80b792a328d1cce54934f39d3b5e4e4876e20783e263e3755d77c8c561f",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-parse/observation.json",
+          "name": "combined-parse",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "parse",
+            "parse_failure": "invalid_raw_action",
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "4a6a6d3b99304da6676e16e5992de397be0f6619d2272f179988c918e9ddd0a5",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-length/observation.json",
+          "name": "combined-length",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 257,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "length",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "budget_exhausted",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "a8afc3f4bed2bc093ec5bf26b7528a031aa2d4cb5c19a4eee14d01d0772faa1d",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-crash/observation.json",
+          "name": "combined-crash",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": 23,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 0,
+              "model_decisions": 1,
+              "output_tokens": 0,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "crash",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": 23,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "22c6079a6c4e9ec834a99c4cd3018deb436df691a826ee111da3f9471fe2c1bb",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-block_cancel/observation.json",
+          "name": "combined-block_cancel",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -9,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              },
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "tool",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 2,
+              "output_tokens": 17,
+              "tool_rounds": 1
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "block_cancel",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -9,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              },
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "tool",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "cancelled",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "da4506274f6917a16ac5720411e1709fe68e60bae837017ee3f7325d00b99575",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/combined-block_timeout/observation.json",
+          "name": "combined-block_timeout",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -9,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              },
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "tool",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 2,
+              "output_tokens": 17,
+              "tool_rounds": 1
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "block_timeout",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -9,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              },
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "tool",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "timed_out",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "ff079135511f0c50f8a7b922b3419a60885d567cbcabceb69899efc97521d449",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/control-final/observation.json",
+          "name": "control-final",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "final",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 0,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 1,
+              "success_rate": 1.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "finalized",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "66dfeccc923ec6c388b0f929ff29fc62dfbf3b28ea2d8b6651d4c2d3cf73ea34",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/control-parse/observation.json",
+          "name": "control-parse",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "parse",
+            "parse_failure": "invalid_raw_action",
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "8f008952e7761f882ba4f60e85b77fbee20de2dbde9362c6114bf386a3457832",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/control-crash/observation.json",
+          "name": "control-crash",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 23,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 0,
+              "model_decisions": 1,
+              "output_tokens": 0,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "crash",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 23,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "77096ad49ef4d14433996b828cd0fddc9f771761862c4702781d14d77fa09d8c",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-legal-before/observation.json",
+          "name": "multi-legal-before",
+          "proof": {
+            "damage": "legal-before",
+            "outcome": "success",
+            "trace_sha256": "aeb74eec088344a78b6c9065cfa698b637fff32b3c588d752b63ba52290c1fbb",
+            "wire_records": 10
+          },
+          "sha256": "776d5b7e91cf986b8cc6a16071c3e334fe5f7a08fc3997ce6e0497fa86e08c71",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-legal-after/observation.json",
+          "name": "multi-legal-after",
+          "proof": {
+            "damage": "legal-after",
+            "outcome": "success",
+            "trace_sha256": "3a38e8feab4cfa4c92ded3d0cf0484b54dcbc93c95b309a04045a37516bd5bfb",
+            "wire_records": 11
+          },
+          "sha256": "6d3f1e870c94f891f4dcc2e9e49633418f28972cb63da19e614efb15f5d916b4",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-wrong-answer-before/observation.json",
+          "name": "multi-wrong-answer-before",
+          "proof": {
+            "damage": "wrong-answer-before",
+            "outcome": "failure",
+            "trace_sha256": "aeb74eec088344a78b6c9065cfa698b637fff32b3c588d752b63ba52290c1fbb",
+            "wire_records": 10
+          },
+          "sha256": "569e480c5e60e7325e70b38ee1f07b09825c094b8a44df0e51302d1a575684ad",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-wrong-answer-after/observation.json",
+          "name": "multi-wrong-answer-after",
+          "proof": {
+            "damage": "wrong-answer-after",
+            "outcome": "failure",
+            "trace_sha256": "3a38e8feab4cfa4c92ded3d0cf0484b54dcbc93c95b309a04045a37516bd5bfb",
+            "wire_records": 11
+          },
+          "sha256": "b2a03bf4a1228ab965e28f7a513cef7fa634cefd8f63f512ed0c4e0753e49ce5",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-cross-observations/observation.json",
+          "name": "multi-cross-observations",
+          "proof": {
+            "damage": "cross-observations",
+            "outcome": "unknown",
+            "trace_sha256": "d0485e0f6924a9cc5b951e8c7cca30781dc00c9055b88fec6b272c7d638ba8aa",
+            "wire_records": 11
+          },
+          "sha256": "712ee053ec60b0c9250a05e91245b1f509a06224855ea24985b57445df1b7aeb",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-replay-consumed-observation/observation.json",
+          "name": "multi-replay-consumed-observation",
+          "proof": {
+            "damage": "replay-consumed-observation",
+            "outcome": "unknown",
+            "trace_sha256": "ba820e1182e3617c1f51512a82d20590d2f5a39b148a13af810cd64df3e697f4",
+            "wire_records": 11
+          },
+          "sha256": "43bda64bb37643723b298c78f8323be9e4b2d69f7ba29dfd3eeb056f0f2aab5b",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-changed-arguments/observation.json",
+          "name": "multi-changed-arguments",
+          "proof": {
+            "damage": "changed-arguments",
+            "outcome": "unknown",
+            "trace_sha256": "80273da37b7402de8b83f70a28dbc3d0ee523693202189974992e76fc5bff645",
+            "wire_records": 11
+          },
+          "sha256": "29a9ea7a086531114ed6ecb61256455f44ac69ce90f40f16c1fdfc0e7699114f",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-old-call-id/observation.json",
+          "name": "multi-old-call-id",
+          "proof": {
+            "damage": "old-call-id",
+            "outcome": "unknown",
+            "trace_sha256": "b8fff87fb23eb9f3d71de141585f67dca1d2a4d7de7bc8f8b73918b0bf06eaa6",
+            "wire_records": 11
+          },
+          "sha256": "0f0a329ad0661d40ea94bec8358388ea79a408bd2bd2382d649d744ea5d31837",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-missing-second-execution/observation.json",
+          "name": "multi-missing-second-execution",
+          "proof": {
+            "damage": "missing-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "ca49d2157db0cf9d1eb6d425f15a7f3a297d0acfd6eb00eca48189d77045c206",
+            "wire_records": 10
+          },
+          "sha256": "2c42b79ba5f952caa6504689f1c286d6b6a29655a838db47bb217555ba4e1b85",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/multi-overlap-second-execution/observation.json",
+          "name": "multi-overlap-second-execution",
+          "proof": {
+            "damage": "overlap-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "a15eb6df2f1c9fb049231bcb2cc90b57a1bdeb1d53f0ae5df41bb6492c4a2bfb",
+            "wire_records": 12
+          },
+          "sha256": "d2de0512fc93b27766efb3267158e769f9adf7b58cd58028f3afd85dcc9d0aa7",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-legal-before/observation.json",
+          "name": "retry-legal-before",
+          "proof": {
+            "damage": "legal-before",
+            "outcome": "success",
+            "trace_sha256": "864c67830051c8a90d6d1912ef1c565091bf7943a844bb615d449c7480983a5a",
+            "wire_records": 12
+          },
+          "sha256": "1c7be35c92b615d4a300c5ab5779a858e15ffaf49c30cdc0c4034c15f79d3b6e",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-legal-after/observation.json",
+          "name": "retry-legal-after",
+          "proof": {
+            "damage": "legal-after",
+            "outcome": "success",
+            "trace_sha256": "91ec3f329844c5d7875e2af04a9e4aed8f9f7a46e079b5b183051985c7395f1f",
+            "wire_records": 13
+          },
+          "sha256": "ea96acdf28f960e36fdbd9a0cdd1e68dded7f30e0bd6711ba577a0b7c42fb6fa",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-wrong-answer-before/observation.json",
+          "name": "retry-wrong-answer-before",
+          "proof": {
+            "damage": "wrong-answer-before",
+            "outcome": "failure",
+            "trace_sha256": "864c67830051c8a90d6d1912ef1c565091bf7943a844bb615d449c7480983a5a",
+            "wire_records": 12
+          },
+          "sha256": "3ae401e997ea28940be0205c27a4b76e5f4e6a41155773b908109e2cd3eed56f",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-wrong-answer-after/observation.json",
+          "name": "retry-wrong-answer-after",
+          "proof": {
+            "damage": "wrong-answer-after",
+            "outcome": "failure",
+            "trace_sha256": "91ec3f329844c5d7875e2af04a9e4aed8f9f7a46e079b5b183051985c7395f1f",
+            "wire_records": 13
+          },
+          "sha256": "c15e324ed0ade2d908b265cb11b15527191d16851e27b5341e6ca7d635434909",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-cross-observations/observation.json",
+          "name": "retry-cross-observations",
+          "proof": {
+            "damage": "cross-observations",
+            "outcome": "unknown",
+            "trace_sha256": "85f35a3bd2c01119a60e62f3f7a6fe997ef727908b08be6e8e5e79bac3fced45",
+            "wire_records": 13
+          },
+          "sha256": "9776d87e9fc67dffab61b0ea168afe48497cd0d3b2da22ee0ba673b1c8691d05",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-replay-consumed-observation/observation.json",
+          "name": "retry-replay-consumed-observation",
+          "proof": {
+            "damage": "replay-consumed-observation",
+            "outcome": "unknown",
+            "trace_sha256": "cc2057d9c230052ebb4ba908558ee3d7e2d3f257cff17948aa950133732a4581",
+            "wire_records": 13
+          },
+          "sha256": "e111292bd84daf6bcafddd69ceffa01c0c9eb0d61323346a531c931398d53fe3",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-changed-arguments/observation.json",
+          "name": "retry-changed-arguments",
+          "proof": {
+            "damage": "changed-arguments",
+            "outcome": "unknown",
+            "trace_sha256": "e2037906aaa214f71c91e91bf44798b3d83aa482604ab42448a4ebbf10a204de",
+            "wire_records": 13
+          },
+          "sha256": "0801fa97a38a737bff9809f85be34b934599cc8728e9c006a32c2aeeb021c9d5",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-old-call-id/observation.json",
+          "name": "retry-old-call-id",
+          "proof": {
+            "damage": "old-call-id",
+            "outcome": "unknown",
+            "trace_sha256": "a316418ca90f4433a7f381e0bb853d9104caf4735ec3b73fa047cc2566f64cbb",
+            "wire_records": 13
+          },
+          "sha256": "688f5b0a269363eb0f0c551607e7151870b17667d83f021e086a3395d92e0fa9",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-missing-second-execution/observation.json",
+          "name": "retry-missing-second-execution",
+          "proof": {
+            "damage": "missing-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "de92f574a78bf68d6b156060ebc8a2227bf9cb4798eebd55c2d86be6daf0a293",
+            "wire_records": 12
+          },
+          "sha256": "f1bd1a487b54811b00edca553f3c1ee6687d77aabd717b65dde5c4c0abb90271",
+          "status": "PASS"
+        },
+        {
+          "artifact": "package-check/revision-edges/retry-overlap-second-execution/observation.json",
+          "name": "retry-overlap-second-execution",
+          "proof": {
+            "damage": "overlap-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "902ea3299a401f6e159dafb0f40bb3e78b1dbb3e4b07dbb5384af13efedbff33",
+            "wire_records": 14
+          },
+          "sha256": "e5f4cea930d4d086f46c2f563d1b37a26e874e2574a8bf6c28172510d28f0a84",
+          "status": "PASS"
+        }
+      ],
+      "result_sha256": "d4f1f34e9997d93cfe4e0d6dc202feaa1501e12547e97f935df434ee8d50d7e1",
+      "summary": {
+        "causal_actual_baseline_runs": 2,
+        "causal_score_checks": 20,
+        "checks": 31,
+        "failed": 0,
+        "installed": true,
+        "passed": 31,
+        "real_model": "NOT_RUN",
+        "scripted_only": true
+      }
+    },
+    "source": {
+      "checks": [
+        {
+          "artifact": "revision-edges/close-retry-1/observation.json",
+          "name": "close-retry-1",
+          "proof": {
+            "directory_retry_succeeded": true,
+            "later_close_noop": true,
+            "original_error_identity_preserved": true,
+            "proof": {
+              "alive": false,
+              "cleanup_attempts": 1,
+              "exitcode": -15,
+              "handle_close_calls": 1,
+              "label": "model",
+              "present_in_active_children": false
+            }
+          },
+          "sha256": "de946bff5b24f549610524539ff1347c80bc2cbe3f6c782eb01389b4e651c0fc",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/close-retry-2/observation.json",
+          "name": "close-retry-2",
+          "proof": {
+            "directory_retry_succeeded": true,
+            "later_close_noop": true,
+            "original_error_identity_preserved": true,
+            "proof": {
+              "alive": false,
+              "cleanup_attempts": 2,
+              "exitcode": -15,
+              "handle_close_calls": 1,
+              "label": "model",
+              "present_in_active_children": false
+            }
+          },
+          "sha256": "e303ecdfdc84a117a09c54b9622306e3b89e38cd2c2e58c10abad248baa23642",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-final/observation.json",
+          "name": "combined-final",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "final",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "731b8fe09e12fb98e369ab582a5ec0fdc3d10c1da9a670f059d15482c7e223e8",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-parse/observation.json",
+          "name": "combined-parse",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "parse",
+            "parse_failure": "invalid_raw_action",
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "5ea61e7f421a546865f1c28f80fe54580046cbc563e567ea781f0566bc87ffef",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-length/observation.json",
+          "name": "combined-length",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -15,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 257,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "length",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -15,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "budget_exhausted",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "6c1a86ad7a41397cecc8effc1d40419f0f0b8930dbd5e14058efdb4af6844210",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-crash/observation.json",
+          "name": "combined-crash",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": 23,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 0,
+              "model_decisions": 1,
+              "output_tokens": 0,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "crash",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": 23,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "60614a22f49bcc463e86488203e4b732de3376d57612f82a89374fb918dfc1ab",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-block_cancel/observation.json",
+          "name": "combined-block_cancel",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -9,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              },
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "tool",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 2,
+              "output_tokens": 17,
+              "tool_rounds": 1
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "block_cancel",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -9,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              },
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "tool",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "cancelled",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "8dbe850f7ef983a1ee52ea11edc17f239428a496d06d56b61268d9a79a2fcd9f",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/combined-block_timeout/observation.json",
+          "name": "combined-block_timeout",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 2,
+                "exitcode": -9,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              },
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "tool",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": true,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 2,
+              "output_tokens": 17,
+              "tool_rounds": 1
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "block_timeout",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "cleanup_errors": [
+                  "stop_signal_write_failed",
+                  "owned_process_close_failed"
+                ],
+                "directory_cleaned": false,
+                "exitcode": -9,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": true
+              },
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "tool",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "timed_out",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "dc644cd41c81aad99ffbacde04c8e8dc6f60b173ef72ce2594f22bb8f2502b2e",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/control-final/observation.json",
+          "name": "control-final",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "final",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 0,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 1,
+              "success_rate": 1.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "finalized",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "75ca5baa5909e0e959df836720b7d2e6722f7174374030aec38fdcf05eb995c9",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/control-parse/observation.json",
+          "name": "control-parse",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 0,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 31,
+              "model_decisions": 1,
+              "output_tokens": 17,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "parse",
+            "parse_failure": "invalid_raw_action",
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 0,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "48add31d7a108c326b1fb5dee725647c3656f0255e05a9b748b07f47dbbe6c0b",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/control-crash/observation.json",
+          "name": "control-crash",
+          "proof": {
+            "actual_processes": [
+              {
+                "alive": false,
+                "cleanup_attempts": 0,
+                "exitcode": 23,
+                "handle_close_calls": 1,
+                "label": "model",
+                "present_in_active_children": false
+              }
+            ],
+            "both_faults": false,
+            "budget": {
+              "input_tokens": 0,
+              "model_decisions": 1,
+              "output_tokens": 0,
+              "tool_rounds": 0
+            },
+            "counts": {
+              "stop_attempts": 1
+            },
+            "mode": "crash",
+            "parse_failure": null,
+            "process_records_at_return": [
+              {
+                "directory_cleaned": true,
+                "exitcode": 23,
+                "label": "model",
+                "operation_started": true,
+                "reaped": true,
+                "stopped": false
+              }
+            ],
+            "returned_snapshot_not_rewritten_by_retry": true,
+            "summary": {
+              "evaluation_level": "L0_L1_scripted_development",
+              "excluded": 0,
+              "failure": 1,
+              "not_scored": 0,
+              "real_model_benchmark": "NOT_RUN",
+              "success": 0,
+              "success_rate": 0.0,
+              "total": 1,
+              "unknown": 0
+            },
+            "terminal": "rejected",
+            "unrelated_process_remained_alive": true
+          },
+          "sha256": "25afbfc6c6ea581bca20ac0ea39b04ba76193e8ad1ad612ffec77277e64e10bf",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-legal-before/observation.json",
+          "name": "multi-legal-before",
+          "proof": {
+            "damage": "legal-before",
+            "outcome": "success",
+            "trace_sha256": "e534cee635775ead8afe5e22842d9d6dfd3b2e18de4c1ce990f4ee1661be6dbf",
+            "wire_records": 10
+          },
+          "sha256": "4719e4ec6817b9bb6e52972ec937930a5fa564acd2f4069016fd04cbc209263a",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-legal-after/observation.json",
+          "name": "multi-legal-after",
+          "proof": {
+            "damage": "legal-after",
+            "outcome": "success",
+            "trace_sha256": "4047cfa2e11d679680ec2fa9ecd146a70f029e2c446b4b97e6733d3f211498d1",
+            "wire_records": 11
+          },
+          "sha256": "314a906cf248f20038cb88f7333f067d37d922aae4948f75ba37311abb6fc0ff",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-wrong-answer-before/observation.json",
+          "name": "multi-wrong-answer-before",
+          "proof": {
+            "damage": "wrong-answer-before",
+            "outcome": "failure",
+            "trace_sha256": "e534cee635775ead8afe5e22842d9d6dfd3b2e18de4c1ce990f4ee1661be6dbf",
+            "wire_records": 10
+          },
+          "sha256": "aeab98a3a886db7525b59ff05472b11c4d145b1d38d15ac7041c447e661a516b",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-wrong-answer-after/observation.json",
+          "name": "multi-wrong-answer-after",
+          "proof": {
+            "damage": "wrong-answer-after",
+            "outcome": "failure",
+            "trace_sha256": "4047cfa2e11d679680ec2fa9ecd146a70f029e2c446b4b97e6733d3f211498d1",
+            "wire_records": 11
+          },
+          "sha256": "dcf55e76998472640495cc876779df85e0d1a8fde621cf3a7a7f72c1a740777a",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-cross-observations/observation.json",
+          "name": "multi-cross-observations",
+          "proof": {
+            "damage": "cross-observations",
+            "outcome": "unknown",
+            "trace_sha256": "15777b1d951e50455e13178a646d49ff7aae08dfdb68b1694fb483b0131febcc",
+            "wire_records": 11
+          },
+          "sha256": "fcf3fefb88a71def60f74807abd0ae9c2337b6a90a709de7dd0570485b21c73d",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-replay-consumed-observation/observation.json",
+          "name": "multi-replay-consumed-observation",
+          "proof": {
+            "damage": "replay-consumed-observation",
+            "outcome": "unknown",
+            "trace_sha256": "988115cd83c7fca3851ad99deb414fa7721f229230cfde70c7ce1dc4c4ba9ece",
+            "wire_records": 11
+          },
+          "sha256": "f255a2c7537b3c0b45d347d07fe70dcaaaae86c1a72658702e1bffa8607fc1f1",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-changed-arguments/observation.json",
+          "name": "multi-changed-arguments",
+          "proof": {
+            "damage": "changed-arguments",
+            "outcome": "unknown",
+            "trace_sha256": "cfdfa0743b063f62c5f394fe4d05ad524f38eb3cb9ab3b6850bdc91c1616da9a",
+            "wire_records": 11
+          },
+          "sha256": "02a12e4b7ab509ee2a774b059ae4ee93a1b5291000fc1c9f6fafe87bd32e9bfe",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-old-call-id/observation.json",
+          "name": "multi-old-call-id",
+          "proof": {
+            "damage": "old-call-id",
+            "outcome": "unknown",
+            "trace_sha256": "867461afa8a0afafea1d806503041f3a34e94b0976e48b9a64c33fd5f4b7d149",
+            "wire_records": 11
+          },
+          "sha256": "a8705ef22c19fc861d9d6c9a415f5398c7a91b8492fe57c9575679f1b21a5b31",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-missing-second-execution/observation.json",
+          "name": "multi-missing-second-execution",
+          "proof": {
+            "damage": "missing-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "fdebab7f84b213a9a70facf4e28df0ab44a5b04f571a3520408d49d2076c8a91",
+            "wire_records": 10
+          },
+          "sha256": "ca3a973f9c8b3fe88aa018fada6a0a6419d6f9660a0d1272fec6882ba35e842c",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/multi-overlap-second-execution/observation.json",
+          "name": "multi-overlap-second-execution",
+          "proof": {
+            "damage": "overlap-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "01fd3754822149486d5ac3c213d88e718f2e0220d7616533bc63d2192f8f3bc2",
+            "wire_records": 12
+          },
+          "sha256": "6569c5981afd30b4aaab9bb38f28bfdbbe780353e2e34f2bbf1314a3f252860b",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-legal-before/observation.json",
+          "name": "retry-legal-before",
+          "proof": {
+            "damage": "legal-before",
+            "outcome": "success",
+            "trace_sha256": "598050c29ed97622dc295816d852d320fb9be45a55c9aa0c3fea0ebcb83f1cd1",
+            "wire_records": 12
+          },
+          "sha256": "9e8721af5901cc26c922037616511c9418e9b209029956337d4be1a43446d9b5",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-legal-after/observation.json",
+          "name": "retry-legal-after",
+          "proof": {
+            "damage": "legal-after",
+            "outcome": "success",
+            "trace_sha256": "026fbcb93f1cd3bbab9d9cb317fc6cebda4edec815abc8acde5596ad825ea8f9",
+            "wire_records": 13
+          },
+          "sha256": "50a1113122f95fc0910d5528c5d0c8619d9ebe418c5d0b0c7619ee6f68faa92c",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-wrong-answer-before/observation.json",
+          "name": "retry-wrong-answer-before",
+          "proof": {
+            "damage": "wrong-answer-before",
+            "outcome": "failure",
+            "trace_sha256": "598050c29ed97622dc295816d852d320fb9be45a55c9aa0c3fea0ebcb83f1cd1",
+            "wire_records": 12
+          },
+          "sha256": "fbdf6d85a1a6e4b2fb714f4108d88c5c7664c8f8192ebca2a5ad7c00fad07ec8",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-wrong-answer-after/observation.json",
+          "name": "retry-wrong-answer-after",
+          "proof": {
+            "damage": "wrong-answer-after",
+            "outcome": "failure",
+            "trace_sha256": "026fbcb93f1cd3bbab9d9cb317fc6cebda4edec815abc8acde5596ad825ea8f9",
+            "wire_records": 13
+          },
+          "sha256": "3e725a7caa93ad6193927cdbec4e8a7e2ede13b231fa55370584bc54b0810742",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-cross-observations/observation.json",
+          "name": "retry-cross-observations",
+          "proof": {
+            "damage": "cross-observations",
+            "outcome": "unknown",
+            "trace_sha256": "cb518bab1c4f1f2edfae40c61254a6958c931e2bfdf934172888628099df10d5",
+            "wire_records": 13
+          },
+          "sha256": "621561217b0a87ee883104853553a08455980a4f99b39812d36d26ad9d7bdf79",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-replay-consumed-observation/observation.json",
+          "name": "retry-replay-consumed-observation",
+          "proof": {
+            "damage": "replay-consumed-observation",
+            "outcome": "unknown",
+            "trace_sha256": "97f053092103286e3f35cd3dad7446c2fe1a8ec809e24f833e52dd5df9da7bf0",
+            "wire_records": 13
+          },
+          "sha256": "fe9541e30363d260368532fcd32c0e26e8ca8bc191c04f8acf932f5e49466592",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-changed-arguments/observation.json",
+          "name": "retry-changed-arguments",
+          "proof": {
+            "damage": "changed-arguments",
+            "outcome": "unknown",
+            "trace_sha256": "6547d532503e870ccae3f60dc42f7da003655be7e24bba64d93138751c599a72",
+            "wire_records": 13
+          },
+          "sha256": "9111fe4bc5f7d54221d455ee24792c4d77b325efaa825956fe03f0a8e5acd3d8",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-old-call-id/observation.json",
+          "name": "retry-old-call-id",
+          "proof": {
+            "damage": "old-call-id",
+            "outcome": "unknown",
+            "trace_sha256": "1f15b2a87f16805bda06ef79839d623df6bdfc5d0f6f4191b8c4ad36284413e1",
+            "wire_records": 13
+          },
+          "sha256": "e2644bd882a2f830d04af18693f7ee7e66dadfe4db6016df3c2c73dcd613f43f",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-missing-second-execution/observation.json",
+          "name": "retry-missing-second-execution",
+          "proof": {
+            "damage": "missing-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "cc946e24e2ae3d7c6d8fd041af386a91ebd868308fc522e9908114a763a968d0",
+            "wire_records": 12
+          },
+          "sha256": "e0351503f8dd513405893f084894ae663b06a4d19f28100fc4a23540af2b8976",
+          "status": "PASS"
+        },
+        {
+          "artifact": "revision-edges/retry-overlap-second-execution/observation.json",
+          "name": "retry-overlap-second-execution",
+          "proof": {
+            "damage": "overlap-second-execution",
+            "outcome": "unknown",
+            "trace_sha256": "572cb141f2415265505c96e821b1e2762c0ff4d6119e568ce01a7e706f2c92ad",
+            "wire_records": 14
+          },
+          "sha256": "30728f49d2876e3a2f0fc123d508d0c78aac4f9b7abd4ed02593aec48363409c",
+          "status": "PASS"
+        }
+      ],
+      "result_sha256": "e899f255f67890b2cf983561f5866605a542846644663d911d18e874105f5fb5",
+      "summary": {
+        "causal_actual_baseline_runs": 2,
+        "causal_score_checks": 20,
+        "checks": 31,
+        "failed": 0,
+        "installed": false,
+        "passed": 31,
+        "real_model": "NOT_RUN",
+        "scripted_only": true
+      }
+    }
+  },
+  "not_run": [
+    "Independent Python 3.11 runtime",
+    "ML/model/tokenizer imports or downloads",
+    "GPU and real MLX/Qwen ModelBackend",
+    "Already-loaded MLX object spawn compatibility",
+    "P04/P06/BFCL/final hidden evaluation",
+    "Real model quality, throughput or long-term stability",
+    "Production output format implementation",
+    "S0 merge and main combined verification",
+    "Model serving deployment"
+  ],
+  "original_r1_observations": [
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        0
+      ],
+      "artifact": "original-r1-54/test_directory_cleanup_failure0/cleanup-failure-observation.json",
+      "cleanup_observations": [
+        {
+          "actual_process_handle_closed": true,
+          "candidate_close_completed": false,
+          "directory_remained_after_candidate": true
+        }
+      ],
+      "mode": "final",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "raised_exception": null,
+      "remaining_owned_directory_removed_by_review_safety_cleanup": true,
+      "returned_harness_result": true,
+      "sha256": "1d156b585ab033ef1ae62d67dfca7589830600c692f1754435a8c4d8a35dc65c"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        0
+      ],
+      "artifact": "original-r1-54/test_directory_cleanup_failure1/cleanup-failure-observation.json",
+      "cleanup_observations": [
+        {
+          "actual_process_handle_closed": true,
+          "candidate_close_completed": false,
+          "directory_remained_after_candidate": true
+        }
+      ],
+      "mode": "parse_error",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "raised_exception": null,
+      "remaining_owned_directory_removed_by_review_safety_cleanup": true,
+      "returned_harness_result": true,
+      "sha256": "156357c57bd557ed9f4bad56b1e54ff5c3aa1ec111e6245c7d38e164d4881cfb"
+    },
+    {
+      "actual_alive_before_close": [],
+      "actual_exitcodes": [],
+      "all_wire_records_valid": true,
+      "artifact": "original-r1-54/test_oracle_marks_observation_0/invalid-trace-observation.json",
+      "events": [
+        "received",
+        "validated",
+        "generating",
+        "parsing",
+        "observing",
+        "tool_execution",
+        "generating",
+        "parsing",
+        "finalized"
+      ],
+      "outcome": "unknown",
+      "owned_absent_from_active_children": [],
+      "sha256": "0e495ef95cbe578515dc8631203d4928659f0fb62d80d209a9475090c751eb2f"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -15
+      ],
+      "artifact": "original-r1-54/test_real_blocking_operations_0/blocking-observation.json",
+      "mode": "timed_out",
+      "operation": "tool",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "separate_process_remained_alive": true,
+      "sha256": "5960089cded6d5581b62887edc54aa55d7b75e6a624edf50bdd5165591cd8f82"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -15
+      ],
+      "artifact": "original-r1-54/test_real_blocking_operations_1/blocking-observation.json",
+      "mode": "cancelled",
+      "operation": "tool",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "separate_process_remained_alive": true,
+      "sha256": "59e5257bfc45284bda75949106acd01733a6a16401f35b6ddf788e23797a96b4"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -9
+      ],
+      "artifact": "original-r1-54/test_real_blocking_operations_2/blocking-observation.json",
+      "mode": "timed_out",
+      "operation": "model",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "separate_process_remained_alive": true,
+      "sha256": "eea56c9accf4636f66396c626ad181282ff7f158a536c2f9d861d62d5e0b9466"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -9
+      ],
+      "artifact": "original-r1-54/test_real_blocking_operations_3/blocking-observation.json",
+      "mode": "cancelled",
+      "operation": "model",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "separate_process_remained_alive": true,
+      "sha256": "9f235f26e22d8ea139fe54b09c61ef88df84234b980aa4f015c6e5ac75543214"
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -15
+      ],
+      "artifact": "original-r1-54/test_stop_packet_write_failure0/stop-failure-observation.json",
+      "mode": "final",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "raised_exception": null,
+      "returned_harness_result": true,
+      "sha256": "d5d22c546c2a185da2c94a081f888d9efa1ba7ed72cfffcffa42217db8b208b9",
+      "stop_write_attempts": 1
+    },
+    {
+      "actual_alive_before_close": [
+        false
+      ],
+      "actual_exitcodes": [
+        -15
+      ],
+      "artifact": "original-r1-54/test_stop_packet_write_failure1/stop-failure-observation.json",
+      "mode": "parse_error",
+      "owned_absent_from_active_children": [
+        true
+      ],
+      "raised_exception": null,
+      "returned_harness_result": true,
+      "sha256": "60d1f2dbaa4f33838584f8d606f712b647f9706239ad90a9b227764872c5345c",
+      "stop_write_attempts": 1
+    }
+  ],
+  "original_review_commit": "f34f7c5a4eac54b18a2b092495f4ce8eaa334f98",
+  "package_evidence": {
+    "archives": {
+      "default-wheel": {
+        "archive_files": 29,
+        "bytes": 37495,
+        "generated_metadata_files": 5,
+        "sha256": "c6f0a491bb92c516f5ba13ffc1ec00a40529935a46309f1df1ad4659d760faa1",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "rebuilt-wheel": {
+        "archive_files": 29,
+        "bytes": 37495,
+        "generated_metadata_files": 5,
+        "sha256": "c6f0a491bb92c516f5ba13ffc1ec00a40529935a46309f1df1ad4659d760faa1",
+        "tracked_files_matched": 24,
+        "untracked_payloads": 0
+      },
+      "sdist": {
+        "archive_files": 52,
+        "bytes": 116137,
+        "generated_metadata_files": 1,
+        "sha256": "622ed5b412d5275656880d364256ba255d868851aba86ab88e0e8effda87187c",
+        "tracked_files_matched": 51,
+        "untracked_payloads": 0
+      }
+    },
+    "candidate": "3598cef2efb99e2990e384812a028902964cf494",
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "name": "export-default",
+        "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+        "stdout_sha256": "c7bce1ad9a5bd64b926f7dddb8a801459168de3948fa3cd2c5afbd0c94ed8983"
+      },
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv"
+        ],
+        "exit_code": 0,
+        "name": "new-environment",
+        "stderr_sha256": "d98a545fdf1d768de9b937972d9e1342e76a71393a30d94501ed3d0ca9c74fe0",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/runtime-requirements.txt"
+        ],
+        "exit_code": 0,
+        "name": "install-hashed-default-dependencies",
+        "stderr_sha256": "6f7eadfefac06d97638c0c38fd3fccafeec8dedbd2bb00fe898ddcbc5993dde9",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "--no-deps",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "name": "install-rebuilt-wheel",
+        "stderr_sha256": "4177b87122b48b93714ec3c8f901f793c33c1c4923403b5671dbe23fe862d2ad",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python"
+        ],
+        "exit_code": 0,
+        "name": "dependency-consistency",
+        "stderr_sha256": "c86508d80ff534527413fca536823dca75c848c81311c5f707b8cff5a59548dd",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "exit_code": 0,
+        "name": "installed-contract",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/example.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-example",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/tool.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-tool",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/preference.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-preference",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/run.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-run",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/trace.json"
+        ],
+        "exit_code": 0,
+        "name": "installed-trace",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "--help"
+        ],
+        "exit_code": 0,
+        "name": "installed-tools-help",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4218c41dbd8170b168755ec7fcc99b1c59c94d0b5e7d6ee45f0b6ff30c59d356"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "registry"
+        ],
+        "exit_code": 0,
+        "name": "installed-registry",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4c7609506a86ea5d97ede24642f55c1645e1cd5c13235d28154f9986845967e5"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.tools",
+          "demo",
+          "--cases",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/away-from-source/development.json",
+          "--output",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/demo"
+        ],
+        "exit_code": 0,
+        "name": "installed-scripted-demo",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "-c",
+          "\nimport hashlib,importlib,importlib.metadata,importlib.util,json,sys\nfrom pathlib import Path\nnames=['toolalign.tools','toolalign.tools.__main__','toolalign.tools._json',\n       'toolalign.tools.catalog','toolalign.tools.executor','toolalign.tools.isolation',\n       'toolalign.tools.registry','toolalign.tools.scripted','toolalign.evaluation.harness',\n       'toolalign.evaluation.oracles','toolalign.evaluation.oracles.semantic']\nmodule_hashes = {}\nfor name in names:\n    module=importlib.import_module(name)\n    assert Path(module.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())\n    module_hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()\nfor name in ('mlx','mlx_lm','torch','transformers'):\n    assert name not in sys.modules and importlib.util.find_spec(name) is None\nprint(json.dumps({'python_version':sys.version.split()[0], 'isolated_flag':sys.flags.isolated,\n                  'p03_modules_inside_installed_prefix':names,'model_packages_available':[], 'module_sha256':module_hashes,\n                  'distributions':{p.metadata['Name']:p.version for p in importlib.metadata.distributions()}},sort_keys=True))\n"
+        ],
+        "exit_code": 0,
+        "name": "installed-module-origins",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7cf800238751be7a2dcd1d080fecf3d51038ca187686ed7242a4be10c1469046"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/venv/bin/python",
+          "-I",
+          "<R1_WORKTREE>/reports/review/P03-r2/revision_probe.py",
+          "--installed",
+          "--output",
+          "<R1_WORKTREE>/.toolalign-local/review-p03-r2/package-check/revision-edges"
+        ],
+        "exit_code": 0,
+        "name": "installed-revision-edges",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e29ea0d05cdc92f6e01da61a4257e0071edf2327ed938fdab0b9716e0cfc0d85"
+      }
+    ],
+    "installed_demo": {
+      "actual_process_liveness_now": "NOT_INFERRED_FROM_HISTORICAL_RECORDS",
+      "artifact_sha256": {
+        "case-00.json": "3c9e7ad57c887aeaae9b2a2fb6768960d349171d2a219b3ae63402b8a02495be",
+        "case-01.json": "c40a1ad1dca261ea6c0320929be0b13c7a09e92f38e9810b358cbcf4c4958760",
+        "case-02.json": "0e202b7e43584af466e8ed6b31473b8598eb6e8c387b7ee1b1ff438c3cfc2cf3",
+        "case-03.json": "24b6731e25cf6cedfd228f2095f346886b2ae03b563035f5e9d5fdce2e412d41",
+        "case-04.json": "9730a04ccb997d79400dccf4dac27847924e630521debbfd5c72ead4ded3d681",
+        "case-05.json": "13438d843c516ad94e2f653cdf62c60d47f9cdb019c5224357e0cc7cce0c26ff",
+        "case-06.json": "7449d3dc566a5751e9c9261df9b0df8c2e5667d4d966233a2cecf0bcb6cb7a79",
+        "case-07.json": "fa6ef8862f609073c794c4f290b19c77931960a0fb9e5dd6198fb18d8d0ce3d7",
+        "case-08.json": "0ba8acdad2f6bfc372efc7655cad6fabf95144fe9ca28c500ed05dbc409d1b30",
+        "case-09.json": "fdeec61d0d9aa837284e7cda82dc93156ce4dfaaee13e43bfe3828583d2ad94a",
+        "summary.json": "7491882e51f13f2b800834d17b155c5f7941187ba044fd00b5785487d4334396"
+      },
+      "counts": {
+        "cases": 10,
+        "model_decisions": 20,
+        "operations_started": 20,
+        "owned_processes": 20,
+        "reaped_processes": 20,
+        "synthetic_input_tokens": 220,
+        "synthetic_output_tokens": 140,
+        "tool_rounds": 10,
+        "trace_events": 90
+      },
+      "tool_results": {
+        "completed": 9,
+        "error": 1
+      }
+    },
+    "installed_revision_result_sha256": "d4f1f34e9997d93cfe4e0d6dc202feaa1501e12547e97f935df434ee8d50d7e1",
+    "installed_revision_summary": {
+      "causal_actual_baseline_runs": 2,
+      "causal_score_checks": 20,
+      "checks": 31,
+      "failed": 0,
+      "installed": true,
+      "passed": 31,
+      "real_model": "NOT_RUN",
+      "scripted_only": true
+    },
+    "module_evidence": {
+      "distributions": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "toolalign": "0.0.1"
+      },
+      "isolated_flag": 1,
+      "model_packages_available": [],
+      "module_sha256": {
+        "toolalign.evaluation.harness": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+        "toolalign.evaluation.oracles": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+        "toolalign.evaluation.oracles.semantic": "29291f5f0bdfd9cd1ad54711dc432b92375195dccb3e8f26670130cc68a8fb56",
+        "toolalign.tools": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+        "toolalign.tools.__main__": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+        "toolalign.tools._json": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+        "toolalign.tools.catalog": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+        "toolalign.tools.executor": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+        "toolalign.tools.isolation": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+        "toolalign.tools.registry": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+        "toolalign.tools.scripted": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc"
+      },
+      "p03_modules_inside_installed_prefix": [
+        "toolalign.tools",
+        "toolalign.tools.__main__",
+        "toolalign.tools._json",
+        "toolalign.tools.catalog",
+        "toolalign.tools.executor",
+        "toolalign.tools.isolation",
+        "toolalign.tools.registry",
+        "toolalign.tools.scripted",
+        "toolalign.evaluation.harness",
+        "toolalign.evaluation.oracles",
+        "toolalign.evaluation.oracles.semantic"
+      ],
+      "python_version": "3.14.7"
+    },
+    "real_model_backend": "NOT_RUN",
+    "source_tree_imported_by_installed_commands": false
+  },
+  "private_artifact_hashes": {
+    "assemble_evidence.py": "fe5130e2b90e747b993df014af7a89ea2687708f70ef19ef5d3063c0c4e00aa5",
+    "audit-helper-initial.json": "78ecaa40c211d300413d8d481bb37b4a988cccca243bf88a2d7b3ef448e2ffa3",
+    "audit_revision_evidence.initial.py": "ab5205c5928ca6c6589abde64a738fba110f4be0a3e852409f272f08765c9de9",
+    "audit_revision_evidence.metadata-fix.py": "faec2ebf7b89c3f24453ef2054ad46392de5bc2108907af0e52374d432435761",
+    "audit_revision_evidence.symlink-fix.py": "8baf973eabc92ac17bc2461882345fa100f3c23014bf123454e994c38d17d251",
+    "environment.json": "6ac63eaf690be39b4e967db6ce38f9fe5eeb711080f9000c47e05bd1cfc63aa9",
+    "environment_check.py": "4e9e9da6456c3529ea04cf9942b26d4c78fa613946bfad9366cd6c80d531093f",
+    "historical-binding.json": "2220ae4cbe7f1a01cb1791ea2531bef06afd8b4e201afd7b47d70cf34c0c1db0",
+    "package-check/evidence.json": "359c73e6d76d91a167b20a6bb83a7ba968a8c355254ec0c393edeaed0ac1ba99",
+    "package-check/revision-edges/results.json": "d4f1f34e9997d93cfe4e0d6dc202feaa1501e12547e97f935df434ee8d50d7e1",
+    "revision-edges/results.json": "e899f255f67890b2cf983561f5866605a542846644663d911d18e874105f5fb5",
+    "run_evidence.py": "fdcbeba19712e4dd369367e37eaff4aeb3666f5eb9b3b799f0e70a7d51adc3c9",
+    "scope.json": "1819d4d449ed7b00395e7c01d4a124462b5a75c67b0f8f2a4b4aaf2cf3b01a06",
+    "verify_scope.py": "e0bf21e41a4dd808d3868be802c76d8d354f0fcc03cfbcdf8b36cc560752b6d1"
+  },
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "review_audit_helper_development": {
+    "candidate_unchanged": true,
+    "failure": "R1 helper treated preservation manifest row as hash string instead of sha256/bytes object",
+    "second_failure": {
+      "candidate_unchanged": true,
+      "reason": "Preservation manifest includes six venv interpreter symlinks; historical small-file reader intentionally rejects symlinks",
+      "source_sha256": "faec2ebf7b89c3f24453ef2054ad46392de5bc2108907af0e52374d432435761"
+    },
+    "source_sha256": "ab5205c5928ca6c6589abde64a738fba110f4be0a3e852409f272f08765c9de9",
+    "third_failure": {
+      "candidate_unchanged": true,
+      "reason": "R1 helper classified only .toolalign-local paths as private; old dist/.gitignore and two archives are also untracked preserved paths",
+      "source_sha256": "8baf973eabc92ac17bc2461882345fa100f3c23014bf123454e994c38d17d251"
+    }
+  },
+  "review_branch": "review/p03-r2",
+  "review_probe_hashes": {
+    "reports/review/P03-r2/audit_revision_evidence.py": "e2f907a51daefc813ae76d1aa1c4864d3a8fca15cdedfda3360c7484273b4d0c",
+    "reports/review/P03-r2/revision_probe.py": "2c05dc44f464837030bdfdb9a85bbfb653c3850fdb28b3bb0234232cfd010e6a",
+    "reports/review/P03-r2/verify_revision_package.py": "224ba9219f3e0af55f034a83e0b2a640d30148bfecf537cf295308ddbed30943"
+  },
+  "reviewer": "R1",
+  "task": "P03-R1-r2",
+  "verdict": "PASS"
+}
