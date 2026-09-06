@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，最终CI/main843CPU及归档绑定通过，2 HF-only skipped，原FAIL保持。P02数据代码MERGED；训练绑定f4f73c9获独立R1原40252f8技术PASS，S0核对5734路径/26命令并确认R1原生空闲。S0普通集成0f3d04f实际919CPU/2跳过、新三归档/默认安装通过，见[集成证据](../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。[PR9](https://github.com/kris0516/ToolAlign/pull/9)最终CI/main、实际页面观察及kris语义/token-mask人审仍待完成，G-DATA/P04未放行。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式、截止时间修订及训练绑定CPU技术范围VERIFIED**，两个共享支持包已VERIFIED。训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。原FAIL/测量保持。P02整包/G-DATA仍待kris语义人审；13例实际页面与token/mask判断、P04实际trainer/collator/容量及正式训练均未验收。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0隔离integrate/p02-training-binding-r1；原R1 PASS已验收，实际普通集成0f3d04f通过919CPU/2跳过及包验证，PR9最终CI/main待完成 |
+| 当前任务/分支 | S0 main；PR9实际合并42eaa50，最终CI及主干919CPU/2跳过、现存归档/49安装包文件绑定通过；维护验收记录并准备后续门槛 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | D1/T1/E1无新任务；R1原40252f8已交付且原生completed/idle，gpt-6-astra/max；无新实现/GPU派发 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01已合并并验证main，G1-SFT与唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03已在29a5e4c完成最终CI/合并/main验证，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)。训练与评测共同格式已按ADR-0017实现并在36b6988完成main验收，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。训练数据/配置绑定及P04人工token/mask尚未完成；P04正式训练未授权，最多两个实现的约束保持。
+P00和共享支持包验收保持。P01受限G1-SFT及唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03在29a5e4c、共用格式在36b6988、训练数据/配置/manifest绑定在42eaa50分别完成独立审查、最终CI和main CPU验证。P02整包VERIFIED与G-DATA仍需kris实际语义审查；13例实际页面和token/mask人工判断、P04实际trainer/collator及容量验证保持未完成。P04正式训练未授权，最多两个实现及单一GPU租约约束保持。
 
 ## 恢复入口
 
@@ -160,3 +160,5 @@ D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-
 ## 训练绑定独立验收与S0隔离集成｜2026-09-06 14:13 UTC
 
 R1原40252f8已完成且原生空闲，S0核对5734路径/26原命令与最终封存b83d409a，CPU技术范围ACCEPTED。普通集成0f3d04f的919CPU/2跳过、三份实际新归档和新默认wheel隔离验证通过，证明961e7d78；14条成功命令记录及一条S0归档receipt重名的原始外层失败分别保留，未补造原缺失UTC或子进程退出码。安装17模块全部来自新target，五类输入篡改拒绝；无新全量物化或tokenizer构建。共享GPU锁实际未持有，两份人工填写副本仍0 reviewer/0 verdict；[详细证据](../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。最终CI/main、实际页面和人审门槛保持，P04未授权。
+
+训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。14:32–14:33 UTC实际main919 passed/2 HF-only skipped、九条CPU命令全部成功，364文件与最终CI/tree2071相同。摘要f0a806f1，三现存归档/49安装包文件对应main；本次新build/install为0，原S0集成的真实14:04–14:10构建/安装时间保持。共享GPU空闲，100行语义和13行token/mask填写副本仍0 reviewer/0 verdict；实际材料页面观察0页，不关闭人工或P04门槛。

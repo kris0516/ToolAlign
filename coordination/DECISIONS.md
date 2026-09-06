@@ -157,7 +157,7 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 
 ## ADR-0019｜固定训练选择与人工token/mask材料的CPU准备
 
-日期：2026-09-06；状态：SELECTED_FOR_CPU_IMPLEMENTATION，尚未形成训练选集验收或授权模型运行。已验证代码基线36b6988。选择规则由S0在[精确配置原件](tasks/P02_TRAINING_BINDING_CONFIG.v1.json)给出，D1仅在[P02-TRAINING-BINDING授权](tasks/P02_TRAINING_BINDING.md)中实现；新候选仍需独立R1及S0主干验收。
+日期：2026-09-06；状态：VERIFIED（训练绑定CPU技术范围），PR9实际合并42eaa50；原R1 PASS40252f8、最终双Python CI与main919CPU/2跳过及归档绑定通过，见[主干证据](../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。原选择规则及[精确配置原件](tasks/P02_TRAINING_BINDING_CONFIG.v1.json)保持，training_authorized=false。实际材料页面观察、语义/token-mask人审、G-DATA和模型/训练门槛仍未通过；以下规则和原算术保持其原决策范围。
 
 使用原已验收ToolACE数据及原v1表示审计，仅从train/validation生成新的私有派生选择。每行须保持Example、source/group/split/目标身份，表示成功、总长P+C+唯一EOS不超过profile cap、C含EOS不超过256。正式1.7B数据规则为2048档全部合格行；0.6B smoke为1536档按固定seed42的稳定hash排名取1600条train，validation分别使用各档全部合格行。排名键为canonical_hash(["toolalign.training-selection.v1",42,example_id])，hash升序、同hash按example_id升序；输出顺序固定，无放回。不得按模型分数、最终测试或BFCL选样本。
 

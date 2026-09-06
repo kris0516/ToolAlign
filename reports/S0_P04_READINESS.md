@@ -71,3 +71,6 @@ S0只读原8,228行派生指标文件（SHA-256 `36b8cbfe6773c08f7a28521a99ed878
 ## 新格式主干前提已满足
 
 2026-09-06，PR8已合并36b6988并通过最终双Python CI及main843CPU/2 HF-only skipped与实际归档绑定，新格式技术范围VERIFIED，见[S0主干记录](S0_P02_FORMAT_MAIN_VERIFICATION.md)。以上原候选/旧长度/预算推导保持其原时间和范围。下一步仍需训练选择/配置/manifest绑定及kris真实语义、token/mask检查；本报告不构成训练授权，也不将原统计交集改写成已选训练集。
+
+
+2026-09-06主干补记：训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[本次主干证据](S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。smoke1600/197及formal6013/217现在为已物化并核验的训练绑定；本文件中的旧候选/算术/待验记录保留原时间。实际材料页面观察、kris语义/token-mask判断及P04实际trainer/collator、尾批/checkpoint/容量与正式训练仍待完成。

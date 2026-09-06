@@ -1,6 +1,6 @@
 # P02-TRAINING-BINDING-R1｜固定训练选择与序列材料独立审查
 
-状态：ACCEPTED（CPU技术范围）；R1按完整5b553b4、gpt-6-astra/max对精确f4f73c9正式PASS/P0/P1/P2均0，原review40252f8已完成，原生completed/idle。S0核验5734路径/26原命令、最终completion b83d409a及350候选不变；普通集成0f3d04f通过919 CPU/2 HF-only skipped、实际归档和隔离安装，见[证据](../../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。最终CI/main、实际页面观察及两项kris判断仍待完成，技术PASS不关闭G-DATA/P04。
+状态：VERIFIED（CPU技术审查已随主干集成）；R1原40252f8对精确f4f73c9正式PASS/P0/P1/P2均0、原生completed/idle。训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。原实际页面观察及两项kris判断保持待完成，技术PASS不关闭G-DATA/P04。
 
 | 字段 | 本轮值 |
 |---|---|

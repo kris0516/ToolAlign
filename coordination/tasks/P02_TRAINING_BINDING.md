@@ -1,6 +1,6 @@
 # P02-TRAINING-BINDING｜固定训练选择与人工序列材料
 
-状态：ACCEPTED（CPU技术范围）；D1完整f4f73c9获独立R1 PASS（原审查40252f8），S0已核对最终5734路径/26原命令及350候选文件不变，R1原生completed/idle。S0普通集成0f3d04f实际919 passed/2 HF-only skipped、新三归档及默认安装验证通过，见[集成证据](../../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。[PR9](https://github.com/kris0516/ToolAlign/pull/9)最终CI/main待验证。原实际页面观察、kris语义/token-mask人审未完成，G-DATA/P04仍未放行；不授权模型加载或训练。
+状态：VERIFIED（CPU技术范围）；训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。原代表/最长/非ASCII实际页面观察、kris语义/token-mask人审仍未完成，G-DATA/P04正式训练未放行；D1/R1空闲，无新模型/GPU授权。
 
 | 字段 | 本轮值 |
 |---|---|

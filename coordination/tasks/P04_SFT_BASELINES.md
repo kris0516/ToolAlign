@@ -1,6 +1,6 @@
 # P04｜原始模型与 SFT 实验
 
-状态：BLOCKED；尚未分发或领取正式训练。P00、P01受限G1、P03 CPU、新格式及截止时间修订已VERIFIED，PR8合并36b6988。训练选择/配置绑定已获R1原40252f8 CPU技术PASS，S0普通集成0f3d04f通过919CPU/2跳过和实际包验证，最终CI/main待完成；见[证据](../../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。仍待P02真实语义人审、代表/最长/非ASCII实际页面观察和token/mask人工核对，13例材料已准备但尚无人填写。S0准备不构成P04训练授权。
+状态：BLOCKED；尚未分发或领取正式训练。P00、P01受限G1、P03 CPU、新格式及截止时间修订已VERIFIED。训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。仍待P02真实语义人审、代表/最长/非ASCII实际页面观察和token/mask人工核对；实际trainer/collator、尾批、checkpoint与0.6B容量验证尚未完成。S0准备不构成P04训练授权。
 
 | 字段 | 初始值 |
 |---|---|

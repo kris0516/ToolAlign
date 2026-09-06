@@ -41,3 +41,6 @@ CI实际检出GitHub合并对象 `3e1e96eb8369125629faa6d497446961ef8b533a`，tr
 PR9保持Draft，候选CI不替代R1独立审查和后续最终组合CI/main验收。浏览器实际观察、两项kris人工判断、G-DATA/P04门槛继续保持未完成。
 
 14:13 UTC后续：R1原审查40252f8对精确f4正式CPU PASS/P0/P1/P2均0，原生completed/idle；S0核对5734路径/26命令和最终封存核验通过，普通集成0f3d04f实际919CPU/2跳过及新归档/默认安装通过，详见[新的集成记录](S0_P02_TRAINING_BINDING_INTEGRATION.md)。上文保留候选阶段的原时点与失败；PR9最终CI/main、实际页面及两项人审仍待完成。
+
+
+2026-09-06主干补记：训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[本次主干证据](S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。smoke1600/197及formal6013/217现在为已物化并核验的训练绑定；本文件中的旧候选/算术/待验记录保留原时间。实际材料页面观察、kris语义/token-mask判断及P04实际trainer/collator、尾批/checkpoint/容量与正式训练仍待完成。
