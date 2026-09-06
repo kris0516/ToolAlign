@@ -61,4 +61,4 @@
 
 18:49–18:57 UTC中间核验：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。原数值证明563a3e83a6682f33a2b869833d15aaca4a03310241cb3e26fa0b82fcfffcd9d1，监督器定点回归证明d387826e624d5c44724481eacbbab9de24d32ffe8a280e572d0a95836fa6d314；见[S0报告](../../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。原配置与五次T1框架限额保持。
 
-完整交接已核验：候选f7326d1，parent c06782a、tree247eba0，原生终态19:20:31 UTC。S0交接证明b3b3e5b54abcc451f76e8731d72e00b516373b2f3f297abcacfabc0a48082f26，见[报告](../../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。T1本轮结束，未用额度不转授；[R1独立范围](P04_SFT_NATIVE_TOY_REVIEW.md)READY未派发，正式P04门槛保持。
+完整交接已核验：候选f7326d1，parent c06782a、tree247eba0，原生终态19:20:31 UTC。S0交接证明b3b3e5b54abcc451f76e8731d72e00b516373b2f3f297abcacfabc0a48082f26，见[报告](../../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。T1本轮结束，未用额度不转授；[R1独立范围](P04_SFT_NATIVE_TOY_REVIEW.md)按完整482f899实际派发并确认新轮ACTIVE，[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)已建立，候选双Python CI与R1 intake核验通过；独立结论及正式P04门槛保持待完成。

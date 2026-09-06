@@ -14,7 +14,7 @@
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
 | [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1；R1独立审查 | 技术基线42eaa50、ADR-0020 | VERIFIED（CPU部分） | 原R1 PASS800480b保持；[PR10](https://github.com/kris0516/ToolAlign/pull/10)合并e28f1db，最终双Python CI、main1014CPU/2跳过及三归档/57安装包文件绑定通过，见[证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU上游入口KeyError保留 |
-| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；后续独立R1 | CPU已验证50867c0、ADR-0021 | READY_FOR_REVIEW | 完整f7326d1已交付/远端一致/T1原生空闲；S0核对408候选、31原命令/实际三次数值/归档与封存，[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)；R1精确范围READY待派发，旧CPU失败及人工门槛保持 |
+| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1交付；独立R1审查中 | CPU已验证50867c0、ADR-0021 | READY_FOR_REVIEW | 完整f7326d1/T1原生空闲/S0交接核验通过；R1按完整482f899实际派发并确认新轮ACTIVE，[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)候选双Python CI与R1 intake核验通过；[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)，独立结论/最终CI/main待完成 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -32,4 +32,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：P04-SFT-CPU准备已VERIFIED，PR10合并e28f1db、原R1 PASS800480b及main1014CPU/2跳过保持。原生toy完整f7326d1已正式交付，T1原生空闲，S0交接核验通过；R1精确审查范围READY未派发。T1自测1050CPU/2跳过与三次数值不代替独立R1和最终CI/main，实际页面、人审与正式P04仍未完成。
+公共跟进：P04-SFT-CPU准备已VERIFIED，PR10合并e28f1db、原R1 PASS800480b及main1014CPU/2跳过保持。原生toy完整f7326d1已正式交付，T1原生空闲，S0交接核验通过；R1按482f899实际派发并确认新轮ACTIVE，PR11保持Draft、候选CI34055493595双Python全部步骤及R1 intake核验通过。T1自测1050CPU/2跳过与三次数值不代替独立R1和最终CI/main，实际页面、人审与正式P04仍未完成。

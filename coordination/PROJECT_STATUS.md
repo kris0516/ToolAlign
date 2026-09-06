@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR10已合并e28f1db并完成最终CI/main验证，CPU部分VERIFIED，原R1 PASS800480b保持；原生CPU train上游入口阻塞 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1完整f7326d1已交付/原生空闲，R1精确审查范围READY未派发；D1/E1无新实现，模型/推理gpt-6-astra/max |
+| 独立实现/reviewer 对话 | T1完整f7326d1已交付/原生空闲，R1按完整482f899原生派发且新轮ACTIVE，精确intake核验通过；D1/E1无新实现，模型/推理gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -22,7 +22,7 @@
 | 当前实现 | 已验收CPU基础包/契约/GPU锁、P01受限兼容校准、P03本地工具/oracle/scripted接口；P02数据流程技术验证通过，整包待审 |
 | 已验收训练/数据/评测/服务 | P02代码技术集成通过；数据语义、训练、正式评测与服务均无整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
-| 重 GPU 作业 | T1三次实际固定toy框架运行已结束，S0数值/字节/退出核验通过、实际锁空闲；完整f7326d1待独立R1，新复核须单独授权；见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md) |
+| 重 GPU 作业 | T1三次实际固定toy框架运行已结束，S0数值/字节/退出核验通过；R1新独立复核最多两次已按482f899授权，实际启动和租约证据待回报；见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md) |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
 
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
@@ -196,4 +196,4 @@ P04-SFT-NATIVE-TOY intake于18:21:46–18:21:49 UTC由S0核验通过：1976当�
 
 P04原生toy中间核验：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。S0在18:57:18 UTC核对162原件/快照路径、56消费源码Git字节；两checkpoint与完整Torch参数最大差均1.862645149230957e-9，分母44、最终选择step2，原单段只更新1次并丢5尾微步。S0另以两个真实CPU子进程确认终态修复；未增加S0框架运行。原shutdown warning及各装配失败保留，详情见[中间证据](../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。
 
-P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端一致、T1原轮19:20:31 UTC completed/idle。S0核对408候选、31原命令、7源码快照/409 blob、3038封存文件和197链接原目标；实际source/installed数值、两个checkpoint、三归档及15安装命令绑定通过。1050CPU/2 HF-only跳过为T1自测，110 subtests另记；本包READY_FOR_REVIEW。R1精确范围READY且新独立框架额度最多两次，尚未派发，见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)和[审查任务](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)。人工/正式P04与完整目标继续待完成。
+P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端一致、T1原轮19:20:31 UTC completed/idle。S0核对408候选、31原命令、7源码快照/409 blob、3038封存文件和197链接原目标；实际source/installed数值、两个checkpoint、三归档及15安装命令绑定通过。1050CPU/2 HF-only跳过为T1自测，110 subtests另记；本包READY_FOR_REVIEW。R1于19:36:51 UTC按完整482f899原生派发并核验新轮ACTIVE，独立框架额度最多两次；19:37:43 UTC建立[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)，精确f732候选CI34055493595双Python全部步骤成功，413份实际CI合并文件与原输入相符；R1实际intake核验通过。见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)和[审查任务](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)。独立结论、最终CI/main、人工/正式P04与完整目标继续待完成。

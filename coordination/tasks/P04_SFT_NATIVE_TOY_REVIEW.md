@@ -1,6 +1,6 @@
 # P04-SFT-NATIVE-TOY-R1｜原生数值与资源终态独立审查
 
-状态：READY，精确候选已交付、T1 completed/idle 与 S0 交接核验已完成；R1 尚未实际派发。本文件给出新的独立审查范围，不改变 T1 原运行额度或正式训练门槛。
+状态：IN_PROGRESS。S0 于 2026-09-06 19:36:51 UTC 按完整授权 `482f8991c97c33678583aa6c853a75c41fda0f0f` 实际原生派发，并核验 R1 新轮 ACTIVE/inProgress；19:47 UTC 完成实际新分支、408 候选、13 授权副本与旧制品的 intake 核验。独立结论待交付。本文件给出新的独立审查范围，不改变 T1 原运行额度或正式训练门槛。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -8,7 +8,7 @@
 | 精确候选 / code_base | `f7326d1823c4cf132ae44525f4755c96c88ec159` |
 | tree / parent | `247eba004d714def81f0bef65375ddbf0fee95cf` / `c06782a61857259097932078c661189b4fda781d` |
 | 实现基线 / T1 原授权 | `50867c0be43d110df6c3620c94022fcfdaf779b5` / `de86568d73ee77bbf92b6f749a39a9ab38955836` |
-| authorization_commit | S0 实际原生分发给出的完整协调 SHA，切换前读取并私有保存 |
+| authorization_commit | `482f8991c97c33678583aa6c853a75c41fda0f0f`，切换前读取并私有保存 |
 | 新 branch | `review/p04-sft-native-toy-r1`，从精确候选新建；保留原 CPU review 800480b 及其他旧 refs |
 | 模型 / 推理 | `gpt-6-astra` / `max`，不创建其他任务或 sub-agent |
 | 协作 / 契约 | plan-v0.1 / coordination.v1 / toolalign.contracts.v1 / ADR-0021 |

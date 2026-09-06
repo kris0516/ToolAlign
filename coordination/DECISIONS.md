@@ -201,4 +201,4 @@ S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新�
 
 ADR-0021中间证据补记：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。原成功源码数值保持534445b epoch；监督器修订形成fae3d60新epoch，不能将历史成功运行改写为修复后重跑。原13 rank/12种数值载荷、负结果和shutdown warning保留，见[S0中间证据](../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。
 
-ADR-0021独立审查准备：T1精确f7326d1和原生completed/idle已核验，S0完整交接证明见[报告](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。[R1新范围](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)READY未派发；独立新安装target至少一次原13例GPU segmented复核，本轮R1最多两次框架启动，第二次仅真实失败修订或有明确必要的原尾批反例。每次仍先共享OS租约/最多2更新/300秒/4GiB RSS/1GiB MLX，真实owner记R1；不使用T1未用额度，不改原配置，不放行正式P04。
+ADR-0021独立审查已于19:36:51 UTC按完整482f899实际派发，并核验R1新轮ACTIVE；原轮completed/notLoaded与干净800480b在派发前再次核对。T1精确f7326d1和原生completed/idle已核验，S0完整交接证明见[报告](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。[R1新范围](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)IN_PROGRESS；独立新安装target至少一次原13例GPU segmented复核，本轮R1最多两次框架启动，第二次仅真实失败修订或有明确必要的原尾批反例。每次仍先共享OS租约/最多2更新/300秒/4GiB RSS/1GiB MLX，真实owner记R1；不使用T1未用额度，不改原配置，不放行正式P04。

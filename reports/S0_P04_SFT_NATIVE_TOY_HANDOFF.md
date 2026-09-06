@@ -1,6 +1,6 @@
 # P04 原生 toy：精确候选交接核验
 
-日期：2026-09-07；状态 READY_FOR_REVIEW。T1 已实际普通推送并结束原生任务；S0 已核验完整候选与原始制品。独立 R1 尚未给出结论，未进行本包最终 CI/main 验收。
+日期：2026-09-07；状态 READY_FOR_REVIEW，独立 R1 已实际派发并确认新轮 ACTIVE。T1 已实际普通推送并结束原生任务；S0 已核验完整候选与原始制品。独立 R1 尚未给出结论，未进行本包最终 CI/main 验收。
 
 | 项目 | 实际身份 |
 |---|---|
@@ -33,5 +33,13 @@ S0 的[源码中间核验](S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)确认原 53444
 第一次 S0 最终核验辅助脚本错误要求上述 4 条命令都使用 parent HEAD，在实际 push 回执处失败；原脚本与日志保留。修订后的新目录核验逐命令使用实际 HEAD/tree，没有修改 T1 记录或重跑训练。最终证明的脚本 SHA-256 为 `3098867b5785d07cddbcc1ccb2a4d9550ca4733b73e5713dd362b130364d56ad`，exit 0、stdout SHA-256 `f943c66715d2c25cc27a0303f78da36e578c7eda410a707496fca31415fc8463`、stderr 为空。
 
 本轮共 3 次实际 framework 启动：两次 segmented PASS、一次 unsegmented EXPECTED_NEGATIVE。原固定 13 rank/12 种数值载荷、64 参数和 44 个验证监督 token 保持；这不是模型质量或泛化验证。后续独立 R1 由[精确审查任务](../coordination/tasks/P04_SFT_NATIVE_TOY_REVIEW.md)另定边界，不借用 T1 余量。
+
+S0 于19:36:51 UTC按完整授权`482f8991c97c33678583aa6c853a75c41fda0f0f`实际原生派发R1，显式gpt-6-astra/max，新轮ACTIVE/inProgress已核验。派发前独立任务原轮completed/notLoaded、干净800480b及原review分支、T1 completed/idle和候选/授权远端逐字一致均再次核对。R1已实际领取并切至新review/p04-sft-native-toy-r1/f7326d1；独立结论待交付，未因派发而填入PASS。
+
+[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)于19:37:43 UTC建立，精确head f7326d1、base482f899，9条改动；[候选CI34055493595](https://github.com/kris0516/ToolAlign/actions/runs/34055493595)的Python3.11/3.14各14步骤全部成功。两份原日志均直接绑定实际checkout`6a1110b474c66286567f28876f4f655f30c17bec`，parents=482f899+f7326d1、tree`bab2871f91e98919bd7fc7eb36773eea99e0132f`；413份文件是两精确输入按授权9项改动组成的并集，源码/测试/配置逐字保持候选。S0于19:44:19–19:44:22 UTC核验通过，证明SHA-256为`32a646560612b5c1ef12e7a84ff78797dddc0bb45a6a6f3a0723acc6b0007086`。
+
+每个CI job实际637 passed、48项固定CPU tokenizer前提缺失skip，另46项P00独立测试通过。四契约冻结、公开扫描及241私有canary/18公开fixture的实际三归档路线通过。两份原日志SHA-256分别为`8e250e6e1aa9b2ab732446131b5b3ba715cb648d1dfbcc8e63777d6b324b1a4b`、`4ee99271466e760ae900f8559975331a722e0068015c0dc58946c3aca74f0947`；S0新增build/install为0。CI默认组不等同本机完整1050项CPU与真实tokenizer组，也不代替独立R1和最终CI/main。
+
+S0于19:46:53–19:47:03 UTC完成R1实际intake核验，证明SHA-256为`f1230ff51de59533f079f9505218ceb0bafd260e6db3474a036afaa99b42c191`：408候选、399不变基线、13份完整授权副本和身份与Git相符；51009份旧私有文件、原CPU审查1673份封存及9份公开材料保持，18个旧review refs和73个原对象保留。实际核对52784个当前文件与439条symlink原目标字符串，集合重合不重复计数。原800480b保留、原本机f708不在候选公开祖先；未新增S0框架运行。原R1 intake SHA-256为`1416b89b6118b8115b0b504139195cf329c8ead3e5a35e74cd423e07320876d4`。R1继续同一审查轮，候选尚未ACCEPTED。
 
 原 CPU 上游 KeyError 仍有效。实际页面、kris 语义/token-mask 人审、真实模型容量、baseline/SFT/DPO、正式评测和部署均未完成；training_authorized=false，完整 P04 与 P00–P09 不因本候选交接而完成。

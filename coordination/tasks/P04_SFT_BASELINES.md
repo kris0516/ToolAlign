@@ -69,4 +69,4 @@ P04-SFT-NATIVE-TOY已按完整de86568原生派发T1并核验新轮ACTIVE；该�
 
 P04-SFT-NATIVE-TOY现有S0中间证据：S0已核对534445b的两次原GPU运行：13例完整数值、8+5实际更新/两个checkpoint及原单段丢尾反例通过；fae3d60监督器终态缺陷的CPU定点回归通过。完整候选/安装版独立核验、R1、最终CI/main仍待完成；人工与正式P04门槛保持。见[原数值与终态修复](../../reports/S0_P04_SFT_NATIVE_TOY_INTERMEDIATE.md)。该有限原创子包仍不构成本包真实模型baseline/SFT验收。
 
-P04-SFT-NATIVE-TOY完整f7326d1已交付，T1原生空闲，S0完整字节/命令/数值/归档交接核验通过；[R1精确范围](P04_SFT_NATIVE_TOY_REVIEW.md)READY未派发。见[完整交接](../../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。原生toy独立验收及本包实际页面、人审、0.6B容量、1.7B baseline/SFT仍未完成。
+P04-SFT-NATIVE-TOY完整f7326d1已交付，T1原生空闲，S0完整字节/命令/数值/归档交接核验通过；[R1精确范围](P04_SFT_NATIVE_TOY_REVIEW.md)按完整482f899实际派发并确认新轮ACTIVE，PR11保持Draft。见[完整交接](../../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。原生toy独立验收及本包实际页面、人审、0.6B容量、1.7B baseline/SFT仍未完成。
