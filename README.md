@@ -4,7 +4,7 @@
 
 ToolAlign 是一个以 Apple Silicon 为主要实验环境的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态：P00 已独立审查、合并并验证；P01/P02/P03 候选已交付，等待各包验收。** 已有 CPU 可安装包、版本化契约、模块接口、跨 worktree GPU 锁与基础测试；[main 集成验证](reports/P00_MAIN_VERIFICATION.md) 记录了精确提交与 176 项检查，后续门槛见[真实状态](coordination/PROJECT_STATUS.md)。尚无训练好的模型、已执行的正式 benchmark 或上线的推理服务。十天是目标工作安排；结果栏在实测前保持 `NOT_RUN`。
+> **当前状态：P00 和共享支持已验证；P02 数据流程通过独立技术审查，人工语义审查与整包验收仍待完成；P01/P03 候选待各包验收。** CPU 包提供版本化契约、跨 worktree GPU 锁及可追溯的数据转换/分组切分。[P02 技术审查](reports/review/P02/README.md)记录精确候选与证据，阶段验收以[真实状态](coordination/PROJECT_STATUS.md)为准。尚无正式训练结果、已执行的正式 benchmark 或上线的推理服务。十天是目标工作安排；结果栏在实测前保持 `NOT_RUN`。
 
 ## CPU 基础检查
 
@@ -15,9 +15,12 @@ uv run --locked ruff check .
 uv run --locked python scripts/check_contract_freeze.py
 uv run --locked python scripts/check_public_content.py
 uv run --locked toolalign validate tests/fixtures/contracts/example.json
+uv run --locked python -m toolalign.data --help
 ```
 
 仅安装 CPU 基础依赖，不加载模型。离线运行需要事先安装锁定依赖。契约和文件所有权见 [P00 契约说明](docs/12_CONTRACTS_V1.md)；锁定依赖见 `uv.lock`。历史 `MANIFEST.sha256` 仅对应原始规划包，当前发布依据为 Git commit 与阶段证据。
+
+数据流程的固定来源、转换政策、复现命令和真实 tokenizer 依赖见 [P02 使用说明](reports/data/README.md)。数据与人审制品仅保留本地；历史工具调用是监督数据，未绑定可执行工具。技术审查通过不表示数据语义或模型训练已验收。
 
 ## 研究问题
 
@@ -59,7 +62,7 @@ uv run --locked toolalign validate tests/fixtures/contracts/example.json
 
 ## 开源与部署状态
 
-当前公开仓库为 `kris0516/ToolAlign`。规划基线已通过 GitHub 写入并读回验证；Supervisor 接手后仍需在 [项目状态](coordination/PROJECT_STATUS.md) 登记领取信息与后续实现 commit。
+当前公开仓库为 `kris0516/ToolAlign`。Supervisor 已领取项目；[项目状态](coordination/PROJECT_STATUS.md)记录实际提交、独立审查、集成与尚未满足的验收门。
 
 原创代码和文档采用 [MIT](LICENSE)。模型、数据和第三方依赖各自保留原许可，见 [第三方来源与发布边界](THIRD_PARTY_NOTICES.md)。不复制 LiDARFoodAgent 私有源码、真实用户数据或任何云端凭据。
 

@@ -1,0 +1,24 @@
+{
+  "manifest_version": "toolalign.source-lock.v1",
+  "repo_id": "Team-ACE/ToolACE",
+  "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+  "license_id": "Apache-2.0",
+  "access": {
+    "checked_date": "2026-09-06",
+    "gated": false,
+    "authenticated": false
+  },
+  "files": {
+    "README.md": {
+      "size_bytes": 1873,
+      "sha256": "4e82e47712cfdc0bc86b3b0c6b03f5f2f00a1ca54ccfa696276833743c85e460"
+    },
+    "data.json": {
+      "size_bytes": 37154735,
+      "sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e"
+    }
+  },
+  "license_evidence": "README.md YAML license tag; upstream tree has no separate LICENSE file",
+  "publication_scope": "Original code and aggregate metadata only; raw or normalized corpus is private",
+  "attribution": "Team-ACE, ToolACE: Winning the Points of LLM Function Calling (2024), arXiv:2409.00920"
+}

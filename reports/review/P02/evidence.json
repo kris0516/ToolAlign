@@ -1,0 +1,1274 @@
+{
+  "task": "P02-review-r1",
+  "reviewer": "R1",
+  "technical_verdict": "PASS",
+  "p0": [],
+  "p1": [],
+  "p2": [],
+  "p02_and_g_data_status": "PENDING_KRIS_REVIEW_AND_S0_INTEGRATION",
+  "candidate": "b0d8d83750c48cd951c16b50cfa28a7898976e72",
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "review_authorization": "c44739ac1e2fe282f5f51f80c5ea099687051ff3",
+  "sync_authorization": "f2a271be616cdb53c01e8d671029f31ae140c037",
+  "tested_worker_merge": "9bbd7d732cb9f84be2f1ca065beed9c9178801bc",
+  "data_build_implementation": "9be07a5b88d1dac1a6e1fea30358af1049b1119a",
+  "review_branch": "review/p02-r1",
+  "configured_model": "gpt-6-astra",
+  "configured_thinking": "max",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1",
+    "toolalign.source_toolace.v1"
+  ],
+  "scope": "Full 40-file P02 diff versus sync authorization, including old implementation; candidate 167 tracked files unchanged.",
+  "tests": {
+    "current_cpu_passed": 298,
+    "current_cpu_skipped": 0,
+    "real_tokenizer_tests_included": 17,
+    "new_original_counterexamples_passed": 40,
+    "total_disjoint_test_cases_in_two_invocations": 338,
+    "default_core_passed_overlapping": 163,
+    "default_core_optional_skips": 17,
+    "historical_57_extra_snapshot_tests_reused_or_changed": false
+  },
+  "commands": [
+    {
+      "name": "cpu-sync",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:31:32.530891+00:00",
+      "ended_at": "2026-09-06T01:31:32.549510+00:00",
+      "sha256": "91597704bc5423f7afefaab3d3c5ab7d38c8be9f1d71cf184914e6ec7d31d837",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "tokenizer-venv",
+      "command": [
+        "uv",
+        "venv",
+        "--python",
+        "3.14",
+        ".toolalign-local/review-p02/tokenizer-env"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:31:32.616651+00:00",
+      "ended_at": "2026-09-06T01:31:32.624531+00:00",
+      "sha256": "d45e67906cfcd3e42a43f6f2c81fc9461380bc2415cccbabe2512f06313c882e",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "tokenizer-install",
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--cache-dir",
+        ".toolalign-local/review-p02/uv-cache",
+        "--python",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-r",
+        "reports/data/tokenizer-audit-environment.txt"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:31:38.831862+00:00",
+      "ended_at": "2026-09-06T01:31:40.554424+00:00",
+      "sha256": "e63c1b3e2eddb349289477e5e333d185b1abac54a7e3e9fc27885868ea9f18f0",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "cpu-default",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:31:48.209201+00:00",
+      "ended_at": "2026-09-06T01:31:49.964705+00:00",
+      "sha256": "39a99322756e64d756472c514ddc78755641dfa7901cd4079a322ccda18dd6d0",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "cpu-tokenizer",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOOLALIGN_TOKENIZER_DIR=<D1_PRIVATE_ROOT>/source/qwen",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_adversarial.py",
+        "reports/review/P00/test_adversarial_r2.py"
+      ],
+      "exit_code": 4,
+      "started_at": "2026-09-06T01:32:43.367593+00:00",
+      "ended_at": "2026-09-06T01:32:43.688574+00:00",
+      "sha256": "93cad389d9ae5f56d2e9698e3febf14758b5cb7ac9e4404a83ed92078b525b51",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true,
+      "reviewer_harness_failure_explanation": "Reviewer invoked nonexistent historical test filenames; exit 4, zero tests. Correct filenames passed 298 tests."
+    },
+    {
+      "name": "cpu-tokenizer-corrected",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOKENIZERS_PARALLELISM=false",
+        "TOOLALIGN_TOKENIZER_DIR=<D1_PRIVATE_ROOT>/verified-source/qwen",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:32:57.596365+00:00",
+      "ended_at": "2026-09-06T01:33:02.070853+00:00",
+      "sha256": "a779b841d89a47c095c6de0ec44d00ae401f7a0e0a17aa97c0bdc3a411e62c76",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "independent-counterexamples",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P02/test_independent.py"
+      ],
+      "exit_code": 2,
+      "started_at": "2026-09-06T01:35:38.263879+00:00",
+      "ended_at": "2026-09-06T01:35:38.445626+00:00",
+      "sha256": "adec6a0b6bf2f1a7d999c91eafcff1488957a591c70093b132e0476d4a83838c",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true,
+      "reviewer_harness_failure_explanation": "Reviewer original test file had an unterminated string; collection exit 2. Fixed only new reviewer test and reran 40 passed."
+    },
+    {
+      "name": "independent-counterexamples-corrected",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P02/test_p02_boundaries.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:35:52.560536+00:00",
+      "ended_at": "2026-09-06T01:35:52.826111+00:00",
+      "sha256": "2ab79feebcb72c3b3eb8a53d5d7916cd834c221a2e7c943c0de5cfd7d3b4d20e",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "review-lint-initial",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "reports/review/P02"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:42:34.380402+00:00",
+      "ended_at": "2026-09-06T01:42:34.407188+00:00",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "candidate-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:42:52.335279+00:00",
+      "ended_at": "2026-09-06T01:42:52.361823+00:00",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "contract-freeze",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:42:52.348652+00:00",
+      "ended_at": "2026-09-06T01:42:52.379272+00:00",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "source-boundary",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:42:52.364597+00:00",
+      "ended_at": "2026-09-06T01:42:53.563756+00:00",
+      "sha256": "fa46036763aaeaa49eaadf707ca303cd79a39ac54e843d15934a5f9a3febc24e",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "real-artifact-audit",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOKENIZERS_PARALLELISM=false",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02/audit_real_artifacts.py",
+        "<D1_PRIVATE_ROOT>",
+        ".toolalign-local/review-p02/artifact-audit.json"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-09-06T01:42:51.166555+00:00",
+      "ended_at": "2026-09-06T01:43:41.453276+00:00",
+      "sha256": "3ab1ca1e2ba5491b5c3ddafa49a1182855617959e6fdc358c3e03a8425c5f295",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true,
+      "reviewer_harness_failure_explanation": "Reviewer required identical HTML JSON key display order versus sorted-key JSONL. Corrected to strict JSON decoding and canonical bytes, preserving values and numeric types; final audit passed."
+    },
+    {
+      "name": "package-build",
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:44:48.380831+00:00",
+      "ended_at": "2026-09-06T01:44:48.729563+00:00",
+      "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "isolated-wheel-install",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P00/verify_wheel.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:45:23.006111+00:00",
+      "ended_at": "2026-09-06T01:45:24.407351+00:00",
+      "sha256": "f116a443c64367b8688e49c72243b21917169f1af8c7e208d2acb85d4d9b8047",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "real-artifact-audit-corrected",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOKENIZERS_PARALLELISM=false",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02/audit_real_artifacts.py",
+        "<D1_PRIVATE_ROOT>",
+        ".toolalign-local/review-p02/artifact-audit.json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:45:22.996027+00:00",
+      "ended_at": "2026-09-06T01:46:15.926993+00:00",
+      "sha256": "025fecd03b25618b208cbc6043fe039d7ad8c2dda6688596b739609fc5a3e812",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "real-artifact-audit-final",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOKENIZERS_PARALLELISM=false",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02/audit_real_artifacts.py",
+        "<D1_PRIVATE_ROOT>",
+        ".toolalign-local/review-p02/artifact-audit-final.json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:49:21.523147+00:00",
+      "ended_at": "2026-09-06T01:50:14.783621+00:00",
+      "sha256": "aa3621dc2f795a081b6c037786c138b4792a277b8f61491ca6f8725e480c59aa",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "review-lint-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "reports/review/P02"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:57:55.226481+00:00",
+      "ended_at": "2026-09-06T01:57:55.249588+00:00",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "core-environment",
+      "command": [
+        "uv",
+        "pip",
+        "list",
+        "--python",
+        ".venv/bin/python",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:57:55.240790+00:00",
+      "ended_at": "2026-09-06T01:57:55.268861+00:00",
+      "sha256": "6a95fa9e03f931d459ef548ee4c10cd812993ebb320881b15def0a3f6071cddb",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "evidence-metadata",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02/audit_evidence_metadata.py",
+        "<D1_PRIVATE_ROOT>",
+        ".toolalign-local/review-p02/evidence-metadata.json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:57:54.063548+00:00",
+      "ended_at": "2026-09-06T01:57:55.280329+00:00",
+      "sha256": "82da584ddaa9a86b54230c61124229be89a143b171716634af92b269fa72a3a3",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "data-cli-help",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "toolalign.data",
+        "--help"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T01:57:55.256002+00:00",
+      "ended_at": "2026-09-06T01:57:55.325431+00:00",
+      "sha256": "8b4d9d0f1ab206691f2448f39d00d91eb957ef040131acfa11b6fc59591a1e34",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "real-artifact-audit-type-exact",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        "TOKENIZERS_PARALLELISM=false",
+        ".toolalign-local/review-p02/tokenizer-env/bin/python",
+        "reports/review/P02/audit_real_artifacts.py",
+        "<D1_PRIVATE_ROOT>",
+        ".toolalign-local/review-p02/artifact-audit-type-exact.json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T02:05:20.759455+00:00",
+      "ended_at": "2026-09-06T02:06:11.482646+00:00",
+      "sha256": "aa3621dc2f795a081b6c037786c138b4792a277b8f61491ca6f8725e480c59aa",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "final-lint",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T02:16:51.393682+00:00",
+      "ended_at": "2026-09-06T02:16:51.418144+00:00",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "public-staged",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T02:16:51.541559+00:00",
+      "ended_at": "2026-09-06T02:16:53.845467+00:00",
+      "sha256": "a1b028a00bc5b0948702a13c571a0891f2b2e9b47dce209eda98bb9c6c427603",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "scope-final",
+      "command": [
+        "python3",
+        ".toolalign-local/review-p02/check_final_scope.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T02:18:40.596130+00:00",
+      "ended_at": "2026-09-06T02:18:42.131782+00:00",
+      "sha256": "f64a971d66471d84d535a63dfaeefb7b003b438260b9c136752b89850b481252",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    },
+    {
+      "name": "public-final",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-09-06T02:19:13.610014+00:00",
+      "ended_at": "2026-09-06T02:19:16.593451+00:00",
+      "sha256": "a1b028a00bc5b0948702a13c571a0891f2b2e9b47dce209eda98bb9c6c427603",
+      "command_private_prefixes_substituted": true,
+      "exact_private_command_retained": true
+    }
+  ],
+  "raw_r1_log_count": 26,
+  "private_log_index_sha256": "8108ab03130d822c7e972cb4590eb31eadb238d9e94afa21560d0166204d342e",
+  "reviewer_probe_sha256": {
+    "audit_evidence_metadata.py": "a0bc4ea38cd4658bc8bd1c260bebdb76d762c56ec37e6198d6557292dc37e020",
+    "audit_real_artifacts.py": "9222f0e5dd5ad1045daa6800daa10633be4607d64360088947cd3de8e3d3a3df",
+    "test_p02_boundaries.py": "63ef4ffea29012cb0c4584827844f5b738b12b6f25f3ddcd90f02a664e76d31b"
+  },
+  "private_result_sha256": {
+    "independent_artifact_audit": "513ec26341e61db82d1274d9622cf0c6651b855d65ab832c4552c8d88cd4bebc",
+    "evidence_metadata_audit": "75d3e8acb3a3de6f634f4adf4d30fe1e031e05034bf471062e259e7e7488e4d1",
+    "browser_observation": "4252f78fbdff8230abe6bf9d375d64119033841813859d711b5b136673b0b929",
+    "manual_correspondence_checks": "8ecf2426d1cb43c32934751db0c61ae8330cf4c19689292d52fc430e9ff84947"
+  },
+  "retained_initial_reviewer_probe_sha256": {
+    "initial-counterexamples.py": "aa84740454a7fae6fad36a022bd9f0f0cf78dd7fdf5ea15361d0cc463feeb9f3",
+    "artifact-audit-initial.py": "3d2e51b2259c2cc3cdd47cf548c907f16178a8eedcaca10e5d85933fa9a77de1"
+  },
+  "not_run": [
+    "kris semantic acceptance",
+    "G-DATA approval",
+    "training manifest/serialization/window binding",
+    "data augmentation, preference mining, SFT/DPO",
+    "BFCL and formal evaluation",
+    "model loading/inference/GPU/serving",
+    "model or data uploads",
+    "P01/P03 full reviews",
+    "new full-corpus builds",
+    "new HF reference environment or HF API collector execution",
+    "all old strict 14 artifact files re-read",
+    "prior failed private archive or detailed failure log read/extraction",
+    "fresh upstream HTTP confirmation after web URL policy refusal",
+    "final GitHub CI/main merge/integration"
+  ],
+  "assembled_at_utc": "2026-09-06T02:20:17.319063+00:00",
+  "independent_artifact_audit": {
+    "all_113_over_2048_included": true,
+    "artifacts_both_builds": {
+      "annotation-examples.json": {
+        "bytes": 2629,
+        "sha256": "f16a06a417bfcbff29b63d12c82d02a1c44fa964c0d3e89e19b89ccf5991eb07"
+      },
+      "assignments.jsonl": {
+        "bytes": 9078787,
+        "sha256": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db"
+      },
+      "examples.jsonl": {
+        "bytes": 37733212,
+        "sha256": "d45c815e9b775249c642cd3c9f624c28e7ab6505425cd6c009bfb06402c8f21f"
+      },
+      "human-review/exclusion-samples.jsonl": {
+        "bytes": 146129,
+        "sha256": "b3b1a2f04bda68a50f852553bd0a79ceab910ac818d77e6a70e2f91d85eeb03b"
+      },
+      "human-review/index.html": {
+        "bytes": 4961769,
+        "sha256": "6193aa5da4a5dd4a5293472dd424ed1839e954d79d8d79afe524cd830b1dea8a"
+      },
+      "human-review/manifest.json": {
+        "bytes": 3916,
+        "sha256": "cf82d8f9a5848c3cae0069d27a7549f385aabfdc4586a5de343795795883162c"
+      },
+      "human-review/review.csv": {
+        "bytes": 83470,
+        "sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb"
+      },
+      "human-review/samples.jsonl": {
+        "bytes": 2901799,
+        "sha256": "d8a608ba59fa375762aca65412f76fbef29046897b9e546c359bdccc3de62033"
+      },
+      "lineage.jsonl": {
+        "bytes": 32684402,
+        "sha256": "3f6a8db88a77b6df02c58c538471bbfb157a3fd9655c6a79160c0ae345a38f5c"
+      },
+      "normalized-group-conflicts.jsonl": {
+        "bytes": 7357,
+        "sha256": "e10f987d7e8ae6f59fe05a8afdf2db34662e50362502345bb2596cfcdeade158"
+      },
+      "ood_test.jsonl": {
+        "bytes": 897216,
+        "sha256": "54320e6ac2a6385ca2ef336fbc36e0837889cc5c057724b45fb3b73ab9b85228"
+      },
+      "report.json": {
+        "bytes": 9412,
+        "sha256": "6afe5653b2207eeafe772b57a9a6027d465e2a8aa2046c915a14a1b3b97beb8c"
+      },
+      "source-index.jsonl": {
+        "bytes": 52596556,
+        "sha256": "13e0a315332d8a0199009f5c8b5d9bf810f720d9716d652d9bc5c34ea0f1893b"
+      },
+      "test.jsonl": {
+        "bytes": 780160,
+        "sha256": "d8050f10d7adcc38bdcae1ac0c71eb9a4b95209598d4fd15cec17a785cd8c601"
+      },
+      "tool-lineage.jsonl": {
+        "bytes": 73039876,
+        "sha256": "3b5a673834bb570479186dc929370ea057b5e4b21c0431f40230debdfe5a7111"
+      },
+      "tool-quarantine.jsonl": {
+        "bytes": 276857,
+        "sha256": "36c4d7839c0bbe8ba0482aaf434994d149c55cbd6bdf4d4a46b110ac4748931f"
+      },
+      "train.jsonl": {
+        "bytes": 35229119,
+        "sha256": "9c0215f0b91d1774042273f4377a3aac942fa26249d76820597eed9044e870e0"
+      },
+      "validation.jsonl": {
+        "bytes": 826717,
+        "sha256": "c336bfc58d521aee499c2522bca75fa6c6e4ea356cf34856832ae768a34e9c8b"
+      }
+    },
+    "candidates": 8314,
+    "converted_tool_occurrences": 31822,
+    "effective_key_split_intersections": 0,
+    "examples_with_independently_rebuilt_targets_and_prefixes": 8228,
+    "field_lineage_before_after_values_verified": true,
+    "final_examples": 8228,
+    "final_splits": {
+      "ood_test": 264,
+      "test": 215,
+      "train": 7515,
+      "validation": 234
+    },
+    "human_review": {
+      "all_human_fields_blank": true,
+      "decisions": 114,
+      "distinct_sources": 100,
+      "escaped_pre_sections": 500,
+      "identity_hash": "b7878f5ced14bdaa69f4cbbbffef177e2912625a411858e348cfef6b9b91590c",
+      "semantic_verdicts_by_kris": 0,
+      "status": "PENDING",
+      "strata": 34
+    },
+    "independently_parsed_prefix_calls": 632,
+    "independently_parsed_target_calls": 15073,
+    "independently_reconstructed_excluded_exact_duplicates": 33,
+    "largest_group": 6716,
+    "length_basis": "qwen3_non_thinking_concat_one_eos_v1",
+    "manifest_hash": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+    "near_semantic_recall": "NOT_EXHAUSTIVE",
+    "normalized_bridge_keys": 11,
+    "normalized_bridge_sources": 64,
+    "original_groups": 3517,
+    "post_excluded": {
+      "exact_example_duplicate": 33,
+      "normalized_schema_crosses_original_groups": 53
+    },
+    "pre_excluded": 5505,
+    "raw_decisions": 13819,
+    "real_decisions_independently_retokenized": 226,
+    "sources_with_all_calls_checked_against_narrowed_schema": 7662,
+    "status": "R1_INDEPENDENT_AUTOMATED_INTEGRITY_PASS_NOT_HUMAN_SEMANTIC_APPROVAL",
+    "training": "NOT_RUN",
+    "transformation_denominators_verified": [
+      "unique_tool",
+      "tool_occurrence",
+      "source_record",
+      "assistant_decision"
+    ],
+    "typed_default_annotations": 5282,
+    "verified_tool_transformations": 16650
+  },
+  "evidence_metadata_audit": {
+    "status": "PASS",
+    "candidate": "b0d8d83750c48cd951c16b50cfa28a7898976e72",
+    "review_authorization": "c44739ac1e2fe282f5f51f80c5ea099687051ff3",
+    "sync_authorization": "f2a271be616cdb53c01e8d671029f31ae140c037",
+    "candidate_tracked_files_unchanged": 167,
+    "complete_p02_diff_files": 40,
+    "python": "3.14.7",
+    "packages_exactly_pinned": {
+      "rpds-py": "2026.6.3",
+      "click": "8.5.0",
+      "packaging": "26.3",
+      "iniconfig": "2.3.0",
+      "pygments": "2.21.0",
+      "jsonschema-specifications": "2025.9.1",
+      "hf-xet": "1.6.0",
+      "jsonschema": "4.26.0",
+      "httpcore": "1.0.9",
+      "fsspec": "2026.7.0",
+      "huggingface-hub": "1.30.0",
+      "h11": "0.16.0",
+      "pyyaml": "6.0.3",
+      "idna": "3.19",
+      "certifi": "2026.7.22",
+      "jinja2": "3.1.6",
+      "referencing": "0.37.0",
+      "markupsafe": "3.0.3",
+      "tqdm": "4.70.0",
+      "pluggy": "1.6.0",
+      "attrs": "26.1.0",
+      "httpx": "0.28.1",
+      "typing-extensions": "4.16.0",
+      "filelock": "3.32.5",
+      "tokenizers": "0.22.2",
+      "anyio": "4.15.1",
+      "pytest": "9.0.2"
+    },
+    "package_count": 27,
+    "model_libraries_available_or_loaded": [],
+    "provenance": [
+      {
+        "repo_id": "Team-ACE/ToolACE",
+        "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+        "license_id": "Apache-2.0",
+        "api_sha256": "e6e4f774df98f383f0df2ca425d402597f6c806ee73cda038b2619381b07ad92",
+        "access_sha256": "e4a08a00ae12b6aad2b2c3dd052d1395685e89c46fd1fe5bedcdf68b168bd261",
+        "observed_at_utc_by_downloader": "2026-09-05T22:46:11.557893+00:00",
+        "gated_at_recorded_access": false,
+        "authenticated": false,
+        "files": {
+          "README.md": {
+            "size_bytes": 1873,
+            "sha256": "4e82e47712cfdc0bc86b3b0c6b03f5f2f00a1ca54ccfa696276833743c85e460"
+          },
+          "data.json": {
+            "size_bytes": 37154735,
+            "sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e"
+          }
+        },
+        "fresh_upstream_http_check": "BLOCKED_BY_WEB_URL_POLICY_NOT_RETRIED"
+      },
+      {
+        "repo_id": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "license_id": "Apache-2.0",
+        "api_sha256": "3867400b9368c002e17372a681b0a7a042c6639fd466f26e4255da251e49dd7f",
+        "access_sha256": "d0fd0c16875c6cb7bf7e579ebe5a3f92f80ab558185dc7bd7b2337f31098b2f4",
+        "observed_at_utc_by_downloader": "2026-09-05T22:46:54.701976+00:00",
+        "gated_at_recorded_access": false,
+        "authenticated": false,
+        "files": {
+          "LICENSE": {
+            "size_bytes": 11343,
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+          },
+          "tokenizer.json": {
+            "size_bytes": 11422654,
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+          },
+          "tokenizer_config.json": {
+            "size_bytes": 9732,
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+          }
+        },
+        "fresh_upstream_http_check": "BLOCKED_BY_WEB_URL_POLICY_NOT_RETRIED"
+      }
+    ],
+    "worker_log_records": [
+      {
+        "label": "checkpoint-build-a",
+        "exit_code": 0,
+        "log_sha256": "329292bd1ac4763cbc555e2c863f0ed53cc414d7e0e1a557b5e8fd175e9a6150",
+        "metadata_sha256": "47f404898a619154bce51c8813ba14052c7a4716edc9e8d35b8649f9f7f06578",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-build-b",
+        "exit_code": 0,
+        "log_sha256": "329292bd1ac4763cbc555e2c863f0ed53cc414d7e0e1a557b5e8fd175e9a6150",
+        "metadata_sha256": "90c1020df5cb9b322055e8b8121077f49ade69ed0c8db946d64e65b3cff9a20f",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-cli-help",
+        "exit_code": 0,
+        "log_sha256": "8b4d9d0f1ab206691f2448f39d00d91eb957ef040131acfa11b6fc59591a1e34",
+        "metadata_sha256": "238f3adf17aa40b531b85acbf2db2271e1d68b8b63259c42122668cf087866db",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-compare",
+        "exit_code": 0,
+        "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+        "metadata_sha256": "b5fb322d156ed98ac5f2ee1ababac6933816026db8cee0f8b031ce28e19931c6",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-contract",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "metadata_sha256": "65e45d00d2bb6a810884dffd55c43b152bbb303b674c6c7d2385b8560aa1aad4",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-data-tests",
+        "exit_code": 0,
+        "log_sha256": "386dd32ab13a154801261b8de0e1e671c8a805e8814ac7cf488ced53ce79dfac",
+        "metadata_sha256": "101ed9c5cfed783a4a426f187a823f1f314fa92fb881cdab11fc84d057cdb080",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-fetch-tokenizer",
+        "exit_code": 0,
+        "log_sha256": "a3050bdf808b1624fea74602bb60966a66c160c9d4cf149996642f277c94d7f2",
+        "metadata_sha256": "2979ce3b0edfeefbf6f741a17f18d2f2f1ea52b3a7ff85e711cbb714a26a6f45",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-fetch-toolace",
+        "exit_code": 0,
+        "log_sha256": "9e74d67385e4b5c0ba80903eb6c88d9750813b129ee19cc1a35157ecbe964246",
+        "metadata_sha256": "ab8c99302979ae26c4cbf2bb74c3a3ed51f00baf614f41954be738a2e8136615",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-public-final",
+        "exit_code": 0,
+        "log_sha256": "c66d2f8b0fd69d595b41b45db5178b59807fa1873171bb0a18993378c42df877",
+        "metadata_sha256": "22eea5ccd96a87023421d46558715a1a72b91d0885ade116b9227d8954517f81",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-public",
+        "exit_code": 0,
+        "log_sha256": "35e5e041f036334e9917af1ed245a07517880e67239e369eba9923ef9e9b637d",
+        "metadata_sha256": "bc531b8d881b216f4b4ea70e15ae19b95eb380b6771d64c13b1f8f705723d127",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-pytest",
+        "exit_code": 0,
+        "log_sha256": "fd987edbfd540286ecc5d523d58a957bfc79666fd8ed5ff25e594b3cf4338113",
+        "metadata_sha256": "819c48055a3bf48c7d9d236946273e3d84f397f45472167f5168ec323d601279",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "checkpoint-ruff",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "metadata_sha256": "08d229e4f60a2328752869b8c20258d7d664aed0d071e81a1b64fbd01d7696fc",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-comparison",
+        "exit_code": 0,
+        "log_sha256": "b5fda279bd43624869df38b3db8c19800181698e799e387627fc3f18383b2ed7",
+        "metadata_sha256": "e6cf2db951191ef310fb3da68f395986714b9f6640be6827ea34969071f4dd91",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-contract",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "metadata_sha256": "f5cf84d6a1a630ab6a5f0fd8a15f2fe3b00a6cf26dfa13223394a2ef0ca3df11",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-core-tests",
+        "exit_code": 0,
+        "log_sha256": "05f6c64571aaa04d70617797000163efccb56ebc8511a129dc1a9667dbe3b928",
+        "metadata_sha256": "5de869f4f72e7cae6bb36de499bf7111ccb8a722123ec3fb9b6473681334bfef",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-hf",
+        "exit_code": 0,
+        "log_sha256": "fdb95112ce90efc5b10a5ff161b101c97d4455691941d5341f012aca15426764",
+        "metadata_sha256": "57dee7e1817b9b1cc383f96a14947745db407da64a431a6895632aa20c099c7f",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-local",
+        "exit_code": 0,
+        "log_sha256": "2896e077981698587c6181640df3800dd6a16a35026156f2589fe9d1dcbe927f",
+        "metadata_sha256": "9f909e08552bb1152626d4ae6969153ee91a02febcd820934b5338e129d7513c",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-preserve-old-r2",
+        "exit_code": 0,
+        "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+        "metadata_sha256": "d9d0ddc4e6fd3be6d1183137c65bfd778b5de3521d812205910da11c11958f6d",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-preserve-old",
+        "exit_code": 0,
+        "log_sha256": "4fe0d460508c2d18b8c3511c6ba290fa71620995d267357feaf18c4ffd10d3cc",
+        "metadata_sha256": "131c45eefb4e01c9a2a723d01eaeaae23f033b476d18f4ae7c48bfd9d4f0621b",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-public-final",
+        "exit_code": 0,
+        "log_sha256": "104d8b7baa996c9a38853189842a7033cded0591bbf355d6ab055ce33146a3be",
+        "metadata_sha256": "d1dae893cde4c299342bf123668cad890ffbc19d13aeda2c0fc26f5b1693ac16",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-real-tests-r2",
+        "exit_code": 0,
+        "log_sha256": "2fce1a9f4ba0a41fa33316b4a7f9d6a30c782465fc66069a34ca6b11f742d2d2",
+        "metadata_sha256": "6fba3e9e1b90424cc3fe033c74afc186221c76d53e5eacc6c6781dff9189c8d3",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-real-tests",
+        "exit_code": 0,
+        "log_sha256": "66df3c025e772e227531378d38d15f9c07823fd1c095312be3847a44ca27481f",
+        "metadata_sha256": "cb7726444e40cf132d61ebc2e1b8ada4f8beddbd10a6cc5f30ac18d37c4699b2",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-ruff-r2",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "metadata_sha256": "6ace6f4f3fa5145202703fe9139b793ab54bd7010894d0de3058c356b81f5d53",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "tokenizer-ruff",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "metadata_sha256": "8baaa9d9379a1be90a82599e945f0d8a630c14346b06897d74e729e1c0cdaee4",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-final-core",
+        "exit_code": 0,
+        "log_sha256": "4edc37381843c379b997542e4ecf1bf7a48f6716ae825414f86b7b38365fbe08",
+        "metadata_sha256": "9a481047825ace58aa701ac5465e614ac0aa7c8da0e783f69866e22cbd9de8a5",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-final-cpu",
+        "exit_code": 0,
+        "log_sha256": "c3e755ca9ce022f33655283bb9a32f99a5add6cc0ce597b6966c110d79a6d8ed",
+        "metadata_sha256": "5ad28d8a4762bb217f2e2331751dab7228cf2c99886f5a0fdc0ffa83ca746a54",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-final-ruff",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "metadata_sha256": "6b741c98d980e7a91aa202b061272db00851638c777485e84e58054eaab0bd87",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-final-freeze",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "metadata_sha256": "74cc5b5e314520c7cee67c6b97d03669976e212a0a0b3678fb0a1f48bcb9bb23",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-wheel-only",
+        "exit_code": 0,
+        "log_sha256": "80e16a0917ab4f1a266a0da6b5103979a00ae1febef9f131007c81086f91a859",
+        "metadata_sha256": "d49e826c532def9a334824680d06a08acbd5ab5c8fc807b929fa584e445f6656",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-build-a",
+        "exit_code": 0,
+        "log_sha256": "cf219eed695c71643022267271551e1a52399dbea372307784190cc31ece589b",
+        "metadata_sha256": "a0c152cc70fca0f8432954ca09ad78854137949c2beb437fb8e7251eda7fefda",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-build-b",
+        "exit_code": 0,
+        "log_sha256": "cf219eed695c71643022267271551e1a52399dbea372307784190cc31ece589b",
+        "metadata_sha256": "0c45c55cc2574dd44a93659771c48eb990c1ecdf0afd7d2038423ecc72e33a8a",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-compare-r2",
+        "exit_code": 0,
+        "log_sha256": "dfb71e8a3660e4b535c18ee5faa7783e6116860c461ea99014bae996b4b305d0",
+        "metadata_sha256": "5c1554137d390609a20fb49b717e3700f4197d8e07a765d85be87c4583b39485",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-integrity",
+        "exit_code": 0,
+        "log_sha256": "4a55e7eaba95cfa9fd2898cef97d224a2320f6bec167ab5550090ec36774f47b",
+        "metadata_sha256": "8def8745d4cb74aee2d4ac326a56c6a2d7ea097ea262242779798ba3b836100c",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-final-public",
+        "exit_code": 0,
+        "log_sha256": "7d8ae7f38be43e923ac84e4e98386748005708e6eb4b7a88a056a27a10afbb9c",
+        "metadata_sha256": "50aa6c699cf187cf05cd26a4439c0b5753023a064ee9fca7de1dbcd1718fe5e0",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-precommit-cpu",
+        "exit_code": 1,
+        "log_sha256": "97a8e7654c8473b373f7d32bda8875fe4aaea98a9dff3ac8b76227fb097f2477",
+        "metadata_sha256": "68495cc97cddc0336bbc604e451aff0166ae96c3bbedc38f910cc6da0e9a0d7e",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "policy-wheel",
+        "exit_code": 2,
+        "log_sha256": "80f8d5204516e15a775f58318f1babc7abe4475c447f8b9e06ae995b44160433",
+        "raw_log_verified_here": false,
+        "reason": "prior restricted failed-archive evidence; not read or extracted"
+      },
+      {
+        "label": "policy-compare",
+        "exit_code": 2,
+        "log_sha256": "53e3d19754f6e069f07170f160d937d5592f57bde588449d440e60c1ae0d1284",
+        "metadata_sha256": "e196fcc3779e5df0bd3595835a8e405e9976ad8f38a32284f101f03794c25f4d",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-preflight",
+        "exit_code": 0,
+        "log_sha256": "33e44b05ac18773085627956594d5387a171ab3005473d7bc037a8d09ec1db8e",
+        "metadata_sha256": "04c0ca6af01aff8d611d3d5ba7f4b1c00ba933a5f642b9fabf8522b3af2cadf4",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-sync",
+        "exit_code": 0,
+        "log_sha256": "bb8bc16f1dca49f1c920035479617ececc4c881448a08d777e1a140c44bc35e1",
+        "metadata_sha256": "6374fa604a14c7b49996a1c5e0efb265e4887039c6d1a8541f3333f5565c55ea",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-core",
+        "exit_code": 0,
+        "log_sha256": "5d7b3b55b0a7ff1d0b3e8c552e5af1f2b6d51e847e1b6a93ad30901bf8a8a556",
+        "metadata_sha256": "e150a29b77a5f48b8f34253f4f78c85a5c5c0e4e1f027ac5d2ac084f4d9c40b4",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-cpu-tokenizer",
+        "exit_code": 0,
+        "log_sha256": "900f507dcbea077dd1fef513ff350e8c1609476d943e05758992f23cd1f96ef8",
+        "metadata_sha256": "d2dd83b08f4fa390f8d30fbb622149d22e2e80679695f31cc344ff561ee5fb94",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-source-canaries",
+        "exit_code": 0,
+        "log_sha256": "ed29958888158ebbdb90bbb15eac534d34468e439fe55497e0f7e941d5c875ab",
+        "metadata_sha256": "d193feed3e9dc0cdcf60c6a2b5557e718d94fe02d288ff0c3e84cf4a589f6092",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-r3-boundaries",
+        "exit_code": 0,
+        "log_sha256": "b84e255ba28081a6556b77f2fee85652c734f564ced6e06cbf615ab87161a37b",
+        "metadata_sha256": "a3b83c296bb073043d9cf31ba19b0b266067c52cd7ebf4767e2854ab3daa4839",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-build",
+        "exit_code": 0,
+        "log_sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+        "metadata_sha256": "d8c2f1a87f323ccce7d8d352849b2adfd8b784557cf43f850eddac59b42b7cee",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-wheel-install",
+        "exit_code": 0,
+        "log_sha256": "f116a443c64367b8688e49c72243b21917169f1af8c7e208d2acb85d4d9b8047",
+        "metadata_sha256": "8e8898af52cd8080b818f516a7646d6a1a4fe16e0eaffe8cf949b030af1a78bb",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-archive-bytes",
+        "exit_code": 0,
+        "log_sha256": "2e52810f7553bd2b664df67d853f365acbcd9e70f27d974ba82e28ebe4ad5885",
+        "metadata_sha256": "15fe0f78fee91a0aeafad40ef302052e68b846dfeee6b95d45de675720ac0b86",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-preservation",
+        "exit_code": 0,
+        "log_sha256": "4b6ce947b96eefd26b6669d43914c5e47f03471caa69eeb4c1a2435eb5d2faec",
+        "metadata_sha256": "8a1e019dc338e4c535e2ae12376ff94e11114c5330e1cce4f5a4dd410cc9b440",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-ruff",
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "metadata_sha256": "507d008d902681bcefb5067e83564a8ff6e6c72bec2d8417fe3093df472c10de",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-freeze",
+        "exit_code": 0,
+        "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+        "metadata_sha256": "7d81c675835d66e4e2b7d9b91bddc926b40c6b8963bf6ad005e934fac89b90e2",
+        "raw_log_verified_here": true
+      },
+      {
+        "label": "base-r2-public",
+        "exit_code": 0,
+        "log_sha256": "3fa20bfcc1706e4230b9c04ee7b2a80a19ea30f0015c5406775ea4c8da5af449",
+        "metadata_sha256": "a64550e1390cd90a988c4f2387a6527f4e19aab147b299b7b4d17c6628f42de7",
+        "raw_log_verified_here": true
+      }
+    ],
+    "verified_worker_logs": 49,
+    "prior_private_archive_and_detailed_log": "NOT_READ_NOT_EXTRACTED",
+    "two_worker_builds": [
+      {
+        "label": "policy-build-a",
+        "started_at_utc": "2026-09-05T23:46:47.192637+00:00",
+        "elapsed_seconds": 127.81092524994165,
+        "exit_code": 0,
+        "git_head": "9be07a5b88d1dac1a6e1fea30358af1049b1119a",
+        "log_sha256": "cf219eed695c71643022267271551e1a52399dbea372307784190cc31ece589b"
+      },
+      {
+        "label": "policy-build-b",
+        "started_at_utc": "2026-09-05T23:51:32.148463+00:00",
+        "elapsed_seconds": 128.54423745791428,
+        "exit_code": 0,
+        "git_head": "9be07a5b88d1dac1a6e1fea30358af1049b1119a",
+        "log_sha256": "cf219eed695c71643022267271551e1a52399dbea372307784190cc31ece589b"
+      }
+    ],
+    "reviewer_full_corpus_builds": 0,
+    "strict_zero_checkpoint_preserved": true,
+    "original_assignment_bytes_preserved": true,
+    "worker_reference_tokenizer_evidence": {
+      "cases": 16,
+      "exact_compared_fields": [
+        "example_hash",
+        "prompt_text",
+        "completion_text",
+        "prompt_ids",
+        "concatenated_ids",
+        "sequence_ids",
+        "eos_token_id",
+        "prefix_stable"
+      ],
+      "reference_packages": {
+        "Jinja2": "3.1.6",
+        "tokenizers": "0.23.2",
+        "transformers": "5.16.1"
+      },
+      "reference_reexecuted_by_r1": false
+    },
+    "real_archives": [
+      {
+        "type": "sdist",
+        "bytes": 135139,
+        "sha256": "d7ee2db8d9ce257db9a035adbee389316f4a89d91832494117336e859c84a241",
+        "members": 60,
+        "only_tracked_files_plus_pkg_info": true
+      },
+      {
+        "type": "wheel",
+        "bytes": 51140,
+        "sha256": "78ad37239a3d1023295d2e7a73be19583bcd335a8f50b47ca1cefb61f86b4672",
+        "members": 29,
+        "source_members_equal_candidate": 24
+      }
+    ],
+    "private_review_disk_kib": 79220,
+    "measured_at_utc": "2026-09-06T01:57:55.273010+00:00",
+    "scope_clarifications": [
+      "strict_zero_checkpoint_preserved refers to committed zero report and recorded logs; old strict artifact files were not all re-read",
+      "worker recorded access metadata is verified; no successful fresh upstream HTTP response in this review",
+      "actual normal R1 sdist/wheel inspected; prior failed private-content D1 archive and detailed log not read"
+    ]
+  },
+  "browser_observation": {
+    "status": "PASS",
+    "artifact_sha256": "6193aa5da4a5dd4a5293472dd424ed1839e954d79d8d79afe524cd830b1dea8a",
+    "method": "Codex In-app Browser through CUA; screenshots and read-only rendered DOM",
+    "operations": [
+      "Select in-app browser for loopback URL",
+      "Create hidden temporary tab",
+      "Observe collapsed page screenshot",
+      "Expand first source using accessibility button",
+      "Observe fresh accessibility state and expanded screenshot",
+      "Read DOM structure and width",
+      "Close temporary tab",
+      "Stop loopback server"
+    ],
+    "result": {
+      "csp": "default-src 'none'; style-src 'unsafe-inline'",
+      "details": 100,
+      "sections": 500,
+      "preBlocks": 500,
+      "openRecord": "record-10975",
+      "documentOverflowPixels": 0,
+      "executableScripts": 0,
+      "externalResources": 0,
+      "title": "ToolAlign P02 有效数据人工审阅 · PENDING"
+    },
+    "human_data_modified": false,
+    "raw_screenshots_committed": false,
+    "visual_scope": "Default desktop viewport; instructions and one expanded source; all 500 sections checked separately for exact decoded contents",
+    "transport": "One read-only HTTP route bound to 127.0.0.1; no external resources; server stopped intentionally with interrupt exit 130",
+    "record_type": "R1 observation record, not a screenshot file hash",
+    "not_claimed": [
+      "kris semantic review",
+      "all sections visually inspected",
+      "permanent hosted site"
+    ],
+    "recorded_at_utc": "2026-09-06T01:59:58.380799+00:00"
+  },
+  "manual_correspondence_checks": {
+    "reviewer_role": "R1 technical correspondence check, not kris",
+    "source_indices": [
+      10975,
+      7813,
+      61,
+      9129,
+      511,
+      5989
+    ],
+    "selection": [
+      "typed default",
+      "preserved source time",
+      "multi-turn observations",
+      "long sequence and possible write description",
+      "Chinese escapes and date context",
+      "parallel calls and omitted defaults"
+    ],
+    "checks": [
+      "Raw arguments match converted values and declared types",
+      "Defaults stay annotations",
+      "Time context retained verbatim",
+      "Target is excluded from its input prefix",
+      "Unbound historical write descriptions retain unknown source side effects"
+    ],
+    "pending_semantic_observation": {
+      "source_index": 61,
+      "source_record_hash": "01934139e5914ea2edf537f242acf4fa1b266fc0295241e682f9245f0e8648fc",
+      "source_turn_index": 5,
+      "issue_category": "action_kind / argument_semantics",
+      "note": "The middle tool call follows a conversational comment; human review should determine whether another tool call is appropriate in that context. Source action and conversion agree. No verdict was assigned."
+    },
+    "csv_edits": 0,
+    "accepted_examples_reviewed_by_kris": 0
+  },
+  "core_environment": [
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0"
+    },
+    {
+      "name": "pytest",
+      "version": "9.0.2"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.6.3"
+    },
+    {
+      "name": "ruff",
+      "version": "0.15.0"
+    },
+    {
+      "name": "toolalign",
+      "version": "0.0.1"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED。T1/D1/E1已交付同步后的新完整候选并核验原生空闲；R1正在完整P02技术审查，各包尚待独立验收，P02另需kris实际数据语义审查。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED。P02完整候选获R1技术PASS，S0正在集成；P02/G-DATA仍待kris实际语义审查和训练配置绑定。T1/D1/E1原生空闲，R1已接续完整P01 CPU/历史模型证据审查，P03等待。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,14 +12,14 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；S0-SHARED-02 在 `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385` 合并并验证 |
+| 当前任务/分支 | S0 work/s0-p02-integration，整合P02技术PASS；共享生产base仍为已验证37c00de |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1候选59b3802、D1候选b0d8d83、E1候选79a15d9均已交付/原生空闲；R1正在完整P02技术审查 |
+| 独立实现/reviewer 对话 | T1候选59b3802、D1候选b0d8d83、E1候选79a15d9均已交付/原生空闲；R1正在完整P01审查 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
-| 当前实现 | CPU Python 基础包、数据契约、模块 Protocol、共享 GPU 锁及测试 |
+| 当前实现 | 已验收CPU基础包/契约/GPU锁；P02数据流程技术PASS正在集成，尚未整包验收 |
 | 已验收训练/数据/评测/服务 | 无；P01/P02/P03 候选已交付，均尚无本包验收 |
 | 已运行模型实验 | T1 已报告 0.6B smoke 与 1.7B 长度校准；尚未独立验收，不作为正式 SFT/DPO 结果 |
 | 重 GPU 作业 | P01历史校准已结束，当前未派发新GPU作业；任何后续加载仍须实际取得共享租约 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00自测、R1精确head独立审查、S0合并与main重验均已满足。P01/P02/P03均已同步已验证共享base37c00de、交付新完整候选并核验原生空闲。当前只有R1的P02 CPU技术审查活跃；P01/P03审查范围已准备，必须等前项审查正式结束且S0发送精确候选/授权消息后逐项启动。P02/G-DATA另待kris实际语义审查；三个包均未VERIFIED，P04尚未授权。后续仍最多两个并行实现，不从文档推定运行状态。
+P00自测、R1精确head独立审查、S0合并与main重验均已满足。P02技术PASS不是整包VERIFIED：当前待最终PR5 CI/main集成，以及kris实际语义审查和后续训练配置/manifest/窗口绑定。R1的P02轮次已终止，S0核验IDLE后派发P01并确认原生活跃；P03仍在队列。P04尚未授权，后续仍最多两个并行实现。
 
 ## 恢复入口
 
@@ -48,3 +48,9 @@ P03 精确交接 `85e0905fc82da4504d73bf7eb489c1f1a0d227a7`，实现 `8afb114`�
 已建立[Draft PR5/P02](https://github.com/kris0516/ToolAlign/pull/5)与[Draft PR6/P01](https://github.com/kris0516/ToolAlign/pull/6)。P02精确b0d8d83的[CI34003774338](https://github.com/kris0516/ToolAlign/actions/runs/34003774338)、P01精确59b3802的[CI34003775260](https://github.com/kris0516/ToolAlign/actions/runs/34003775260)，两个Python jobs所有步骤均成功；CI的默认测试范围不等同各worker完整CPU/真实tokenizer或模型验收。R1按S0授权c44739ac1e2fe282f5f51f80c5ea099687051ff3在隔离review/p02-r1审完整P02，已核验原生活跃；P01随后。E1已非强制merge86c5e8a并确认原17交付/63私有证据文件未变，继续CPU/pkg验证。
 
 E1同步验证现已交付完整79a15d990fc27a9a33d033983c94eb92cccfb268，并读回远端相同SHA、核验原生空闲。[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)保留候选待R1；该精确候选的[CI34004701148](https://github.com/kris0516/ToolAlign/actions/runs/34004701148)已核对Python3.11/3.14全部步骤成功。309CPU、实际sdist/重建wheel/追踪字节核对与隔离安装均为E1自测通过；installed scripted demo10/10、20自有进程回收，另四个工具/模型阻塞timeout/cancel检查通过。初版私有归档检查器漏列已追踪.gitignore的失败记录保留，修正未改变公共实现。没有真实MLX/Qwen/P04/P06实验。S0已读取新handoff/report并独立核对原P03源码/测试/交接字节不变。以下实际审查派发以原生终态与消息回执为准，准备任务包不等于已启动。
+
+P02最新技术验收：R1对完整b0d8d83750c48cd951c16b50cfa28a7898976e72给出PASS，P0/P1/P2均0；审查提交8e4fdbd7374130c77262a57e55049f9cef4bf651直接以该候选为父，只新增6个允许的审查文件。338CPU、全部调用/前缀/分组/18产物与226条独立分词通过，详见[正式交接](handoffs/P02-review-r1.md)。S0核对26份R1命令日志、4份私有结果、3份探针hash和原始SHA关系，非强制整合为bcc896e0912dde474f463f0407becbde2989c876；候选src/tests/manifests/公共锁/配置字节未变，待最终CI/PR合并/main验证。
+
+kris人审请求已实际发出，材料为不变的100来源/114决策/34分层，先前冻结表与填写副本均空，尚未收到本人结果。R1新增的浏览器检查已实际完成：说明和一个展开样本可见、无横向溢出，500内容区另以解码值核对；不改写D1历史NOT_VERIFIED，也不声称逐页人工判定。来源61原turn5作为具体语义待决点交kris，不预设误标/通过。P05数值阈值未套用P02。
+
+接续派发：R1在P02正式完成/原生IDLE后，按授权52f9c57a50eaf580a1a90bc5c4b8bd028c83b903收到完整P01候选59b3802c81aa6eceaf3609af88f288756bcb1581，gpt-6-astra/max；原生已确认新一轮活跃。仅CPU、历史模型证据只读，P01/P03仍未验收。
