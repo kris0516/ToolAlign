@@ -189,7 +189,7 @@ ADR-0020主干补记：CPU准备已按原SHA独立审查、普通合并并完成
 
 ## ADR-0021｜原生 GPU 上的固定原创 SFT 数值验证
 
-日期：2026-09-07；状态：ACCEPTED，最终CI/main待完成。原生toy独立R1 67976fd正式PASS/P0/P1/P2均0，原生completed/idle；S0核对最终58,108路径/38原命令及全部数值、来源、封存。普通集成a1c467a实际1084CPU/2 HF-only跳过、新三归档和默认安装7命令/native守卫通过，原候选f7326d1与review SHA保持。原CPU入口KeyError保持；完整P04及人工门槛未完成。原授权与数值范围如下保留。
+日期：2026-09-07；状态：VERIFIED（固定原创数值范围）。P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。[主干证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。原授权与资源上限如下保留；旧CPU入口KeyError与人工/正式模型门槛保持。
 
 S0选择在规划中的MLX GPU设备验证同一小型原创数值问题。新增[P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md)及[精确S0配置](tasks/P04_SFT_NATIVE_TOY_CONFIG.v1.json)，复用旧13例/8词表/64参数初值和SGD0.07，真实运行8+5两次更新、native evaluate和checkpoint保存重载，与独立Torch CPU参考对照；另一次单段13微步的上游尾批丢失作为负例。验证集复用原创样例只检查状态记账，不宣称真实模型质量或泛化效果。
 
@@ -204,3 +204,5 @@ ADR-0021中间证据补记：S0已核对534445b的两次原GPU运行：13例完�
 ADR-0021独立审查已于19:36:51 UTC按完整482f899实际派发，并核验R1新轮ACTIVE；原轮completed/notLoaded与干净800480b在派发前再次核对。T1精确f7326d1和原生completed/idle已核验，S0完整交接证明见[报告](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。[R1新范围](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)IN_PROGRESS；独立新安装target至少一次原13例GPU segmented复核，本轮R1最多两次框架启动，第二次仅真实失败修订或有明确必要的原尾批反例。每次仍先共享OS租约/最多2更新/300秒/4GiB RSS/1GiB MLX，真实owner记R1；不使用T1未用额度，不改原配置，不放行正式P04。
 
 ADR-0021独立验收与集成补记：原R1 67976fd正式PASS已按完整来源/数值/资源/封存核验，S0普通merge a1c467a通过1084CPU/2跳过、新三归档及默认安装/native守卫。R1框架2/2已用完，S0新增框架0；原13 rank、上游compile、原配置、历史负例/警告及人工门槛保持。见[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)；最终CI/main前不登记VERIFIED，不把固定原创数值扩大为真实模型能力。
+
+ADR-0021主干补记：最终CI34061081859双Python各14步骤通过，PR11以精确head397102c普通合并b2247d8并在实际main完成1084CPU/2跳过与现存归档/安装绑定。本数值子包VERIFIED，S0框架新增0；不改原CPU支持结论，不解释为真实P04模型训练或人工审核通过。

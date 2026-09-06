@@ -1,6 +1,6 @@
 # P04｜原始模型与 SFT 实验
 
-状态：BLOCKED；尚未分发或领取正式训练。P00、P01受限G1、P03 CPU、新格式及截止时间修订已VERIFIED。训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。仍待P02真实语义人审、代表/最长/非ASCII实际页面观察和token/mask人工核对；新collator的CPU数组验证及准备功能已随PR10合并e28f1db并完成最终CI/main验证，见[主干证据](../../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)；完整原生trainer入口、真实尾批/checkpoint与0.6B容量仍未通过。S0准备不构成P04训练授权。
+状态：BLOCKED；尚未分发或领取正式训练。P00/P01受限G1/P03 CPU、共用格式、训练绑定与CPU准备已VERIFIED；固定原创native toy亦经R1 PASS67976fd、PR11合并b2247d8及最终CI/main验证，见[数值子包主干证据](../../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。该证据覆盖13原创rank/64参数的8+5尾批、evaluate及checkpoint；本包仍待实际页面、kris语义/token-mask人审、真实0.6B容量、正式1.7B baseline/SFT。training_authorized=false，S0准备及toy验收不构成本包模型训练许可。
 
 | 字段 | 初始值 |
 |---|---|
@@ -72,3 +72,5 @@ P04-SFT-NATIVE-TOY现有S0中间证据：S0已核对534445b的两次原GPU运行
 P04-SFT-NATIVE-TOY完整f7326d1已交付，T1原生空闲，S0完整字节/命令/数值/归档交接核验通过；[R1精确范围](P04_SFT_NATIVE_TOY_REVIEW.md)按完整482f899实际派发并确认新轮ACTIVE，PR11保持Draft。见[完整交接](../../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。原生toy独立验收及本包实际页面、人审、0.6B容量、1.7B baseline/SFT仍未完成。
 
 原生toy独立部分现ACCEPTED：原R1 67976fd对f7326d1 PASS，T1/R1空闲；S0普通集成a1c467a通过1084CPU/2跳过、新三归档及默认安装/native守卫。见[集成证据](../../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。实际8+5更新/evaluate/checkpoint仅覆盖固定原创64参数问题；最终CI/main待完成，本包真实0.6B容量、1.7B baseline/SFT、实际页面和两项人工仍未完成。
+
+21:35 UTC：原生固定toy已完成最终CI/main并VERIFIED，原CPU支持负结果保持。本包真实模型训练及人工依赖继续BLOCKED；本段更新依赖证据，不领取正式P04。

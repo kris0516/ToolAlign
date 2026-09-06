@@ -14,7 +14,7 @@
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
 | [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1；R1独立审查 | 技术基线42eaa50、ADR-0020 | VERIFIED（CPU部分） | 原R1 PASS800480b保持；[PR10](https://github.com/kris0516/ToolAlign/pull/10)合并e28f1db，最终双Python CI、main1014CPU/2跳过及三归档/57安装包文件绑定通过，见[证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU上游入口KeyError保留 |
-| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1交付；R1 PASS；S0集成 | CPU已验证50867c0、ADR-0021 | ACCEPTED | 原R1 PASS67976fd/T1及R1原生空闲；普通集成a1c467a实测1084CPU/2跳过、新三归档和默认安装/native守卫通过；[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。[PR11](https://github.com/kris0516/ToolAlign/pull/11)最终CI/main待完成 |
+| [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；独立R1；S0验收 | CPU已验证50867c0、ADR-0021 | VERIFIED（固定原创数值） | 原R1 PASS67976fd保持；[PR11](https://github.com/kris0516/ToolAlign/pull/11)合并b2247d8，最终双Python CI与main1084CPU/2跳过、三现存归档/58安装包字节绑定通过；[证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。正式模型与人工仍待完成 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -32,4 +32,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：P04-SFT-CPU准备VERIFIED保持。原生toy独立R1 67976fd正式PASS/P0/P1/P2均0，原生completed/idle；S0核对最终58,108路径/38原命令及全部数值、来源、封存。普通集成a1c467a实际1084CPU/2 HF-only跳过、新三归档和默认安装7命令/native守卫通过，原候选f7326d1与review SHA保持。[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。固定原创数值部分ACCEPTED，PR11最终CI/main待完成。R1框架2/2已结束、S0新增框架0；实际页面、人审与正式P04仍未完成。
+公共跟进：P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。[主干证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。原CPU准备VERIFIED与CPU入口KeyError记录保持。实际页面、两项人审、真实0.6B容量及正式P04仍未完成；不从固定原创数值放行真实模型优化。所有worker无新范围，GPU空闲。
