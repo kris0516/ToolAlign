@@ -13,3 +13,5 @@ R1 只允许编辑 `coordination/handoffs/S0-SHARED-02-review-r1.md` 与 `report
 S0 交接：`coordination/handoffs/S0-SHARED-02-r1.md`。精确候选在完成自查后固定，R1 PASS、最终 CI 和 main 集成验证前不发布新共享基线。
 
 首轮候选 `55a330b` 被 R1 `cfbc152` 判为 FAIL（P1一项）。S0 修订 `c175bc7` 并保留原 FAIL，完整新候选在复审消息中固定。复审允许 R1 新增 `coordination/handoffs/S0-SHARED-02-review-r2.md` 及上述审查目录内的新证据；旧报告/失败探针不覆盖。重点验证递归目录内部的忽略文件同时从实际 sdist 和直接 wheel 排除，其余依赖/许可结论按未改变字节保留并检查相关回归。
+
+第二候选 `8148929` 被 R1-r2 发现大小写 P1，修订实现为 `ea05131`。下一轮仅允许新增 `coordination/handoffs/S0-SHARED-02-review-r3.md` 及上述审查目录内的新证据；对下一条 S0 原生消息固定的完整 SHA 检查大小写排除、公开例外和实际三种归档。首两轮报告/探针不覆盖；依赖、协议和源码未变时不重复无关来源研究或 ML 安装。第三轮独立 PASS、最终 CI 和 main 验证前仍不发布新基线。
