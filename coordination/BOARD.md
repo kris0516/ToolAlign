@@ -9,7 +9,7 @@
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | 候选59b3802/空闲；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)双Python CI通过，CPU217/新包为自测；待R1 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | READY_FOR_REVIEW | 候选b0d8d83/空闲；[Draft PR5](https://github.com/kris0516/ToolAlign/pull/5)双Python CI通过，R1完整技术审查进行中；kris人审待填 |
-| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | IN_PROGRESS | 原候选85e0905保留；T1空闲后已派CPU同步（生产37c00de/授权f2a271b）并核验活跃；待新候选/R1 |
+| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | 候选79a15d9已交付/空闲；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)，CPU309/归档/隔离demo与进程回收自测通过；待R1 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -27,4 +27,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。[生产base](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)为37c00de。T1/D1均已交付同步候选且原生空闲，E1继续CPU同步；R1已按授权c44739a派发并核验活跃，独立审完整P02。当前一个实现任务加R1 CPU审查，原始候选/失败/未填人审保持。
+公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。[生产base](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)为37c00de。T1/D1/E1均已交付同步候选且核验原生空闲；R1按授权c44739a独立审完整P02，随后P01/P03。当前仅R1 CPU审查活跃，原始候选/失败/未填人审保持。
