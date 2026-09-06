@@ -37,3 +37,13 @@ PLANNED/尚未实现：uv run --locked pytest -q tests/tools/ tests/evaluation/h
 必要负例：参数结构合法但选错对象/版本判失败；无工具任务却调用；伪造或修改后的ValidatedCall、旧registry/hash/版本、ta_未知工具；schema注入/超界输出；timeout/cancel/retry不重置预算且没有遗留自有进程；oracle标签不进入ModelInput；所有等价合法答案可通过。报告六类覆盖、真实计数/退出码/日志hash与未测项。
 
 仅 CPU，无模型导入、权重下载或费用；首轮私有制品/环境预算2GiB，不改变OS限制。提交授权文件的精确SHA和P03-r1 handoff，请S0安排独立R1；不自行merge、改看板或签验收。无法可靠判定的任务标unknown，不用模型自评补真值。
+
+## 完整候选的独立技术审查范围
+
+本段为准备好的范围，须前项审查已正式结束、S0核验R1原生空闲并发送精确authorization_commit后才启动。R1在自己的隔离worktree新建`review/p03-r1`，审完整候选`79a15d990fc27a9a33d033983c94eb92cccfb268`；生产base`37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`、同步目标f2a271b、实际merge86c5e8a。完整差异19文件、3263新增/1删除行；原85e0905、P03-r1及全部原始证据保留。不能仅审base-r2的两个新文档，也不以PR7双Python CI替代独立审查。
+
+仅允许新增`coordination/handoffs/P03-review-r1.md`与`reports/review/P03/`；候选实现、公共契约/配置/锁/状态/ADR和E1工作区全部只读。独立原创反例须覆盖六类工具的实际语义、registry/hash/version和可变ValidatedCall执行前重验、多解/澄清/无工具/有限恢复、错对象/日期/版本/数值、oracle标签不进入模型、单请求决策/轮次/token/deadline累计，以及实际进入阻塞后的timeout/cancel与自有进程回收。
+
+仅CPU，新增私有环境与审查制品预算2GiB。核验新309CPU计数口径、原始10/10 scripted demo和归档/隔离安装证据；scripted合成token不可写为Qwen/BFCL或吞吐实证。父进程轻量可pickle后端与子进程generate/懒加载只是接口构造前提，已加载MLX对象仍NOT_RUN；不自行扩大为P04真实后端或P06正式评测。必要包检查应绑定当前追踪字节与冻结资源，避免无限重复已经通过且字节未变的共享调查。
+
+输出精确候选、PASS/FAIL/BLOCKED、P0/P1/P2、实际命令/退出码/loghash、独立review commit和未测项；不先修被审实现再签通过，提交报告后结束本轮等待S0。

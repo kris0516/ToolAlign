@@ -58,3 +58,13 @@
 2026-09-06 公共基线更新：S0 已授权采用已验证生产合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 及协调状态 `a6c8dd3c78b3674a242b4faacbb175f7b7c98303`。保留原 code_base/authorization 的历史记录，实际工作分支以非强制 merge 接入；新模型规则 gpt-6-astra/max 优先于首派任务副本。
 
 2026-09-06 第二次公共基线更新：S0-SHARED-02 已独立审查/CI/合并/main验证，生产base `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`。收到S0原生同步消息后，保留f97bb0d及原环境/模型/失败证据，非强制merge本报告所在协调提交（完整SHA由消息给出）。仅CPU复核新base的测试、包构建/隔离安装与环境metadata，必要时在已锁环境运行原CPU数学检查；不重新跑未受影响模型校准，不加载模型或扩展P04。允许新增`coordination/handoffs/P01-base-r2.md`记录新完整候选、merge关系与实际结果，原P01-r1保留。
+
+## 完整候选的独立技术审查范围
+
+本段为准备好的范围，尚不表示原生派发。R1须先完成当前审查并经S0核验原生空闲，再依据S0消息给出的完整authorization_commit启动。在自己的隔离worktree新建`review/p01-r1`，审完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`；生产base为`37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`，同步目标f2a271b、实际merge17a003f。相对同步目标共27文件、6516新增行，不能只审base-r2的6个新增审计/报告文件。PR6精确候选双Python CI通过不替代本包审查。
+
+仅允许新增`coordination/handoffs/P01-review-r1.md`与`reports/review/P01/`；原候选/实现、公共契约/配置/锁/状态/ADR与T1工作区全部只读。审查完整mask/shift/EOS/prefix、CE与DPO loss/梯度、首次真实梯度累积周期的ln(2)、SFT reference冻结与身份、adapter更新集合和跨库重载、局部编译/wired设置适配、全程GPU租约及真实停止回收。保留全部首选/备选失败、pressure停止和历史结论修订，SFT与DPO分别给出证据边界。
+
+本轮仅CPU检查与按manifest只读核验T1历史模型证据；可在自己的私有环境用已锁CPU依赖，新增环境/审计制品预算2GiB。禁止模型导入/加载、GPU或无具体理由重跑长校准。若具体疑点必须GPU重现，先向S0提交最小命令、资源与停止预算，再另行授权。当前217项CPU、环境69/90与源码hash、包构建/隔离安装均为T1证据；R1需独立小反例和原始证据对应。1024/1536/2048容量结果不证明正式256-token完整harness或长时训练，P04/P05及kris人工核对仍未执行。
+
+按精确候选输出PASS/FAIL/BLOCKED、P0/P1/P2、命令/退出码/loghash、独立review commit与NOT_RUN，提交报告后结束本轮等待S0；不修改实现后给自身修复签通过。
