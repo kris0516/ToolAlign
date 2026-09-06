@@ -109,3 +109,21 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 新main只提供已验收P03与S0记录，不扩大D1文件所有权。原0c94ad5的最终格式规范/描述、原data模块及人审材料边界保持。CPU审计可以直接导入此已验证的`toolalign.tools._json.parse_action`，源码SHA-256仍为`15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b`，与先前允许的私有副本完全相同；报告记录实际来源，不篡改旧记录。已完成的新序列审计在源码/输入/hash均相同的情况下可以沿用，不因本次merge重复8,228例或另造全量输出。最终组合CPU/包/隔离接口验证须绑定新完整候选；没有模型/GPU/P04/P06授权。此处为准备好的同步范围，实际派发单独登记。
 
 2026-09-06实际同轮同步：S0重新核验D1原活动turn仍inProgress后，已原生发送完整授权5212b24c0ef2d5442e190ed791a9b7008d8e0724。D1确认保存授权、将当前范围内实现提交b33a55f并普通merge已验证P03，继续原格式交付；没有重启或新增任务。新全量序列审计已报告完成一遍但尚未正式交接/独立复核，不据进度消息宣布新格式验收。
+
+## P02-format-review-r1｜独立审查准备范围
+
+本段只准备范围，尚未派发。S0须先收到D1已提交的最终完整candidate与handoff并核对范围/证据，同时确认R1原生空闲；随后原生消息给出精确candidate和完整authorization_commit。R1在自己的隔离worktree从该候选新建`review/p02-format-r1`，gpt-6-astra/max，不接入随后无关main/P01变化。只新增`reports/review/P02-format/`和`coordination/handoffs/P02-format-review-r1.md`；全部被审实现/测试/提案/manifest/规范/原R1文件以及其他worktree只读。不能先修候选再给自身修复签通过。
+
+审完整新model_io实现、可选CPU适配器、新tests/审计与包检查器、派生manifest及其真实结果，不仅审最终报告。绑定ADR-0017、完整描述/指令、官方模板与固定0.6B/1.7B tokenizer来源；三份原提案证据和旧P02技术PASS按原SHA保留，不把旧格式证据写成新格式验收。
+
+用独立原创正负例核对standalone ModelInput的冻结结构/原生有限JSON与历史关联，拒绝额外标签或未完成调用但保留合法历史工具和值；禁止伪造expected_action、word blacklist或静默加强当前catalog约束。核对完整Action的四种kind、call_id/参数、无变更输入、孤立副本、异常文本边界。实际呈现消息控制段与可逆JSON内容，验证tools/native tool_calls未送官方模板、system/assistant角色和tool_response分组、历史无kind不猜造、控制标记与非ASCII/转义键值安全往返。期望值/评分/split元数据不得进入prompt，合法content中的同名字词应保持。
+
+序列独立检查P与encode(P+C)的前缀、精确C解码、一个EOS、completion-only/causal shift和右侧padding；拒绝错误来源、边界变化或偷偷截断。区分应用提供的可信callbacks声明与可选适配器实际核验的来源；不要把声明的template hash当作已读取的真实模板证明。核对两种engine的实际本地加载状态和影响它们的全部文件/参数；以必要的来源篡改、附加tokenizer文件/override及正常邻例检查，避免仅核对三份文件名便断言已加载状态相同。导入纯模块和默认wheel不得加载tokenizer或模型，真正tokenizer操作只在允许的CPU验证环境中进行。
+
+独立检查同12例最终v1的原始文本、完整IDs/sequence/EOS/mask与两条实际渲染/编码路径。对新完整8,228行派生审计，先核对原Example/18制品和source/group/split/目标值均未变，再绑定每行身份、格式/源码/模板/配置和输出；独立复算分母、上下文与响应两个预算及其交集/分层统计。因为本次改变所有训练序列，允许一遍有界CPU的独立全量逐行序列/长度核对，使用独立reference渲染/编码判断，不重复旧来源转换/分组/两遍构建。错误和超限保留在完整分母，不偷换为可训练子集；只做固定表示核验，不运行最终测试模型评分或据此调参。原P03 raw字节/复杂度限制与错误类别保持，转换成功不自动授予registry执行权。
+
+运行未修改的适用旧CPU/真实tokenizer/原独立检查和必要新反例，按实际计数区分独立场景、同场景安装重复和命令数。核对真实新sdist/default wheel/显式重建wheel的当前Git载荷及默认安装的自足包资源/投影/编码/序列接口；明确源码直接wheel未执行时为NOT_RUN。旧P02数据模块/manifest、100来源114决策人审包和填写副本只读；其身份核对不代签kris语义结论。原代码/候选CI不代替本轮独立审查。
+
+仅CPU，新增私有环境/证据累计2GiB。优先复用自己已有适用固定CPU环境；若需要额外reference环境，只用本机缓存离线安装与交接清单/现有锁核对的必要CPU tokenizer依赖并保存实际版本/hash，不修改旧环境身份，不下载权重或新依赖。reference允许tokenizer-only Transformers5.16.1/tokenizers0.23.2/Jinja3.1.6，导入前禁用Torch/TF/Flax并启用离线限制、实际断言未加载模型模块。禁止MLX/Torch/模型类/权重/GPU/训练/P04/P05/P06/BFCL及费用；pure callbacks不应强制0.22.2版本。
+
+输出精确候选的PASS/FAIL/BLOCKED、P0/P1/P2、规范与源/安装路径逐项证据、命令/退出码/hash、原失败和NOT_RUN。提交新的独立review SHA后结束该轮等待S0。格式技术PASS仍不等于G-DATA、人审、训练选集或模型质量通过，不能自行改ADR/状态或合并main。
