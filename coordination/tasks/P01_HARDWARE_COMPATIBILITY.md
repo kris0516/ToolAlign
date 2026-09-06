@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：CHANGES_REQUESTED（R1-r2正式FAIL）；完整候选`ac8095faa58a98e143a8dc4d63042093e426feb0`仍有启动初始化P1，审查`aaae5a4395dbdd73fd487f80174599ffd3ef9be3`，P0=0/P1=1/P2=0。原F2/F3关闭，原候选/两轮FAIL/历史模型证据保持。T1已按cbb6d46原生启动CPU定点修复并核验活跃；授权与实际派发见末尾。
+状态：READY_FOR_REVIEW；T1启动初始化修复完整9fe3cbe3a067725c37dc213bbf38f9c90ceb5066已交付/普通推送/原生空闲，S0核验85项证据hash与174份不变原文件；R1-r3精确复审范围见末尾。原P01/R1各候选、FAIL和模型负结果保持。原code_base与首次领取记录在下方保留，尚未验收G1或授权P04。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -116,3 +116,19 @@ S0已收取并完整读取原始review `aaae5a4395dbdd73fd487f80174599ffd3ef9be3
 交付精确完整candidate、原review接入关系、允许范围diff、before/after实际命令/退出码/loghash、准确缺测和历史保持、失败/NOT_RUN及P01-fix-r4；自测不是验收。交接后结束该轮，S0再安排R1对新完整候选复审并决定集成。当前E1已完成修复/原生空闲；D1仍做CPU提案比较，T1派发后最多两个实现加独立CPU R1。
 
 2026-09-06实际接续：S0已核验T1原生空闲、干净HEAD ac8095f及正式R1-r2原始aaae5a4后，按完整授权cbb6d4614c3b8e8f584315ac3bdad434544c3984原生派发本P01-fix-r4，gpt-6-astra/max，新轮次已核验ACTIVE。
+
+## P01-R1-r3｜启动初始化修复的独立复审授权
+
+状态：READY_FOR_DISPATCH；R1只有收到S0原生消息给出的本段完整authorization_commit后开始。T1完整新候选 `9fe3cbe3a067725c37dc213bbf38f9c90ceb5066` 已普通推送/原生completed/idle；已测实现 `2efc7a55ea0dcc77a97cd7f5a82e95515c32de00`，原review aaae5a4经merge `65437ea2323f21e6c4c1d7e5b916282209dbd25a` 保留。S0完整读取交接/两处生产diff/新回归及包探针，核对85项日志/元数据/结果/探针/包hash、9个允许差异、174份不变原文件。原两初始化反例before实际2失败，after通过；T1自测280个不同pytest与14条隔离安装命令通过，仍非独立验收。
+
+R1在自己的同一独立任务/隔离worktree，从上述精确完整9fe3cbe新建 `review/p01-r3`，保留原review/p03-r2及所有旧审查分支。只允许新增 `reports/review/P01-r3/` 与 `coordination/handoffs/P01-review-r3.md`。所有被审候选、原两轮R1文件、T1回归、旧交接/FAIL/raw、公共契约/runtime/configs/依赖/锁/状态/ADR和其他worktree均只读。生产base仍37c00de，不接新main或P02/新格式实现。
+
+独立复核唯一剩余R2-F1及相邻行为：已登记尝试后的environment/初始swap/stdout_open/Popen失败是否保存有效failed/ended_at/resources和真实summary；原异常对象、未启动child/null实际退出、未测RSS/swap/pressure与已测0/非零基线必须区分，只记录已执行工作，不访问或回收不存在的child。运行期故障、实际child首次RSS前失败/回收、正常wait、预算/取消与租约路径保持原语义；不扩大为全面不可写磁盘仍保证写入。独立新增必要正负例，避免只重复T1断言；新报告分类和隔离安装后的实际launch/报告接口均需核验。
+
+运行未修改原R1七项和r2二十二项、完整适用CPU及报告检查，明确280基数及新增独立检查的计数口径；lint/冻结/公开扫描和严格范围核对。真正生成当前sdist、默认wheel和显式sdist重建wheel，逐成员核对当前Git字节/安装来源，默认wheel的实际来源如实记录；没有源码直接构建就写NOT_RUN。新默认CPU隔离环境实际启动失败并使用已绑定的真实报告接口，报告源码不在wheel时明确区分，保留各子命令原始stdout/stderr/退出码。
+
+F2/F3已由原精确aaae5a4独立关闭，fallback/core/numerical/model_probe/samples、数学/mask/reference/2e-6与历史来源均未变。先核对绑定再引用既有17组数学及十次历史run/185制品证据，不无理由重跑GPU/数学或重复全量大载荷hash；本轮标NOT_RERUN，不将原负结果改写。实际新before/after日志、配置/manifest/resources和摘要需直接核验。
+
+gpt-6-astra/max，纯CPU、新增私有制品/环境2GiB，可复用自己现有已锁CPU环境，无MLX/模型/Torch/tokenizer导入或下载/GPU/费用/P04/P05。输出精确候选PASS/FAIL/BLOCKED、剩余P0/P1/P2、实际命令/退出码/完整hash、原证据保全和NOT_RUN；提交独立review SHA后结束本轮，S0负责后续CI/集成/main验证。S0已核验R1的P03-r2原生completed/idle及正式PASS a78071b，实际接续派发另记。
+
+新9fe3cbe的CI34013781146已由S0读取workflow和Python3.11/3.14两jobs全部步骤，均成功；CI不替代本轮R1独立复审，原始记录见[GitHub Actions](https://github.com/kris0516/ToolAlign/actions/runs/34013781146)。

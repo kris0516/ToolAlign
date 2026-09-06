@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。T1按cbb6d46继续P01启动初始化修复。R1已交付对3598cef的P03-r2正式PASS（review a78071b），待S0完整核验及集成。D1角色比较6c3d330已交付/原生空闲，ADR-0017选择保留消息角色的Action JSON v1；共用模块与8,228例新序列CPU审计范围已准备，尚未实际派发。P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris人审与训练绑定。T1启动修复9fe3cbe已交付/原生空闲，S0核验85项hash及174份不变原文件，R1-r3范围已准备。P03独立PASS a78071b已完整核验139项hash及158份候选字节，CPU代码ACCEPTED，待最终CI/合并/main验证。D1按0c94ad5原生启动P02-format-r2共用模块/完整新序列CPU审计并确认ACTIVE。P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P02合并2ec1767且主干技术验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1 P01启动修复活跃；R1正式P03-r2报告已交待终态核验；D1角色比较已交/空闲、新范围待实际派发；E1空闲，最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | D1新格式CPU实现活跃；T1已交付/空闲、R1已交P03/空闲并待新P01-r3派发；E1空闲，最多两个实现约束保持 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01原运行期/F2/F3已独立确认，启动初始化P1仍阻断G1；P03新3598cef的正式独立PASS已到，待S0核验与集成。训练与评测共同格式已按ADR-0017选择，尚未实现验收，见[衔接证据](../reports/S0_P04_READINESS.md)与[格式规范](../docs/16_MODEL_IO_FORMAT.md)。P04尚未授权，最多两个实现的约束保持。
+P00和共享支持包验收保持。P02最终CI/main技术集成通过；整包VERIFIED仍需kris实际语义审查和训练配置/manifest/窗口绑定。P01原运行期/F2/F3已独立确认，启动初始化P1仍阻断G1；P03新3598cef的正式独立PASS已完整核验，待最终CI与集成。训练与评测共同格式已按ADR-0017选择，尚未实现验收，见[衔接证据](../reports/S0_P04_READINESS.md)与[格式规范](../docs/16_MODEL_IO_FORMAT.md)。P04尚未授权，最多两个实现的约束保持。
 
 ## 恢复入口
 
@@ -80,3 +80,9 @@ D1初版格式提案完整`c23b5136e596379000fcf4a9c2d1ce4bc9e27aec`（提案/�
 最新实际派发：授权cbb6d4614c3b8e8f584315ac3bdad434544c3984已推送。S0核验T1原生空闲与干净ac8095f，及R1上轮completed/idle、原始aaae5a4审查后，分别原生发送T1的P01-fix-r4和R1对完整3598cef的P03-r2，均显式gpt-6-astra/max，并已确认新轮次ACTIVE。D1沿原fd67511范围继续CPU提案比较，E1等待复审结果；仍两个实现加独立CPU R1，未授权GPU或P04。原review aaae5a4按原SHA推送独立分支，未改写旧FAIL。
 
 D1完整角色比较现已交付6c3d330e4b28be0fbc93c273bb2576f7317c69a8，S0核验原生completed/idle、完整报告与新增代码、68项文件/命令/实际结果hash及167份原文件不变。同12例A/B保持ModelInput值和C字节/IDs，B保留原system/assistant控制段、tool由官方模板转user/tool_response；小集prompt多39–93token，不构成模型质量或纯角色消融结论。S0按ADR-0017选择B并定正式v1标记，新P/sequence必须重算；D1新共用模块/完整8,228例序列审计授权已准备，尚未实际派发，原P02实现/数据/人审包及未答请求保持。
+
+实际接续与新交接：D1在原生completed/idle及干净6c3d330再次核验后，S0按完整0c94ad58a78d30cd88a9ad86ac8e8d8c83b2442c原生派发P02-format-r2，gpt-6-astra/max，新轮次ACTIVE；原6c3d330已按原SHA发布proposal/p02-output-format，仅为提案证据保全。
+
+T1新完整候选9fe3cbe3a067725c37dc213bbf38f9c90ceb5066普通推送/原生completed/idle，原review经65437ea普通merge保留；S0完整读取两处生产diff、新回归/报告/包探针和正式交接，核对85项hash与9个允许改动/174份不变原文件。原两初始化反例before确实2失败，after实际failed/ended_at/resources/summary齐备且异常对象、缺测/零已执行工作准确；280个不同pytest和14条隔离命令为T1自测。新P01-R1-r3精确候选范围已准备，旧FAIL/历史负结果不改写。
+
+R1对3598cef正式P03-r2 PASS，review a78071bf6ac40f2729e090e1828a1c6022cd8d00严格以其为父，仅6份新增文件，全部158份被审文件不变。S0完整读取新报告/31项独立探针和核对/安装脚本，核验139项日志/结果/源码/安装流/归档hash。原54项及其余335项通过，无skip/xfail；新增31项源路径与安装路径重复验证通过、不重复计数，原三问题全关闭；新实际sdist及默认/显式重建wheel、16条安装命令和各旧FAIL/开发失败保持。R1原生completed/idle已核验；CPU代码达到ACCEPTED，待S0最终集成/CI/main验证，未运行真实MLX/Qwen或正式评测。

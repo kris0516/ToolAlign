@@ -1,6 +1,6 @@
 # P03｜本地工具执行器与语义 oracle
 
-状态：READY_FOR_REVIEW（最终修复候选）；E1完整`3598cef2efb99e2990e384812a028902964cf494`已交付并核验原生空闲，原R1对79a15d9的FAIL及f34f7c5原SHA保留。389项CPU自测和双Python CI通过，尚未独立复审或验收；新复审授权见末尾。owner E1，branch `work/p03-execution-harness`；原code_base97466a2及全部原始交付保持。
+状态：ACCEPTED（独立CPU代码复审通过，待集成）；R1对完整`3598cef2efb99e2990e384812a028902964cf494`正式PASS，review `a78071bf6ac40f2729e090e1828a1c6022cd8d00`，P0/P1/P2均0；S0核验139项hash及158份候选文件不变，待最终CI/合并/main组合验证。原R1对79a15d9的FAIL及f34f7c5原SHA、checkpoint与开发失败保留。owner E1，branch `work/p03-execution-harness`；原code_base97466a2及全部原始交付保持，未验收真实模型或正式评测。
 
 模型统一 gpt-6-astra / thinking=max（最高）；仅 App 独立任务与 worktree，禁止 sub-agent、嵌套代理或自行创建其他任务。第一步 set_thread_title 并保存真实身份到私有 task-identity.json。给 S0 的普通回报省略 model/thinking。
 
