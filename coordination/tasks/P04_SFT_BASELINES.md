@@ -54,3 +54,6 @@ P02的[训练绑定CPU准备](P02_TRAINING_BINDING.md)已READY未派发。其13�
 
 
 上述P02训练绑定CPU准备已按完整5d2c6b6原生派发D1并核验ACTIVE；该实际派发不构成正式P04领取/模型训练授权，待候选和人工门槛。
+
+
+ADR-0020另行准备[P04-SFT-CPU](P04_SFT_CPU_PREPARATION.md)：先在已验证42eaa50完成数据/collator和极小原创CPU数值衔接，当前READY未派发。该子包依赖技术基线，不代签G-DATA/实际页面/token-mask人工，不领取本包正式训练；真实模型、LoRA配置、运行预算与容量门槛仍待后续完整授权。

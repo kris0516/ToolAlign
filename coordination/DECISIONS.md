@@ -168,3 +168,16 @@ ADR-0017实现验收补记：原R1 b9f7567对修复8c439f6正式PASS，随PR8合
 原8228条目标实际全为tool_calls，新选择保持该覆盖限制，不声称包含final/clarify/refuse监督。准备10条实际已选train样本的CPU token/mask材料，并另列三类原创协议检查例；原创补充例不进入训练选集。材料展示完整目标/边界/唯一EOS/shift/右padding及空白人工判定；不能把模型自查写成kris审阅，也不能用这次离线材料代替未来真实trainer的mask核验。
 
 原8,228行native测量和R1一次reference全量仍保留旧代码/环境/时间；本轮只读旧指标选择并用少量明确样本实际核对当前格式，禁止无差异全量重跑。公开仅代码、配置、去敏hash/统计及原创fixtures，所有选中原文/IDs/token数组和人工材料私有保存。G-DATA语义人审与训练配置绑定分别待验收，配置training_authorized固定false。若输入/表示身份不符或后续人工要求修数据，停止该绑定的使用，以新版本/新授权处理，保留旧选择及失败；不改写原数据或抬高预算。
+
+
+## ADR-0020｜已验收训练绑定后的SFT接口CPU准备
+
+日期：2026-09-06；状态：SELECTED_FOR_CPU_IMPLEMENTATION，尚未派发或验收。代码基线为PR9实际main `42eaa50a9519efe96d60b49f07cfbd106b36778c`；P00/P01受限G1/P03/共用格式/训练绑定的CPU前提已验证，语义与token/mask人工、实际页面、真实0.6B容量及正式模型门槛继续待完成。S0将可独立进行的CPU数据/collator/数值适配拆为[P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md)，不把完整P04改名或登记完成。
+
+本机已锁MLX-LM 0.31.3的trainer源码hash为ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe，datasets源码hash为fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17。S0重新读取原件：默认iterator按长度排序/重排并允许截断；default_loss的padding额外监督已有P01真实反例；train只在完整累积周期更新，内置最后validation发生在最后微步之前。源码依据和旧负结果不改写为新模型运行。
+
+选择利用原生iterate_batches/loss参数与分段TrainingArgs，复用共用Sequence/pad_sequence；固定原rank顺序、microbatch1、累积8、右padding且不截断。单微步按有效completion token平均CE，更新按周期内各微步等权平均，最后不足8的周期按实际微步数除；同一model/optimizer/RNG连续使用。smoke1600→200、formal6013→751+1=752是当前计划算术，CPU样例不冒称实际跑完这两套训练。validation单列采用总CE/总有效监督token，并绑定post-update的实际参数内容hash、保存文件hash和步数；选择规则为最小finite CE、同值较早optimizer step、再按checkpoint hash，真实评估频率另待正式配置。
+
+本轮允许已核对的原13例通过新collator及极小原创MLX/PyTorch CPU数值模块对照。框架replay实际持共享租约、强制CPU、独立自有进程和≤300秒/4GiB RSS/2线程/2次更新的每次上限；不加载预训练模型、不对P02真实数据优化、不创建环境或下载依赖。该数值许可不改变原training_authorized=false或人工门槛。精确参数仅来自[S0配置原件](tasks/P04_SFT_CPU_CONFIG.v1.json)，T1在唯一新配置例外中逐字节复制。
+
+备选为等待人工后再实现全部衔接，或直接沿用默认dataset/loss/循环；前者把可独立验证的代码也挂起，后者不满足已选数据顺序、mask和尾周期要求。当前选择只提前完成必要CPU实现，未来真实model/optimizer/生成仍须按完整P04独立验收。若实际上游注入点不能满足边界，保留最小反例并交S0具体处理，不fork通用训练框架、改vendor、降数值门或隐去失败。

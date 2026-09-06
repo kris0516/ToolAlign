@@ -162,3 +162,6 @@ D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-
 R1原40252f8已完成且原生空闲，S0核对5734路径/26原命令与最终封存b83d409a，CPU技术范围ACCEPTED。普通集成0f3d04f的919CPU/2跳过、三份实际新归档和新默认wheel隔离验证通过，证明961e7d78；14条成功命令记录及一条S0归档receipt重名的原始外层失败分别保留，未补造原缺失UTC或子进程退出码。安装17模块全部来自新target，五类输入篡改拒绝；无新全量物化或tokenizer构建。共享GPU锁实际未持有，两份人工填写副本仍0 reviewer/0 verdict；[详细证据](../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。最终CI/main、实际页面和人审门槛保持，P04未授权。
 
 训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。14:32–14:33 UTC实际main919 passed/2 HF-only skipped、九条CPU命令全部成功，364文件与最终CI/tree2071相同。摘要f0a806f1，三现存归档/49安装包文件对应main；本次新build/install为0，原S0集成的真实14:04–14:10构建/安装时间保持。共享GPU空闲，100行语义和13行token/mask填写副本仍0 reviewer/0 verdict；实际材料页面观察0页，不关闭人工或P04门槛。
+
+
+S0按ADR-0020准备P04-SFT-CPU范围，T1拟从已验证42eaa50新建work/p04-sft-cpu；当前READY未原生派发。内容为原绑定数据/共用Sequence到实际MLX-LM注入接口、全覆盖累积尾周期和validation参数状态绑定；只允许原13例collator与持租约的极小原创CPU数值模块，不运行Qwen、优化真实P02数据或关闭人工门。精确配置、所有权/原证据保全和独立R1验收边界已写入任务。

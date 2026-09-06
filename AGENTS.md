@@ -67,6 +67,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 训练绑定候选PR与审查intake | [Draft PR9](https://github.com/kris0516/ToolAlign/pull/9)精确f4候选CI34035350180双Python全部步骤通过；实际CI合并3e1e96e及356文件绑定已核验。R1的350候选/13授权副本intake通过、原轮继续ACTIVE；[证据](reports/S0_P02_TRAINING_BINDING_HANDOFF.md)，尚未独立验收/合并 |
 | 2026-09-06 | 训练绑定独立验收与隔离集成 | R1原40252f8对f4f73c9技术PASS、原生空闲；S0核验5734路径/26命令，普通集成0f3d04f实际919CPU/2跳过、新三归档和默认安装通过，见[证据](reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。PR9最终CI/main及页面/人审门槛待完成 |
 | 2026-09-06 | 训练绑定CPU主干验收 | VERIFIED；[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50，原R1 PASS40252f8保持；最终双Python CI及main919CPU/2 HF-only skipped、现存三归档/49安装包字节绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)；实际页面及两项人审仍待完成 |
+| 2026-09-06 | SFT接口CPU准备范围 | 按ADR-0020准备T1的[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)，code_base42eaa50、精确S0配置、仅数据/collator/有限数值适配；READY未派发，人工与正式训练门槛保持 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -92,7 +93,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。PR9实际合并42eaa50，原R1 PASS40252f8保持；最终双Python CI与main919CPU/2 HF-only跳过、现存三归档/49安装包文件绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。D1/T1/E1/R1当前无新任务；最多两个实现加独立CPU R1、单一GPU租约约束保持。代表/最长/非ASCII实际材料页面观察、kris语义/token-mask人审、P04真实trainer/collator/容量检查未完成，G-DATA和P04正式训练尚未放行。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。PR9实际合并42eaa50，原R1 PASS40252f8保持；最终双Python CI与main919CPU/2 HF-only跳过、现存三归档/49安装包文件绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。D1/T1/E1/R1当前无新任务；最多两个实现加独立CPU R1、单一GPU租约约束保持。代表/最长/非ASCII实际材料页面观察、kris语义/token-mask人审、P04真实trainer/collator/容量检查未完成，G-DATA和P04正式训练尚未放行。 S0已另行准备[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)限域实现与CPU数值范围，状态READY、尚未派发；不授权真实模型训练。
 
 ## 工作记录
 
