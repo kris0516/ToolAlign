@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI34029892077双Python所有步骤成功，main843CPU通过/2 HF-only skipped、337文件与实际归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原格式FAIL、原CI失败和历史数据证据保持。P02数据代码MERGED，整包/G-DATA仍待kris语义审查及训练配置绑定。D1的P02-TRAINING-BINDING CPU范围已按完整5d2c6b6原生派发并核验ACTIVE；T1/E1/R1暂无新任务，P04正式训练尚未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI/main843CPU通过、2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原FAIL及历史证据保持。P02数据代码MERGED，D1新训练绑定完整f4f73c9已交付/远端一致/原生空闲，S0核对3692路径，见[交接证据](../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。R1精确审查范围READY等待原生派发；实际页面观察、kris语义/token-mask人审及训练绑定验收仍待完成，G-DATA/P04未放行。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR8合并36b6988，新格式及截止时间修订主干验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；已主干验收；D1新训练绑定CPU轮次ACTIVE，T1/E1/R1无新任务 |
+| 独立实现/reviewer 对话 | D1训练绑定f4f73c9已交付/空闲；R1上一轮1531892已结束，新精确训练绑定审查范围READY等待派发；T1/E1无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -150,3 +150,5 @@ D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-
 12:16 UTC，D1的526f93d checkpoint两次实际build已由S0交叉核对，证明b96605d2cb167db8ae8b4e045182b6bb2b22365fbfcf616f9514299ca6ed74f2：两份原始命令/时间及345源码快照与Git一致，每遍13稳定文件字节相同，逐例原字段、身份顺序、排名、桶、audit和完整排除均符合S0先前独立参考。该检查共384路径、4.49秒exit0，S0未重新分词或物化。选择产物预核验通过，D1仍ACTIVE，13例材料、完整交接/安装与R1未完成，P04授权保持待门槛。
 
 训练人工材料预核验：S0于12:33 UTC独立读取94文件路径并核对13例两engine既有完整数组、历史身份和静态HTML，证明f33c7f536aa1b0c8acdb1a243d09604f91f96e18e3c05826c07875d4c2e93b4d；另核对28份独立人工副本，证明d36eabac，13行人工字段均空，本机入口说明已准备。原浏览器file URL导航被URL安全策略拒绝并禁止绕过，S0核验完整回执b2abc9c6；实际渲染0页/NOT_RUN，静态检查不关闭实际页面及人工门槛。D1继续正式交接，整包R1和P04尚未放行。
+
+训练绑定最终交接：D1完整f4f73c9已交付/远端一致/原生completed/idle，S0于12:55 UTC核对3692文件路径，证明b3b42cbc64c61590487acbcb4d738cce2dcc493c187e7ffe0860b07aaf1e7cf8。350候选、337基线及346实测文件保持；本轮1906制品/32命令、旧620/37与542/39、实际三归档/4安装记录均通过。906/2为D1三组自测，S0本次无新测试/分词/build/install。原四条D1失败和S0读取旧元数据字段的辅助错误保留，12个旧自有失败进程已不在。R1精确候选独立范围READY待原生派发；13例人工请求已发送，语义100行/序列13行仍0 reviewer/0 verdict，浏览器实际观察及P04门槛保持，见[交接证据](../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。
