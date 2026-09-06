@@ -1,0 +1,1003 @@
+{
+  "D1_original_commands_checked": 32,
+  "D1_original_failures_preserved": {
+    "training-binding-full-cpu-r1": 2,
+    "training-binding-full-cpu-r2": 2,
+    "training-binding-unit-lint-r2": 1,
+    "training-binding-unit-tests-r2": 1
+  },
+  "D1_public_receipts_checked": 27,
+  "R1_failed_auxiliary_scripts": {
+    "review_evidence-r1.py": "b5665a6cfbc5617466846247958f6ddb3563594ff3c4afda36d8145b21df8495",
+    "review_original_receipts-r1.py": "30a8482f98ab4f1126daba6a55663ad9b09f299afd0a365546facc0ff51020e8",
+    "review_original_receipts-r2.py": "5c6107445d5d425f774d25254609593ec4b842dfe2bdc206f953c5da9697a150"
+  },
+  "R1_failed_commands": {
+    "evidence-and-selection": 1,
+    "original-receipts": 1,
+    "original-receipts-r2": 1
+  },
+  "archives": {
+    "d1_default_wheel": {
+      "bytes": 118408,
+      "members": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec"
+    },
+    "d1_rebuilt_wheel": {
+      "bytes": 118408,
+      "members": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec"
+    },
+    "d1_sdist": {
+      "bytes": 231519,
+      "members": 108,
+      "sha256": "6bf81574cace92a9e3734cc8790a47818e05534d5c033951b0477a456e84d431"
+    },
+    "r1_default_wheel": {
+      "bytes": 118408,
+      "members": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec"
+    },
+    "r1_rebuilt_wheel": {
+      "bytes": 118408,
+      "members": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec"
+    },
+    "r1_sdist": {
+      "bytes": 231519,
+      "members": 108,
+      "sha256": "6bf81574cace92a9e3734cc8790a47818e05534d5c033951b0477a456e84d431"
+    }
+  },
+  "authorization_commit": "5b553b4b7140f4e62209c904bc0b79e94dff8600",
+  "candidate": {
+    "candidate": "f4f73c9ac8e004b48a74a80ac00617a01c4da324",
+    "candidate_parent": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+    "candidate_tree": "ed7437bf371671a6a01efd324bb8bc1e2d63e294",
+    "input_base": "36b6988af6b4e0125b59fb81b1cea142233e14a2"
+  },
+  "candidate_file_count": 350,
+  "command_count_at_index_freeze": 23,
+  "commands": [
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_package.py",
+        "inspect",
+        "--root",
+        "$REVIEW_ROOT",
+        "--archives",
+        ".toolalign-local/review-p02-training-binding-r1/packages",
+        "--worker-archives",
+        "$D1_ROOT/.toolalign-local/training-binding-r1/packages",
+        "--output",
+        ".toolalign-local/review-p02-training-binding-r1/archives.json"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:32:15.230496+00:00",
+      "label": "archives-inspection",
+      "log_sha256": "3ddca0f1ef90aa8dbca9d18772ff103e93f35ddf74961c1cb517469e34da1396",
+      "raw_receipt_sha256": "4b5528466a55f4c8493a2c9bdd3e369cc033d4578cbf5866eaebe1f357d9695b",
+      "started_at_utc": "2026-09-06T13:32:15.151044+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/verify_build_cache.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:28:47.541336+00:00",
+      "label": "build-cache",
+      "log_sha256": "7f28cce9de5557da8d956b06f6080c05bc7dd01a63b22c7859c8c45f5788f7d9",
+      "raw_receipt_sha256": "c53daeb16c27b230ffa1605180ef72fafad383dfdde2805548252327edf60245",
+      "started_at_utc": "2026-09-06T13:28:47.506566+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        "$CPU_PYTHON",
+        "--out-dir",
+        ".toolalign-local/review-p02-training-binding-r1/packages/default"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$CACHED_HATCHLING:$CACHED_PATHSPEC:$CACHED_TROVE_CLASSIFIERS",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:29:10.277811+00:00",
+      "label": "build-default",
+      "log_sha256": "d8992fbc42a741fbf7785a3a298e93b63ab60f585449e9298383d5d1675c674e",
+      "raw_receipt_sha256": "55e6b867aa8c592b59f19495505c8e7124aad5540f338d81556bcb38264ff0a5",
+      "started_at_utc": "2026-09-06T13:29:10.001771+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        "$CPU_PYTHON",
+        "--wheel",
+        ".toolalign-local/review-p02-training-binding-r1/packages/default/toolalign-0.0.1.tar.gz",
+        "--out-dir",
+        ".toolalign-local/review-p02-training-binding-r1/packages/rebuilt"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$CACHED_HATCHLING:$CACHED_PATHSPEC:$CACHED_TROVE_CLASSIFIERS",
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:30:24.610072+00:00",
+      "label": "build-sdist-wheel",
+      "log_sha256": "6636439b7143eedd6d7019c1d48ca0c30a51e12713ad6c514c584aaa7a75b854",
+      "raw_receipt_sha256": "a4932e73bcda94549f3ee54dcb2b008e86bc3bf84431208857cab8b2a04f8e24",
+      "started_at_utc": "2026-09-06T13:30:24.486609+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "scripts/check_contract_freeze.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:34:18.551325+00:00",
+      "label": "contract-freeze",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "raw_receipt_sha256": "3c6edaf7bb43f122ab66706a64897466623d15e3d7f2f9323c10e1ddc2aacc72",
+      "started_at_utc": "2026-09-06T13:34:18.534040+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_evidence.py",
+        "--root",
+        "$REVIEW_ROOT",
+        "--worker",
+        "$D1_ROOT",
+        "--supervisor-evidence",
+        "$S0_EVIDENCE",
+        "--output",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/intake"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:24:35.276652+00:00",
+      "label": "evidence-and-selection-r2",
+      "log_sha256": "444d25df95b0bcae29d43f626150ab59ec92b4f1cead860f5b382684665e8198",
+      "raw_receipt_sha256": "8372c985d9414b5c8a05ef0b1b5c677f36aac60d56b4ad53e9d60fcdd082ade2",
+      "started_at_utc": "2026-09-06T13:24:13.904751+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_evidence.py",
+        "--root",
+        "$REVIEW_ROOT",
+        "--worker",
+        "$D1_ROOT",
+        "--supervisor-evidence",
+        "$S0_EVIDENCE",
+        "--output",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/intake"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T13:23:45.110970+00:00",
+      "label": "evidence-and-selection",
+      "log_sha256": "78633b752ee28d2ea2533b66ee7be7ace9066c5cfa40ad13a896dbcd1659ff99",
+      "raw_receipt_sha256": "a06905db66fc14f98210080e205df257cac0fedfbee43156a847b78ed3b5095b",
+      "started_at_utc": "2026-09-06T13:23:45.089173+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/cpu_runner.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:15:41.745562+00:00",
+      "label": "full-cpu",
+      "log_sha256": "3bf068fbd8bf8fe6e56ac0e4f1593ad2c3c6af064d1fb8a81e127ffb5f0a49d9",
+      "raw_receipt_sha256": "f389686007f67890b8c255445afb90b74a94aae5702796b8f98f93fcebb4ce07",
+      "started_at_utc": "2026-09-06T13:14:48.496404+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--no-deps",
+        "--python",
+        "$CPU_PYTHON",
+        "--target",
+        ".toolalign-local/review-p02-training-binding-r1/installed-wheel",
+        ".toolalign-local/review-p02-training-binding-r1/packages/default/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:33:05.022528+00:00",
+      "label": "install-default-wheel",
+      "log_sha256": "d6195150ea60787aabbdae06ba7e9883bfd7459795d59eb470870d2ecdc237ce",
+      "raw_receipt_sha256": "5babfd685befa78c4479e27273563ebc38c741f28812c65e7004d62891901238",
+      "started_at_utc": "2026-09-06T13:33:04.984287+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0,sys.argv.pop(1)); import review_package; review_package.main()",
+        "$REVIEW_ROOT/reports/review/P02-training-binding-r1",
+        "installed",
+        "--target",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/installed-wheel",
+        "--runtime",
+        "$D1_ROOT/.toolalign-local/format-fix-r3/package-verification-r1/site-packages",
+        "--expected",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/archives.json",
+        "--inputs",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/installed-input-paths.json",
+        "--selection",
+        "$D1_ROOT/.toolalign-local/training-binding-r1/selection-a",
+        "--probe",
+        "$REVIEW_ROOT/reports/review/P02-training-binding-r1/probe_training_binding.py",
+        "--output",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/installed-api.json"
+      ],
+      "cwd": "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:33:42.339451+00:00",
+      "label": "installed-api-and-pinning",
+      "log_sha256": "0075825a1a53134c74a0aec2b23a7b75e7cf0d2ed6b23a144203d40d6346cfc6",
+      "raw_receipt_sha256": "55de20084c891bf8f11c7831e12d022519ec03c357a9eca7fd731e5802562881",
+      "started_at_utc": "2026-09-06T13:33:05.162077+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path[:0]=[sys.argv.pop(1),sys.argv.pop(1)]; from toolalign.data.training_selection import main; raise SystemExit(main())",
+        "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1/installed-wheel",
+        "$D1_ROOT/.toolalign-local/format-fix-r3/package-verification-r1/site-packages",
+        "--help"
+      ],
+      "cwd": "$REVIEW_ROOT/.toolalign-local/review-p02-training-binding-r1",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:36:13.740186+00:00",
+      "label": "installed-cli-help",
+      "log_sha256": "ce7c9d689da39059f7819f02a90e9f9a383323533837881773ac0a545807a71c",
+      "raw_receipt_sha256": "a7600e1057cfc466447c60d70137c84a7864d7d5a0a5ecf0c428a18559df8807",
+      "started_at_utc": "2026-09-06T13:36:13.680960+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_materials.py",
+        "compare",
+        "--reference",
+        ".toolalign-local/review-p02-training-binding-r1/materials-transformers",
+        "--native",
+        ".toolalign-local/review-p02-training-binding-r1/materials-tokenizers",
+        "--worker-reference",
+        "$D1_ROOT/.toolalign-local/training-binding-r1/review-reference",
+        "--worker-native",
+        "$D1_ROOT/.toolalign-local/training-binding-r1/review-native",
+        "--output",
+        ".toolalign-local/review-p02-training-binding-r1/material-comparison.json"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:29:10.455645+00:00",
+      "label": "materials-static-compare",
+      "log_sha256": "d6acc0d1f562d88873d638d5d91941b73b88a667338d97d2209eb1c0059378d1",
+      "raw_receipt_sha256": "8101c8d5c154c73c11124316890858dffdfba2c0678e6f1a0dfef640c36e4a74",
+      "started_at_utc": "2026-09-06T13:29:08.833050+00:00"
+    },
+    {
+      "argv": [
+        "$NATIVE_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_materials.py",
+        "measure",
+        "--engine",
+        "tokenizers",
+        "--root",
+        "$REVIEW_ROOT",
+        "--cases",
+        ".toolalign-local/review-p02-training-binding-r1/intake/cases.private.json",
+        "--config",
+        "configs/training-data.v1.json",
+        "--tokenizer-root",
+        "$D1_ROOT/.toolalign-local/verified-source/qwen",
+        "--output",
+        ".toolalign-local/review-p02-training-binding-r1/materials-tokenizers"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:28:06.571281+00:00",
+      "label": "materials-tokenizers",
+      "log_sha256": "22a98ca9d85cc0d9ad5b86ef5b9b0759fa3dde6b4231f11efc64ab67a0ebf4fc",
+      "raw_receipt_sha256": "4d669fb1521bfbb23be82ad8816e51ece2346570a0b31ab5085e52091ab0e6f2",
+      "started_at_utc": "2026-09-06T13:28:06.034320+00:00"
+    },
+    {
+      "argv": [
+        "$HF_PYTHON",
+        "-B",
+        "reports/review/P02-training-binding-r1/review_materials.py",
+        "measure",
+        "--engine",
+        "transformers",
+        "--root",
+        "$REVIEW_ROOT",
+        "--cases",
+        ".toolalign-local/review-p02-training-binding-r1/intake/cases.private.json",
+        "--config",
+        "configs/training-data.v1.json",
+        "--tokenizer-root",
+        "$D1_ROOT/.toolalign-local/verified-source/qwen",
+        "--output",
+        ".toolalign-local/review-p02-training-binding-r1/materials-transformers"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:28:07.272469+00:00",
+      "label": "materials-transformers",
+      "log_sha256": "bee898263f764511506c4684dc2c30ffebc5039388416d7eb766be4aea516b52",
+      "raw_receipt_sha256": "8f0b4492e114391719f6fa575d922f8498f02268935b674d2a07fac751fe8f52",
+      "started_at_utc": "2026-09-06T13:28:06.018121+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "reports/review/P02-training-binding-r1/probe_training_binding.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:19:17.148218+00:00",
+      "label": "original-boundaries",
+      "log_sha256": "b29a4fddb836042e4ae1383016921bfd76793df77417e86fcde2e45608c68e97",
+      "raw_receipt_sha256": "cbf284b093affdeebeec8867aff848f50cf5513a67fec458cf3eaffdb2381f13",
+      "started_at_utc": "2026-09-06T13:19:15.788375+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/review_original_receipts.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T13:40:47.418317+00:00",
+      "label": "original-receipts-r2",
+      "log_sha256": "557f42aa267d82ffde641ce03f404cfbc202a117cd1337fe85a15a5a583a6ff8",
+      "raw_receipt_sha256": "141529002b045ebf97c07c6499ae54c795d236bf9facf005c535524a14eb90fe",
+      "started_at_utc": "2026-09-06T13:40:47.391226+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/review_original_receipts.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:41:16.711172+00:00",
+      "label": "original-receipts-r3",
+      "log_sha256": "1dcf985746c6cbf9f37a1df32d65c90b742171144c77ad86715d34ba57df7395",
+      "raw_receipt_sha256": "92a67216f602e1154990a570c4bcc62a8e3899258c6b81cdf9559df46a7bdfbb",
+      "started_at_utc": "2026-09-06T13:41:16.596001+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/review_original_receipts.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T13:40:18.219708+00:00",
+      "label": "original-receipts",
+      "log_sha256": "228bed5801c55673472f32de6ab0a2a1c3973e71969c2a61cb171a7e100631d3",
+      "raw_receipt_sha256": "7743dc99258d0265704f8115f40e9cb55c3fc15b0c7df6bc9fea94e131bab461",
+      "started_at_utc": "2026-09-06T13:40:18.192254+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/postcheck.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:38:19.771748+00:00",
+      "label": "preservation-and-processes",
+      "log_sha256": "13257733367753731f9b8bbebd34b07b3d3556d651933370091b0cb258dc098d",
+      "raw_receipt_sha256": "082b0a65b7fececd4603e6f627f9d6666c04ca9915df372cab017c958195afa9",
+      "started_at_utc": "2026-09-06T13:38:18.895100+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/cpu_runner.py",
+        "-q",
+        "reports/review/P03-ci-deadline-r1/test_deadline_boundaries.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:20:46.611895+00:00",
+      "label": "prior-deadline-boundaries",
+      "log_sha256": "95b4b2361b0ece05ced5e18cedf4629a4438938b1a3befcb5902a44ac1527a0b",
+      "raw_receipt_sha256": "152c0941c2f3c3591220841a72e661aecc4e55226e2494f0f8dcee3069af2584",
+      "started_at_utc": "2026-09-06T13:20:34.867300+00:00"
+    },
+    {
+      "argv": [
+        "$CPU_PYTHON",
+        "-B",
+        ".toolalign-local/review-p02-training-binding-r1/cpu_runner.py",
+        "-q",
+        "reports/review/P02-format/test_independent.py",
+        "reports/review/P02-format/test_audit_denominators.py"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "$REVIEW_ROOT/src",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:20:35.124559+00:00",
+      "label": "prior-format-boundaries",
+      "log_sha256": "0eca21058174a37feace5142b3b92368b60ad9bc939bc5bf126d6e5e94f0a0cd",
+      "raw_receipt_sha256": "6ded43bc9c07cf1e78e61cca79e568f19a102bd2baab2d4b983ef23a824f9d64",
+      "started_at_utc": "2026-09-06T13:20:34.850778+00:00"
+    },
+    {
+      "argv": [
+        "$REVIEW_ROOT/.venv/bin/ruff",
+        "check",
+        "--no-cache",
+        "."
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:34:18.565806+00:00",
+      "label": "ruff-all",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "raw_receipt_sha256": "186f24608ad12bfeddedbd492e14d31dfc4b7a778db6c5c1d5c65aa700a7d022",
+      "started_at_utc": "2026-09-06T13:34:18.516655+00:00"
+    },
+    {
+      "argv": [
+        "$REVIEW_ROOT/.venv/bin/ruff",
+        "check",
+        "--no-cache",
+        "--no-respect-gitignore",
+        "reports/review/P02-training-binding-r1"
+      ],
+      "cwd": "$REVIEW_ROOT",
+      "environment": {
+        "HF_HUB_OFFLINE": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": null,
+        "TRANSFORMERS_OFFLINE": null,
+        "USE_FLAX": null,
+        "USE_TF": null,
+        "USE_TORCH": null
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T13:34:18.566788+00:00",
+      "label": "ruff-review",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "raw_receipt_sha256": "6027131056fe6b14225c5b9610ae798c5d92a47df8aa3fe07218d36377cf2dd5",
+      "started_at_utc": "2026-09-06T13:34:18.551689+00:00"
+    }
+  ],
+  "cpu": {
+    "d1_new_63_tests_already_in_full_group": true,
+    "full": {
+      "passed": 844,
+      "pytest_seconds": 53.01,
+      "skipped": 2
+    },
+    "installed_repetition_not_added": 13,
+    "original_r1": {
+      "passed": 13,
+      "pytest_seconds": 1.24,
+      "subtests_passed_within_those_tests": 110
+    },
+    "prior_deadline": {
+      "passed": 2,
+      "pytest_seconds": 11.58,
+      "skipped": 0
+    },
+    "prior_format": {
+      "passed": 60,
+      "pytest_seconds": 0.11,
+      "skipped": 0
+    },
+    "skip_reason": "Two HF-only snapshot-cleanup cases in the native full regression.",
+    "total_passed": 919,
+    "total_skipped": 2
+  },
+  "current_consumer_loader_sha256": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+  "evidence_version": "P02-TRAINING-BINDING-R1",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "historical_measurement_loader_sha256": "6d1a4474cf6cdc747de53b365426367e825ea844d3ebf0b1f36e54629a8b1d30",
+  "installed": {
+    "new_default_wheel": true,
+    "new_dependencies": 0,
+    "new_interpreter_environments": 0,
+    "optional_packages_unavailable": [
+      "tokenizers",
+      "transformers",
+      "torch",
+      "mlx",
+      "mlx_lm",
+      "tensorflow",
+      "flax",
+      "jax",
+      "jinja2",
+      "huggingface_hub",
+      "psutil"
+    ],
+    "original_selection_verify": true,
+    "package_files_checked": 49,
+    "production_input_tamper_errors": {
+      "audit_path": "audit_file_hash_mismatch",
+      "config_path": "config_file_hash_mismatch",
+      "data_manifest_path": "data_manifest_hash_mismatch",
+      "protocol_path": "protocol_hash_mismatch",
+      "representation_path": "representation_manifest_hash_mismatch"
+    },
+    "source_cwd_imports": 0,
+    "toolalign_module_origins_checked": 17
+  },
+  "materials": {
+    "actual_browser_pages": 0,
+    "actual_selected_train": 10,
+    "browser_observation": "NOT_RUN",
+    "full_record_pairs_equal": 13,
+    "historical_actual_matches": 10,
+    "human_review": "PENDING",
+    "independent_examples": 13,
+    "original_protocol_only": 3,
+    "r1_material_encodings": 26,
+    "records_sha256": "71abf35c788c33031ca6bb0d9ecf3bb1f88cc88dae3b11eea109c587edb55650",
+    "static_copies_checked": 4,
+    "static_token_rows_per_copy": 19968,
+    "status": "PASS",
+    "training_authorized": false
+  },
+  "model": "gpt-6-astra",
+  "not_closed": {
+    "BFCL": "NOT_RUN",
+    "GPU": "NOT_RUN",
+    "G_DATA": "PENDING",
+    "P04_training_authorized": false,
+    "actual_trainer_collator_mask_loss": "NOT_RUN",
+    "browser_observation": "NOT_RUN",
+    "browser_pages_observed": 0,
+    "direct_source_wheel": "NOT_RUN",
+    "final_CI": "NOT_RUN_BY_R1",
+    "main_verification": "NOT_RUN_BY_R1",
+    "model_capacity_preflight": "NOT_RUN",
+    "model_loading": "NOT_RUN",
+    "original_browser_rejection_sha256": "b2abc9c609ccac06554e9a802a7dc3d382aec8c4f8bf7e6e8339f902a75c929e",
+    "original_required_representative_longest_non_ascii_page_observations": "PENDING",
+    "semantic_review": "PENDING",
+    "token_mask_human_review": "PENDING"
+  },
+  "preservation": {
+    "direct_deadline_child_records": 4,
+    "initial_paths": 4045,
+    "later_paths": 4195,
+    "limit_bytes": 2147483648,
+    "old_D1_failed_pids_absent": 12,
+    "old_refs_retained": 30,
+    "postcheck_local_artifact_inventory": "Point-in-time budget inventory before its own output log closed. Final private completion is the authoritative R1 artifact seal.",
+    "recorded_pids_absent_at_postcheck": 37,
+    "retained_bytes_at_postcheck": 157866720,
+    "retained_files_at_postcheck": 1540,
+    "sets_overlap": true
+  },
+  "private_proofs_sha256": {
+    "archives.json": "d7fa3ce6d08b3361ef1a59e5636672e940e1a23d155bf13ed33b01e6d274d959",
+    "build-cache.json": "9ee9d627532e207a69959ffd1ca1d35cac202c8a61e65ea498bc2819cecec35b",
+    "installed-api.json": "be5ad1683bcd0a32cb1aa28286ee98e445696b81ab82aacab171928b94982a23",
+    "intake/proof.json": "483ead3b94539d79daaf13096845fbe4a5af22bb99bc9e088593e607cca80ad1",
+    "material-comparison.json": "cab30b49b2070b2ce03b4f79b127966c37013a7614cbaa359cec70b6aa90b529",
+    "materials-tokenizers/manifest.json": "cba6195dc0f2efdc248fc4cae69942b5386a357acac16127500d6a52fcfdbe18",
+    "materials-transformers/manifest.json": "8c8cca2b4d024db01d237b436b192bd627e8412669ecf996e4540280ef80e4b9",
+    "original-receipts.json": "7baab0d10a4732365f4960022a2b74cb76daffe3a94c1a769a5953b33148a565",
+    "postcheck.json": "eb87ae7bf69e743345233c1e3376d3039e0e33eacfc9e056d79b1dc4bc8011b2"
+  },
+  "public_probe_files_sha256": {
+    "probe_training_binding.py": "2b2b82f27f1957f58bcfbda587dd57c4897f189bd676cd7ce11d4c6f49145f82",
+    "review_evidence.py": "91d58087bd6dc212d4392b7ee5fce751a682e5c9d1a9d05372dcaa129f39d0fd",
+    "review_materials.py": "278f228773bdcb8848c02d3fd1e1191227e378916af2d1c8cae39f352252c3e7",
+    "review_package.py": "95f4fc4f23c34e87ba2becd2f4d60fb83febd62726e16a1a03ad95d45018bfd3"
+  },
+  "redaction_variables": [
+    "$CACHED_HATCHLING",
+    "$CACHED_PATHSPEC",
+    "$CACHED_TROVE_CLASSIFIERS",
+    "$CPU_PYTHON",
+    "$D1_ROOT",
+    "$HF_PYTHON",
+    "$NATIVE_PYTHON",
+    "$REVIEW_ROOT",
+    "$S0_EVIDENCE"
+  ],
+  "review_branch": "review/p02-training-binding-r1",
+  "review_commit_and_tree": "Exact values delivered natively with the immutable commit containing this index and private completion.",
+  "review_parent": "f4f73c9ac8e004b48a74a80ac00617a01c4da324",
+  "selection": {
+    "D1_real_materializations_verified": 2,
+    "R1_new_full_original_materializations": 0,
+    "config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "cross_profile_rows_per_materialization": 8027,
+    "profiles": {
+      "formal": {
+        "train": {
+          "denominator": 7515,
+          "eligible_but_not_selected": 0,
+          "length_partitions": {
+            "context_and_response": 72,
+            "context_only": 1272,
+            "eligible": 6013,
+            "response_only": 158
+          },
+          "prompt_plus_reserved_256_pass_all_candidates": 5526,
+          "prompt_plus_reserved_256_pass_selected": 5359,
+          "selected": 6013,
+          "selected_action_kinds": {
+            "tool_calls": 6013
+          },
+          "selected_example_hash_order_sha256": "b717e4c389b3cf1cab1bdb3db52c2808824b471785197319c523e99182cdc671",
+          "selected_id_order_sha256": "43bbe027d65b37845c3a551460eb632b87be1bf461a3cebe783247a50936a8a9",
+          "selected_identity_rank_bucket_order_sha256": "70691b899acb123e8eadb5576443c03b6bd23a36680910f0fd95ce588d602deb",
+          "selected_padding_buckets": {
+            "1024": 985,
+            "1536": 2633,
+            "2048": 2395
+          }
+        },
+        "validation": {
+          "denominator": 234,
+          "eligible_but_not_selected": 0,
+          "length_partitions": {
+            "context_and_response": 3,
+            "context_only": 0,
+            "eligible": 217,
+            "response_only": 14
+          },
+          "prompt_plus_reserved_256_pass_all_candidates": 232,
+          "prompt_plus_reserved_256_pass_selected": 217,
+          "selected": 217,
+          "selected_action_kinds": {
+            "tool_calls": 217
+          },
+          "selected_example_hash_order_sha256": "63cfe9e10889a669a70708bdacaa6a98f52f4cb425b532ef4aae9f2652511659",
+          "selected_id_order_sha256": "f8ca56d242761da1ed5a23bbc2c5dba443c1a81f657c0c2165538ac140ad6ca5",
+          "selected_identity_rank_bucket_order_sha256": "1affdacc8ef237bb51ce8a1454d17605f17d8edb6b71ea48b78e90cbc1ca3902",
+          "selected_padding_buckets": {
+            "1024": 74,
+            "1536": 123,
+            "2048": 20
+          }
+        }
+      },
+      "smoke": {
+        "train": {
+          "denominator": 7515,
+          "eligible_but_not_selected": 2018,
+          "length_partitions": {
+            "context_and_response": 153,
+            "context_only": 3667,
+            "eligible": 3618,
+            "response_only": 77
+          },
+          "prompt_plus_reserved_256_pass_all_candidates": 2765,
+          "prompt_plus_reserved_256_pass_selected": 1173,
+          "selected": 1600,
+          "selected_action_kinds": {
+            "tool_calls": 1600
+          },
+          "selected_example_hash_order_sha256": "3a2c54193850c1fccab9d5d3478e3705d0442e1b2757034038ad44eff455d54c",
+          "selected_id_order_sha256": "db96988c1968e1232e93adcbe974c30a5a1b76681ff68c66edca8af039af533c",
+          "selected_identity_rank_bucket_order_sha256": "38232f5b1d8f4adc308ac1f20fbe57152dd2403c97a4b2092b9094eaa8000cc4",
+          "selected_padding_buckets": {
+            "1024": 429,
+            "1536": 1171
+          }
+        },
+        "validation": {
+          "denominator": 234,
+          "eligible_but_not_selected": 0,
+          "length_partitions": {
+            "context_and_response": 12,
+            "context_only": 20,
+            "eligible": 197,
+            "response_only": 5
+          },
+          "prompt_plus_reserved_256_pass_all_candidates": 180,
+          "prompt_plus_reserved_256_pass_selected": 174,
+          "selected": 197,
+          "selected_action_kinds": {
+            "tool_calls": 197
+          },
+          "selected_example_hash_order_sha256": "fd6ad5bbccbfde96f5cda9836774d290604a8880a6bd93200590569f35b5f150",
+          "selected_id_order_sha256": "cd82b5142a6575e51d1654dc179ea9fe85d6c18f6fb10eb4d9553c0b464c899b",
+          "selected_identity_rank_bucket_order_sha256": "a89e8dbc1f1d86d56c7d38fb11b5b86bfbcf2cdfcf70580f39702867e0ad9de0",
+          "selected_padding_buckets": {
+            "1024": 74,
+            "1536": 123
+          }
+        }
+      }
+    },
+    "stable_manifest_file_sha256": "eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd",
+    "unique_selected_originals": 6230
+  },
+  "status": "PASS_CPU_SCOPE",
+  "thinking": "max",
+  "unchanged_base_files": 337,
+  "unchanged_measured_files": 346
+}
