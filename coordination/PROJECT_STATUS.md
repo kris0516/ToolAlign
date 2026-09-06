@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。原7bada2e新格式正式FAIL/P2=1保持，D1修复完整8c439f6已正式交接/普通推送；S0范围及最终封存核验通过，候选双Python CI全部步骤成功。R1原轮completed/idle核验后，S0按完整4123363原生派发精确8c独立复审，新轮ACTIVE，gpt-6-astra/max、仅CPU；D1已completed/idle。T1/E1无新任务，P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P02数据代码MERGED，G-DATA仍待kris人审及训练配置绑定。新格式修复8c439f6获独立R1正式PASS，review b9f7567按原SHA公开；格式代码ACCEPTED，原7bada FAIL/P2=1保持。S0最终普通组合2b11b7f已推送PR8；CI34024093376的3.11全部通过、3.14在已有P03截止时间测试失败，最终main验收暂停，PR8仍Draft。E1完整947144f修订获R1正式PASS，原review1531892已发布；657CPU及另2探针通过，S0核验1641路径和最终封存，R1原生completed/idle。测试修订ACCEPTED，S0接续普通组合/最终CI/main验证；D1/T1/E1/R1无新任务，无新GPU或P04授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1最终修复8c439f6与封存已交接/原生空闲；R1按4123363独立复审精确8c、新轮ACTIVE；原7bada FAIL/P2=1及2942公开review保持，T1/E1无新任务 |
+| 独立实现/reviewer 对话 | R1新格式b9f7567及截止时间测试1531892均正式PASS，原生completed/idle已核验；D1/T1/E1/R1无新任务，等待S0最终组合验收 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -123,3 +123,12 @@ D1修复正式交接：完整8c439f683b9d6b04919ff1f7184d8924ccf82f9f已普通�
 
 
 S0新组合预检：在隔离worktree普通merge当前main758aa2c与修复8c439f6得到50f7589，277份main与37份候选新增字节保持。实际839 passed/2 HF-only skipped、三份归档/10纯默认接口命令通过；另将新默认wheel安装并运行未改原F1，两engine的实际backend/身份与正常基线相同，7个ToolAlign模块均来自target。S0首次reference误选带模型库的P01环境，在原探针前置断言停止；首次及诊断exit1保留，只更换既有纯tokenizer环境后通过。见[新预检](../reports/S0_P02_FORMAT_PREFLIGHT_R2.md)，初始摘要a49ccddead2a56f9851d3c805d91dfe1ca9e972d9f38c137bccbb50b4a57bf19、附加证据e1b619a8642d4bcf35fef2e68a87e9cecc177a3ae82a9156c4a92aaed52b8fe6。R1仍在封存正式复审，集成分支未推送、main实现未改；G-DATA/P04仍待相应门槛。
+
+新格式独立复审已接受：R1对8c439f6正式PASS，P0/P1/P2均0，review b9f7567仅新增8文件、251被审文件保持。S0核验516项制品身份与最终completion的505个封存文件/31命令，原SHA安全发布；R1原生completed/idle。随后普通集成当前main为2b11b7f，278份main/37候选新增/8新review保持。最终CI34024093376的Python3.11所有步骤通过，Python3.14出现1 failed/484 passed/48 skipped：已有P03截止时间测试在0.6秒总预算耗尽时未保证工具operation_started。具体原日志、同源映射、S0自身核验前缀错误及边界见[本次证据](../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。PR8保持Draft，E1限域CPU测试修复已按完整fa1ea86原生派发并确认新轮ACTIVE；不以重试绿灯代替解释该失败。G-DATA/P04和完整目标保持未完成。
+
+
+E1截止时间测试完整947144f已普通推送/交接并结束；S0核对4767路径、19原始命令、三份实际新归档及精确4a1基线wheel，证明dc09b0aa83cd74e57bae7d8b2641a503b26561f2217398afc750a34011e79c06；原始失败及S0检查路径遗漏保留。R1审查范围READY，详见[跟进证据](../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。
+
+10:15 UTC，S0再次以原生状态确认R1旧轮completed/idle和干净b9f7567，再按完整c91ea4f79e59e667fd008fab28aaca2e3efdbfe4正式派发精确947的P03-CI-DEADLINE-R1，gpt-6-astra/max，新轮ACTIVE已核验。10:14 UTC共享GPU租约空闲，100行人审副本仍0 reviewer/0 verdict；未新增GPU/P04授权，PR8最终CI/main仍待完成。
+
+截止时间修订独立验收：R1对947144fa2dd248113f6db412f120cdae5483c9b8正式PASS，review1531892a9e49b69283ef07f3142b221693483628按原SHA发布，原生completed/idle已核验。S0核对1641路径，包括282候选不变、6个新review文件、1346个封存条目与20条命令；证明0abed1b5099fc389167e587ff06b56e51ec85e7a4f8317dc818edd34b555ab83，集合不相加。原失败/负向控制与两项R1辅助检查错误保持；测试修订ACCEPTED，组合CPU/归档/最终CI/main另行验证。11:01 UTC共享GPU空闲，人审100行仍未填写。

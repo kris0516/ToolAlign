@@ -56,6 +56,10 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 新格式修复正式交接与复审准备 | D1完整8c439f6已普通推送并正式交接；S0范围/证据1325项hash及最终封存625项检查通过，原2942审查保持，双Python CI34021506781全部步骤成功；READY_FOR_REVIEW，R1原轮空闲已核验、复审未派发 |
 | 2026-09-06 | 新格式修复独立复审实际派发 | D1最终8c439f6交接且原生completed/idle；S0再次核验R1原轮空闲/干净2942后，按完整4123363派发精确8c的P02-format-review-r2，gpt-6-astra/max，新轮ACTIVE |
 | 2026-09-06 | 格式修复与P01/P03组合预检 | S0隔离普通merge50f7589实际839 passed/2 HF-only skipped、三归档/10默认安装命令及两engine安装版原F1通过；保留S0环境前置失败，见[新预检](reports/S0_P02_FORMAT_PREFLIGHT_R2.md)；R1正式交接/最终CI/main仍待完成 |
+| 2026-09-06 | 新格式正式复审与最终CI跟进 | R1对8c正式PASS/P0/P1/P2均0，原review b9f7567已发布/普通集成为2b11b7f；R1原生completed/idle。最终CI34024093376的3.11通过、3.14旧P03截止时间测试失败；PR8 Draft、格式ACCEPTED待main，E1限域CPU测试修复已按fa1ea86原生派发/ACTIVE，见[证据](reports/S0_P02_FORMAT_CI_FOLLOWUP.md) |
+| 2026-09-06 | 截止时间测试正式交付与复核准备 | E1完整947144f交付/原生空闲，657CPU自查通过；S0核对4767路径、19原始命令及实际归档，R1精确审查READY，见[证据](reports/S0_P02_FORMAT_CI_FOLLOWUP.md) |
+| 2026-09-06 | 截止时间测试独立审查实际派发 | 核验R1旧轮completed/idle及干净b9f7567后，按完整c91ea4f原生派发精确947144f的CPU独立审查，gpt-6-astra/max，新轮ACTIVE；E1已结束，无新实现/GPU/P04授权 |
+| 2026-09-06 | 截止时间测试独立审查验收 | R1对947144f正式PASS/P0/P1/P2均0，review1531892原SHA已发布；657CPU及另2边界探针通过，S0核对1641路径/20原命令/实际归档，R1原生空闲；测试修订ACCEPTED待组合CI/main |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -81,7 +85,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准和P03 CPU任务已VERIFIED。P01在d10722e合并并完成main655CPU/21条隔离命令验证，G1-SFT与唯一DPO备选分项PASS，首选DPO FAIL保持；P03先在29a5e4c完成独立验收和主干验证。原7bada2e的新格式审查正式FAIL/P2=1保持；D1最终修复8c439f6已正式交接/普通推送，S0核验修复范围、原审查历史与完整证据，候选双Python CI通过。R1原轮completed/idle核验后，已按完整4123363原生派发精确8c的独立复审并确认新轮ACTIVE；D1现已completed/idle，T1/E1无新任务。原数据和人审材料保持，尚无正式模型训练或评测验收。最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查、新格式独立验收和训练绑定，P04尚未授权。
+P00、共享支持、P01受限兼容校准和P03 CPU任务已VERIFIED。新格式修复8c439f6获R1正式PASS，原b9f7567审查已按原SHA发布并普通集成，格式代码ACCEPTED。最终PR8候选2b11b7f的CI中3.11通过，3.14已有P03测试对0.6秒内启动工具的假设失败；[E1限域测试跟进](coordination/tasks/P03_CI_DEADLINE.md)完整947144f已获[独立R1](coordination/tasks/P03_CI_DEADLINE_REVIEW.md)正式PASS，原review1531892发布/S0封存核验通过，修订ACCEPTED；R1原生completed/idle，待S0普通组合与最终CI/main。主干尚未合格式，不忽略CI失败，原7bada FAIL/P2=1及所有数据/审查保持。D1/T1/E1/R1均无新任务，最多两个实现加独立CPU R1，无新GPU。P02/G-DATA仍待kris实际语义审查及训练绑定，P04尚未授权。
 
 ## 工作记录
 
