@@ -65,6 +65,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-06 | 训练绑定完整交接与独立审查准备 | D1完整f4f73c9交付/远端一致/原生空闲；S0核对3692路径、32本轮原命令及实际归档/安装记录，见[证据](reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。R1范围READY；实际页面观察及kris语义/token-mask人审仍待完成 |
 | 2026-09-06 | 训练绑定独立审查实际派发 | S0核验R1旧轮completed/空闲和干净1531892后，按完整5b553b4原生派发精确f4f73c9，gpt-6-astra/max，新轮ACTIVE已核验；D1/T1/E1无新实现，人工与P04门槛保持 |
 | 2026-09-06 | 训练绑定候选PR与审查intake | [Draft PR9](https://github.com/kris0516/ToolAlign/pull/9)精确f4候选CI34035350180双Python全部步骤通过；实际CI合并3e1e96e及356文件绑定已核验。R1的350候选/13授权副本intake通过、原轮继续ACTIVE；[证据](reports/S0_P02_TRAINING_BINDING_HANDOFF.md)，尚未独立验收/合并 |
+| 2026-09-06 | 训练绑定独立验收与隔离集成 | R1原40252f8对f4f73c9技术PASS、原生空闲；S0核验5734路径/26命令，普通集成0f3d04f实际919CPU/2跳过、新三归档和默认安装通过，见[证据](reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。PR9最终CI/main及页面/人审门槛待完成 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -90,7 +91,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU任务、新格式及截止时间测试修订已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)实际合并36b6988，最终CI/main843CPU与2 HF-only跳过及归档绑定通过，见[主干证据](reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原FAIL/CI失败及历史证据保持。D1的[P02-TRAINING-BINDING](coordination/tasks/P02_TRAINING_BINDING.md)完整f4f73c9已交付、原生空闲，S0交接核验通过；[独立R1审查](coordination/tasks/P02_TRAINING_BINDING_REVIEW.md)已按完整5b553b4原生派发并核验ACTIVE，T1/E1无新任务。最多两个实现加独立CPU R1、单一GPU租约约束保持。实际页面观察、kris语义/token-mask人审、训练绑定独立审查/集成仍待完成，G-DATA和P04正式训练尚未放行。
+P00、共享支持、P01受限兼容校准、P03 CPU、新格式及截止时间修订已VERIFIED，PR8合并36b6988的最终CI/main证据保持。训练绑定f4f73c9获独立R1原40252f8技术PASS并由S0完成交接验收；S0普通集成0f3d04f实际919CPU/2 HF-only skipped、新三归档和默认安装通过，见[集成证据](reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。PR9最终CI/main待验证，所有独立worker/reviewer空闲；最多两个实现加独立CPU R1及单一GPU租约规则保持。实际页面观察、kris语义/token-mask人审、G-DATA及P04正式训练仍未放行。
 
 ## 工作记录
 

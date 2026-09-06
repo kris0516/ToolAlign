@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，原R1审查b9f7567与1531892均PASS且保留原SHA；最终CI/main843CPU通过、2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)。原FAIL及历史证据保持。P02数据代码MERGED，D1新训练绑定完整f4f73c9已交付/远端一致/原生空闲，S0核对3692路径，见[交接证据](../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。R1已按完整5b553b4原生派发并核验新轮ACTIVE；实际页面观察、kris语义/token-mask人审及训练绑定验收仍待完成，G-DATA/P04未放行。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准、P03 CPU、新格式及截止时间测试修订VERIFIED**，两个共享支持包已VERIFIED。[PR8](https://github.com/kris0516/ToolAlign/pull/8)合并36b6988，最终CI/main843CPU及归档绑定通过，2 HF-only skipped，原FAIL保持。P02数据代码MERGED；训练绑定f4f73c9获独立R1原40252f8技术PASS，S0核对5734路径/26命令并确认R1原生空闲。S0普通集成0f3d04f实际919CPU/2跳过、新三归档/默认安装通过，见[集成证据](../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。[PR9](https://github.com/kris0516/ToolAlign/pull/9)最终CI/main、实际页面观察及kris语义/token-mask人审仍待完成，G-DATA/P04未放行。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR9训练绑定候选双Python CI通过、R1独立审查中；PR8共用格式/截止时间修订主干验收保持 |
+| 当前任务/分支 | S0隔离integrate/p02-training-binding-r1；原R1 PASS已验收，实际普通集成0f3d04f通过919CPU/2跳过及包验证，PR9最终CI/main待完成 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1训练绑定f4f73c9已交付/空闲；R1按5b553b4、gpt-6-astra/max审查中，350候选/13授权副本intake已核验；T1/E1无新任务 |
+| 独立实现/reviewer 对话 | D1/T1/E1无新任务；R1原40252f8已交付且原生completed/idle，gpt-6-astra/max；无新实现/GPU派发 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -156,3 +156,7 @@ D1训练绑定intake已于11:57 UTC实际核验：新branch为work/p02-training-
 13:03 UTC，S0再次核验R1原生旧轮completed/notLoaded、干净1531892与D1最终completed/idle，按完整授权5b553b4b7140f4e62209c904bc0b79e94dff8600实际发送精确f4f73c9的P02-TRAINING-BINDING-R1，显式gpt-6-astra/max。新原生轮ACTIVE已核验，新branch intake待worker确认；没有重复创建任务或sub-agent。实际页面/语义/token-mask判断、G-DATA/P04及最终集成门槛保持。
 
 13:12 UTC，S0核对R1新分支精确f4、350候选文件、13授权副本及本轮身份，证明c48dfbdbc87ce0be374bc769d36cf3715d14ef1d7157cca6a44914950f65ece1，原生同一审查轮继续ACTIVE。[Draft PR9](https://github.com/kris0516/ToolAlign/pull/9)已建立，候选CI34035350180两个Python jobs各14步骤全部成功，各550 passed/48 optional-tokenizer skipped加单独46 P00通过。实际CI合并3e1e96e及356文件、107 sdist输入/49生产包字节已核对，证明83601672630688c5ceb8f3a8843a1b25a1ef3bbbb7edc290ec6004924e329b8a；S0首次只读说明差异列表遗漏导致的断言失败保留，修正不改候选/CI。见[证据](../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)。PR保持Draft，R1结论、最终组合/main及页面/人审/G-DATA/P04仍待完成。
+
+## 训练绑定独立验收与S0隔离集成｜2026-09-06 14:13 UTC
+
+R1原40252f8已完成且原生空闲，S0核对5734路径/26原命令与最终封存b83d409a，CPU技术范围ACCEPTED。普通集成0f3d04f的919CPU/2跳过、三份实际新归档和新默认wheel隔离验证通过，证明961e7d78；14条成功命令记录及一条S0归档receipt重名的原始外层失败分别保留，未补造原缺失UTC或子进程退出码。安装17模块全部来自新target，五类输入篡改拒绝；无新全量物化或tokenizer构建。共享GPU锁实际未持有，两份人工填写副本仍0 reviewer/0 verdict；[详细证据](../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。最终CI/main、实际页面和人审门槛保持，P04未授权。

@@ -1,0 +1,404 @@
+{
+  "archives": {
+    "default_wheel": {
+      "member_count": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec",
+      "size_bytes": 118408
+    },
+    "rebuilt_wheel": {
+      "member_count": 54,
+      "sha256": "86adee698e490871894f2670d427e83617071b2a2c08c2f7d25cb3f7405bb1ec",
+      "size_bytes": 118408
+    },
+    "sdist": {
+      "member_count": 108,
+      "sha256": "6bf81574cace92a9e3734cc8790a47818e05534d5c033951b0477a456e84d431",
+      "size_bytes": 231519
+    }
+  },
+  "authorization_commit": "5d2c6b66421a47ee71d3b5d0d3c3892354b10512",
+  "code_base": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+  "command_count_at_evidence_freeze": 27,
+  "commands": [
+    {
+      "command_metadata_sha256": "2a3c0f44eef81ef1c1e13119606ed6d49633fc7720e302e90d92c0ecd028b133",
+      "elapsed_seconds": 0.033916166983544827,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:27:39.678627+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-all-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:27:39.644570+00:00"
+    },
+    {
+      "command_metadata_sha256": "8a4132d828675ff0ac6391146495b2efcd1d4b08cd138762b6c483ab1dd0fa68",
+      "elapsed_seconds": 0.4963874160312116,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:19:42.031504+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-archive-build-default-r1",
+      "log_sha256": "4335e9d1ae6549f04bac838d43aa89360c55550cb2c08ba4b4ac616b0504f4c7",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:19:41.534963+00:00"
+    },
+    {
+      "command_metadata_sha256": "892630be4f1a8c51d4a127b8b0aaf6c028a80c7fc4fac52bea79c93619934e2f",
+      "elapsed_seconds": 0.23148033302277327,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:20:48.409292+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-archive-build-rebuilt-r1",
+      "log_sha256": "0e70a7218db11e66574d7ee02b22ed1a0bdd82a44b00ab9dda637276513e3955",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:20:48.177683+00:00"
+    },
+    {
+      "command_metadata_sha256": "b8f70e60d75e3bb5635e285de8a2959c708c4df4f0cd3fb1352db62573cab0e2",
+      "elapsed_seconds": 36.53009695792571,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:11:36.927197+00:00",
+      "git_head": "526f93d4e0878365a6748c593b3e685b9a395384",
+      "label": "training-binding-build-a-r1",
+      "log_sha256": "17f6bd2348f0f552766e4bdb208f61598ff293473deb327588170b04690731d0",
+      "source_epoch": "b02eb4b0dc4d6307cde2d1adf6be10d21f3d02b2c9cf3794e7002bc7e95e713f",
+      "started_at_utc": "2026-09-06T12:11:00.396933+00:00"
+    },
+    {
+      "command_metadata_sha256": "a8271fcba2cbd3f81311956d1bcca510410245cb2c73a1db38614fb5a68dede9",
+      "elapsed_seconds": 35.87296950002201,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:12:30.483099+00:00",
+      "git_head": "526f93d4e0878365a6748c593b3e685b9a395384",
+      "label": "training-binding-build-b-r1",
+      "log_sha256": "17f6bd2348f0f552766e4bdb208f61598ff293473deb327588170b04690731d0",
+      "source_epoch": "b02eb4b0dc4d6307cde2d1adf6be10d21f3d02b2c9cf3794e7002bc7e95e713f",
+      "started_at_utc": "2026-09-06T12:11:54.609971+00:00"
+    },
+    {
+      "command_metadata_sha256": "7694f039c90d5404abca7eda4b3f1ea17c13eb0a2477e1566ebbf81d81177c12",
+      "elapsed_seconds": 0.03496462502516806,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:27:39.664719+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-contracts-r1",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:27:39.629625+00:00"
+    },
+    {
+      "command_metadata_sha256": "50a99b0947c6477d79f2da14b5f666a9050fb5b0f0bb2c376ea52a3eb9876ee3",
+      "elapsed_seconds": 0.1866120002232492,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:19:41.458257+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-engine-compare-r1",
+      "log_sha256": "2c3b2e3fd4f383de8407092626177ca3a64c212875b2ae2fd3cf526d67c5b510",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:19:41.271487+00:00"
+    },
+    {
+      "command_metadata_sha256": "320edc6e63ec5e98b0e4c6bf4db97fa202285ac7362af8eeba6dbd42962f12c1",
+      "elapsed_seconds": 0.6117044577840716,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:28:49.112467+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-final-preservation-r1",
+      "log_sha256": "8ee6428a0a5175fbed32dd707da23019a801bebde384fbd40401b2fbf74e5765",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:28:48.500625+00:00"
+    },
+    {
+      "command_metadata_sha256": "b714b7de32f7a736a5ee8572c972418fd6a732519b1305f15b670ca9e64704e6",
+      "elapsed_seconds": 0.3873715419322252,
+      "exit_code": 2,
+      "finished_at_utc": "2026-09-06T12:17:49.260615+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-full-cpu-r1",
+      "log_sha256": "5bf2ef523457dfe782875c112739a151f4af6b31e91c0995d049b4a7ebdec467",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:17:48.873098+00:00"
+    },
+    {
+      "command_metadata_sha256": "402b9f6e2a0e82184005af444725ed90bfca4b234de6491217b38c15a3a4d5a7",
+      "elapsed_seconds": 120.15836387500167,
+      "exit_code": 2,
+      "finished_at_utc": "2026-09-06T12:21:26.443079+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-full-cpu-r2",
+      "log_sha256": "65b7b59bd23ff9ebafeed141772ec4e02f38f45e1461a32dc37781d08e2eb247",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:19:26.284457+00:00"
+    },
+    {
+      "command_metadata_sha256": "fc74f80fed4c4960b7eb2f51f8aa8e166ae4f7939c4f9a597eb7f78bd6107296",
+      "elapsed_seconds": 53.13134245807305,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:23:32.711244+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-full-cpu-r3",
+      "log_sha256": "cb6c15607788b3c1b04d51ef614960fd50a5db3277f9bfc351cef6002bdd0800",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:22:39.579738+00:00"
+    },
+    {
+      "command_metadata_sha256": "322d579804e227f068d0c3f7b961f149d6d2d0d040f15cfdb8eb9c485542274b",
+      "elapsed_seconds": 0.465218375204131,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:26:47.968560+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-html-static-r1",
+      "log_sha256": "79f3a82e31cf92d7b4ecd0ec0aa35b8ad5f30c1b49b34f988a56d36c5216aed0",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:26:47.503205+00:00"
+    },
+    {
+      "command_metadata_sha256": "8d3f884db44dc543220d9d8cd5a81b91221c0633a5808e8bb6391746b6b3abda",
+      "elapsed_seconds": 3.1182684171944857,
+      "exit_code": 0,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-input-preservation-r1",
+      "log_sha256": "15cce4f8cb761049dbcec54ee132c245bb48b94d20f8a923f11a5efe5573d600",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T11:49:03.385165+00:00"
+    },
+    {
+      "command_metadata_sha256": "a0d99038512e865486f380ecbfff307f17f728e06e8987826381c24a496740a3",
+      "elapsed_seconds": 38.240624874830246,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:18:25.815936+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-native-materials-r1",
+      "log_sha256": "8abfb5dcb2791ba3e4e7158f660f6d2d50979a824d26077a56efc289cb297a67",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:17:47.575145+00:00"
+    },
+    {
+      "command_metadata_sha256": "f6c637773a527c19e418533c9e9ca9fb06b7b397036d21ba8fb8802e4a01b660",
+      "elapsed_seconds": 0.010401583043858409,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:17:17.600057+00:00",
+      "git_head": "526f93d4e0878365a6748c593b3e685b9a395384",
+      "label": "training-binding-package-checker-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:17:17.589494+00:00"
+    },
+    {
+      "command_metadata_sha256": "c5a5cd016c4d15204a234b3e8981cbe09a64e301cd995aa9e1b997ebb97d5804",
+      "elapsed_seconds": 39.26329925004393,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:21:36.983963+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-package-install-check-r1",
+      "log_sha256": "ab3a3b44d8e08640b97bef1d91864c1dbe34bdbfea29eec57fe0993fbcd74342",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:20:57.720479+00:00"
+    },
+    {
+      "command_metadata_sha256": "dfdeb9801abe5b4bf209b4976e56701c39de6fe05d104f97d628bfdba141e77f",
+      "elapsed_seconds": 0.014232834102585912,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:10:33.910963+00:00",
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-pre-materialization-lint-r4",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": "b02eb4b0dc4d6307cde2d1adf6be10d21f3d02b2c9cf3794e7002bc7e95e713f",
+      "started_at_utc": "2026-09-06T12:10:33.896581+00:00"
+    },
+    {
+      "command_metadata_sha256": "4dc6c5a2f8144f17a2a5e9b84674b74cf7cf06215923c3bb2f8bb8ddc442f88b",
+      "elapsed_seconds": 0.9394896251615137,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:10:18.735844+00:00",
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-pre-materialization-r4",
+      "log_sha256": "c735adf265a53b7ff9260b2c537f9fb0ef28ce02af3b249b1bf8af7851ccf76a",
+      "source_epoch": "b02eb4b0dc4d6307cde2d1adf6be10d21f3d02b2c9cf3794e7002bc7e95e713f",
+      "started_at_utc": "2026-09-06T12:10:17.796221+00:00"
+    },
+    {
+      "command_metadata_sha256": "d3daa55c5209a6ae887808e3293914cdc89a37f7b95b46820a9115d233bceaad",
+      "elapsed_seconds": 11.674595499876887,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:23:51.905848+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-r1-deadline-boundaries-r1",
+      "log_sha256": "660844050fe8f40e80f776bdb3c6e1e9f8bcb60429763e155b8783ee8864feb6",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:23:40.231101+00:00"
+    },
+    {
+      "command_metadata_sha256": "338130b19a3a518871c4e2de157489de6396dd6ec5bd9e63c80a9ce657f1b2dc",
+      "elapsed_seconds": 0.23846762510947883,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:22:40.994323+00:00",
+      "git_head": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+      "label": "training-binding-r1-format-boundaries-r1",
+      "log_sha256": "6279136f10e7afff61d1aaf2285e31851be7611224c92cc18592304e0e8aa9c3",
+      "source_epoch": "1e03f92ca9c3c3b1d2dc1f6535312bcc838df6346cad0a9dbae927469fbe8552",
+      "started_at_utc": "2026-09-06T12:22:40.755711+00:00"
+    },
+    {
+      "command_metadata_sha256": "6006ad029b5a4958eb90609d812d69e26cbdbfcc76d528022a784bdfffda5c27",
+      "elapsed_seconds": 38.73807500000112,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T12:13:45.540658+00:00",
+      "git_head": "526f93d4e0878365a6748c593b3e685b9a395384",
+      "label": "training-binding-reference-materials-r1",
+      "log_sha256": "87a6034dd12b320e525937e10aa314f4c44da945db846b421a4a3c24eed0c59c",
+      "source_epoch": "b02eb4b0dc4d6307cde2d1adf6be10d21f3d02b2c9cf3794e7002bc7e95e713f",
+      "started_at_utc": "2026-09-06T12:13:06.802417+00:00"
+    },
+    {
+      "command_metadata_sha256": "c4aa14a702cca0e1f9fba0bd9471909529bad3732e201adf9053aab151484f3d",
+      "elapsed_seconds": 0.044133834075182676,
+      "exit_code": 0,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-selection-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:02:12.096019+00:00"
+    },
+    {
+      "command_metadata_sha256": "a9bdca9e486f77e47b977ed5b590c00d3427587a57513031ab0696d48a542ee4",
+      "elapsed_seconds": 0.8879897920414805,
+      "exit_code": 0,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-selection-tests-r1",
+      "log_sha256": "5e1ca16b9f9d47316051f800210f3833abef5123c6cd35b1e9edbb54486372d0",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:02:12.110049+00:00"
+    },
+    {
+      "command_metadata_sha256": "3b6363566f9ed7c6d7bc2397e7a519f473ad0fb4991c734fb9bae2df29e2b9b3",
+      "elapsed_seconds": 0.04236045898869634,
+      "exit_code": 1,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-unit-lint-r2",
+      "log_sha256": "f9ddc7a5d1e28f943ec0a875a5b87d1356597dc22af47b6cb0e2491fb9904167",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:06:52.523317+00:00"
+    },
+    {
+      "command_metadata_sha256": "b20704b32cddd5317094902e8b90eb25f4323e15471ebf6f3dfc8930bd871846",
+      "elapsed_seconds": 0.010871667182072997,
+      "exit_code": 0,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-unit-lint-r3",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:08:07.111848+00:00"
+    },
+    {
+      "command_metadata_sha256": "ab01a9f38ed7c8f2079b42bf0936d0611db44b1951814c17f5c33d168187bd50",
+      "elapsed_seconds": 1.0749904580879956,
+      "exit_code": 1,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-unit-tests-r2",
+      "log_sha256": "85a8d87c33f9aad09acea8a8ad424a4ddf605fb5c636fe72181663791e62650f",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:06:51.390059+00:00"
+    },
+    {
+      "command_metadata_sha256": "d1ea24bb06e42c341746ccc1d41dd5ed62f5de08a6258ca102f8dc47300d41fd",
+      "elapsed_seconds": 0.9517030420247465,
+      "exit_code": 0,
+      "finished_at_utc": null,
+      "git_head": "36b6988af6b4e0125b59fb81b1cea142233e14a2",
+      "label": "training-binding-unit-tests-r3",
+      "log_sha256": "c735adf265a53b7ff9260b2c537f9fb0ef28ce02af3b249b1bf8af7851ccf76a",
+      "source_epoch": null,
+      "started_at_utc": "2026-09-06T12:08:07.131907+00:00"
+    }
+  ],
+  "evidence_version": "P02-TRAINING-BINDING-r1",
+  "known_failed_commands": {
+    "training-binding-full-cpu-r1": 2,
+    "training-binding-full-cpu-r2": 2,
+    "training-binding-unit-lint-r2": 1,
+    "training-binding-unit-tests-r2": 1
+  },
+  "not_run": [
+    "browser_render_observation",
+    "kris_token_mask_review",
+    "G_DATA_semantic_signoff",
+    "independent_R1_binding_review",
+    "source_direct_wheel",
+    "actual_0_6B_1536_capacity_preflight",
+    "model_loading",
+    "training",
+    "generation",
+    "trainer_collator_gradient_loss",
+    "final_test_selection_or_scoring",
+    "BFCL"
+  ],
+  "package_check_source_commit": "bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5",
+  "preservation": {
+    "artifacts_per_build": 18,
+    "new_private_bytes_at_check": 144697818,
+    "old_evidence_preserved": {
+      "format-fix-r3": {
+        "commands_preserved": 39,
+        "completion_sha256": "61891c8d9ce12f9768498759f24db2218370a6d67c36e8a1362aedead438ce30",
+        "private_artifacts_preserved": 542
+      },
+      "format-v1-r2": {
+        "commands_preserved": 37,
+        "completion_sha256": "8107fcd5b7c5f42bb356342e9744588231cd06de7e61c404b5327270ccaae965",
+        "private_artifacts_preserved": 620
+      }
+    },
+    "original_audit_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "original_branch_preserved": "8c439f683b9d6b04919ff1f7184d8924ccf82f9f",
+    "original_data_builds_preserved": 2,
+    "original_human_review_sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+    "private_budget_bytes": 2147483648,
+    "public_base_files_preserved": 337,
+    "unredacted_review_in_ancestry": false
+  },
+  "private_evidence": {
+    "browser-rejection-original-receipt.json": "b2abc9c609ccac06554e9a802a7dc3d382aec8c4f8bf7e6e8339f902a75c929e",
+    "browser-rejection-original-receipt.txt": "57a5937c612587bc11865727fe56934cefedbfe41d2286047c9e0fafb2606b93",
+    "determinism.json": "1f2874e279e4816a075ac835cff042cbb3dd7574262fa09932925fcb314c5990",
+    "engine-comparison.json": "82ebb723cce64396b66a5c412831336741d0747c8eabf9bf02fe4ece341e24a0",
+    "final-preservation.json": "ba92f162eac7f981b8309c1460cd9ba9c5c19da233f2a9639a41f15dec220acd",
+    "html-static-verification.json": "a4681bb8370d5225839913ea6b9f7726c1145af7bdbe6d63edb950b9379187b0",
+    "input-preservation.json": "ceaabfa03665bc0ad9f44339724c484e38cdbfb723734e8b8527dba28ce608d3",
+    "package-verification/archives.json": "9514a32235e4c5a566990ec87157418b0018d053a7cdaddf6ccdcd0ac6413bac",
+    "package-verification/installed-api.json": "a039dcf94aecad36e9c85ce86f593b2c66c1df2e32e33333253638922b12d793",
+    "package-verification/summary.json": "fb5c70a3b18b9f600d144d3b7d66fc866007dc22bdd5ae10cb6a8b4a503aac3c",
+    "psutil-cache.json": "111655b9505d493b017a9ffef37c64843884ca469b1dc36e97816799b97aa081"
+  },
+  "public_manifest_path": "data/manifests/training-selection.v1.json",
+  "source_commit": "526f93d4e0878365a6748c593b3e685b9a395384",
+  "status": "CPU_CANDIDATE_BROWSER_OBSERVATION_NOT_RUN",
+  "verification": {
+    "browser_observation": "NOT_RUN",
+    "complete_html_token_rows": 19968,
+    "cpu_passed": 906,
+    "cpu_skipped": 2,
+    "default_installed_commands": 4,
+    "existing_psutil_cache_version": "7.2.2",
+    "full_corpus_retokenizations": 0,
+    "full_group_passed": 844,
+    "human_review": "PENDING",
+    "material_engine_measurements": 26,
+    "material_examples": 13,
+    "model_modules_loaded": [],
+    "new_dependency_installations": 0,
+    "new_environments": 0,
+    "new_original_data_builds": 0,
+    "new_original_unit_cases": 63,
+    "r1_deadline_group_passed": 2,
+    "r1_format_group_passed": 60,
+    "skip_reason": "HF-only snapshot cleanup in native environment",
+    "static_html_pages": 13
+  }
+}
