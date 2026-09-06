@@ -7,8 +7,8 @@
 | [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | VERIFIED | R1-r2 PASS `5d30e1b`；审查 `441d31b`；合并 `cd091e3`；main 176 项 CPU 检查通过 |
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
-| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | 候选59b3802/空闲；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)双Python CI通过，CPU217/新包为自测；待R1 |
-| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | READY_FOR_REVIEW | 候选b0d8d83/空闲；[Draft PR5](https://github.com/kris0516/ToolAlign/pull/5)双Python CI通过，R1完整技术审查进行中；kris人审待填 |
+| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | 候选59b3802/T1空闲；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)双Python CI通过；R1已按52f9c57开始完整CPU/历史模型证据审查 |
+| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | READY_FOR_REVIEW | b0d8d83技术PASS、审查8e4fdbd、338CPU；S0整合[PR5](https://github.com/kris0516/ToolAlign/pull/5)待最终CI/main；kris人审已请求、G-DATA待审 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | 候选79a15d9已交付/空闲；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)双Python CI通过，CPU309/归档/隔离demo与进程回收为自测；待R1 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
@@ -27,4 +27,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。[生产base](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)为37c00de。T1/D1/E1均已交付同步候选且核验原生空闲；R1按授权c44739a独立审完整P02，随后P01/P03。当前仅R1 CPU审查活跃，原始候选/失败/未填人审保持。
+公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。[生产base](../reports/S0_SHARED_02_MAIN_VERIFICATION.md)为37c00de。T1/D1/E1均已交付同步候选且核验原生空闲。R1完整P02技术PASS已交付、原生终态已确认；现按52f9c57开始完整P01，P03随后。S0继续P02集成，原始候选/失败/冻结人审包保持；填写副本等待kris实际记录，不签自动人审结论。
