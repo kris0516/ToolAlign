@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。D1完整新格式7bada2e已交付/空闲；R1按完整1de9078独立审该精确候选，新轮ACTIVE，gpt-6-astra/max、仅CPU。T1/E1空闲，P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。原7bada2e新格式正式FAIL/P2=1保持，D1修复完整8c439f6已正式交接/普通推送；S0范围及最终封存核验通过，候选双Python CI全部步骤成功。R1原轮completed/idle已核验，精确8c的独立复审范围READY、尚未派发，gpt-6-astra/max、仅CPU。T1/E1无新任务，P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | 原7bada新格式正式FAIL/P2=1、公开review2942e56已核验/推送，R1原轮completed/idle；D1修复ACTIVE、已收到6272ad5同轮原review同步授权；复审未派发，T1/E1无新任务 |
+| 独立实现/reviewer 对话 | D1最终修复8c439f6与封存已交接；R1原轮completed/idle、精确8c复审READY未派发；原7bada FAIL/P2=1及2942公开review保持，T1/E1无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -114,3 +114,6 @@ R1仍在冻结7bada2e的独立审查中，已用真实未替换的HF loader稳�
 
 
 原格式审查最终交接已收到并核验：原completion SHA eef5c9c57cdc1855eacf8ec19179aaa27d78f142307b01148deb49c4a7d64512，去敏公开completion SHA b6f302563e57646f4b10fa819035a5245e38a8befd6db8962bcf8e616ee796d0；S0补核42条完整验证/发布日志、两个completion及发布proof，新12个历史blob没有本机路径/UUID匹配，原未去敏blob不在新增可达对象。附加证明773eb35c36c2e1d65fac041af882111d856f96312082b9119a64bafd8ee38dd9保留原839项证明。R1原生completed/idle已核验。S0按完整6272ad5实际发送D1同轮接精确2942的授权并收到确认，D1准备安全提交/普通merge，当前尚不登记merge完成或修复验收；复审未派发。PR8已更新为原7bada正式FAIL/P2=1、待修复候选/独立复审，继续Draft。
+
+
+D1修复正式交接：完整8c439f683b9d6b04919ff1f7184d8924ccf82f9f已普通推送并读回，parent为普通审查merge6c82d29ddaade349d3e2a15f50d35214dbc7bf8d；仅在b4dc1cf修改offline.py并新增test_snapshot.py，原234文件和12份公开review保持，f708不在公开祖先。S0完整读取最终报告/交接、实际diff和核验/安装启动器，范围/日志/制品核对1325项文件hash，证明e3e71a50486d12f4b0b11a3b3a148b1a24ebbcfeb0b12f4043692e0671ce6e3b；另核对最终completion的542制品、39命令及封存625项检查，附加证明5212c4c81a4a82909e6cd261ddd1e81db05308d77969ea49f91ccc0ba0a0ca31。两个检查集合存在重叠，不相加为不同制品数。原before真实reference FAIL/native PASS，修复后同源/默认wheel反例两engine通过；735 passed/2 HF-only skipped来自675与60两组，另reference13/0覆盖两项清理，均为D1自测。12例两engine输出与旧v1相同；旧8228 native与一次reference全量保留原代码/环境/时间，新全量次数0。实际三归档/10纯默认命令绑定b4，合并后安装版真实探针绑定6c，最终8c只更新三份证据。CI34021506781已核对精确8c及Python3.11/3.14全部步骤成功。R1原轮completed/idle和干净公开2942已核验，精确8c独立复审范围READY，尚未原生派发。PR8保持Draft，G-DATA及P04门槛不变。

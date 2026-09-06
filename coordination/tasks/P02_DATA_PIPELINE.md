@@ -150,7 +150,7 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 
 ## P02-format-review-r2｜修复后的独立复审准备
 
-本段为READY，尚未派发。S0须先核对R1正式原审查的精确提交及全部发现，保留原FAIL；收到D1包含原review历史的完整修复candidate/handoff并核对范围、原始before/after及实际最终验证后，再核验R1原生completed/idle。随后原生消息给出完整authorization_commit和精确candidate。R1在自己的隔离worktree从该候选建立`review/p02-format-r2`，gpt-6-astra/max；不自行接随后main/P01，不重启仍活跃的旧轮次。
+本段为READY，尚未派发。待审精确candidate为`8c439f683b9d6b04919ff1f7184d8924ccf82f9f`，已由D1正式交接/普通推送，包含修复b4dc1cf和以6c82d29普通merge保留的公开原review2942e568。S0已核对原报告全部发现、完整修复范围、真实before/after、最终验证及封存；原7bada FAIL/P2=1保持。R1原轮completed/idle及干净公开2942已核验，实际派发仍须原生消息给出完整authorization_commit和该精确candidate。R1在自己的隔离worktree从该候选建立`review/p02-format-r2`，gpt-6-astra/max；不自行接随后main/P01，不重启仍活跃的旧轮次。
 
 只新增`reports/review/P02-format-r2/`及`coordination/handoffs/P02-format-review-r2.md`。全部候选实现/测试/描述/提案/旧数据及manifest、人审材料、原review/失败证据、公共状态/ADR/依赖/配置和其他worktree只读；不能自行修实现后签通过。复核D1实际差异是否仅属c6c02a5及后续S0精确同步范围，原review以普通merge保留，原P01/P03和data材料没有夹带改动。
 
@@ -185,3 +185,6 @@ F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。�
 对最终默认wheel再用真实允许的HF/native环境验证原同尺寸反例，逐模块确认ToolAlign来自实际安装target；它与无可选依赖的纯默认接口检查分开。保持未改原探针、真实loader和完整原始before/after。若合并只新增原审查且新包成员字节不变，可明确列出相同成员/来源与原已执行制品的关系；最终报告仍须准确说明实际构建/安装对应的完整SHA，不捏造新运行。其余c6c02a5的两engine12fixture、全量历史映射、CPU/2GiB/无新环境与模型边界保持。完成后交新的正式P02-format-fix-r3候选/handoff并结束该轮，等待独立复审；当前复审仅准备，未派发。
 
 2026-09-06实际同轮同步：S0按完整授权6272ad512b947b9cf14c5f7201b7807f7f188e13原生发送精确公开review2942e568并收到D1确认，D1沿原活动轮次准备安全提交后普通merge，未重启或新增任务。R1原轮随后实际completed/idle已核验，仍未派发复审。最终原completion与去敏completion、42条原验证及发布日志、新12个可达历史blob已由S0补核；附加证明SHA-256为773eb35c36c2e1d65fac041af882111d856f96312082b9119a64bafd8ee38dd9，原839项证明保持。
+
+
+2026-09-06修复交接核验：D1最终8c439f6、三份公开证据和completion已正式收到，S0范围证明e3e71a50486d12f4b0b11a3b3a148b1a24ebbcfeb0b12f4043692e0671ce6e3b及封存附证5212c4c81a4a82909e6cd261ddd1e81db05308d77969ea49f91ccc0ba0a0ca31均为实际检查结果。修复只有一个生产文件和一个新测试，原234候选文件与12份公开R1材料保持，f708不在公开历史；最终8c只在已测6c82上更新三份本轮证据。39组本轮原始命令和542私有制品封存保持，CI34021506781两个Python jobs所有步骤通过。R1复审仍按上段完整独立范围执行，不因D1自测或S0证据核对直接签PASS；原同名test_independent检查可按已有两组分开调用，保留各组实际分母，勿改旧测试/全局规则。
