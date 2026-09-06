@@ -75,3 +75,5 @@ E1已交付`fde181d3319f36179298a4bec2a928a8354ee6b3`实现及`2195b2e4ea3219884
 关闭F1/F2并运行原R1未修改的对应反例及正常/阻塞/预算对照，保留真实回收、目录状态、原parse失败、raw与已消耗用量。另明确授权关闭F3：仅对`src/toolalign/evaluation/oracles/semantic.py`增加必要的事件因果顺序/待完成调用核验，对先观察后执行等不可靠trace返回unknown，合法多解、多步恢复和实际失败含义不变；不泛化成新状态机。允许必要原创回归写入既有`tests/evaluation/harness/`。这是在原243821a范围外增加的具体oracle路径，其他原授权和只读边界不变。
 
 仅CPU、gpt-6-astra/max；新增私有环境/制品仍按本修复轮累计2GiB，复用已有环境。无需重复未变共享包调查；原checkpoint的测试如源码变化会受影响，则在最终提交复验对应完整CPU、原R1探针、lint/冻结/公开扫描及实际新包/隔离接口。保留修复前和checkpoint证据，旧报告不覆盖；新增最终`P03-fix-r3`及报告必须给出精确候选、各问题、实际命令/退出码/hash和NOT_RUN。无ML/模型/GPU/下载/P04/P06或费用，不因另行准备输出格式而混入真实后端或解析协议改动。最终结束该轮等待新精确候选的R1复审，E1不自行验收或合并。
+
+2026-09-06实际最终修复接续：S0核验E1 checkpoint轮次completed/idle及干净2195b2e后，以完整授权fd67511ef4cb7853bb75b0b106ec4692a9d36be8原生派发本范围并给出原f34f7c5，gpt-6-astra/max，新轮次已确认ACTIVE；原R1与checkpoint证据均保留。
