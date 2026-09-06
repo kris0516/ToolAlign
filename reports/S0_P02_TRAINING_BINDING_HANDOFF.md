@@ -25,3 +25,5 @@ S0读取元数据摘要时曾直接索引早期intake没有的finished_at_utc而
 12:55 UTC，语义填写副本100行、token/mask副本13行均0 reviewer/0 verdict。新13例请求已实际发送，原语义请求仍待答复。允许本人填写人工字段，身份列/JSON/HTML和reference/native冻结证据保持；初始空白CSV hash不作为拒绝合法人工填写的条件。
 
 原浏览器file URL导航被URL安全策略拒绝，并明确禁止绕过；完整回执b2abc9c6已核验。实际渲染0页/NOT_RUN，静态检查不能关闭代表/最长/非ASCII页面观察及kris判断。原任务此项要求仍未完成。[R1审查范围](../coordination/tasks/P02_TRAINING_BINDING_REVIEW.md)保留该缺项，技术审查可继续。最终CI/main、G-DATA、P04真实trainer/collator、0.6B/1536容量与GPU授权均待对应门槛。
+
+13:03 UTC，S0在R1原生旧轮completed/notLoaded、干净1531892及D1终态再次核验后，按完整5b553b4b7140f4e62209c904bc0b79e94dff8600实际派发精确f4独立审查，gpt-6-astra/max；原生新轮ACTIVE已核验。分支intake和审查结论仍待交付。

@@ -1,6 +1,6 @@
 # P02-TRAINING-BINDING-R1｜固定训练选择与序列材料独立审查
 
-状态：READY；D1完整候选f4f73c9已交付、远端一致且原生completed/idle。S0已核对最终交接，R1上一轮截止时间审查已结束；本范围等待原生派发。浏览器实际观察和kris人工判断仍未完成。
+状态：IN_PROGRESS；D1完整候选f4f73c9已交付、远端一致且原生completed/idle。S0核验R1旧轮已结束及干净1531892后，按完整5b553b4b7140f4e62209c904bc0b79e94dff8600原生派发本范围，gpt-6-astra/max，新轮ACTIVE已核验。新分支intake待确认；浏览器实际观察和kris人工判断仍未完成。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -8,7 +8,7 @@
 | 精确被审候选 / code_base | `f4f73c9ac8e004b48a74a80ac00617a01c4da324` |
 | candidate tree / parent | `ed7437bf371671a6a01efd324bb8bc1e2d63e294` / `bc9db40bc3d5a26b73b5f2e7dd308f1bb35be6f5` |
 | 实现基线 / D1授权 | `36b6988af6b4e0125b59fb81b1cea142233e14a2` / `5d2c6b66421a47ee71d3b5d0d3c3892354b10512` |
-| authorization_commit | S0原生消息给出的本文件完整协调提交SHA，切换前以git show读取并私有保存 |
+| authorization_commit | `5b553b4b7140f4e62209c904bc0b79e94dff8600`，切换前以git show读取并私有保存 |
 | 新branch | `review/p02-training-binding-r1`，从精确被审候选新建，保留旧review/p03-ci-deadline-r1与全部既有refs |
 | 模型 / 推理 | `gpt-6-astra` / `max`，不创建新任务或sub-agent |
 | 契约 / 协作 | toolalign.contracts.v1 / coordination.v1 / plan-v0.1 / ADR-0019 |

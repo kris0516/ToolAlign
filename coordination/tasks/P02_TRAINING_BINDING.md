@@ -1,6 +1,6 @@
 # P02-TRAINING-BINDING｜固定训练选择与人工序列材料
 
-状态：READY_FOR_REVIEW；D1按完整5d2c6b66421a47ee71d3b5d0d3c3892354b10512、gpt-6-astra/max交付完整f4f73c9，远端一致且原生completed/idle。S0最终交接核验通过，见[证据](../../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)；[独立R1范围](P02_TRAINING_BINDING_REVIEW.md)已准备。原要求中的实际页面观察及kris语义/token-mask人审仍未完成，不授权模型加载或P04训练。
+状态：READY_FOR_REVIEW；D1按完整5d2c6b66421a47ee71d3b5d0d3c3892354b10512、gpt-6-astra/max交付完整f4f73c9，远端一致且原生completed/idle。S0最终交接核验通过，见[证据](../../reports/S0_P02_TRAINING_BINDING_HANDOFF.md)；[独立R1审查](P02_TRAINING_BINDING_REVIEW.md)已按完整5b553b4原生派发并核验ACTIVE。原要求中的实际页面观察及kris语义/token-mask人审仍未完成，不授权模型加载或P04训练。
 
 | 字段 | 本轮值 |
 |---|---|
