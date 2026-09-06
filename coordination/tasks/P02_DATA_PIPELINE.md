@@ -147,3 +147,29 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 资源限纯CPU，新增私有制品累计2GiB，复用D1已有native/reference环境，不新建环境、不联网下载。使用真实tokenizer-only Transformers5.16.1/tokenizers0.23.2/Jinja3.1.6，导入前设置离线和禁用Torch/TF/Flax，实际断言无模型模块；禁止模型/GPU/费用/上传/P04及正式训练。完成后普通推送精确候选并结束该轮，等待独立R1复审。S0的768CPU临时组合预检与候选CI通过不关闭本缺陷；新格式、G-DATA、训练绑定均未验收。
 
 2026-09-06实际修复派发：S0再次核验D1上一轮completed/idle和干净7bada2e后，按完整授权`c6c02a5af084afe92c6e9f05d9d1c51392e805d0`发送P02-format-fix-r3，显式gpt-6-astra/max，已核验原生新轮ACTIVE。R1继续原7bada完整审查，不混入D1修复；T1/E1无新派发。Draft PR8说明已更新为待修复/独立复审，原CI与临时组合结果保持，未合并。
+
+## P02-format-review-r2｜修复后的独立复审准备
+
+本段为READY，尚未派发。S0须先核对R1正式原审查的精确提交及全部发现，保留原FAIL；收到D1包含原review历史的完整修复candidate/handoff并核对范围、原始before/after及实际最终验证后，再核验R1原生completed/idle。随后原生消息给出完整authorization_commit和精确candidate。R1在自己的隔离worktree从该候选建立`review/p02-format-r2`，gpt-6-astra/max；不自行接随后main/P01，不重启仍活跃的旧轮次。
+
+只新增`reports/review/P02-format-r2/`及`coordination/handoffs/P02-format-review-r2.md`。全部候选实现/测试/描述/提案/旧数据及manifest、人审材料、原review/失败证据、公共状态/ADR/依赖/配置和其他worktree只读；不能自行修实现后签通过。复核D1实际差异是否仅属c6c02a5及后续S0精确同步范围，原review以普通merge保留，原P01/P03和data材料没有夹带改动。
+
+独立复审原完整报告所有发现，重点证明真实HF加载确实消费已核验缓冲或等价完整状态。核对可变原目录与实际消费目录/文件/参数的关系、未绑定附加文件/override的处理、模板/EOS/包/revision身份、正常构造后实际render/encode/decode仍自足，以及临时资源成功/异常清理。安全边界是绑定普通来源目录更新，不扩张成任意同用户OS攻击隔离。保持真实HF功能，不接受多次路径重查、关闭reference、放松声明或native假扮reference。
+
+先核对D1在原精确7bada的真实before日志、原R1失败探针及source/wheel证据；在新精确candidate的源路径和实际默认wheel安装路径独立复跑未改原同尺寸探针及native对照。主反例不能mock loader方法、返回值、identity或期望hash；证明原F1关闭且正常固定输入没有变化。补充与实际改动相关的不同尺寸/静态来源/额外文件/异常邻例，报告独立场景与安装重复，不把同一反例多跑算作多项缺陷。
+
+同12个原fixture通过两条真实CPU路径重新核对完整P/C/IDs/sequence/EOS/mask/shift，明确两个模型身份共享来源，保持四种Action和历史角色/转义/原parser行为。旧8,228行native测量及原R1一次reference全量核验保持其原commit/hash/环境/时间；新的代码绑定映射应承认offline.py变化，不能把旧全量manifest悄悄换成新源码或伪称本次重跑。正常表示无差异时读原全量证据、逐项核对保全和小集即可，不重复来源两遍构建或全量8,228。若发现实际表示变化，保留差异并报告S0，由S0决定后续范围。
+
+运行适用的未改旧CPU/真实tokenizer和原R1独立结构/统计检查、新复审反例、lint/冻结/公开扫描；精确候选的新sdist/default wheel/显式重建wheel、成员源码hash及默认安装自足接口须有实际证据。纯/default安装不加载可选tokenizer/模型；安装版真实HF反例另用允许的CPU环境并核对实际ToolAlign导入路径。区分独立场景、安装重复和命令数，保留自己的失败尝试；源码直接wheel未运行记NOT_RUN。
+
+仅CPU，新增私有制品累计2GiB，复用R1已有native/reference环境，不新建环境、不联网下载。原固定Transformers5.16.1/tokenizers0.23.2/Jinja3.1.6与native0.22.2环境分别记录，运行前禁用Torch/TF/Flax并设置离线，实际核对无模型模块。禁止模型/GPU/训练/评分/费用/上传/P04；不代签kris人审。交精确candidate与原独立review commit、PASS/FAIL/BLOCKED及P0/P1/P2、完整命令/退出码/hash和历史证据映射。提交新的独立review后结束该轮；PASS仍需S0最终CI/普通合并/main验证，新格式通过不等于G-DATA或模型质量通过。
+
+### 原R1未公开附件的去敏发布映射
+
+S0在发布前读取到R1本地原review `f7086413a9fedd9e2a473ac6d2869efff74ddad5` 的公开evidence.json中，一条安装命令仍带实际系统临时路径；远端尚无本轮review分支。该遗漏只属于R1发布附件，不增加7bada候选的缺陷数。F1正式等级保持P2=1、整包FAIL；原候选、8个探针、具名Ruff例外及原始命令/日志/结果只读。
+
+收到S0原生消息给出的本段完整授权SHA后，R1在同一活动轮次完成公开角色占位符映射，扫描12份新增公开文件和公共历史载荷，保留全部原始私有字节与原review提交。**不得push f708641或其任何后代**，因为只修最新tree仍会在公开历史留下原路径。允许在自己的原worktree建立新的`review/p02-format-r1-public`，以原精确被审candidate `7bada2e451d43dae4b3ed532d5efa310fc8e6a57`为唯一父提交，提交同一份已核验审查的去敏发布tree；原`review/p02-format-r1`及其私有修正历史保留，不reset/rebase/amend/cherry-pick或force push任何分支。
+
+新公开tree相对原review只允许更新`reports/review/P02-format/evidence.json`中的路径占位符/发布映射及因此变化的公开文件hash、`reports/review/P02-format/README.md`和`coordination/handoffs/P02-format-review-r1.md`中的去敏来源说明。原F1结论/等级、候选、实际测试数字和所有已执行探针字节保持；不重跑或改写原测量。README/交接明确“原本地审查SHA → 去敏公开review SHA不同，私有原记录未改”；最终公开SHA可由原生handoff提供以避免自引用。独立核对新tree的235份候选文件及9份探针/配置与原提交相同，重新运行适用lint、公开扫描和diff检查即可。
+
+此项是未公开附件的去敏发布映射，不能伪称保留相同SHA。S0核验新公开commit的父关系、受保护字节、去敏差异与原私有证据后，才推送该新分支并把其精确SHA授权给D1普通merge；原含路径commit只留本地，不进入D1或main的公开祖先。后续独立复审绑定这个已核验公开review及原候选；旧FAIL与完整原始证据仍保留。
