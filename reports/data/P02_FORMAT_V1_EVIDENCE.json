@@ -1,0 +1,1162 @@
+{
+  "artifacts": {
+    "authorization-manifest.json": {
+      "sha256": "14f7e5e0b55e9a99d70848f4fc9c6a24ca5d01dc8a8f6d55005125355087b315",
+      "size_bytes": 1904
+    },
+    "combined-tests.py": {
+      "sha256": "dbb50194ecd44579bba7039c2792eab203ed1e1820b1de6809b82e1a059c7573",
+      "size_bytes": 744
+    },
+    "driver.py": {
+      "sha256": "6208bfdb8e17a1d2885bb00b181252b4223a0f207bb0ebfc54f821dd50e72f20",
+      "size_bytes": 5547
+    },
+    "final-checks.py": {
+      "sha256": "ead1df04e95318f8e7cfd88772315e32716b4e12f1d92f3b01d81e0db829c3e0",
+      "size_bytes": 7399
+    },
+    "final-scope-r1.json": {
+      "sha256": "a8e3b66ae3c396578377a2aaf27f59a281cc901b80ab5710dc7a249099830ae1",
+      "size_bytes": 55246
+    },
+    "fixtures-compare-r1/result.json": {
+      "sha256": "9fd24c389d54992051fde3c9a8584be12cddd6316088c166f206d8659f0ee222",
+      "size_bytes": 7075
+    },
+    "fixtures-native-r1/result.json": {
+      "sha256": "5633d00289d65d6f5663b7bb2388cd39d10501b6f7ca49a3adcb4a59ba70c0a0",
+      "size_bytes": 407766
+    },
+    "fixtures-reference-r1/result.json": {
+      "sha256": "86ca97c8e0020bc64a58d1874c4776521ef16f5d169b79db19120405aa44efd5",
+      "size_bytes": 407822
+    },
+    "integration.json": {
+      "sha256": "7f0dd79d7993925d8d024f216ef0caafac579f9fae1bf6b08c2202643769fb00",
+      "size_bytes": 725
+    },
+    "merged-parser-check.json": {
+      "sha256": "bedac7b1cc1f79d197d3bb5112b57544bb066e45a32aea3007044fd3b1ac1de8",
+      "size_bytes": 3829
+    },
+    "merged-parser-check.py": {
+      "sha256": "3018eb282813e46e44c135925f12749ce0f6bfd18d65c217cd716852d623ad0b",
+      "size_bytes": 2003
+    },
+    "p03-sync-authorization/manifest.json": {
+      "sha256": "fdac73c005ea9d5e3c79d60ccf69598be47e068078e7b515a1f185fd0d6f1253",
+      "size_bytes": 989
+    },
+    "p03-sync-integration.json": {
+      "sha256": "4d95ee4c017c13b7b89b5076060edfc420099b5c38cc7ae316fe27d5a82a39a9",
+      "size_bytes": 372
+    },
+    "package-failure-diagnostic.json": {
+      "sha256": "5582dbf41ac4ad4123ab632a7ab2d9067720b77ef0ec5b072c739141ccf4dbc2",
+      "size_bytes": 251
+    },
+    "package-probe-failed-r1.py": {
+      "sha256": "11f57619dba77fd9d4bddafa4f4f242eed41513e8a2bb86182856260bab83d6f",
+      "size_bytes": 13118
+    },
+    "package-verification-r3/archives.json": {
+      "sha256": "e364bcc8b9448efc90b59994996a9f016d2be50e8a8f04a86317c4a412ab8ceb",
+      "size_bytes": 20166
+    },
+    "package-verification-r3/installed-api.json": {
+      "sha256": "dd56ee278168c0c73bffa97abe185da81876d944f2d9dca3d5e6807017204f38",
+      "size_bytes": 2226
+    },
+    "package-verification-r3/runtime.txt": {
+      "sha256": "98c79ab2b75ac9992302ca0c72ce5b70c48b042ec32b600b02fdb5a1896896e4",
+      "size_bytes": 8881
+    },
+    "package-verification-r3/summary.json": {
+      "sha256": "a87fb5ef6090b2bf4c8a5ee7dcec75ef4baf9b746146012887725b2129882827",
+      "size_bytes": 10060
+    },
+    "preservation.json": {
+      "sha256": "6bcc3266057a17830ab9ee7a2f06e4afcecc8f399fad9a250fcf0bd94d00c06e",
+      "size_bytes": 2839
+    },
+    "s0-tokenizer-source-binding.json": {
+      "sha256": "83bafd8cfeedf25ef82f558ddb23eb5a1a333a2617cbaf2a461b9aadb24b7d3f",
+      "size_bytes": 2624
+    },
+    "sequences-v1-r1/manifest.json": {
+      "sha256": "07daedb35169d6fa4d6eae1c7663387380035971c15c88ae5461ff4e7f617d23",
+      "size_bytes": 18539
+    },
+    "sequences-v1-r1/rows.jsonl": {
+      "sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+      "size_bytes": 25702461
+    },
+    "sequences-v1-r1/summary.json": {
+      "sha256": "fca364e505e10c2b9a7b12357d61ac46bafa302eac0d359060c13ab8f7768741",
+      "size_bytes": 13615
+    },
+    "source-at-core-r1.json": {
+      "sha256": "85e76959ae9f6aad67aaac90f11b23d742c97ef0b0ce998de7fab5e5d0eb8ffa",
+      "size_bytes": 861
+    },
+    "test-format-pre-lint.py": {
+      "sha256": "57d031db1606e7d3ad5e26c00acc919fef89e146744a6bde4f774cbe30e8fbe2",
+      "size_bytes": 11615
+    }
+  },
+  "command_path_notation": "WORKTREE and SYSTEM_TEMP are redacted aliases; exact argv and full outputs remain in private command metadata.",
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/toolalign/model_io"
+      ],
+      "elapsed_seconds": 0.01425941614434123,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-initial-lint",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "6722174a1f6c59d1dbad513a499253fcae76d979b4a5107caa598139432e9eff",
+      "started_at_utc": "2026-09-06T05:47:51.762299+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io"
+      ],
+      "elapsed_seconds": 0.3025515419431031,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-core-tests-r1",
+      "log_sha256": "7238c76236333b679ed78143c540334d4412897298cfd354c4bec6f1d28fc627",
+      "private_command_metadata_sha256": "141f75e883421f65320955d680bfe775df68c743d8583f3e44092ec9f2c71670",
+      "started_at_utc": "2026-09-06T05:55:21.967259+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/toolalign/model_io",
+        "tests/model_io"
+      ],
+      "elapsed_seconds": 0.011695082997903228,
+      "exit_code": 1,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-core-ruff-r1",
+      "log_sha256": "1a8fca148b428c2fca12a2528c290ec92e4118de322431a8574abb2554c63809",
+      "private_command_metadata_sha256": "98dc2e01f12e6fbdf3c54f8eb1bca55e6ccb89a355864849ea18415bb4633287",
+      "started_at_utc": "2026-09-06T05:55:21.981381+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/toolalign/model_io",
+        "tests/model_io"
+      ],
+      "elapsed_seconds": 0.009815125027671456,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-core-ruff-r2",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "2bc3f7db6bf3fc3382021e8f39ced162b563f50cbf22b88542d59f3fc8abe682",
+      "started_at_utc": "2026-09-06T05:56:32.548271+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io"
+      ],
+      "elapsed_seconds": 0.286574374884367,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-tests-r2",
+      "log_sha256": "4845aaf5e2da79e6de15f3a82f0ee9c05901f4ae04a07c25325090103c3b9df2",
+      "private_command_metadata_sha256": "b0da7210ca977eba7a19401c35b2a472cb0dec3d175c652ffa8d1c9a4c394a9b",
+      "started_at_utc": "2026-09-06T06:07:49.544851+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/toolalign/model_io",
+        "tests/model_io",
+        "reports/data/P02_FORMAT_V1_CHECKS.py",
+        "reports/data/P02_FORMAT_V1_AUDIT.py"
+      ],
+      "elapsed_seconds": 0.02823575004003942,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-lint-r3",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "7209134838eb4cedda9c9daa60f1263ba70cd6e847504452173c0fec4365da4c",
+      "started_at_utc": "2026-09-06T06:07:49.559013+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io"
+      ],
+      "elapsed_seconds": 0.6315234999638051,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": ".toolalign-local/verified-source/qwen"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-real-tests-r1",
+      "log_sha256": "57d5d6c701b198e1052131ce8104d651f0541a0cd4e4e9f1d823239ee73a2638",
+      "private_command_metadata_sha256": "8637865a88f85306f203321fdaeb4068da1e8f6892c2e6778442b7159552bb1c",
+      "started_at_utc": "2026-09-06T06:08:14.277725+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-reference-venv/bin/python",
+        ".toolalign-local/format-v1-r2/driver.py",
+        "fixtures",
+        "--engine",
+        "transformers",
+        "--out",
+        ".toolalign-local/format-v1-r2/fixtures-reference-r1"
+      ],
+      "elapsed_seconds": 1.3843088748399168,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-fixtures-reference-r1",
+      "log_sha256": "db53eca88ca401d41f6887331acf262e8092ddb99b4e3922fbc338903c5b2aa3",
+      "private_command_metadata_sha256": "e2e94ed01e7143f330fcfa0721ca3c44d16ca79eca5c383180e48e1f93e459fc",
+      "started_at_utc": "2026-09-06T06:08:14.293973+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/format-v1-r2/driver.py",
+        "fixtures",
+        "--engine",
+        "tokenizers",
+        "--out",
+        ".toolalign-local/format-v1-r2/fixtures-native-r1"
+      ],
+      "elapsed_seconds": 0.5616151671856642,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-fixtures-native-r1",
+      "log_sha256": "e7a14f7d96c7efffd1d203d5aeba835ab04262f4f6d7e1b32814ee07ee346b22",
+      "private_command_metadata_sha256": "c71fbd0ea7841792999ced384c617c3e7b45f497ab2ffb6631f82c008aa0a8d1",
+      "started_at_utc": "2026-09-06T06:08:14.311101+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/format-v1-r2/driver.py",
+        "compare",
+        "--left",
+        ".toolalign-local/format-v1-r2/fixtures-native-r1/result.json",
+        "--right",
+        ".toolalign-local/format-v1-r2/fixtures-reference-r1/result.json",
+        "--out",
+        ".toolalign-local/format-v1-r2/fixtures-compare-r1"
+      ],
+      "elapsed_seconds": 0.07394454185850918,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "88733d1878390c3c00b995a506344f74e30a0570",
+      "label": "format-v1-fixtures-compare-r1",
+      "log_sha256": "77d1f0c3d9c4011a98251521937cd20df728023c2f4d5e25ae42d4c70a64cfe9",
+      "private_command_metadata_sha256": "fc2d8a31fc2556aedc8434c9669f2a8551b88de1df90b7aea6bbcac73c91ef74",
+      "started_at_utc": "2026-09-06T06:08:44.183001+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/format-v1-r2/driver.py",
+        "audit",
+        "--engine",
+        "tokenizers",
+        "--out",
+        ".toolalign-local/format-v1-r2/sequences-v1-r1"
+      ],
+      "elapsed_seconds": 57.3785500000231,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+      "label": "format-v1-full-audit-r1",
+      "log_sha256": "8a3cee17dec439f606af4126d294a84e11255030ca1d4291572d52d4b98712ce",
+      "private_command_metadata_sha256": "1af66cf301f32319437acc11369d9fc889a4c9627f357e79f07bef226d415e02",
+      "started_at_utc": "2026-09-06T06:09:01.472825+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.028567041968926787,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+      "label": "format-v1-full-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "a0b9d40dc83163d936e89acf4be9224e9bb47c824b09a7609f98ca830c5eb6ad",
+      "started_at_utc": "2026-09-06T06:09:29.961127+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "elapsed_seconds": 0.019367665983736515,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+      "label": "format-v1-contract-freeze-r1",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "private_command_metadata_sha256": "0d1ff12cdf47383714e4883f09de06992258a42cbfc754005e855fada08b913e",
+      "started_at_utc": "2026-09-06T06:09:29.977494+00:00"
+    },
+    {
+      "command": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P02/test_p02_boundaries.py"
+      ],
+      "elapsed_seconds": 2.595474666915834,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": ".toolalign-local/verified-source/qwen"
+      },
+      "git_head": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+      "label": "format-v1-full-regression-r1",
+      "log_sha256": "913148d9ea9de590512bcc8b8d9ac78ad3fd57a90b23471f683cdea716487755",
+      "private_command_metadata_sha256": "73c59fbe33096ce940256c61808ebf706645b45f3af07168b16275620c3d0b64",
+      "started_at_utc": "2026-09-06T06:09:29.996472+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_public_content.py"
+      ],
+      "elapsed_seconds": 3.2542049579788,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+      "label": "format-v1-public-scan-r1",
+      "log_sha256": "54a365a1af242cb578cc1febb63cce1dc8dc814ac7496489fc45ec9f314df551",
+      "private_command_metadata_sha256": "0212b4d0e83cd20aaac77da53e4cfdfbe90330033fad14916931cf47920f4f51",
+      "started_at_utc": "2026-09-06T06:09:30.014062+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/format-v1-r2/combined-tests.py"
+      ],
+      "elapsed_seconds": 41.60766008286737,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-combined-cpu-r1",
+      "log_sha256": "89df8bfc37be3cac58b2c7766d8007e46376840adb185ea3e91e6ef6d037ede5",
+      "private_command_metadata_sha256": "7f8d9a22fbb2c86db2477b744ab1c1022d9ca3a37d39a58159f697fa5b584d9b",
+      "started_at_utc": "2026-09-06T06:12:40.491902+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/base-r2/verify-preservation.py",
+        ".toolalign-local/format-v1-r2/preservation.json"
+      ],
+      "elapsed_seconds": 0.2525020830798894,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-preservation-r1",
+      "log_sha256": "999f3e1a0d0a0798f2897f67d31a7690e89e1367713bcd8e1ca01beb4ab5a7ab",
+      "private_command_metadata_sha256": "b3a1c9c50b1788f14d74ae1b5dba198da8f6b9ada8557c166105b28a667e60d8",
+      "started_at_utc": "2026-09-06T06:12:40.507497+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/format-v1-r2/merged-parser-check.py"
+      ],
+      "elapsed_seconds": 0.07009424990974367,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-merged-parser-r1",
+      "log_sha256": "323e68a7cae01acb8c010e58ce906e141353e533c898e4fee0385f8b0f73b243",
+      "private_command_metadata_sha256": "ec079480dc1811b77e6b15d822ed5608e5b0fee5b250101011fda24367ffb77e",
+      "started_at_utc": "2026-09-06T06:12:40.523912+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--out-dir",
+        ".toolalign-local/format-v1-r2/packages/default"
+      ],
+      "elapsed_seconds": 0.395895334193483,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-build-default-r1",
+      "log_sha256": "56a98180d7c0bf3f9715aade5d6de6bd76e218b39a3f2c8b375e11ad71925785",
+      "private_command_metadata_sha256": "b91aad9d6cd0e8e0a9e84630f57a3dcf600e50d4099fc95defd8dd94259a70fb",
+      "started_at_utc": "2026-09-06T06:12:41.659566+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/format-v1-r2/packages/rebuilt",
+        ".toolalign-local/format-v1-r2/packages/default/toolalign-0.0.1.tar.gz"
+      ],
+      "elapsed_seconds": 0.19832908315584064,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-build-rebuilt-r1",
+      "log_sha256": "cca6f037c710b08b49487e3a2f46cd3da1add6ebbcad7584704cb82113e398af",
+      "private_command_metadata_sha256": "c6d12cc9bf5cebf561c42d898d0a5c83c9eaa76b75a0598f68745a0e3362aa1a",
+      "started_at_utc": "2026-09-06T06:12:51.423434+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "reports/data/P02_FORMAT_V1_PACKAGE.py"
+      ],
+      "elapsed_seconds": 0.02372212498448789,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-package-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "b127597cbbd54d0d58adcd2525ccbbaed8a81ec1840a558d44c2c5e66a1017c1",
+      "started_at_utc": "2026-09-06T06:16:12.555465+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "reports/data/P02_FORMAT_V1_PACKAGE.py",
+        "--root",
+        ".",
+        "--archives",
+        ".toolalign-local/format-v1-r2/packages",
+        "--out",
+        ".toolalign-local/format-v1-r2/package-verification-r1"
+      ],
+      "elapsed_seconds": 0.05654937494546175,
+      "exit_code": 1,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-package-verification-r1",
+      "log_sha256": "dbbaf910ab8b4fa9c99494eae9062808213ea602f0b1cc40553fae3ae2be247d",
+      "private_command_metadata_sha256": "260cc1682d24dc28309adbc50e860506521b7d22f47813b9bc09933b0be705d8",
+      "started_at_utc": "2026-09-06T06:16:12.662625+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "reports/data/P02_FORMAT_V1_PACKAGE.py",
+        "--root",
+        ".",
+        "--archives",
+        ".toolalign-local/format-v1-r2/packages",
+        "--out",
+        ".toolalign-local/format-v1-r2/package-verification-r2"
+      ],
+      "elapsed_seconds": 1.9942445419728756,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-package-verification-r2",
+      "log_sha256": "84da85d230ce42e2f6cee6b02f411bfb4ab4254424d719da946e406ffd2b53d3",
+      "private_command_metadata_sha256": "57e10bb1736fffb70c5dfe1fdeb187fbf8ad8875c2cf13a1d7b344281005d7cf",
+      "started_at_utc": "2026-09-06T06:16:54.375902+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io/test_p03_raw.py"
+      ],
+      "elapsed_seconds": 0.14995329198427498,
+      "exit_code": 1,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-raw-boundaries-r1",
+      "log_sha256": "0fa9f36d0870322e3b76ca163bbc1bde1348e7ef740b76b2d686dd27f2ff3029",
+      "private_command_metadata_sha256": "f05778e363f7f4c6bed204525fd40533dbf9feb3a9a1ea4ee49efa45a9e52edd",
+      "started_at_utc": "2026-09-06T06:18:53.230863+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.025664957938715816,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+      "label": "format-v1-final-source-lint-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "7b420047cdedd3f788ee2047b3fb0f61f3d71ee447f90dfa88146627f4b52103",
+      "started_at_utc": "2026-09-06T06:18:53.439366+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/model_io/test_p03_raw.py"
+      ],
+      "elapsed_seconds": 0.12564445799216628,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "0e64d2d345fb5e9758dd0a9c5902cc2894a0cb23",
+      "label": "format-v1-raw-boundaries-r2",
+      "log_sha256": "c2cba0e5b1275bde99432021fd22a26635493fa35d0886fcd5cd38708b0f7cca",
+      "private_command_metadata_sha256": "769f358d39d762f1b4137c42f5c3cd2219cc370dfd2ee21a8e02e5d52a0eb91a",
+      "started_at_utc": "2026-09-06T06:19:13.311346+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "elapsed_seconds": 0.01993070892058313,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-freeze-final-r1",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "private_command_metadata_sha256": "61bfbb73d401a93a7df7e9fc8cc0b4ea4e70caea060787724067096522fab967",
+      "started_at_utc": "2026-09-06T06:20:04.863880+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/format-v1-r2/combined-tests.py"
+      ],
+      "elapsed_seconds": 41.32500029099174,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-combined-cpu-r2",
+      "log_sha256": "ab8992181072396d51b1a8e356e6eae93d595871cb730c297697fb1fcd790bd1",
+      "private_command_metadata_sha256": "02505e073627da1d4b632fbee80578abdd751e0cba990e9d67858e6f026ea8ea",
+      "started_at_utc": "2026-09-06T06:20:04.876409+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--out-dir",
+        ".toolalign-local/format-v1-r2/packages-final/default"
+      ],
+      "elapsed_seconds": 0.4019258748739958,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-build-default-r2",
+      "log_sha256": "82d31ffae052a75fff03146d6f638542ff3241fceb8d999d6165edc635665189",
+      "private_command_metadata_sha256": "7fe8aaa1b04a7954dc540d9a6e5d788aa62c3d2ba983dc2006f6fc3067529bd1",
+      "started_at_utc": "2026-09-06T06:20:04.893238+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.027606917079538107,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-lint-final-r1",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "private_command_metadata_sha256": "12d68f25d5d31c1853b7a49dbc4392978d1f7b333724b67092e28c27e3385802",
+      "started_at_utc": "2026-09-06T06:20:04.912999+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/format-v1-r2/packages-final/rebuilt",
+        ".toolalign-local/format-v1-r2/packages-final/default/toolalign-0.0.1.tar.gz"
+      ],
+      "elapsed_seconds": 0.19803312490694225,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-build-rebuilt-r2",
+      "log_sha256": "5fd406bdb468e91cecd4224d6898a1737df16a7d83ebf066cce78e69fd4295b8",
+      "private_command_metadata_sha256": "5e84474dbecda1f9d2c9210404192b389883f546b72950415de719ec4cd83bc6",
+      "started_at_utc": "2026-09-06T06:20:06.063596+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "reports/data/P02_FORMAT_V1_PACKAGE.py",
+        "--root",
+        ".",
+        "--archives",
+        ".toolalign-local/format-v1-r2/packages-final",
+        "--out",
+        ".toolalign-local/format-v1-r2/package-verification-r3"
+      ],
+      "elapsed_seconds": 2.102203416870907,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-package-verification-r3",
+      "log_sha256": "fd24d9d24e2a5d2679c2b086c88e8977817954525b3c9c7129b9ce40bc965a5c",
+      "private_command_metadata_sha256": "3268a62372bc5feb2dffb51cb32a2bcb07ed2967fd9cc00baefb1dd34e28bac8",
+      "started_at_utc": "2026-09-06T06:20:06.320086+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/format-v1-r2/final-checks.py",
+        "final-scope-r1.json"
+      ],
+      "elapsed_seconds": 2.5636670840904117,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-final-scope-r1",
+      "log_sha256": "24086242808112407199da32a252b00256aef32409740be74baad82ad4669f7d",
+      "private_command_metadata_sha256": "1a63c40d327f1f7819bb93fa1f4a3e12ddbbbc16eff70b5eddc4ad91f15360f9",
+      "started_at_utc": "2026-09-06T06:24:59.639197+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_public_content.py"
+      ],
+      "elapsed_seconds": 3.3107259580865502,
+      "exit_code": 0,
+      "extra_environment": {
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "git_head": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207",
+      "label": "format-v1-public-scan-final-r1",
+      "log_sha256": "1a9b666545d97f29026afcdf72071d5301ed84f580992cb49a115737c04c546e",
+      "private_command_metadata_sha256": "e5e854e0b2be1a3afe92aeaadee79860d68aa2f04302bcdfbec5175f01f077e2",
+      "started_at_utc": "2026-09-06T06:31:32.961368+00:00"
+    }
+  ],
+  "development_failures": [
+    {
+      "cause": "New test import ordering; corrected without behavior changes; original source snapshot retained.",
+      "label": "format-v1-core-ruff-r1"
+    },
+    {
+      "cause": "Probe expected sdist list omitted tracked .gitignore that Hatchling includes; added exact tracked-byte check, archives unchanged.",
+      "label": "format-v1-package-verification-r1"
+    },
+    {
+      "cause": "Two new probe assertions expected the inner complexity error; original P03 decode wraps it as Invalid JSON. Corrected test to verify outer and inner errors; production parser unchanged.",
+      "label": "format-v1-raw-boundaries-r1"
+    }
+  ],
+  "full_sequence_measurement_passes": 1,
+  "measurement_code_commit": "b33a55fba61d39f9da3c224ae6743c7cf6328cf6",
+  "new_default_target_installations": 2,
+  "new_public_manifest_sha256": "69bfa651bf8db9b2c77c11c4f8d55419a8af4196aba8ff6a69b5b3b0982e0f47",
+  "new_tokenizer_environments": 0,
+  "not_run": [
+    "model_loading_or_generation",
+    "training_or_GPU",
+    "BFCL_or_hidden_test_scoring",
+    "training_subset_selection",
+    "kris_semantic_or_token_mask_review",
+    "P04_trainer_padding_packing_gradients",
+    "independent_R1_review",
+    "S0_main_merge",
+    "direct_source_wheel_build",
+    "old_two_data_builds_or_old_16_case_cross_library_reruns",
+    "new_tokenizer_environment_or_download"
+  ],
+  "old_comparison_command_logs_verified": 16,
+  "old_proposal_files_unchanged": {
+    "coordination/handoffs/P02-format-proposal-r1.md": "c8a5cae2466579feaa670910d0d4ea781d5b4a8c68dc24e9d6d016172cded857",
+    "reports/data/P02_OUTPUT_FORMAT_PROBE.py": "31eb366ad7e222b6788b3c7d8684934d12ad71b2c171a44e2c989391f9dc94b8",
+    "reports/data/P02_OUTPUT_FORMAT_PROPOSAL.md": "02907e03825878b0ac3d91512d18be25c938794db5783ced495ab2b8991b5023"
+  },
+  "original_builds_and_human_review": {
+    "data_module_hashes": {
+      "__init__.py": "67e7b856ca6fe0f85513ec5c2e7825eb064e34786b7870184e7e12da656ffe63",
+      "__main__.py": "e02f86a9afc9f08f8bcf83d62a5626c8b8d659907c9845dc29d519c622a2041d",
+      "catalog.py": "777d43a8be8fe5e49f5b1e6f0ae4d904aa8a8c22c486a262341eae7dc339ff54",
+      "common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+      "lengths.py": "c661c975f2463d519f401fb302487edb2a293e5200c117f79656ba46f41b543a",
+      "pipeline.py": "24c6306e6412f55458cc58627e308cfed618e9bd5544ea5d30e054f1fe908c63",
+      "review.py": "ea24db05ec99d60d013e3c94227fe364f95d7043214582930c2ce94846f928cd",
+      "source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+      "sources.py": "a6f20ef6dae8b0802f79f31915309ee40f65bcfa8da00e38a31e756130da87d6",
+      "toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb"
+    },
+    "data_modules_unchanged": true,
+    "data_parameters": {
+      "length_buckets": [
+        2048,
+        4096,
+        8192
+      ],
+      "max_tokens": 8192,
+      "ood_fraction": 0.1,
+      "review_sample_records": 100,
+      "seed": 17
+    },
+    "data_parameters_unchanged": true,
+    "dataset_rebuilds_this_sync": 0,
+    "git_head": "e086e1d1ece65fe2516b3992e1195ec61b4e5732",
+    "human_review": {
+      "frozen_artifact_hashes": {
+        "human-review/exclusion-samples.jsonl": "b3b1a2f04bda68a50f852553bd0a79ceab910ac818d77e6a70e2f91d85eeb03b",
+        "human-review/index.html": "6193aa5da4a5dd4a5293472dd424ed1839e954d79d8d79afe524cd830b1dea8a",
+        "human-review/manifest.json": "cf82d8f9a5848c3cae0069d27a7549f385aabfdc4586a5de343795795883162c",
+        "human-review/review.csv": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+        "human-review/samples.jsonl": "d8a608ba59fa375762aca65412f76fbef29046897b9e546c359bdccc3de62033"
+      },
+      "immutable_fields": [
+        "source_index",
+        "source_record_hash",
+        "example_ids",
+        "strata"
+      ],
+      "immutable_fields_canonical_hash": "b7878f5ced14bdaa69f4cbbbffef177e2912625a411858e348cfef6b9b91590c",
+      "mutable_copy_sha256": "eee6b377c78eeff7ab82d65dbc0dcf6934013f546e2439a24309b8b847220efb",
+      "populated_reviewer_rows": 0,
+      "populated_verdict_rows": 0,
+      "review_gate": "NOT_ASSESSED_PENDING_S0_KRIS",
+      "sample_examples": 114,
+      "sample_records": 100,
+      "verdicts_written_by_this_sync": 0
+    },
+    "manifests": {
+      "policy-a": {
+        "canonical_hash": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+        "file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+        "verified_artifacts": 18
+      },
+      "policy-b": {
+        "canonical_hash": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+        "file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+        "verified_artifacts": 18
+      }
+    },
+    "old_candidate": "46f546504f73588caa2e71aac316c3c312306df6",
+    "old_handoff_sha256": "75551a8a6df2e1fb637c8a7f5bc1b0faec09b41ccb1451d05f9aba0907c33cef",
+    "source_policy_hash": "b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7",
+    "status": "PRESERVED"
+  },
+  "package_artifacts": {
+    "default_wheel": {
+      "members": 44,
+      "sha256": "a0aac74f1667ff860c850f96fd210acef02818187e7a80fbed869640d88b13ea",
+      "size_bytes": 80146
+    },
+    "rebuilt_wheel": {
+      "members": 44,
+      "sha256": "a0aac74f1667ff860c850f96fd210acef02818187e7a80fbed869640d88b13ea",
+      "size_bytes": 80146
+    },
+    "sdist": {
+      "members": 87,
+      "sha256": "e75cc4c86f9268215776d742676e1017d0a8d820f7aa47f2d6749c0a0ad42c84",
+      "size_bytes": 180780
+    }
+  },
+  "package_commands": [
+    {
+      "argv": [
+        "uv",
+        "export",
+        "--offline",
+        "--locked",
+        "--no-dev",
+        "--no-emit-project",
+        "--output-file",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/runtime.txt"
+      ],
+      "exit_code": 0,
+      "label": "export",
+      "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+      "stdout_sha256": "98c79ab2b75ac9992302ca0c72ce5b70c48b042ec32b600b02fdb5a1896896e4"
+    },
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--python",
+        "${WORKTREE}/.venv/bin/python",
+        "--target",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "--require-hashes",
+        "-r",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/runtime.txt"
+      ],
+      "exit_code": 0,
+      "label": "default-dependencies",
+      "stderr_sha256": "6c357dda4794341f958f99134c943b24e6ccd2b700f8fdd5ac433aa497e1f36d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--python",
+        "${WORKTREE}/.venv/bin/python",
+        "--target",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "--no-deps",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/packages-final/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "label": "wheel-install",
+      "stderr_sha256": "8688598d7213ff0e76490333644cf957d2373b0c7e0b916ca5a3408eb5be17fc",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "${SYSTEM_TEMP}/probe.py",
+        "--check-installed",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "--expected",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/expected.json",
+        "--out",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/installed-api.json"
+      ],
+      "exit_code": 0,
+      "label": "installed-api",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d3e961ec4bc3987427c317862f369d03d9b0baafc5816ebccd453117cbb68030"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "contract-digest"
+      ],
+      "exit_code": 0,
+      "label": "contract-digest",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "validate",
+        "${WORKTREE}/tests/fixtures/contracts/example.json"
+      ],
+      "exit_code": 0,
+      "label": "validate-example",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "validate",
+        "${WORKTREE}/tests/fixtures/contracts/tool.json"
+      ],
+      "exit_code": 0,
+      "label": "validate-tool",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "validate",
+        "${WORKTREE}/tests/fixtures/contracts/preference.json"
+      ],
+      "exit_code": 0,
+      "label": "validate-preference",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "validate",
+        "${WORKTREE}/tests/fixtures/contracts/run.json"
+      ],
+      "exit_code": 0,
+      "label": "validate-run",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+    },
+    {
+      "argv": [
+        "${WORKTREE}/.venv/bin/python",
+        "-I",
+        "-S",
+        "-c",
+        "import sys; sys.path.insert(0, sys.argv.pop(1)); from toolalign.cli import main; main()",
+        "${WORKTREE}/.toolalign-local/format-v1-r2/package-verification-r3/site-packages",
+        "validate",
+        "${WORKTREE}/tests/fixtures/contracts/trace.json"
+      ],
+      "exit_code": 0,
+      "label": "validate-trace",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+    }
+  ],
+  "package_interface": {
+    "fixture_checks": [
+      {
+        "action_sha256": "e8cc77e6e36ca99682ce34ddfdbe1326038e579943b6e0d923c12e90a461fd0d",
+        "name": "public_contract_tool_call"
+      },
+      {
+        "action_sha256": "7b0dc81c3760e8fe11457949ed42d8f2d9c2362fdf6eca12a09a074e2d4d2c4d",
+        "name": "same_content_final"
+      },
+      {
+        "action_sha256": "f4067bda0d069e44f304ae346acc3d32eae67dcffabae1f03e9c37c38e562810",
+        "name": "same_content_clarify"
+      },
+      {
+        "action_sha256": "c503c61822e30266b90888dcdef83f6efb8cbbd28066092c313d085c7165ea41",
+        "name": "same_content_refuse"
+      },
+      {
+        "action_sha256": "43b947f6295deafd07f5589b12fbe98c4efb92b8289820d20e641c619513c6e5",
+        "name": "leading_newlines"
+      },
+      {
+        "action_sha256": "4d43d46bdbe63dec1aa6be4e188069344dbd4d84ceaf391a941df6c0f304962c",
+        "name": "whitespace_content"
+      },
+      {
+        "action_sha256": "827779a4fc419580fb389e8783ea640ddda9bf0357c247e0761323cc550491b1",
+        "name": "nested_two_tools"
+      },
+      {
+        "action_sha256": "4a83af8413f2361d7ac213baade8d34bc60b6fe4a75eb0ad18419bce702ce11b",
+        "name": "history_observations_reversed"
+      },
+      {
+        "action_sha256": "3d19d254f7af8eb8ea9708f04fc97529009f2d50ef8b0d96d60702664d7e8485",
+        "name": "history_without_kind"
+      },
+      {
+        "action_sha256": "fdd33f9b3d5fca71f323fc6b324ce5188d34818dd61bf7f28ee3dc51c932fa4d",
+        "name": "literal_think_history"
+      },
+      {
+        "action_sha256": "2b2c38c38fd7bfc56a263bf05c6920a58a46ba13c5293d3ebc492311f626d64f",
+        "name": "literal_control_tokens"
+      },
+      {
+        "action_sha256": "925c9afbb3fd329868a81117c649f769c2eee7f82bcc23894bcb7c285e7211f4",
+        "name": "legitimate_metadata_words"
+      }
+    ],
+    "installed_raw_parser_roundtrips": 12,
+    "optional_and_model_packages_importable": [],
+    "package_source_files_verified": 39,
+    "packages": {
+      "attrs": "26.1.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "toolalign": "0.0.1"
+    },
+    "python_isolated": true,
+    "python_no_site": true,
+    "sequence_callback_kind": "transparent_character_test_double_not_Qwen",
+    "source_imports": 0,
+    "status": "PASS"
+  },
+  "private_budget_accounting": "All retained r2 files, all format-v1 command logs and new module/test/probe pyc at this check; short-lived test and build temporary directories are cleaned, not claimed as an exact cumulative byte sum.",
+  "private_budget_bytes": 2147483648,
+  "protected_public_files_unchanged": 217,
+  "retained_new_private_bytes_at_scope_check": 33098412,
+  "status": "READY_FOR_REVIEW_NOT_INDEPENDENT_ACCEPTANCE",
+  "task": "P02-format-r2",
+  "verified_code_candidate": "9f4e7a3f699a9d6cd9e444da2dc18f35f2cc9207"
+}
