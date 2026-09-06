@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；S0-SHARED-02 在 `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385` 合并并验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1已交付59b3802并原生空闲；D1已交付b0d8d83；E1已派CPU同步并核验活跃；R1待派完整P02技术审查 |
+| 独立实现/reviewer 对话 | T1已交付59b3802、D1已交付b0d8d83，均原生空闲；E1正在CPU同步；R1已派发并核验活跃，审完整P02 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -44,3 +44,5 @@ P02 精确交接 `46f546504f73588caa2e71aac316c3c312306df6`，生产实现 `9be0
 P03 精确交接 `85e0905fc82da4504d73bf7eb489c1f1a0d227a7`，实现 `8afb114`。E1 自测191项CPU（133项P03）、scripted demo 10/10、90条trace与20个自有进程回收。S0已读取正式交接并核验原生任务终止；尚无独立R1、真实MLX/Qwen、正式隐藏集/BFCL或GPU验收。ModelBackend的spawn构造与轻量可序列化状态前提保留在交接中，不能从scripted成功推定已加载MLX对象可跨进程使用。
 
 最新同步交接：T1候选59b3802c81aa6eceaf3609af88f288756bcb1581（merge17a003f）CPU217通过，新锁69/90环境metadata及PyTorch CPU参考通过，原模型实现/10次历史run未变。D1候选b0d8d83750c48cd951c16b50cfa28a7898976e72（merge9bbd7d7）CPU298含17真实tokenizer通过，data模块/两遍18产物/100来源114决策的人审包hash均未变。两者新sdist/wheel和隔离安装已自测，原始交接保留；S0核对新handoff及候选范围后安排R1，各包仍未VERIFIED。
+
+已建立[Draft PR5/P02](https://github.com/kris0516/ToolAlign/pull/5)与[Draft PR6/P01](https://github.com/kris0516/ToolAlign/pull/6)。P02精确b0d8d83的[CI34003774338](https://github.com/kris0516/ToolAlign/actions/runs/34003774338)、P01精确59b3802的[CI34003775260](https://github.com/kris0516/ToolAlign/actions/runs/34003775260)，两个Python jobs所有步骤均成功；CI的默认测试范围不等同各worker完整CPU/真实tokenizer或模型验收。R1按S0授权c44739ac1e2fe282f5f51f80c5ea099687051ff3在隔离review/p02-r1审完整P02，已核验原生活跃；P01随后。E1已非强制merge86c5e8a并确认原17交付/63私有证据文件未变，继续CPU/pkg验证。
