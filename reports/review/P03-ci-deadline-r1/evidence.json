@@ -1,0 +1,1298 @@
+{
+  "task": "P03-CI-DEADLINE-R1",
+  "verdict": "PASS",
+  "finding_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "authorization_commit": "c91ea4f79e59e667fd008fab28aaca2e3efdbfe4",
+  "candidate": "947144fa2dd248113f6db412f120cdae5483c9b8",
+  "candidate_parent": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+  "candidate_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+  "input_base": "4a1fa84d2d367ed037a1e39b1d4033f54a385e6a",
+  "review_branch": "review/p03-ci-deadline-r1",
+  "review_parent": "947144fa2dd248113f6db412f120cdae5483c9b8",
+  "review_commit_and_tree": "Read from the commit containing this report; actual values are recorded after commit in the private completion and native S0 handoff.",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "candidate_scope": {
+    "changed_paths": [
+      "coordination/handoffs/P03-ci-deadline-r1.md",
+      "reports/harness/P03_CI_DEADLINE_EVIDENCE.json",
+      "reports/harness/P03_CI_DEADLINE_VERIFICATION.md",
+      "tests/evaluation/harness/deadline_cases.py",
+      "tests/evaluation/harness/test_harness.py"
+    ],
+    "only_documents_after_worker_code": [
+      "coordination/handoffs/P03-ci-deadline-r1.md",
+      "reports/harness/P03_CI_DEADLINE_EVIDENCE.json",
+      "reports/harness/P03_CI_DEADLINE_VERIFICATION.md"
+    ],
+    "candidate_files_verified": 282,
+    "unchanged_base_files": 277,
+    "production_package_files_unchanged": 42
+  },
+  "ci_trigger": {
+    "failed_combination": "2b11b7fad69957324ecfa671bac71552ec3501b7",
+    "log_sha256": "81931c5cd7ba3fe8c8cfa1aa4dc172220682c28ed2247359422b584092225013",
+    "matching_base_files": {
+      "tests/evaluation/harness/test_harness.py": {
+        "sha256": "f43ae42822cab11281e3a9b1d89c56e12d162a7582b32dfa679610563e58c467",
+        "bytes": 27101
+      },
+      "src/toolalign/evaluation/harness.py": {
+        "sha256": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+        "bytes": 19179
+      },
+      "src/toolalign/tools/executor.py": {
+        "sha256": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+        "bytes": 5534
+      },
+      "src/toolalign/tools/isolation.py": {
+        "sha256": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+        "bytes": 4611
+      }
+    },
+    "historical_result": {
+      "failed": 1,
+      "passed": 484,
+      "skipped": 48
+    }
+  },
+  "preservation": {
+    "source_proof_sha256": "dc09b0aa83cd74e57bae7d8b2641a503b26561f2217398afc750a34011e79c06",
+    "worker_manifest_sha256": "a7f4e1a3bfcde88ce9d94a4bae79d5ff6a218d6e9dbc754f0f3ee9f055ff104b",
+    "independently_rehashed_paths": 4767,
+    "worker_raw_commands_and_logs": 19,
+    "published_command_argv_and_metadata": 15,
+    "old_private_entries": 1818,
+    "new_worker_inventory_entries": 2660,
+    "count_note": "These collections overlap; do not add them.",
+    "old_review_refs_preserved": 15,
+    "historical_symlink_entries_rehashed": 9,
+    "source_files": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "access.json": "d0fd0c16875c6cb7bf7e579ebe5a3f92f80ab558185dc7bd7b2337f31098b2f4",
+      "api.json": "3867400b9368c002e17372a681b0a7a042c6639fd466f26e4255da251e49dd7f",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    }
+  },
+  "independent_cpu": {
+    "passed": 657,
+    "failed": 0,
+    "skipped": 0,
+    "pytest_seconds": 47.97,
+    "includes_target_three": true,
+    "real_cpu_tokenizer_checks": 17,
+    "additional_review_pytest": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    "uncaught_replays": {
+      "original": {
+        "exit_code": 1,
+        "expected": true
+      },
+      "negative": {
+        "exit_code": 1,
+        "expected": true
+      }
+    },
+    "count_note": "657 already includes the three controls. The two boundary probes are separate. Uncaught replay failures are repeated causal checks, not additional successful scenarios."
+  },
+  "process_evidence": {
+    "actual_runs": 7,
+    "distinct_owned_children": 14,
+    "all_reaped": true,
+    "all_owned_directories_removed": true,
+    "pytest_current_symlinks_excluded": true,
+    "clock_note": "700/1100 ms are parent test-clock values, not performance. Watchdog real elapsed time is separate.",
+    "cases": [
+      {
+        "group": "full",
+        "sha256": "5f8531a9a5f3653f18177a23f34644efb77832102a9564d1aa5c243fcec3e7eb",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 700.0000000000028,
+        "observation": {
+          "call_id": "c1",
+          "status": "cancelled",
+          "output": null,
+          "error_code": "cancelled",
+          "retryable": false
+        },
+        "observation_latency_ms": 700.0000000000028,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": false,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "startup",
+        "bypass_request": false,
+        "watchdog_fired": false,
+        "elapsed_seconds": 1.0184667920693755,
+        "activation": {
+          "alive": true,
+          "executing": false,
+          "blocking": false,
+          "result_present": false,
+          "elapsed_seconds": 0.9391703750006855
+        }
+      },
+      {
+        "group": "full",
+        "sha256": "0486d327e4cce4d6102be2a20b0fb6bea65c08d04122d39552faa3e37796da23",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 700.0000000000028,
+        "observation": {
+          "call_id": "c1",
+          "status": "cancelled",
+          "output": null,
+          "error_code": "cancelled",
+          "retryable": false
+        },
+        "observation_latency_ms": 700.0000000000028,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "blocking",
+        "bypass_request": false,
+        "watchdog_fired": false,
+        "elapsed_seconds": 1.0842893340159208,
+        "activation": {
+          "alive": true,
+          "executing": true,
+          "blocking": true,
+          "result_present": false,
+          "elapsed_seconds": 0.9971856670454144
+        }
+      },
+      {
+        "group": "full",
+        "sha256": "852b17ba0b144a47e87ffd215ca401367ccee8843b886ed5d1ae491703333210",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 1099.9999999999943,
+        "observation": {
+          "call_id": "c1",
+          "status": "timed_out",
+          "output": null,
+          "error_code": "tool_timeout",
+          "retryable": true
+        },
+        "observation_latency_ms": 1099.9999999999943,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "blocking",
+        "bypass_request": true,
+        "watchdog_fired": false,
+        "elapsed_seconds": 1.2861984160263091,
+        "activation": {
+          "alive": true,
+          "executing": true,
+          "blocking": true,
+          "result_present": false,
+          "elapsed_seconds": 0.9843617908190936
+        }
+      },
+      {
+        "group": "original",
+        "sha256": "4baaabb8e3c42207b3995018330203ce63e108b5a016b539b488103fce458d52",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 693.6341670807451,
+        "observation": {
+          "call_id": "c1",
+          "status": "cancelled",
+          "output": null,
+          "error_code": "cancelled",
+          "retryable": false
+        },
+        "observation_latency_ms": 663.628667127341,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": false,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "before_close": {
+          "alive": true,
+          "starting": true,
+          "ready": false,
+          "executing": false,
+          "result_present": false
+        }
+      },
+      {
+        "group": "negative",
+        "sha256": "87532e8a307bccee2acb27599a22059570f9d6dcdc081a0f7ca9901228df2aa8",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 1099.9999999999943,
+        "observation": {
+          "call_id": "c1",
+          "status": "timed_out",
+          "output": null,
+          "error_code": "tool_timeout",
+          "retryable": true
+        },
+        "observation_latency_ms": 1099.9999999999943,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "blocking",
+        "bypass_request": true,
+        "watchdog_fired": false,
+        "elapsed_seconds": 1.3185636668931693,
+        "activation": {
+          "alive": true,
+          "executing": true,
+          "blocking": true,
+          "result_present": false,
+          "elapsed_seconds": 1.0187108749523759
+        }
+      },
+      {
+        "group": "boundaries",
+        "sha256": "e93f852e864a3d6990d3084ac0160810289c2c8242bf1d7e0a50f44c7269022f",
+        "terminal": "timed_out",
+        "terminal_latency_ms": 700.0000000000028,
+        "observation": {
+          "call_id": "c1",
+          "status": "cancelled",
+          "output": null,
+          "error_code": "cancelled",
+          "retryable": false
+        },
+        "observation_latency_ms": 700.0000000000028,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "blocking",
+        "bypass_request": false,
+        "watchdog_fired": false,
+        "elapsed_seconds": 1.3986537919845432,
+        "activation": {
+          "alive": true,
+          "executing": true,
+          "blocking": true,
+          "result_present": false,
+          "elapsed_seconds": 1.0087390001863241
+        },
+        "review_probe_mode": "slow-cleanup",
+        "independent_observations_sha256": "e5695ccd075f4a9419b4173c340fee490893f8afc9478cdf54c2f81dcf216bfb",
+        "independent_cleanup": [
+          {
+            "label": "tool",
+            "alive": true,
+            "executing": true,
+            "blocking": true,
+            "custom_marker": false,
+            "result_present": false,
+            "real_cleanup_seconds": 0.3662860000040382,
+            "process_handle_closed": true,
+            "directory_exists": false
+          },
+          {
+            "label": "model",
+            "alive": true,
+            "executing": false,
+            "blocking": false,
+            "custom_marker": false,
+            "result_present": false,
+            "real_cleanup_seconds": 0.01938837510533631,
+            "process_handle_closed": true,
+            "directory_exists": false
+          }
+        ]
+      },
+      {
+        "group": "boundaries",
+        "sha256": "9844adb32b4019f6daf9ed9d3fa906539a627fd1a18d71f01eb51a008bc0286e",
+        "terminal": "cancelled",
+        "terminal_latency_ms": 0,
+        "observation": {
+          "call_id": "c1",
+          "status": "cancelled",
+          "output": null,
+          "error_code": "cancelled",
+          "retryable": false
+        },
+        "observation_latency_ms": 0,
+        "budget": {
+          "model_decisions": 1,
+          "tool_rounds": 1,
+          "input_tokens": 11,
+          "output_tokens": 7
+        },
+        "process_records": [
+          {
+            "directory_cleaned": true,
+            "exitcode": 0,
+            "label": "model",
+            "operation_started": true,
+            "reaped": true,
+            "stopped": false
+          },
+          {
+            "directory_cleaned": true,
+            "exitcode": -15,
+            "label": "tool",
+            "operation_started": false,
+            "reaped": true,
+            "stopped": true
+          }
+        ],
+        "stage": "blocking",
+        "bypass_request": true,
+        "watchdog_fired": true,
+        "elapsed_seconds": 10.106753708096221,
+        "activation": null,
+        "review_probe_mode": "missing-marker-watchdog",
+        "independent_observations_sha256": "555889b19810529cc736597598cf10857530a33e5a0de395619eec88fbd72492",
+        "independent_cleanup": [
+          {
+            "label": "tool",
+            "alive": true,
+            "executing": false,
+            "blocking": false,
+            "custom_marker": true,
+            "result_present": false,
+            "real_cleanup_seconds": 0.05494487495161593,
+            "process_handle_closed": true,
+            "directory_exists": false
+          },
+          {
+            "label": "model",
+            "alive": true,
+            "executing": false,
+            "blocking": false,
+            "custom_marker": false,
+            "result_present": false,
+            "real_cleanup_seconds": 0.03198808408342302,
+            "process_handle_closed": true,
+            "directory_exists": false
+          }
+        ]
+      }
+    ]
+  },
+  "archives": {
+    "sdist": {
+      "path": "${R1_PRIVATE}/dist/toolalign-0.0.1.tar.gz",
+      "sha256": "eed6c038c31170a0fb4957b8286e01f20b0ecf96c64514f05f9b97a1040a76fc",
+      "bytes": 194485,
+      "members": 89,
+      "git_payload_members": 88
+    },
+    "wheel": {
+      "path": "${R1_PRIVATE}/dist/toolalign-0.0.1-py3-none-any.whl",
+      "sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+      "bytes": 96713,
+      "members": 47,
+      "git_payload_members": 42,
+      "metadata_members": 5
+    },
+    "rebuilt": {
+      "path": "${R1_PRIVATE}/rebuilt/toolalign-0.0.1-py3-none-any.whl",
+      "sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+      "bytes": 96713,
+      "members": 47,
+      "git_payload_members": 42,
+      "metadata_members": 5
+    },
+    "baseline": {
+      "path": "${R1_PRIVATE}/baseline-dist/toolalign-0.0.1-py3-none-any.whl",
+      "sha256": "e2c5d06beff3c8b7bc0098c0c58a45413de2dbd505ad5378acb05f689a7657b5",
+      "bytes": 96713,
+      "members": 47,
+      "git_payload_members": 42,
+      "metadata_members": 5
+    }
+  },
+  "archive_member_sha256": {
+    "sdist": {
+      "THIRD_PARTY_NOTICES.md": "acbfdb4c040a4f5ec53f355cfbb8c603f50958f860889140d8f751c4f89cdf4f",
+      "configs/model_io.action-json.v1.json": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+      "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15",
+      "configs/source_toolace.v1.json": "b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7",
+      "contracts.v1.lock.json": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+      "tests/conftest.py": "24c10871de05db549d9937342f7c0ff8baaa6b63eeb9d36c7088233fed447b94",
+      "tests/test_public_content.py": "9b9c7c6086632c61e806b52cb486f43985da46c9f81c808bb9e837100779e8a8",
+      "tests/contracts/test_records.py": "f3f6299f5dff75a77d645d9e588248e1772f3bf0151d44bbc76de5992b840438",
+      "tests/data/compare_tokenizers.py": "0b9955f2dd7ebe9ce0014c46772152a4d0794ee3e8cd3d3458cc953881532af8",
+      "tests/data/conftest.py": "5c745ebc62c29f0fc706f6213e303676552517cb2efc0a9807398693bf778d28",
+      "tests/data/test_grouping.py": "851117739b82487edf92c84d5762c93a44a3c2c2f652650c95a04e46f41d3efb",
+      "tests/data/test_parser.py": "2e6094b0064dfd63a703377459c544ba256d838840132c398c241a7096209896",
+      "tests/data/test_pipeline.py": "e7423a48cda9d2a6642bcf533f2228d9fb6fbdf73c75b151ce2fe2987b4c93d0",
+      "tests/data/test_policy_pipeline.py": "fb1d6a3f8c4ead4ba826052a50cf491fd8f267d0d3dbed36ef1eb9e376c8f4d6",
+      "tests/data/test_source_policy.py": "4a538d5cea9d2aeefe86cd442ce3b3ff0c140f1bc72f5791031a54a37a7c4b04",
+      "tests/data/test_sources.py": "641b40200d0f10dd56c58172dcb6918fd652c5d2f3eb950771f170be7e82954d",
+      "tests/data/test_tokenizer_alignment.py": "f562821999d66130eb28ae7daf5e42efca7cdb5dcf5f80ea06e9b079fb685034",
+      "tests/data/tokenizer_cases.py": "9260664d4d692a0c1cf4c16938b6e29f8cae9ca81ad54cb497096d801fb8a84d",
+      "tests/data/tokenizer_crosscheck.py": "119e0b9128071f1903137781f08e8067c7931e684ac3d9ed9de486bcefa029e7",
+      "tests/data/tokenizer_reference.v1.json": "88922e97dec7627e4efcc29d4d31495a66c0a7f5f62cd564cf6ff8668cf82834",
+      "tests/data/verify_policy_build.py": "00b6b9bc3846053975adfef22ef6992a2e881e01bca681996787941b52d949b1",
+      "tests/evaluation/harness/deadline_cases.py": "0b121de0d3b65b3ba5078b28556cbd17592a2ac7ef6f48c421bd94dd46be4046",
+      "tests/evaluation/harness/test_finish_cleanup.py": "b81acd8bea492da2f4483c21f7e6e0c48c30d4168ff3a9dde62682c9e21d005b",
+      "tests/evaluation/harness/test_harness.py": "af310542d8bcf5aad86f54bcac6487d2be225f20ebc06e8eb692254eeedf0850",
+      "tests/evaluation/harness/test_oracle_order.py": "b0ab78a74e461b3273df4ba58662ce793ff5f90a3f50c8f6cb1598a3c39e75fe",
+      "tests/fixtures/contracts/README.md": "944df675f983f6763e777d29156a5bb2fe794c7138e66695c8e8f50e25cdc880",
+      "tests/fixtures/contracts/example.json": "70e5b1aeba57245d9e997aa7d9e3296b1013e23119bff939164d705a60980bcd",
+      "tests/fixtures/contracts/preference.json": "c8326392e5e3d1f3902216be6bc89e4ea868f69bee4e50828c2922adc76d2aed",
+      "tests/fixtures/contracts/run.json": "4a4fafda9bb2d5495aead08f9d8075a5b7e83cc03515395197ebbe47f4366276",
+      "tests/fixtures/contracts/tool.json": "8788f4096b12052e96b64833782586ba7af05d2e870d3148c41554f7553f14fd",
+      "tests/fixtures/contracts/trace.json": "dcde3200f15dddd89cb4aac5decc93a14de0f1ab5987a015b81fbcb9bb5ff7e5",
+      "tests/fixtures/tools/development.json": "973a4a18c7a2372bd479a34a3df31300843737c293ab4f184170c85d94ce3b2d",
+      "tests/runtime/test_gpu_lock.py": "a235ec1f0d354d34600bd471b7249dc7bcb8ebaacc2ac00fe2b2b6dfc433241d",
+      "tests/tools/test_registry_executor.py": "942f0b88a84d54dcc59336bc4bd56c9b4a322789d9e9776b263b393b8a360717",
+      "tests/training/compatibility/test_failure_accounting.py": "1684b7406509241b45a2732ead1b73bc271c23c207ce6ec43583a0708e0b7cf8",
+      "tests/training/compatibility/test_initialization_failures.py": "3dccbbfac4f83ffa87b002dd1dd7097dab2db5fb8e0bb3f4963741e005b6c1e9",
+      "tests/training/compatibility/test_invariants.py": "88ef39bc29a1c8f278cdff8c661dfa82a8aa7f9aaab299e9cd5367bcad00bb43",
+      "tests/training/compatibility/test_lease_entry.py": "b86b85d036975ca488f3b9de61da68f4ce2481acaf46d1138b175bbad0105035",
+      "uv.lock": "201b522e7917ac82dfd49ae6447a8f9481336800b282ea9b09c706403350c7da",
+      "scripts/check_contract_freeze.py": "0d705c51da80f7894365ccf84b7dd8e0d537152bd26b1c4d341d9960d9a3a550",
+      "scripts/check_public_content.py": "1de22fa094e46697c18410484413f36d6a5efc79c98931f734890b43b7c473da",
+      "scripts/check_source_distribution.py": "14d5925dd89f0d752ba3cdcb2f1bc12f16d50aa6927c8cfe3f2c1b57a0004e74",
+      "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+      "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+      "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+      "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+      "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+      "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+      "src/toolalign/data/__init__.py": "67e7b856ca6fe0f85513ec5c2e7825eb064e34786b7870184e7e12da656ffe63",
+      "src/toolalign/data/__main__.py": "e02f86a9afc9f08f8bcf83d62a5626c8b8d659907c9845dc29d519c622a2041d",
+      "src/toolalign/data/catalog.py": "777d43a8be8fe5e49f5b1e6f0ae4d904aa8a8c22c486a262341eae7dc339ff54",
+      "src/toolalign/data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "src/toolalign/data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+      "src/toolalign/data/lengths.py": "c661c975f2463d519f401fb302487edb2a293e5200c117f79656ba46f41b543a",
+      "src/toolalign/data/pipeline.py": "24c6306e6412f55458cc58627e308cfed618e9bd5544ea5d30e054f1fe908c63",
+      "src/toolalign/data/review.py": "ea24db05ec99d60d013e3c94227fe364f95d7043214582930c2ce94846f928cd",
+      "src/toolalign/data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+      "src/toolalign/data/sources.py": "a6f20ef6dae8b0802f79f31915309ee40f65bcfa8da00e38a31e756130da87d6",
+      "src/toolalign/data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+      "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+      "src/toolalign/evaluation/harness.py": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+      "src/toolalign/evaluation/oracles/__init__.py": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+      "src/toolalign/evaluation/oracles/semantic.py": "29291f5f0bdfd9cd1ad54711dc432b92375195dccb3e8f26670130cc68a8fb56",
+      "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+      "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+      "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+      "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+      "src/toolalign/tools/__init__.py": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+      "src/toolalign/tools/__main__.py": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+      "src/toolalign/tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "src/toolalign/tools/catalog.py": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+      "src/toolalign/tools/executor.py": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "src/toolalign/tools/isolation.py": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+      "src/toolalign/tools/registry.py": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+      "src/toolalign/tools/scripted.py": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc",
+      "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+      "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "src/toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+      "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+      ".gitignore": "3137afcc31d5faf9fe870ab6a456eaa87255c870c8c3fb8c520633642afa7fb3",
+      "LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a",
+      "README.md": "5e9d6898ef4f4840a29c2fcd9297541e22ad1dab104729b7d38e543de110613b",
+      "pyproject.toml": "7b1a873f9709d6f50c0ef576f28e0b42a9818c7332bb7f5a436226fbe6eaba63",
+      "PKG-INFO": "e7870a8d7aa84eb649877c6bd7f6181df16c6ffa7f6336d9a998a9a20892fd41"
+    },
+    "wheel": {
+      "toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+      "toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+      "toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+      "toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+      "toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+      "toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+      "toolalign/data/__init__.py": "67e7b856ca6fe0f85513ec5c2e7825eb064e34786b7870184e7e12da656ffe63",
+      "toolalign/data/__main__.py": "e02f86a9afc9f08f8bcf83d62a5626c8b8d659907c9845dc29d519c622a2041d",
+      "toolalign/data/catalog.py": "777d43a8be8fe5e49f5b1e6f0ae4d904aa8a8c22c486a262341eae7dc339ff54",
+      "toolalign/data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "toolalign/data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+      "toolalign/data/lengths.py": "c661c975f2463d519f401fb302487edb2a293e5200c117f79656ba46f41b543a",
+      "toolalign/data/pipeline.py": "24c6306e6412f55458cc58627e308cfed618e9bd5544ea5d30e054f1fe908c63",
+      "toolalign/data/review.py": "ea24db05ec99d60d013e3c94227fe364f95d7043214582930c2ce94846f928cd",
+      "toolalign/data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+      "toolalign/data/sources.py": "a6f20ef6dae8b0802f79f31915309ee40f65bcfa8da00e38a31e756130da87d6",
+      "toolalign/data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+      "toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+      "toolalign/evaluation/harness.py": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987",
+      "toolalign/evaluation/oracles/__init__.py": "6e5d57db55d565c176d5687b2e9dad73814c19fa3b5b40d65d168fadb8fc9e09",
+      "toolalign/evaluation/oracles/semantic.py": "29291f5f0bdfd9cd1ad54711dc432b92375195dccb3e8f26670130cc68a8fb56",
+      "toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+      "toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+      "toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+      "toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+      "toolalign/tools/__init__.py": "369c7cec2ab1be956b456db1582493d148305fec28fa771ae100611063c48e34",
+      "toolalign/tools/__main__.py": "5a71c122d46562415e6b15cc87178584cae5db88d222acc43579961824d0e27c",
+      "toolalign/tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "toolalign/tools/catalog.py": "8c89c7f2b4a4bc64952791b66954542cf328f814b07a9ba1c3f3e70b5e236792",
+      "toolalign/tools/executor.py": "28d321f0a2606df883c1d93ba96f7b875356c9323213ec2d77b737dae2d71e2d",
+      "toolalign/tools/isolation.py": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f",
+      "toolalign/tools/registry.py": "f2aa1daf1f956b43a45859a53ddcffa2200d5a5e654cbdf0862502f3bbc97a8e",
+      "toolalign/tools/scripted.py": "a22b373bcc9f22445ed106ed83d760618e018e5aafa56b1107ed3441db65f7dc",
+      "toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+      "toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+      "toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+      "toolalign-0.0.1.dist-info/METADATA": "e7870a8d7aa84eb649877c6bd7f6181df16c6ffa7f6336d9a998a9a20892fd41",
+      "toolalign-0.0.1.dist-info/WHEEL": "aad0b0a12256807936d52d4a6f88a1773236ae527564a688bab4e3fe780e8724",
+      "toolalign-0.0.1.dist-info/entry_points.txt": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+      "toolalign-0.0.1.dist-info/licenses/LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a",
+      "toolalign-0.0.1.dist-info/RECORD": "033d5fe7bb83a2f67babe381e170c6d6ae1c0bc187b2621139e8fc04daa28bbc"
+    }
+  },
+  "archive_routes": {
+    "default": "new sdist then wheel",
+    "explicit": "same new sdist to wheel",
+    "baseline": "direct wheel from 45 exact 4a1 Git package inputs",
+    "three_wheels_identical": true,
+    "candidate_direct_source_wheel": "NOT_RUN",
+    "same_hash_as_worker": true,
+    "new_builds_use_their_own_times_and_logs": true
+  },
+  "environment": {
+    "python": "3.14.7 (main, Aug 14 2026, 15:24:10) [Clang 22.1.3 ]",
+    "packages": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "anyio": "4.15.1",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "click": "8.5.0",
+      "filelock": "3.32.5",
+      "fsspec": "2026.7.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.30.0",
+      "idna": "3.19",
+      "iniconfig": "2.3.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "psutil": "7.2.2",
+      "pytest": "9.0.2",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "tokenizers": "0.22.2",
+      "tqdm": "4.70.0",
+      "typing_extensions": "4.16.0"
+    },
+    "model_modules_available": {
+      "jax": false,
+      "mlx": false,
+      "tensorflow": false,
+      "torch": false,
+      "transformers": false
+    },
+    "ruff": "0.15.0",
+    "reuse_only": true,
+    "bytecode_disabled": true,
+    "offline": true,
+    "new_project_environments": 0
+  },
+  "commands_before_publication": [
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=${R1_FULL_TEMP}"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 48.12399166612886,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:21:34.288776+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "full-cpu",
+      "log": "${R1_PRIVATE}/logs/full-cpu.log",
+      "sha256": "25d1ddbc82bb151a118c2f69d2e0a835f93bed5cb8c727594e239292931303ba",
+      "started_at_utc": "2026-09-06T10:20:46.168533+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P03-ci-deadline-r1/test_deadline_boundaries.py",
+        "--basetemp=${R1_BOUNDARIES_TEMP}"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 11.703406375134364,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:23:26.917401+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "independent-boundaries",
+      "log": "${R1_PRIVATE}/logs/independent-boundaries.log",
+      "sha256": "db7d9faf2e942cd19901409fe3e3a544ba65632fd57e468d9fed9a1a10c2a5ea",
+      "started_at_utc": "2026-09-06T10:23:15.213876+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "reports/review/P03-ci-deadline-r1/review_sources.py",
+        "--repo",
+        "${R1_REPO}",
+        "--worker",
+        "${E1_REPO}",
+        "--proof",
+        "${S0_PROOF}",
+        "--tokenizer",
+        "${TOKENIZER_SOURCE}",
+        "--output",
+        "${R1_PRIVATE}/intake"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 6.050880583003163,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T10:25:38.696461+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "source-bindings",
+      "log": "${R1_PRIVATE}/logs/source-bindings.log",
+      "sha256": "fd836a366dabb3f4b7e5767fc53406d4a5661e7df2dc31b3edbe8763b6b7f222",
+      "started_at_utc": "2026-09-06T10:25:32.645449+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "reports/review/P03-ci-deadline-r1/review_sources.py",
+        "--repo",
+        "${R1_REPO}",
+        "--worker",
+        "${E1_REPO}",
+        "--proof",
+        "${S0_PROOF}",
+        "--tokenizer",
+        "${TOKENIZER_SOURCE}",
+        "--output",
+        "${R1_PRIVATE}/intake-corrected"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 7.015588790876791,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:26:46.338574+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "source-bindings-corrected",
+      "log": "${R1_PRIVATE}/logs/source-bindings-corrected.log",
+      "sha256": "aab836534e008d39e9f548e416f5f15fb54bc9e0e66916e1dd42ece67f682729",
+      "started_at_utc": "2026-09-06T10:26:39.322874+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--out-dir",
+        "${R1_PRIVATE}/dist"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.4043756660539657,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:27:30.632537+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "default-build",
+      "log": "${R1_PRIVATE}/logs/default-build.log",
+      "sha256": "1712f3f4c11c4f561dfdffc77c3f79cc7ce66e8e52b7165be19616d9ecc970a1",
+      "started_at_utc": "2026-09-06T10:27:30.228053+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "scripts/check_contract_freeze.py"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.015804375056177378,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:27:30.747267+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "freeze",
+      "log": "${R1_PRIVATE}/logs/freeze.log",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at_utc": "2026-09-06T10:27:30.731358+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--wheel",
+        "--out-dir",
+        "${R1_PRIVATE}/baseline-dist",
+        "${R1_PRIVATE}/intake-corrected/baseline-package"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.21292208298109472,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:28:04.310887+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "baseline-source-wheel",
+      "log": "${R1_PRIVATE}/logs/baseline-source-wheel.log",
+      "sha256": "a3c70da5193fe14c50cadd3c1295f9d3aa22c40a61d8f01d1c5146a719141feb",
+      "started_at_utc": "2026-09-06T10:28:04.097864+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--wheel",
+        "--out-dir",
+        "${R1_PRIVATE}/rebuilt",
+        "${R1_PRIVATE}/dist/toolalign-0.0.1.tar.gz"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.2373839160427451,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:28:04.376464+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "sdist-rebuild",
+      "log": "${R1_PRIVATE}/logs/sdist-rebuild.log",
+      "sha256": "dafc2cce64c51b3df834e364c5df2f537ccbfd3f3625e800ffeca760c9491676",
+      "started_at_utc": "2026-09-06T10:28:04.138911+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "${R1_PRIVATE}/intake-corrected/original-replay/.toolalign-local/p03-ci-deadline/test_original_deadline.py",
+        "--basetemp=${R1_ORIGINAL_TEMP}"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.9720640829764307,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T10:28:05.080341+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "original-reproduction",
+      "log": "${R1_PRIVATE}/logs/original-reproduction.log",
+      "sha256": "c00c6a211a33097079dcdfe49289b223dfd8f8f40dedf324bd52bd0f70ed1e54",
+      "started_at_utc": "2026-09-06T10:28:04.108167+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "${R1_PRIVATE}/intake-corrected/negative-replay/.toolalign-local/p03-ci-deadline/test_negative_control.py",
+        "--basetemp=${R1_NEGATIVE_TEMP}"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 1.5512965419329703,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T10:28:05.673192+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "negative-reproduction",
+      "log": "${R1_PRIVATE}/logs/negative-reproduction.log",
+      "sha256": "1d3653bae64c5c2bc4909d937b9d6243aded91821e95b8ed2f7e80c7648db7ae",
+      "started_at_utc": "2026-09-06T10:28:04.121817+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "reports/review/P03-ci-deadline-r1/review_package.py",
+        "--repo",
+        "${R1_REPO}",
+        "--sdist",
+        "${R1_PRIVATE}/dist/toolalign-0.0.1.tar.gz",
+        "--wheel",
+        "${R1_PRIVATE}/dist/toolalign-0.0.1-py3-none-any.whl",
+        "--rebuilt",
+        "${R1_PRIVATE}/rebuilt/toolalign-0.0.1-py3-none-any.whl",
+        "--baseline",
+        "${R1_PRIVATE}/baseline-dist/toolalign-0.0.1-py3-none-any.whl",
+        "--output",
+        "${R1_PRIVATE}/archives.json"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.05340945883654058,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-06T10:29:35.272220+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "archive-inspection",
+      "log": "${R1_PRIVATE}/logs/archive-inspection.log",
+      "sha256": "8aef39951fff1cb5da9f712221c1962d791b5497a3892b76e84c594efeac63d8",
+      "started_at_utc": "2026-09-06T10:29:35.218694+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "reports/review/P03-ci-deadline-r1/review_package.py",
+        "--repo",
+        "${R1_REPO}",
+        "--sdist",
+        "${R1_PRIVATE}/dist/toolalign-0.0.1.tar.gz",
+        "--wheel",
+        "${R1_PRIVATE}/dist/toolalign-0.0.1-py3-none-any.whl",
+        "--rebuilt",
+        "${R1_PRIVATE}/rebuilt/toolalign-0.0.1-py3-none-any.whl",
+        "--baseline",
+        "${R1_PRIVATE}/baseline-dist/toolalign-0.0.1-py3-none-any.whl",
+        "--output",
+        "${R1_PRIVATE}/archives.json"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 2.1584983749780804,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:31:24.120932+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "archive-inspection-corrected",
+      "log": "${R1_PRIVATE}/logs/archive-inspection-corrected.log",
+      "sha256": "5a959dbc05741685afa1e4bbcfd3ca85d922daa0fadc73d50dc7f14567df3913",
+      "started_at_utc": "2026-09-06T10:31:21.962332+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--offline",
+        "--no-sync",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.026327958796173334,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:34:51.546915+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "ruff-initial",
+      "log": "${R1_PRIVATE}/logs/ruff-initial.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at_utc": "2026-09-06T10:34:51.520452+00:00"
+    },
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "${R1_PRIVATE}/collect_results.py"
+      ],
+      "cwd": "${R1_REPO}",
+      "elapsed_seconds": 0.019075124990195036,
+      "environment": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${R1_REPO}/src",
+        "TOOLALIGN_TOKENIZER_DIR": "${TOKENIZER_SOURCE}",
+        "UV_NO_SYNC": "1",
+        "UV_OFFLINE": "1"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:34:51.712639+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "198606c59676c2fd5e92056d7217dc22c0ee2d8e",
+      "label": "result-inspection",
+      "log": "${R1_PRIVATE}/logs/result-inspection.log",
+      "sha256": "7fcfb36e07c3c8730e577274af5e23b7bc1c7e0421a0fe6b8983d4b56391411e",
+      "started_at_utc": "2026-09-06T10:34:51.693422+00:00"
+    }
+  ],
+  "command_index_cutoff": "14 recorded validation commands before this publication step; final public checks, commit, and completion are separately recorded in the private command index.",
+  "preserved_failures": {
+    "worker": [
+      "original-slow-start exit1 expected",
+      "negative-control exit1 expected",
+      "full-cpu exit2 missing psutil",
+      "full-cpu-r2 exit1 invalid private basetemp namespace: 639 passed/17 skipped/1 failed"
+    ],
+    "worker_inline_limitation": {
+      "invocation": "uv run --locked python - (inline auxiliary preservation check)",
+      "head": "f69c6a309ff45980c21c2119016f4c5cf8acf8b7",
+      "exit_code": 1,
+      "raw_output": "interactive tool output only; no separate stdout file captured",
+      "raw_output_sha256": null,
+      "cause": "Compared the manifest record object {sha256, bytes} directly with a SHA-256 string; therefore every record was falsely flagged before later checks ran.",
+      "files_mutated": 0,
+      "correction": "Read record.sha256 and record.bytes explicitly; verify_preservation.py keeps all 1818 entries and verifies both fields.",
+      "deadline_reproduction_repeated": false
+    },
+    "reviewer": [
+      {
+        "failed_command": "source-bindings",
+        "script_sha256": "9a178d647676621b2b36f44d511c9f5f1d30738930a6b4214c0783e7908b0edc",
+        "cause": "Reviewer allowlist used resolved paths; historical venv/bin/python is a symlink to the existing uv interpreter outside the lexical evidence root. No evidence bytes failed comparison.",
+        "correction": "Keep every originally approved manifest pathname, prohibit parent traversal, and record each existing symlink target while hashing the exact approved file."
+      },
+      {
+        "failed_command": "archive-inspection",
+        "script_sha256": "9956631b8c920c664f452ebe7ff1a0f86e0ae72edf445750aee88cd8777a3d30",
+        "cause": "Reviewer expected-member set omitted the automatically included tracked .gitignore. Actual archive has all 87 declared tracked inputs plus .gitignore and PKG-INFO, matching the worker 88 Git payload members.",
+        "correction": "Require and Git-byte-verify .gitignore explicitly; remove no comparison members."
+      }
+    ],
+    "reviewer_exploratory_read": "One read-only cat used an incorrect historical helper filename and exited 1. The file was subsequently read under its manifest name deadline_cases.before.py. No separate original stdout file was saved; no log hash is invented."
+  },
+  "capacity_before_publication": {
+    "roots": {
+      "private": {
+        "regular_files": 96,
+        "logical_bytes": 1142493
+      },
+      "full": {
+        "regular_files": 1236,
+        "logical_bytes": 5850012
+      },
+      "original": {
+        "regular_files": 1,
+        "logical_bytes": 8696
+      },
+      "negative": {
+        "regular_files": 1,
+        "logical_bytes": 8845
+      },
+      "boundaries": {
+        "regular_files": 4,
+        "logical_bytes": 20105
+      }
+    },
+    "total_logical_bytes": 7030151,
+    "limit_bytes": 2147483648,
+    "not_peak_or_cumulative_io": true
+  },
+  "raw_artifact_sha256": {
+    "intake-corrected/sources.json": "942923f9f4ec1ba3e2023977dc596093014411db8d4e317c70089583dc623b58",
+    "process-results.json": "082326a7589f0c82e37b68ab864ff4a8c7d4717dd5affa118e2459cbba80d88a",
+    "archives.json": "8e9f41efcf2700274b0afeb261a6faa10ca658309a3fb023785a736f3a8ecdf9",
+    "environment.json": "6200a9d408220217a9f97b27d7ecde70fd47480f4c18ec0bbd4da4f9fe5ce323",
+    "final-bindings.json": "d31b7264444a206be4fb540654e9c954fb25145fedef851ebbeef1739894291b",
+    "capacity-before-publication.json": "dcd08a858524b435131e8ffdcb158c4e7af0f54630bbf50606c6ce09d0fa3182",
+    "review_sources.first-attempt.py": "9a178d647676621b2b36f44d511c9f5f1d30738930a6b4214c0783e7908b0edc",
+    "review_package.first-attempt.py": "9956631b8c920c664f452ebe7ff1a0f86e0ae72edf445750aee88cd8777a3d30"
+  },
+  "not_run": [
+    "new candidate GitHub CI or PR8 rerun",
+    "final combined main integration",
+    "local Linux or Python3.11 execution",
+    "new wheel installation of unchanged production bytes",
+    "model frameworks or GPU workloads",
+    "new tokenizer measurement over the full data corpus",
+    "training, BFCL, formal evaluation, P04",
+    "human review or G-DATA signoff",
+    "network downloads, paid resources, upload, service deployment"
+  ],
+  "publication_checks_before_final_seal": [
+    {
+      "argv": [
+        "${CPU_PYTHON}",
+        "-B",
+        "scripts/check_public_content.py"
+      ],
+      "elapsed_seconds": 4.18362266686745,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:43:50.228967+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "34858c3e831d2bbd2e29638ed2a9cf4c4de5d00c",
+      "label": "public-staged",
+      "sha256": "94ee54afbd661585a1b1012f52940c1e5ed20ae20f572531fe6d6780199f8c31",
+      "started_at_utc": "2026-09-06T10:43:46.045237+00:00",
+      "log": "${R1_PRIVATE}/logs/public-staged.log"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--offline",
+        "--no-sync",
+        "--locked",
+        "ruff",
+        "check",
+        "--no-respect-gitignore",
+        "reports/review/P03-ci-deadline-r1"
+      ],
+      "elapsed_seconds": 0.018057917011901736,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-06T10:45:03.220661+00:00",
+      "head": "947144fa2dd248113f6db412f120cdae5483c9b8",
+      "index_tree": "34858c3e831d2bbd2e29638ed2a9cf4c4de5d00c",
+      "label": "ruff-public-explicit",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at_utc": "2026-09-06T10:45:03.202485+00:00",
+      "log": "${R1_PRIVATE}/logs/ruff-public-explicit.log"
+    }
+  ],
+  "published_probe_sha256": {
+    "review_sources.py": "bdb2427cb5eadc6cb4b43e5d24b59f7a03addfa9bc4496c3d26083c3b7ec5369",
+    "review_package.py": "d42ab04e5a519132f738daa1ad5a2462c1a79279f451fb63a79303b094d1be70",
+    "test_deadline_boundaries.py": "a279ed3231ce938e834aa65fb4000fa1ad4f469cf9c5c647e022a6825d6bc1ba"
+  }
+}

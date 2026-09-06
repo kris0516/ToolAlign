@@ -699,11 +699,25 @@ def test_hidden_payload_truth_is_not_supplied_to_backend(tmp_path):
     assert result.decisions[0]["raw_action"] is not None
 
 
-def test_monotonic_request_deadline_survives_tool_wall_clock_jump(tmp_path, monkeypatch):
-    monkeypatch.setattr("toolalign.tools.executor.utc_remaining", lambda expiry: 10_000)
-    result = run_case(tmp_path, seconds=0.6, faults={"query_build_report": ["block"]})
-    assert result.trace[-1]["event"] == "timed_out"
-    assert result.trace[-1]["latency_ms"] < 1500
-    assert result.budget["tool_rounds"] == result.budget["model_decisions"] == 1
-    tool = next(record for record in result.process_records if record["label"] == "tool")
-    assert tool["operation_started"] and tool["stopped"] and tool["reaped"]
+@pytest.mark.parametrize(
+    "stage,bypass_request",
+    [("startup", False), ("blocking", False), ("blocking", True)],
+    ids=["before-tool-start", "inside-blocking-tool", "bypassed-request-rejected"],
+)
+def test_monotonic_request_deadline_survives_tool_wall_clock_jump(
+    tmp_path, monkeypatch, stage, bypass_request
+):
+    from deadline_cases import assert_request_deadline, run_deadline_case
+
+    result, evidence = run_deadline_case(
+        tmp_path, monkeypatch, run_case, stage=stage, bypass_request=bypass_request
+    )
+    if bypass_request:
+        # A later per-tool timeout still ends the harness with "timed_out".
+        # The shared assertion must reject that as proof of request cancellation.
+        with pytest.raises(AssertionError, match="request monotonic deadline did not interrupt"):
+            assert_request_deadline(result, evidence)
+        observation = next(event for event in result.trace if event["event"] == "observing")
+        assert observation["tool_result"]["error_code"] == "tool_timeout"
+    else:
+        assert_request_deadline(result, evidence)
