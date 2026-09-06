@@ -1,0 +1,446 @@
+{
+  "task": "S0-SHARED-02",
+  "reviewer": "R1",
+  "date": "2026-09-06",
+  "verdict": "FAIL",
+  "remaining_findings": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 0
+  },
+  "base": "97466a20f599f68c511b9c8a71fe5f2cdfd9ad4b",
+  "candidate": "55a330b6a1c10d14959895f2a3617597962569f3",
+  "review_branch": "review/shared-02-r1",
+  "environment": {
+    "python": "3.14.7",
+    "macOS": "26.5.1",
+    "machine": "arm64"
+  },
+  "evidence_policy": "Hashes refer to full private raw logs, not sanitized excerpts. Private absolute argument paths are replaced with placeholders. Shell/read/navigation commands are not test runs.",
+  "runs": [
+    {
+      "name": "cpu-sync",
+      "exit_code": 0,
+      "sha256": "644d654af94b16cc160e500986523e39a58c65a934cf93bec8c23264cca48968",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14"
+      ]
+    },
+    {
+      "name": "freeze",
+      "exit_code": 0,
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ]
+    },
+    {
+      "name": "lint",
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ]
+    },
+    {
+      "name": "hatch-source",
+      "exit_code": 0,
+      "sha256": "a2d4cd456b4ef0fac0b4bd5df07a759c684a4e0959ba37e4b6ea019d3fd39131",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "-c",
+        "import inspect,importlib.metadata; from hatchling.builders.config import BuilderConfig; print(importlib.metadata.version(\"hatchling\")); print(inspect.getsource(BuilderConfig.load_vcs_exclusion_patterns))"
+      ]
+    },
+    {
+      "name": "source-boundary",
+      "exit_code": 0,
+      "sha256": "7b713841bcd6018c34216654a44c4b8e19b720bfdd7698e240a18b345cbbfd67",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_source_distribution.py"
+      ]
+    },
+    {
+      "name": "public-candidate",
+      "exit_code": 0,
+      "sha256": "4721869e33fb716057a896a0ae81b98aee85e2b492d8c38819f293d76214cb4e",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ]
+    },
+    {
+      "name": "cpu-regression",
+      "exit_code": 0,
+      "sha256": "66a23ce57dd0b6bb73d58e7194a76c72d831cd5a7dd944ae646808fcd28188ea",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py"
+      ]
+    },
+    {
+      "name": "sdist-plain-old",
+      "exit_code": 0,
+      "sha256": "d96c51453b25b1f4e7533a5e2cb7eab5a809899496da24bf704b14ef3168c149",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "plain-old"
+      ]
+    },
+    {
+      "name": "sdist-app-old",
+      "exit_code": 1,
+      "sha256": "0a046a9d562b795e21d48f15356f8c087d703c7ed39adc5bc311a463609cdb7d",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-old"
+      ],
+      "interpretation": "Review harness control error: .venv is excluded by Hatchling itself; original log retained."
+    },
+    {
+      "name": "sdist-app-new",
+      "exit_code": 0,
+      "sha256": "bc9e53268235c8f0571a3cd3f8e947700dd5f980efd678ee0d0b67fff43ebc18",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-new"
+      ]
+    },
+    {
+      "name": "sdist-app-new-nested",
+      "exit_code": 1,
+      "sha256": "cf617540438fb21ece241ade8ff88983b0af1af0ecd3766016323f6a2b294357",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-new-nested"
+      ],
+      "interpretation": "Candidate P1: four ignored nested synthetic files enter the sdist, despite public scan passing."
+    },
+    {
+      "name": "sdist-app-old-confirmed",
+      "exit_code": 0,
+      "sha256": "38a7669f29c84f86c6813e8a3f5baf280bef3d77d78861ff0a4c5810d0a1f8a7",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-old"
+      ],
+      "interpretation": "Corrected old-config control confirms four synthetic private files enter the archive; exit 0 means the old defect is reproduced."
+    },
+    {
+      "name": "build",
+      "exit_code": 0,
+      "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+      "command": [
+        "uv",
+        "build"
+      ]
+    },
+    {
+      "name": "dependencies",
+      "exit_code": 0,
+      "sha256": "2e30405043c6f316242eb27cde1c641390e766878d8cf01fd418c7d500222745",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_dependencies.py",
+        "--dpo-site-packages",
+        "<private-dpo-site-packages>",
+        "--replay-site-packages",
+        "<private-replay-site-packages>"
+      ],
+      "interpretation": "Independent exports and read-only metadata validation of S0 installed environments; no ML imports."
+    },
+    {
+      "name": "wheel",
+      "exit_code": 0,
+      "sha256": "5d8d9f1957838b359448cd6d162bd1eee1bc1291da00ea12645a1c8ba303285e",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P00/verify_wheel.py"
+      ]
+    },
+    {
+      "name": "mac-plan",
+      "exit_code": 2,
+      "sha256": "d1807f9faa3e16a9126fac785e06dc00f36dc372422af81fafeb82ead7e9721b",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/review-shared-02/plan-mac",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay",
+        "--dry-run",
+        "--python-platform",
+        "aarch64-apple-darwin"
+      ],
+      "interpretation": "Extra target check defaults to macOS 13 and fails for the unchanged MLX platform minimum; this is not the native supported target."
+    },
+    {
+      "name": "linux-plan",
+      "exit_code": 0,
+      "sha256": "b4a352204587fe3b9ad8ee44284da8351b9f492dc9a6ffd1e74c681325c31c3e",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/review-shared-02/plan-linux",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay",
+        "--dry-run",
+        "--python-platform",
+        "x86_64-unknown-linux-gnu"
+      ]
+    },
+    {
+      "name": "intel-plan",
+      "exit_code": 0,
+      "sha256": "8907cf04f33737266ec6601abe36d89a34b364afc1e602ad0d4d25aac98afd83",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/review-shared-02/plan-intel",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay",
+        "--dry-run",
+        "--python-platform",
+        "x86_64-apple-darwin"
+      ]
+    },
+    {
+      "name": "artifacts",
+      "exit_code": 0,
+      "sha256": "4738d78b9c29f9a8af1a479eba45aaa8ec4b1ff00b0c3fd8815b2d593f4d4c96",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/S0-SHARED-02/verify_artifacts.py",
+        "--replay-site-packages",
+        "<private-replay-site-packages>",
+        "--evidence-dir",
+        ".toolalign-local/review-shared-02/upstream"
+      ],
+      "interpretation": "Only pinned public library wheels downloaded; metadata and license bytes inspected without installation or imports."
+    },
+    {
+      "name": "mac-native-plan",
+      "exit_code": 0,
+      "sha256": "b163dffc9af82315d4f028bedeae5508a97ee5602cb711fd489d616593836f41",
+      "command": [
+        "env",
+        "UV_PROJECT_ENVIRONMENT=.toolalign-local/review-shared-02/plan-native-mac",
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--extra",
+        "compatibility",
+        "--extra",
+        "dpo",
+        "--extra",
+        "p01-replay",
+        "--dry-run"
+      ],
+      "interpretation": "Native macOS 26.5.1 plan succeeds with 90 distributions; no optional ML installation performed."
+    },
+    {
+      "name": "source-evidence",
+      "exit_code": 0,
+      "sha256": "0c98c051d81203dc3c83fcdf1e82e7f8bd69073a8e8c728aef45fd67c4d53ddf",
+      "command": [
+        "python3",
+        ".toolalign-local/review-shared-02/audit_source_evidence.py"
+      ],
+      "interpretation": "Raw-log hashes verified; D1 audit JSON read, archive and extraction log not accessed."
+    },
+    {
+      "name": "sdist-app-new-nested-confirmed",
+      "exit_code": 1,
+      "sha256": "d96f48bbcda651552b5379e277c190e5104ded0d59e95faed62f4b1c71e2f80f",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--with",
+        "hatchling==1.27.0",
+        "python",
+        "reports/review/S0-SHARED-02/probe_sdist.py",
+        "app-new-nested"
+      ],
+      "interpretation": "Same candidate P1 reproduced with the final review probe; the exclusion assertion still fails."
+    },
+    {
+      "name": "review-lint",
+      "exit_code": 0,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "reports/review/S0-SHARED-02"
+      ]
+    },
+    {
+      "name": "public-review",
+      "exit_code": 0,
+      "sha256": "7515eec36654f2de8ee30efdc9aa0b036ab7042aedddf38e0b6cb213483c4209",
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ]
+    }
+  ],
+  "review_probe_sha256": {
+    "probe_sdist.py": "c8a085221518838823e026ac77dde62a887323fca6548949a9d07544d8082b8e",
+    "verify_dependencies.py": "020467440701ad2241d679433e892a13d27587f867bdcc1e06d209de514b6350",
+    "verify_artifacts.py": "8fafcc5aae485530d8ca02582e0644a769e82af265ab7031a031eeebca825037"
+  },
+  "private_source_audit_reader_sha256": "1b3c9fc68f2835005f605e36d65a30bc5e0a7c53d2e62b9722ec5e3eed508759",
+  "independently_fetched_upstream_artifacts": [
+    {
+      "bundled_license_header": "Apache License 2.0",
+      "license_file": "mlx_lm_lora-3.1.2.dist-info/licenses/LICENSE",
+      "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "matches_installed_license": true,
+      "metadata_license": "MIT",
+      "name": "mlx-lm-lora",
+      "pypi_json_sha256": "bf0b0664aed3da17be9ad7ac1a784d53709d5de6d6b1083123899d41d6de2056",
+      "source": "https://pypi.org/pypi/mlx-lm-lora/3.1.2/json",
+      "version": "3.1.2",
+      "wheel_bytes": 101896,
+      "wheel_sha256": "4cf4f4f965d24df7ec0734426631c2e314231ae3bd115113c26e12d455881f2a"
+    },
+    {
+      "bundled_license_header": "Apache License 2.0",
+      "license_file": "mlx_tune-0.6.0.dist-info/licenses/LICENSE",
+      "license_sha256": "f45b671981baeeb94b5a5e2142d1df171c707035c7f05a99f83d63c77f3610f0",
+      "matches_installed_license": true,
+      "metadata_license": "Apache-2.0",
+      "name": "mlx-tune",
+      "pypi_json_sha256": "5c253c203318b6486127252a5bfedb0dfec9f61d53cc4937be5aa58dc5057f0d",
+      "source": "https://pypi.org/pypi/mlx-tune/0.6.0/json",
+      "version": "0.6.0",
+      "wheel_bytes": 238634,
+      "wheel_sha256": "920e7e14eaaef01efa0b3118152b405b3b67a9d5a3a5957a4fd9b9ecf6a0e4da"
+    },
+    {
+      "bundled_license_header": "Apache License 2.0",
+      "license_file": "datasets-3.6.0.dist-info/LICENSE",
+      "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "matches_installed_license": true,
+      "metadata_license": "Apache 2.0",
+      "name": "datasets",
+      "pypi_json_sha256": "4965e8aa815a8f1c8f05d35726a6d7787bcd94edcc56e0016c2b406341b61827",
+      "source": "https://pypi.org/pypi/datasets/3.6.0/json",
+      "version": "3.6.0",
+      "wheel_bytes": 491546,
+      "wheel_sha256": "25000c4a2c0873a710df127d08a202a06eab7bf42441a6bc278b499c2f72cd1b"
+    }
+  ],
+  "not_run": [
+    "R1 full ML extra installation",
+    "ML imports or model/tensor/GPU jobs",
+    "P01 functional/math acceptance",
+    "D1 implementation and data-quality acceptance",
+    "D1 archive or extraction-log access",
+    "Cross-platform real installation",
+    "Final GitHub CI verification",
+    "main integration"
+  ]
+}
