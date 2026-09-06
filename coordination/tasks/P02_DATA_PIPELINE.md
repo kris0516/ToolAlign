@@ -173,3 +173,13 @@ S0在发布前读取到R1本地原review `f7086413a9fedd9e2a473ac6d2869efff74dda
 新公开tree相对原review只允许更新`reports/review/P02-format/evidence.json`中的路径占位符/发布映射及因此变化的公开文件hash、`reports/review/P02-format/README.md`和`coordination/handoffs/P02-format-review-r1.md`中的去敏来源说明。原F1结论/等级、候选、实际测试数字和所有已执行探针字节保持；不重跑或改写原测量。README/交接明确“原本地审查SHA → 去敏公开review SHA不同，私有原记录未改”；最终公开SHA可由原生handoff提供以避免自引用。独立核对新tree的235份候选文件及9份探针/配置与原提交相同，重新运行适用lint、公开扫描和diff检查即可。
 
 此项是未公开附件的去敏发布映射，不能伪称保留相同SHA。S0核验新公开commit的父关系、受保护字节、去敏差异与原私有证据后，才推送该新分支并把其精确SHA授权给D1普通merge；原含路径commit只留本地，不进入D1或main的公开祖先。后续独立复审绑定这个已核验公开review及原候选；旧FAIL与完整原始证据仍保留。
+
+### D1同轮接入已核验的正式原审查
+
+S0已完整读取R1正式报告、交接、8个探针及Ruff配置，并独立核对12个公开文件、原始日志/结果/安装流/归档/源码等839项文件hash和235份候选字节。公开review为`2942e568eae91d0292ad9691af133bbd8c33dd02`，唯一父为原7bada；相对本地原f708仅三份发布材料有去敏映射差异，9份探针/配置保持，原f708不在公开祖先。S0已普通推送并读回`review/p02-format-r1-public`为相同SHA，原含路径分支未推送。S0证明SHA-256为`5ddfdd75918be89160cc3e3cc2a680ad4ebba9cb94be3ae0b0932393a171450d`。正式结论FAIL、P0=0/P1=0/P2=1；原664 pytest与新增60独立检查通过，一次独立reference全量8,228行及分层统计相同，但F1未在原候选关闭。
+
+收到S0本段完整授权SHA的原生消息后，D1在当前P02-format-fix-r3同一轮于安全提交点普通merge**精确公开2942e568**，保留已提交b4dc1cf及本轮全部修复/失败。禁止merge本地`review/p02-format-r1`、f708或其后代；不接无关main/P01，不改12份原公开review文件，不reset/rebase/cherry-pick或force push。该同步只增加已核验原审查历史，不扩大生产修复所有权。
+
+F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。新最终候选须绑定合并后的完整SHA、保持原报告/探针及数据/人审身份，并实际运行新增原R1的60项结构/统计检查和适用完整CPU回归。原回归启动器必须有multiprocessing主入口保护；真实native环境的两项HF专属cleanup跳过与reference中实际通过分开登记，不写成单次全套0skip。原公开full-audit/evidence脚本固定7bada与历史源码，只读其已核验结果，不修改其常量或因预期旧身份不匹配重复全量审计。
+
+对最终默认wheel再用真实允许的HF/native环境验证原同尺寸反例，逐模块确认ToolAlign来自实际安装target；它与无可选依赖的纯默认接口检查分开。保持未改原探针、真实loader和完整原始before/after。若合并只新增原审查且新包成员字节不变，可明确列出相同成员/来源与原已执行制品的关系；最终报告仍须准确说明实际构建/安装对应的完整SHA，不捏造新运行。其余c6c02a5的两engine12fixture、全量历史映射、CPU/2GiB/无新环境与模型边界保持。完成后交新的正式P02-format-fix-r3候选/handoff并结束该轮，等待独立复审；当前复审仅准备，未派发。

@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1继续审新格式7bada2e，D1按完整c6c02a5定点修复已原生ACTIVE；T1/E1无新任务，最多两个实现约束保持 |
+| 独立实现/reviewer 对话 | 原7bada新格式正式FAIL/P2=1、公开review2942e56已核验/推送，R1原轮封存中；D1修复ACTIVE、接原review范围已准备；复审未派发，T1/E1无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -108,3 +108,6 @@ R1仍在冻结7bada2e的独立审查中，已用真实未替换的HF loader稳�
 
 
 新格式定点修复已实际派发：完整授权c6c02a5af084afe92c6e9f05d9d1c51392e805d0已push/readback；S0重新确认D1原生completed/idle及干净7bada后发送P02-format-fix-r3，gpt-6-astra/max，新轮ACTIVE。R1原审查仍ACTIVE且冻结7bada，继续独立封存正式结论，不等D1或混入修复。[Draft PR8](https://github.com/kris0516/ToolAlign/pull/8)说明已实际更新并读回，保留原候选CI与临时组合预检，明确该来源绑定缺陷未关闭。没有新GPU/P04或人审代填。
+
+
+新格式原候选正式审查为FAIL/P2=1。S0完整读取原报告、交接、8个探针和具名Ruff例外，独立核验839项文件hash、235份候选字节、源/默认wheel同一F1、原664及新增60 pytest、两engine同12场景、一次8,228行reference全量及原D1制品保全。证明SHA-256为5ddfdd75918be89160cc3e3cc2a680ad4ebba9cb94be3ae0b0932393a171450d。公开review2942e568eae91d0292ad9691af133bbd8c33dd02以7bada为唯一父，已普通推送并远端读回；原本地f708641含一处公开索引的临时路径遗漏，保留本地，按085a61c授权仅三份发布材料作去敏映射，原9探针/配置保持，f708不在公开祖先。该附件遗漏不增加候选问题数。R1当前原生轮仍在封存，并未派发复审；D1现有b4dc1cf修复checkpoint及自测保持，同轮普通merge精确公开2942的范围已准备，尚待原生发送。原数据/人审/P04门槛保持。
