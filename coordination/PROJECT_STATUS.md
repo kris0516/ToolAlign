@@ -99,3 +99,6 @@ P01实际主干验收：S0普通整合原7e20706与当前main为90b29363b4d2ba80
 
 
 新格式[Draft PR8](https://github.com/kris0516/ToolAlign/pull/8)已实际建立，head7bada2e、main为base；CI34017408825的Python3.11/3.14两个jobs全部步骤成功。S0只读merge-tree预检无冲突，276份当前main路径和21份候选新增路径完全保留，没有checkout合并或组合测试，证据hash1f769066149bfe4adc6d50964a0cf2a9acad990c8a1ef308710444b49984effb。R1仍在精确7bada独立审查。S0已从固定指标重算train/validation预算交集与尾批：2048/256条件为6013/217，train751组累积8后仍有5微步；1024条件train仅985。见[准备记录](../reports/S0_P04_READINESS.md)，没有训练选集/新模型运行或P04授权。
+
+
+S0隔离组合预检完成：在本地单独worktree普通合并main4e04f2a与候选7bada2e，得到未推送的f600b9506b0fbc3fdfeed1d5c4dcc61452a3c7cf；276个原main文件和21个候选新增路径字节保持。768CPU无skip、实际sdist/默认及显式重建wheel、47安装源码和10条隔离命令通过，见[组合预检](../reports/S0_P02_FORMAT_PREFLIGHT.md)，摘要hash23094e442a3d04af88646d015db373901bb2da4e427076fd0c9a3690d83a1baf。首次lint选错无Ruff环境的exit1保留，只修命令后通过。该结果提前核验跨包组合，不代替仍在运行的R1、最终CI/main验收或G-DATA/P04；原candidate和主干实现均未改。
