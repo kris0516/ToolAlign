@@ -1,6 +1,6 @@
 # P04｜原始模型与 SFT 实验
 
-状态：BLOCKED；尚未分发或领取正式训练。P00、P01受限G1、P03 CPU、新格式及截止时间测试修订已VERIFIED；PR8实际合并36b6988，最终CI34029892077与main843CPU/2 HF-only skipped及归档绑定通过。仍待P02真实人工语义审查及训练选择/配置绑定，P04的至少10条token/mask人工核对尚未完成。S0准备不构成P04训练授权。
+状态：BLOCKED；尚未分发或领取正式训练。P00、P01受限G1、P03 CPU、新格式及截止时间修订已VERIFIED，PR8合并36b6988。训练选择/配置绑定已获R1原40252f8 CPU技术PASS，S0普通集成0f3d04f通过919CPU/2跳过和实际包验证，最终CI/main待完成；见[证据](../../reports/S0_P02_TRAINING_BINDING_INTEGRATION.md)。仍待P02真实语义人审、代表/最长/非ASCII实际页面观察和token/mask人工核对，13例材料已准备但尚无人填写。S0准备不构成P04训练授权。
 
 | 字段 | 初始值 |
 |---|---|
