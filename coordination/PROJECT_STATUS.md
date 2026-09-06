@@ -120,3 +120,6 @@ D1修复正式交接：完整8c439f683b9d6b04919ff1f7184d8924ccf82f9f已普通�
 
 
 修复独立复审实际派发：D1该轮completed/idle已原生核验，工作树和远端8c一致。S0再次确认R1原轮completed/idle、干净公开2942，在私有保存完整分发词后，按完整授权41233633ac9aeaf72e66b280908bc0156149c0f2原生派发精确8c439f683b9d6b04919ff1f7184d8924ccf82f9f的P02-format-review-r2；显式gpt-6-astra/max，原生已核验新一轮ACTIVE。沿用原R1独立任务/隔离worktree，无新任务或sub-agent。全部原候选/审查/失败只读；本轮仅CPU和新复审证据，正式格式及G-DATA/P04仍待相应验收。
+
+
+S0新组合预检：在隔离worktree普通merge当前main758aa2c与修复8c439f6得到50f7589，277份main与37份候选新增字节保持。实际839 passed/2 HF-only skipped、三份归档/10纯默认接口命令通过；另将新默认wheel安装并运行未改原F1，两engine的实际backend/身份与正常基线相同，7个ToolAlign模块均来自target。S0首次reference误选带模型库的P01环境，在原探针前置断言停止；首次及诊断exit1保留，只更换既有纯tokenizer环境后通过。见[新预检](../reports/S0_P02_FORMAT_PREFLIGHT_R2.md)，初始摘要a49ccddead2a56f9851d3c805d91dfe1ca9e972d9f38c137bccbb50b4a57bf19、附加证据e1b619a8642d4bcf35fef2e68a87e9cecc177a3ae82a9156c4a92aaed52b8fe6。R1仍在封存正式复审，集成分支未推送、main实现未改；G-DATA/P04仍待相应门槛。
