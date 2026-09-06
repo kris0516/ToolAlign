@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：IN_PROGRESS；S0 于 2026-09-06 授权本任务并核对原生独立对话、code_base 与工作分支。P00 已在 `cd091e3a53986b59b170baf5b746644f369135d1` 合并并验证；本包 code_base 为随后仅更新协调/证据文档的 `ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：READY_FOR_REVIEW；候选 `f97bb0de346c220871962a5689014a379fe19c83` 已正式交付且任务空闲，尚待共享基线同步与独立R1。S0 于 2026-09-06 授权本任务并核对原生独立对话、code_base 与工作分支。P00 已在 `cd091e3a53986b59b170baf5b746644f369135d1` 合并并验证；本包 code_base 为随后仅更新协调/证据文档的 `ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -56,3 +56,5 @@
 交接：`coordination/handoffs/P01-r1.md`；包含个人应理解的 loss/reference/统一内存技术点。未完成测项逐项列出，待 R1 和 S0 验收。
 
 2026-09-06 公共基线更新：S0 已授权采用已验证生产合并 `18fc8475476f6becf684ba817480caeb96a7cfb9` 及协调状态 `a6c8dd3c78b3674a242b4faacbb175f7b7c98303`。保留原 code_base/authorization 的历史记录，实际工作分支以非强制 merge 接入；新模型规则 gpt-6-astra/max 优先于首派任务副本。
+
+2026-09-06 第二次公共基线更新：S0-SHARED-02 已独立审查/CI/合并/main验证，生产base `37c00de9abe92e6fb24a0c0e0b7361aa4bb90385`。收到S0原生同步消息后，保留f97bb0d及原环境/模型/失败证据，非强制merge本报告所在协调提交（完整SHA由消息给出）。仅CPU复核新base的测试、包构建/隔离安装与环境metadata，必要时在已锁环境运行原CPU数学检查；不重新跑未受影响模型校准，不加载模型或扩展P04。允许新增`coordination/handoffs/P01-base-r2.md`记录新完整候选、merge关系与实际结果，原P01-r1保留。

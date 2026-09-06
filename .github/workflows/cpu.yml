@@ -27,3 +27,4 @@ jobs:
       - run: uv run --locked pytest -q reports/review/P00/test_independent.py
       - run: uv run --locked python scripts/check_contract_freeze.py
       - run: uv run --locked python scripts/check_public_content.py
+      - run: uv run --locked python scripts/check_source_distribution.py
