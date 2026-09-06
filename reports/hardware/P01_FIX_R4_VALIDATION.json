@@ -1,0 +1,1260 @@
+{
+  "authorization_commit": "cbb6d4614c3b8e8f584315ac3bdad434544c3984",
+  "branch": "work/p01-compatibility",
+  "commands": [
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r4/cpu_pytest.py",
+        "-q",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "-k",
+        "initialization_failure",
+        "--basetemp=.toolalign-local/p01-fix-r4/before-init"
+      ],
+      "ended_at": "2026-09-06T04:52:50.011256+00:00",
+      "exit_code": 1,
+      "head": "65437ea2323f21e6c4c1d7e5b916282209dbd25a",
+      "name": "before-init",
+      "original_metadata_sha256": "04496f5b8a4ce65a6ba2c71ee05f09938bbee621ce099ba7338643454494a9d9",
+      "recorded_source_bundle_sha256": "2a436ce5ecc7a63251ffa0ecab190e932baad3fd0fcab9a865764688968d7145",
+      "sha256": "f41beaf1db1bae1bb4b7b2d43c5fee540ad115bb3754d542fff89f79649e72fb",
+      "started_at": "2026-09-06T04:52:49.823983+00:00",
+      "wall_seconds": 0.17719483422115445
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r4/cpu_pytest.py",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "--basetemp=.toolalign-local/p01-fix-r4/after-r1"
+      ],
+      "ended_at": "2026-09-06T04:58:47.051574+00:00",
+      "exit_code": 0,
+      "head": "65437ea2323f21e6c4c1d7e5b916282209dbd25a",
+      "name": "after-r1",
+      "original_metadata_sha256": "b2abf7b8004d1d9891a52178a14f5e6d0e1ef3d1cd2a104468adbc3ccaa864d7",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "95512e5766a9ea9ac244b7fac2f6737833ea8f369b9d041ca1ef6d860fd40bce",
+      "started_at": "2026-09-06T04:58:44.677125+00:00",
+      "wall_seconds": 2.3655342089477926
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "python",
+        ".toolalign-local/p01-fix-r4/cpu_pytest.py",
+        "-q",
+        "tests/training/compatibility/test_initialization_failures.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p01-fix-r4/new-regressions"
+      ],
+      "ended_at": "2026-09-06T05:00:55.901077+00:00",
+      "exit_code": 0,
+      "head": "65437ea2323f21e6c4c1d7e5b916282209dbd25a",
+      "name": "new-regressions",
+      "original_metadata_sha256": "ee6763498ce047de7c7390b81835fc79a927291b7590e5519c100d272d513ecd",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "193e43a08c28b06fe698344404de37c7e0ac7d5485667c0323a6eacf17b1576b",
+      "started_at": "2026-09-06T05:00:55.678419+00:00",
+      "wall_seconds": 0.2137987499590963
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "python",
+        ".toolalign-local/p01-fix-r4/cpu_pytest.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+        "--basetemp=.toolalign-local/p01-fix-r4/full-cpu"
+      ],
+      "ended_at": "2026-09-06T05:03:40.014581+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "full-cpu",
+      "original_metadata_sha256": "d0b8293a5090cfee89c89cacc27f56a4ac88eebe8c9e69d1b00a2acaf590244b",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "13411338f82daf738ceefeaaa09e7a0d9c08d7d8d5641d99dcc6718328195398",
+      "started_at": "2026-09-06T05:03:34.866854+00:00",
+      "wall_seconds": 5.138307125074789
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/base-r2/venv-replay/bin/python",
+        ".toolalign-local/p01-fix-r4/cpu_pytest.py",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "--basetemp=.toolalign-local/p01-fix-r4/final-r1"
+      ],
+      "ended_at": "2026-09-06T05:03:37.221182+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "final-r1",
+      "original_metadata_sha256": "c1e1dcd15eca3d061ed6154d0dcafc2d951f7e72e7a87e0e895c62789eb2da19",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "33654704eebe886ac35b8d5e9779daf9f56b55b708f3c249d34bfa70de139efa",
+      "started_at": "2026-09-06T05:03:34.882728+00:00",
+      "wall_seconds": 2.3290754999034107
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--offline",
+        "--out-dir",
+        ".toolalign-local/p01-fix-r4/build"
+      ],
+      "ended_at": "2026-09-06T05:06:07.620132+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "build",
+      "original_metadata_sha256": "bcbd2a2d6fb720af11f0c5221215f2d1a8605d3b4888347172b8f4e93ed951fc",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "5a5c4fa07cf1ab503200938580bd5a3b4419b89dbd96d955a683e9915546707a",
+      "started_at": "2026-09-06T05:06:07.261541+00:00",
+      "wall_seconds": 0.3492978750728071
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "python",
+        "reports/hardware/P01_FIX_R4_PACKAGE.py",
+        "--private-root",
+        ".toolalign-local/p01-fix-r4"
+      ],
+      "ended_at": "2026-09-06T05:06:26.150175+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "package",
+      "original_metadata_sha256": "3443e346aeb12fa835bcc39402c2dd5f53f6affb9acb70826ca54b4e01719a04",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "baebad94cef638c6d304c70d0c4dfa39af8bd235d348a823273f7dcfdf5d41bf",
+      "started_at": "2026-09-06T05:06:24.495104+00:00",
+      "wall_seconds": 1.6459302501752973
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "ended_at": "2026-09-06T05:06:24.564177+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "contract-freeze",
+      "original_metadata_sha256": "4600e7b3abcc251e183ebd6449e51ce5a3ded86dff2385a91cdbc3657a7e48af",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T05:06:24.526570+00:00",
+      "wall_seconds": 0.029168291948735714
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "ruff",
+        "check",
+        "."
+      ],
+      "ended_at": "2026-09-06T05:06:24.578471+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "lint",
+      "original_metadata_sha256": "6677b815eb43d0ba426b076c25683e0d26e8f799017c6414515d300cbc9e43ed",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T05:06:24.544620+00:00",
+      "wall_seconds": 0.02509233308956027
+    },
+    {
+      "command": [
+        "python3",
+        ".toolalign-local/p01-fix-r4/preservation.py"
+      ],
+      "ended_at": "2026-09-06T05:14:31.816030+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "preservation",
+      "original_metadata_sha256": "10a4ee07aebdeff282b886f9e5f907ed0e3a85524dde4c5f3bffaa3469a94be4",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "3f5de51e9f4348a82294fec1b5ed6b76780a91a2481821518cc8a85bb8c85b11",
+      "started_at": "2026-09-06T05:14:30.412561+00:00",
+      "wall_seconds": 1.3949229582212865
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "--offline",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "ended_at": "2026-09-06T05:15:20.498237+00:00",
+      "exit_code": 0,
+      "head": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+      "name": "public-content",
+      "original_metadata_sha256": "9853dbd1246002dd5a09d44891454cb940f4ed38f75989918fd8bdbc21e0832a",
+      "recorded_source_bundle_sha256": "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17",
+      "sha256": "c43a8fe9c3ffb87cde2faf9a7ce6b25166c260a47e46d571aa13bf5998be6442",
+      "started_at": "2026-09-06T05:15:17.827821+00:00",
+      "wall_seconds": 2.662019290961325
+    }
+  ],
+  "contract_lock_sha256": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+  "contract_versions": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "counts": {
+    "before_initialization": {
+      "deselected": 20,
+      "exit_code": 1,
+      "failed": 2
+    },
+    "complete_applicable_cpu_and_reports": {
+      "failed": 0,
+      "new_default_cpu": 9,
+      "new_report_checks": 4,
+      "passed": 251,
+      "previous": 238,
+      "skipped": 0
+    },
+    "development_runs_added_to_total": false,
+    "distinct_current_pytest_checks": 280,
+    "historical_shared57_snapshot_included": false,
+    "unmodified_r1_probes": {
+      "failed": 0,
+      "original_r1": 7,
+      "passed": 29,
+      "r1_r2": 22,
+      "skipped": 0
+    }
+  },
+  "final_candidate": "Exact full commit containing this evidence is supplied by native T1 handoff; no self SHA embedded",
+  "implementation_commit": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+  "initialization_before_after": [
+    {
+      "after": {
+        "actual_created_children": 0,
+        "manifest_ended_at": "2026-09-06T05:03:37.111327+00:00",
+        "manifest_exit_code": 1,
+        "manifest_status": "failed",
+        "popen_calls": 0,
+        "resources_exists": true,
+        "same_original_exception": true,
+        "stage": "initial_swap",
+        "summary_runs": 1
+      },
+      "after_sha256": "022483332402bb6d866f30a1701020e71d8bf088cbc0a2e1aeb87f53c49bea9d",
+      "before": {
+        "actual_created_children": 0,
+        "manifest_ended_at": null,
+        "manifest_exit_code": null,
+        "manifest_status": "running",
+        "popen_calls": 0,
+        "resources_exists": false,
+        "same_original_exception": true,
+        "stage": "initial_swap",
+        "summary_runs": 0
+      },
+      "before_sha256": "467546818c7e713513276a81947794babf13a0b197fb33becfa31e5664b20bdc",
+      "manifest_sha256": "3795ac444f05a7e1a1ab0bfcfc1d29ab0aadf608c3c8df4ef35547dbc40b7a51",
+      "optimizer_steps": 0,
+      "resource_fields": {
+        "child_started": false,
+        "exit_code": 1,
+        "failure_stage": "initial_swap",
+        "initial_swap_bytes": null,
+        "initialization_error": {
+          "message": "[Errno 5] R1 injected initial swap baseline read failure",
+          "type": "OSError"
+        },
+        "monitor_error": null,
+        "peak_rss_bytes": null,
+        "raw_process_exit_code": null,
+        "samples": [],
+        "stop_reason": "initialization_error"
+      },
+      "resources_sha256": "af3c4c8fa71e7124ecb8e7dc0a3982639bcce844a9b94815d8968617e35b73ee",
+      "training_tokens": 0
+    },
+    {
+      "after": {
+        "actual_created_children": 0,
+        "manifest_ended_at": "2026-09-06T05:03:37.115606+00:00",
+        "manifest_exit_code": 1,
+        "manifest_status": "failed",
+        "popen_calls": 1,
+        "resources_exists": true,
+        "same_original_exception": true,
+        "stage": "popen",
+        "summary_runs": 1
+      },
+      "after_sha256": "f2fcff43318b49781eb8e79f3a3fc4a278999a9da8c9012e12619dc23d5700e4",
+      "before": {
+        "actual_created_children": 0,
+        "manifest_ended_at": null,
+        "manifest_exit_code": null,
+        "manifest_status": "running",
+        "popen_calls": 1,
+        "resources_exists": false,
+        "same_original_exception": true,
+        "stage": "popen",
+        "summary_runs": 0
+      },
+      "before_sha256": "e32e107aaa5ee01b5838a593b7fda79a60a8d7557479019649f0599b6db5d999",
+      "manifest_sha256": "571fc2d6ac1368f75f676ae201fd52446622c2ab303b2a11326c3e4f9fd8f4af",
+      "optimizer_steps": 0,
+      "resource_fields": {
+        "child_started": false,
+        "exit_code": 1,
+        "failure_stage": "popen",
+        "initial_swap_bytes": 0,
+        "initialization_error": {
+          "message": "[Errno 35] R1 injected process creation failure",
+          "type": "BlockingIOError"
+        },
+        "monitor_error": null,
+        "peak_rss_bytes": null,
+        "raw_process_exit_code": null,
+        "samples": [],
+        "stop_reason": "initialization_error"
+      },
+      "resources_sha256": "0eda4497204bb8a474cac7033d854c38afa7582a5b92a2f5feb71f83e91ec859",
+      "training_tokens": 0
+    }
+  ],
+  "merge_commit": "65437ea2323f21e6c4c1d7e5b916282209dbd25a",
+  "model": "gpt-6-astra",
+  "new_package": {
+    "all_stdout_stderr_retained": true,
+    "archives": {
+      "sdist": {
+        "archive_files": 49,
+        "bytes": 116086,
+        "generated_metadata_hashes": {
+          "PKG-INFO": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf"
+        },
+        "sha256": "649b0f757e321294f0a0b193d35c17f3e6785de831e69820e4a413df65241777",
+        "tracked_payload_hashes": {
+          ".gitignore": "3137afcc31d5faf9fe870ab6a456eaa87255c870c8c3fb8c520633642afa7fb3",
+          "LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a",
+          "README.md": "b886194a207800c174986bf19c53f5e5b4473b23c311aed0efc52649e51d80af",
+          "THIRD_PARTY_NOTICES.md": "acbfdb4c040a4f5ec53f355cfbb8c603f50958f860889140d8f751c4f89cdf4f",
+          "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15",
+          "configs/source_toolace.v1.json": "b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7",
+          "contracts.v1.lock.json": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+          "pyproject.toml": "7b1a873f9709d6f50c0ef576f28e0b42a9818c7332bb7f5a436226fbe6eaba63",
+          "scripts/check_contract_freeze.py": "0d705c51da80f7894365ccf84b7dd8e0d537152bd26b1c4d341d9960d9a3a550",
+          "scripts/check_public_content.py": "1de22fa094e46697c18410484413f36d6a5efc79c98931f734890b43b7c473da",
+          "scripts/check_source_distribution.py": "14d5925dd89f0d752ba3cdcb2f1bc12f16d50aa6927c8cfe3f2c1b57a0004e74",
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+          "tests/conftest.py": "24c10871de05db549d9937342f7c0ff8baaa6b63eeb9d36c7088233fed447b94",
+          "tests/contracts/test_records.py": "f3f6299f5dff75a77d645d9e588248e1772f3bf0151d44bbc76de5992b840438",
+          "tests/fixtures/contracts/README.md": "944df675f983f6763e777d29156a5bb2fe794c7138e66695c8e8f50e25cdc880",
+          "tests/fixtures/contracts/example.json": "70e5b1aeba57245d9e997aa7d9e3296b1013e23119bff939164d705a60980bcd",
+          "tests/fixtures/contracts/preference.json": "c8326392e5e3d1f3902216be6bc89e4ea868f69bee4e50828c2922adc76d2aed",
+          "tests/fixtures/contracts/run.json": "4a4fafda9bb2d5495aead08f9d8075a5b7e83cc03515395197ebbe47f4366276",
+          "tests/fixtures/contracts/tool.json": "8788f4096b12052e96b64833782586ba7af05d2e870d3148c41554f7553f14fd",
+          "tests/fixtures/contracts/trace.json": "dcde3200f15dddd89cb4aac5decc93a14de0f1ab5987a015b81fbcb9bb5ff7e5",
+          "tests/runtime/test_gpu_lock.py": "a235ec1f0d354d34600bd471b7249dc7bcb8ebaacc2ac00fe2b2b6dfc433241d",
+          "tests/test_public_content.py": "9b9c7c6086632c61e806b52cb486f43985da46c9f81c808bb9e837100779e8a8",
+          "tests/training/compatibility/test_failure_accounting.py": "1684b7406509241b45a2732ead1b73bc271c23c207ce6ec43583a0708e0b7cf8",
+          "tests/training/compatibility/test_initialization_failures.py": "3dccbbfac4f83ffa87b002dd1dd7097dab2db5fb8e0bb3f4963741e005b6c1e9",
+          "tests/training/compatibility/test_invariants.py": "88ef39bc29a1c8f278cdff8c661dfa82a8aa7f9aaab299e9cd5367bcad00bb43",
+          "tests/training/compatibility/test_lease_entry.py": "b86b85d036975ca488f3b9de61da68f4ce2481acaf46d1138b175bbad0105035",
+          "uv.lock": "201b522e7917ac82dfd49ae6447a8f9481336800b282ea9b09c706403350c7da"
+        },
+        "untracked_payloads": 0
+      },
+      "wheel_from_sdist": {
+        "archive_files": 27,
+        "bytes": 44830,
+        "generated_metadata_hashes": {
+          "toolalign-0.0.1.dist-info/METADATA": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf",
+          "toolalign-0.0.1.dist-info/RECORD": "211832e9e4c311b29cebe37dd21cfefd485e58121c0c6c296708280909a6c10c",
+          "toolalign-0.0.1.dist-info/WHEEL": "aad0b0a12256807936d52d4a6f88a1773236ae527564a688bab4e3fe780e8724",
+          "toolalign-0.0.1.dist-info/entry_points.txt": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a"
+        },
+        "sha256": "7c83931ab70668727f824df340ded0ce0530779d9058b8a3c4846aa1f4364ae2",
+        "tracked_payload_hashes": {
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "untracked_payloads": 0
+      }
+    },
+    "candidate": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/runtime.txt"
+        ],
+        "cwd": "<WORKTREE>",
+        "ended_at": "2026-09-06T05:06:25.091340+00:00",
+        "exit_code": 0,
+        "name": "export",
+        "started_at": "2026-09-06T05:06:25.080630+00:00",
+        "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+        "stdout_sha256": "7c08088c536464182feccfe62b982e20dcc5cf4eb597cfbf63a2d8514c48b855"
+      },
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.099048+00:00",
+        "exit_code": 0,
+        "name": "venv",
+        "started_at": "2026-09-06T05:06:25.091378+00:00",
+        "stderr_sha256": "abac9c851616290d61f24deaa563e2b6973f7a770b8ea99d9fd7c025dcc075c9",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/runtime.txt"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.134119+00:00",
+        "exit_code": 0,
+        "name": "dependencies",
+        "started_at": "2026-09-06T05:06:25.099082+00:00",
+        "stderr_sha256": "a1f82761d7f0933f606f13ed679c946aca5d98d435cf0440ea502856d0de5604",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "--no-deps",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/build/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.150106+00:00",
+        "exit_code": 0,
+        "name": "wheel",
+        "started_at": "2026-09-06T05:06:25.134162+00:00",
+        "stderr_sha256": "b62975adbf05f2966402593a598f21311ef286e1828ed97272542e2007201e04",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.158596+00:00",
+        "exit_code": 0,
+        "name": "dependency-check",
+        "started_at": "2026-09-06T05:06:25.150140+00:00",
+        "stderr_sha256": "14c9f71e9b49f67820b5fc33e74addc2d601a549ff75e5eb8e681d9703927916",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/installed_probe.py",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/expected.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.623969+00:00",
+        "exit_code": 0,
+        "name": "installed-modules",
+        "started_at": "2026-09-06T05:06:25.217772+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7b8499d557527a9eabd3f7d1c7e210f701ef1a1b712d2b6d22e46d4393d9fdce"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.training.compatibility",
+          "--help"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.651100+00:00",
+        "exit_code": 0,
+        "name": "installed-help",
+        "started_at": "2026-09-06T05:06:25.624049+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c56054b15fea4aafb67bb5c9175d3213d5965831f085cd572346025f12c764c3"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.697790+00:00",
+        "exit_code": 0,
+        "name": "contract-digest",
+        "started_at": "2026-09-06T05:06:25.651135+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/example.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.788432+00:00",
+        "exit_code": 0,
+        "name": "validate-example",
+        "started_at": "2026-09-06T05:06:25.714569+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/tool.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.859504+00:00",
+        "exit_code": 0,
+        "name": "validate-tool",
+        "started_at": "2026-09-06T05:06:25.797941+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/preference.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.930157+00:00",
+        "exit_code": 0,
+        "name": "validate-preference",
+        "started_at": "2026-09-06T05:06:25.869068+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/run.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:25.999748+00:00",
+        "exit_code": 0,
+        "name": "validate-run",
+        "started_at": "2026-09-06T05:06:25.939478+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/trace.json"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:26.069326+00:00",
+        "exit_code": 0,
+        "name": "validate-trace",
+        "started_at": "2026-09-06T05:06:26.008785+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/venv/bin/python",
+          "-I",
+          "<WORKTREE>/reports/hardware/P01_FIX_R4_INSTALLED_PROBE.py",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source/run.json",
+          "<WORKTREE>/reports/hardware/P01_BUILD_REPORT.py",
+          "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source"
+        ],
+        "cwd": "<WORKTREE>/.toolalign-local/p01-fix-r4/package-check/away-from-source",
+        "ended_at": "2026-09-06T05:06:26.144337+00:00",
+        "exit_code": 0,
+        "name": "installed-startup-report",
+        "started_at": "2026-09-06T05:06:26.078232+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "381dffc2a5f4d80e00378a609be2587a09243f7ebaf07ae4d42b0c479873e448"
+      }
+    ],
+    "contract_digest": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "installed": {
+      "distributions": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "toolalign": "0.0.1"
+      },
+      "isolated": true,
+      "module_hashes": {
+        "toolalign.training.compatibility.__init__": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+        "toolalign.training.compatibility.__main__": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+        "toolalign.training.compatibility.core": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+        "toolalign.training.compatibility.execution": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+        "toolalign.training.compatibility.fallback_probe": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+        "toolalign.training.compatibility.model_probe": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+        "toolalign.training.compatibility.numerical": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+        "toolalign.training.compatibility.samples": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+      },
+      "modules": 8
+    },
+    "model_or_gpu_execution": "NOT_RUN",
+    "offline": true,
+    "report_source_sha256": "fae00dcf86cd297d94ab07b68793e277529f5e7a1b298847dde038e35683f3e7",
+    "source_package_imported_by_isolated_probe": false,
+    "startup_report": {
+      "cases": [
+        {
+          "created_children": 0,
+          "popen_calls": 0,
+          "same_original_error": true,
+          "stage": "initial_swap",
+          "summary": {
+            "assessment": "FAILED_INITIALIZATION",
+            "child_started": false,
+            "compile_disabled": false,
+            "dependency_versions": {
+              "python": "3.14"
+            },
+            "dpo_checkpointing": false,
+            "evidence_hashes": {
+              "config.json": "5e3c9d0f7ac1839fd3a35b8836ecb4d3b1664687266572926a7e2b9220c4fa3a",
+              "resources.json": "3b1a8c8f9a29d47c36622d294f3a79fe9b224f56f82d87c15b3f08eaeba99557",
+              "run.json": "fc96046cca12f4dac2bee7cd6fbb6aa7764fbea1d85144a65304bf162395c153"
+            },
+            "exit_code": 1,
+            "failure_stage": "initial_swap",
+            "git_commit": "0000000000000000000000000000000000000000",
+            "hardware": {
+              "accelerator": null,
+              "machine": "synthetic",
+              "memory_bytes": 0,
+              "platform": "synthetic"
+            },
+            "initial_swap_bytes": null,
+            "initialization_error_type": "OSError",
+            "manifest_artifacts_verified": 2,
+            "max_pressure_level": null,
+            "max_swap_growth_bytes": null,
+            "mlx_peak_bytes": null,
+            "mode": "smoke",
+            "model_id": null,
+            "model_identity": {
+              "adapter_hash": null,
+              "model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "model_id": "fixture/no-model",
+              "model_revision": "fixture-v1",
+              "quantization": "none",
+              "template_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "tokenizer_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "optimizer_steps": 0,
+            "peak_rss_bytes": null,
+            "progress": {},
+            "raw_process_exit_code": null,
+            "raw_result_status": null,
+            "reference_model_hash": null,
+            "run_id": "p01-r4-installed-initial_swap",
+            "sequence_bucket": null,
+            "sft_checkpointing": false,
+            "source_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+            "stop_reason": "initialization_error",
+            "training_tokens": 0,
+            "wall_seconds": 0.014878708170726895
+          }
+        },
+        {
+          "created_children": 0,
+          "popen_calls": 1,
+          "same_original_error": true,
+          "stage": "popen",
+          "summary": {
+            "assessment": "FAILED_INITIALIZATION",
+            "child_started": false,
+            "compile_disabled": false,
+            "dependency_versions": {
+              "python": "3.14"
+            },
+            "dpo_checkpointing": false,
+            "evidence_hashes": {
+              "config.json": "6486c4ea87aaefa5d131f25a254e728550959ac2bb14cabe116025cc4af58611",
+              "resources.json": "d54ee41cd8edabc2b7d10be8be141e139a3a42b43d491b7e91b035f3866958dc",
+              "run.json": "01fce60391e8dc4a1686e7226a3500a1cc4dec5244148e64ecc21c9cd73afc82",
+              "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "exit_code": 1,
+            "failure_stage": "popen",
+            "git_commit": "0000000000000000000000000000000000000000",
+            "hardware": {
+              "accelerator": null,
+              "machine": "synthetic",
+              "memory_bytes": 0,
+              "platform": "synthetic"
+            },
+            "initial_swap_bytes": 4096,
+            "initialization_error_type": "BlockingIOError",
+            "manifest_artifacts_verified": 3,
+            "max_pressure_level": null,
+            "max_swap_growth_bytes": null,
+            "mlx_peak_bytes": null,
+            "mode": "smoke",
+            "model_id": null,
+            "model_identity": {
+              "adapter_hash": null,
+              "model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "model_id": "fixture/no-model",
+              "model_revision": "fixture-v1",
+              "quantization": "none",
+              "template_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "tokenizer_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "optimizer_steps": 0,
+            "peak_rss_bytes": null,
+            "progress": {},
+            "raw_process_exit_code": null,
+            "raw_result_status": null,
+            "reference_model_hash": null,
+            "run_id": "p01-r4-installed-popen",
+            "sequence_bucket": null,
+            "sft_checkpointing": false,
+            "source_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+            "stop_reason": "initialization_error",
+            "training_tokens": 0,
+            "wall_seconds": 0.0003233749885112047
+          }
+        }
+      ],
+      "installed_execution": true,
+      "status": "PASS"
+    }
+  },
+  "not_run": [
+    "MLX/model/Torch/training-tokenizer imports",
+    "GPU or full math replay",
+    "Repeated 17-case independent CPU math",
+    "Repeated full 185 historical manifest payload hashing",
+    "Model weights or new dependency downloads",
+    "OS limit changes",
+    "Direct wheel build",
+    "P04/P05 formal training",
+    "accepted_sft reference",
+    "kris human review",
+    "Formal preference generation",
+    "Complete real-backend 256-token protocol",
+    "BFCL/final tests",
+    "Long-run model memory/performance",
+    "Paid API/cloud",
+    "Model/data upload",
+    "Serving deployment",
+    "Main merge"
+  ],
+  "original_candidate": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+  "original_review": "aaae5a4395dbdd73fd487f80174599ffd3ef9be3",
+  "preservation": {
+    "all_28_install_stdout_stderr_hashes_recomputed": true,
+    "all_eight_current_source_hashes": {
+      "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "src/toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+      "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+    },
+    "baselines": {
+      "original_candidate": {
+        "changed_files": 15,
+        "commit": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+        "files": [
+          {
+            "path": "coordination/handoffs/P01-fix-r4.md",
+            "status": "A"
+          },
+          {
+            "path": "coordination/handoffs/P01-review-r2.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BUILD_REPORT.py",
+            "status": "M"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_INSTALLED_PROBE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_PACKAGE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01-r2/README.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01-r2/audit_p01_r2_evidence.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01-r2/evidence.json",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01-r2/test_p01_r2_regressions.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/review/P01-r2/verify_p01_r2_package.py",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/execution.py",
+            "status": "M"
+          },
+          {
+            "path": "tests/training/compatibility/test_initialization_failures.py",
+            "status": "A"
+          }
+        ]
+      },
+      "original_review": {
+        "changed_files": 9,
+        "commit": "aaae5a4395dbdd73fd487f80174599ffd3ef9be3",
+        "files": [
+          {
+            "path": "coordination/handoffs/P01-fix-r4.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_BUILD_REPORT.py",
+            "status": "M"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_INSTALLED_PROBE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_PACKAGE.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_REPORT.md",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_REPORT_TESTS.py",
+            "status": "A"
+          },
+          {
+            "path": "reports/hardware/P01_FIX_R4_VALIDATION.json",
+            "status": "A"
+          },
+          {
+            "path": "src/toolalign/training/compatibility/execution.py",
+            "status": "M"
+          },
+          {
+            "path": "tests/training/compatibility/test_initialization_failures.py",
+            "status": "A"
+          }
+        ]
+      }
+    },
+    "historical_identity_files_rehashed": 92,
+    "historical_manifest_payloads": {
+      "prior_independently_rehashed": 185,
+      "this_round_full_payload_rehash": "NOT_RUN"
+    },
+    "historical_run_identity_files": [
+      {
+        "files_sha256": {
+          "config.json": "3cfb5e8927a3e2d49edcb3505dfe0eb89559fab391f0a5cac50c8e5f629fdb3d",
+          "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39",
+          "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+          "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+          "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+          "resources.json": "db211efd6ff1042657d0224b3f18124a2a4b7b5f9d528e06e1caa9ddf3c2387d",
+          "result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+          "run.json": "2adda5c8ac7b37f13a5e0342cdbabe884a31bee5566b833f896ba9ef907532da",
+          "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
+          "stdout.log": "5c0c1e107b5600e26a6ac23367d7aba3c07d592272b8a95a601f5ea664d35eab",
+          "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d"
+        },
+        "run_id": "p01-calibrate17-1024-r1",
+        "source_hash": "1559e6a7f12e222ec6198e1d55370604b16bf64bdb0ce8256faf41b3b49e94ec"
+      },
+      {
+        "files_sha256": {
+          "config.json": "d408e85802da0e66b54e1b933013a58bbb4e05d4becd4e5d962f179e8ee36169",
+          "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049",
+          "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
+          "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+          "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
+          "run.json": "5a37f43e7f4caecbc4c8b59449a0268089a05a87333e25edf8d369764f0944cb",
+          "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+          "stdout.log": "098dc0185b90cc01bab5c6d2a52f08599566c56d995e5e2f1ef16a1849144398",
+          "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+        },
+        "run_id": "p01-calibrate17-1536-r1",
+        "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241"
+      },
+      {
+        "files_sha256": {
+          "config.json": "3329229f6993debf521504c2f8e8c10e4276207ae81254f70095c5a4c35f05f8",
+          "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e",
+          "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+          "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+          "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+          "resources.json": "6dc1099cdf9ab0a45fd18d147d5591c4d10840af55af96acccbbda4b6b8e5459",
+          "result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+          "run.json": "7d26cbfd229e7f43d71f57062fbbb98db29cd39bb64d3a8db4fa41d1f14305a7",
+          "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
+          "stdout.log": "3ec1099ac969939cbc4521e78ef3a6050c25f85c915ae20ed799ca6e76a44faf",
+          "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+        },
+        "run_id": "p01-calibrate17-1536-r2",
+        "source_hash": "4a35ac9564255a38649a5d26d7990bef6189f5420d3c216e774409b02bdf6ae0"
+      },
+      {
+        "files_sha256": {
+          "config.json": "25726f3ea1e781a39b02523a2bd332dec4f8e027308d2bcca75420ad07681e49",
+          "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb",
+          "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+          "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+          "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+          "resources.json": "2d4150221774ec0e9dddc215399bb727227f0a22453a14774e6d11dec0b64fa1",
+          "result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+          "run.json": "8444892edb41716b9ad619f757fa6aef4580b50b5a5cd8d079d35b7488e94be2",
+          "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
+          "stdout.log": "ab65dc4ddaec74b2c7f100079d0d2cb42f7bad7bed224c726f7511cf5f7895f0",
+          "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034"
+        },
+        "run_id": "p01-calibrate17-2048-r1",
+        "source_hash": "d5155e119f778b9e6435e0836aa320a28e9c750ea4dbb192da268c1ae2b04914"
+      },
+      {
+        "files_sha256": {
+          "config.json": "cd6845b8cc480bb28a9be85f8eddc97f8b840c60451b0e403e899a5333a674af",
+          "resources.json": "f22df2f2deab3038739416b463e5fd49b7946fedc7f2ef4970dab20dabac38ec",
+          "result.json": "65c4133fcf6bcd0f56aca21f6cbfa8e1ef5fff5cfd0cc2f8e0f2580b93f5dade",
+          "stdout.log": "6c202dd072f3bd22f999d0555e5b718b5474548fcc37e6ae6ecb25f7adc272db"
+        },
+        "run_id": "p01-math-r1",
+        "source_hash": "6fd8535af7a63fd41eac9fdff9e34e30155aa6fb8756785430e0c187342fb73a"
+      },
+      {
+        "files_sha256": {
+          "config.json": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+          "resources.json": "1aea9174281d07093d76a910c45b807d40303e429d156e214bb1690fd9142b54",
+          "result.json": "85b5a523c5820e993f9c0c936c8d5bfea1599f877a1577deec7bf0a4b567e501",
+          "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "run_id": "p01-math-r2",
+        "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241"
+      },
+      {
+        "files_sha256": {
+          "config.json": "b785e53266ee0ed728f91e6d309f6f13ea1a4e5a450cfc92997fb2f59cfc0622",
+          "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df",
+          "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+          "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+          "resources.json": "c16e84d53901638b952cce98a166f811daf5a01497b77b982c3dc37a425e360a",
+          "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+          "run.json": "0ea49c8eb6b02e908c6943ce933b673f9ac9e63519a38d894063c88af93f74dc",
+          "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+          "stdout.log": "03e152c37e530bf4a93898bc941da740ba3ed28115ae0439e935a994304d15af",
+          "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+        },
+        "run_id": "p01-smoke06-r1",
+        "source_hash": "18393f07d805fe456adc8f0727546e522225d749e33c5780f3978631f00cc4e0"
+      },
+      {
+        "files_sha256": {
+          "config.json": "6e46d3ebfef1b8a1e43cb5dd44733958a1a14822189e3d0ec6daa358e025ce3b",
+          "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866",
+          "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+          "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+          "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+          "resources.json": "ad1a2c92325c977101329ce9cfcb800d5806e119afad3431e8463bf481c38f87",
+          "result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+          "run.json": "1d31e1fd41c9e1bc63422e16e3d6b37fa6c77af5e5c5f16d690b508db8dbad62",
+          "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
+          "stdout.log": "1d3734cd7adc44cc2896f6f02b935477f90ea70d7a43e669b42205c736ecaec6",
+          "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+        },
+        "run_id": "p01-smoke06-r2",
+        "source_hash": "7cdf0c8cf7121783535bedf299203f99863208c5f43a3c7c10a006e9dc07589d"
+      },
+      {
+        "files_sha256": {
+          "config.json": "0efb9dae9b89dfe9d9896b5407e86763738fe1c7865da1a61b38f5143e8e03d1",
+          "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+          "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e",
+          "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
+          "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+          "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
+          "run.json": "4c0346e75719c7f41c78b152378c7e47b251344d5ee9ad29c7630c514a09da1a",
+          "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+          "stdout.log": "99b626d93d3c48bbc1869409780994f99a5b15e53dd0858d93b87dd7759ac74e",
+          "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+        },
+        "run_id": "p01-smoke06-r3",
+        "source_hash": "8ea16f8bc1ccc83f588bdab673088aac07a8fb4e899b39673293679d12d67b91"
+      },
+      {
+        "files_sha256": {
+          "config.json": "7bc42965803c9dcea7b80c802e8fc5f589180a9e7df9dac732f97637c8bbb7fc",
+          "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109",
+          "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+          "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+          "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+          "resources.json": "387565e453f4e5a2596faa384fda76d7d7efccad713e0abf0532eecf8bd26d85",
+          "result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+          "run.json": "fde4390b4641bf2d5e8cbdebfb18265afc584927b7ae9a97c849f5643ae720a9",
+          "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
+          "stdout.log": "4fafafd02b4782bdb6b855c79dd6f41815e9c56b5324befa97473088fd4e5faa",
+          "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+        },
+        "run_id": "p01-smoke06-r4",
+        "source_hash": "1ce5ebb725533d76cb7dc06cf13c1a6e96bc22e1c8a15e10b6796d9b654b994c"
+      }
+    ],
+    "historical_summary_sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+    "implementation_commit": "2efc7a55ea0dcc77a97cd7f5a82e95515c32de00",
+    "math_status_this_round": "REFERENCED_PRIOR_INDEPENDENT; NOT_RERUN",
+    "preserved_review_files_sha256": {
+      "coordination/handoffs/P01-review-r1.md": "05bb971b15f97f80d825a04f898bc4df6ad4b85f2ffd5da715f4d1264d374350",
+      "coordination/handoffs/P01-review-r2.md": "1caf2ef275f9dc59d829c80c5a4ab605b0e9d8b8152c964f8f0a3f1e9bede405",
+      "reports/review/P01-r2/README.md": "51790c62f1b3bc8d5a6abbd1c8fbeb92d02a21d65b5f0b149bb9b678d9d1c533",
+      "reports/review/P01-r2/audit_p01_r2_evidence.py": "194388432b6f5a8bf577977d4e09493281dcd911e83665a63b04518f3df236e2",
+      "reports/review/P01-r2/evidence.json": "e1abbf4c4f149a527774fe761da3e5bebd653ef4cade899ff72fdaaf54e59dac",
+      "reports/review/P01-r2/test_p01_r2_regressions.py": "c5e00114d64c33e6760fb7e1cbeaa76872acf9f490ab7f706c37f11eb4836927",
+      "reports/review/P01-r2/verify_p01_r2_package.py": "710b4a96ba68aa01cb93bc37a82e4ef7ac8128bca6cf1aff1516ac45566bccfa",
+      "reports/review/P01/README.md": "260756ca89f0a883667c891b1476722fd2f28da237a156fff01ce95068807d65",
+      "reports/review/P01/audit_p01_evidence.py": "a3b3f28a37c9e69d743a9468e9884070d4440628a55fdfc39e67c7da8ab2bee3",
+      "reports/review/P01/check_p01_cpu_math.py": "fdf6435880a7585a0a6e6637668d6774936e385096f5693e115fdb9784ea0bf0",
+      "reports/review/P01/evidence.json": "4724607dc40f74dec5d5532b53348fd75a630c9d6414d49430dd5d28a15f9ac5",
+      "reports/review/P01/test_p01_failure_counters.py": "a91f20cc2c0b755fb96fbc58588b32ab0b37e5ce64787912fb907e76a1efa202",
+      "reports/review/P01/test_p01_processes.py": "18b773979d4b3b958bebcfaa9c271becc705fd5e2d2882601681cba648270853",
+      "reports/review/P01/verify_p01_package.py": "46d9d9d76357709d1ddca7aead0e307475dc7db642c2f08d3e5077e14a325fc0"
+    },
+    "prior_independent_math": {
+      "absolute_tolerance": 2e-06,
+      "cases": 17,
+      "device": "cpu",
+      "dtype": "float32",
+      "historical_fallback_mlx_reexecution": "NOT_RUN",
+      "masked_logits_and_padding_invariance": true,
+      "maximum_errors": {
+        "ce_gradient": 1.905478064223587e-08,
+        "ce_loss": 4.011570280404442e-07,
+        "dpo_gradient": 3.629568690738383e-09,
+        "dpo_loss": 8.22313996895474e-08
+      },
+      "mlx_or_model_import": false,
+      "reference_detached": true,
+      "same_tensor_initial_reference_retains_policy_gradient": true,
+      "seed": 3701,
+      "status": "PASS",
+      "threads": 2,
+      "torch": "2.14.0"
+    },
+    "prior_independent_review_commit": "aaae5a4395dbdd73fd487f80174599ffd3ef9be3",
+    "prior_independent_review_evidence_sha256": "e1abbf4c4f149a527774fe761da3e5bebd653ef4cade899ff72fdaaf54e59dac",
+    "seven_unchanged_source_files": [
+      "src/toolalign/training/compatibility/model_probe.py",
+      "src/toolalign/training/compatibility/__init__.py",
+      "src/toolalign/training/compatibility/core.py",
+      "src/toolalign/training/compatibility/numerical.py",
+      "src/toolalign/training/compatibility/fallback_probe.py",
+      "src/toolalign/training/compatibility/samples.py",
+      "src/toolalign/training/compatibility/__main__.py"
+    ],
+    "status": "PASS",
+    "unchanged_original_files_byte_verified": 174
+  },
+  "private_outputs_sha256": {
+    "PRESERVATION.json": "26c6214b1011e0a5327d75b1fb68511cc38e8f31421daf0b0a708286f4717752",
+    "package-check/evidence.json": "a2b72385ddedf68ffa2cf6c1c54363c7b26c7893f15fbfd321cba865eeac49b2"
+  },
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "proof_files_sha256": {
+    ".toolalign-local/p01-fix-r4/cpu_pytest.py": "f9f04fa264966bf0783426836d7c21779d5ff6ea69b57053bbb23ec81bad71c6",
+    ".toolalign-local/p01-fix-r4/preservation.py": "35c4dfda1606f81e60ad61701f86c83eb2e60afdb59f18bcaefeaa078b64f746",
+    ".toolalign-local/p01-fix-r4/record.py": "52e7a37b36db6dd5b956a660224c4a0f745eb01d6f88b0d92678e8bf42d836a1",
+    "reports/hardware/P01_BUILD_REPORT.py": "fae00dcf86cd297d94ab07b68793e277529f5e7a1b298847dde038e35683f3e7",
+    "reports/hardware/P01_FIX_R4_INSTALLED_PROBE.py": "59d2de134638127ac078905c82df2a9159ef396f2690fc010d95dd3566404056",
+    "reports/hardware/P01_FIX_R4_PACKAGE.py": "4f8951b60eae6febed72a01f409d8f7f4df1023c433585f7bc8441f5d544828d",
+    "reports/hardware/P01_FIX_R4_REPORT_TESTS.py": "79f7fbb125ee5bfafd6506745c18d1f935bb03581c457b319f8e2cac0b1a4e23",
+    "tests/training/compatibility/test_initialization_failures.py": "3dccbbfac4f83ffa87b002dd1dd7097dab2db5fb8e0bb3f4963741e005b6c1e9"
+  },
+  "recorded_source_bundles": {
+    "2a436ce5ecc7a63251ffa0ecab190e932baad3fd0fcab9a865764688968d7145": {
+      "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+      "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+    },
+    "7a8a3d04a637197048f16f5aeb87020ec7b0132b99cf99eefd6f8d8767154a17": {
+      "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+      "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+      "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+      "src/toolalign/training/compatibility/execution.py": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1",
+      "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+      "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+      "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+      "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+    }
+  },
+  "resource_budget": {
+    "all_uv_work_offline": true,
+    "allocated_private_bytes_snapshot": 13451264,
+    "new_default_cpu_install": true,
+    "new_model_or_dependency_downloads": 0,
+    "new_private_budget_bytes": 2147483648,
+    "old_locked_environments_reused": true,
+    "snapshot_is_peak_measurement": false,
+    "snapshot_utc": "2026-09-06T05:18:34.849326+00:00"
+  },
+  "scope": "P01-fix-r4 worker CPU evidence; independent R1 review pending",
+  "source_bundle_format": "SHA256 of sorted compact JSON mapping relative source paths to file SHA256; separate from historical run source_hash format",
+  "task": "P01-fix-r4",
+  "thinking": "max"
+}

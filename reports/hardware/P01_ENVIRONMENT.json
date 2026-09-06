@@ -1,0 +1,176 @@
+{
+  "source": "PyPI metadata + installed distribution METADATA/WHEEL; no model execution",
+  "packages": [
+    {
+      "name": "mlx",
+      "version": "0.32.2",
+      "python_requires": ">=3.10",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "cp314-cp314-macosx_26_0_arm64"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx/0.32.2/",
+      "candidate_wheel_sha256": {
+        "mlx-0.32.2-cp314-cp314-macosx_26_0_arm64.whl": "3503617e3aa6a8e411df53236d5bca039fcca97556f1ade1c4e5cc8a64de52d2"
+      }
+    },
+    {
+      "name": "mlx-metal",
+      "version": "0.32.2",
+      "python_requires": ">=3.10",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "py3-none-macosx_26_0_arm64"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx-metal/0.32.2/",
+      "candidate_wheel_sha256": {
+        "mlx_metal-0.32.2-py3-none-macosx_26_0_arm64.whl": "e6abeac9ac5265830c9c1541b6f96e9be37a85c2446763a46ad466c63a3837ab"
+      }
+    },
+    {
+      "name": "mlx-lm",
+      "version": "0.31.3",
+      "python_requires": ">=3.8",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "py3-none-any"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx-lm/0.31.3/",
+      "candidate_wheel_sha256": {
+        "mlx_lm-0.31.3-py3-none-any.whl": "758cfddf1180053b7613db76fad3d246a331a2a905808e1164a275621fc983b8"
+      }
+    },
+    {
+      "name": "mlx-tune",
+      "version": "0.6.0",
+      "python_requires": ">=3.9",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "wheel_tags": [
+        "py3-none-any"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx-tune/0.6.0/",
+      "candidate_wheel_sha256": {
+        "mlx_tune-0.6.0-py3-none-any.whl": "920e7e14eaaef01efa0b3118152b405b3b67a9d5a3a5957a4fd9b9ecf6a0e4da"
+      }
+    },
+    {
+      "name": "mlx-lm-lora",
+      "version": "3.1.2",
+      "python_requires": ">=3.8",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "py3-none-any"
+      ],
+      "pypi_url": "https://pypi.org/project/mlx-lm-lora/3.1.2/",
+      "candidate_wheel_sha256": {
+        "mlx_lm_lora-3.1.2-py3-none-any.whl": "4cf4f4f965d24df7ec0734426631c2e314231ae3bd115113c26e12d455881f2a"
+      }
+    },
+    {
+      "name": "torch",
+      "version": "2.14.0",
+      "python_requires": ">=3.10",
+      "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_classifiers": [],
+      "wheel_tags": [
+        "cp314-cp314-macosx_14_0_arm64"
+      ],
+      "pypi_url": "https://pypi.org/project/torch/2.14.0/",
+      "candidate_wheel_sha256": {
+        "torch-2.14.0-cp314-cp314-macosx_14_0_arm64.whl": "860423e970f2ce02c4476e8e2d1350131b1c5c5a5e4912180e78b50b53241efa"
+      }
+    },
+    {
+      "name": "transformers",
+      "version": "5.16.1",
+      "python_requires": ">=3.10.0",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "py3-none-any"
+      ],
+      "pypi_url": "https://pypi.org/project/transformers/5.16.1/",
+      "candidate_wheel_sha256": {
+        "transformers-5.16.1-py3-none-any.whl": "2f2d5b98a5ad3718713653734298fa620754ed683702a635ebb587df3ed29c7e"
+      }
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.30.0",
+      "python_requires": ">=3.10.0",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "wheel_tags": [
+        "py3-none-any"
+      ],
+      "pypi_url": "https://pypi.org/project/huggingface-hub/1.30.0/",
+      "candidate_wheel_sha256": {
+        "huggingface_hub-1.30.0-py3-none-any.whl": "96ae0a8e99a234374a6fe43e989ebd21c04640b91ab2927e7e5773ba1131ca59"
+      }
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "python_requires": ">=3.6",
+      "license_expression": null,
+      "license_classifiers": [],
+      "wheel_tags": [
+        "cp36-abi3-macosx_11_0_arm64"
+      ],
+      "pypi_url": "https://pypi.org/project/psutil/7.2.2/",
+      "candidate_wheel_sha256": {
+        "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979"
+      }
+    }
+  ],
+  "installed_license_audit": [
+    {
+      "name": "mlx-tune",
+      "version": "0.6.0",
+      "metadata_license": "Apache-2.0",
+      "wheel_license_files": [
+        {
+          "relative_path": "mlx_tune-0.6.0.dist-info/licenses/LICENSE",
+          "sha256": "f45b671981baeeb94b5a5e2142d1df171c707035c7f05a99f83d63c77f3610f0",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": true
+    },
+    {
+      "name": "mlx-lm-lora",
+      "version": "3.1.2",
+      "metadata_license": "MIT",
+      "wheel_license_files": [
+        {
+          "relative_path": "mlx_lm_lora-3.1.2.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": false
+    },
+    {
+      "name": "datasets",
+      "version": "3.6.0",
+      "metadata_license": "Apache 2.0",
+      "wheel_license_files": [
+        {
+          "relative_path": "datasets-3.6.0.dist-info/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "observed_text_license": "Apache-2.0"
+        }
+      ],
+      "metadata_matches_wheel_license": true
+    }
+  ]
+}

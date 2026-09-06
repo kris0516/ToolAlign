@@ -1,0 +1,2500 @@
+{
+  "authorization_commit": "fd67511ef4cb7853bb75b0b106ec4692a9d36be8",
+  "candidate": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+  "candidate_tracked_files_byte_unchanged": 170,
+  "candidate_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+  "commands": [
+    {
+      "candidate_binding_note": "The first wrapper recorded argv/time/exit/hash only. Git HEAD was checked at task start and the candidate remained read-only; later commands also record HEAD/tree.",
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "--basetemp=.toolalign-local/review-p01-r2/original-seven"
+      ],
+      "ended_at": "2026-09-06T04:10:52.321000+00:00",
+      "exit_code": 0,
+      "log": "original-seven-unchanged.log",
+      "name": "original-seven-unchanged",
+      "sha256": "42e694012b7e27bb5c20c10b875ab87f9e2ff07c01903380ab24bab29de80308",
+      "started_at": "2026-09-06T04:10:50.407369+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py"
+      ],
+      "ended_at": "2026-09-06T04:12:47.854153+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "cpu-regression.log",
+      "name": "cpu-regression",
+      "sha256": "86f3e7adf34ca42380715d96d37e7f4bbe777a7cc7d7df092a117dcf1c7724af",
+      "started_at": "2026-09-06T04:12:42.625437+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "--basetemp=.toolalign-local/review-p01-r2/adjacent-probes"
+      ],
+      "ended_at": "2026-09-06T04:17:55.710263+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate R2-F1: initial swap failure leaves a running attempt without resources/summary. Intermediate 20 passed / 1 failed, not added to final counts.",
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "adjacent-failure-probes.log",
+      "name": "adjacent-failure-probes",
+      "sha256": "c45ad08bcb2708e3eee9fe83a7639b9bd76daec663a32d40abecde6f80872040",
+      "started_at": "2026-09-06T04:17:54.954328+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "reports/review/P01/check_p01_cpu_math.py"
+      ],
+      "ended_at": "2026-09-06T04:19:28.985754+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "independent-cpu-math.log",
+      "name": "independent-cpu-math",
+      "sha256": "17307b5921a3e9089effd2d824e287b872ce23ea8e2a0b0fe6522f3cea8cc26e",
+      "started_at": "2026-09-06T04:19:28.270607+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "-k",
+        "initialization_failure",
+        "--basetemp=.toolalign-local/review-p01-r2/initialization-probes"
+      ],
+      "ended_at": "2026-09-06T04:23:58.054583+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate R2-F1: initial swap and Popen exceptions both leave a running attempt. Two failed probes, superseded by the final complete 22-test run.",
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "initialization-adjacent-probes.log",
+      "name": "initialization-adjacent-probes",
+      "sha256": "08a23fdf0d33a57d7ae05934cb4ad1cd08b51d3d2237fdc447f18fe2ac9630c7",
+      "started_at": "2026-09-06T04:23:57.829322+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P01-r2/audit_p01_r2_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--previous-review-private",
+        ".toolalign-local/review-p01",
+        "--output",
+        ".toolalign-local/review-p01-r2/preserved-evidence.json"
+      ],
+      "ended_at": "2026-09-06T04:24:11.141771+00:00",
+      "exit_code": 1,
+      "failure_classification": "R1 audit implementation error: a source-text assertion used grad_accum instead of the upstream update argument grad. The actual upstream file hash matched; corrected only the new audit helper and preserved this log.",
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "preserved-evidence-and-source-mapping.log",
+      "name": "preserved-evidence-and-source-mapping",
+      "sha256": "aa7802e7e1a7e7c5704018a8e2c349620c50ff368c283f208e6a4b0786947d16",
+      "started_at": "2026-09-06T04:24:08.390097+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--out-dir",
+        ".toolalign-local/review-p01-r2/build"
+      ],
+      "ended_at": "2026-09-06T04:27:06.813230+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "current-package-build.log",
+      "name": "current-package-build",
+      "sha256": "135920dc9011a3d9ec9b1e1312041099fa254db63560fe183f951b58b91868fc",
+      "started_at": "2026-09-06T04:27:06.446780+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p01-r2/rebuilt",
+        ".toolalign-local/review-p01-r2/build/toolalign-0.0.1.tar.gz"
+      ],
+      "ended_at": "2026-09-06T04:27:07.031416+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "wheel-from-current-sdist.log",
+      "name": "wheel-from-current-sdist",
+      "sha256": "5c8cdf6b737d532bcd7445349c2e95f0bc0c69d090e52dd70c5d36c505e8cd25",
+      "started_at": "2026-09-06T04:27:06.832201+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "build",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/review-p01-r2/direct-wheel"
+      ],
+      "ended_at": "2026-09-06T04:27:07.235402+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "direct-wheel.log",
+      "name": "direct-wheel",
+      "sha256": "a4d4b15463d8f7214dd741d6e9c884a88525d3308341afe05b6cc009f07a7f44",
+      "started_at": "2026-09-06T04:27:07.049470+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P01-r2/verify_p01_r2_package.py",
+        "--private-root",
+        ".toolalign-local/review-p01-r2"
+      ],
+      "ended_at": "2026-09-06T04:27:42.716477+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "isolated-current-package.log",
+      "name": "isolated-current-package",
+      "sha256": "e91ebcc329a293c0d7d9105683e66a53ca1829372e3f4b3dc048a520976daf96",
+      "started_at": "2026-09-06T04:27:40.748116+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/review/P01-r2/audit_p01_r2_evidence.py",
+        "--t1-root",
+        "<T1_WORKTREE>",
+        "--previous-review-private",
+        ".toolalign-local/review-p01",
+        "--output",
+        ".toolalign-local/review-p01-r2/preserved-evidence.json"
+      ],
+      "ended_at": "2026-09-06T04:28:02.667954+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "preserved-evidence-corrected.log",
+      "name": "preserved-evidence-corrected",
+      "sha256": "4e69ca8dbe397d942322bf3e8f45aee47af881d79b317fe01da66ad1924cb945",
+      "started_at": "2026-09-06T04:27:59.866656+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "ended_at": "2026-09-06T04:30:16.033474+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "final-lint.log",
+      "name": "final-lint",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "started_at": "2026-09-06T04:30:15.985413+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "ended_at": "2026-09-06T04:30:16.101144+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "contract-freeze.log",
+      "name": "contract-freeze",
+      "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "started_at": "2026-09-06T04:30:16.052975+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "reports/hardware/P01_BUILD_REPORT.py",
+        "--private-runs",
+        "<T1_WORKTREE>/.toolalign-local/runs",
+        "--output",
+        ".toolalign-local/review-p01-r2/rebuilt-historical-summary.json"
+      ],
+      "ended_at": "2026-09-06T04:30:16.135005+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "current-historical-summary.log",
+      "name": "current-historical-summary",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_at": "2026-09-06T04:30:15.957432+00:00"
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONPATH=src",
+        ".toolalign-local/review-p01/cpu-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "--basetemp=.toolalign-local/review-p01-r2/final-probes"
+      ],
+      "ended_at": "2026-09-06T04:30:16.728508+00:00",
+      "exit_code": 1,
+      "failure_classification": "Candidate R2-F1: 20 passed / 2 failed, both initialization failures; no xfail.",
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "final-independent-probes.log",
+      "name": "final-independent-probes",
+      "sha256": "7429dceb1bfc3d88635365d1db543e4160d2bdc8cf5f5e1c7358c7f30681f805",
+      "started_at": "2026-09-06T04:30:15.969161+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/review-p01-r2/check_environment.py"
+      ],
+      "ended_at": "2026-09-06T04:31:54.986052+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "ef9a1c972f233fa434e4a9a40bb3802713471a1f",
+      "log": "environment-and-summary-binding.log",
+      "name": "environment-and-summary-binding",
+      "sha256": "0ccd3865a97d1eb08490a1c9d7a33816af88d5601740c3de906f61854dcb0932",
+      "started_at": "2026-09-06T04:31:54.581835+00:00"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/check_public_content.py"
+      ],
+      "ended_at": "2026-09-06T04:41:09.596539+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "2321393fc1c9d2e99d5b3e2bcc0d39298fb23162",
+      "log": "public-content.log",
+      "name": "public-content",
+      "sha256": "6572dda14a1d50532e50d374e714cbe0de3f0bca704c5217ae6c84c91070537a",
+      "started_at": "2026-09-06T04:41:07.112118+00:00"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        ".toolalign-local/review-p01-r2/verify_scope.py"
+      ],
+      "ended_at": "2026-09-06T04:41:10.944684+00:00",
+      "exit_code": 0,
+      "head": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+      "index_tree": "2321393fc1c9d2e99d5b3e2bcc0d39298fb23162",
+      "log": "final-scope.log",
+      "name": "final-scope",
+      "sha256": "7ce3d1ecf264662d402483ceb3a3b29c5bf0300696e606d1b7fa0d947f1ba746",
+      "started_at": "2026-09-06T04:41:09.614657+00:00"
+    }
+  ],
+  "contract_lock_sha256": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+  "contract_versions": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "counts": {
+    "applicable_regression_plus_worker_report_tests_passed": 238,
+    "counts_are_coverage_percentages": false,
+    "distinct_existing_pytest_passed": 245,
+    "historical_shared57_snapshot_tests_included": false,
+    "independent_cpu_math_cases_passed": 17,
+    "intermediate_runs_added_to_totals": false,
+    "new_independent_case_groups": {
+      "initialization": {
+        "failed": 2,
+        "passed": 0
+      },
+      "monitoring": {
+        "failed": 0,
+        "passed": 4
+      },
+      "sequential_callback": {
+        "failed": 0,
+        "passed": 16
+      }
+    },
+    "new_independent_pytest_failed": 2,
+    "new_independent_pytest_passed": 20,
+    "new_independent_pytest_total": 22,
+    "original_unmodified_review_pytest_passed": 7,
+    "regression_composition": {
+      "P00_r2_review": 72,
+      "P00_review": 46,
+      "P01": 59,
+      "core": 58,
+      "worker_report_checks": 3
+    }
+  },
+  "date": "2026-09-06",
+  "environment": {
+    "all_distribution_versions_match_lock": true,
+    "allocated_disk_bytes": {
+      ".toolalign-local/review-p01-r2": 5246976,
+      ".toolalign-local/review-p01/cpu-env": 690442240,
+      ".toolalign-local/review-p01/uv-cache": 669659136,
+      ".venv": 36245504
+    },
+    "distributions": {
+      "core": {
+        "attrs": "26.1.0",
+        "iniconfig": "2.3.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pygments": "2.21.0",
+        "pytest": "9.0.2",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "ruff": "0.15.0",
+        "toolalign": "0.0.1"
+      },
+      "reused_cpu": {
+        "anyio": "4.15.1",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "click": "8.5.0",
+        "filelock": "3.32.5",
+        "fsspec": "2025.3.0",
+        "h11": "0.16.0",
+        "hf-xet": "1.6.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "huggingface-hub": "1.30.0",
+        "idna": "3.19",
+        "iniconfig": "2.3.0",
+        "jinja2": "3.1.6",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "markupsafe": "3.0.3",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "psutil": "7.2.2",
+        "pygments": "2.21.0",
+        "pytest": "9.0.2",
+        "pyyaml": "6.0.3",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "setuptools": "84.0.0",
+        "sympy": "1.14.0",
+        "tokenizers": "0.23.2",
+        "torch": "2.14.0",
+        "tqdm": "4.70.0",
+        "typing-extensions": "4.16.0"
+      }
+    },
+    "historical_summary_byte_identical": true,
+    "historical_summary_sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+    "included_reused_env_and_previous_cache_total_bytes": 1401593856,
+    "machine": "arm64",
+    "model_packages_in_cpu_environments": [],
+    "new_round_allocated_disk_bytes": 5246976,
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "evidence_binding": {
+    "candidate": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+    "history": {
+      "manifest_artifacts_rehashed": 185,
+      "new_gpu_or_model_reexecution": "NOT_RUN",
+      "old_command_logs_rehashed": [
+        {
+          "exit_code": 0,
+          "name": "final-sync",
+          "sha256": "f8a39c9104864d5bfc057d1a75ccf0a4475e0ccdf0bc7f15c9843da021afe263"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-cpu",
+          "sha256": "9a9c237ea973d3e594f38eea910b036153fff8da8ffe39faf33e7b26152538c4"
+        },
+        {
+          "exit_code": 0,
+          "name": "compatibility-cpu",
+          "sha256": "f9bac75717a879111143ef4ef60f937d1deddf0104241eb4458530fd407f090f"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-freeze",
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+        },
+        {
+          "exit_code": 0,
+          "name": "cli-help",
+          "sha256": "fbec7db94886031c567d9804ed218da3e80385abed4dd6d01915aded47f3bf0d"
+        },
+        {
+          "exit_code": 0,
+          "name": "wheel-build",
+          "sha256": "80e16a0917ab4f1a266a0da6b5103979a00ae1febef9f131007c81086f91a859"
+        },
+        {
+          "exit_code": 0,
+          "name": "wheel-verify",
+          "sha256": "91636a06fcd05a649510a99667f4a55c35ba008a5d9cc5312a6a4345e68f4c59"
+        },
+        {
+          "exit_code": 1,
+          "name": "sdist-selection",
+          "sha256": "a130b5507c8a09c8ed9c513fb5fccf65ab46026a423dfee48362bb0936a21e56"
+        },
+        {
+          "exit_code": 0,
+          "name": "final-public",
+          "sha256": "d8d1d7def0c5303e60e9ca4dc9c7192be403ffadce5ef815267bc290f671edaf"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-audit",
+          "sha256": "778edc7c861dd09ca87040543fac40f42443f49efc4115d40af4bdd90b2c7381"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-build",
+          "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-cpu",
+          "sha256": "dba7a71c4670da709d3b2b2368eee4d475ff205e4a440b12177694c459f8872f"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-dpo-sync",
+          "sha256": "0b636e5d8b1ab3b1572c73d1534502c5acc5f7fd3bf8b0098bf3cdb9b8a50e9e"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-freeze",
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-lock-metadata",
+          "sha256": "2e30405043c6f316242eb27cde1c641390e766878d8cf01fd418c7d500222745"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-r3-boundaries",
+          "sha256": "14166e70f9dde4b7ad2f8347f2ada068ba6c6861cb02d7c327f6561bc3e071c1"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-replay-sync",
+          "sha256": "941b24714a0006a663f08b59c3a17fdf9809d17aa11cd6ed87ab2cbcab87aff3"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-retained-runs",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-selection",
+          "sha256": "f31946af228ad95080211d1c7b910448f0eec3e5ef61cd2922356a78e793293f"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-sync",
+          "sha256": "bbf46ff49965f9380be814c475706db6a92e730d3fbea39c6854ea1c68b77baa"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-synthetic-archives",
+          "sha256": "2fe77a49ef2ca6f59664fa6e47bc8ad9043c4224616dd51b361b2b08e40fae87"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-torch-cpu",
+          "sha256": "596d33ee397ff90ee0a32090fb127c1627e411a7904184df0d9105187582ad3a"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-wheel-install",
+          "sha256": "390edb43abaaf483f0ae93ff2d1a28e1f58a6aa7bc9353ab8a2f95dff03e8f37"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-final-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "exit_code": 0,
+          "name": "base-r2-final-public",
+          "sha256": "6171331215341b9ba9b0692b819da367a00fe397df6190bd5dd85530f2ee0551"
+        }
+      ],
+      "original_downloaded_weights_rehashed_again": "NOT_RUN",
+      "previous_audit_sha256": "7e055bed99369c78d24d368af90be993c3b1fa11ba2a8b6dab6929e8f3187bcf",
+      "previous_review_commit": "ac6bdf78d57c6753865a24a1d216b90dc4478646",
+      "prior_token_mask_parameter_and_math_interpretation": "REUSED_ON_UNCHANGED_EVIDENCE",
+      "run_count": 10,
+      "runs": [
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "3cfb5e8927a3e2d49edcb3505dfe0eb89559fab391f0a5cac50c8e5f629fdb3d",
+            "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39",
+            "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+            "fallback-dpo/0000008_adapters.safetensors": "1fb8d9c946e79ff2286a15253e3a5704abaf6d2476603370447746b5f3477e08",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-dpo/adapters.safetensors": "1fb8d9c946e79ff2286a15253e3a5704abaf6d2476603370447746b5f3477e08",
+            "fallback-initial-gates.json": "94c21214b977ebf017630523f522b7efedd73c1dab9b8bc08f16f334aa3e9bc7",
+            "fallback-reference-identity.json": "192e5b841cba4522dfae600a298dc41c33afa4bb4fd50f860f6274b31413e629",
+            "generation-before-reload.json": "55b3bd802f208b90dee0f0687de13a54bac149d5aa27bcb599ca7d3f98618b0a",
+            "lease-acquired.json": "e4d0a3c3e1a98ff7e02f468562e6858bd9cadd091b044ceac54a9ffbec72c5a9",
+            "parameter-identities-after.json": "28fd04575beafde001ae65e88801a0d3e9827c1bbeffc21f251325632c63fb43",
+            "parameter-identities-before.json": "85f80aac75e47bcf0f4ea8e4ab1ad5adb1cb53894c254411e22e0858edfee345",
+            "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+            "reference-cache.json": "fc1a413c41b9b791602532aa9ea661d6aac4f6552a07790ed77ac18663c91bed",
+            "resources.json": "db211efd6ff1042657d0224b3f18124a2a4b7b5f9d528e06e1caa9ddf3c2387d",
+            "result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "samples.json": "625e3f3b4f88eb8ff87b43b24f9c444bdb55d1bb89c69c8f3e2b906b3f5e6751",
+            "sft-adapter/0000112_adapters.safetensors": "babd582ff8bdb24a510b91e1005d430b5922f31525554c7347fd565acb50852e",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "babd582ff8bdb24a510b91e1005d430b5922f31525554c7347fd565acb50852e",
+            "sft-reference.json": "192e5b841cba4522dfae600a298dc41c33afa4bb4fd50f860f6274b31413e629",
+            "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
+            "stdout.log": "5c0c1e107b5600e26a6ac23367d7aba3c07d592272b8a95a601f5ea664d35eab",
+            "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "3cfb5e8927a3e2d49edcb3505dfe0eb89559fab391f0a5cac50c8e5f629fdb3d",
+            "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39",
+            "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+            "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+            "resources.json": "db211efd6ff1042657d0224b3f18124a2a4b7b5f9d528e06e1caa9ddf3c2387d",
+            "result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+            "run.json": "2adda5c8ac7b37f13a5e0342cdbabe884a31bee5566b833f896ba9ef907532da",
+            "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
+            "stdout.log": "5c0c1e107b5600e26a6ac23367d7aba3c07d592272b8a95a601f5ea664d35eab",
+            "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-calibrate17-1024-r1"
+        },
+        {
+          "assessment": "STOPPED_RESOURCE",
+          "exit_code": 124,
+          "manifest_artifacts_unchanged": {
+            "config.json": "d408e85802da0e66b54e1b933013a58bbb4e05d4becd4e5d962f179e8ee36169",
+            "device-resources.json": "63e89d83e965ffa2096ab0f8419627dcd816b62dc12a7c6d38788c4b671f143b",
+            "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-initial-gates.json": "94c21214b977ebf017630523f522b7efedd73c1dab9b8bc08f16f334aa3e9bc7",
+            "generation-before-reload.json": "a29986f6e388ee5617e4dbb9561cebfcae9c78732f8a499353a3f720f8534484",
+            "lease-acquired.json": "543e68d8dab48376dbc056daefb4a273740345bcd8833d60058c40a458691ed1",
+            "parameter-identities-after.json": "7842129412dc38b71e1f5e3a883065ea10fad6cbb784ef08ed7cbd9689b2e795",
+            "parameter-identities-before.json": "85f80aac75e47bcf0f4ea8e4ab1ad5adb1cb53894c254411e22e0858edfee345",
+            "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
+            "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+            "reference-cache.json": "6e76dd1912db5717539526bef6bb90d1d4e0fa1529379da13f1d89c905dc8fc5",
+            "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
+            "samples.json": "55ebc6735cd4ea7cb3e6307fc31758f4a473cd0904731973fff6930e806b7b27",
+            "sft-adapter/0000112_adapters.safetensors": "d9e1cd5292f342af0d5c9225fd4a1768bdd91b8acf23d40261d69728e4fda53e",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "d9e1cd5292f342af0d5c9225fd4a1768bdd91b8acf23d40261d69728e4fda53e",
+            "sft-reference.json": "d4c73f97e3a1b045cdaf481f4e822a848cb75ff05744a2ed8938f33c41a3db2d",
+            "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+            "stdout.log": "098dc0185b90cc01bab5c6d2a52f08599566c56d995e5e2f1ef16a1849144398",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "d408e85802da0e66b54e1b933013a58bbb4e05d4becd4e5d962f179e8ee36169",
+            "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049",
+            "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
+            "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+            "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
+            "run.json": "5a37f43e7f4caecbc4c8b59449a0268089a05a87333e25edf8d369764f0944cb",
+            "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+            "stdout.log": "098dc0185b90cc01bab5c6d2a52f08599566c56d995e5e2f1ef16a1849144398",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "raw_result_status": "RUNNING",
+          "run_id": "p01-calibrate17-1536-r1"
+        },
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "3329229f6993debf521504c2f8e8c10e4276207ae81254f70095c5a4c35f05f8",
+            "device-resources.json": "b4f0b55b25b815c22493d08ab7a4dc7f25606130f06124b7cb8038c35e5d4c76",
+            "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e",
+            "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+            "fallback-dpo/0000008_adapters.safetensors": "6a7ed19578853af3b388fc98dd86f2ea8ec838bd74bcbefdaf42cf1687ad95d2",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-dpo/adapters.safetensors": "6a7ed19578853af3b388fc98dd86f2ea8ec838bd74bcbefdaf42cf1687ad95d2",
+            "fallback-initial-gates.json": "94c21214b977ebf017630523f522b7efedd73c1dab9b8bc08f16f334aa3e9bc7",
+            "fallback-reference-identity.json": "7cf238794da576f90423499ac942342af05270ff66dd6da676267d42cbef21b4",
+            "generation-before-reload.json": "fb912a6a7a10ccdfbbcd1e71d53dbe41274a10f5f328ee5bd3e99adb6eb87711",
+            "lease-acquired.json": "ef791f081c6ad01b6fc048f046592c0a588bf4e52caa371b1ce9bde5fe6bab49",
+            "parameter-identities-after.json": "7842129412dc38b71e1f5e3a883065ea10fad6cbb784ef08ed7cbd9689b2e795",
+            "parameter-identities-before.json": "85f80aac75e47bcf0f4ea8e4ab1ad5adb1cb53894c254411e22e0858edfee345",
+            "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+            "reference-cache.json": "017548694fca44456e3acd941987d402a0ea8a2dfae7c741718e4caa43fe16a2",
+            "resources.json": "6dc1099cdf9ab0a45fd18d147d5591c4d10840af55af96acccbbda4b6b8e5459",
+            "result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "samples.json": "55ebc6735cd4ea7cb3e6307fc31758f4a473cd0904731973fff6930e806b7b27",
+            "sft-adapter/0000112_adapters.safetensors": "d9e1cd5292f342af0d5c9225fd4a1768bdd91b8acf23d40261d69728e4fda53e",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "d9e1cd5292f342af0d5c9225fd4a1768bdd91b8acf23d40261d69728e4fda53e",
+            "sft-reference.json": "7cf238794da576f90423499ac942342af05270ff66dd6da676267d42cbef21b4",
+            "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
+            "stdout.log": "3ec1099ac969939cbc4521e78ef3a6050c25f85c915ae20ed799ca6e76a44faf",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "3329229f6993debf521504c2f8e8c10e4276207ae81254f70095c5a4c35f05f8",
+            "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e",
+            "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+            "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+            "resources.json": "6dc1099cdf9ab0a45fd18d147d5591c4d10840af55af96acccbbda4b6b8e5459",
+            "result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+            "run.json": "7d26cbfd229e7f43d71f57062fbbb98db29cd39bb64d3a8db4fa41d1f14305a7",
+            "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
+            "stdout.log": "3ec1099ac969939cbc4521e78ef3a6050c25f85c915ae20ed799ca6e76a44faf",
+            "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-calibrate17-1536-r2"
+        },
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "25726f3ea1e781a39b02523a2bd332dec4f8e027308d2bcca75420ad07681e49",
+            "device-resources.json": "5c8db9df0468c861d965d1b2a4c8995dab994204946ec194032cc9a34a9ee479",
+            "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb",
+            "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+            "fallback-dpo/0000008_adapters.safetensors": "6e30fb0e53af99fe996f6eb38ed9b2aec75bc759d47fbaa6c335b0784652ecf2",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-dpo/adapters.safetensors": "6e30fb0e53af99fe996f6eb38ed9b2aec75bc759d47fbaa6c335b0784652ecf2",
+            "fallback-initial-gates.json": "94c21214b977ebf017630523f522b7efedd73c1dab9b8bc08f16f334aa3e9bc7",
+            "fallback-reference-identity.json": "72f586bf67825d4f679724e65b4e525ec19385221f33f3d56bdc7177268c8351",
+            "generation-before-reload.json": "e755176d8bc5247b64f6479d7a5295dd21f20c8a063b7af71cec7b2e7beeb900",
+            "lease-acquired.json": "40076020d9b6ad141e04ad4e4e9bcdd51f79768292cf1ca220c8f92c776de89d",
+            "parameter-identities-after.json": "d6250c92663923fd2d3b3fe90c4fcc250eefb94dc45353a0dfeefb406448bdd1",
+            "parameter-identities-before.json": "85f80aac75e47bcf0f4ea8e4ab1ad5adb1cb53894c254411e22e0858edfee345",
+            "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+            "reference-cache.json": "d75660a60c04c49a4cceca2aa51719ea8ccbf31c54a946d4e8ca167f57909fb6",
+            "resources.json": "2d4150221774ec0e9dddc215399bb727227f0a22453a14774e6d11dec0b64fa1",
+            "result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "samples.json": "82687e336284d747fe6a2d877dd2c28473069d1ad612e0d961590127a7123488",
+            "sft-adapter/0000112_adapters.safetensors": "499e4efde93577f76f84329eae8f2843e033fb367ea0da7b398162f623b30f34",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "499e4efde93577f76f84329eae8f2843e033fb367ea0da7b398162f623b30f34",
+            "sft-reference.json": "72f586bf67825d4f679724e65b4e525ec19385221f33f3d56bdc7177268c8351",
+            "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
+            "stdout.log": "ab65dc4ddaec74b2c7f100079d0d2cb42f7bad7bed224c726f7511cf5f7895f0",
+            "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "25726f3ea1e781a39b02523a2bd332dec4f8e027308d2bcca75420ad07681e49",
+            "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb",
+            "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+            "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+            "resources.json": "2d4150221774ec0e9dddc215399bb727227f0a22453a14774e6d11dec0b64fa1",
+            "result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+            "run.json": "8444892edb41716b9ad619f757fa6aef4580b50b5a5cd8d079d35b7488e94be2",
+            "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
+            "stdout.log": "ab65dc4ddaec74b2c7f100079d0d2cb42f7bad7bed224c726f7511cf5f7895f0",
+            "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-calibrate17-2048-r1"
+        },
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {},
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "cd6845b8cc480bb28a9be85f8eddc97f8b840c60451b0e403e899a5333a674af",
+            "resources.json": "f22df2f2deab3038739416b463e5fd49b7946fedc7f2ef4970dab20dabac38ec",
+            "result.json": "65c4133fcf6bcd0f56aca21f6cbfa8e1ef5fff5cfd0cc2f8e0f2580b93f5dade",
+            "stdout.log": "6c202dd072f3bd22f999d0555e5b718b5474548fcc37e6ae6ecb25f7adc272db"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-math-r1"
+        },
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {},
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+            "resources.json": "1aea9174281d07093d76a910c45b807d40303e429d156e214bb1690fd9142b54",
+            "result.json": "85b5a523c5820e993f9c0c936c8d5bfea1599f877a1577deec7bf0a4b567e501",
+            "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-math-r2"
+        },
+        {
+          "assessment": "PARTIAL_SFT_PASS_DPO_FAILED",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "b785e53266ee0ed728f91e6d309f6f13ea1a4e5a450cfc92997fb2f59cfc0622",
+            "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df",
+            "generation-before-reload.json": "2d887e9482c23c87015c8113fdb6874c31c8cdc084b068857f315a2a285f4268",
+            "lease-acquired.json": "ec2b1c259d247e8dbf569970ec8d0b48c97ae7b5fd60bdb1113dce3d7e56cb2a",
+            "parameter-identities-after.json": "9051a7b9d281ad6ccae13db3a501847ac614eb9a01bbe2e3bd533ced547dc28b",
+            "parameter-identities-before.json": "2dc9458fe5fa911a1a71b1631434a0c767979b7f2a179e28bfdbdb9fcb84a20f",
+            "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+            "reference-cache.json": "24d280223fab1b47e1493f432214b0caf733c011aa6590cb7b110ac815c381a3",
+            "resources.json": "c16e84d53901638b952cce98a166f811daf5a01497b77b982c3dc37a425e360a",
+            "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "samples.json": "7c9747479e3124b616f785211db538ee78902df758e83b0074eca7aa386ff8fc",
+            "sft-adapter/0000032_adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-reference.json": "59c86154af0f5ad9c29a705d2f7919f45aeac201ceb2d5ee38c52e38a75c1042",
+            "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+            "stdout.log": "03e152c37e530bf4a93898bc941da740ba3ed28115ae0439e935a994304d15af",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "b785e53266ee0ed728f91e6d309f6f13ea1a4e5a450cfc92997fb2f59cfc0622",
+            "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df",
+            "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+            "resources.json": "c16e84d53901638b952cce98a166f811daf5a01497b77b982c3dc37a425e360a",
+            "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+            "run.json": "0ea49c8eb6b02e908c6943ce933b673f9ac9e63519a38d894063c88af93f74dc",
+            "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+            "stdout.log": "03e152c37e530bf4a93898bc941da740ba3ed28115ae0439e935a994304d15af",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_result_status": "PARTIAL",
+          "run_id": "p01-smoke06-r1"
+        },
+        {
+          "assessment": "FAIL_TRAINING_PATH_LN2",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "6e46d3ebfef1b8a1e43cb5dd44733958a1a14822189e3d0ec6daa358e025ce3b",
+            "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866",
+            "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+            "fallback-dpo/0000008_adapters.safetensors": "bb6e7f3dc2ff197e4562f95f15e9a49e6b3d215158e410361134a73ae0b8cc76",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-dpo/adapters.safetensors": "bb6e7f3dc2ff197e4562f95f15e9a49e6b3d215158e410361134a73ae0b8cc76",
+            "fallback-reference-identity.json": "d1a73da871012c3b2c22a28d06a33e06ea1933f9f5fa43feb3bec789c28c8df3",
+            "generation-before-reload.json": "2856a712c73ed4b80efec85d6e8ace4dda744fa2fc47bdcf5ba4dfc496284686",
+            "lease-acquired.json": "b13d827860e7f78068a5d58d0f13301a9f8223f0c6ef5bdc2cb2fb2c057618d2",
+            "parameter-identities-after.json": "9051a7b9d281ad6ccae13db3a501847ac614eb9a01bbe2e3bd533ced547dc28b",
+            "parameter-identities-before.json": "2dc9458fe5fa911a1a71b1631434a0c767979b7f2a179e28bfdbdb9fcb84a20f",
+            "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+            "reference-cache.json": "8e16a3a241394b8fe3292d88876dee5c5f276249de130e5b58f2fb1d47564fed",
+            "resources.json": "ad1a2c92325c977101329ce9cfcb800d5806e119afad3431e8463bf481c38f87",
+            "result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "samples.json": "7c9747479e3124b616f785211db538ee78902df758e83b0074eca7aa386ff8fc",
+            "sft-adapter/0000032_adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-reference.json": "d1a73da871012c3b2c22a28d06a33e06ea1933f9f5fa43feb3bec789c28c8df3",
+            "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
+            "stdout.log": "1d3734cd7adc44cc2896f6f02b935477f90ea70d7a43e669b42205c736ecaec6",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "6e46d3ebfef1b8a1e43cb5dd44733958a1a14822189e3d0ec6daa358e025ce3b",
+            "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866",
+            "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+            "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+            "resources.json": "ad1a2c92325c977101329ce9cfcb800d5806e119afad3431e8463bf481c38f87",
+            "result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+            "run.json": "1d31e1fd41c9e1bc63422e16e3d6b37fa6c77af5e5c5f16d690b508db8dbad62",
+            "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
+            "stdout.log": "1d3734cd7adc44cc2896f6f02b935477f90ea70d7a43e669b42205c736ecaec6",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-smoke06-r2"
+        },
+        {
+          "assessment": "FAILED",
+          "exit_code": 2,
+          "manifest_artifacts_unchanged": {
+            "config.json": "0efb9dae9b89dfe9d9896b5407e86763738fe1c7865da1a61b38f5143e8e03d1",
+            "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+            "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e",
+            "generation-before-reload.json": "b359fef40bd4a954c4addc2d54e4fd0d0d52b00d74d2b63ba9cd933d32d163e8",
+            "lease-acquired.json": "f8553edc4053bf2728002c7b84e046d1464d9edf5fb14daabff6afe6f46a49fb",
+            "parameter-identities-after.json": "9051a7b9d281ad6ccae13db3a501847ac614eb9a01bbe2e3bd533ced547dc28b",
+            "parameter-identities-before.json": "2dc9458fe5fa911a1a71b1631434a0c767979b7f2a179e28bfdbdb9fcb84a20f",
+            "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
+            "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+            "reference-cache.json": "0599dfd6bc53695ef5827f8502fafe7a81cd9f237430bf6d81c3424e6897aa3d",
+            "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
+            "samples.json": "7c9747479e3124b616f785211db538ee78902df758e83b0074eca7aa386ff8fc",
+            "sft-adapter/0000032_adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-reference.json": "203fdd3bc65ef536248c02b9071ca90a56d844d9ddc18e3e116ea55a4be6e46d",
+            "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+            "stdout.log": "99b626d93d3c48bbc1869409780994f99a5b15e53dd0858d93b87dd7759ac74e",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "0efb9dae9b89dfe9d9896b5407e86763738fe1c7865da1a61b38f5143e8e03d1",
+            "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+            "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e",
+            "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
+            "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+            "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
+            "run.json": "4c0346e75719c7f41c78b152378c7e47b251344d5ee9ad29c7630c514a09da1a",
+            "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+            "stdout.log": "99b626d93d3c48bbc1869409780994f99a5b15e53dd0858d93b87dd7759ac74e",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_result_status": "RUNNING",
+          "run_id": "p01-smoke06-r3"
+        },
+        {
+          "assessment": "PASS",
+          "exit_code": 0,
+          "manifest_artifacts_unchanged": {
+            "config.json": "7bc42965803c9dcea7b80c802e8fc5f589180a9e7df9dac732f97637c8bbb7fc",
+            "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109",
+            "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+            "fallback-dpo/0000008_adapters.safetensors": "a6b71c7931ff45eb1424e6313e51e528c0c887162c3e5a781c80cc57fb9a527d",
+            "fallback-dpo/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "fallback-dpo/adapters.safetensors": "a6b71c7931ff45eb1424e6313e51e528c0c887162c3e5a781c80cc57fb9a527d",
+            "fallback-initial-gates.json": "94c21214b977ebf017630523f522b7efedd73c1dab9b8bc08f16f334aa3e9bc7",
+            "fallback-reference-identity.json": "3cdb40a158574e658e678ecef7e692e99d400d0b78e10eb1c7d019aad6b57203",
+            "generation-before-reload.json": "f26268d25e4e5cf854ec2ccb08f726a22629c7d3e29a1986006406048935fa57",
+            "lease-acquired.json": "6f04ae1514322495f802f7bd030e528123a2cfd17b0271ee73c58c530b894db1",
+            "parameter-identities-after.json": "9051a7b9d281ad6ccae13db3a501847ac614eb9a01bbe2e3bd533ced547dc28b",
+            "parameter-identities-before.json": "2dc9458fe5fa911a1a71b1631434a0c767979b7f2a179e28bfdbdb9fcb84a20f",
+            "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+            "reference-cache.json": "e1e0ef16b2dfa889eefd5df1b956d20bebd07c521abb0af4632cbafd285a27a1",
+            "resources.json": "387565e453f4e5a2596faa384fda76d7d7efccad713e0abf0532eecf8bd26d85",
+            "result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "samples.json": "7c9747479e3124b616f785211db538ee78902df758e83b0074eca7aa386ff8fc",
+            "sft-adapter/0000032_adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-adapter/adapter_config.json": "d56a2d2f965a17e5c0bf5a9875fc845a97af063fe1fe639b7c2167ab0281a286",
+            "sft-adapter/adapters.safetensors": "4762def7b0e74589b0d92a837e06db611bf84314ccfd3567b3b49b1e1967a707",
+            "sft-reference.json": "3cdb40a158574e658e678ecef7e692e99d400d0b78e10eb1c7d019aad6b57203",
+            "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
+            "stdout.log": "4fafafd02b4782bdb6b855c79dd6f41815e9c56b5324befa97473088fd4e5faa",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_evidence_hashes_unchanged": {
+            "config.json": "7bc42965803c9dcea7b80c802e8fc5f589180a9e7df9dac732f97637c8bbb7fc",
+            "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109",
+            "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+            "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+            "resources.json": "387565e453f4e5a2596faa384fda76d7d7efccad713e0abf0532eecf8bd26d85",
+            "result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+            "run.json": "fde4390b4641bf2d5e8cbdebfb18265afc584927b7ae9a97c849f5643ae720a9",
+            "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
+            "stdout.log": "4fafafd02b4782bdb6b855c79dd6f41815e9c56b5324befa97473088fd4e5faa",
+            "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de"
+          },
+          "raw_result_status": "PASS",
+          "run_id": "p01-smoke06-r4"
+        }
+      ],
+      "tokenizer_or_model_import": false
+    },
+    "scope": {
+      "changed_from_original_review": [
+        [
+          "A",
+          "coordination/handoffs/P01-fix-r3.md"
+        ],
+        [
+          "M",
+          "reports/hardware/P01_BUILD_REPORT.py"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_PACKAGE.py"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_REPORT.md"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_REPORT_TESTS.py"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_SOURCES.json"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_VALIDATION.json"
+        ],
+        [
+          "M",
+          "reports/hardware/P01_REPORT.md"
+        ],
+        [
+          "M",
+          "src/toolalign/training/compatibility/execution.py"
+        ],
+        [
+          "M",
+          "src/toolalign/training/compatibility/fallback_probe.py"
+        ],
+        [
+          "A",
+          "tests/training/compatibility/test_failure_accounting.py"
+        ]
+      ],
+      "core_numerical_model_samples_and_frozen_contracts_unchanged": true,
+      "execution_outside_launch_unchanged": true,
+      "fallback_outside_callback_unchanged": true,
+      "last_candidate_commit_additions": [
+        [
+          "A",
+          "coordination/handoffs/P01-fix-r3.md"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_PACKAGE.py"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_REPORT.md"
+        ],
+        [
+          "A",
+          "reports/hardware/P01_FIX_R3_VALIDATION.json"
+        ]
+      ],
+      "original_eight_review_files": {
+        "coordination/handoffs/P01-review-r1.md": "05bb971b15f97f80d825a04f898bc4df6ad4b85f2ffd5da715f4d1264d374350",
+        "reports/review/P01/README.md": "260756ca89f0a883667c891b1476722fd2f28da237a156fff01ce95068807d65",
+        "reports/review/P01/audit_p01_evidence.py": "a3b3f28a37c9e69d743a9468e9884070d4440628a55fdfc39e67c7da8ab2bee3",
+        "reports/review/P01/check_p01_cpu_math.py": "fdf6435880a7585a0a6e6637668d6774936e385096f5693e115fdb9784ea0bf0",
+        "reports/review/P01/evidence.json": "4724607dc40f74dec5d5532b53348fd75a630c9d6414d49430dd5d28a15f9ac5",
+        "reports/review/P01/test_p01_failure_counters.py": "a91f20cc2c0b755fb96fbc58588b32ab0b37e5ce64787912fb907e76a1efa202",
+        "reports/review/P01/test_p01_processes.py": "18b773979d4b3b958bebcfaa9c271becc705fd5e2d2882601681cba648270853",
+        "reports/review/P01/verify_p01_package.py": "46d9d9d76357709d1ddca7aead0e307475dc7db642c2f08d3e5077e14a325fc0"
+      },
+      "p01_modules": {
+        "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+        "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+        "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+        "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+        "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+        "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+        "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+        "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+      },
+      "unchanged_original_file_map_sha256": "3bc3fdbcaadd610c43b78ce47237ef0a8d0390df992b328b5d60c33ceccfba34",
+      "unchanged_original_files": 159
+    },
+    "source_mapping": {
+      "math_r2_mapping": {
+        "all_recorded_source_files_match_resolved_commit": true,
+        "gpu_or_math_reexecution": "NOT_RUN",
+        "raw_run_or_config_modified": false,
+        "recorded_git_commit": "aaab75ed5d993f9354f11f74b58edb67d0af45c3",
+        "recorded_head_mismatches": [
+          "model_probe.py",
+          "numerical.py"
+        ],
+        "recorded_source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241",
+        "resolved_source_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+        "run_id": "p01-math-r2",
+        "scope": "P01 R1-r1 F3 historical source attribution correction; no replay",
+        "source_files": {
+          "__init__.py": {
+            "recorded_head_blob_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+            "recorded_worktree_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+            "resolved_commit_blob_sha256": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf"
+          },
+          "__main__.py": {
+            "recorded_head_blob_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+            "recorded_worktree_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+            "resolved_commit_blob_sha256": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219"
+          },
+          "core.py": {
+            "recorded_head_blob_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b",
+            "recorded_worktree_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b",
+            "resolved_commit_blob_sha256": "2b1b2cbe20598eafb4245cc274755f46e7454b55a07b03fe8573dd7be7099a5b"
+          },
+          "execution.py": {
+            "recorded_head_blob_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726",
+            "recorded_worktree_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726",
+            "resolved_commit_blob_sha256": "f5cc4d314ca7596e11a5fab5fa5a25a6730df8ce25938c999eda2ea00feff726"
+          },
+          "fallback_probe.py": {
+            "recorded_head_blob_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e",
+            "recorded_worktree_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e",
+            "resolved_commit_blob_sha256": "2ade53954a23993e338cbf46e3b833e2f483182164fbfb499aa8d466a5a6953e"
+          },
+          "model_probe.py": {
+            "recorded_head_blob_sha256": "4005bceb3f8e5b5074f0fa1f81f5d2dedc8e045012f6457c2e4452b7ba4917c5",
+            "recorded_worktree_sha256": "d771ab74085e9e765197a256e5f99947da4e99be92b1315f0f3614cb5ee2cb94",
+            "resolved_commit_blob_sha256": "d771ab74085e9e765197a256e5f99947da4e99be92b1315f0f3614cb5ee2cb94"
+          },
+          "numerical.py": {
+            "recorded_head_blob_sha256": "b6598b5812cf6fa153a6de5abb0aa297ca50d40849cc584426df219788d19ee6",
+            "recorded_worktree_sha256": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+            "resolved_commit_blob_sha256": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1"
+          },
+          "samples.py": {
+            "recorded_head_blob_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+            "recorded_worktree_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+            "resolved_commit_blob_sha256": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+          }
+        }
+      },
+      "original_config_sha256": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+      "upstream_source_files_rehashed_without_import": {
+        "mlx_lm/tuner/datasets.py": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17",
+        "mlx_lm/tuner/lora.py": "4d3a8edab111d4ddba33398ba8700203db7b61621c39e9c348fdd50e57278b45",
+        "mlx_lm/tuner/trainer.py": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+        "mlx_lm/tuner/utils.py": "166eaf5e5f923113bed43614a5fb7319795fa0cac5a7fa319ea54e5f0045b553",
+        "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6",
+        "mlx_lm_lora/trainer/sft_trainer.py": "4f5f04d99ddb03b3b4a46365998e36467411c67525fd5baad6fddef19b45b85c",
+        "mlx_lm_lora/utils.py": "262485b6f6c87557084823328a042d52e439935cda37c50e34dee4d4c3378206",
+        "mlx_tune/_perf.py": "67dba4dc0dc6419fec8ee961067ec84d6773f315ca41d3f99c10122508e043db",
+        "mlx_tune/losses.py": "31762d5fb71e0b2a94eef902ea4cdf18e4f4bedb8ad815aefb43547739739779",
+        "mlx_tune/model.py": "7d952d5d65cc16d62c17d0861c0ada9ddd6dbacf423d8f85cfe565478fa26506",
+        "mlx_tune/rl_trainers.py": "4e6eb860c16083d3c0f642a264b7efc0c671cf09d63e2fc65950d3e325e3978c"
+      },
+      "upstream_update_before_callback_order_preserved": true
+    },
+    "status": "PASS: evidence binding only, independent review verdict is separate",
+    "worker_evidence": {
+      "commands_rehashed": [
+        {
+          "command": [
+            "env",
+            "PYTHONPATH=src",
+            ".toolalign-local/base-r2/venv-replay/bin/python",
+            ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+            "-q",
+            "reports/review/P01/test_p01_processes.py",
+            "reports/review/P01/test_p01_failure_counters.py",
+            "--basetemp=.toolalign-local/p01-fix-r3/before-r1"
+          ],
+          "exit_code": 1,
+          "name": "fix-r3-before-r1",
+          "sha256": "9a72a5d40e46803e8276d5ff41f5b1bf59b17b8eec17639c70a2b82cd286ccb7",
+          "started_at": "2026-09-06T03:20:32.446417+00:00",
+          "wall_seconds": 2.3323640830349177
+        },
+        {
+          "command": [
+            "env",
+            "PYTHONPATH=src",
+            ".toolalign-local/base-r2/venv-replay/bin/python",
+            ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+            "-q",
+            "reports/review/P01/test_p01_processes.py",
+            "reports/review/P01/test_p01_failure_counters.py",
+            "--basetemp=.toolalign-local/p01-fix-r3/after-r1"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-after-r1",
+          "sha256": "e5d665629526c1638b21b4e23447f853afc3305e7b6b3c5a2460a980ee0864d9",
+          "started_at": "2026-09-06T03:23:50.331117+00:00",
+          "wall_seconds": 1.808417874854058
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+            "-q",
+            "tests/training/compatibility/test_failure_accounting.py",
+            "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+            "--basetemp=.toolalign-local/p01-fix-r3/new-tests"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-new-tests",
+          "sha256": "be28c3940a27237cebdeb039eb71326421f4b3f3cc9cab72f7914bd8dac681dc",
+          "started_at": "2026-09-06T03:30:24.364076+00:00",
+          "wall_seconds": 1.8270294580142945
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+            "-q",
+            "tests",
+            "reports/review/P00/test_independent.py",
+            "reports/review/P00-r2/test_revision_boundaries.py",
+            "--basetemp=.toolalign-local/p01-fix-r3/full-cpu"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-full-cpu",
+          "sha256": "c79aacc6ff80eaee075f51a58d3585b1264b971fe34641f85b3bf92a0a2253b9",
+          "started_at": "2026-09-06T03:36:56.268656+00:00",
+          "wall_seconds": 5.4222378339618444
+        },
+        {
+          "command": [
+            "env",
+            "PYTHONPATH=src",
+            ".toolalign-local/base-r2/venv-replay/bin/python",
+            ".toolalign-local/p01-fix-r3/cpu_pytest.py",
+            "-q",
+            "reports/review/P01/test_p01_processes.py",
+            "reports/review/P01/test_p01_failure_counters.py",
+            "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+            "--basetemp=.toolalign-local/p01-fix-r3/final-r1"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-final-r1-probes",
+          "sha256": "a5013ca3f620c4c2960168f527d6773e1d802a531a175690f55a692aa6a0ece1",
+          "started_at": "2026-09-06T03:36:56.285000+00:00",
+          "wall_seconds": 1.8352459168527275
+        },
+        {
+          "command": [
+            "env",
+            "PYTHONPATH=src",
+            ".toolalign-local/base-r2/venv-replay/bin/python",
+            "reports/review/P01/check_p01_cpu_math.py"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-r1-cpu-math",
+          "sha256": "17307b5921a3e9089effd2d824e287b872ce23ea8e2a0b0fe6522f3cea8cc26e",
+          "started_at": "2026-09-06T03:36:56.321349+00:00",
+          "wall_seconds": 0.9170452079270035
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "reports/hardware/P01_BUILD_REPORT.py",
+            "--private-runs",
+            ".toolalign-local/runs",
+            "--output",
+            ".toolalign-local/p01-fix-r3/HISTORICAL_RESULTS.json"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-history-summary",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "started_at": "2026-09-06T03:36:56.303335+00:00",
+          "wall_seconds": 0.1847410830669105
+        },
+        {
+          "command": [
+            "uv",
+            "build"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-build",
+          "sha256": "c6a5193571b8f7b176af40873ab373d70e558c22d876735abb56d6ef8b5a3a75",
+          "started_at": "2026-09-06T03:39:20.884091+00:00",
+          "wall_seconds": 0.4592782079707831
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "reports/hardware/P01_FIX_R3_PACKAGE.py",
+            "--output",
+            ".toolalign-local/p01-fix-r3/PACKAGE.json"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-package",
+          "sha256": "06cc35c40bab12ea778231d3cbed48024fb9c04394d108b08636090a079ee6b3",
+          "started_at": "2026-09-06T03:39:40.638615+00:00",
+          "wall_seconds": 2.5017696251161397
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "ruff",
+            "check",
+            "."
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-lint",
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "started_at": "2026-09-06T03:39:40.672323+00:00",
+          "wall_seconds": 0.025299291126430035
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/check_contract_freeze.py"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-contract-freeze",
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+          "started_at": "2026-09-06T03:39:40.655555+00:00",
+          "wall_seconds": 0.0309687911067158
+        },
+        {
+          "command": [
+            "python3",
+            ".toolalign-local/p01-fix-r3/verify_preservation.py"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-preservation",
+          "sha256": "45fad1ea1808298c0b45e36695df66cdf0b37d7f9eeb750fac244fbb646e1ea9",
+          "started_at": "2026-09-06T03:46:28.799998+00:00",
+          "wall_seconds": 1.4604179579764605
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/check_public_content.py"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-public-content",
+          "sha256": "61186a06bf2a85c528548b80b369e98b6d78abf8aa755be6cc3e882ce1621c0c",
+          "started_at": "2026-09-06T03:47:28.320491+00:00",
+          "wall_seconds": 2.516570833977312
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/check_public_content.py"
+          ],
+          "exit_code": 0,
+          "name": "fix-r3-release-public",
+          "sha256": "61186a06bf2a85c528548b80b369e98b6d78abf8aa755be6cc3e882ce1621c0c",
+          "started_at": "2026-09-06T03:50:12.965227+00:00",
+          "wall_seconds": 2.52669220790267
+        }
+      ],
+      "failure_example_files_rehashed": [
+        "2b1943c59238e4851fa861beae0c0dbd4225b4195428c5b993f8ecf04a70bb92",
+        "2b2d4c77ebff5af8787a7def29f58dc1d2437539d495ddb3632cd2fdea20bc07",
+        "338d332b12a7413b383b9d8c577418aa2e9076d23b67fe95bc9ac558e13ad195",
+        "767c9bf5600457f9b9cc1dcf34c27262afd64029a3bba3d353f30bda7e95617d",
+        "9f3295c4260f6f61f638a15c0c8ae5094fbce04ba18cb7aa26fa8cf1151c124a",
+        "d4c4febf5d44420a3810bdc194b6b2993b2d0f29f0eadb55d00968c9180b8776",
+        "e9cdbe3cac26db02672c0bf3f27bdd4d71062cf6769148f52cb5094762bc7772"
+      ],
+      "historical_installed_stdout_stderr_rehash": "NOT_RUN: temporary install streams were not retained as separate files; producer metadata is preserved, and R1 performs a new independent installation",
+      "historical_summary_sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd",
+      "installed_package_metadata": {
+        "archives": {
+          "toolalign-0.0.1-py3-none-any.whl": {
+            "all_eight_p01_modules_and_contract_schema_present": true,
+            "archive_files": 27,
+            "generated_metadata": [
+              "toolalign-0.0.1.dist-info/METADATA",
+              "toolalign-0.0.1.dist-info/WHEEL",
+              "toolalign-0.0.1.dist-info/entry_points.txt",
+              "toolalign-0.0.1.dist-info/licenses/LICENSE",
+              "toolalign-0.0.1.dist-info/RECORD"
+            ],
+            "sha256": "941a1efb88b48cb8479ec9b5869c4db90984fd266e209933ef128b0792fa34e1",
+            "size_bytes": 44605,
+            "tracked_files_byte_identical": 22,
+            "untracked_payload_files": 0
+          },
+          "toolalign-0.0.1.tar.gz": {
+            "all_eight_p01_modules_and_contract_schema_present": true,
+            "archive_files": 48,
+            "generated_metadata": [
+              "PKG-INFO"
+            ],
+            "sha256": "024126435a5065ddae8e12c86272cc530ed4a8ae09eddd1fa2b0b0916d6ccf2e",
+            "size_bytes": 114450,
+            "tracked_files_byte_identical": 47,
+            "untracked_payload_files": 0
+          }
+        },
+        "default_cpu_only": true,
+        "installed_checks": [
+          {
+            "exit_code": 0,
+            "name": "export",
+            "stderr_sha256": "4178fef676ecb0344d286cee8513ec61e5ddd3328fa87b5b801eaef9c04c83fb",
+            "stdout_sha256": "6ea2111c08b07dbd7f1e0e0305f8a2acff104a8570d250bf998532475af5289c"
+          },
+          {
+            "exit_code": 0,
+            "name": "venv",
+            "stderr_sha256": "d0d1114236b0ab2c6bc9fcfef7d515e8a28c886024f4506a0575d27189f673ac",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "exit_code": 0,
+            "name": "dependencies",
+            "stderr_sha256": "6be4690b482a8a186ae9402f8c2bb82e047fcc976f17643d55f3a9b79456a502",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "exit_code": 0,
+            "name": "wheel-install",
+            "stderr_sha256": "82d1061127f19232e6090d3e0da2d35eefde65d6b61d5589aac8a2ba80ca85ed",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "exit_code": 0,
+            "name": "dependency-check",
+            "stderr_sha256": "441817e617b651f1d95ad67b0dee2d164507fb3d20eb505d518a52384b2123a2",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "exit_code": 0,
+            "name": "installed-p01",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "b7e5a72bf14f8588d82eb77c201334ce8d59885c06bbd43053818b1cbf6e0fd3"
+          },
+          {
+            "exit_code": 0,
+            "name": "p01-help",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "c56054b15fea4aafb67bb5c9175d3213d5965831f085cd572346025f12c764c3"
+          },
+          {
+            "exit_code": 0,
+            "name": "contract-digest",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+          },
+          {
+            "exit_code": 0,
+            "name": "validate-example",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+          },
+          {
+            "exit_code": 0,
+            "name": "validate-tool",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+          },
+          {
+            "exit_code": 0,
+            "name": "validate-preference",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+          },
+          {
+            "exit_code": 0,
+            "name": "validate-run",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+          },
+          {
+            "exit_code": 0,
+            "name": "validate-trace",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+          }
+        ],
+        "installed_probe": {
+          "installed_modules": 8,
+          "ml_packages_available": false
+        },
+        "model_loading": "NOT_RUN",
+        "p01_source_sha256": {
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "status": "PASS"
+      },
+      "private_outputs_rehashed": {
+        "PACKAGE.json": "0b79000d55a0dc9a0ac2a3c6b5a500dc7c0c44ffcf3b16cee2de06e5a4e43f2c",
+        "PRESERVATION.json": "d6118f32878f6aec32163f702175a2aebdfc91c087e1cc475e6cea1c3bbc0dbb"
+      },
+      "proof_files_rehashed": {
+        ".toolalign-local/p01-fix-r3/cpu_pytest.py": "9d49500bbebfcb7bd60c459ad6458d04c99f0f26c50a8ce46fcbcac1d97fec13",
+        ".toolalign-local/p01-fix-r3/verify_preservation.py": "19083a4f87236321530c8951318fde2348b0b52f892b87be1494d58b1a61644b",
+        "reports/hardware/P01_BUILD_REPORT.py": "5f3d6f0f8cb18f40a3566b9629ce5c5a4dfaf82b7a1951a63d1ed35769f284bb",
+        "reports/hardware/P01_FIX_R3_PACKAGE.py": "b117b461adfac1cad7c057718163f2c42fee7b6d0fbe91c40b301b9f55a7a525",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py": "68914c452167d2d4dd1e7df56dc8f0227182eef401e92715d18ffb85210832c3",
+        "reports/hardware/P01_FIX_R3_SOURCES.json": "0dfd98503ea170bb7e6a621506ab794b2492b26e0ac75d692f7b5a1975eedaa4",
+        "tests/training/compatibility/test_failure_accounting.py": "1684b7406509241b45a2732ead1b73bc271c23c207ce6ec43583a0708e0b7cf8"
+      },
+      "public_validation_sha256": "4eda39ab6e78784a7f264b35a757cc932619b7af1f3e280f8cc20dc5222a1f71"
+    }
+  },
+  "findings": [
+    {
+      "blocking": true,
+      "discovery": "R1 independently found initial swap failure; S0 then requested the bounded neighboring Popen case, which R1 independently implemented and reproduced.",
+      "end": 337,
+      "file": "src/toolalign/training/compatibility/execution.py",
+      "fix_direction": "Cover resource initialization and process creation within finalization for a registered attempt. Preserve the original exception, failed/ended_at state and resources/summary evidence. Represent unstarted child and unavailable measurements truthfully; only reap a Process that was actually created.",
+      "id": "R2-F1",
+      "limits": "No worker or model was started in the failing cases; no completed microsteps, actual child exit or child leak is claimed. This does not add a guarantee to write evidence on an entirely unwritable disk.",
+      "observed": "Two original CPU injections after prepared configuration: initial swap EIO gives zero Popen calls; Popen EAGAIN gives one call but zero created children. Both propagate the original exception while status=running, ended_at=null, exit_code=null and summary runs=0.",
+      "priority": "P1",
+      "related_locations": [
+        "src/toolalign/training/compatibility/execution.py:317-318",
+        "src/toolalign/training/compatibility/execution.py:350",
+        "reports/hardware/P01_BUILD_REPORT.py:23-24"
+      ],
+      "start": 330,
+      "summary": "Initial swap sampling and Popen remain outside the protected lifecycle after running run.json has been persisted. Either exception leaves a permanently running attempt, no resources and no summary entry."
+    }
+  ],
+  "findings_counts": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 0
+  },
+  "gates": {
+    "G1_DPO": {
+      "acceptance": "FAIL",
+      "original_loss_accounting_F2": "CLOSED",
+      "primary_mlx_tune": "HISTORICAL_FAIL_PRESERVED",
+      "remaining_blocker": "R2-F1",
+      "sole_fallback": "HISTORICAL_BOUNDED_EVIDENCE_PRESERVED"
+    },
+    "G1_SFT": {
+      "acceptance": "FAIL",
+      "historical_bounded_model_evidence": "PRESERVED_AND_SUPPORTED_WITH_PRIOR_LIMITS",
+      "remaining_blocker": "R2-F1"
+    }
+  },
+  "implementation_commit": "5c32e8a72e957df100691e0096d1413eed8ce8f9",
+  "independent_cpu_math": {
+    "absolute_tolerance": 2e-06,
+    "cases": 17,
+    "device": "cpu",
+    "dtype": "float32",
+    "historical_fallback_mlx_reexecution": "NOT_RUN",
+    "masked_logits_and_padding_invariance": true,
+    "maximum_errors": {
+      "ce_gradient": 1.905478064223587e-08,
+      "ce_loss": 4.011570280404442e-07,
+      "dpo_gradient": 3.629568690738383e-09,
+      "dpo_loss": 8.22313996895474e-08
+    },
+    "mlx_or_model_import": false,
+    "reference_detached": true,
+    "same_tensor_initial_reference_retains_policy_gradient": true,
+    "seed": 3701,
+    "status": "PASS",
+    "threads": 2,
+    "torch": "2.14.0"
+  },
+  "merge_of_original_review": "f020046055717f4fc5a821a61fb2664d989e6875",
+  "new_package": {
+    "archives": {
+      "default-wheel": {
+        "archive_files": 27,
+        "bytes": 44605,
+        "generated_metadata_hashes": {
+          "toolalign-0.0.1.dist-info/METADATA": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf",
+          "toolalign-0.0.1.dist-info/RECORD": "d1ad8a48d448ab383b847d1af441cd5d870302145f378f67ce1d12cc2b1365d9",
+          "toolalign-0.0.1.dist-info/WHEEL": "aad0b0a12256807936d52d4a6f88a1773236ae527564a688bab4e3fe780e8724",
+          "toolalign-0.0.1.dist-info/entry_points.txt": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a"
+        },
+        "sha256": "941a1efb88b48cb8479ec9b5869c4db90984fd266e209933ef128b0792fa34e1",
+        "tracked_files": 22,
+        "tracked_payload_hashes": {
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "untracked_payloads": 0
+      },
+      "direct-wheel": {
+        "archive_files": 27,
+        "bytes": 44605,
+        "generated_metadata_hashes": {
+          "toolalign-0.0.1.dist-info/METADATA": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf",
+          "toolalign-0.0.1.dist-info/RECORD": "d1ad8a48d448ab383b847d1af441cd5d870302145f378f67ce1d12cc2b1365d9",
+          "toolalign-0.0.1.dist-info/WHEEL": "aad0b0a12256807936d52d4a6f88a1773236ae527564a688bab4e3fe780e8724",
+          "toolalign-0.0.1.dist-info/entry_points.txt": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a"
+        },
+        "sha256": "941a1efb88b48cb8479ec9b5869c4db90984fd266e209933ef128b0792fa34e1",
+        "tracked_files": 22,
+        "tracked_payload_hashes": {
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "untracked_payloads": 0
+      },
+      "rebuilt-wheel": {
+        "archive_files": 27,
+        "bytes": 44605,
+        "generated_metadata_hashes": {
+          "toolalign-0.0.1.dist-info/METADATA": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf",
+          "toolalign-0.0.1.dist-info/RECORD": "d1ad8a48d448ab383b847d1af441cd5d870302145f378f67ce1d12cc2b1365d9",
+          "toolalign-0.0.1.dist-info/WHEEL": "aad0b0a12256807936d52d4a6f88a1773236ae527564a688bab4e3fe780e8724",
+          "toolalign-0.0.1.dist-info/entry_points.txt": "0117fcf016ca262ecd8a0c1fe2674fea4129b0a09b0a1e4a54149bd384811db2",
+          "toolalign-0.0.1.dist-info/licenses/LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a"
+        },
+        "sha256": "941a1efb88b48cb8479ec9b5869c4db90984fd266e209933ef128b0792fa34e1",
+        "tracked_files": 22,
+        "tracked_payload_hashes": {
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+        },
+        "untracked_payloads": 0
+      },
+      "sdist": {
+        "archive_files": 48,
+        "bytes": 114450,
+        "generated_metadata_hashes": {
+          "PKG-INFO": "d57c6a9384bd1aee39ce18bbedfac6ab63466d060f75a5016994dbea3baed2bf"
+        },
+        "sha256": "024126435a5065ddae8e12c86272cc530ed4a8ae09eddd1fa2b0b0916d6ccf2e",
+        "tracked_files": 47,
+        "tracked_payload_hashes": {
+          ".gitignore": "3137afcc31d5faf9fe870ab6a456eaa87255c870c8c3fb8c520633642afa7fb3",
+          "LICENSE": "7c2bec427ff97ccc8e1c5dfedfb090ebde2d624a2484fd0bf5e31bd983a20d5a",
+          "README.md": "b886194a207800c174986bf19c53f5e5b4473b23c311aed0efc52649e51d80af",
+          "THIRD_PARTY_NOTICES.md": "acbfdb4c040a4f5ec53f355cfbb8c603f50958f860889140d8f751c4f89cdf4f",
+          "configs/protocol.v1.json": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15",
+          "configs/source_toolace.v1.json": "b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7",
+          "contracts.v1.lock.json": "0de339292c43cbd7749c8190e3ef4996f2b2f5ee8834f1d0cb698944c8a87342",
+          "pyproject.toml": "7b1a873f9709d6f50c0ef576f28e0b42a9818c7332bb7f5a436226fbe6eaba63",
+          "scripts/check_contract_freeze.py": "0d705c51da80f7894365ccf84b7dd8e0d537152bd26b1c4d341d9960d9a3a550",
+          "scripts/check_public_content.py": "1de22fa094e46697c18410484413f36d6a5efc79c98931f734890b43b7c473da",
+          "scripts/check_source_distribution.py": "14d5925dd89f0d752ba3cdcb2f1bc12f16d50aa6927c8cfe3f2c1b57a0004e74",
+          "src/toolalign/__init__.py": "43856f0dacef09b609282b8cb92b663bcd127cdb9d0e518039788cd24d1a4726",
+          "src/toolalign/cli.py": "7b284f9a163cee31ce07d0d80cb3247f2a03dc9aaffb521710fd7652f9a3ba4d",
+          "src/toolalign/contracts/__init__.py": "6061348beb2bbf5176a4cb499b46e6640577d5ec62394257401b98238f00480b",
+          "src/toolalign/contracts/interfaces.py": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55",
+          "src/toolalign/contracts/v1.json": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "src/toolalign/contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+          "src/toolalign/data/__init__.py": "df11fed07d78f34c189c5a46beb1e5fe5008884a272735110e96e9645784af96",
+          "src/toolalign/evaluation/__init__.py": "8f0cc1d982f86c4fb4e9f98b6d215a3b322491d5f851a15fc6a3a02d96443744",
+          "src/toolalign/inference/__init__.py": "8253a051985f5458a7f823bab8d9066d4498c8da21dd3c3f708cc92e7e6cc7b7",
+          "src/toolalign/runtime/__init__.py": "2f7a6239f70514cf27e6c5a24378403df280e32fe3672facdb77b6df0bca3666",
+          "src/toolalign/runtime/gpu_lock.py": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79",
+          "src/toolalign/service/__init__.py": "e020bf286083c16b3d4be96247bd9ad46dda0f4a2d1ad9f52cec4fa341f5b68e",
+          "src/toolalign/tools/__init__.py": "bb117f047e5b6946bc90d2c0c7debd221099a99e42c06be1c55d845121b8103d",
+          "src/toolalign/training/__init__.py": "a7aaa80028b683b5b22d28352d2a184beed422bd8dec6775e4f561cc14bbb6dc",
+          "src/toolalign/training/compatibility/__init__.py": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+          "src/toolalign/training/compatibility/__main__.py": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+          "src/toolalign/training/compatibility/core.py": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+          "src/toolalign/training/compatibility/execution.py": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+          "src/toolalign/training/compatibility/fallback_probe.py": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+          "src/toolalign/training/compatibility/model_probe.py": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+          "src/toolalign/training/compatibility/numerical.py": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+          "src/toolalign/training/compatibility/samples.py": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86",
+          "tests/conftest.py": "24c10871de05db549d9937342f7c0ff8baaa6b63eeb9d36c7088233fed447b94",
+          "tests/contracts/test_records.py": "f3f6299f5dff75a77d645d9e588248e1772f3bf0151d44bbc76de5992b840438",
+          "tests/fixtures/contracts/README.md": "944df675f983f6763e777d29156a5bb2fe794c7138e66695c8e8f50e25cdc880",
+          "tests/fixtures/contracts/example.json": "70e5b1aeba57245d9e997aa7d9e3296b1013e23119bff939164d705a60980bcd",
+          "tests/fixtures/contracts/preference.json": "c8326392e5e3d1f3902216be6bc89e4ea868f69bee4e50828c2922adc76d2aed",
+          "tests/fixtures/contracts/run.json": "4a4fafda9bb2d5495aead08f9d8075a5b7e83cc03515395197ebbe47f4366276",
+          "tests/fixtures/contracts/tool.json": "8788f4096b12052e96b64833782586ba7af05d2e870d3148c41554f7553f14fd",
+          "tests/fixtures/contracts/trace.json": "dcde3200f15dddd89cb4aac5decc93a14de0f1ab5987a015b81fbcb9bb5ff7e5",
+          "tests/runtime/test_gpu_lock.py": "a235ec1f0d354d34600bd471b7249dc7bcb8ebaacc2ac00fe2b2b6dfc433241d",
+          "tests/test_public_content.py": "9b9c7c6086632c61e806b52cb486f43985da46c9f81c808bb9e837100779e8a8",
+          "tests/training/compatibility/test_failure_accounting.py": "1684b7406509241b45a2732ead1b73bc271c23c207ce6ec43583a0708e0b7cf8",
+          "tests/training/compatibility/test_invariants.py": "88ef39bc29a1c8f278cdff8c661dfa82a8aa7f9aaab299e9cd5367bcad00bb43",
+          "tests/training/compatibility/test_lease_entry.py": "b86b85d036975ca488f3b9de61da68f4ce2481acaf46d1138b175bbad0105035",
+          "uv.lock": "201b522e7917ac82dfd49ae6447a8f9481336800b282ea9b09c706403350c7da"
+        },
+        "untracked_payloads": 0
+      }
+    },
+    "candidate": "ac8095faa58a98e143a8dc4d63042093e426feb0",
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "export",
+          "--locked",
+          "--no-dev",
+          "--no-emit-project",
+          "--output-file",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/runtime-requirements.txt"
+        ],
+        "cwd": "<R1_WORKTREE>",
+        "ended_at": "2026-09-06T04:27:41.681282+00:00",
+        "exit_code": 0,
+        "name": "export-default",
+        "started_at": "2026-09-06T04:27:41.669862+00:00",
+        "stderr_sha256": "1bef434bacb2ad73eb75d2dc109b5e30569fd284da0534c0e8a137d4212ccbf8",
+        "stdout_sha256": "f35f34ec5189050ccdabd6fedaab59c4bdb2f72d95eca9925e5cce0de0324a36"
+      },
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.14",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:41.689692+00:00",
+        "exit_code": 0,
+        "name": "new-environment",
+        "started_at": "2026-09-06T04:27:41.681323+00:00",
+        "stderr_sha256": "27019cea5d8fdc2be6b933bd1b18f9de6c8225527287e32556bae07b3981ac0d",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "--require-hashes",
+          "-r",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/runtime-requirements.txt"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:41.724034+00:00",
+        "exit_code": 0,
+        "name": "install-hashed-default-dependencies",
+        "started_at": "2026-09-06T04:27:41.689728+00:00",
+        "stderr_sha256": "18a6e6c1bfb5c1c610c0ae81d513e120e699e8c9ee11d7b007f9bb0fe266e71d",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "--no-deps",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/rebuilt/toolalign-0.0.1-py3-none-any.whl"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:41.741203+00:00",
+        "exit_code": 0,
+        "name": "install-rebuilt-wheel",
+        "started_at": "2026-09-06T04:27:41.724070+00:00",
+        "stderr_sha256": "a4ccd8884b3ffe2417a70617c16aefb11432bc38aacbfe071b39ea1c0ab6be22",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "check",
+          "--python",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:41.750534+00:00",
+        "exit_code": 0,
+        "name": "dependency-consistency",
+        "started_at": "2026-09-06T04:27:41.741242+00:00",
+        "stderr_sha256": "318410aa03942e9336a4e31d6876a0c5b796952bcad48c75cb17cdb698c8c718",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/installed_probe.py",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/module-hashes.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.238790+00:00",
+        "exit_code": 0,
+        "name": "installed-p01-module-bytes",
+        "started_at": "2026-09-06T04:27:41.817747+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "643f2988423927c3b9632e521c5386ac3ac87bd0827dbc304daaa8a7a81fa3c4"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.training.compatibility",
+          "--help"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.268537+00:00",
+        "exit_code": 0,
+        "name": "installed-p01-help",
+        "started_at": "2026-09-06T04:27:42.238874+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c56054b15fea4aafb67bb5c9175d3213d5965831f085cd572346025f12c764c3"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "contract-digest"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.319424+00:00",
+        "exit_code": 0,
+        "name": "installed-contract-digest",
+        "started_at": "2026-09-06T04:27:42.268596+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "04e4e0cebad1d3e169adab19b8ed1d2845199c3315bff61229ff7f550a141cce"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/example.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.413455+00:00",
+        "exit_code": 0,
+        "name": "installed-example",
+        "started_at": "2026-09-06T04:27:42.338063+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/tool.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.484767+00:00",
+        "exit_code": 0,
+        "name": "installed-tool",
+        "started_at": "2026-09-06T04:27:42.422618+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/preference.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.554755+00:00",
+        "exit_code": 0,
+        "name": "installed-preference",
+        "started_at": "2026-09-06T04:27:42.494139+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/run.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.624261+00:00",
+        "exit_code": 0,
+        "name": "installed-run",
+        "started_at": "2026-09-06T04:27:42.563817+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      },
+      {
+        "command": [
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/venv/bin/python",
+          "-I",
+          "-m",
+          "toolalign.cli",
+          "validate",
+          "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source/trace.json"
+        ],
+        "cwd": "<R1_WORKTREE>/.toolalign-local/review-p01-r2/package-check/away-from-source",
+        "ended_at": "2026-09-06T04:27:42.694504+00:00",
+        "exit_code": 0,
+        "name": "installed-trace",
+        "started_at": "2026-09-06T04:27:42.633430+00:00",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "df16404f52f1efe75f1cabaf219cbb7ea8e60f92cb6c5b9a135986b51e90247e"
+      }
+    ],
+    "contract_digest": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "installed": {
+      "all_modules_inside_installed_prefix": true,
+      "distributions": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.6.3",
+        "toolalign": "0.0.1"
+      },
+      "isolated_flag": 1,
+      "model_or_tokenizer_packages_available": false,
+      "module_hashes": {
+        "toolalign.training.compatibility.__init__": "b3a5507aa03be8a656c5a222da44b5c1e9bee45c9a17c9930873f126e926d2cf",
+        "toolalign.training.compatibility.__main__": "57dec33519754b37c5d60b792b63936f6d0b9b823b468d84bca538e0c6197219",
+        "toolalign.training.compatibility.core": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671",
+        "toolalign.training.compatibility.execution": "c6f441994438830657b111048af192e477bc552bb9ae5028efaff9108b3966c9",
+        "toolalign.training.compatibility.fallback_probe": "1c0e92df0af867badca09c64e39ec4237738407ad1bf323eea804806af372b7a",
+        "toolalign.training.compatibility.model_probe": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca",
+        "toolalign.training.compatibility.numerical": "72e1ec30655c4b0bfdff601eb0555fe21d90f3d8936a01f1e051740f22cc8af1",
+        "toolalign.training.compatibility.samples": "d7e117cf22e424521fbef4376a0153bd58a1152b31fd5bf6bd0bd1f32a688b86"
+      },
+      "python": "3.14.7"
+    },
+    "ml_or_model_execution": "NOT_RUN",
+    "source_tree_imported_by_installed_commands": false
+  },
+  "not_run": [
+    "MLX or model/tokenizer imports; PyTorch was used only for the 17 tiny CPU math comparisons",
+    "GPU training/inference or fault injection, model weights download or model replay",
+    "R1 Python 3.11/3.12/3.13 runtime execution",
+    "P04/P05 formal training, accepted_sft reference, complete real backend with 256-token protocol",
+    "P04 kris token/mask approval or P02 kris semantic review",
+    "BFCL/final tests, long-duration model memory/throughput/power/thermal benchmarks",
+    "Repeated unchanged full dependency or S0 shared archive-canary investigations",
+    "Business writes, paid cloud/API, model/data upload, serving deployment or main merge"
+  ],
+  "observations": {
+    "callback_controls": [
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres0/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "finite_bad",
+        "last_iteration": 1,
+        "last_loss": 0.6931501805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 33,
+          "optimizer_steps": 4,
+          "processed_nonpadding_tokens": 1007,
+          "processed_tokens": 1007,
+          "training_tokens": 405
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "d2a37b65e865287acaca949552221e5089b6e07d5286a5f59fada09a9e4ee08c",
+        "recorded_reports": 1,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres1/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "finite_bad",
+        "last_iteration": 4,
+        "last_loss": 0.6931501805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 36,
+          "optimizer_steps": 4,
+          "processed_nonpadding_tokens": 1032,
+          "processed_tokens": 1032,
+          "training_tokens": 424
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "bf02c161cf2d078882a63fe7fa787cf93bb9530bfaf42778df2b7f66a5b92e17",
+        "recorded_reports": 4,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres10/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "near_upper",
+        "last_iteration": 8,
+        "last_loss": 0.6931481805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": null,
+        "raw_sha256": "a8249ad568c841a333198315f17fb9239d19a87d31096484d59e16c669df50f2",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres11/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "near_lower",
+        "last_iteration": 8,
+        "last_loss": 0.6931461805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": null,
+        "raw_sha256": "4151c415e5c51e930dcc39f48bf154670a098a9a8de7bc66892c2326d3301bfb",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres12/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "finite_after_first_cycle",
+        "last_iteration": 9,
+        "last_loss": 0.9431471805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 41,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1071,
+          "processed_tokens": 1071,
+          "training_tokens": 453
+        },
+        "raised_exception": null,
+        "raw_sha256": "9152cb0da26d5cf803e63df009e5af0a5f1271f87eebf1a02c13ad2502aa2abe",
+        "recorded_reports": 9,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres13/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "aux_nan",
+        "last_iteration": 8,
+        "last_loss": 0.6931471805599453,
+        "nonfinite_values": {
+          "train_chosen_reward": "nan"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "74c518fb5829e9053b4887f7a948ded7dcc0ec177c5b8170fc45aa7a314d5f9d",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres14/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "aux_inf",
+        "last_iteration": 8,
+        "last_loss": 0.6931471805599453,
+        "nonfinite_values": {
+          "train_chosen_reward": "inf"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "0912d22e68a79228b62571e01abd979067247af48979cfe642ed28c0e8a8b241",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres15/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "aux_negative_inf",
+        "last_iteration": 8,
+        "last_loss": 0.6931471805599453,
+        "nonfinite_values": {
+          "train_chosen_reward": "-inf"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "037b6115e434f40efb24445d2fd04031cbebd9d9ad0baa0d8b2490d0ede1e2bc",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres2/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "finite_bad",
+        "last_iteration": 8,
+        "last_loss": 0.6931501805599453,
+        "nonfinite_values": {},
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "037d4b0ace9a8ee4256a2d0ee347f62f4ea71f432a264b1185e8f426f1f42d82",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres3/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "nan",
+        "last_iteration": 1,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "nan"
+        },
+        "progress": {
+          "microsteps": 33,
+          "optimizer_steps": 4,
+          "processed_nonpadding_tokens": 1007,
+          "processed_tokens": 1007,
+          "training_tokens": 405
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "8582137f2380611d2f69328cae12b1d65397064660dc2603c048b67b9ce1f7b0",
+        "recorded_reports": 1,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres4/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "nan",
+        "last_iteration": 8,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "nan"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "a21f29f080420d6735f62b34491fe75bea2408ae99cd9a2d65b03cb26be3c693",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres5/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "inf",
+        "last_iteration": 8,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "inf"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "be112f8cbc5f1f137a49e1bec3840c92c64b336287127e823fd6fbcc77e0ce27",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres6/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "-inf",
+        "last_iteration": 8,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "-inf"
+        },
+        "progress": {
+          "microsteps": 40,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1064,
+          "processed_tokens": 1064,
+          "training_tokens": 448
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "ae97b97f515d6fdace555e63ffc37ed2e80e62e2307df134a3d75bec41a5c577",
+        "recorded_reports": 8,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres7/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "nan",
+        "last_iteration": 9,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "nan"
+        },
+        "progress": {
+          "microsteps": 41,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1071,
+          "processed_tokens": 1071,
+          "training_tokens": 453
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "556c092ce2c1ec19cb892b434b9c7fc2e5b925d945b23839ce237e7a769dfda4",
+        "recorded_reports": 9,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres8/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "inf",
+        "last_iteration": 9,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "inf"
+        },
+        "progress": {
+          "microsteps": 41,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1071,
+          "processed_tokens": 1071,
+          "training_tokens": 453
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "228074414976233d4a92dafabea2f2e4c2eeb697be2b70656eb38189c515fc3c",
+        "recorded_reports": 9,
+        "strict_json_valid": true
+      },
+      {
+        "artifact": "final-probes/test_sequential_callbacks_pres9/callback-observation.json",
+        "callback_source_sha256": "cca786058aa93422e0ba4b86d91b237790efd7e90d53da842d1b36c5b7e9002c",
+        "kind": "-inf",
+        "last_iteration": 9,
+        "last_loss": null,
+        "nonfinite_values": {
+          "train_loss": "-inf"
+        },
+        "progress": {
+          "microsteps": 41,
+          "optimizer_steps": 5,
+          "processed_nonpadding_tokens": 1071,
+          "processed_tokens": 1071,
+          "training_tokens": 453
+        },
+        "raised_exception": "ValueError",
+        "raw_sha256": "c255189d03a432f0b02e9d7768f57e5d91642c1eda880d11ff51b8f959c22a49",
+        "recorded_reports": 9,
+        "strict_json_valid": true
+      }
+    ],
+    "initialization_failures": [
+      {
+        "actual_created_children": 0,
+        "artifact": "final-probes/test_initialization_failure_le0/initialization-observation.json",
+        "manifest_ended_at": null,
+        "manifest_exit_code": null,
+        "manifest_status": "running",
+        "popen_calls": 0,
+        "raw_sha256": "467546818c7e713513276a81947794babf13a0b197fb33becfa31e5664b20bdc",
+        "resources_exists": false,
+        "same_original_exception": true,
+        "stage": "initial_swap",
+        "summary_runs": 0
+      },
+      {
+        "actual_created_children": 0,
+        "artifact": "final-probes/test_initialization_failure_le1/initialization-observation.json",
+        "manifest_ended_at": null,
+        "manifest_exit_code": null,
+        "manifest_status": "running",
+        "popen_calls": 1,
+        "raw_sha256": "e32e107aaa5ee01b5838a593b7fda79a60a8d7557479019649f0599b6db5d999",
+        "resources_exists": false,
+        "same_original_exception": true,
+        "stage": "popen",
+        "summary_runs": 0
+      }
+    ],
+    "monitor_controls": [
+      {
+        "actual_child_returncode": -9,
+        "artifact": "final-probes/test_monitor_errors_preserve_o0/monitor-observation.json",
+        "fault": "pressure_timeout",
+        "manifest_optimizer_steps": 2,
+        "manifest_status": "failed",
+        "manifest_training_tokens": 29,
+        "owned_child_already_reaped": true,
+        "raw_sha256": "a0af413a0a48979ecb2fee0fd6bbe62d1a6a817b5ea345a7d28060197c29f32a",
+        "resources_sha256": "48a75c4dd4153e4d183af4a6de8b81d8e7f0848c9147eaa88d79c4e16eada2b2",
+        "same_original_exception": true,
+        "signals": [
+          "terminate",
+          "kill"
+        ],
+        "summary_assessment": "FAILED_MONITOR",
+        "unrelated_child_remained_alive": true,
+        "wait_timeouts": [
+          1,
+          10
+        ]
+      },
+      {
+        "actual_child_returncode": -9,
+        "artifact": "final-probes/test_monitor_errors_preserve_o1/monitor-observation.json",
+        "fault": "swap_read",
+        "manifest_optimizer_steps": 2,
+        "manifest_status": "failed",
+        "manifest_training_tokens": 29,
+        "owned_child_already_reaped": true,
+        "raw_sha256": "7285964dcc357cd7bd0f387fb1643810bc40d44697e62506b1ea1f5460da2f27",
+        "resources_sha256": "6ae94570bc9d31040b832b3ec36a72225fcf5d365bca8ee19006f772be50ff5b",
+        "same_original_exception": true,
+        "signals": [
+          "terminate",
+          "kill"
+        ],
+        "summary_assessment": "FAILED_MONITOR",
+        "unrelated_child_remained_alive": true,
+        "wait_timeouts": [
+          1,
+          10
+        ]
+      },
+      {
+        "actual_child_returncode": -9,
+        "artifact": "final-probes/test_monitor_errors_preserve_o2/monitor-observation.json",
+        "fault": "rss_read",
+        "manifest_optimizer_steps": 2,
+        "manifest_status": "failed",
+        "manifest_training_tokens": 29,
+        "owned_child_already_reaped": true,
+        "raw_sha256": "00e4a6d5acaec8565a2415e20981f237ec95808c4151a9cdd44d6d3087d7add7",
+        "resources_sha256": "636174ffcd04543b7217972db57ca4105687eaa52a1d92c89cc7470f520befcd",
+        "same_original_exception": true,
+        "signals": [
+          "terminate",
+          "kill"
+        ],
+        "summary_assessment": "FAILED_MONITOR",
+        "unrelated_child_remained_alive": true,
+        "wait_timeouts": [
+          1,
+          10
+        ]
+      },
+      {
+        "actual_child_returncode": 0,
+        "artifact": "final-probes/test_monitor_errors_preserve_o3/monitor-observation.json",
+        "fault": "wait_control",
+        "manifest_optimizer_steps": 2,
+        "manifest_status": "succeeded",
+        "manifest_training_tokens": 29,
+        "owned_child_already_reaped": true,
+        "raw_sha256": "17237c2e1075b13ca299dd1dd273d29adcff9143e44592b43969126d3bb68cc2",
+        "resources_sha256": "265c01c1ece7de6df8a198ce3f5967437e5fce0245302abfb591e288d112a208",
+        "same_original_exception": true,
+        "signals": [],
+        "summary_assessment": "UNKNOWN",
+        "unrelated_child_remained_alive": true,
+        "wait_timeouts": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "old_findings": {
+    "F1": {
+      "initialization_lifecycle": "FAIL",
+      "original_two_failure_triggers": "PASS",
+      "running_worker_error_cleanup_and_terminal_accounting": "PASS",
+      "status": "PARTIALLY_FIXED; remains OPEN through R2-F1"
+    },
+    "F2": {
+      "gpu_failure_injection": "NOT_RUN",
+      "independent_sequential_callback_cases": 16,
+      "original_callback_controls": "PASS",
+      "status": "CLOSED"
+    },
+    "F3": {
+      "historical_sources_resolved": 8,
+      "raw_head_and_artifacts_preserved": true,
+      "status": "CLOSED"
+    }
+  },
+  "original_candidate": "59b3802c81aa6eceaf3609af88f288756bcb1581",
+  "original_review": "ac6bdf78d57c6753865a24a1d216b90dc4478646",
+  "private_artifact_hashes": {
+    "audit-before-upstream-spelling-fix.py": "fdaac2d9b1d7f7953417c7eb9e28f3201743efa0b26f2474c9ddf8e6cc453d7c",
+    "environment.json": "8d0a89facc38d65299749e6ad0b331cff729c7884d98f1702bc2227c8929f40f",
+    "package-check/evidence.json": "0d8bcafbbaeb25f69eada168cbbf289b8bd6326a41e9a0c64dda8d66961e9c46",
+    "preserved-evidence.json": "2632f53e2de381e5606d0dc4330830dbb35d6a03965ab70396ef7ed9f538c8f6",
+    "rebuilt-historical-summary.json": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd"
+  },
+  "production_base": "37c00de9abe92e6fb24a0c0e0b7361aa4bb90385",
+  "review_branch": "review/p01-r2",
+  "review_probe_hashes": {
+    "reports/review/P01-r2/audit_p01_r2_evidence.py": "194388432b6f5a8bf577977d4e09493281dcd911e83665a63b04518f3df236e2",
+    "reports/review/P01-r2/test_p01_r2_regressions.py": "c5e00114d64c33e6760fb7e1cbeaa76872acf9f490ab7f706c37f11eb4836927",
+    "reports/review/P01-r2/verify_p01_r2_package.py": "710b4a96ba68aa01cb93bc37a82e4ef7ac8128bca6cf1aff1516ac45566bccfa"
+  },
+  "reviewer": "R1",
+  "task": "P01-review-r2",
+  "verdict": "FAIL",
+  "worker_fix_authorization": "a0a800b2a544cb25e7eccad2dce12173acc77ea1"
+}

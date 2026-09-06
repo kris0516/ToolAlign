@@ -1,0 +1,31 @@
+{
+  "mlx-lm": {
+    "version": "0.31.3",
+    "pypi": "https://pypi.org/project/mlx-lm/0.31.3/",
+    "files": {
+      "mlx_lm/tuner/trainer.py": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe",
+      "mlx_lm/tuner/datasets.py": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17",
+      "mlx_lm/tuner/lora.py": "4d3a8edab111d4ddba33398ba8700203db7b61621c39e9c348fdd50e57278b45",
+      "mlx_lm/tuner/utils.py": "166eaf5e5f923113bed43614a5fb7319795fa0cac5a7fa319ea54e5f0045b553"
+    }
+  },
+  "mlx-tune": {
+    "version": "0.6.0",
+    "pypi": "https://pypi.org/project/mlx-tune/0.6.0/",
+    "files": {
+      "mlx_tune/rl_trainers.py": "4e6eb860c16083d3c0f642a264b7efc0c671cf09d63e2fc65950d3e325e3978c",
+      "mlx_tune/losses.py": "31762d5fb71e0b2a94eef902ea4cdf18e4f4bedb8ad815aefb43547739739779",
+      "mlx_tune/_perf.py": "67dba4dc0dc6419fec8ee961067ec84d6773f315ca41d3f99c10122508e043db",
+      "mlx_tune/model.py": "7d952d5d65cc16d62c17d0861c0ada9ddd6dbacf423d8f85cfe565478fa26506"
+    }
+  },
+  "mlx-lm-lora": {
+    "version": "3.1.2",
+    "pypi": "https://pypi.org/project/mlx-lm-lora/3.1.2/",
+    "files": {
+      "mlx_lm_lora/trainer/dpo_trainer.py": "7d343fdc1d122f2f08cf8b49bcdca65d392ccc8f5b852069543bdcf7cf351be6",
+      "mlx_lm_lora/utils.py": "262485b6f6c87557084823328a042d52e439935cda37c50e34dee4d4c3378206",
+      "mlx_lm_lora/trainer/sft_trainer.py": "4f5f04d99ddb03b3b4a46365998e36467411c67525fd5baad6fddef19b45b85c"
+    }
+  }
+}

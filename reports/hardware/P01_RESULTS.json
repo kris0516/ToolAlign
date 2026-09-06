@@ -1,0 +1,2164 @@
+{
+  "scope": "P01 self-test evidence; pending independent R1/S0 acceptance",
+  "units": {
+    "memory": "bytes; GiB = bytes / 2**30",
+    "time": "synchronized seconds"
+  },
+  "runs": [
+    {
+      "run_id": "p01-calibrate17-1024-r1",
+      "mode": "calibrate",
+      "git_commit": "aaab75ed5d993f9354f11f74b58edb67d0af45c3",
+      "source_hash": "1559e6a7f12e222ec6198e1d55370604b16bf64bdb0ce8256faf41b3b49e94ec",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 110.56727241701446,
+      "peak_rss_bytes": 12641714176,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "sequence_bucket": 1024,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "2adda5c8ac7b37f13a5e0342cdbabe884a31bee5566b833f896ba9ef907532da",
+        "config.json": "3cfb5e8927a3e2d49edcb3505dfe0eb89559fab391f0a5cac50c8e5f629fdb3d",
+        "stdout.log": "5c0c1e107b5600e26a6ac23367d7aba3c07d592272b8a95a601f5ea664d35eab",
+        "resources.json": "db211efd6ff1042657d0224b3f18124a2a4b7b5f9d528e06e1caa9ddf3c2387d",
+        "result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+        "partial-result.json": "3c12c000fb5f48df96c4ec3c9ff9089c6ba2547746b2a4250a23173fd0b377aa",
+        "token-audit.json": "add1bfe66f2f2337299ec6d34139237f392375394717f7f895f6a03f69a9c63d",
+        "sft-steps.json": "88c86f14bd3bbd0ead496dda9aa24d5d9d6fe15695eb9e762f5e7af3247f3196",
+        "fallback-dpo-steps.json": "fc7ef6dd11124ec24c2aa6397bc00ffc369ca39ba162d3c08dbd8ae2bc9b15b2",
+        "progress.json": "4cc2d101d30f76a22d8f67ebc922f4169bcc7acac97053808e6a4cd773a419f9",
+        "events.json": "6268d5d33c067aaeca2cb876592dd21414c86706d2c7726c4ce6071d66cf4e39"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 129892,
+        "processed_nonpadding_tokens": 122724,
+        "reference_model_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e"
+      },
+      "manifest_artifacts_verified": 25,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-1.7B",
+        "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "model_hash": "c3cc19430177bf7bfd9dcbdd4bd1ef53dbe4deb4463e223a46dac02fd6557aed",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e",
+      "training_tokens": 1120,
+      "optimizer_steps": 15,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 960,
+        "max_length": 960,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "synthetic capacity fixture"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 1.752091076874648,
+        "loss_after": 0.0030973070126388957,
+        "loss_decreased": true,
+        "microsteps": 112,
+        "optimizer_steps": 14,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 104,
+        "measured_seconds": 58.22920416551642,
+        "warmup_seconds": 5.295988084282726,
+        "step_seconds_min": 0.5481797500979155,
+        "step_seconds_median": 0.5590009579900652,
+        "step_seconds_max": 0.5761934579350054,
+        "step_seconds_mean": 0.5598961938991963,
+        "step_seconds_stdev": 0.004994550591652487,
+        "trainer_wall_seconds": 63.652647709008306,
+        "validation_before_seconds": 5.772500250022858,
+        "validation_after_seconds": 5.788999583106488,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 17.08203125
+      },
+      "dpo": {
+        "status": "PASS",
+        "backend": "mlx-lm-lora 3.1.2 train_dpo with explicit collator",
+        "microsteps": 8,
+        "optimizer_steps": 1,
+        "configured_accumulation": 8,
+        "compilation_disabled": true,
+        "training_path_initial_losses": [
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "loss_after": [
+          0.585513174533844,
+          0.6300704479217529
+        ],
+        "wall_seconds": 11.855037791887298,
+        "measured_microsteps_after_first_warmup": 7,
+        "measured_seconds_after_first_warmup": 10.091772585874423,
+        "warmup_seconds": 1.7336425827816129,
+        "reference_hash_and_outputs_unchanged": true,
+        "reference_stage": "sft_smoke",
+        "only_adapter_updated": true,
+        "changed_parameters": 112,
+        "import_max_logit_abs_error": 0.0,
+        "reload_max_logit_abs_error": 0.0,
+        "reload_parameters_identical": true,
+        "reload_atol": 1e-05,
+        "ln2_atol": 2e-06,
+        "unpadded_reference_score_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "score_atol": 0.02,
+        "reference_identity_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e",
+        "formal_training": false,
+        "loader": "mlx_lm_lora.utils.from_pretrained",
+        "import_seconds": 0.3066611660178751,
+        "reload_seconds": 0.5579245830886066,
+        "partial_accumulation": "rejected"
+      },
+      "primary_dpo": {
+        "status": "NOT_RUN",
+        "reason": "Awaiting native initialization gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.40542541607283056,
+        "adapter_load_seconds": 0.00279933400452137
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 0.7269567500334233,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.69140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 36.0,
+            "completion_cache_margin": 36.40060418099165,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 40.0,
+            "completion_cache_margin": 41.52340091695078,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "208f1e17c8c45995c0f1aa4ecfc2ea59c4d4c3a161531181584da40b50c0d59e",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.506908583920449,
+          "prompt_tokens": 941,
+          "generated_tokens": 19,
+          "prompt_tps": 5360.852273992099,
+          "generation_tps": 75.24818276099113,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.5093737081624568,
+          "prompt_tokens": 941,
+          "generated_tokens": 19,
+          "prompt_tps": 5428.60475949882,
+          "generation_tps": 75.09643961245153,
+          "finish_reason": "stop"
+        }
+      ],
+      "checkpoint_io": {
+        "sft": 0.008460375014692545,
+        "dpo": 0.005767750088125467
+      },
+      "phase_seconds": {
+        "load_original": 0.34164304099977016,
+        "hash_parameters_before": 1.2658338751643896,
+        "original_forward": 0.4216640000231564,
+        "sft_validation_before": 5.772500250022858,
+        "sft_trainer_total": 63.652647709008306,
+        "sft_validation_after": 5.788999583106488,
+        "hash_parameters_after": 1.3450505000073463,
+        "sft_forward": 0.18892083293758333,
+        "sft_generate": 0.5076690830755979,
+        "cross_library_base_load": 0.40542541607283056,
+        "cross_library_adapter_load": 0.00279933400452137,
+        "cross_library_hash": 1.24266600003466,
+        "cross_library_forward": 0.19633950013667345,
+        "cross_library_logps": 0.7219062082003802,
+        "cross_library_generate": 0.509943958837539,
+        "reference_precompute": 0.7269567500334233,
+        "fallback_load_sft": 0.3066611660178751,
+        "fallback_import_hashes": 1.2246542919892818,
+        "fallback_reference_forward": 0.19451416679657996,
+        "fallback_import_forward": 0.17473762505687773,
+        "fallback_native_dpo_train": 11.855037791887298,
+        "fallback_policy_hashes_after": 1.3993207078892738,
+        "fallback_reference_hashes_after": 1.3368729578796774,
+        "fallback_dpo_forward": 0.17419404117390513,
+        "fallback_dpo_reload": 0.5579245830886066,
+        "fallback_dpo_reload_hashes": 1.1701902078930289,
+        "fallback_dpo_reload_forward": 0.1788397920317948
+      },
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 18950768686,
+      "actual_initial_training_loss_max_abs_error": 1.904654323148236e-09,
+      "assessment": "PASS"
+    },
+    {
+      "run_id": "p01-calibrate17-1536-r1",
+      "mode": "calibrate",
+      "git_commit": "47c03404bab043e85b417cd8a6d0432dc2f85479",
+      "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241",
+      "exit_code": 124,
+      "stop_reason": "memory_pressure",
+      "wall_seconds": 160.1101317908615,
+      "peak_rss_bytes": 9868492800,
+      "max_swap_growth_bytes": 33161216,
+      "max_pressure_level": 2,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "sequence_bucket": 1536,
+      "raw_result_status": "RUNNING",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "5a37f43e7f4caecbc4c8b59449a0268089a05a87333e25edf8d369764f0944cb",
+        "config.json": "d408e85802da0e66b54e1b933013a58bbb4e05d4becd4e5d962f179e8ee36169",
+        "stdout.log": "098dc0185b90cc01bab5c6d2a52f08599566c56d995e5e2f1ef16a1849144398",
+        "resources.json": "8f2c9edf318c768348e05e189db5a6e8da899f97470f7052d4e0efa7cd400d3d",
+        "partial-result.json": "03759993f140196c286b3865baadf36db4287215727c59fea2ba7471e71bbb28",
+        "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5",
+        "sft-steps.json": "43bc6e2cd9f6141d20ff24b717599c8859618ac4621dc4504df9f6a8b8d8fb1a",
+        "progress.json": "ac36ef92140df23ded6801783c38cd5701b5231396df049ab05711cc2cd90def",
+        "events.json": "474f925bb7dd4c043c99d57a6165b66e9a65b7dbcc2624252651ad1bcb3f2049"
+      },
+      "progress": {
+        "training_tokens": 980,
+        "optimizer_steps": 14,
+        "microsteps": 112,
+        "processed_tokens": 171920,
+        "processed_nonpadding_tokens": 164752,
+        "reference_model_hash": "1bbd719d2b859f63fb3c67cbbc917e44382a359d59e02722b4a0fda697ae3c9e"
+      },
+      "manifest_artifacts_verified": 21,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-1.7B",
+        "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "model_hash": "c3cc19430177bf7bfd9dcbdd4bd1ef53dbe4deb4463e223a46dac02fd6557aed",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "1bbd719d2b859f63fb3c67cbbc917e44382a359d59e02722b4a0fda697ae3c9e",
+      "training_tokens": 980,
+      "optimizer_steps": 14,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 1472,
+        "max_length": 1472,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "synthetic capacity fixture"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 2.2083759850878733,
+        "loss_after": 0.021026518771211946,
+        "loss_decreased": true,
+        "microsteps": 112,
+        "optimizer_steps": 14,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 104,
+        "measured_seconds": 105.58223158237524,
+        "warmup_seconds": 8.679542875150219,
+        "step_seconds_min": 0.8887397910002619,
+        "step_seconds_median": 1.0655958330025896,
+        "step_seconds_max": 1.1044232500717044,
+        "step_seconds_mean": 1.0152137652151465,
+        "step_seconds_stdev": 0.07907105385967347,
+        "trainer_wall_seconds": 114.40805187495425,
+        "validation_before_seconds": 10.692770667141303,
+        "validation_after_seconds": 9.369353459216654,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 18.9375
+      },
+      "dpo": {
+        "status": "NOT_RUN",
+        "reason": "Awaiting native initialization gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "primary_dpo": {
+        "status": "NOT_RUN",
+        "reason": "Awaiting native initialization gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.49067866592667997,
+        "adapter_load_seconds": 0.00375466700643301
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 1.3469039159826934,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.69140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 28.20327365398407,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 32.0,
+            "completion_cache_margin": 34.147498880920466,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "1bbd719d2b859f63fb3c67cbbc917e44382a359d59e02722b4a0fda697ae3c9e",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.6332010000478476,
+          "prompt_tokens": 1453,
+          "generated_tokens": 19,
+          "prompt_tps": 5128.071649127598,
+          "generation_tps": 70.37841826097838,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.6966472079511732,
+          "prompt_tokens": 1453,
+          "generated_tokens": 19,
+          "prompt_tps": 4882.982485902436,
+          "generation_tps": 61.04635043615913,
+          "finish_reason": "stop"
+        }
+      ],
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 14621274704,
+      "assessment": "STOPPED_RESOURCE"
+    },
+    {
+      "run_id": "p01-calibrate17-1536-r2",
+      "mode": "calibrate",
+      "git_commit": "fdb37c7fa8991f8d57bf48f3c690aa7d0b145611",
+      "source_hash": "4a35ac9564255a38649a5d26d7990bef6189f5420d3c216e774409b02bdf6ae0",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 166.46871237503365,
+      "peak_rss_bytes": 13333069824,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "sequence_bucket": 1536,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": true,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "7d26cbfd229e7f43d71f57062fbbb98db29cd39bb64d3a8db4fa41d1f14305a7",
+        "config.json": "3329229f6993debf521504c2f8e8c10e4276207ae81254f70095c5a4c35f05f8",
+        "stdout.log": "3ec1099ac969939cbc4521e78ef3a6050c25f85c915ae20ed799ca6e76a44faf",
+        "resources.json": "6dc1099cdf9ab0a45fd18d147d5591c4d10840af55af96acccbbda4b6b8e5459",
+        "result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+        "partial-result.json": "1f0f7d3c7b4f89f1893348beb91ccfff520fd398d55ed8cbca3e1515a7fc8bb5",
+        "token-audit.json": "9874421c941ab3b28781bbcc07cd1b0c07aa5e46e25e90044e31f69a66dbcdf5",
+        "sft-steps.json": "957cf39ee44f52e9f4533324118498fe69374740f555c88bd521579d074f21d4",
+        "fallback-dpo-steps.json": "40b15a889ee7beb28d9bb1b6d4fed7ffa6c91897bbadfa4b6014f777584fe388",
+        "progress.json": "5e3d1ce83a7158fc3c7e757c699da5ce84437e4df97c22be4382dc448cb04813",
+        "events.json": "b46c3f7a935b401ccc9e40225ba7509bafa6be975970436a0d7fe68c063bdd1e"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 195428,
+        "processed_nonpadding_tokens": 188260,
+        "reference_model_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974"
+      },
+      "manifest_artifacts_verified": 26,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-1.7B",
+        "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "model_hash": "c3cc19430177bf7bfd9dcbdd4bd1ef53dbe4deb4463e223a46dac02fd6557aed",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974",
+      "training_tokens": 1120,
+      "optimizer_steps": 15,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 1472,
+        "max_length": 1472,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "synthetic capacity fixture"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 2.2083759850878733,
+        "loss_after": 0.021026518771211946,
+        "loss_decreased": true,
+        "microsteps": 112,
+        "optimizer_steps": 14,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 104,
+        "measured_seconds": 92.1476093379315,
+        "warmup_seconds": 7.070969166699797,
+        "step_seconds_min": 0.8740472919307649,
+        "step_seconds_median": 0.8857157290913165,
+        "step_seconds_max": 0.8989241251256317,
+        "step_seconds_mean": 0.8860347051724182,
+        "step_seconds_stdev": 0.005920409784082628,
+        "trainer_wall_seconds": 99.3474006659817,
+        "validation_before_seconds": 8.78211266710423,
+        "validation_after_seconds": 9.06369287497364,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 18.9375
+      },
+      "dpo": {
+        "status": "PASS",
+        "backend": "mlx-lm-lora 3.1.2 train_dpo with explicit collator",
+        "microsteps": 8,
+        "optimizer_steps": 1,
+        "configured_accumulation": 8,
+        "compilation_disabled": true,
+        "gradient_checkpointing": true,
+        "training_path_initial_losses": [
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "loss_after": [
+          0.5857670903205872,
+          0.6422972679138184
+        ],
+        "wall_seconds": 22.197642792016268,
+        "measured_microsteps_after_first_warmup": 7,
+        "measured_seconds_after_first_warmup": 19.440853249747306,
+        "warmup_seconds": 2.7305640000849962,
+        "reference_hash_and_outputs_unchanged": true,
+        "reference_stage": "sft_smoke",
+        "only_adapter_updated": true,
+        "changed_parameters": 112,
+        "import_max_logit_abs_error": 0.0,
+        "reload_max_logit_abs_error": 0.0,
+        "reload_parameters_identical": true,
+        "reload_atol": 1e-05,
+        "ln2_atol": 2e-06,
+        "unpadded_reference_score_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "score_atol": 0.02,
+        "reference_identity_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974",
+        "formal_training": false,
+        "loader": "mlx_lm_lora.utils.from_pretrained",
+        "import_seconds": 0.2750768749974668,
+        "reload_seconds": 0.38526266580447555,
+        "partial_accumulation": "rejected"
+      },
+      "primary_dpo": {
+        "status": "NOT_RUN",
+        "reason": "Awaiting native initialization gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.3466189580503851,
+        "adapter_load_seconds": 0.002202708972617984
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 1.1137228750158101,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.69140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 28.20327365398407,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 32.0,
+            "completion_cache_margin": 34.147498880920466,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "bc3c324baa084dab4bd2a937eee8c546caf8450a4448d29c9db31fb036be2974",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.5907912920229137,
+          "prompt_tokens": 1453,
+          "generated_tokens": 19,
+          "prompt_tps": 5515.886978345771,
+          "generation_tps": 73.72787898128416,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.5938604169059545,
+          "prompt_tokens": 1453,
+          "generated_tokens": 19,
+          "prompt_tps": 5600.361401352332,
+          "generation_tps": 73.52356683594984,
+          "finish_reason": "stop"
+        }
+      ],
+      "checkpoint_io": {
+        "sft": 0.0033092910889536142,
+        "dpo": 0.003811249975115061
+      },
+      "phase_seconds": {
+        "load_original": 0.3332060829270631,
+        "hash_parameters_before": 1.2586725410073996,
+        "original_forward": 0.27168800006620586,
+        "sft_validation_before": 8.78211266710423,
+        "sft_trainer_total": 99.3474006659817,
+        "sft_validation_after": 9.06369287497364,
+        "hash_parameters_after": 1.163037999998778,
+        "sft_forward": 0.26877924986183643,
+        "sft_generate": 0.5913876250851899,
+        "cross_library_base_load": 0.3466189580503851,
+        "cross_library_adapter_load": 0.002202708972617984,
+        "cross_library_hash": 1.1744316248223186,
+        "cross_library_forward": 0.2747645420022309,
+        "cross_library_logps": 1.1016037920489907,
+        "cross_library_generate": 0.5944344999734312,
+        "reference_precompute": 1.1137228750158101,
+        "fallback_load_sft": 0.2750768749974668,
+        "fallback_import_hashes": 1.207017125096172,
+        "fallback_reference_forward": 0.2716014578472823,
+        "fallback_import_forward": 0.2604785410221666,
+        "fallback_native_dpo_train": 22.197642792016268,
+        "fallback_policy_hashes_after": 1.2478739579673856,
+        "fallback_reference_hashes_after": 1.2326395828276873,
+        "fallback_dpo_forward": 0.263834249926731,
+        "fallback_dpo_reload": 0.38526266580447555,
+        "fallback_dpo_reload_hashes": 1.187713042134419,
+        "fallback_dpo_reload_forward": 0.2708798749372363
+      },
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 15499194002,
+      "actual_initial_training_loss_max_abs_error": 1.904654323148236e-09,
+      "assessment": "PASS"
+    },
+    {
+      "run_id": "p01-calibrate17-2048-r1",
+      "mode": "calibrate",
+      "git_commit": "f60ff10c094b9232584ec7cc77b60836a473fc58",
+      "source_hash": "d5155e119f778b9e6435e0836aa320a28e9c750ea4dbb192da268c1ae2b04914",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 273.4271086670924,
+      "peak_rss_bytes": 12551716864,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "sequence_bucket": 2048,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": true,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "8444892edb41716b9ad619f757fa6aef4580b50b5a5cd8d079d35b7488e94be2",
+        "config.json": "25726f3ea1e781a39b02523a2bd332dec4f8e027308d2bcca75420ad07681e49",
+        "stdout.log": "ab65dc4ddaec74b2c7f100079d0d2cb42f7bad7bed224c726f7511cf5f7895f0",
+        "resources.json": "2d4150221774ec0e9dddc215399bb727227f0a22453a14774e6d11dec0b64fa1",
+        "result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+        "partial-result.json": "f7029481727fb3ac227e249f008af7faae4e5801f1c8a78c2cd9338fb0250ae4",
+        "token-audit.json": "7c5e06cdba0a74a1c1f2bb731643ffd97f7d5303ca27e0458b1cbc54f9fb5034",
+        "sft-steps.json": "e55346fc23e8c898d857bfe353b39cad879702063b679f9269d8e96e27a1db0b",
+        "fallback-dpo-steps.json": "c149bc95f489ff7d7b532f67cd05258a86e845c4e529e7b6010480d9202ae776",
+        "progress.json": "794b5a12ac055d3c37394917e89bd743119a6f22f65c45ab1915e66219166984",
+        "events.json": "f2a1d14cbe946173a050e835229c408aadf964ae598de0429c66d1a0095755cb"
+      },
+      "progress": {
+        "training_tokens": 1120,
+        "optimizer_steps": 15,
+        "microsteps": 120,
+        "processed_tokens": 260964,
+        "processed_nonpadding_tokens": 253796,
+        "reference_model_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5"
+      },
+      "manifest_artifacts_verified": 26,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-1.7B",
+        "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "model_hash": "c3cc19430177bf7bfd9dcbdd4bd1ef53dbe4deb4463e223a46dac02fd6557aed",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5",
+      "training_tokens": 1120,
+      "optimizer_steps": 15,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 1984,
+        "max_length": 1984,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "synthetic capacity fixture"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 2.120543568159762,
+        "loss_after": 0.01594264425517116,
+        "loss_decreased": true,
+        "microsteps": 112,
+        "optimizer_steps": 14,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 104,
+        "measured_seconds": 153.92377096368,
+        "warmup_seconds": 12.35039229085669,
+        "step_seconds_min": 1.3091885838657618,
+        "step_seconds_median": 1.533035833388567,
+        "step_seconds_max": 1.6724450839683414,
+        "step_seconds_mean": 1.4800362592661538,
+        "step_seconds_stdev": 0.10807305394758611,
+        "trainer_wall_seconds": 166.45022274996154,
+        "validation_before_seconds": 14.20882979198359,
+        "validation_after_seconds": 14.759591874899343,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 14.9375
+      },
+      "dpo": {
+        "status": "PASS",
+        "backend": "mlx-lm-lora 3.1.2 train_dpo with explicit collator",
+        "microsteps": 8,
+        "optimizer_steps": 1,
+        "configured_accumulation": 8,
+        "compilation_disabled": true,
+        "gradient_checkpointing": true,
+        "training_path_initial_losses": [
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "loss_after": [
+          0.6655462980270386,
+          0.5161547660827637
+        ],
+        "wall_seconds": 40.022366458084434,
+        "measured_microsteps_after_first_warmup": 7,
+        "measured_seconds_after_first_warmup": 35.177194374846295,
+        "warmup_seconds": 4.814150125021115,
+        "reference_hash_and_outputs_unchanged": true,
+        "reference_stage": "sft_smoke",
+        "only_adapter_updated": true,
+        "changed_parameters": 112,
+        "import_max_logit_abs_error": 0.0,
+        "reload_max_logit_abs_error": 0.0,
+        "reload_parameters_identical": true,
+        "reload_atol": 1e-05,
+        "ln2_atol": 2e-06,
+        "unpadded_reference_score_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "score_atol": 0.02,
+        "reference_identity_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5",
+        "formal_training": false,
+        "loader": "mlx_lm_lora.utils.from_pretrained",
+        "import_seconds": 0.4678339590318501,
+        "reload_seconds": 0.5792146672029048,
+        "partial_accumulation": "rejected"
+      },
+      "primary_dpo": {
+        "status": "NOT_RUN",
+        "reason": "Awaiting native initialization gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.5411630419548601,
+        "adapter_load_seconds": 0.0023384171072393656
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 1.7990562079939991,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.69140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 32.0,
+            "completion_cache_margin": 31.46276181936264,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 48.0,
+            "completion_cache_margin": 45.588465038803406,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "16d700ad34890f9305179f9becb917af6891d1539418f7bba4b07c3bddd004a5",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.7945284580346197,
+          "prompt_tokens": 1965,
+          "generated_tokens": 19,
+          "prompt_tps": 4984.598578979432,
+          "generation_tps": 60.14664690702769,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.8000026668887585,
+          "prompt_tokens": 1965,
+          "generated_tokens": 19,
+          "prompt_tps": 5009.019102425812,
+          "generation_tps": 59.543225219991726,
+          "finish_reason": "stop"
+        }
+      ],
+      "checkpoint_io": {
+        "sft": 0.006036333041265607,
+        "dpo": 0.004973249975591898
+      },
+      "phase_seconds": {
+        "load_original": 0.36037187511101365,
+        "hash_parameters_before": 1.3809360419400036,
+        "original_forward": 0.4454858750104904,
+        "sft_validation_before": 14.20882979198359,
+        "sft_trainer_total": 166.45022274996154,
+        "sft_validation_after": 14.759591874899343,
+        "hash_parameters_after": 1.2931376670021564,
+        "sft_forward": 0.43840037495829165,
+        "sft_generate": 0.7951342919841409,
+        "cross_library_base_load": 0.5411630419548601,
+        "cross_library_adapter_load": 0.0023384171072393656,
+        "cross_library_hash": 1.2010398330166936,
+        "cross_library_forward": 0.4338967080693692,
+        "cross_library_logps": 1.8051634589210153,
+        "cross_library_generate": 0.8005951249506325,
+        "reference_precompute": 1.7990562079939991,
+        "fallback_load_sft": 0.4678339590318501,
+        "fallback_import_hashes": 1.293122832896188,
+        "fallback_reference_forward": 0.4342318749986589,
+        "fallback_import_forward": 0.4213528330437839,
+        "fallback_native_dpo_train": 40.022366458084434,
+        "fallback_policy_hashes_after": 1.4923085828777403,
+        "fallback_reference_hashes_after": 1.367614165879786,
+        "fallback_dpo_forward": 0.42748845904134214,
+        "fallback_dpo_reload": 0.5792146672029048,
+        "fallback_dpo_reload_hashes": 1.1924834169913083,
+        "fallback_dpo_reload_forward": 0.43807116709649563
+      },
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 19313235168,
+      "actual_initial_training_loss_max_abs_error": 1.904654323148236e-09,
+      "assessment": "PASS"
+    },
+    {
+      "run_id": "p01-math-r1",
+      "mode": "math",
+      "git_commit": "ebcaf586f8e65f5306259f6b134e1c5cce30cf48",
+      "source_hash": "6fd8535af7a63fd41eac9fdff9e34e30155aa6fb8756785430e0c187342fb73a",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 35.387532375054434,
+      "peak_rss_bytes": 570638336,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": null,
+      "sequence_bucket": null,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": false,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "config.json": "cd6845b8cc480bb28a9be85f8eddc97f8b840c60451b0e403e899a5333a674af",
+        "stdout.log": "6c202dd072f3bd22f999d0555e5b718b5474548fcc37e6ae6ecb25f7adc272db",
+        "resources.json": "f22df2f2deab3038739416b463e5fd49b7946fedc7f2ef4970dab20dabac38ec",
+        "result.json": "65c4133fcf6bcd0f56aca21f6cbfa8e1ef5fff5cfd0cc2f8e0f2580b93f5dade"
+      },
+      "progress": {},
+      "mlx_peak_bytes": null,
+      "math": {
+        "status": "PASS",
+        "device": "MLX CPU and PyTorch CPU",
+        "dtype": "float32",
+        "tolerances": {
+          "loss_atol": 2e-06,
+          "gradient_atol": 2e-06,
+          "ln2_atol": 2e-06
+        },
+        "ce_loss": 1.9298580884933472,
+        "ce_loss_abs_error": 1.1920928955078125e-07,
+        "ce_gradient_max_abs_error": 1.4901161193847656e-08,
+        "dpo_loss": 0.6867221593856812,
+        "dpo_loss_abs_error": 5.960464477539063e-08,
+        "dpo_gradient_max_abs_error": 1.862645149230957e-09,
+        "initial_ln2": 0.6931471824645996,
+        "masked_logits_invariance": true,
+        "right_padding_invariance": true,
+        "upstream_negative_probes": {
+          "mlx_lm_padding": {
+            "status": "REPRODUCED",
+            "expected_tokens": 2,
+            "upstream_tokens": 3,
+            "correct_loss": 2.430647373199463,
+            "upstream_loss": 2.235194444656372
+          },
+          "mlx_lm_lora_padding": {
+            "status": "REPRODUCED",
+            "nonzero_target_positions": 4,
+            "valid_nonpadding_next_tokens": 3,
+            "includes_first_pad_logp": -1.8442885875701904
+          },
+          "mlx_tune_missing_reference": {
+            "status": "REPRODUCED",
+            "before": 0.6931471824645996,
+            "after_policy_change": 0.6931471824645996,
+            "interpretation": "Implicit stop-gradient policy reference drifts; explicit cache required"
+          }
+        }
+      },
+      "assessment": "PASS"
+    },
+    {
+      "run_id": "p01-math-r2",
+      "mode": "math",
+      "git_commit": "aaab75ed5d993f9354f11f74b58edb67d0af45c3",
+      "source_hash": "17479619a5ef1fb0e2d9747211a67a7d1d71acfd266b48ee1514b267ceca6241",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 2.570802374975756,
+      "peak_rss_bytes": 439566336,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": null,
+      "sequence_bucket": null,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": false,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "config.json": "1d45f9199a56479b8814772aaf2f3d6ffc9cbd34bc81b17379c2df1a78a6c3fa",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "resources.json": "1aea9174281d07093d76a910c45b807d40303e429d156e214bb1690fd9142b54",
+        "result.json": "85b5a523c5820e993f9c0c936c8d5bfea1599f877a1577deec7bf0a4b567e501"
+      },
+      "progress": {},
+      "mlx_peak_bytes": null,
+      "math": {
+        "status": "PASS",
+        "device": "MLX CPU and PyTorch CPU",
+        "dtype": "float32",
+        "fallback_actual_loss_abs_error": 1.1920928955078125e-07,
+        "fallback_actual_gradient_max_abs_error": 1.862645149230957e-09,
+        "tolerances": {
+          "loss_atol": 2e-06,
+          "gradient_atol": 2e-06,
+          "ln2_atol": 2e-06
+        },
+        "ce_loss": 1.9298580884933472,
+        "ce_loss_abs_error": 1.1920928955078125e-07,
+        "ce_gradient_max_abs_error": 1.4901161193847656e-08,
+        "dpo_loss": 0.6867221593856812,
+        "dpo_loss_abs_error": 5.960464477539063e-08,
+        "dpo_gradient_max_abs_error": 1.862645149230957e-09,
+        "initial_ln2": 0.6931471824645996,
+        "masked_logits_invariance": true,
+        "right_padding_invariance": true,
+        "upstream_negative_probes": {
+          "mlx_lm_padding": {
+            "status": "REPRODUCED",
+            "expected_tokens": 2,
+            "upstream_tokens": 3,
+            "correct_loss": 2.430647373199463,
+            "upstream_loss": 2.235194444656372
+          },
+          "mlx_lm_lora_padding": {
+            "status": "REPRODUCED",
+            "nonzero_target_positions": 4,
+            "valid_nonpadding_next_tokens": 3,
+            "includes_first_pad_logp": -1.8442885875701904
+          },
+          "mlx_tune_missing_reference": {
+            "status": "REPRODUCED",
+            "before": 0.6931471824645996,
+            "after_policy_change": 0.6931471824645996,
+            "interpretation": "Implicit stop-gradient policy reference drifts; explicit cache required"
+          }
+        }
+      },
+      "assessment": "PASS"
+    },
+    {
+      "run_id": "p01-smoke06-r1",
+      "mode": "smoke",
+      "git_commit": "3f55ecf3d917f1d69a3b9b65d16a35708c43575f",
+      "source_hash": "18393f07d805fe456adc8f0727546e522225d749e33c5780f3978631f00cc4e0",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 15.45556370797567,
+      "peak_rss_bytes": 3966894080,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "sequence_bucket": 1024,
+      "raw_result_status": "PARTIAL",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": false,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "0ea49c8eb6b02e908c6943ce933b673f9ac9e63519a38d894063c88af93f74dc",
+        "config.json": "b785e53266ee0ed728f91e6d309f6f13ea1a4e5a450cfc92997fb2f59cfc0622",
+        "stdout.log": "03e152c37e530bf4a93898bc941da740ba3ed28115ae0439e935a994304d15af",
+        "resources.json": "c16e84d53901638b952cce98a166f811daf5a01497b77b982c3dc37a425e360a",
+        "result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+        "partial-result.json": "516425cc60232d823a145c73f62af6493c2d3cc0fe77a6ef78757db70dbfd0c2",
+        "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
+        "sft-steps.json": "b195c752dcf7bbd13fd78ce7b1746ba0ee299ec424d9eccc5173afd400a3b07b",
+        "progress.json": "88a6e8c6f4a0645b042b33b928aa7d39d46fb47de2ea492df20a42be67b4acf4",
+        "events.json": "89ce2df84d0d883f3caa7dbd275d0c34b63bce7748f4ad4c0490fa41d17d35df"
+      },
+      "progress": {
+        "training_tokens": 281,
+        "optimizer_steps": 4,
+        "microsteps": 32,
+        "processed_tokens": 6594,
+        "processed_nonpadding_tokens": 6594,
+        "reference_model_hash": "e413898e8ca16ea8feaed716c84edc6554c3951a397bd4cd1f8749d8c4db419d"
+      },
+      "manifest_artifacts_verified": 19,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_hash": "c8277aece81bbdb466c899ad37afaf8587a6cba7119f9cdc52dd49b37252eb82",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "e413898e8ca16ea8feaed716c84edc6554c3951a397bd4cd1f8749d8c4db419d",
+      "training_tokens": 281,
+      "optimizer_steps": 4,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 190,
+        "max_length": 234,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "32 original training smoke cases"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 1.240149667890895,
+        "loss_after": 0.18430577537811163,
+        "loss_decreased": true,
+        "microsteps": 32,
+        "optimizer_steps": 4,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 24,
+        "measured_seconds": 1.7047095415182412,
+        "warmup_seconds": 4.624861749820411,
+        "step_seconds_min": 0.05414254195056856,
+        "step_seconds_median": 0.06763266655616462,
+        "step_seconds_max": 0.19554645894095302,
+        "step_seconds_mean": 0.07102956422992672,
+        "step_seconds_stdev": 0.027308294977649764,
+        "trainer_wall_seconds": 6.390555082820356,
+        "validation_before_seconds": 0.8250874169170856,
+        "validation_after_seconds": 0.6777411249931902,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 14.609375
+      },
+      "dpo": {
+        "status": "FAIL",
+        "microsteps": 0,
+        "optimizer_steps": 0,
+        "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.3073992079589516,
+        "adapter_load_seconds": 0.0022442499175667763
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 0.0915947500616312,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.9140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 27.474186897277832,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 44.0,
+            "completion_cache_margin": 42.286724806865095,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "e413898e8ca16ea8feaed716c84edc6554c3951a397bd4cd1f8749d8c4db419d",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.3266925001516938,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 1391.2143063895392,
+          "generation_tps": 185.98987944408836,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.23083733301609755,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 5231.677068931498,
+          "generation_tps": 187.04087315173228,
+          "finish_reason": "stop"
+        }
+      ],
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 3391002428,
+      "assessment": "PARTIAL_SFT_PASS_DPO_FAILED"
+    },
+    {
+      "run_id": "p01-smoke06-r2",
+      "mode": "smoke",
+      "git_commit": "45f46705516bc8e2c37d69874f281989ed30a7af",
+      "source_hash": "7cdf0c8cf7121783535bedf299203f99863208c5f43a3c7c10a006e9dc07589d",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 15.751634542131796,
+      "peak_rss_bytes": 5799198720,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "sequence_bucket": 1024,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": false,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "1d31e1fd41c9e1bc63422e16e3d6b37fa6c77af5e5c5f16d690b508db8dbad62",
+        "config.json": "6e46d3ebfef1b8a1e43cb5dd44733958a1a14822189e3d0ec6daa358e025ce3b",
+        "stdout.log": "1d3734cd7adc44cc2896f6f02b935477f90ea70d7a43e669b42205c736ecaec6",
+        "resources.json": "ad1a2c92325c977101329ce9cfcb800d5806e119afad3431e8463bf481c38f87",
+        "result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+        "partial-result.json": "3b11aaf9dcfff41892d8b53fb0757ba6b59890b16c29f12bdc0437d8efa40b23",
+        "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
+        "sft-steps.json": "c9dee5a24d36b40c40d893df4ae50b9d6309909c28e44df3baad3be415cb0f0d",
+        "fallback-dpo-steps.json": "09f615ed9f10644c07c0a7cb5a2403323bf6c5b3cdd45bf5acdbed1282dfd0b4",
+        "progress.json": "59f0eee0bf10cf5f6b6f880fa5ebbba46bd370a07276f1b63ce6c81a0307c052",
+        "events.json": "4f1fd9a2c1571b4772e41adaf3ad958ad4045f6aa7c63b7107f7e0fa8709d866"
+      },
+      "progress": {
+        "training_tokens": 421,
+        "optimizer_steps": 5,
+        "microsteps": 40,
+        "processed_tokens": 10122,
+        "processed_nonpadding_tokens": 10054,
+        "reference_model_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0"
+      },
+      "manifest_artifacts_verified": 24,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_hash": "c8277aece81bbdb466c899ad37afaf8587a6cba7119f9cdc52dd49b37252eb82",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0",
+      "training_tokens": 421,
+      "optimizer_steps": 5,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 190,
+        "max_length": 234,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "32 original training smoke cases"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 1.240149667890895,
+        "loss_after": 0.18430577537811163,
+        "loss_decreased": true,
+        "microsteps": 32,
+        "optimizer_steps": 4,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 24,
+        "measured_seconds": 1.5678923758678138,
+        "warmup_seconds": 0.5581680829636753,
+        "step_seconds_min": 0.0574222500436008,
+        "step_seconds_median": 0.06505841657053679,
+        "step_seconds_max": 0.07719329209066927,
+        "step_seconds_mean": 0.06532884899449225,
+        "step_seconds_stdev": 0.006477419468836873,
+        "trainer_wall_seconds": 2.1863526250235736,
+        "validation_before_seconds": 0.6812874160241336,
+        "validation_after_seconds": 0.6922834580764174,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 14.609375
+      },
+      "dpo": {
+        "status": "PASS",
+        "backend": "mlx-lm-lora 3.1.2 train_dpo with explicit collator",
+        "microsteps": 8,
+        "optimizer_steps": 1,
+        "configured_accumulation": 8,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "loss_after": [
+          0.6549741625785828,
+          0.654180109500885
+        ],
+        "wall_seconds": 3.224234500201419,
+        "measured_microsteps_after_first_compile": 7,
+        "measured_seconds_after_first_compile": 1.649168832693249,
+        "warmup_seconds": 1.5357417920604348,
+        "reference_hash_and_outputs_unchanged": true,
+        "reference_stage": "sft_smoke",
+        "only_adapter_updated": true,
+        "changed_parameters": 112,
+        "import_max_logit_abs_error": 0.0,
+        "reload_max_logit_abs_error": 0.0,
+        "reload_parameters_identical": true,
+        "reload_atol": 1e-05,
+        "ln2_atol": 2e-06,
+        "unpadded_reference_score_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "score_atol": 0.02,
+        "reference_identity_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0",
+        "formal_training": false,
+        "loader": "mlx_lm_lora.utils.from_pretrained",
+        "import_seconds": 0.24885254190303385,
+        "reload_seconds": 0.35620258282870054,
+        "partial_accumulation": "rejected"
+      },
+      "primary_dpo": {
+        "status": "FAIL",
+        "microsteps": 0,
+        "optimizer_steps": 0,
+        "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.3201244999654591,
+        "adapter_load_seconds": 0.0022528329864144325
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 0.09268312505446374,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.9140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 27.474186897277832,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 44.0,
+            "completion_cache_margin": 42.286724806865095,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "77bffbb971fc52b5516575a2d0f8210e671c77528f7fab328df9cce476db90e0",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.23900824994780123,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 3914.613770184065,
+          "generation_tps": 184.81373136668384,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.23352545802481472,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 5335.347039699338,
+          "generation_tps": 184.9295946272979,
+          "finish_reason": "stop"
+        }
+      ],
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 4935591468,
+      "actual_initial_training_loss_max_abs_error": 0.013335762503457249,
+      "assessment": "FAIL_TRAINING_PATH_LN2"
+    },
+    {
+      "run_id": "p01-smoke06-r3",
+      "mode": "smoke",
+      "git_commit": "a2df878a71c09f0ac810814f63c067df585294b8",
+      "source_hash": "8ea16f8bc1ccc83f588bdab673088aac07a8fb4e899b39673293679d12d67b91",
+      "exit_code": 2,
+      "stop_reason": null,
+      "wall_seconds": 10.278709083795547,
+      "peak_rss_bytes": 4395941888,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "sequence_bucket": 1024,
+      "raw_result_status": "RUNNING",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "4c0346e75719c7f41c78b152378c7e47b251344d5ee9ad29c7630c514a09da1a",
+        "config.json": "0efb9dae9b89dfe9d9896b5407e86763738fe1c7865da1a61b38f5143e8e03d1",
+        "stdout.log": "99b626d93d3c48bbc1869409780994f99a5b15e53dd0858d93b87dd7759ac74e",
+        "resources.json": "2a5880ee684c2843b3337bddc0123a5a5097639201099b43ec9d191f14c08cbd",
+        "partial-result.json": "5c7b3d76acdaa6a9850121c6bab0f665d83eddeb98b3f92b5dd74a450c3d5194",
+        "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
+        "sft-steps.json": "1be1a51de55e6c67ec9d74d4fdcab9e4c5502d53b93914b4b2d845bbfc684282",
+        "progress.json": "74863fcdec8c7fb2a9b7e300892de856b5fe8df3e43a17630c2b3ae651a30767",
+        "events.json": "ce614843906f51435771547509185a3237f910c6c85de91562301f0a5c78bea6",
+        "failure.json": "53b5d6507cf86803682c1c2cbce8bb8a2880383ef778c60336d35daddb5cc28e"
+      },
+      "progress": {
+        "training_tokens": 281,
+        "optimizer_steps": 4,
+        "microsteps": 32,
+        "processed_tokens": 6594,
+        "processed_nonpadding_tokens": 6594,
+        "reference_model_hash": "2d5de1b40a52b70c6078a444b3861df975977c72a4c9c1b2d5e91e7446d24b58"
+      },
+      "manifest_artifacts_verified": 19,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_hash": "c8277aece81bbdb466c899ad37afaf8587a6cba7119f9cdc52dd49b37252eb82",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "2d5de1b40a52b70c6078a444b3861df975977c72a4c9c1b2d5e91e7446d24b58",
+      "training_tokens": 281,
+      "optimizer_steps": 4,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 190,
+        "max_length": 234,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "32 original training smoke cases"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 1.240149667890895,
+        "loss_after": 0.18430577537811163,
+        "loss_decreased": true,
+        "microsteps": 32,
+        "optimizer_steps": 4,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 24,
+        "measured_seconds": 1.4940527500584722,
+        "warmup_seconds": 0.5381019995547831,
+        "step_seconds_min": 0.051906999899074435,
+        "step_seconds_median": 0.06285447953268886,
+        "step_seconds_max": 0.07379825017414987,
+        "step_seconds_mean": 0.062252197919103004,
+        "step_seconds_stdev": 0.006833699824154539,
+        "trainer_wall_seconds": 2.088301333831623,
+        "validation_before_seconds": 0.6761688338592649,
+        "validation_after_seconds": 0.6806846249382943,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 14.609375
+      },
+      "dpo": {
+        "status": "FAIL",
+        "microsteps": 0,
+        "optimizer_steps": 0,
+        "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "primary_dpo": {
+        "status": "FAIL",
+        "microsteps": 0,
+        "optimizer_steps": 0,
+        "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.3020310839638114,
+        "adapter_load_seconds": 0.00221008388325572
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 0.09213700005784631,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.9140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 27.474186897277832,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 44.0,
+            "completion_cache_margin": 42.286724806865095,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "2d5de1b40a52b70c6078a444b3861df975977c72a4c9c1b2d5e91e7446d24b58",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.2300892909988761,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 4112.290163251343,
+          "generation_tps": 186.3774247529591,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.23639587499201298,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 5368.803393631019,
+          "generation_tps": 184.9154032411027,
+          "finish_reason": "stop"
+        }
+      ],
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": null,
+      "assessment": "FAILED"
+    },
+    {
+      "run_id": "p01-smoke06-r4",
+      "mode": "smoke",
+      "git_commit": "59f80f7f82c7da85d143666c5136d22340fb9841",
+      "source_hash": "1ce5ebb725533d76cb7dc06cf13c1a6e96bc22e1c8a15e10b6796d9b654b994c",
+      "exit_code": 0,
+      "stop_reason": null,
+      "wall_seconds": 13.304520749952644,
+      "peak_rss_bytes": 5669191680,
+      "max_swap_growth_bytes": 0,
+      "max_pressure_level": 1,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "sequence_bucket": 1024,
+      "raw_result_status": "PASS",
+      "hardware": {
+        "platform": "macOS 26.5.1",
+        "machine": "arm64",
+        "memory_bytes": 51539607552,
+        "accelerator": "Apple M5 Pro",
+        "gpu_cores": 16,
+        "model": "Mac17,9",
+        "cpu_description": "proc 15:5:0:10",
+        "python": "3.14.7",
+        "macos_build": "25F80"
+      },
+      "dependency_versions": {
+        "python": "3.14.7",
+        "mlx": "0.32.2",
+        "mlx-metal": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "mlx-tune": "0.6.0",
+        "mlx-lm-lora": "3.1.2",
+        "torch": "2.14.0",
+        "transformers": "5.16.1",
+        "huggingface-hub": "1.30.0",
+        "numpy": "2.5.2",
+        "psutil": "7.2.2",
+        "jsonschema": "4.26.0"
+      },
+      "compile_disabled": true,
+      "dpo_checkpointing": false,
+      "sft_checkpointing": false,
+      "evidence_hashes": {
+        "run.json": "fde4390b4641bf2d5e8cbdebfb18265afc584927b7ae9a97c849f5643ae720a9",
+        "config.json": "7bc42965803c9dcea7b80c802e8fc5f589180a9e7df9dac732f97637c8bbb7fc",
+        "stdout.log": "4fafafd02b4782bdb6b855c79dd6f41815e9c56b5324befa97473088fd4e5faa",
+        "resources.json": "387565e453f4e5a2596faa384fda76d7d7efccad713e0abf0532eecf8bd26d85",
+        "result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+        "partial-result.json": "c53aacd11d851ecdce8dd73ee7e9677b51c2cf61a25d091692b406e02e1c02d0",
+        "token-audit.json": "289fc410d7297e08600db4664e7b2627eee46be6fef331eccb4f24d3f3d675de",
+        "sft-steps.json": "2b24cb79bc08a3f2296e09c353516bd913a5dfcdb73f446b6bc5304665afd971",
+        "fallback-dpo-steps.json": "c438dc4e4c15a040d0768c7c36e6c5cb504c90de992b3e18a8fbb4d7439f31f9",
+        "progress.json": "c43f01ce182f50d0321dc470a8c274b3e3534882de7b81198b687291f768ca00",
+        "events.json": "2e07989c317e37c052eb6487183086b0817643f0142ab25c638cbdc3ce6b4109"
+      },
+      "progress": {
+        "training_tokens": 421,
+        "optimizer_steps": 5,
+        "microsteps": 40,
+        "processed_tokens": 10054,
+        "processed_nonpadding_tokens": 10054,
+        "reference_model_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72"
+      },
+      "manifest_artifacts_verified": 25,
+      "model_identity": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_hash": "c8277aece81bbdb466c899ad37afaf8587a6cba7119f9cdc52dd49b37252eb82",
+        "adapter_hash": null,
+        "tokenizer_hash": "54bb02c1a606dc0e7a5137a38837788d17dbeb61948a71be6b32d475070c7985",
+        "template_hash": "6089820b86a50260ec00285b2c36717c955c82e7a2cfd2b696b1f5913ce548f2",
+        "quantization": "none; original bfloat16 weights"
+      },
+      "reference_model_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72",
+      "training_tokens": 421,
+      "optimizer_steps": 5,
+      "token_audit": {
+        "samples": 32,
+        "min_length": 190,
+        "max_length": 234,
+        "supervised_tokens": 281,
+        "thinking": false,
+        "eos_supervised": true,
+        "history_assistant_supervised": false,
+        "length_distribution": "32 original training smoke cases"
+      },
+      "sft": {
+        "status": "PASS",
+        "backend": "mlx-lm.train with explicit masks",
+        "loss_before": 1.234304302527811,
+        "loss_after": 0.18488070184415123,
+        "loss_decreased": true,
+        "microsteps": 32,
+        "optimizer_steps": 4,
+        "warmup_microsteps": 8,
+        "measured_microsteps": 24,
+        "measured_seconds": 1.5391743348445743,
+        "warmup_seconds": 0.5497291258070618,
+        "step_seconds_min": 0.06031595799140632,
+        "step_seconds_median": 0.0629694793606177,
+        "step_seconds_max": 0.06948704202659428,
+        "step_seconds_mean": 0.06413226395185727,
+        "step_seconds_stdev": 0.0032360687126820734,
+        "trainer_wall_seconds": 2.12461324990727,
+        "validation_before_seconds": 0.6830504999961704,
+        "validation_after_seconds": 0.6955242501571774,
+        "changed_parameter_count": 112,
+        "declared_trainable_count": 112,
+        "frozen_parameters_unchanged": true,
+        "adapter_metadata": {
+          "fine_tune_type": "lora",
+          "num_layers": 28,
+          "lora_parameters": {
+            "rank": 8,
+            "scale": 2.0,
+            "dropout": 0.0,
+            "keys": [
+              "self_attn.q_proj",
+              "self_attn.v_proj"
+            ]
+          }
+        },
+        "optimizer": "Adam",
+        "learning_rate": 0.0001,
+        "gradient_accumulation": 8,
+        "grad_checkpoint": false,
+        "base_forward_max_abs_change": 14.59375
+      },
+      "dpo": {
+        "status": "PASS",
+        "backend": "mlx-lm-lora 3.1.2 train_dpo with explicit collator",
+        "microsteps": 8,
+        "optimizer_steps": 1,
+        "configured_accumulation": 8,
+        "compilation_disabled": true,
+        "training_path_initial_losses": [
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "loss_after": [
+          0.637883722782135,
+          0.650155782699585
+        ],
+        "wall_seconds": 1.4930670000612736,
+        "measured_microsteps_after_first_compile": 7,
+        "measured_seconds_after_first_compile": 1.2991734149400145,
+        "warmup_seconds": 0.16802179091610014,
+        "reference_hash_and_outputs_unchanged": true,
+        "reference_stage": "sft_smoke",
+        "only_adapter_updated": true,
+        "changed_parameters": 112,
+        "import_max_logit_abs_error": 0.0,
+        "reload_max_logit_abs_error": 0.0,
+        "reload_parameters_identical": true,
+        "reload_atol": 1e-05,
+        "ln2_atol": 2e-06,
+        "unpadded_reference_score_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "score_atol": 0.02,
+        "reference_identity_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72",
+        "formal_training": false,
+        "loader": "mlx_lm_lora.utils.from_pretrained",
+        "import_seconds": 0.2224544589407742,
+        "reload_seconds": 0.3455602079629898,
+        "partial_accumulation": "rejected"
+      },
+      "primary_dpo": {
+        "status": "FAIL",
+        "microsteps": 0,
+        "optimizer_steps": 0,
+        "reason": "Native full-reference/shared-completion BF16 path fails initial ln2 gate",
+        "native_initial_loss_atol": 0.02
+      },
+      "cross_library": {
+        "status": "PASS",
+        "loader": "mlx_tune.MLXModelWrapper.load_adapter",
+        "max_logit_abs_error": 0.0,
+        "max_logp_abs_error": 0.0,
+        "atol": 1e-05,
+        "tokenizer_template_identical": true,
+        "trainable_paths_identical": true,
+        "all_parameter_hashes_identical": true,
+        "greedy_tokens_identical": true,
+        "base_reload_seconds": 0.2940463749691844,
+        "adapter_load_seconds": 0.0021767921280115843
+      },
+      "reference": {
+        "status": "PASS",
+        "stage": "sft_smoke",
+        "formal_sft_accepted": false,
+        "precompute_seconds": 0.09282087488099933,
+        "pairs": 2,
+        "initial_ln2": [
+          0.6931471824645996,
+          0.6931471824645996
+        ],
+        "primary_native_initial_losses": [
+          0.9140625,
+          0.69140625
+        ],
+        "native_margin_diagnostics": [
+          {
+            "full_cache_margin": 28.0,
+            "completion_cache_margin": 26.69806146621704,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          },
+          {
+            "full_cache_margin": 44.0,
+            "completion_cache_margin": 42.093114615476225,
+            "upstream_logp_dtype": "mlx.core.bfloat16"
+          }
+        ],
+        "identity_hash": "95d095a6de224d2a1c1d3743f16229fb5040098cf8842b7c4a14dca9f7431f72",
+        "full_reference_parameters_frozen": true
+      },
+      "generation": [
+        {
+          "wall_seconds": 0.23129154182970524,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 3959.638906278779,
+          "generation_tps": 184.39824858334742,
+          "finish_reason": "stop"
+        },
+        {
+          "wall_seconds": 0.2269222498871386,
+          "prompt_tokens": 189,
+          "generated_tokens": 25,
+          "prompt_tps": 5434.684937107565,
+          "generation_tps": 184.32234087347882,
+          "finish_reason": "stop"
+        }
+      ],
+      "complete_task_inference": {
+        "status": "NOT_RUN",
+        "reason": "P03 harness not merged",
+        "future_entry": "ModelBackend.generate + TaskOracle.score"
+      },
+      "mlx_peak_bytes": 5246162495,
+      "actual_initial_training_loss_max_abs_error": 1.904654323148236e-09,
+      "assessment": "PASS"
+    }
+  ]
+}
