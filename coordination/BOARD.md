@@ -13,7 +13,7 @@
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8保持；[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50，最终双Python CI及main919CPU/2跳过、现存三归档/49安装包文件绑定通过，见[主干证据](../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。实际页面/人审/G-DATA/P04未完成 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
-| [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1 | 技术基线42eaa50、ADR-0020 | IN_PROGRESS（CPU） | 按e42536d原生接续、gpt-6-astra/max；intake及13例完整collator数组已核对。CPU train在上游入口阻塞，两失败/进程清理保留；T1继续其余CPU测试/打包，待完整候选与R1，见[中间证据](../reports/S0_P04_SFT_CPU_INTERMEDIATE.md) |
+| [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1；R1独立审查 | 技术基线42eaa50、ADR-0020 | READY_FOR_REVIEW（CPU部分） | 完整33d6248已交付/远端一致/T1空闲，S0核对2083路径及18原命令/三归档/安装；970/2是T1自测，原生train仍BLOCKED。精确[R1范围](tasks/P04_SFT_CPU_REVIEW.md)READY未派发，见[交接证据](../reports/S0_P04_SFT_CPU_HANDOFF.md) |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -31,4 +31,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：PR8共用格式/截止时间修订及PR9训练绑定CPU均VERIFIED。T1已按完整e42536d原生接P04-SFT-CPU并确认新轮ACTIVE；新分支/输入intake已验证，D1/E1/R1无新任务。仅一个CPU实现；框架小数值复核须按范围持共享租约并强制CPU，不授权真实模型/GPU。语义/实际页面/token-mask人工与正式P04仍待完成。
+公共跟进：PR8共用格式/截止时间修订及PR9训练绑定CPU均VERIFIED。T1的P04-SFT-CPU完整33d候选已交付并原生结束；D1/E1/T1空闲。R1精确CPU部分审查范围READY未派发，已知原生训练入口阻塞保留。数值复核须持共享租约并强制CPU；语义/实际页面/token-mask人工与正式P04仍待完成。

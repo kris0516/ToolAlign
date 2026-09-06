@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR9合并42eaa50及main验证完成；T1按e42536d接P04-SFT-CPU、work/p04-sft-cpu同轮ACTIVE；13例collator中间证据已核对，CPU train上游入口阻塞，继续其余CPU交付 |
+| 当前任务/分支 | S0 main；PR9验证完成；T1完整P04-SFT-CPU候选33d6248已交付/原生空闲，S0交接核对2083路径通过；精确R1范围READY未派发，CPU train上游入口阻塞保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1新P04-SFT-CPU轮已原生ACTIVE，gpt-6-astra/max；D1/E1/R1无新任务，只有一个CPU实现 |
+| 独立实现/reviewer 对话 | T1/D1/E1原轮均已结束；R1旧训练绑定审查completed/notLoaded已核验，新P04-SFT-CPU-R1待原生派发；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -172,3 +172,5 @@ S0按ADR-0020准备P04-SFT-CPU范围，T1拟从已验证42eaa50新建work/p04-sf
 15:04 UTC，S0直接核对T1实际work/p04-sft-cpu/42eaa50、364基线文件、11份授权副本、配置5aad6ff6与原输入，1716个当前文件路径通过；另核对183份原P01 Git身份，原1310私有制品及两份selection共26个稳定文件保持。证明79b2a464f6d9d830a7753db6095e6d75179e905dd0f8feefd904be05a9b5c6d3。intake已验证，T1继续同一CPU实现轮；候选、数值replay和独立审查未验收，人工/真实模型门槛保持。
 
 15:27 UTC，S0核对164个当前文件路径及96fcbe1/9e71552两历史执行提交各378份Git源码，13例新collator完整数组与原native/reference/人工副本一致，86份原制品匹配先前R1证明。原两次CPU数值失败完整保留：首次DLPack探针误判，修正后实际MLX-LM在CPU默认设备下读取Metal属性失败；两进程已回收、PID再次确认不存在、共享租约空闲。loss/gradient初步数值存在，actual MLX更新仍0，尾周期与checkpoint绑定未运行成功。证明42d0eb64846943c440f6f468aceea55f56af264701bcb226c037d39dd852960d，见[中间证据](../reports/S0_P04_SFT_CPU_INTERMEDIATE.md)。T1继续同一轮其余CPU测试/打包/交接，未派发R1或扩大框架修订/真实训练许可；两份人工填写副本仍0 reviewer/0 verdict。
+
+P04-SFT-CPU最终交接：完整33d6248已普通推送/远端一致、T1于15:43:54 UTC原生completed/idle。S0于15:51 UTC核对2083当前文件路径、384候选/364不变基线、248封存文件、18原命令和三份归档/10安装记录，证明f59023785bc7888806ea053015c30d43ecee27cc7046a211867d9daeb2e878b3；[交接证据](../reports/S0_P04_SFT_CPU_HANDOFF.md)。四组970/2为T1自测=原919+新51，子项不重复计数。候选仅CPU部分待审，actual MLX更新0、尾周期/checkpoint/evaluate仍NOT_RUN；R1旧轮空闲已核验，新精确审查范围READY未派发。两人工表及页面门槛保持。
