@@ -1,6 +1,6 @@
 # P04-SFT-NATIVE-TOY｜原生 GPU 尾周期与状态绑定验证
 
-状态：READY_FOR_REVIEW。完整候选`f7326d1823c4cf132ae44525f4755c96c88ec159`已普通推送并由S0核验；T1原轮completed/idle，三次框架运行/完整1050CPU自测及原始制品已交付，独立R1仍待验收。以下保留T1完整`de86568d73ee77bbf92b6f749a39a9ab38955836`原授权。S0 依据 ADR-0021 授权一个新的有限数值子包；CPU 准备已 VERIFIED，完整 P04 和人工门槛保持未完成。
+状态：ACCEPTED（固定原创数值部分），最终CI/main待完成。完整候选f7326d1823c4cf132ae44525f4755c96c88ec159经原R1 67976fdcb33cba15caac8130213997bd330a7233正式PASS；T1/R1原生completed/idle已核验。S0普通集成a1c467a实测1084CPU/2跳过、新三归档和默认安装/native守卫通过，见[集成证据](../../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。以下保留T1完整de86568原授权；正式P04与人工门槛保持未完成。
 
 | 字段 | 本轮值 |
 |---|---|

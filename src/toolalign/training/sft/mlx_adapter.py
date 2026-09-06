@@ -1,4 +1,4 @@
-"""Optional, finite public MLX-LM injection; execution in this release is TOY_CPU only.
+"""Finite public MLX-LM injection; public functions retain their TOY_CPU default.
 
 No framework is imported until a leased caller invokes these functions. This
 does not patch the trainer or implement its optimization loop. Each train call
@@ -95,6 +95,21 @@ def post_update_score(*, lease, model, optimizer, dataset, checkpoint, selection
                       processed_microsteps, expected_optimizer_step):
     """Evaluate exactly the saved post-update state; validate each actual numerator."""
     mx, trainer = backend(lease)
+    return _post_update_score(mx=mx, trainer=trainer, profile="TOY_CPU", model=model,
+        optimizer=optimizer, dataset=dataset, checkpoint=checkpoint,
+        selection_sha256=selection_sha256, processed_microsteps=processed_microsteps,
+        expected_optimizer_step=expected_optimizer_step)
+
+
+def _profile_device(mx, profile):
+    require(profile in ("TOY_CPU", "TOY_NATIVE_GPU"), "only_toy_score_authorized")
+    require(mx.default_device() == (mx.cpu if profile == "TOY_CPU" else mx.gpu),
+            "toy_profile_device_mismatch")
+
+
+def _post_update_score(*, mx, trainer, profile, model, optimizer, dataset, checkpoint,
+                       selection_sha256, processed_microsteps, expected_optimizer_step):
+    _profile_device(mx, profile)
     _toy_bounds(model, dataset)
     actual_step = int(optimizer.step.item())
     require(actual_step == expected_optimizer_step > 0, "actual_optimizer_step_mismatch")
@@ -113,13 +128,13 @@ def post_update_score(*, lease, model, optimizer, dataset, checkpoint, selection
         require(value.dtype == current[name].dtype and value.shape == current[name].shape
                 and bool(mx.array_equal(value, current[name]).item()), "checkpoint_parameter_content_mismatch")
     ids = tuple(rank for rank, _ in dataset)
-    totals = ValidationTotals(profile="TOY_CPU", split="validation", expected_ids=ids)
+    totals = ValidationTotals(profile=profile, split="validation", expected_ids=ids)
     batches = OrderedBatches()
 
     def validation_loss(m, batch, mask):
         mean, tokens = completion_loss(m, batch, mask)
         mx.eval(mean, tokens)
-        totals.add(example_id=batches.visited[-1], profile="TOY_CPU", split="validation",
+        totals.add(example_id=batches.visited[-1], profile=profile, split="validation",
                    ce_sum=float(mean.item()) * int(tokens.item()), tokens=int(tokens.item()))
         return mean, tokens
 
@@ -130,8 +145,9 @@ def post_update_score(*, lease, model, optimizer, dataset, checkpoint, selection
     require(tuple(batches.visited) == ids and parameter_hash(model) == before
             and hashlib.sha256(checkpoint.read_bytes()).hexdigest() == file_hash,
             "validation_state_or_coverage_changed")
-    value = Score("TOY_CPU", selection_sha256, canonical_hash(list(ids)), before, file_hash,
-                  actual_step, processed_microsteps, totals.numerator, totals.denominator, score)
+    value = Score(profile, selection_sha256, canonical_hash(list(ids)), before, file_hash,
+                  actual_step, processed_microsteps, totals.numerator, totals.denominator, score,
+                  scope=profile)
     validate_score(value)
     return value
 
@@ -139,6 +155,14 @@ def post_update_score(*, lease, model, optimizer, dataset, checkpoint, selection
 def train_toy_segments(*, lease, model, optimizer, train_dataset, validation_dataset, output):
     """At most two real optimizer updates on original tiny inputs; no real-data API."""
     mx, trainer = backend(lease)
+    return _train_toy_segments(mx=mx, trainer=trainer, profile="TOY_CPU", model=model,
+        optimizer=optimizer, train_dataset=train_dataset, validation_dataset=validation_dataset,
+        output=output)
+
+
+def _train_toy_segments(*, mx, trainer, profile, model, optimizer, train_dataset,
+                        validation_dataset, output):
+    _profile_device(mx, profile)
     _toy_bounds(model, train_dataset)
     _toy_bounds(model, validation_dataset)
     plan = epoch_plan(len(train_dataset))
@@ -153,8 +177,10 @@ def train_toy_segments(*, lease, model, optimizer, train_dataset, validation_dat
     selection = canonical_hash([[rank, batch.record()] for rank, batch in train_dataset])
     scores, states, visited, updates = [], [], [], 0
     mx.random.seed(42)  # Seed once, never restart the RNG between segments.
+    objects = (id(model), id(optimizer), id(mx.random.state))
     for number, segment in enumerate(plan.segments, 1):
-        checkpoint = output / f"TOY_CPU-segment-{number}.safetensors"
+        require(objects == (id(model), id(optimizer), id(mx.random.state)), "native_state_objects_replaced")
+        checkpoint = output / f"{profile}-segment-{number}.safetensors"
         args = trainer.TrainingArgs(batch_size=1, iters=segment.microsteps,
             grad_accumulation_steps=segment.divisor, val_batches=-1,
             steps_per_report=segment.microsteps, steps_per_eval=segment.microsteps + 1,
@@ -168,13 +194,15 @@ def train_toy_segments(*, lease, model, optimizer, train_dataset, validation_dat
         require(iterator.visited == list(range(segment.start + 1, segment.stop + 1)), "native_segment_coverage")
         updates += segment.updates
         require(int(optimizer.step.item()) == updates, "native_update_count")
-        scores.append(post_update_score(lease=lease, model=model, optimizer=optimizer,
+        scores.append(_post_update_score(mx=mx, trainer=trainer, profile=profile,
+            model=model, optimizer=optimizer,
             dataset=validation_dataset, checkpoint=checkpoint, selection_sha256=selection,
             processed_microsteps=segment.stop, expected_optimizer_step=updates))
         states.append({"segment": number, "start": segment.start, "stop": segment.stop,
                        "actual_divisor": segment.divisor, "optimizer_step": updates,
+                       "model_optimizer_rng_object_ids": list(objects),
                        "parameter_content_sha256": parameter_hash(model),
                        "checkpoint": checkpoint.name})
     require(visited == list(range(1, len(train_dataset) + 1)), "native_epoch_coverage")
-    return {"scope": "TOY_CPU", "scores": scores, "states": states,
+    return {"scope": profile, "scores": scores, "states": states,
             "visited": visited, "actual_optimizer_updates": updates}

@@ -1,6 +1,6 @@
 # P04-SFT-NATIVE-TOY-R1｜原生数值与资源终态独立审查
 
-状态：IN_PROGRESS。S0 于 2026-09-06 19:36:51 UTC 按完整授权 `482f8991c97c33678583aa6c853a75c41fda0f0f` 实际原生派发，并核验 R1 新轮 ACTIVE/inProgress；19:47 UTC 完成实际新分支、408 候选、13 授权副本与旧制品的 intake 核验。独立结论待交付。本文件给出新的独立审查范围，不改变 T1 原运行额度或正式训练门槛。
+状态：ACCEPTED。R1按完整482f899原授权完成精确f7326d1审查，原review67976fdcb33cba15caac8130213997bd330a7233正式PASS/P0/P1/P2均0；本轮于2026-09-06 21:02:29 UTC completed/idle。S0最终58,108路径/38命令验收证明ff2bccbf已通过，普通集成检查通过；见[报告](../../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。最终CI/main待完成。R1本轮框架2/2已结束；以下保留原独立范围，不追加运行额度或改变正式训练门槛。
 
 | 字段 | 本轮值 |
 |---|---|

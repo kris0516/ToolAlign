@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。P00、P01受限兼容校准、P03 CPU、新格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均VERIFIED。P04-SFT-CPU准备部分VERIFIED；[PR10](https://github.com/kris0516/ToolAlign/pull/10)实际合并e28f1db，原R1 PASS800480b保持。最终双Python CI与main1014CPU/2 HF-only跳过、现存三归档/57安装包文件绑定通过；原生CPU train入口仍BLOCKED，实际尾周期/evaluate/checkpoint及人工/正式P04门槛保持。详见[主干证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。P00–P09整体目标尚未完成。
+更新时间：2026-09-07。P00、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围VERIFIED保持。P04-SFT-NATIVE-TOY固定原创数值部分已ACCEPTED：原生toy独立R1 67976fd正式PASS/P0/P1/P2均0，原生completed/idle；S0核对最终58,108路径/38原命令及全部数值、来源、封存。普通集成a1c467a实际1084CPU/2 HF-only跳过、新三归档和默认安装7命令/native守卫通过，原候选f7326d1与review SHA保持。[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。PR11最终CI/main待完成。原CPU上游KeyError及实际页面、人工、真实模型容量与正式P04门槛保持；P00–P09整体目标尚未完成。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR10已合并e28f1db并完成最终CI/main验证，CPU部分VERIFIED，原R1 PASS800480b保持；原生CPU train上游入口阻塞 |
+| 当前任务/分支 | S0隔离integrate/p04-sft-native-toy-r1；实际merge a1c467a已通过集成检查，PR11最终CI/main待完成；main输入9939296 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1完整f7326d1已交付/原生空闲，R1按完整482f899原生派发且新轮ACTIVE，精确intake核验通过；D1/E1无新实现，模型/推理gpt-6-astra/max |
+| 独立实现/reviewer 对话 | T1完整f7326d1与R1 PASS67976fd均已交付/原生空闲，D1/E1无新实现；模型/推理gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -22,14 +22,14 @@
 | 当前实现 | 已验收CPU基础包/契约/GPU锁、P01受限兼容校准、P03本地工具/oracle/scripted接口；P02数据流程技术验证通过，整包待审 |
 | 已验收训练/数据/评测/服务 | P02代码技术集成通过；数据语义、训练、正式评测与服务均无整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
-| 重 GPU 作业 | T1三次实际固定toy框架运行已结束，S0数值/字节/退出核验通过；R1新独立复核最多两次已按482f899授权，实际启动和租约证据待回报；见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md) |
+| 重 GPU 作业 | T1三次及R1新两次固定toy框架运行均结束，真实租约/来源/数值/回收已核验；R1框架2/2耗尽，S0新增0，共享锁实际空闲 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
 
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
 
 ## 当前门槛
 
-P00和共享支持包验收保持。P01受限G1-SFT及唯一DPO备选按ADR-0018分项PASS，首选DPO失败与校准边界保留。P03在29a5e4c、共用格式在36b6988、训练数据/配置/manifest绑定在42eaa50分别完成独立审查、最终CI和main CPU验证。P02整包VERIFIED与G-DATA仍需kris实际语义审查；13例实际页面和token/mask人工判断仍未完成；新collator的CPU验证与准备功能已VERIFIED，完整原生trainer及容量验证保持未完成。P04正式训练未授权，最多两个实现及单一GPU租约约束保持。
+P00及已VERIFIED技术包保持。P01受限G1-SFT及唯一DPO备选分项PASS，首选DPO旧FAIL保留。原生toy新增GPU scope的两次更新、尾段分母、evaluate与checkpoint已独立验收，最终CI/main仍待完成；原CPU上游支持记录保持。P02整包/G-DATA仍需kris语义审查；13例实际页面和token/mask人工判断、真实0.6B容量、正式baseline/SFT尚未完成。正式P04训练未授权，最多两个实现与单一GPU租约约束保持。
 
 ## 恢复入口
 
@@ -199,3 +199,5 @@ P04原生toy中间核验：S0已核对534445b的两次原GPU运行：13例完整
 P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端一致、T1原轮19:20:31 UTC completed/idle。S0核对408候选、31原命令、7源码快照/409 blob、3038封存文件和197链接原目标；实际source/installed数值、两个checkpoint、三归档及15安装命令绑定通过。1050CPU/2 HF-only跳过为T1自测，110 subtests另记；本包READY_FOR_REVIEW。R1于19:36:51 UTC按完整482f899原生派发并核验新轮ACTIVE，独立框架额度最多两次；19:37:43 UTC建立[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)，精确f732候选CI34055493595双Python全部步骤成功，413份实际CI合并文件与原输入相符；R1实际intake核验通过。见[交接证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)和[审查任务](tasks/P04_SFT_NATIVE_TOY_REVIEW.md)。独立结论、最终CI/main、人工/正式P04与完整目标继续待完成。
 
 20:34 UTC，S0已直接核对R1实际1050CPU/2 HF-only跳过、另34项新独立CPU探针和默认安装版native拒绝；原110 subtests及重复安装44项分开登记。R1独立框架2/2已用完：新安装target真实segmented两次更新/44 token/重载通过，第二次明确观测原单段丢5尾微步负例。S0核对两轮完整数组、checkpoint、实际模块来源和真实R1租约/PID/终态，证明7c71c631；CPU边界证明67d995b4。无新增S0框架运行，原警告/负例保留；[详细证据](../reports/S0_P04_SFT_NATIVE_TOY_HANDOFF.md)。R1同一轮仍ACTIVE并在整理正式交接；尚未ACCEPTED，PR11仍Draft，最终CI/main与人工/正式训练门槛待完成。
+
+21:21 UTC，原生toy独立R1 67976fd正式PASS/P0/P1/P2均0，原生completed/idle；S0核对最终58,108路径/38原命令及全部数值、来源、封存。普通集成a1c467a实际1084CPU/2 HF-only跳过、新三归档和默认安装7命令/native守卫通过，原候选f7326d1与review SHA保持。[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。S0集成证明af492409909d11df1e6d5e36819ba83f49145050280e126fbff8596134eac4f1；18条命令exit0，110 subtests与安装重复44项另记。当前100/13人工表仍全空，页面未重试，training_authorized=false。
