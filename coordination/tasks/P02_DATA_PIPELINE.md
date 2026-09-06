@@ -191,3 +191,8 @@ F1按原P2等级关闭，不另造P1或把源/安装重复记为两个问题。�
 
 
 2026-09-06实际复审派发：D1原轮completed/idle已确认；S0再次核验R1原轮completed/idle和干净2942后，按完整授权41233633ac9aeaf72e66b280908bc0156149c0f2原生发送精确8c439f683b9d6b04919ff1f7184d8924ccf82f9f的P02-format-review-r2，显式gpt-6-astra/max，已核验原生新轮ACTIVE。分发词与真实任务映射仅私有保存；原准备范围全部保持，不接随后main/P01、不修改旧原探针/失败、不新建环境或重跑无差异的全量。PR8继续Draft，等待正式独立结论与S0最终集成。
+
+
+## 新格式复审接受与最终CI跟进
+
+R1已正式交接b9f7567d7c1066eeb0bff7c47033bb2771eb9594，对精确8c439f6 PASS，P0/P1/P2均0，原F1关闭及旧FAIL保持；S0范围/证据/最终封存与原生completed/idle核验通过。原SHA已发布并普通整合当前main为2b11b7f。格式代码ACCEPTED，最终CI34024093376的Python3.14旧P03截止时间测试失败，PR8保持Draft、main尚未验收。由[E1限域CPU跟进](P03_CI_DEADLINE.md)修正测试时序假设并独立复核；D1保持空闲，无新格式或数据改动。原人审/训练绑定门槛保持，见[S0记录](../../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。

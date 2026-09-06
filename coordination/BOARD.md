@@ -9,8 +9,9 @@
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | VERIFIED | R1-r3 PASS 7e20706；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并d10722e，最终双Python CI与main655CPU/21条隔离命令通过；[G1分项证据](../reports/S0_P01_MAIN_VERIFICATION.md)，首选DPO旧FAIL保留 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
-| [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | READY_FOR_REVIEW | [Draft PR8](https://github.com/kris0516/ToolAlign/pull/8)最新修复8c439f6已交接/推送，原2942审查普通merge保持；S0范围/证据核验与双Python CI34021506781通过，R1按完整4123363原生复审精确8c、新轮ACTIVE；原7bada FAIL/P2=1保持 |
+| [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | ACCEPTED | R1对8c正式PASS，原review b9f7567已发布/普通集成2b11b7f；最终CI34024093376的3.14旧P03测试失败，PR8保持Draft，待限域修复/最终main验证；原7bada FAIL/P2=1保持 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
+| [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1 | 最终CI实际失败；main4a1fa84 | READY | 已核验E1原生空闲/干净3598；准备从已验收main新建隔离分支，保留真实阻塞/单调deadline/回收与负向控制，尚未派发 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -28,4 +29,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：P01/P03均已独立审查、合并并完成主干验证，T1/E1无新任务。D1修复完整8c439f6及最终封存已正式交接；原2942审查以6c82d29普通merge保留，f708不在公开祖先。S0核对源/安装版原反例和不变普通输出、原始命令及制品；S0再次核验R1原轮completed/idle后，按4123363实际派发精确8c独立复审并确认新轮ACTIVE；D1已completed/idle。新格式原8,228行与完整分母、原数据/人审材料保持；G-DATA和训练绑定仍待验收，P04未授权。
+公共跟进：R1新格式正式PASS及b9f7567原SHA已核验/发布，D1/T1/R1空闲。S0最终组合2b11b7f已推送PR8；3.14的已有P03截止时间测试失败，E1限域CPU跟进READY，尚未派发。当前无活跃实现或GPU任务，最终CI/main验证与G-DATA/P04仍未放行。

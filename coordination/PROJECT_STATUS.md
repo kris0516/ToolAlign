@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P01/PR6合并d10722e，原始R1-r3 PASS 7e20706保持，最终双Python CI与main655CPU/21条隔离命令通过；G1-SFT与唯一DPO备选分项PASS，首选DPO仍FAIL。P02数据代码已MERGED且技术验证通过，整包/G-DATA仍待kris人审、新格式独立验收和训练绑定。原7bada2e新格式正式FAIL/P2=1保持，D1修复完整8c439f6已正式交接/普通推送；S0范围及最终封存核验通过，候选双Python CI全部步骤成功。R1原轮completed/idle核验后，S0按完整4123363原生派发精确8c独立复审，新轮ACTIVE，gpt-6-astra/max、仅CPU；D1已completed/idle。T1/E1无新任务，P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00、P01受限兼容校准与P03 CPU任务VERIFIED**，两个共享支持包已VERIFIED。P02数据代码MERGED，G-DATA仍待kris人审及训练配置绑定。新格式修复8c439f6获独立R1正式PASS，review b9f7567按原SHA公开，R1已completed/idle；格式代码ACCEPTED，原7bada FAIL/P2=1保持。S0最终普通组合2b11b7f已推送PR8；CI34024093376的3.11全部通过、3.14在已有P03截止时间测试失败，最终main验收暂停，PR8仍Draft。E1限域CPU跟进READY尚未派发，D1/T1/R1无新工作；无新GPU或P04授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1最终修复8c439f6与封存已交接/原生空闲；R1按4123363独立复审精确8c、新轮ACTIVE；原7bada FAIL/P2=1及2942公开review保持，T1/E1无新任务 |
+| 独立实现/reviewer 对话 | R1新格式b9f7567正式PASS/原生空闲；D1/T1空闲；E1旧轮原生终态及干净3598已核验，截止时间测试跟进READY尚未派发 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -123,3 +123,5 @@ D1修复正式交接：完整8c439f683b9d6b04919ff1f7184d8924ccf82f9f已普通�
 
 
 S0新组合预检：在隔离worktree普通merge当前main758aa2c与修复8c439f6得到50f7589，277份main与37份候选新增字节保持。实际839 passed/2 HF-only skipped、三份归档/10纯默认接口命令通过；另将新默认wheel安装并运行未改原F1，两engine的实际backend/身份与正常基线相同，7个ToolAlign模块均来自target。S0首次reference误选带模型库的P01环境，在原探针前置断言停止；首次及诊断exit1保留，只更换既有纯tokenizer环境后通过。见[新预检](../reports/S0_P02_FORMAT_PREFLIGHT_R2.md)，初始摘要a49ccddead2a56f9851d3c805d91dfe1ca9e972d9f38c137bccbb50b4a57bf19、附加证据e1b619a8642d4bcf35fef2e68a87e9cecc177a3ae82a9156c4a92aaed52b8fe6。R1仍在封存正式复审，集成分支未推送、main实现未改；G-DATA/P04仍待相应门槛。
+
+新格式独立复审已接受：R1对8c439f6正式PASS，P0/P1/P2均0，review b9f7567仅新增8文件、251被审文件保持。S0核验516项制品身份与最终completion的505个封存文件/31命令，原SHA安全发布；R1原生completed/idle。随后普通集成当前main为2b11b7f，278份main/37候选新增/8新review保持。最终CI34024093376的Python3.11所有步骤通过，Python3.14出现1 failed/484 passed/48 skipped：已有P03截止时间测试在0.6秒总预算耗尽时未保证工具operation_started。具体原日志、同源映射、S0自身核验前缀错误及边界见[本次证据](../reports/S0_P02_FORMAT_CI_FOLLOWUP.md)。PR8保持Draft，E1限域CPU测试修复READY，尚未原生派发；不以重试绿灯代替解释该失败。G-DATA/P04和完整目标保持未完成。
