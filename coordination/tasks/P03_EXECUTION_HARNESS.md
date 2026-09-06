@@ -91,3 +91,5 @@ S0已完整读取最终P03-fix-r3/报告、三个生产路径及必要原创回�
 按实际变化复核完整适用CPU、真实进入阻塞的模型/工具timeout/cancel、自有进程已退出且回收及无关进程存活、完整分母/用量/raw保留、lint/冻结/公开扫描、实际新包当前Git字节与隔离安装接口。原P03完整审查与17份初版公开/63份私有来源、checkpoint和最终修复证据按hash只读绑定，旧失败保持；未变共享包canary和历史演示不无理由反复扩大。记录实际构建来源，不把由sdist生成的默认wheel误称为源码直接构建。
 
 仅CPU、gpt-6-astra/max，新增私有环境/制品2GiB，复用自己已有适用锁环境。无ML/模型/tokenizer导入、权重下载、GPU/P04/P06/BFCL/最终隐藏集/费用，scripted成功不是真实MLX可用性或模型分数。输出精确3598的PASS/FAIL/BLOCKED、P0/P1/P2、每项关闭/残留、独立命令/退出码/loghash及NOT_RUN。提交新独立review SHA后结束该轮等待S0，不自行合并或扩大到真实模型后端/输出格式实现。
+
+2026-09-06实际接续：S0已核验R1的P01-r2正式提交aaae5a4及原生completed/idle后，按完整授权cbb6d4614c3b8e8f584315ac3bdad434544c3984原生派发本P03-r2对完整3598cef的复审，gpt-6-astra/max，新轮次已核验ACTIVE；E1保持空闲。

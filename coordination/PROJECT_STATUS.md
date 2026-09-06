@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris实际语义审查和训练绑定。P01对ac8095f的R1-r2正式FAIL，仅剩启动初始化P1（原review aaae5a4），T1空闲、修复范围待派发。P03最终3598cef已交付/原生空闲，新R1-r2范围待派发；须先核验R1当前轮次终态。D1仍做CPU格式提案比较，P04训练未授权。
+更新时间：2026-09-06。当前交付状态：**P00_VERIFIED**，两个共享支持包已VERIFIED；P02代码已MERGED且main技术验证通过，整包/G-DATA仍待kris实际人审和训练绑定。P01对ac8095f的R1-r2正式FAIL，仅剩启动初始化P1（原review aaae5a4）；T1已按cbb6d46启动CPU修复。P03最终3598cef已交付/E1空闲，R1上一轮终态核验后已按同授权独立复审。两个新轮次均原生ACTIVE；D1原CPU提案比较继续，P04训练未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P02合并2ec1767且主干技术验证通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/E1原生空闲；R1已提交P01-r2原始FAIL待终态核验；D1仍在原CPU提案比较范围；下一批为T1初始化修复及R1审P03 |
+| 独立实现/reviewer 对话 | T1 P01启动修复、R1审精确3598的P03-r2按cbb6d46已派发/活跃；D1原CPU提案比较继续；E1空闲；两个实现加独立CPU R1 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -76,3 +76,5 @@ R1对P03完整79a15d9正式FAIL，原review f34f7c5a4eac54b18a2b092495f4ce8eaa33
 E1最终候选 `3598cef2efb99e2990e384812a028902964cf494`已交付/非强制推送并核验原生completed/idle。S0完整读取最终交接/修复及原创回归，20项命令/归档/隔离结果hash、原7份R1文件、15个总差异路径已核验；389CPU自测与CI34011754142双Python全部步骤通过。原checkpoint及其53通过/1失败保持，尚不能称P03已独立通过。S0只读merge-tree预检无冲突，69个P02/契约/配置及P03源码/测试blob绑定正确；并未实际合并或运行组合后的候选测试。R1新3598复审范围已准备，待当前轮次原生终态后派发。
 
 D1初版格式提案完整`c23b5136e596379000fcf4a9c2d1ce4bc9e27aec`（提案/探针429ff90）只新增3份文件，167个旧tracked文件未变；S0完整读取handoff/probe并独立核对45项hash。12个CPU原创/公开fixture通过值往返、原P03 raw parser、prefix/EOS/序列核对，不证明单一user envelope的模型角色行为等价。S0已在原提案范围内要求同12例与保留消息角色投影作有界CPU比较，D1原生任务仍活跃；无重复派发。原277-token completion例超过256响应上限，只作边界测试；未来序列审计须同时绑定生成可行性。没有正式格式ADR、生产默认切换或全量新序列生成；原数据/人审材料和未答请求保持。
+
+最新实际派发：授权cbb6d4614c3b8e8f584315ac3bdad434544c3984已推送。S0核验T1原生空闲与干净ac8095f，及R1上轮completed/idle、原始aaae5a4审查后，分别原生发送T1的P01-fix-r4和R1对完整3598cef的P03-r2，均显式gpt-6-astra/max，并已确认新轮次ACTIVE。D1沿原fd67511范围继续CPU提案比较，E1等待复审结果；仍两个实现加独立CPU R1，未授权GPU或P04。原review aaae5a4按原SHA推送独立分支，未改写旧FAIL。

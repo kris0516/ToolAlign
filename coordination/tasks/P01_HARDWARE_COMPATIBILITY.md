@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：CHANGES_REQUESTED（R1-r2正式FAIL）；完整候选`ac8095faa58a98e143a8dc4d63042093e426feb0`仍有启动初始化P1，审查`aaae5a4395dbdd73fd487f80174599ffd3ef9be3`，P0=0/P1=1/P2=0。原F2/F3关闭，原候选/两轮FAIL/历史模型证据保持。T1原生空闲，下一轮CPU定点修复授权见末尾；尚未派发。
+状态：CHANGES_REQUESTED（R1-r2正式FAIL）；完整候选`ac8095faa58a98e143a8dc4d63042093e426feb0`仍有启动初始化P1，审查`aaae5a4395dbdd73fd487f80174599ffd3ef9be3`，P0=0/P1=1/P2=0。原F2/F3关闭，原候选/两轮FAIL/历史模型证据保持。T1已按cbb6d46原生启动CPU定点修复并核验活跃；授权与实际派发见末尾。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -114,3 +114,5 @@ S0已收取并完整读取原始review `aaae5a4395dbdd73fd487f80174599ffd3ef9be3
 仅CPU、gpt-6-astra/max，新增私有环境/制品2GiB，复用已锁环境；无模型/MLX/GPU/下载/费用/P04/P05。按实际改动运行未修改原R1七项和新R1二十二项、必要相邻初始化/正常/失败对照、完整适用CPU回归与报告检查、lint/冻结/公开扫描、实际新包逐成员字节和隔离安装/报告接口。未变数学/十次旧run/185制品可在确认身份不变后引用独立证据，不重复长校准或将历史结果记成本轮GPU通过。
 
 交付精确完整candidate、原review接入关系、允许范围diff、before/after实际命令/退出码/loghash、准确缺测和历史保持、失败/NOT_RUN及P01-fix-r4；自测不是验收。交接后结束该轮，S0再安排R1对新完整候选复审并决定集成。当前E1已完成修复/原生空闲；D1仍做CPU提案比较，T1派发后最多两个实现加独立CPU R1。
+
+2026-09-06实际接续：S0已核验T1原生空闲、干净HEAD ac8095f及正式R1-r2原始aaae5a4后，按完整授权cbb6d4614c3b8e8f584315ac3bdad434544c3984原生派发本P01-fix-r4，gpt-6-astra/max，新轮次已核验ACTIVE。
