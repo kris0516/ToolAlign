@@ -1,6 +1,6 @@
 # S0训练绑定：独立选择身份参考
 
-状态：REFERENCE_CALCULATED；供D1候选交付后核对，尚未接受实现或物化产物。D1的[P02-TRAINING-BINDING](../coordination/tasks/P02_TRAINING_BINDING.md)仍在实施，R1未派发。固定配置、原数据、G-DATA人审和P04授权状态保持。
+状态：REFERENCE_CALCULATED；已与D1随后两次实际物化逐项核对通过，范围见最后一节，实现整包尚未验收。D1的[P02-TRAINING-BINDING](../coordination/tasks/P02_TRAINING_BINDING.md)仍在实施，R1未派发。固定配置、原数据、G-DATA人审和P04授权状态保持。
 
 2026-09-06 12:06:45–12:07:01 UTC，S0在`f02de2461e721a9794dc5d4fa7705f17220d7ca9`实际执行私有参考检查器，Python 3.14.7，exit 0，用时16.44秒。检查器没有读取或导入D1正在开发的选择模块。契约验证来自已验收的S0源码，排名与身份编码按固定规范用标准库独立计算。
 
@@ -45,3 +45,13 @@
 | 私有逐例身份参考 | `e7e95f70d029a19867f44342d51cc6de80b36f46cdf684c92da19c23a6737bc2` |
 
 此次未导入可选tokenizer或模型模块，新分词次数0、训练Example物化文件0。没有执行D1候选、13例真实tokenizer材料、安装接口、独立R1或模型训练；这些仍须在实际交付和后续授权中分别验证。本参考不重复记作原8,228行测量，不改变旧报告或人工填写副本。
+
+## 12:16 UTC：与两次实际物化交叉核对
+
+D1随后在实现提交`526f93d4e0878365a6748c593b3e685b9a395384`执行两个真实build，使用不同的新私有输出目录：A为12:11:00–12:11:36 UTC、36.53秒；B为12:11:54–12:12:30 UTC、35.87秒，均exit0。S0读取实际build入口与命令记录器，核对两份原metadata和完整日志、各自run时间/目录；同一摘要输出导致两份stdout具有相同hash，并未用它单独推定两次运行。两次实际来源快照的345份文件均与精确526f93d的Git字节一致。
+
+S0于12:16:13–12:16:17 UTC实际运行另一个只读交叉检查器，exit0、4.49秒，核对384个文件路径。每次物化的四组Example逐例与原train/validation全部字段及先前参考hash一致，ID顺序、排名、最小桶、sidecar完整历史audit、完整排除IDs与统计均匹配独立参考。每遍8027条输出记录包含smoke与formal的重叠，不能相加成8027条独立来源样本。两遍各13份稳定文件（12份输出加manifest）字节相同；各自run元数据保持不同的实际时间和目录。
+
+共同稳定manifest文件hash为`eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd`。S0核对器SHA为`47874c365b3d9146f81c9eabc7c018889523b4a56fd4e2e4a8c29df19f452db4`，命令metadata为`994eb5e214bdf55ce0a49d2522fd266afb3a63b2d4bc873fb4cbac19293a417b`，完整日志为`ac46a6b87bff813f4bb4aeae67ce985390f8986b986cbb1109cb1aff941d1a47`，证明为`b96605d2cb167db8ae8b4e045182b6bb2b22365fbfcf616f9514299ca6ed74f2`。原检查器和先前身份参考保持原hash；此次S0没有重新物化或分词。
+
+该结果仅为已出现的选择产物交叉核对，不能代替D1完整候选、13例真实token/mask材料、默认安装、完整CPU或独立R1。D1原轮仍ACTIVE；其checkpoint不是最终验收提交，后续可执行变化必须在最终交接中重新绑定。
