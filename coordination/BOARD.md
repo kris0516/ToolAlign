@@ -7,7 +7,7 @@
 | [P00](tasks/P00_BOOTSTRAP_CONTRACTS.md) 仓库与契约 | S0 | 远端/本地环境可用 | VERIFIED | R1-r2 PASS `5d30e1b`；审查 `441d31b`；合并 `cd091e3`；main 176 项 CPU 检查通过 |
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
-| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | CHANGES_REQUESTED | 候选59b3802经R1 FAIL，审查ac6bdf7，P1=2/P2=1；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)保持待修改；T1的CPU定点修复范围已授权，待实际派发 |
+| [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | IN_PROGRESS | 候选59b3802经R1 FAIL，审查ac6bdf7，P1=2/P2=1；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)保持待修改；T1已按a0a800b派发CPU定点修复并核验活跃 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | READY_FOR_REVIEW | 候选79a15d9/E1空闲；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)双Python CI通过；R1按52f9c57接续完整CPU审查，已核验活跃 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
@@ -27,4 +27,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。P02数据代码已在2ec1767合并并完成[main技术验证](../reports/S0_P02_MAIN_VERIFICATION.md)，整包/G-DATA仍待审。P01独立FAIL已退回，T1修复范围已备妥；R1上一轮原生终态已确认并接续P03活跃。原始候选/失败/冻结人审包保持，填写副本等待kris实际记录，不签自动人审结论。
+公共跟进：[S0-SHARED-02 / PR4](https://github.com/kris0516/ToolAlign/pull/4)已VERIFIED。P02数据代码已在2ec1767合并并完成[main技术验证](../reports/S0_P02_MAIN_VERIFICATION.md)，整包/G-DATA仍待审。P01独立FAIL已退回，T1按a0a800b实际修复中；R1上一轮原生终态已确认并接续P03活跃。原始候选/失败/冻结人审包保持，填写副本等待kris实际记录，不签自动人审结论。

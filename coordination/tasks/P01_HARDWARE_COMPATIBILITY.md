@@ -1,6 +1,6 @@
 # P01｜Mac 校准与 SFT/DPO 兼容性
 
-状态：CHANGES_REQUESTED；R1对完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`正式FAIL，P0=0/P1=2/P2=1，审查提交`ac6bdf78d57c6753865a24a1d216b90dc4478646`。T1定点修复范围见本文件末尾，实际启动以S0原生消息为准。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
+状态：IN_PROGRESS（R1退回后的CPU定点修复）；R1对完整候选`59b3802c81aa6eceaf3609af88f288756bcb1581`正式FAIL，P0=0/P1=2/P2=1，审查提交`ac6bdf78d57c6753865a24a1d216b90dc4478646`。T1已按授权a0a800b原生派发并核验活跃，定点修复范围见本文件末尾。原候选`f97bb0de346c220871962a5689014a379fe19c83`及全部历史证据保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
 
@@ -84,3 +84,5 @@
 允许修改仍为`src/toolalign/training/compatibility/`、`tests/training/compatibility/`、`reports/hardware/`，另允许新增`coordination/handoffs/P01-fix-r3.md`。原P01-r1/P01-base-r2和R1交接原文、公共契约/runtime/configs/依赖/检查脚本/README/AGENTS/协调状态均只读。只做必要修复及CPU反例、完整适用CPU回归、lint/冻结/公开扫描、实际新sdist/wheel追踪字节与隔离默认CPU安装核对。复用未变锁环境，新增私有制品/环境预算2GiB；不无理由重查依赖或重跑旧长校准。
 
 本轮无MLX/模型导入或GPU重放，无权重下载、OS限制修改、费用或P04/P05扩展。具体疑点如必须GPU证明，先给S0最小命令及资源/停止预算，另行调度；本授权不包含该作业。交新完整candidate、两条基线的diff与文件清单、每项问题和命令/退出码/loghash、包成员/证据hash及FAIL/NOT_RUN。提交新handoff后结束本轮，S0安排R1对新候选复核；T1不自行合并或签验收。
+
+2026-09-06 实际修复派发：S0再次核验T1上轮completed/notLoaded、工作树干净且HEAD59b3802后，以完整授权`a0a800b2a544cb25e7eccad2dce12173acc77ea1`原生派发本轮F1/F2/F3修复，gpt-6-astra/max；新轮次已确认活跃。读取授权范围即可，不要求同步后续状态文档。当前只有T1一个实现任务及R1的P03 CPU审查活跃。
