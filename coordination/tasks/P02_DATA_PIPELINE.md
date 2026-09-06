@@ -101,3 +101,9 @@ gpt-6-astra/max，纯CPU，无模型/GPU/下载/费用，新增私有制品2GiB�
 完成时交精确候选SHA/父提交/范围、所有命令退出码/日志hash、旧证据保全、新manifest/统计和失败/NOT_RUN；只推送普通可快进分支并结束该轮待独立R1。此授权不批准正式格式验收、训练选集、G-DATA人审、P04/P05或真实推理；P04至少10条token/mask人工检查仍需后续完成。
 
 2026-09-06 P02-format-r2实际派发：S0再次核验D1原生completed/idle、干净HEAD6c3d330后，按完整授权0c94ad58a78d30cd88a9ad86ac8e8d8c83b2442c原生派发本范围，gpt-6-astra/max，新轮次已确认ACTIVE。该授权内的规范/范围保持，以原精确提交为准，无需因随后S0状态更新自行merge新main。
+
+### 已验证 P03 的同轮同步授权
+
+P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最终双Python CI及main551CPU/归档/18条隔离命令验证，见[S0证据](../../reports/S0_P03_MAIN_VERIFICATION.md)。收到S0本段精确授权SHA的原生消息后，D1在当前P02-format-r2同一活动轮次于安全提交点普通merge该提交，保留当前格式实现、原提案及所有既有证据；不重启任务，不reset/rebase/cherry-pick或替换工作树。
+
+新main只提供已验收P03与S0记录，不扩大D1文件所有权。原0c94ad5的最终格式规范/描述、原data模块及人审材料边界保持。CPU审计可以直接导入此已验证的`toolalign.tools._json.parse_action`，源码SHA-256仍为`15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b`，与先前允许的私有副本完全相同；报告记录实际来源，不篡改旧记录。已完成的新序列审计在源码/输入/hash均相同的情况下可以沿用，不因本次merge重复8,228例或另造全量输出。最终组合CPU/包/隔离接口验证须绑定新完整候选；没有模型/GPU/P04/P06授权。此处为准备好的同步范围，实际派发单独登记。

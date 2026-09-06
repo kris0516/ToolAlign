@@ -10,7 +10,7 @@
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | READY_FOR_REVIEW | 新9fe3cbe已交付/空闲，85项hash和174份原文件核验；280CPU自测通过，R1-r3按7981489原生派发/ACTIVE；[Draft PR6](https://github.com/kris0516/ToolAlign/pull/6)保持，旧FAIL保留 |
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED | b0d8d83技术PASS、审查8e4fdbd；[PR5](https://github.com/kris0516/ToolAlign/pull/5)合并2ec1767，main338CPU/归档/隔离P02接口通过；整包/G-DATA仍待kris人审及配置绑定 |
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1 | P02代码、ADR-0017 | IN_PROGRESS | 按完整0c94ad5原生派发/确认ACTIVE；新共用模块和8,228例序列CPU审计，原数据/人审材料保持；尚未实现验收 |
-| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | ACCEPTED | R1-r2对3598cef正式PASS（review a78071b），139项hash和158份候选字节核验；待最终CI/合并/main验证；[Draft PR7](https://github.com/kris0516/ToolAlign/pull/7)保持，旧FAIL保留 |
+| [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
@@ -28,4 +28,4 @@
 
 第四批：P06/P07 GPU 实验串行；R1 独立复核；P09 按实际验收级别发布。
 
-公共跟进：P03精确候选的独立CPU复审与S0交接核验已通过，进入集成准备；T1启动修复9fe3cbe交付/空闲，R1上一轮completed/idle已核验，按7981489新P01-r3已实际派发/确认ACTIVE。D1按0c94ad5已原生启动新格式CPU实现和派生审计，仍在最多两个实现限额内。kris人审原请求、材料及填写副本保留，不代签判断。
+公共跟进：P03原始独立审查已保留并完成最终CI/合并/main验证，CPU任务VERIFIED。T1启动修复9fe3cbe交付/空闲，R1按7981489独立P01-r3仍活跃。D1按0c94ad5实施新格式CPU模块和派生审计；已验证P03基线的同轮同步范围已准备，尚待原生消息。kris人审原请求、材料及填写副本保留，不代签判断。
