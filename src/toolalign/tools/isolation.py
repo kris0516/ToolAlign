@@ -76,7 +76,9 @@ class OwnedProcess:
             "exitcode": None,
             "reaped": False,
             "stopped": False,
+            "directory_cleaned": False,
         }
+        self._process_closed = False
         self._closed = False
         try:
             self.process.start()
@@ -107,22 +109,27 @@ class OwnedProcess:
     def close(self):
         if self._closed:
             return
-        process = self.process
-        if process.pid is not None:
-            process.join(timeout=0.05)
-            if process.is_alive():
-                self.record["stopped"] = True
-                process.terminate()
-                process.join(timeout=0.2)
-            if process.is_alive():
-                process.kill()
-                process.join(timeout=1)
-            if process.is_alive():
-                raise RuntimeError("Owned child could not be reaped")
-            self.record["exitcode"] = process.exitcode
-            self.record["reaped"] = True
-        process.close()
+        if not self._process_closed:
+            process = self.process
+            if process.pid is not None:
+                process.join(timeout=0.05)
+                if process.is_alive():
+                    self.record["stopped"] = True
+                    process.terminate()
+                    process.join(timeout=0.2)
+                if process.is_alive():
+                    process.kill()
+                    process.join(timeout=1)
+                if process.is_alive():
+                    raise RuntimeError("Owned child could not be reaped")
+                self.record["exitcode"] = process.exitcode
+                self.record["reaped"] = True
+            process.close()
+            self._process_closed = True
+        # Directory cleanup can fail after the process handle has been closed.
+        # A later retry must only repeat the unfinished directory cleanup.
         self._temporary.cleanup()
+        self.record["directory_cleaned"] = True
         self._closed = True
 
 

@@ -182,7 +182,8 @@ class LocalHarness:
         trace_id = uuid.uuid4().hex
         final = None
         session = None
-        session_closed = False
+        session_cleanup_attempted = False
+        cleanup_errors = []
         accounting_complete = True
         tool_process_start = len(self.executor.process_records)
 
@@ -221,16 +222,34 @@ class LocalHarness:
             return None
 
         def finish(event, reason, *, parse_failure=None):
-            nonlocal session_closed
-            if session is not None and not session_closed:
-                write_packet(session.directory / "stop.json", {})
-                session.record["operation_started"] = (
-                    session.directory / "generating-0.json"
-                ).exists()
-                session.close()
-                session_closed = True
+            nonlocal session_cleanup_attempted
+            if session is not None and not session_cleanup_attempted:
+                # A failed signal must neither bypass close nor re-enter shutdown.
+                # Attempted cleanup is separate from the child's actual reaped record.
+                session_cleanup_attempted = True
+                try:
+                    session.record["operation_started"] = (
+                        session.directory / "generating-0.json"
+                    ).exists()
+                    write_packet(session.directory / "stop.json", {})
+                except OSError:
+                    cleanup_errors.append("stop_signal_write_failed")
+                finally:
+                    try:
+                        session.close()
+                    except (OSError, RuntimeError, ValueError):
+                        cleanup_errors.append("owned_process_close_failed")
+                    if cleanup_errors:
+                        session.record["cleanup_errors"] = list(cleanup_errors)
             if event == "finalized" and (interruption := interrupted()):
                 event, reason = interruption, interruption
+            failure = None if event == "finalized" else reason
+            if cleanup_errors:
+                failure = "harness_cleanup_error"
+                if event == "finalized":
+                    event, reason = "rejected", failure
+                else:
+                    reason = f"{reason}; {failure}"
             if event == "finalized":
                 score = self.oracle.score(task, trace, final)
             else:
@@ -238,7 +257,7 @@ class LocalHarness:
             emit(
                 event,
                 parse_failure=parse_failure,
-                validation_failure=None if event == "finalized" else reason,
+                validation_failure=failure,
                 outcome=score,
             )
             records = processes + self.executor.process_records[tool_process_start:]
@@ -413,7 +432,7 @@ class LocalHarness:
         except (OSError, ValueError, ContractError, KeyError, TypeError):
             return finish("rejected", "harness_input_or_backend_error")
         finally:
-            if session is not None:
+            if session is not None and not session_cleanup_attempted:
                 session.close()
 
 
