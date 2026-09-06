@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；P01合并d10722e且主干验证通过，P03/P02既有技术验证保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | 原7bada新格式正式FAIL/P2=1、公开review2942e56已核验/推送，R1原轮封存中；D1修复ACTIVE、接原review范围已准备；复审未派发，T1/E1无新任务 |
+| 独立实现/reviewer 对话 | 原7bada新格式正式FAIL/P2=1、公开review2942e56已核验/推送，R1原轮completed/idle；D1修复ACTIVE、已收到6272ad5同轮原review同步授权；复审未派发，T1/E1无新任务 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | 长期 goal ACTIVE；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -111,3 +111,6 @@ R1仍在冻结7bada2e的独立审查中，已用真实未替换的HF loader稳�
 
 
 新格式原候选正式审查为FAIL/P2=1。S0完整读取原报告、交接、8个探针和具名Ruff例外，独立核验839项文件hash、235份候选字节、源/默认wheel同一F1、原664及新增60 pytest、两engine同12场景、一次8,228行reference全量及原D1制品保全。证明SHA-256为5ddfdd75918be89160cc3e3cc2a680ad4ebba9cb94be3ae0b0932393a171450d。公开review2942e568eae91d0292ad9691af133bbd8c33dd02以7bada为唯一父，已普通推送并远端读回；原本地f708641含一处公开索引的临时路径遗漏，保留本地，按085a61c授权仅三份发布材料作去敏映射，原9探针/配置保持，f708不在公开祖先。该附件遗漏不增加候选问题数。R1当前原生轮仍在封存，并未派发复审；D1现有b4dc1cf修复checkpoint及自测保持，同轮普通merge精确公开2942的范围已准备，尚待原生发送。原数据/人审/P04门槛保持。
+
+
+原格式审查最终交接已收到并核验：原completion SHA eef5c9c57cdc1855eacf8ec19179aaa27d78f142307b01148deb49c4a7d64512，去敏公开completion SHA b6f302563e57646f4b10fa819035a5245e38a8befd6db8962bcf8e616ee796d0；S0补核42条完整验证/发布日志、两个completion及发布proof，新12个历史blob没有本机路径/UUID匹配，原未去敏blob不在新增可达对象。附加证明773eb35c36c2e1d65fac041af882111d856f96312082b9119a64bafd8ee38dd9保留原839项证明。R1原生completed/idle已核验。S0按完整6272ad5实际发送D1同轮接精确2942的授权并收到确认，D1准备安全提交/普通merge，当前尚不登记merge完成或修复验收；复审未派发。PR8已更新为原7bada正式FAIL/P2=1、待修复候选/独立复审，继续Draft。
