@@ -94,7 +94,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。PR9实际合并42eaa50，原R1 PASS40252f8保持；最终双Python CI与main919CPU/2 HF-only跳过、现存三归档/49安装包文件绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。D1/E1/R1当前无新任务；最多两个实现加独立CPU R1、单一GPU租约约束保持。代表/最长/非ASCII实际材料页面观察、kris语义/token-mask人审、P04真实trainer/collator/容量检查未完成，G-DATA和P04正式训练尚未放行。 T1已按完整e42536d原生接[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)，gpt-6-astra/max，新轮ACTIVE已核验，新branch/input intake待确认。该范围仅有限CPU实现及持租约的小数值复核，不授权真实模型训练。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订与训练绑定CPU技术范围均已VERIFIED。PR9实际合并42eaa50，原R1 PASS40252f8保持；最终双Python CI与main919CPU/2 HF-only跳过、现存三归档/49安装包文件绑定通过，见[主干证据](reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。D1/E1/R1当前无新任务；最多两个实现加独立CPU R1、单一GPU租约约束保持。代表/最长/非ASCII实际材料页面观察、kris语义/token-mask人审、P04真实trainer/collator/容量检查未完成，G-DATA和P04正式训练尚未放行。 T1已按完整e42536d原生接[P04-SFT-CPU](coordination/tasks/P04_SFT_CPU_PREPARATION.md)，gpt-6-astra/max，新轮ACTIVE已核验，新branch work/p04-sft-cpu/42eaa50、授权和原输入intake已核验。该范围仅有限CPU实现及持租约的小数值复核，不授权真实模型训练。
 
 ## 工作记录
 

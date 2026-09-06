@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR9合并42eaa50及main验证完成；T1已按e42536d接P04-SFT-CPU、新轮ACTIVE，branch/input intake待确认 |
+| 当前任务/分支 | S0 main；PR9合并42eaa50及main验证完成；T1已按e42536d接P04-SFT-CPU、新轮ACTIVE，实际work/p04-sft-cpu/42eaa50及输入intake已验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | T1新P04-SFT-CPU轮已原生ACTIVE，gpt-6-astra/max；D1/E1/R1无新任务，只有一个CPU实现 |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
@@ -167,3 +167,6 @@ R1原40252f8已完成且原生空闲，S0核对5734路径/26原命令与最终�
 S0按ADR-0020准备P04-SFT-CPU范围，T1拟从已验证42eaa50新建work/p04-sft-cpu；当前READY未原生派发。内容为原绑定数据/共用Sequence到实际MLX-LM注入接口、全覆盖累积尾周期和validation参数状态绑定；只允许原13例collator与持租约的极小原创CPU数值模块，不运行Qwen、优化真实P02数据或关闭人工门。精确配置、所有权/原证据保全和独立R1验收边界已写入任务。
 
 14:53 UTC实际接续：S0再次核验T1上一P01轮completed/idle和干净9fe3cbe，确认完整e42536dd7c77d90ed33ab5354f288ab0f1c3d6c6已推送、配置SHA5aad6ff6一致后，原生发送P04-SFT-CPU，显式gpt-6-astra/max；新轮ACTIVE已核验。仅派发与活跃成立，新work/p04-sft-cpu与输入intake待T1确认，不先填实现/验证结果。D1/E1/R1空闲，原人工与真实模型门槛保持。
+
+
+15:04 UTC，S0直接核对T1实际work/p04-sft-cpu/42eaa50、364基线文件、11份授权副本、配置5aad6ff6与原输入，1716个当前文件路径通过；另核对183份原P01 Git身份，原1310私有制品及两份selection共26个稳定文件保持。证明79b2a464f6d9d830a7753db6095e6d75179e905dd0f8feefd904be05a9b5c6d3。intake已验证，T1继续同一CPU实现轮；候选、数值replay和独立审查未验收，人工/真实模型门槛保持。

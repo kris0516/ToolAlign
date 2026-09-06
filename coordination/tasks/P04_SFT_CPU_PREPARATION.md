@@ -1,6 +1,6 @@
 # P04-SFT-CPU｜已绑定序列到实际SFT接口的CPU准备
 
-状态：IN_PROGRESS（CPU）；S0已按完整e42536d原生派发T1、显式gpt-6-astra/max，并核验新的实际轮次ACTIVE。新分支与输入intake待T1确认。P02绑定在42eaa50完成独立R1/最终CI/main技术验证；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。本包不领取正式P04模型训练或代签人工门槛。
+状态：IN_PROGRESS（CPU）；S0已按完整e42536d原生派发T1、显式gpt-6-astra/max，并核验新的实际轮次ACTIVE。新branch work/p04-sft-cpu/42eaa50、授权/配置和原输入intake已由S0直接核验。P02绑定在42eaa50完成独立R1/最终CI/main技术验证；G-DATA、13例实际页面观察及kris语义/token-mask判断仍待完成。本包不领取正式P04模型训练或代签人工门槛。
 
 | 字段 | 本轮值 |
 |---|---|
@@ -65,3 +65,6 @@ Framework replay必须在独立自有进程先实际取得已有共享租约，�
 实际构建新sdist、默认wheel及显式sdist重建wheel，逐成员对Git/metadata/RECORD和公开边界。新默认wheel在现有纯默认环境的新target中安装，运行新默认CPU入口和原创小数据，核对所有新增模块的实际origin；依赖只读复用，不下载。可选小CPU数值路径若在安装版重复，保留独立命令和实际环境，不增加独立测试分母。未执行的普通源码直接wheel路线记NOT_RUN。文档提交与真正可执行测量提交分别绑定，不伪造重跑。
 
 交付精确candidate/parents/tree、所有权diff、S0配置原件hash、实际命令/UTC/环境/退出码/完整日志hash、源/包/13例对照/数值状态/进程清理和原证据保全。报告明确CPU实现、TOY_CPU数值、尚未发生的真实P04行为及全部人工门槛。普通推送新branch，完成handoff并结束该轮，等待独立R1与S0验收；不自行领取正式训练或扩大模型预算。
+
+
+15:04 UTC，S0直接核对T1实际work/p04-sft-cpu/42eaa50、364基线文件、11份授权副本、配置5aad6ff6与原输入，1716个当前文件路径通过；另核对183份原P01 Git身份，原1310私有制品及两份selection共26个稳定文件保持。证明79b2a464f6d9d830a7753db6095e6d75179e905dd0f8feefd904be05a9b5c6d3。intake已验证，T1继续同一CPU实现轮；候选、数值replay和独立审查未验收，人工/真实模型门槛保持。
