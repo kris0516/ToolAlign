@@ -1,31 +1,35 @@
-# P02 严格来源审计与数据流水线
+# P02 ToolACE 数据转换与审计
 
-本包为 D1 的 **pipeline/自动审计交付**。来源适配尚待 S0 发布独立审查后的规则；kris 的人工抽查未进行，P02/G-DATA 不得标记 VERIFIED。当前真实 ToolACE 在未适配的冻结 v1 下没有可训练样本。生产工具不会因数据转换获得执行注册或权限。
+本目录交付可复现的 CPU 数据流程与自动证据。S0 已正式发布 `toolalign.source_toolace.v1`；实现使用精确政策字节并保持冻结 `toolalign.contracts.v1`。最新结果见 [政策转换报告](P02_POLICY_BUILD.md) 与 [机器证据](P02_POLICY_BUILD.json)。**人工质量审查与独立 R1 验收尚待完成，P02/G-DATA 未 VERIFIED。** 历史的零样本严格检查点与 tokenizer 对照证据继续保留。
 
-## 来源与许可
+## 来源、授权与许可
 
-主来源为 [Team-ACE/ToolACE](https://huggingface.co/datasets/Team-ACE/ToolACE/tree/6bda777c88d21e5a204703c1ee45597a8fa4f734)，revision `6bda777c88d21e5a204703c1ee45597a8fa4f734`。官方 API 返回公开、非 gated；下载无需凭据或接受额外访问条款。数据卡 YAML 声明 Apache-2.0，仓库树没有单独 LICENSE；保留其声明而不把第三方数据改授 MIT。署名：Team-ACE，*ToolACE: Winning the Points of LLM Function Calling*（2024，[论文](https://arxiv.org/abs/2409.00920)）。公开目录只有原创代码/测试、文件 hash、下载方法和去敏统计；原始数据及转换结果均留私有目录。xLAM 未访问，为可选来源。
+主来源为 [Team-ACE/ToolACE](https://huggingface.co/datasets/Team-ACE/ToolACE/tree/6bda777c88d21e5a204703c1ee45597a8fa4f734)，固定 revision `6bda777c88d21e5a204703c1ee45597a8fa4f734`。官方 API 记录为公开、非 gated，README 声明 Apache-2.0，原树没有单独 LICENSE。署名 Team-ACE，*ToolACE: Winning the Points of LLM Function Calling*（2024，[论文](https://arxiv.org/abs/2409.00920)）。源文件为37,154,735 bytes、11,300条记录；原始字节/hash见 [source manifest](../../data/manifests/toolace-source.v1.json)。第三方数据保持其来源许可；公开仓库仅含原创实现/小 fixtures、元数据与统计，原始数据和转换产物均存私有目录。xLAM 未访问。
 
-源文件精确大小/hash 见 [`toolace-source.v1.json`](../../data/manifests/toolace-source.v1.json)。Tokenizer 为官方 [Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca)，仅下载 tokenizer.json、tokenizer_config.json、LICENSE；revision、文件/hash、template hash 与 non-thinking 绑定在 [`qwen-source.v1.json`](../../data/manifests/qwen-source.v1.json)。没有模型权重、Torch、MLX、GPU 或模型运行。
+来源政策经 PR #3 独立 R1 PASS、S0 合并和 main 验证后授权；本 worker 合入精确 main `a6c8dd3c78b3674a242b4faacbb175f7b7c98303`，整合提交 `95d4c4f174c4e607de87765269dbcf25ac95cff3`。详见 [S0 政策说明](../../docs/13_TOOLACE_SOURCE_POLICY.md)。政策文件原始 UTF-8 SHA-256 为 `b8c4cd238bbf27d3378dadcd4130ac44c4c991ace6315bf385f104c4f98f72f7`；更改政策字节或来源身份会拒绝构建。
 
-## 实施边界与顺序
+Tokenizer 为官方 [Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca)，只下载 tokenizer.json、tokenizer_config.json、LICENSE。固定 revision、template hash、non-thinking 与包版本见 [tokenizer manifest](../../data/manifests/qwen-source.v1.json)。本包没有加载模型、Torch/MLX、执行 GPU 作业或产生模型服务。
 
-首次先检查真实前 32 条记录（142 个工具出现次数），后补查其他来源格式，再实现转换。原始文件共 11,300 条。源列表里的工具声明属于数据，不能运行其函数、链接或指令。
+## 数据规则与限制
 
-1. 下载器只允许上述官方仓库及必要文件，先查精确 revision 的官方 API：gated/private 必须明确为 false、许可必须匹配。文件流有 byte cap，下载后复核大小/SHA-256。发现已有文件不一致时失败；不覆盖它。访问时间放在私有 access.json，不参与样本 ID。
-2. `extract_tools` 仅解析经实审确认的 JSON-list 标记；其他格式隔离。安全调用语法为 `[exact_name(parameter=JSON, ...), ...]`，保持调用顺序。无 eval/exec/AST 执行、类型强转、默认实参填充、函数名称映射。单引号/Python 表达式、重复键、无穷值、歧义名称和未支持调用格式均拒绝。
-3. 用原始参数 schema 调用冻结 P00 验证器；探针的固定 metadata 只用于参数诊断，永不输出为工具或训练样本。正式工具必须已有明确、合法的 side_effect_class/tool_version/timeout_ms。`dict`/`int`/`float`、无界 string/array、未闭合 object、pattern/default 等不被静默改写。所有当前真实工具均隔离。
-4. 有明确可解析工具调用的 assistant 决策才有候选标签。自然语言回复没有足够的原始 action-kind 真值，保留 `action_kind_unlabelled`，不猜 final/clarify/refuse。每个合法候选只包含目标 turn 之前的消息；历史工具结果按唯一名称匹配 pending call，歧义会污染后续前缀并拒收。原始多轮记录始终保持同组。
-5. 全部来源记录先建立连通组：来源内容 hash、每个工具名称、剥离 description/default 注释后的参数 schema、业务请求的显式词法模板（NFKC、大小写、引号槽位、URL、数字）及可识别近重复。近重复为固定 SHA-256 MinHash 64 个值/16×4 分带候选检索，再精确检查词三元组 Jaccard ≥0.85。它不保证语义近重复的完整召回。工具/schema 的共享边采用保守连通，因此可能形成大组。
-6. group ID 是排序去重来源 hash 的 hash。种子17；10% group hash 候选留作 ood_test，剩余以独立 hash 按80/10/10划分；不拆大组追求条数比例。工具/schema/template/source/group 交集校验独立执行。所有当前来源划分只是隔离数据的暂定分组，正式四个 split 文件均为空。
-7. 转换后同 messages/tools/action 的完全重复只保留一例，所有拒收保留 lineage。增强 API 只接收已分组的父样本并继承 source/group/split；本包未生成增强。时间元数据不参与规范化 ID；对话中的日期仍作为有意义输入保留。
-8. 长度策略为完整保留或完整拒收，bucket=2048/4096/8192，超过8192剔除；这是 P02 探索参数，不修改冻结生成配置。没有 tokenizer 证据的候选也不进入训练。没有截断 schema/答案。模型输入仅投影 messages/tools；这无法自动发现自然语言里的语义泄漏，必须由 kris/R1 核查。
+1. 下载器仅接受固定官方来源和必要文件，复核 gated/private/license/revision、byte cap 和 SHA-256，不覆盖已存在的不一致文件。访问时间保存在私有 access.json，不参与样本 ID。
+2. 仅导入经过实审的 JSON-list system 格式；其它格式隔离。调用解析为有界 `[exact_name(parameter=JSON, ...), ...]` 字面语法，拒绝单引号/Python 表达式、重复键、无穷值、过深值、歧义名称与未知格式。解析器不执行来源字符串。
+3. 显式政策允许 `dict→object`、`int→integer`、`float→number`；缺少的对象闭合、字符串16384/数组1000上限属于项目收窄。既有有效更严边界保留；显式开放对象、更宽边界、缺失 items、未知类型/关键词继续隔离。原参数值不强转；任一历史或目标调用不满足收窄后的 schema，排除整条来源记录。
+4. default 须符合该节点类型/约束，仅保存为带路径、类型、原值/hash 的 annotation，并进入对应参数 description；不填参、不改 required。未知约束不能借 annotation 删除。描述合并后超限时整工具拒收。外层 required 仅允许缺省或 null，不能覆盖 parameters.required。
+5. 工具名确定性映射为 `ta_<ASCII slug 47>_<完整原工具 hash 前12位>`，检查完整 hash 冲突。声明、历史/目标调用与 observation 同时重建关联。所有工具原副作用事实为 unknown；wire sandbox_only/1000ms 是项目上限，manifest 写明 `historical_supervision_only`、`execution_binding=none`。这些工具没有真实执行实现，不能从数据导入 registry；历史 observation 不是本机执行成功证据。
+6. System 仅替换已审计的源 boilerplate、函数列表和输出格式；保留确切日期/时间上下文与已知声明语法说明。未识别额外文本隔离。记录原文/转换后 hash、JSON span、版本化规则与保留上下文，避免保留矛盾输出格式或删除关键用户内容。
+7. 每个可解析的 assistant 工具调用产生一个目标前缀；输入只包含目标 turn 之前的消息。自然语言没有明确 action-kind 真值，记 `action_kind_unlabelled`，不猜 final/clarify/refuse。源调用 parse 错误、不可可靠匹配的 observation 和超政策参数均完整保留排除理由。
+8. 原始分组保持：source/tool/schema/词法任务模板及 MinHash64、16×4 LSH 候选、词三元组 Jaccard≥0.85连通。来源分组为3,517个，最大组6,716个不同来源；不拆组追求80/10/10条数比例。种子17，另以 group hash 留10% OOD 候选；LSH不保证所有语义近重复都被发现。
+9. 另检查规范化 schema 语义键，忽略 annotation、排序 required/enum 等集合，但保留真实参数名。规范化语义跨多个旧组时隔离所有相关来源，原 group/split 不变；最终集再次验证原始键和规范化键的交集。此检查是结构语义规则，不是完整逻辑等价求解器。
+10. 转换后的完全重复保留一例。全部候选测实际训练长度，bucket=2048/4096/8192；越界、无法测量或不稳定 token 前缀完整排除，无截断。长度参数属于 P02 数据探索；后续训练须绑定具体 manifest 与其模型窗口。
 
-每个 assistant 决策写入 `source-index.jsonl` 的 turn_index、全部拒收原因及 normalized_hash（未生成则 null）。`assignments.jsonl` 记录完整来源 hash→group→split；候选 `lineage.jsonl` 保留 normalized_hash、augmentation_parent、长度、排除原因和 training_run=null。相同原记录多次出现保留其索引，避免从原始分母消失。
+`source-index.jsonl` 包含每个来源/assistant决策的排除理由、policy hash、工具原 hash、系统变更、调用参数 hash 与历史 observation 关联。`tool-lineage.jsonl` 保存去重的完整原工具、转换工具、字段变化/理由、typed defaults 和可逆名称映射。`assignments.jsonl` 保存来源→旧组→split。候选 `lineage.jsonl` 连接来源/原工具/政策/规范化 hash、目标 turn、group/split、长度/序列 hash、exclusion reason、augmentation_parent 与 training_run=null。`normalized-group-conflicts.jsonl` 与 `tool-quarantine.jsonl` 分别保留分组冲突与工具拒收。
 
-## 本机复现
+工具原 schema 的严格诊断与当前政策拒收分开报告；字段变化同时给去重工具、工具出现次数、来源记录、assistant决策四种分母。转换成功的工具可能出现在因其它原因隔离的来源记录中，不能将其数量当作最终工具数。
 
-所有原始/处理产物放 `.toolalign-local/`（Git 忽略）。首轮数据、环境、tokenizer 预算5GiB；源文件上限512MiB，实际磁盘用量见审计报告。公开核心包不新增依赖；tokenizer 只在私有探索环境使用 [`tokenizer-environment.txt`](tokenizer-environment.txt) 固定版本。当前 Python 3.14.7。
+## 复现入口
+
+所有构建输出、原始日志及探索环境使用 Git 忽略的 `.toolalign-local/`，预算总计5GiB。核心环境不安装 ML 后端；私有 tokenizer 环境使用公开的精确依赖版本：
 
 ```bash
 uv sync --locked --python 3.14
@@ -34,17 +38,19 @@ uv run --locked python -m toolalign.data fetch --manifest data/manifests/toolace
 uv run --locked python -m toolalign.data fetch --manifest data/manifests/qwen-source.v1.json --destination .toolalign-local/source/qwen --ca-file /etc/ssl/cert.pem
 uv venv .toolalign-local/tokenizer-venv --python 3.14
 uv pip install --python .toolalign-local/tokenizer-venv/bin/python -r reports/data/tokenizer-environment.txt
+uv pip install --python .toolalign-local/tokenizer-venv/bin/python -r reports/data/tokenizer-audit-environment.txt
 ```
 
-`--ca-file` 仅为本机 Python 证书链路径选择，仍启用 TLS 验证；在默认信任链可用的机器可省略。本机首次默认 urllib 证书检查失败，改用系统 CA 后成功；未禁用证书检查。
+`--ca-file` 使用本机系统 CA，保持 TLS 验证；默认信任链正常时可省略。首次实际下载的默认 Python 根链失败和之后的成功记录保存在严格检查点证据中。
 
-保存如下配置为私有 `config-a.json`；实际执行参数中的相对路径均以仓库根目录为基准。第二次仅把 `output_dir` 改为 `.toolalign-local/build-b`，保存 `config-b.json`。输出目录必须为空，不能复制第一次产物冒充重建。
+保存下面配置为 `.toolalign-local/config-policy-a.json`。第二份配置仅更改 output_dir 为 `.toolalign-local/policy-b`，存为 config-policy-b.json。两次运行必须各自指向空目录；省略 source_policy 可复现旧严格模式，但不会导入本次已批准的适配。
 
 ```json
 {
   "source_manifest": "data/manifests/toolace-source.v1.json",
   "source_dir": ".toolalign-local/source/toolace",
-  "output_dir": ".toolalign-local/build-a",
+  "source_policy": "configs/source_toolace.v1.json",
+  "output_dir": ".toolalign-local/policy-a",
   "seed": 17,
   "ood_fraction": 0.1,
   "length_buckets": [2048, 4096, 8192],
@@ -56,44 +62,25 @@ uv pip install --python .toolalign-local/tokenizer-venv/bin/python -r reports/da
 ```
 
 ```bash
-PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m toolalign.data build --config .toolalign-local/config-a.json
-PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m toolalign.data build --config .toolalign-local/config-b.json
-uv run --locked python -m toolalign.data compare .toolalign-local/build-a/manifest.json .toolalign-local/build-b/manifest.json
-uv run --locked pytest -q tests/data/
+PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m toolalign.data build --config .toolalign-local/config-policy-a.json
+PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m toolalign.data build --config .toolalign-local/config-policy-b.json
+uv run --locked python -m toolalign.data compare .toolalign-local/policy-a/manifest.json .toolalign-local/policy-b/manifest.json
 uv run --locked pytest -q
+TOOLALIGN_TOKENIZER_DIR=.toolalign-local/source/qwen PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m pytest -q tests/data/
 uv run --locked ruff check .
 uv run --locked python scripts/check_contract_freeze.py
 uv run --locked python scripts/check_public_content.py
+uv build --wheel
 ```
 
-不同交付提交的 Git SHA 会影响数据集级 manifest（预期行为）；module hashes 和每项产物 hash 可用于比较同一实现。`compare` 同时重新读取并核验两边的实际产物，拒绝路径逃逸/内容改动；不仅比较 manifest 自述。
+运行精确命令/退出码/log hash 见本次机器证据。不同 Git SHA 会影响 build manifest 的 code_revision；每个模块与产物的 hash 均另列。compare 会重新读取两边真实文件，不只比较 manifest 自述。未升级公共打包修复前，本 worktree 的默认 sdist 构建已发现会包含私有路径；失败 archive 已私有隔离，S0负责公共修复，本包使用显式 wheel 构建。
 
-## Token 长度与人工门
+## 长度口径与人工审阅
 
-官方 tokenizer 文件与 template 逐字节校验；仅用 tokenizers 0.22.2 和 Jinja2 3.1.6 的不可变沙箱渲染已核对的官方模板，enable_thinking=false。token count 不添加 tokenizer special tokens，模板本身包含控制符。原始表示保留原始 system、历史文本及 tool observations，目标 assistant 文本单独加结束标记计数；不把其混作规范化后的训练长度。
+规范化训练长度使用 `qwen3_non_thinking_concat_one_eos_v1`：固定 JSONL 对象键序，官方 non-thinking 模板渲染，整体 tokenize(prompt+completion)，检查 prompt IDs 保持前缀，再额外追加一个 EOS ID、不加尾换行。长度记录含 basis、sequence hash、EOS 与稳定前缀标识。原始 `raw_decision()` 的隔离表示长度单独统计；不能把它当作训练长度。Schema 为带/不带声明模板的 prompt token 边际差。
 
-schema 占比为移除 system 中原始工具 JSON span 前后的 prompt token 数差值（边际贡献），避免把 BPE 分段 token 数误当可加和。只在能定位 span 的决策上计算 schema/prompt/completion 占比；完整长度分母仍覆盖全部可渲染 assistant 决策。自然语言类别/工具可执行性/正确性没有人工真值，均不以模型自评补出。
+此前16个原创 fixture 对照本地 tokenizers 与 HF AutoTokenizer 的模板字符串和 token IDs，包括两个不稳定 BPE 前缀拒收；详见 [对照报告](P02_TOKENIZER_ALIGNMENT.md)。仅证明实际覆盖案例，不声称所有文本普遍等价。完整对照复现命令在 [机器记录](P02_TOKENIZER_ALIGNMENT.json)。核心环境缺少真实 tokenizer 依赖/路径时的17项 skip不能当作执行通过；本次真实CPU回归单独登记。
 
-`human-review/index.html` 是离线、转义源文本并禁用脚本/外部资源的查看页；CSV 保持 review 结果空白。按语言书写体系、工具格式、多轮及拒收类型分层覆盖后，以固定 hash 补足100条。问题分类包括格式、schema、副作用、action kind、参数语义、缺真值、泄漏、分组、长度、许可。样本只供质量审查；不能用于模型选择或偏好挖掘。
+本次 `human-review/index.html` 与 samples.jsonl **仅抽取最终有效 examples**，按 split、语言、工具数、并行调用、多决策、历史 observation、默认值、日期上下文、转换规则和长度桶分层，再稳定 hash 补足100个不同来源。每条展示原始记录、完整有效 example、工具逐字段变化、政策新增限制、原始/规范化关联。源文本经过 HTML 转义，页面禁用脚本和外部资源。另有 exclusion-samples.jsonl，排除代表不混入有效样本池。
 
-G-DATA 仍缺 kris 实际抽查、S0 已批准的来源适配和正式可训练 manifest；P05 偏好人工阈值不用于本包验收。训练、BFCL、正式评测、推理部署和公网发布均 NOT_RUN。
-
-## 后续 CPU 衔接检查：规范化训练长度
-
-严格检查点的原始来源统计与14项产物保持原样。后续 `normalized()` 改用 `qwen3_non_thinking_concat_one_eos_v1`：先按本包 JSONL 的对象键序固定序列化、渲染官方 non-thinking prompt，再整体 tokenize(prompt + completion)，检查 prompt IDs 完整保留，最后追加一个 `eos_token_id`，不追加末尾换行。若前缀发生 BPE 合并则记 `prompt_completion_boundary_changed`，完整排除并保留计数。对 completion 中已有的文字/控制 token不做偷偷删除；包括用户要求字面 EOS 的原创边界 fixture，仍只额外追加一个 EOS。
-
-长度结果带 `length_basis`、`sequence_hash`、EOS 和稳定前缀标识，供后续训练器绑定实际序列。工具调用 completion 的 JSON 使用本包固定序列化（非 ASCII 保留、稳定参数键序）；T1 的编码器接收给定 completion 字符串，比较须使用同一字符串，不能把不同 JSON 空白排版当同一序列。`training_sequence()` 可提供准确的 prompt/completion 字符串和 IDs；实际训练集仍待 S0 的来源政策和训练方绑定。原始 `raw_decision()` 仍是隔离表示的统计，不用作规范化训练窗口依据。
-
-独立 CPU 证据使用16个原创合法v1 fixtures（工具调用、并行调用/observation、多轮、无工具、clarify/refuse、中文/Unicode/特殊字符、换行与 EOS 边界），参考环境仅从本地已 pin tokenizer 加载 `AutoTokenizer`，`local_files_only=True`、`trust_remote_code=False`，离线且不导入 Torch/MLX。未调用、复制或运行 T1 的 samples/execution 实现；其已提交编码政策仅作只读口径参考。
-
-```bash
-uv venv .toolalign-local/tokenizer-reference-venv --python 3.14
-uv pip install --python .toolalign-local/tokenizer-reference-venv/bin/python -r reports/data/tokenizer-reference-environment.txt
-uv pip install --python .toolalign-local/tokenizer-venv/bin/python -r reports/data/tokenizer-audit-environment.txt
-PYTHONPATH=src .toolalign-local/tokenizer-reference-venv/bin/python tests/data/tokenizer_crosscheck.py --engine hf --output .toolalign-local/hf-tokenizer-check.json
-PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python tests/data/tokenizer_crosscheck.py --engine local --output .toolalign-local/local-tokenizer-check.json
-uv run --locked python tests/data/compare_tokenizers.py --local .toolalign-local/local-tokenizer-check.json --reference .toolalign-local/hf-tokenizer-check.json --output .toolalign-local/tokenizer-comparison.json
-TOOLALIGN_TOKENIZER_DIR=.toolalign-local/verified-source/qwen PYTHONPATH=src .toolalign-local/tokenizer-venv/bin/python -m pytest -q tests/data/
-```
-
-对照记录含具体字符串/全部 token IDs；公开 golden 是原创 fixtures 的参考 hash，不包含上游数据。核心环境没有可选 tokenizer/本地路径时，16项真实 tokenizer 测试明确 skip；须另运行上面的私有 CPU 命令才能声称这些测试通过。版本间一致性只证明所列 fixtures，不声称所有文本上的普遍等价。详见后续 CPU 长度衔接报告与交接增补。
+请将空白 review.csv 复制到单独的私有提交目录再填写 reviewer、真实UTC时间、pass/fail/unknown、问题类别与备注；一个 verdict 覆盖该来源展示的所有有效决策。原始构建包作为冻结证据保留。提交时附原始 build manifest hash 与 review样本hash，便于 S0 对照。模型抽查不替代 kris；没有实际人工记录时 mislabel_rate=null、accepted_examples_reviewed=0、G-DATA仍待审。本包没有执行P05偏好审计、训练、BFCL、正式评测或服务部署。
