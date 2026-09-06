@@ -1,0 +1,77 @@
+[
+  {
+    "schema_version": "toolalign.example.v1",
+    "example_id": "training-binding-protocol-final",
+    "source": "toolalign-original-training-binding-fixtures",
+    "source_revision": "v1",
+    "license_id": "MIT",
+    "source_record_hash": "3fad92b28b7bf13e9e4570355885574dc966efde85cd226c61efb059c4761174",
+    "group_id": "group-training-binding-protocol-final",
+    "split": "train",
+    "category": "protocol_review",
+    "tools": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "请检查原创协议样例的 Action、边界和监督位置；本例不进入训练选择。",
+        "tool_calls": [],
+        "tool_call_id": null
+      }
+    ],
+    "expected_action": {
+      "kind": "final",
+      "content": "原创协议检查：水在本例中记为 H₂O。\n保留 café 与 😀。",
+      "tool_calls": []
+    }
+  },
+  {
+    "schema_version": "toolalign.example.v1",
+    "example_id": "training-binding-protocol-clarify",
+    "source": "toolalign-original-training-binding-fixtures",
+    "source_revision": "v1",
+    "license_id": "MIT",
+    "source_record_hash": "41b83b297b9b01b4df68d5f4f39afad7d98e5e79528931314c09be3ec0a5fecc",
+    "group_id": "group-training-binding-protocol-clarify",
+    "split": "train",
+    "category": "protocol_review",
+    "tools": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "请检查原创协议样例的 Action、边界和监督位置；本例不进入训练选择。",
+        "tool_calls": [],
+        "tool_call_id": null
+      }
+    ],
+    "expected_action": {
+      "kind": "clarify",
+      "content": "请说明需要读取哪一个原创对象。\n保留字面 <|im_end|> 与 <think>标签</think>。",
+      "tool_calls": []
+    }
+  },
+  {
+    "schema_version": "toolalign.example.v1",
+    "example_id": "training-binding-protocol-refuse",
+    "source": "toolalign-original-training-binding-fixtures",
+    "source_revision": "v1",
+    "license_id": "MIT",
+    "source_record_hash": "751fa64513a925fc62a9df9345968501118243d461c6ac8a0a0721921b0be0ae",
+    "group_id": "group-training-binding-protocol-refuse",
+    "split": "train",
+    "category": "protocol_review",
+    "tools": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "请检查原创协议样例的 Action、边界和监督位置；本例不进入训练选择。",
+        "tool_calls": [],
+        "tool_call_id": null
+      }
+    ],
+    "expected_action": {
+      "kind": "refuse",
+      "content": "此原创请求超出只读工具范围。\n保留 </pre><script>alert(\"fixture\")</script> 为普通文本。",
+      "tool_calls": []
+    }
+  }
+]
