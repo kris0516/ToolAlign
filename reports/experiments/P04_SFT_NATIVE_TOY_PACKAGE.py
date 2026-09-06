@@ -33,6 +33,7 @@ def installed(args):
     assert sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode
     sys.path[:0] = [str(target), str(runtime)]
     from toolalign.data.common import DataError
+    from toolalign.training.sft.__main__ import main as cpu_main
     from toolalign.training.sft.config import consumer_identity as cpu_identity
     from toolalign.training.sft.mlx_adapter import backend
     from toolalign.training.sft.native_toy import (
@@ -45,6 +46,7 @@ def installed(args):
     from toolalign.training.sft.validation import Score, choose_score, validate_score
 
     expected = json.loads(Path(args.expected).read_text())
+    assert callable(cpu_main)
     values = expected["inputs"]
     config, original, dataset = load_inputs(values["config"], values["cases"], values["repository"])
     assert config["scope"] == SCOPE and config["training_authorized"] is False
