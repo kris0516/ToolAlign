@@ -129,3 +129,19 @@ P03现已在`29a5e4c6affa2b822717fd3184b25ccb756e1651`完成独立审查、最�
 输出精确候选的PASS/FAIL/BLOCKED、P0/P1/P2、规范与源/安装路径逐项证据、命令/退出码/hash、原失败和NOT_RUN。提交新的独立review SHA后结束该轮等待S0。格式技术PASS仍不等于G-DATA、人审、训练选集或模型质量通过，不能自行改ADR/状态或合并main。
 
 2026-09-06实际独立审查派发：S0收到并核对D1最终7bada2e451d43dae4b3ed532d5efa310fc8e6a57及正式handoff，713项checksum和217个原公共文件字节匹配。重新确认R1上一轮completed/idle后，按完整授权1de90781e42a3693b112aafcf585a905bc052d63原生派发精确7bada的新格式独立审查，gpt-6-astra/max，已确认新轮ACTIVE。D1随后原生completed/idle核验完成；本轮仅CPU新格式审查，不授权P04或替代kris语义判断。
+
+## P02-format-fix-r3｜参考 tokenizer 的已核验字节绑定
+
+状态：CHANGES_REQUESTED；本段准备定点修复授权，实际派发另记。R1继续冻结完整候选`7bada2e451d43dae4b3ed532d5efa310fc8e6a57`，正式整包报告尚未提交。S0已读取并封存稳定反例及未提交探针的精确字节：同尺寸替换原目录的tokenizer.json，在校验后、真实HF加载前交换`!`与`?`的vocab ID，最终来源文件恢复原hash，声明身份完全相同但`encode("!")`从`[0]`变成`[30]`。参考路径exit1，native从已核验buffer构造的对照exit0。探针只控制私有来源副本的文件打开时序，未替换loader方法、返回值或identity；这证明加载状态与来源声明脱节，不是一般同用户OS攻击隔离保证。S0封存证明SHA-256为`d33051b56aea3fc8588c47aa26e713b20b0783aca0d4f74f0e631f1a1d836510`，不把未提交源快照称为正式R1交接。
+
+- owner为D1，同一原生独立任务/隔离worktree/`work/p02-data`，gpt-6-astra/max。先核验干净完整7bada2e，读取并私有保存原生消息给出的完整authorization_commit中的AGENTS/协议/本段；从原候选继续，不自行merge随后main/P01，不reset/rebase/cherry-pick。原R1正式提交到达后，只有收到S0精确SHA同步消息才普通merge原review，全部原FAIL与父提交保持。
+- 只允许修改`src/toolalign/model_io/offline.py`、`tests/model_io/test_offline.py`，必要时新增`tests/model_io/test_snapshot.py`；新增`reports/data/P02_FORMAT_FIX_R3*`及`coordination/handoffs/P02-format-fix-r3.md`。其他format/sequence/资源/fixtures/旧测试、原三个提案、原审计报告与manifest、data模块/18产物、人审材料与填写副本、全部P01/P03/既有R1、公共规范/锁/依赖/配置/S0状态只读。需要超出范围先提交具体申请，继续可独立工作。
+- 修复目标是让真实HF tokenizer使用本次已核验的完整字节快照，或等价绑定其全部实际加载状态；可从buffer或独立受控快照构造，须说明额外文件/override的处理。不能用增加若干原路径重查次数、关闭reference功能、放宽身份检查或伪装native实现来让反例通过。维持普通固定来源上的官方模板、token值、渲染参数、EOS、模型revision与真实包版本。
+
+先在精确7bada上以S0提供的只读探针副本自行复现before：真实参考路径失败、native对照通过，保存原始命令/退出码/loghash。再在新实现上复跑相同探针，证明声明相同就实际状态相同，或明确fail closed；主回归不得mock loader方法、库返回值、identity或期望hash。补充与改动相关的同尺寸/不同尺寸来源变化、附加文件/实际加载状态、正常来源、异常与临时资源清理检查；探针只操作本次新私有副本，不修改R1或旧来源目录。
+
+同12个原fixture须在两个真实CPU engine重新检查P/C/完整IDs/sequence/EOS/mask，并精确比较原最终v1输出；双模型身份行不冒充新增独立场景。旧8,228行native审计和本轮R1独立reference全量核验保留其原源码/输入/hash/时间，不改写成修复后运行。新报告给出加载代码变化与不变格式/算法/普通fixture输出的映射；没有具体表示变化，不重复旧来源构建或自动重跑8,228行。若实现确实改变正常表示，立即提交差异给S0决定范围，不自行选集/截断/更新manifest。
+
+在最终完整修复候选运行适用全部旧CPU/真实tokenizer检查、新反例、lint/冻结/公开扫描，以及当前实际sdist/default wheel/显式sdist重建wheel、成员源码hash和默认隔离安装接口。安装环境仍不得加载可选tokenizer/模型依赖；真实tokenizer验证在已允许的CPU环境单列。命令数、不同场景、安装重复分开；源码直接wheel若未运行记NOT_RUN。所有旧失败和自己开发失败保留，不按新结果覆盖原报告。交接中记录精确候选/父提交/授权范围、各结果和来源hash、原数据/人审身份保持及剩余项。
+
+资源限纯CPU，新增私有制品累计2GiB，复用D1已有native/reference环境，不新建环境、不联网下载。使用真实tokenizer-only Transformers5.16.1/tokenizers0.23.2/Jinja3.1.6，导入前设置离线和禁用Torch/TF/Flax，实际断言无模型模块；禁止模型/GPU/费用/上传/P04及正式训练。完成后普通推送精确候选并结束该轮，等待独立R1复审。S0的768CPU临时组合预检与候选CI通过不关闭本缺陷；新格式、G-DATA、训练绑定均未验收。
