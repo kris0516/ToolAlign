@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。Q1第二轮原42d9已接收/原生空闲；R1原5270正式FAIL9645055的TYPE-001首次未通过1次；E1最终da22修复交接已核验。R1按e8def03原生接续精确da22复审/ACTIVE，S0核验4,475路径intake通过。D1新数据版217项输入和v2配置已冻结，处置80来源/98决策隔离、3来源恢复；已按完整f8b81b9原生派发/ACTIVE，新分支/intake待交付；[新范围](../reports/S0_P02_QUALITY_V2_SCOPE.md)。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
+更新时间：2026-09-07。Q1第二轮原42d9已接收/原生空闲；R1原5270正式FAIL9645055的TYPE-001首次未通过1次；E1最终da22修复交接已核验。R1按e8def03原生接续精确da22复审/ACTIVE，S0核验4,475路径intake通过。D1新数据版217项输入和v2配置已冻结，处置80来源/98决策隔离、3来源恢复；已按完整f8b81b9原生派发/ACTIVE，S0核验新分支/8,977路径和217输入intake通过；[新范围](../reports/S0_P02_QUALITY_V2_SCOPE.md)。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main/PR12技术VERIFIED；Q1裁定已接收，E1类型修复待R1-r2 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1精确da22复审ACTIVE；D1新版按f8b81b9原生ACTIVE/新intake待交付；E1/Q1/T1空闲；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1精确da22复审ACTIVE；D1新版按f8b81b9原生ACTIVE/8,977路径intake已核验；E1/Q1/T1空闲；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-Q1第二轮原42d9已接收/原生空闲；R1原5270正式FAIL9645055的TYPE-001首次未通过1次；E1最终da22修复交接已核验。R1按e8def03原生接续精确da22复审/ACTIVE，S0核验4,475路径intake通过。D1新数据版217项输入和v2配置已冻结，处置80来源/98决策隔离、3来源恢复；已按完整f8b81b9原生派发/ACTIVE，新分支/intake待交付；[新范围](../reports/S0_P02_QUALITY_V2_SCOPE.md)。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
+Q1第二轮原42d9已接收/原生空闲；R1原5270正式FAIL9645055的TYPE-001首次未通过1次；E1最终da22修复交接已核验。R1按e8def03原生接续精确da22复审/ACTIVE，S0核验4,475路径intake通过。D1新数据版217项输入和v2配置已冻结，处置80来源/98决策隔离、3来源恢复；已按完整f8b81b9原生派发/ACTIVE，S0核验新分支/8,977路径和217输入intake通过；[新范围](../reports/S0_P02_QUALITY_V2_SCOPE.md)。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
 
 P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
 

@@ -14,7 +14,7 @@
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
-| [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | IN_PROGRESS | 按完整f8b81b9原生派发/ACTIVE；新分支/217输入intake待交付 |
+| [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | IN_PROGRESS | 按完整f8b81b9原生派发/ACTIVE；S0核验8,977路径及217输入intake通过 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版数据仍待实施 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |
