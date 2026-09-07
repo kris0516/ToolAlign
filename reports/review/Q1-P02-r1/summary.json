@@ -1,0 +1,114 @@
+{
+  "schema": "toolalign.q1-public-review-summary.v1",
+  "task": "Q1-AI-REVIEW-r1",
+  "reviewer": "Codex-AI(Q1)",
+  "model": "gpt-6-astra",
+  "thinking": "max",
+  "identity_verified": true,
+  "code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "authorization_commit": "6e9d29b2d408f9e3a2f319406b05eb1a97b16153",
+  "contract_versions": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "review_status": "COMPLETE",
+  "data_followup_status": "CHANGES_REQUESTED",
+  "input_manifest_sha256": "2bbd0a12cce1c26a4f80941b373b375e1d2e2ee7866e9ec5fbf8cd276068e732",
+  "adjudication_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+  "counts": {
+    "sources": {
+      "fail": 3,
+      "unknown": 8,
+      "pass": 3
+    },
+    "decisions": {
+      "fail": 3,
+      "unknown": 9,
+      "pass": 3
+    },
+    "calls": {
+      "fail": 3,
+      "unknown": 11,
+      "pass": 21
+    },
+    "recommendations": {
+      "quarantine_entire_source": 1,
+      "retain_quarantine": 10,
+      "restore_original_bytes_next_revision": 3
+    }
+  },
+  "denominators": {
+    "sources": 14,
+    "decisions": 15,
+    "calls": 35,
+    "arguments": 65
+  },
+  "grade_disagreements": {
+    "total": 11,
+    "fail_to_unknown": 8,
+    "unknown_to_pass": 3
+  },
+  "staging": {
+    "records": 3,
+    "direct_action_semantic_pass": 2,
+    "dependent_semantic_unknown": 1,
+    "current_promotions": 0,
+    "retained_pending_S0_version": 1,
+    "retained_for_unverified_observation": 1,
+    "retained_for_context_limit": 1,
+    "existing_total_tokens": [
+      1331,
+      1487,
+      3069
+    ],
+    "existing_completion_tokens_including_eos": [
+      68,
+      66,
+      247
+    ]
+  },
+  "verification": {
+    "authorization_files": 7,
+    "payload_files": 38,
+    "original_and_copy_paths_including_manifest": 78,
+    "source_decisions_fully_bound": 15,
+    "full_prefixes_checked": 15,
+    "staged_complete_arrays_checked": 3,
+    "staged_complete_prompt_records_checked": 3,
+    "local_checker_failures_preserved": 2,
+    "full_project_test_suite": "NOT_RUN_UNCHANGED_PRODUCTION",
+    "public_scan_paths": 431,
+    "base_files_unchanged": 428,
+    "private_value_scan_entries": 71,
+    "private_source_indices_checked": 14,
+    "new_public_code_files": 0
+  },
+  "failure_policy": {
+    "threshold": 5,
+    "new_failed_revision_increments": 0,
+    "existing_pdf_issue_consecutive_count": 1,
+    "whole_goal_pause_recommended": false
+  },
+  "activity": {
+    "production_data_mutations": 0,
+    "new_tokenizer_runs": 0,
+    "new_model_runs": 0,
+    "new_framework_runs": 0,
+    "new_GPU_jobs": 0,
+    "external_business_tool_executions": 0,
+    "data_or_model_downloads": 0,
+    "browser_retries": 0,
+    "new_task_or_automation_created": 0
+  },
+  "training_authorized": false,
+  "user_action_required": false,
+  "representative_dataset_error_rate_claimed": false,
+  "private_result_sha256": {
+    "adjudications.json": "4866810a0fcaeade746fa042534cdf4018345b7fdf64dba435f47538e457d86c",
+    "staging-adjudications.json": "52e3222ee69c5186e5523afe85de888253c2873ffafc7877941352e736517878",
+    "review-event-proposals.json": "de43ea4f2309f741356c4e7bb5fcd7c2f8d04b05149330641020ee1b116d7695",
+    "followup-checklist.json": "8a113e52ae2d368dc49e5aac373dbff323dfeed63c0b0b7ef341ee0b634a8c31",
+    "review-validation.json": "40c526173149cd36b104473ebbdd8d4016d6b38ccaa4596836b64fc80cfef344"
+  }
+}
