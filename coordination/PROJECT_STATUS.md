@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已交付/原生空闲，S0完整接收进行中。E1完整01eeb74d模型CPU候选保持，下一R1范围CLAIMED待原生派发；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已交付/原生空闲，S0完整接收进行中。E1完整01eeb74d模型CPU候选保持，R1已按完整9a29a72原生接续该模型CPU审查/ACTIVE，新intake待交付；真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查已接收，T1修订完整接收进行中，R1模型CPU范围CLAIMED |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查已接收，T1修订完整接收进行中，R1模型CPU审查ACTIVE |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1/R1/D1/E1/Q1均已核验空闲；R1下一模型CPU范围CLAIMED，T1完整修订1769046待复审；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1模型CPU审查ACTIVE/intake待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -254,3 +254,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 20:29–20:32 UTC，S0接收原R1安装固定消费与T1源码I/O修订证据，分别核验1,468/96路径。原f3四视图7,928成员和13例26 engine完整数组一致，原范围实际消费/安装额度已用尽；T1 53d8610的原FIFO源码probe及时拒绝、child已回收，147相关CPU为T1自测。两条事实分别见[原数据接收](../reports/S0_P04_DATA_V3_CPU_HANDOFF.md)和[定点修复](../reports/S0_P04_DATA_V3_NONREGULAR_FINDING.md)；原R1正式verdict、T1安装probe/完整候选及复审未完成，P04正式模型保持未授权。
 
 2026-09-07 20:55:57–20:56:06 UTC，S0完成原R1 b99a644正式FAIL接收，证明 `f240ef4ec109550b7cba4c2cea3f0a6422a1aebc6dacad41027e46e719c8beea`，65,185路径/25原命令、623公开Git/快照、1,628链接和1个lstat-only FIFO保持。唯一P04-SFT-DATA-V3-F1第一次正式失败计1，全部旧失败和30文件/1链接原路径缺失例外保留，未把原失败候选合入main。T1完整1769046/原生空闲，完整接收进行中；原中间F1修订与本次正式要求相同，不另增实现轮次。R1模型CPU范围CLAIMED待原生接续；[正式接收](../reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)。
+
+2026-09-07 21:06:16 UTC，S0核验R1原b99轮completed/idle与干净HEAD、E1完整01ee/原封存，并只读再核验91,517路径/原链接与1个lstat-only FIFO，证明 `e247fd615d9589d19af4fdc5908a2e81b3378e6fb8dbfac9a6dff1aecc6c8800`。按完整9a29a72原生接续P04-QWEN-MODEL-R1，显式gpt-6-astra/max，新轮ACTIVE已确认；新branch/身份/42输入intake待交付。本轮仅模型接口CPU独立审查，真实模型/框架/编码/GPU未授权。T1修订完整接收继续。
