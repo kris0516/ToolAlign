@@ -133,6 +133,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | v3特殊文件修订完整接收 | T1完整1769046/原生空闲，S0核验12,675路径/26命令、三归档及四原FIFO节点；Draft PR18和R1-r2 READY未派发；原正式F1计数1保持，[接收](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md) |
 | 2026-09-08 | 模型CPU独立intake与数据修订候选CI | R1新01ee模型轮intake经S0核验89,074路径/14授权/42输入；原证据保全通过、技术verdict待交付。PR18候选双Python CI各986/48跳过和9167/639文件绑定通过，[模型接收](reports/S0_P04_QWEN_CPU_HANDOFF.md) |
 | 2026-09-08 | 固定模型CPU独立审查接收 | 原R1 PASS bdebe4c对精确01ee，原生completed/idle；S0核验90,442路径/23原命令、三归档/65安装包字节，ACCEPTED待最终CI/main；[接收](reports/S0_P04_QWEN_REVIEW_HANDOFF.md)。数据修订R2已CLAIMED待原生接续 |
+| 2026-09-08 | 数据特殊文件修订独立复审实际派发 | 原R1 bdebe模型轮已接收/空闲，按完整1cb1b0a原生派发精确1769046的新R2轮/ACTIVE；新branch/intake待交付，原F1仍1；[范围](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)，S0模型包集成接续 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -164,7 +165,7 @@ P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce
 
 Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已对原候选提交b99a644正式FAIL/P2=1，S0核验65,185路径/25命令并确认原生空闲；16授权/609输入保持，Draft PR16双Python候选CI通过；[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，Draft PR17，原R1 bdebe4c对该CPU范围正式PASS，S0完整接收90,442路径/23原命令、原生空闲；ACCEPTED待最终CI/main。数据修订R2已CLAIMED待原生派发，D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已对原候选提交b99a644正式FAIL/P2=1，S0核验65,185路径/25命令并确认原生空闲；16授权/609输入保持，Draft PR16双Python候选CI通过；[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，Draft PR17，原R1 bdebe4c对该CPU范围正式PASS，S0完整接收90,442路径/23原命令、原生空闲；ACCEPTED待最终CI/main。数据修订R2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake待交付；D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
 
 R1原b99a644已正式判定原f3数据CPU候选FAIL，唯一P2/P04-SFT-DATA-V3-F1首次计1；S0完整核验65,185路径/25原命令，R1原生completed/idle。T1在同一原中间发现上交付完整修订1769046并已空闲，147CPU和源码/安装原反例PASS为自测；S0完整接收已核验12,675路径/26原命令及三归档，独立复审READY未派发。原成文时正式SHA尚未追加的记录保持，S0直接绑定原b99与新修订，不重复计轮次；[接收](reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)。PR16仍Draft，未将失败候选合并main；E1模型CPU原R1 bdebe4c正式PASS及完整封存已接收，原生空闲，待模型包集成与数据修订R2原生接续。
 
@@ -178,4 +179,4 @@ P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked py
 
 本地pytest使用任务/轮次独占的新`--basetemp`，避免默认共享根清理历史目录；含public-output假设的测试不置于`.toolalign-local`祖先下。旧全局pytest临时fixture的30文件/1链接原路径缺失已单列，30内容均与现存封存副本一致；见[实际保全记录](reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)。不恢复后冒充原件，不因目录更换重跑既有成功。
 
-最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)为CLAIMED，原模型CPU审查已接收/空闲，等待完整新授权原生派发。新修订真实数据消费NOT_RUN，原F1保持未关闭，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
+最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)已按完整1cb1b0a原生派发/ACTIVE，原模型CPU审查已接收/空闲；新branch/intake待交付。新修订真实数据消费NOT_RUN，原F1保持未关闭，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。

@@ -4543,12 +4543,12 @@
           "adopted_at_utc": "2026-09-07T21:01:04.125036+00:00"
         }
       ],
-      "next_action": "完整修订1769046468eb2ebfdd9e982ba4938833760e3fe0已交付，S0接收后派独立复审；原中间发现修订与本次正式要求同一问题，不重复计轮次",
+      "next_action": "完整修订1769046468eb2ebfdd9e982ba4938833760e3fe0已由S0接收，独立R1-r2按完整1cb1b0a原生ACTIVE；待精确修订正式verdict，不重复计原中间发现轮次",
       "deduplication_basis": "本轮唯一F1；原候选多次检查、T1/R1辅助脚本失败和原反例自测不增加正式失败次数"
     }
   ],
   "prior_findings": "此前82项数据使用/技术问题保持关闭，原FAIL/UNKNOWN与全部失败事件保留；新增P04-SFT-DATA-V3-F1首次正式技术FAIL计1，定点修订待独立复审。冻结v3 G-DATA批准保持。",
-  "updated_at_utc": "2026-09-07T21:01:04.125036+00:00",
+  "updated_at_utc": "2026-09-07T22:22:21.907345+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
