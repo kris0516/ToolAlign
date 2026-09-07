@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已交付/原生空闲，S0完整接收进行中。E1完整01eeb74d模型CPU候选保持，R1已按完整9a29a72原生接续该模型CPU审查/ACTIVE，新intake待交付；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2范围READY未派发。E1完整01eeb74d模型CPU候选保持，R1已按完整9a29a72原生接续该模型CPU审查/ACTIVE，新intake89,074路径/14授权/42输入通过，完整verdict待交付；真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查已接收，T1修订完整接收进行中，R1模型CPU审查ACTIVE |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审READY，R1模型CPU审查ACTIVE |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1模型CPU审查ACTIVE/intake待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1模型CPU审查ACTIVE/intake已核验、完整verdict待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1原v3数据与固定13例数组CPU适配已完整交接为f3b7f1a1；原48be435基线和609固定输入/配置e27a7d4b保持。R1原安装固定消费通过，整包b99a644正式FAIL仅FIFO F1/P2；T1按90ded89交付完整1769046修订，新branch/intake与53d8610源码反例已由S0核验，完整修订接收及复审待完成。真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
+T1原v3数据与固定13例数组CPU适配已完整交接为f3b7f1a1；原48be435基线和609固定输入/配置e27a7d4b保持。R1原安装固定消费通过，整包b99a644正式FAIL仅FIFO F1/P2；T1按90ded89交付完整1769046修订，新branch/intake与53d8610源码反例已由S0核验，完整修订接收已核验12,675路径/26原命令、三归档及65生产包字节；复审READY尚未激活，当前修订真实数据消费NOT_RUN。真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
 
 ## 恢复入口
 

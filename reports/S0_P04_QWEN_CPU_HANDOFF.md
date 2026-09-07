@@ -31,3 +31,5 @@ PR17候选CI34157109407已完成，Python3.11/3.14各14步骤成功、各959 pas
 2026-09-07 21:31:59–21:32:11 UTC，S0核验R1新分支、原生gpt-6-astra/max及精确01ee新身份、14份授权副本（13指定材料另加PROJECT_STATUS）、42固定输入和4条原始intake命令，证明 `75daa8a0582efc17daf969b5ec06e29336a023dc5837ed163e03a3b6e6f623cc`。89,074实际文件路径、1,628旧链接、623原b99公开Git/快照与1,090原scope文件保持；原1个FIFO仅lstat、30文件/1链接原路径缺失例外保持。R1完整intake `55c6329497116a7f650723ca9906d0dc95a3314dc6c8472e904344986382a73e`，preservation `469d0f0a2ff05cf4301f063be3d592acdf70e44c407477f256044fa6ad69d07b`，不替代技术结论。
 
 R1实际核对23,838路径、34份E1原命令及20,862源码快照、三归档和三个原小header；另3,142条旧provenance路径仅绑定原S0证明，未将证明中的路径当作新增模型/数据读取权限。S0以原字节/header独立核对622个serialized tensor的名称、shape、BF16、offset、payload/index，未解码tensor值。S0首份接收脚本误将header字段与另外含raw_tensor_sha256的metadata全对象比较而退出，原脚本/错误日志保持；按两类字段职责核验后通过，无生产API重跑。R1 intake成文时安装/validate_model_files均0，后续最多一次离线target安装及两模型各一次API按原授权执行；S0本次生产API、安装/框架/模型/GPU均0。
+
+2026-09-07 21:55:45 UTC，S0只读准备模型包与当前main e6d9554的集成：六项候选改动中，固定metadata配置在main已同字节，其余五项为新增；634份main与候选的预期并集为639份，尚未包括未交付的R1报告。现存三归档143个源码输入与预期并集逐字相同，准备证明 `96a5ecbcef2c4dddf2974a2e932f9f13cda558fda2f666e73fbf62260b64f104`。这是只读准备，尚未建立集成提交、运行组合测试或验收main；R1完整正式交接仍待完成，新增build/install/真实模型文件API与GPU均0。

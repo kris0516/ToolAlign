@@ -163,9 +163,9 @@ P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce
 
 Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已对原候选提交b99a644正式FAIL/P2=1，S0核验65,185路径/25命令并确认原生空闲；16授权/609输入保持，Draft PR16双Python候选CI通过；[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，Draft PR17，R1已按完整9a29a72原生接续该CPU范围/ACTIVE、新intake待交付；D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已对原候选提交b99a644正式FAIL/P2=1，S0核验65,185路径/25命令并确认原生空闲；16授权/609输入保持，Draft PR16双Python候选CI通过；[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，Draft PR17，R1已按完整9a29a72原生接续该CPU范围/ACTIVE，新intake89,074路径/14授权/42输入已由S0核验；完整verdict待交付，D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
 
-R1原b99a644已正式判定原f3数据CPU候选FAIL，唯一P2/P04-SFT-DATA-V3-F1首次计1；S0完整核验65,185路径/25原命令，R1原生completed/idle。T1在同一原中间发现上交付完整修订1769046并已空闲，147CPU和源码/安装原反例PASS为自测，S0完整接收/后续复审待完成。原成文时正式SHA尚未追加的记录保持，S0直接绑定原b99与新修订，不重复计轮次；[接收](reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)。PR16仍Draft，未将失败候选合并main；E1模型CPU独立review已按完整9a29a72原生接续/ACTIVE，新intake待交付。
+R1原b99a644已正式判定原f3数据CPU候选FAIL，唯一P2/P04-SFT-DATA-V3-F1首次计1；S0完整核验65,185路径/25原命令，R1原生completed/idle。T1在同一原中间发现上交付完整修订1769046并已空闲，147CPU和源码/安装原反例PASS为自测；S0完整接收已核验12,675路径/26原命令及三归档，独立复审READY未派发。原成文时正式SHA尚未追加的记录保持，S0直接绑定原b99与新修订，不重复计轮次；[接收](reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)。PR16仍Draft，未将失败候选合并main；E1模型CPU独立review已按完整9a29a72原生接续/ACTIVE，新intake已由S0核验；正式结论待交付。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
 
