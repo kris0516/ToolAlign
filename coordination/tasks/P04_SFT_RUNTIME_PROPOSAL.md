@@ -1,6 +1,6 @@
 # P04-SFT-RUNTIME-PROPOSAL｜真实Qwen运行接口只读方案
 
-状态：IN_PROGRESS。14:15:28 UTC按完整8929cbbef0b24f9a4053adfe778bb4ef76147293原生派发T1并确认新轮ACTIVE，gpt-6-astra/max；新branch/input intake待交付。可与D1 v3实现及Q1来源审核并行，计入最多两个实现/准备任务；正式P04及新生产实现仍未授权。
+状态：IN_PROGRESS。14:15:28 UTC按完整8929cbbef0b24f9a4053adfe778bb4ef76147293原生派发T1并确认新轮ACTIVE，gpt-6-astra/max；14:28:40 UTC实际新branch/完整intake经S0核验5,617路径/197链接、553基线/408旧Git快照、18授权/10输入及2原回执通过。可与D1 v3实现及Q1来源审核并行，计入最多两个实现/准备任务；正式P04及新生产实现仍未授权。
 
 code_base `d3e56f68ebd67cc576d912b6f06636682b4170ab`（PR14已验证main）；新branch `codex/p04-sft-runtime-proposal-r1`、新私有scope `p04-runtime-proposal-r1`，仅自己的隔离worktree。先从完整authorization_commit保存本任务、AGENTS/GOAL/PROTOCOL/PROJECT_STATUS/BOARD、REVIEW_POLICY、ADR-0025、P04规格、P02 v3任务/配置及PR14/PR11主干证据，再切换code_base。统一gpt-6-astra/max，不创建其他任务或sub-agent。
 
