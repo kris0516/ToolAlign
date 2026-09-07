@@ -87,6 +87,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 质量整改两任务intake核验 | D1/E1实际新分支/身份、两份428文件基线和精确配置通过，合计6125条当前输入/旧证据路径保持，证明c1d479b1；继续原轮次，候选及新审计待交付，见[证据](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
 | 2026-09-07 | 质量修订及AI复核中间交接 | 53bf原32来源/40决策暂挂及1c90的16例材料实物核验通过；E1原32独立判断12 fail/17 unknown/3 pass已收，旧标签及暂挂未改；追加16例审阅已按完整eca0777原生发送E1/原轮ACTIVE，intake及完整候选/180审计/R1待完成，见[证据](reports/S0_P02_QUALITY_INTERMEDIATE.md) |
 | 2026-09-07 | 质量修订完整交接与后续AI审核授权 | D1完整9b7cf01/原生空闲、S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；用户指定后续人工审核全部交独立Q1，14来源首轮与R1技术任务READY，同问题第五次未通过才整体暂停；[证据](reports/S0_P02_QUALITY_HANDOFF.md) |
+| 2026-09-07 | 后续独立AI审核实际派发 | 按完整6e9d29b创建Q1并核验原生ACTIVE/真实身份/隔离分支及7授权副本；R1精确9b7技术审查新轮ACTIVE，完整intake待交接；五次规则及30分钟自动跟进已同步，目标ACTIVE |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -114,9 +115,9 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均VERIFIED。P04-SFT-CPU准备已由PR10合并e28f1db，原R1 PASS800480b与main1014CPU/2 HF-only跳过保持，原CPU上游KeyError负结果保留。
 
-P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。R1质量修订CPU审查READY待派发，不增加框架运行。
+P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。R1质量修订CPU审查已原生派发/ACTIVE，不增加框架运行。
 
-用户已将全部后续人工审核交给专门独立Q1，按ADR-0023和REVIEW_POLICY接续；Q1首轮14来源/15决策READY待创建。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；R1精确技术范围READY。E1原固定180审计继续，16例追加intake通过、最终材料seal已收到待核验。新PDF问题首次未通过，后续需整来源修订；同一问题第五次正式修订未通过才整体暂停并通知kris。
+用户已将全部后续人工审核交给专门独立Q1，按ADR-0023和REVIEW_POLICY接续；Q1首轮14来源/15决策已原生创建/ACTIVE、身份分支和7授权文件已核验。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；R1精确技术范围已原生派发/ACTIVE。E1原固定180审计继续，16例追加intake通过、最终材料seal已收到待核验。新PDF问题首次未通过，后续需整来源修订；同一问题第五次正式修订未通过才整体暂停并通知kris。
 
 最多两个实现、独立R1和单一GPU租约约束保持。浏览器实显仍NOT_RUN，既有URL安全拒绝不绕过；页面体验待办不阻塞本轮委托AI内容整改。G-DATA因质量修订/独立复核/重新绑定待完成而未通过，真实模型容量和P04正式训练未放行，完整P00–P09目标继续。
 

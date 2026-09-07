@@ -13,3 +13,5 @@ E1追加材料intake已由S0核对192路径/75副本/4授权，证明`1825eae3b6
 用户最新指定全部后续人工审核交独立AI。S0已冻结Q1首轮14来源/15决策：11项判定变化、2份重标来源、新PDF问题；输入manifest`2bbd0a12cce1c26a4f80941b373b375e1d2e2ee7866e9ec5fbf8cd276068e732`。完整原来源/有效决策/lineage、E1封存建议及三个staging已绑定，未重抽E1的180来源。Q1和[R1技术范围](../coordination/tasks/P02_QUALITY_REVIEW.md)均READY待实际派发；[审核政策](../coordination/REVIEW_POLICY.md)与问题台账只按真实修订计数，同一问题第五次未通过才整体暂停并通知kris。
 
 独立技术结论、E1完整扩展审计、Q1裁定、新数据最终版本、最终CI/main及正式模型容量/P04仍待完成。training_authorized=false，原P00–P09目标继续ACTIVE。
+
+02:44 UTC实际派发：S0创建Q1独立任务并读回真实身份、ACTIVE轮次、新review/q1-quality-r1分支和7授权副本；同一完整6e9d29b授权派发R1精确9b7技术审查，新轮ACTIVE。未重复创建Q1，App列表未即时显示时用实际身份和原生状态确认；两个新scope完整intake待交接。30分钟原自动跟进已更新并读回ACTIVE/原频率/五次政策。

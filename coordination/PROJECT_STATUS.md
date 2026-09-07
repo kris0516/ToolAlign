@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。用户已将全部后续人工审核委托独立AI，Q1首轮14来源/15决策与R1技术审查READY待原生派发；同一问题连续第5次正式修订审核未通过才整体暂停并通知kris。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径、32原命令及实际归档/安装；[交接证据](../reports/S0_P02_QUALITY_HANDOFF.md)。E1原固定180审计继续，16例追加intake通过、完整结果已收到待核验。新PDF问题保持CHANGES_REQUESTED/首次；原32暂挂和所有既有VERIFIED保持。P00–P09原生目标已读回ACTIVE，GPU/正式训练无新增授权；G-DATA和P04尚未放行。
+更新时间：2026-09-07。用户已将全部后续人工审核委托独立AI，Q1首轮14来源/15决策已原生创建/ACTIVE、身份分支及7授权文件通过，R1精确9b7技术审查亦原生ACTIVE；两者完整input intake待核验；同一问题连续第5次正式修订审核未通过才整体暂停并通知kris。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径、32原命令及实际归档/安装；[交接证据](../reports/S0_P02_QUALITY_HANDOFF.md)。E1原固定180审计继续，16例追加intake通过、完整结果已收到待核验。新PDF问题保持CHANGES_REQUESTED/首次；原32暂挂和所有既有VERIFIED保持。P00–P09原生目标已读回ACTIVE，GPU/正式训练无新增授权；G-DATA和P04尚未放行。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；D1质量候选READY_FOR_REVIEW、E1固定审计继续，准备独立Q1与R1精确接续；code_base86b80ba，原PR11验收保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1原轮已completed/idle、E1原轮ACTIVE；Q1待实际创建，R1新技术范围READY；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1原轮已completed/idle、E1原轮ACTIVE；Q1/R1已按6e9d29b实际派发并核验ACTIVE；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |

@@ -14,8 +14,8 @@
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整9b7cf01/原生空闲；S0核验9,685路径/32命令/实际归档安装，见[交接](../reports/S0_P02_QUALITY_HANDOFF.md) |
-| [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | READY | 原轮completed/notLoaded、旧67976fd分支干净；未实际派发 |
-| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | READY | 全部人工审核接管、首轮14来源15决策；待实际创建/派发 |
+| [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | IN_PROGRESS | 按完整6e9d29b实际派发并核验新轮ACTIVE，intake待完成 |
+| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | IN_PROGRESS | 原生创建/ACTIVE、真实身份/新分支和7授权文件已核验；完整输入intake待完成 |
 | [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | IN_PROGRESS | 固定180新来源/200决策审计继续；原32/40独立判断及比较已交接核验，S0尚未裁定等级变化 |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | IN_PROGRESS | 已按完整eca0777原生追加E1并核验原轮ACTIVE；99文件及完整数组核验通过，追加intake192路径已核验；16例完整结果已收到待最终封存核验 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |

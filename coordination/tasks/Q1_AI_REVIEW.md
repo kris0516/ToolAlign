@@ -1,6 +1,6 @@
 # Q1-AI-REVIEW｜承接后续审核与首轮质量裁定
 
-状态：READY，待 S0 实际创建独立 Codex 对话并派发。用户已明确授权单独对话承接全部后续人工审核，见 ADR-0023 与 [审核规则](../REVIEW_POLICY.md)。
+状态：IN_PROGRESS。S0已按完整6e9d29b2d408f9e3a2f319406b05eb1a97b16153创建独立Codex任务并核验原生ACTIVE、真实身份、隔离branch/base和7授权文件；完整输入intake待Q1交接。用户已明确授权单独对话承接全部后续人工审核，见 ADR-0023 与 [审核规则](../REVIEW_POLICY.md)。
 
 - owner：Q1；全新 App 独立任务及隔离 worktree，gpt-6-astra / max；禁止 sub-agent。
 - code_base：已验证 `86b80bada50ac7c8f4b3910e3831a397ed65a853`；首轮 branch `review/q1-quality-r1`。先保存实际授权提交中的本任务/配置/AGENTS/GOAL/PROTOCOL/REVIEW_POLICY，再在自己的 worktree 建分支。授权完整 SHA 由 S0 原生消息给出。
