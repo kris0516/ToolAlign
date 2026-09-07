@@ -1,6 +1,6 @@
 # Q1-P02-r2｜固定扩展审计发现裁定
 
-状态：IN_PROGRESS。S0按完整39cba8bc68edea00266f142dbdf0091da50bd9ec原生派发，gpt-6-astra/max，新轮ACTIVE；实际review/q1-quality-r2/base b63de05及完整intake已核验934路径，含449基线、7授权、114载荷/两派生筛选和旧133封存文件。证明735d4883；当前50来源/60决策独立裁定继续，完整结论待交付。
+状态：ACCEPTED（裁定接收）。Q1原42d9d56804d3b7aadd0eff7efc99249ec5dbe11b已交付/原生空闲，S0核验1,643路径/41原命令并以3699884保持原SHA整合；见[接收报告](../../reports/S0_P02_Q1_R2_ADJUDICATION.md)。处置尚待新版实际实现，不放行G-DATA。以下原冻结范围保持。
 
 - owner：现有独立Q1任务，gpt-6-astra / max，不创建新任务或sub-agent。
 - code_base：`b63de055efe68500ff206dadcdc95e94884062f2`，已验收技术代码保持86b80ba，包含已接收的Q1首轮文档和问题台账；新branch `review/q1-quality-r2`，保留原review/q1-quality-r1和所有旧封存。

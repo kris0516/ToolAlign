@@ -94,6 +94,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 质量修订独立技术审查接收 | 原R1 PASS1e45cf2/原生空闲；S0核验14,011路径/42命令/14源码快照，CPU范围ACCEPTED；[接收报告](reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。PR12最终集成待完成，Q1新50来源继续 |
 | 2026-09-07 | 质量修订隔离集成与审计技术接续 | 普通集成f90be60实际1,186CPU/2跳过、三新归档及60安装包字节通过；[证据](reports/S0_P02_QUALITY_INTEGRATION.md)。PR12最终CI/main待完成；R1精确5270审计技术轮已原生ACTIVE |
 | 2026-09-07 | 质量修订CPU主干验收 | VERIFIED；[PR12](https://github.com/kris0516/ToolAlign/pull/12)普通合并6c81dfc，原R1 PASS1e45cf2保持；最终双Python CI及main1,186CPU/2跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。Q1/R1后续范围继续，G-DATA/P04未授权 |
+| 2026-09-07 | 第二轮裁定、审计原FAIL与修复交接 | 原Q1 42d9已接收/原SHA整合，S0核验1,643路径；原R1 FAIL9645055核验9,673路径，TYPE-001首次1次；E1最终da22修复核验2,943路径/37原命令，R1-r2范围CLAIMED待派发，见[交接](reports/S0_P02_AUDIT_TYPE_FIX_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -123,15 +124,13 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时�
 
 P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
 
-Q1首轮5100c65已接收并原SHA整合；新固定50来源/60决策裁定按39cba8b继续ACTIVE，完整结果待封存。E1完整5270d1e已交付/原生空闲，S0核验4,536路径及候选双Python CI；R1按完整769f9ff原生接续该CPU审计技术范围/ACTIVE，S0核验8,658路径intake、438候选/428基线、10授权副本及旧封存。D1/T1当前无新实现；E1接续限域CPU类型保真修复。
+Q1第二轮原42d9d56已接收/原生空闲，S0核验1,643路径；R1原5270正式FAIL9645055已核验9,673路径，TYPE-001首次未通过1次；E1最终da22修复/原生空闲，S0核验2,943路径，R1精确复审CLAIMED待原生派发。下一数据版按已裁定规则隔离80来源/98决策、恢复3来源，完整输入冻结中，尚未生成。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本轮main新增构建/安装/API/模型/框架均0，共享GPU锁实际空闲；无新费用、数据/模型上传或公网服务。完整P00–P09目标继续。
 
-最新审计代码发现：原5270的JSON false/0保真问题已由R1复现、S0确认；[定点修复](coordination/tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)已按完整3002657原生派发E1/ACTIVE，新分支/intake待交付。R1原候选整包审查及冻结材料影响核查继续，PR13保持Draft；Q1继续原50来源范围，PR12主干技术验收保持。
-
-09:25–09:26 UTC，S0核验Q1/R1/E1旧执行中断后，按原授权恢复三个独立任务并确认ACTIVE，统一gpt-6-astra/max；无新任务、无购买或兑换reset，正式修订失败增量0。S0又用冻结代码确认同根因涉及静态材料校验，将`check_materials.py`加入E1同轮修复补充范围，待完整授权发送。E1回报普通merge91758c6，S0完整intake待验证；[接续证据](coordination/handoffs/S0-review-resume-r1.md)。既有阶段验收与G-DATA/P04门槛保持。
+最新审计代码记录：原5270正式FAIL及四类反例保留；E1修复da22已READY_FOR_REVIEW，待独立R1精确复审，不自行关闭TYPE-001或合并PR13。Q1最终裁定独立读取原packet，旧视图/材料实际类型差异0；[原FAIL与修复交接](reports/S0_P02_AUDIT_TYPE_FIX_HANDOFF.md)。
 
 ## 工作记录
 
