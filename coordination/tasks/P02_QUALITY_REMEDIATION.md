@@ -1,6 +1,6 @@
 # P02-QUALITY-REMEDIATION｜委托AI审查后的数据整改
 
-状态：READY_FOR_REVIEW。完整9b7cf019b1d55501a7e656dbfb79b13bc7369fa0已交付/原生completed/idle，S0最终9,685路径/32命令/实际归档安装核验通过，见S0_P02_QUALITY_HANDOFF；以下保留原派发与范围。S0已按完整授权2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a原生派发并确认新轮ACTIVE，gpt-6-astra/max；01:30 UTC直接核验新分支/身份、428基线文件、2009输入及旧证据路径、10授权副本和精确配置通过，候选待交付。本包处理真实审阅发现，不把原P02技术验收改写为语义通过。
+状态：ACCEPTED（CPU技术范围），PR12最终集成/CI/main待完成。完整9b7cf019b1d55501a7e656dbfb79b13bc7369fa0与原R1 PASS1e45cf2已由S0接收，14,011路径证明bda9b18f；见[S0接收报告](../../reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。以下保留原派发与范围，本包不放行G-DATA或正式训练。
 
 - owner：D1；只用现有独立Codex任务及其隔离worktree，gpt-6-astra / max，禁止sub-agent。
 - code_base：`86b80bada50ac7c8f4b3910e3831a397ed65a853`。

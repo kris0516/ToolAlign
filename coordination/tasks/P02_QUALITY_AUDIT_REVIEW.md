@@ -1,6 +1,6 @@
 # P02-QUALITY-AUDIT-REVIEW｜扩展审计技术独立复核
 
-状态：READY，待R1当前精确9b7cf01技术审查正式结束、S0原生终态核验及新授权后派发。不得自行切换当前审查。
+状态：CLAIMED，待S0原生派发。R1上一轮正式PASS1e45cf2已completed/idle，S0已完成14,011路径交接核验和切换前公开文件保存；新授权以S0下一条原生消息给出的完整提交为准，未收到前不自行切换。
 
 - owner：现有独立R1，gpt-6-astra / max；新branch `review/p02-quality-audit-r1`。
 - 精确待审候选：`5270d1e9bdadb9db36deac7ba9b2e256b267b831`；基线`86b80bada50ac7c8f4b3910e3831a397ed65a853`，内容`e5030e9`、固定采样器`7298456`；[Draft PR13](https://github.com/kris0516/ToolAlign/pull/13)。完整S0授权SHA和私有路径另行给出。
@@ -9,6 +9,8 @@
 独立审查完整10个新增文件和本轮证据，不能只审核最终文档。目标是确认固定抽样、来源/完整目标与前缀展示、已有判断导出、token-mask材料核验和证据报告忠实。Q1负责扩展发现的语义裁定；技术PASS不能证明全库语义正确、放行G-DATA/P04或用程序替代逐条语义阅读。
 
 先绑定438候选/428不变基线、E1完整seal `adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889` 与receipt `b4b9d5898594d2c9fc9026ea75a197c4b82ee67b78a6afaa745fbb93fcc9306c`，保存新scope intake及身份。原采样manifest `cfbfd97125b52ff60e7ae39db8127936a7a55bc6e8b0161244f27c055b0596d3`、完整180判断seal与16材料seal不可改变。S0已核验4,536当前路径、26条原命令和原失败，证明 `eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a`，仍须R1自行检查关键行为。
+
+切换前先核验S0旧轮交接证明 `bda9b18fc8c557300b186cea41411cbe0f1f1a6058666225c8242cc6b75cf211` 及其450份公开文件副本映射，以原`1e45cf2` Git和不可变副本保存旧公开字节；不要把新checkout后的公开路径当作仍等于旧seal。旧`review/p02-quality-r1`分支、旧scope的3,216私有文件、186链接及八个测试目录保持。新身份只写新scope，不覆盖旧根identity或旧封存；新授权副本从本次完整授权提交读取。
 
 必要验证：12项原创取样fixture；在新私有目录最多一次真实输入重放，独立核对96 train/24 validation和六个定向批次、去重/原审排除/不足池、来源全部有效Example、group/split及先冻结后判断。程序可读取已授权原文件定位允许来源，不向模型展示或语义评判heldout；抽样后不得按结果补选。另做有区分力的反例，检查未调用工具参数/无有效目标、重复来源/多决策覆盖等实际边界，不重复已有同义测试。
 

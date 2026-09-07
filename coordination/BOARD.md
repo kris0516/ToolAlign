@@ -13,11 +13,11 @@
 | [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED；质量CHANGES_REQUESTED | 原技术PASS与PR5验收保持；kris委托AI副本已收到，32个问题来源待新版本处理，G-DATA未通过；[交接](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
-| [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整9b7cf01/原生空闲；S0核验9,685路径/32命令/实际归档安装，见[交接](../reports/S0_P02_QUALITY_HANDOFF.md) |
-| [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | IN_PROGRESS | 按完整6e9d29b实际派发/ACTIVE，440候选及10授权文件intake核验通过，结论待交付 |
-| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | ACCEPTED（首轮）；下轮准备 | 原5100c65已交付/原生空闲，S0核验603路径并保留原SHA整合；[裁定接收](../reports/S0_P02_Q1_ADJUDICATION.md)，50来源接续尚未派发 |
+| [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1 | 已验证86b80ba、ADR-0022 | ACCEPTED（CPU） | 原9b7cf01与R1 PASS1e45cf2已接收；[14,011路径证明](../reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)，PR12最终集成待完成 |
+| [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | ACCEPTED | 原PASS1e45cf2/原生空闲；1,186CPU/2跳过、原失败保留，S0完整交接核验通过 |
+| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | ACCEPTED（首轮）；r2继续 | 原5100c65已交付/原生空闲，S0核验603路径并保留原SHA整合；[裁定接收](../reports/S0_P02_Q1_ADJUDICATION.md)，50来源接续已原生派发/ACTIVE |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | 现有Q1 | 固定50来源/60决策 | IN_PROGRESS | 按39cba8b原生派发/ACTIVE，新分支及934路径完整intake通过；固定50/60范围继续 |
-| [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 审计技术复核 | R1 | 精确5270d1e；当前审查结束 | READY | 原R1仍审9b7，未提前切换或实际派发 |
+| [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 审计技术复核 | R1 | 精确5270d1e；上一轮已接收 | CLAIMED | 旧450份公开字节已保存，S0准备按新授权原生派发，尚未启动 |
 | [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整5270d1e/原生空闲，S0核验4,536路径/26命令，Draft PR13；[证据](../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md) |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | READY_FOR_REVIEW | 16例AI判断已交付/S0核验138路径；语义14/1/1、mask16 pass；质量未放行 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |

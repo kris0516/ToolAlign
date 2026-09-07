@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。Q1首轮5100c65已接收/原生空闲，603路径证明及原SHA整合保持；三项恢复、十项暂挂、一项新增隔离待新版，问题历史已绑定。E1完整5270d1e已交付/原生空闲，S0核验4,536路径/26命令，普通发布Draft PR13；[完整证据](../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md)。Q1新50来源/60决策已按39cba8b原生派发/ACTIVE，934路径完整intake通过。R1对9b7的正式PASS提交1e45cf2已收到并原生空闲，S0完整封存核验待完成；之后的5270技术scope仍READY未派发。PR12候选双Python CI通过，数据新版、G-DATA/P04及完整目标继续未完成。
+更新时间：2026-09-07。R1原1e45cf2对9b7cf01的CPU技术PASS已由S0完整接收：14,011路径、42原命令、14源码快照、三现存归档及60安装包文件绑定通过；1,186CPU/2跳过为R1实际结果。PR12隔离集成/最终CI/main待完成。R1下一5270审计技术包CLAIMED待原生派发，Q1固定50来源/60决策继续ACTIVE；G-DATA和正式P04未授权。[接收证据](../reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -203,3 +203,5 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 21:21 UTC，原生toy独立R1 67976fd正式PASS/P0/P1/P2均0，原生completed/idle；S0核对最终58,108路径/38原命令及全部数值、来源、封存。普通集成a1c467a实际1084CPU/2 HF-only跳过、新三归档和默认安装7命令/native守卫通过，原候选f7326d1与review SHA保持。[集成证据](../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。S0集成证明af492409909d11df1e6d5e36819ba83f49145050280e126fbff8596134eac4f1；18条命令exit0，110 subtests与安装重复44项另记。当前100/13人工表仍全空，页面未重试，training_authorized=false。
 
 21:35:58 UTC完成P04原生toy main验收：P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。[主干证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。本轮13条main命令无失败，110 subtests另记；原安装发生于a1c467a，main新增build/install/API和框架均0。main证明07d240a83632bec66026e643a4936469982c5ad80bec2855fa59d1f36f2a0d9a；旧负例、warning和审计失败保留。
+
+04:00 UTC接续准备：R1原1e45cf2对9b7cf01的CPU技术PASS已由S0完整接收：14,011路径、42原命令、14源码快照、三现存归档及60安装包文件绑定通过；1,186CPU/2跳过为R1实际结果。PR12隔离集成/最终CI/main待完成。R1下一5270审计技术包CLAIMED待原生派发，Q1固定50来源/60决策继续ACTIVE；G-DATA和正式P04未授权。
