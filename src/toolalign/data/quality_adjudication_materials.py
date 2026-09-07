@@ -30,6 +30,8 @@ from .training_review import choose_review_cases
 CASE_NAMES = {f"effective-{i:02d}" for i in range(1, 11)} | {"protocol-" + k for k in ("final", "clarify", "refuse")}
 CSV_FIELDS = ("case_id", "category", "example_id", "example_sha256", "quality_revision_sha256",
               "reviewer", "semantic_verdict", "token_mask_verdict", "reviewed_at_utc", "notes")
+TOKENIZER_IDENTITY_KEYS = ("repo_id", "revision", "files", "template_sha256", "eos_token", "eos_token_id",
+                           "render_parameters", "encoding_parameters")
 
 
 def consumer_identity():
@@ -211,19 +213,33 @@ def measure(*, config_path, input_root, revision, frozen, tokenizer_root, engine
                              selection_manifest_data=frozen_artifacts["manifest.json"])
 
 
-def checked_measurement(root, engine, cases, coverage, frozen_artifacts):
+def expected_tokenizer_bindings(inputs):
+    original = inputs["binding"]["parent_selection_input_binding"]["historical_measurement"]["tokenizer"]
+    return {p: {**{k: original[k] for k in TOKENIZER_IDENTITY_KEYS},
+                "repo_id": spec["model_id"], "revision": spec["model_revision"]}
+            for p, spec in inputs["parent_config"]["profiles"].items()}
+
+
+def checked_measurement(root, engine, cases, coverage, frozen_artifacts, *, expected_tokenizers):
     root = Path(root)
     manifest_data = (root / "manifest.json").read_bytes()
     manifest = loads(manifest_data.decode())
     q.require(manifest["manifest_version"] == "toolalign.quality-adjudication-token-review.v2"
               and manifest["training_authorized"] is False and manifest["model_modules_loaded"] == []
               and manifest["semantic_review"] == "UNFILLED_FOR_INDEPENDENT_AI_REVIEW"
-              and manifest["browser_actual_observation"] == "NOT_RUN", "measurement_scope")
+              and manifest["browser_actual_observation"] == "NOT_RUN"
+              and manifest["external_execution"] == "NOT_RUN" and manifest["trainer_consumption"] == "NOT_RUN",
+              "measurement_scope")
     a.same(manifest["coverage"], coverage, "measurement_coverage_binding")
+    a.same(manifest["quality_revision_sha256"], coverage["quality_revision_sha256"], "measurement_revision_binding")
     a.same(manifest["frozen_selection_manifest_file_sha256"], q.sha(frozen_artifacts["manifest.json"]), "measurement_selection_binding")
     a.same(manifest["case_order"], [c["case_id"] for c in cases], "measurement_case_order")
     q.require(set(manifest["tokenizers"]) == set(q.PROFILES)
               and all(t["engine"] == engine for t in manifest["tokenizers"].values()), "measurement_engine")
+    q.require(set(expected_tokenizers) == set(q.PROFILES), "measurement_expected_profiles")
+    for profile in q.PROFILES:
+        a.same({k: manifest["tokenizers"][profile][k] for k in TOKENIZER_IDENTITY_KEYS}, expected_tokenizers[profile],
+               "measurement_fixed_tokenizer_binding")
     records = []
     for case in cases:
         name = case["case_id"] + ".json"
@@ -244,13 +260,14 @@ def checked_measurement(root, engine, cases, coverage, frozen_artifacts):
 
 def compare(*, config_path, input_root, revision, frozen, reference, native):
     a.cpu_only()
-    _, frozen_artifacts, _, cases, coverage = bound_selection(
+    inputs, frozen_artifacts, _, cases, coverage = bound_selection(
         config_path=config_path, input_root=input_root, revision=revision, frozen=frozen)
-    left, left_records = checked_measurement(reference, "transformers", cases, coverage, frozen_artifacts)
-    right, right_records = checked_measurement(native, "tokenizers", cases, coverage, frozen_artifacts)
+    expected = expected_tokenizer_bindings(inputs)
+    left, left_records = checked_measurement(reference, "transformers", cases, coverage, frozen_artifacts, expected_tokenizers=expected)
+    right, right_records = checked_measurement(native, "tokenizers", cases, coverage, frozen_artifacts, expected_tokenizers=expected)
     a.same(left_records, right_records, "engine_complete_records_differ")
     for profile in q.PROFILES:
-        for key in ("repo_id", "revision", "files", "template_sha256", "eos_token", "eos_token_id", "render_parameters", "encoding_parameters"):
+        for key in TOKENIZER_IDENTITY_KEYS:
             a.same(left["tokenizers"][profile][key], right["tokenizers"][profile][key], "engine_tokenizer_identity_differ")
     a.cpu_only()
     return {"status": "PASS_COMPLETE_RECORD_EQUALITY", "unique_examples": 13, "engine_measurements": 26,

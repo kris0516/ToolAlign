@@ -155,6 +155,7 @@ def test_restoration_uses_original_bytes_original_rank_and_preserves_same_group_
         assert [e["example_id"] for e in values] == [e["example_id"] for e in old["examples"]
             if source["sources"].get(e["source_record_hash"], {}).get("source_training_fitness") != "fail"]
     assert manifest["other_sources_retained_in_affected_groups"] == 2
+    assert manifest["other_decisions_retained_in_affected_groups"] == 2
     delta = json.loads(artifacts["delta-from-v1.json"])
     assert delta["sets"]["train"]["restored_original_ids"] == restored
     assert json.loads(artifacts["training-binding.json"])["training_authorized"] is False
@@ -169,6 +170,25 @@ def test_fixed_configuration_rejects_even_semantically_equivalent_byte_replaceme
     changed.write_bytes(config.read_bytes() + b" ")
     with pytest.raises(DataError, match="input_hash_mismatch"):
         a.load_config(changed)
+
+
+def test_other_source_count_deduplicates_multiple_retained_decisions():
+    source = revision_fixture()
+    first, second = source["sources"].values()
+    first.update(source_training_fitness="pass", disposition="restore_original_source")
+    second.update(source_training_fitness="fail", disposition="exclude_entire_source")
+    counts = source["config"]["expected_counts"]
+    counts["train"] = {"original": 5, "quarantined_fail": 1, "quarantined_unknown": 0, "effective": 4}
+    source["config"]["disposition"]["excluded_decisions"] = 1
+    for profile in q.PROFILES:
+        for split in q.SPLITS:
+            values = source["parents"][profile][split]["examples"]
+            removed = sum(e["source_record_hash"] == second["source_record_hash"] for e in values)
+            counts[profile + "_" + split] = {"original": len(values), "quarantined_fail": removed,
+                                              "quarantined_unknown": 0, "effective": len(values) - removed}
+    _, manifest = a.stable_artifacts(source)
+    assert manifest["other_sources_retained_in_affected_groups"] == 2
+    assert manifest["other_decisions_retained_in_affected_groups"] == 4
 
 
 def test_fixed_bundle_hashes_final_split_payload_without_deserializing_it(tmp_path, monkeypatch):

@@ -467,8 +467,10 @@ def stable_artifacts(inputs):
         "source_training_fitness_counts": config["disposition"]["source_training_fitness_counts"],
         "restored_original_sources": sum(r["disposition"] == "restore_original_source" for r in sources.values()),
         "restored_original_decisions": len(view["restored"]),
-        "other_sources_retained_in_affected_groups": sum(e["group_id"] in affected_groups and e["source_record_hash"] not in excluded
-                                                         for e in index["examples"].values()),
+        "other_sources_retained_in_affected_groups": len({e["source_record_hash"] for e in index["examples"].values()
+            if e["group_id"] in affected_groups and e["source_record_hash"] not in excluded}),
+        "other_decisions_retained_in_affected_groups": sum(e["group_id"] in affected_groups and e["source_record_hash"] not in excluded
+                                                           for e in index["examples"].values()),
         "annotations": {"new_annotations": 0, "promoted": 0, "existing_staging_preserved": True},
         "planning_deviation": config["planning_deviation"], "pending": config["pending"],
         "artifacts": {k: {"sha256": q.sha(v), "size_bytes": len(v)} for k, v in result.items()}}

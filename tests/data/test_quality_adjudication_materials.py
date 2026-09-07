@@ -27,6 +27,10 @@ def materials_fixture():
     return source, artifacts, manifest
 
 
+def fixture_tokenizer_bindings():
+    return {p: {k: OriginalCharacterAdapter(p).identity[k] for k in m.TOKENIZER_IDENTITY_KEYS} for p in q.PROFILES}
+
+
 def test_thirteen_identities_frozen_before_engine_use_with_no_staging_or_verdicts():
     source, artifacts, manifest = materials_fixture()
     artifacts["manifest.json"] = encoded(manifest)
@@ -90,7 +94,7 @@ def test_material_publication_keeps_blank_review_fields_and_detects_forged_html(
     out = tmp_path / ".toolalign-local" / "material"
     result = m.write_measurement(cases, coverage, tokenizers_by_profile={p: OriginalCharacterAdapter(p) for p in q.PROFILES},
                                  output=out, selection_manifest_data=frozen["manifest.json"])
-    mf, records = m.checked_measurement(out, "tokenizers", cases, coverage, frozen)
+    mf, records = m.checked_measurement(out, "tokenizers", cases, coverage, frozen, expected_tokenizers=fixture_tokenizer_bindings())
     assert result == mf and len(records) == 13
     assert all(all(row[k] == "" for k in m.CSV_FIELDS[5:]) for row in q.csv_rows((out / "review.csv").read_bytes()))
     record = records[0]
@@ -100,7 +104,7 @@ def test_material_publication_keeps_blank_review_fields_and_detects_forged_html(
     assert not any(record["padding"]["causal_loss_mask"][n - 1:])
     (out / (cases[0]["case_id"] + ".html")).write_text("forged page")
     with pytest.raises(DataError, match="input_hash_mismatch"):
-        m.checked_measurement(out, "tokenizers", cases, coverage, frozen)
+        m.checked_measurement(out, "tokenizers", cases, coverage, frozen, expected_tokenizers=fixture_tokenizer_bindings())
 
 
 def test_failed_material_write_does_not_publish_manifest(tmp_path, monkeypatch):
@@ -111,3 +115,36 @@ def test_failed_material_write_does_not_publish_manifest(tmp_path, monkeypatch):
         m.write_measurement(cases, coverage, tokenizers_by_profile={p: OriginalCharacterAdapter(p) for p in q.PROFILES},
                             output=out, selection_manifest_data=b"original fixture frozen manifest")
     assert not (out / "manifest.json").exists()
+
+
+def test_material_manifest_cannot_redeclare_a_different_revision(tmp_path):
+    cases, coverage = m.choose_cases(*materials_fixture())
+    frozen = {"manifest.json": b"original fixture frozen manifest"}
+    out = tmp_path / ".toolalign-local" / "material"
+    m.write_measurement(cases, coverage, tokenizers_by_profile={p: OriginalCharacterAdapter(p) for p in q.PROFILES},
+                        output=out, selection_manifest_data=frozen["manifest.json"])
+    manifest = json.loads((out / "manifest.json").read_bytes())
+    manifest["quality_revision_sha256"] = "0" * 64
+    (out / "manifest.json").write_bytes(encoded(manifest))
+    run = json.loads((out / "run.json").read_bytes())
+    run["stable_manifest_sha256"] = q.sha((out / "manifest.json").read_bytes())
+    (out / "run.json").write_bytes(encoded(run))
+    with pytest.raises(DataError):
+        m.checked_measurement(out, "tokenizers", cases, coverage, frozen, expected_tokenizers=fixture_tokenizer_bindings())
+
+
+@pytest.mark.parametrize("field", ["repo_id", "files", "render_parameters"])
+def test_declared_tokenizer_identity_is_bound_to_fixed_parent_metadata(tmp_path, field):
+    cases, coverage = m.choose_cases(*materials_fixture())
+    frozen = {"manifest.json": b"original fixture frozen manifest"}
+    out = tmp_path / ".toolalign-local" / "material"
+    m.write_measurement(cases, coverage, tokenizers_by_profile={p: OriginalCharacterAdapter(p) for p in q.PROFILES},
+                        output=out, selection_manifest_data=frozen["manifest.json"])
+    manifest = json.loads((out / "manifest.json").read_bytes())
+    manifest["tokenizers"]["smoke"][field] = "different" if field == "repo_id" else {"unbound": False}
+    (out / "manifest.json").write_bytes(encoded(manifest))
+    run = json.loads((out / "run.json").read_bytes())
+    run["stable_manifest_sha256"] = q.sha((out / "manifest.json").read_bytes())
+    (out / "run.json").write_bytes(encoded(run))
+    with pytest.raises(DataError, match="measurement_fixed_tokenizer_binding"):
+        m.checked_measurement(out, "tokenizers", cases, coverage, frozen, expected_tokenizers=fixture_tokenizer_bindings())

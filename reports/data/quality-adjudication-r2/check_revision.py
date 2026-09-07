@@ -116,7 +116,9 @@ def check(args):
         assert members <= (set(excluded_ids) if source in excluded_sources else set(restored_ids))
     groups = {originals[i]["group_id"] for i in excluded_ids}
     same_group_kept = [i for i in retained_ids if originals[i]["group_id"] in groups]
-    assert len(same_group_kept) == left["other_sources_retained_in_affected_groups"] > 0
+    same_group_sources = {originals[i]["source_record_hash"] for i in same_group_kept}
+    assert len(same_group_kept) == left["other_decisions_retained_in_affected_groups"] == 5553
+    assert len(same_group_sources) == left["other_sources_retained_in_affected_groups"] == 5182
     selected_counts, selected_restored, delta = {}, {}, read(first / "delta-from-v1.json")["sets"]
     prior_ids = read(files["prior_revision/effective/identities.json"])
     sets = {s: (prior_ids[s], retained_by_split[s]) for s in ("train", "validation")}
@@ -163,7 +165,8 @@ def check(args):
         "manifest_file_sha256": digest(first / "manifest.json"), "run_created_at_utc": [r["created_at_utc"] for r in runs],
         "fixed_input_files_verified": len(files), "whole_source_exclusions": 80, "excluded_decisions": 98,
         "restored_original_sources": 3, "restored_original_decisions": 3, "effective_original_line_bytes_preserved": 7651,
-        "other_sources_retained_in_affected_groups": len(same_group_kept), "restored_profile_members": selected_restored,
+        "other_sources_retained_in_affected_groups": len(same_group_sources),
+        "other_decisions_retained_in_affected_groups": len(same_group_kept), "restored_profile_members": selected_restored,
         "training_authorized": False, "semantic_acceptance": "PENDING_INDEPENDENT_REVIEW"}
     with Path(args.output).open("x") as stream:
         json.dump(result, stream, ensure_ascii=False, sort_keys=True, indent=2)
