@@ -18,7 +18,7 @@
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | ACCEPTED（首轮）；r2继续 | 原5100c65已交付/原生空闲，S0核验603路径并保留原SHA整合；[裁定接收](../reports/S0_P02_Q1_ADJUDICATION.md)，50来源接续已原生派发/ACTIVE |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | 现有Q1 | 固定50来源/60决策 | IN_PROGRESS | 按39cba8b原生派发/ACTIVE，新分支及934路径完整intake通过；固定50/60范围继续 |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 审计技术复核 | R1 | 精确5270d1e；上一轮已接收 | IN_PROGRESS | 按完整769f9ff原生派发并核验新轮ACTIVE，8,658路径intake通过，旧公开文件/私有封存保持 |
-| [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 原5270反例；已验证6c81dfc | CLAIMED | R1中间3 failed/7 passed，S0独立delta反例已确认；定点范围待原生派发，原审查继续 |
+| [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 原5270反例；已验证6c81dfc | IN_PROGRESS | 按完整3002657原生派发E1/ACTIVE，新merge与intake待交付；R1原5270审查继续 |
 | [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整5270d1e/原生空闲，S0核验4,536路径/26命令，Draft PR13；[证据](../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md) |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | READY_FOR_REVIEW | 16例AI判断已交付/S0核验138路径；语义14/1/1、mask16 pass；质量未放行 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |

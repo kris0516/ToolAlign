@@ -123,13 +123,13 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时�
 
 P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
 
-Q1首轮5100c65已接收并原SHA整合；新固定50来源/60决策裁定按39cba8b继续ACTIVE，完整结果待封存。E1完整5270d1e已交付/原生空闲，S0核验4,536路径及候选双Python CI；R1按完整769f9ff原生接续该CPU审计技术范围/ACTIVE，S0核验8,658路径intake、438候选/428基线、10授权副本及旧封存。D1/E1/T1当前无新实现。
+Q1首轮5100c65已接收并原SHA整合；新固定50来源/60决策裁定按39cba8b继续ACTIVE，完整结果待封存。E1完整5270d1e已交付/原生空闲，S0核验4,536路径及候选双Python CI；R1按完整769f9ff原生接续该CPU审计技术范围/ACTIVE，S0核验8,658路径intake、438候选/428基线、10授权副本及旧封存。D1/T1当前无新实现；E1接续限域CPU类型保真修复。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本轮main新增构建/安装/API/模型/框架均0，共享GPU锁实际空闲；无新费用、数据/模型上传或公网服务。完整P00–P09目标继续。
 
-最新审计代码发现：原5270的JSON false/0保真问题已由R1复现、S0确认；[定点修复](coordination/tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)已CLAIMED待派发E1。R1原候选整包审查及冻结材料影响核查继续，PR13保持Draft；Q1继续原50来源范围，PR12主干技术验收保持。
+最新审计代码发现：原5270的JSON false/0保真问题已由R1复现、S0确认；[定点修复](coordination/tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)已按完整3002657原生派发E1/ACTIVE，新分支/intake待交付。R1原候选整包审查及冻结材料影响核查继续，PR13保持Draft；Q1继续原50来源范围，PR12主干技术验收保持。
 
 ## 工作记录
 

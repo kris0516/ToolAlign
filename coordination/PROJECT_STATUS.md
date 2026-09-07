@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfc，原候选9b7cf01/R1 PASS1e45cf2保持。最终双Python CI各14步骤及实际main1,186CPU/2跳过、三现存归档/60安装包绑定通过；[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。R1精确5270审计技术轮ACTIVE，8,658路径intake通过；Q1固定50来源/60决策裁定继续。新版数据/选择/配置绑定、G-DATA和正式P04尚未通过。 R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复CLAIMED待原生派发；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
+更新时间：2026-09-07。P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfc，原候选9b7cf01/R1 PASS1e45cf2保持。最终双Python CI各14步骤及实际main1,186CPU/2跳过、三现存归档/60安装包绑定通过；[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。R1精确5270审计技术轮ACTIVE，8,658路径intake通过；Q1固定50来源/60决策裁定继续。新版数据/选择/配置绑定、G-DATA和正式P04尚未通过。 R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复已原生派发/ACTIVE；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -210,4 +210,6 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 
 04:22 UTC质量修订主干验收：P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfc，原候选9b7cf01/R1 PASS1e45cf2保持。最终双Python CI各14步骤及实际main1,186CPU/2跳过、三现存归档/60安装包绑定通过；[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。R1精确5270审计技术轮ACTIVE，8,658路径intake通过；Q1固定50来源/60决策裁定继续。新版数据/选择/配置绑定、G-DATA和正式P04尚未通过。
 
-04:27 UTC审计代码发现：R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复CLAIMED待原生派发；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
+04:27 UTC审计代码发现：R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复已原生派发/ACTIVE；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
+
+04:31 UTC实际派发：E1类型保真定点修复已于04:31:54 UTC按完整3002657851248a22143b0d30a1d8168be2629df1原生派发并核验ACTIVE，gpt-6-astra/max；新分支/merge/intake待交付。R1继续冻结5270核查原包，Q1原50来源裁定继续，训练门槛保持。
