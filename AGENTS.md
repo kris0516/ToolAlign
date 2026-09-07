@@ -131,6 +131,8 @@ Q1首轮5100c65已接收并原SHA整合；新固定50来源/60决策裁定按39c
 
 最新审计代码发现：原5270的JSON false/0保真问题已由R1复现、S0确认；[定点修复](coordination/tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)已按完整3002657原生派发E1/ACTIVE，新分支/intake待交付。R1原候选整包审查及冻结材料影响核查继续，PR13保持Draft；Q1继续原50来源范围，PR12主干技术验收保持。
 
+09:25–09:26 UTC，S0核验Q1/R1/E1旧执行中断后，按原授权恢复三个独立任务并确认ACTIVE，统一gpt-6-astra/max；无新任务、无购买或兑换reset，正式修订失败增量0。S0又用冻结代码确认同根因涉及静态材料校验，将`check_materials.py`加入E1同轮修复补充范围，待完整授权发送。E1回报普通merge91758c6，S0完整intake待验证；[接续证据](coordination/handoffs/S0-review-resume-r1.md)。既有阶段验收与G-DATA/P04门槛保持。
+
 ## 工作记录
 
 每次开始报告 task ID、base commit、工作分支、读取的契约版本、影响文件、测试计划；每次结束写 `coordination/handoffs/<TASK>-<revision>.md`。不得用“已完成”代替证据。

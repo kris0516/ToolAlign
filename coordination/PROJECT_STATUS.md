@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main/PR12技术VERIFIED；R1审计代码复核与Q1新增来源裁定继续 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1与Q1当前轮ACTIVE；D1/E1/T1原轮completed/idle；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | E1类型修复、R1审计技术审查和Q1固定裁定原范围接续ACTIVE；D1/T1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -28,6 +28,8 @@
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
 
 ## 当前门槛
+
+09:25–09:26 UTC接续：Q1/R1/E1旧原生执行中断已保存，S0按三个原授权恢复并核验ACTIVE；正式修订失败增量0，原预算不重置。S0独立确认材料校验器也存在同一false/0混同，`check_materials.py`已加入E1同轮补充范围，完整授权发布后发送；[接续证据](handoffs/S0-review-resume-r1.md)。Q1完整seal、R1正式原包结论和E1新intake待接收。
 
 P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
 

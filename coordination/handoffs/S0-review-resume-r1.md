@@ -1,0 +1,13 @@
+# S0｜原审核执行接续与材料类型入口补充
+
+task：S0-REVIEW-RESUME-r1；base `207db7d5482130a07ad7ef90294b5a78cfdfe3df`，工作分支main。契约为plan-v0.1 / coordination.v1 / toolalign.contracts.v1。本轮只修改协调记录和原E1修复范围，不修改生产实现或审核结论。
+
+S0核验Q1、R1、E1旧原生轮均因额度中断而failed/notLoaded，随后只读额度查询显示可用。保留三个原终态及错误，再分别于2026-09-07 09:25:15、09:25:37、09:26:03 UTC恢复原独立任务并确认ACTIVE，均gpt-6-astra/max。原授权分别为`39cba8bc68edea00266f142dbdf0091da50bd9ec`、`769f9ffc7faf0025900da0035d6309fc975e338f`、`3002657851248a22143b0d30a1d8168be2629df1`。没有建立新任务、购买或兑换reset；原范围和运行额度不重置。私有证明`0a6e1603f23a1a19887f7c5d195a0a189a8c0e09c2ace4afb01ee61a5b137d74`绑定原终态、发送及新活跃状态。执行中断不增加正式修订失败计数，原台账hash`2b613a54750929806c5a0f91da5d61073e3410eef9f72993f750779196c84b35`保持。
+
+Q1已提交的`42d9d56804d3b7aadd0eff7efc99249ec5dbe11b`及原核心裁定保持，完整最终封存尚待交付。R1继续唯一冻结候选5270d1e；其类型检查报告旧43视图及16材料没有实际换型差异，正式整包报告待接收。E1原修复轮继续，回报新branch普通merge `91758c65c2fd7a8019fbf8e2d914220cb7686d22`，S0完整intake尚待验证。
+
+R1新增同根因材料反例已由S0直接确认：静态HTML中完整Example的`additionalProperties`从布尔false换成整数0后，原`check_materials.inspect_record`仍返回内容完全一致。S0保存17份原探针/日志/页面及命令回执，用Git5270冻结源码再次执行原页和改页；两页实际均被接受。证明`07d136fda015d93a1ddcb84f87748695469794171330a952d008512e5d17b34a`。原有效探针exit1和前一夹具IndexError保留；S0一次只读目录枚举IsADirectoryError已记录并纠正，不算生产缺陷或质量修订失败。
+
+因此将同目录`check_materials.py`加入[E1原修复范围](../tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)，允许一次已有16材料静态校验和该改页拒绝回归，其他预算不变。此补充发布后同轮发送，不换审原R1候选。新代码尚未验收，G-DATA/P04仍未授权。
+
+PR12已验证的main6c81dfc与原R1 PASS1e45cf2保持。本轮S0新模型/框架/分词/浏览器运行、构建与安装均0。公开扫描和diff检查为本次文档验证入口；结果随实际提交记录，不把接续状态当作阶段完成。
