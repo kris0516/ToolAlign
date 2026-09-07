@@ -253,3 +253,5 @@ ADR-0022/0023审计修复接续：R1在PR13原5270中间复现JSON false/0混同
 保留旧v1模块/配置/manifest和全部原材料，新增有限adjudication模块与精确v2配置；复用现有纯数据、格式及sequence函数，不扩展成通用审阅平台。旧两直接草案和一后继继续staging，无新重标或晋升。仅对新有效选择按原代表规则形成10例，加原三类协议例共13例，两已有CPU tokenizer路径核验；R1技术与Q1材料/实际整来源排除核验后由S0处理G-DATA，不新增无界全库人工审查或重抽180例。
 
 新绑定保持training_authorized=false；已存在SFT准备仍绑定旧配置，未来T1消费适配、真实0.6B容量与baseline/SFT另定精确范围。页面实显保持NOT_RUN，固定13例之外无新分词，无模型/框架/GPU/业务API/费用或上传。若独立审核发现该修订仍未满足同问题，按原稳定ID登记真实新修订结论，前四次自主整改、第五次才整体暂停。
+
+ADR-0022/0023审计主干补记：原R1 0cefe771对da22正式PASS，PR13普通合并1887feb且最终双Python CI/main55pytest及15页面检查通过，审计CPU技术VERIFIED。TYPE-001关闭、原9645055首次FAIL及反例保留；D1冻结217项输入与Q1原判断不追溯改写，G-DATA/P04待新版及独立审核，见[证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。

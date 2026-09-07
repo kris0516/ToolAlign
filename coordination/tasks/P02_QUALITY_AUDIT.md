@@ -1,5 +1,7 @@
 # P02-QUALITY-AUDIT｜仅train/validation的扩展语义审计
 
+S0最新验收：CPU技术VERIFIED；修复da22经独立R1 0cefe771 PASS，随PR13普通合并1887feb并通过最终CI/main，见[主干证据](../../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。原5270/9645055 FAIL及原语义判断保持；下文为历史任务授权，未新增执行额度。
+
 状态：READY_FOR_REVIEW。E1完整5270d1e已交付、原生completed/idle，S0核验4,536路径/26原命令并普通发布原SHA至Draft PR13；[完整交接核验](../../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md)。固定180来源/200决策、原32复核及16材料均已封存；Q1新50来源裁定待派发，R1技术复核排在现有9b7审查之后。
 
 - owner：E1；现有独立Codex任务及隔离worktree，gpt-6-astra / max，禁止sub-agent。

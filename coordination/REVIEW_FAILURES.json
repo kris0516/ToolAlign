@@ -2609,11 +2609,16 @@
           "closed_root_cause_manifestations": 4
         }
       ],
-      "next_action": "S0完成PR13最终CI/普通合并/main验证；保留原FAIL与全部四类反例"
+      "next_action": "已随PR13普通合并1887feb并完成main验证；保留原FAIL与全部四类反例",
+      "main_verification": {
+        "merge_commit": "1887feb060dce5b92270050f825991964c829b5a",
+        "proof_sha256": "b0f572ff612b1a49aa7ae83595146b241e5b25fb78e74ed85d34219f06325cc1",
+        "report": "reports/S0_P02_AUDIT_MAIN_VERIFICATION.md"
+      }
     }
   ],
   "prior_findings": "Q1首轮14问题、r2固定50来源的47新问题/3复用、原32来源余下19问题及原审计类型P2均已按冻结证据接入；原数据无实质修订，既有语义计数不递增。三项已裁定PASS的原字节恢复仍待新版本，其他数据问题等待实际整来源隔离核验。",
-  "updated_at_utc": "2026-09-07T11:03:04.403461+00:00",
+  "updated_at_utc": "2026-09-07T11:11:01.458393+00:00",
   "last_adoption": {
     "q1_review_commit": "42d9d56804d3b7aadd0eff7efc99249ec5dbe11b",
     "q1_existing_issues_reused": 3,

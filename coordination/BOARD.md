@@ -19,9 +19,9 @@
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版数据仍待实施 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 原审计技术复核 | R1 | 精确5270d1e | CHANGES_REQUESTED | 原9645055 FAIL/P2=1、S0核验9,673路径/27命令；原生空闲 |
-| [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 已验证6c81/原5270 | ACCEPTED（CPU） | 原R1 PASS0cefe771，S0集成7e11409通过；最终CI/main待完成 |
-| [P02-QUALITY-AUDIT-TYPE-REVIEW](tasks/P02_QUALITY_AUDIT_TYPE_REVIEW.md) 类型修复复审 | R1 | 精确da22 | ACCEPTED | 原0cefe771 PASS/原生空闲；S0核验10,213路径/23命令，原9645055 FAIL保持 |
-| [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | ADR-0022 | ACCEPTED（CPU技术） | 原判断已接收；da22/0cefe771及普通集成7e11409通过，原FAIL保持；PR13最终CI/main待完成 |
+| [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 已验证6c81/原5270 | VERIFIED（CPU） | PR13普通合并1887feb；原R1 PASS0cefe771、最终双Python CI与main55pytest/15页面检查通过 |
+| [P02-QUALITY-AUDIT-TYPE-REVIEW](tasks/P02_QUALITY_AUDIT_TYPE_REVIEW.md) 类型修复复审 | R1 | 精确da22 | VERIFIED（CPU） | 原0cefe771 PASS/原生空闲；随PR13合并并完成main验证，原9645055 FAIL保持 |
+| [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | ADR-0022 | VERIFIED（CPU技术） | PR13合并1887feb，最终CI/main通过；[证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)，原判断/FAIL保持 |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | READY_FOR_REVIEW | 16例AI判断已交付/S0核验138路径；语义14/1/1、mask16 pass；质量未放行 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
