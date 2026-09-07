@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。模型CPU PR17/main与冻结v3 G-DATA验收保持。T1 FD修订完整d80667e已由S0核验13,825路径/27原命令、三归档/65安装包；T1原生空闲，R1-r3 CLAIMED待派发。原F1已关闭，F2首次1保持；真实模型/容量/正式P04未授权。
+更新时间：2026-09-08。模型CPU PR17/main与冻结v3 G-DATA验收保持。T1 FD修订完整d80667e已由S0核验13,825路径/27原命令、三归档/65安装包；T1原生空闲，R1-r3已按6ff0cf7原生ACTIVE，新intake待交付。原F1已关闭，F2首次1保持；真实模型/容量/正式P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；模型CPU VERIFIED，数据最新FD修订d80667e接收通过，R1-r3 CLAIMED待派发 |
+| 当前任务/分支 | S0 main；模型CPU VERIFIED，数据最新FD修订d80667e接收通过，R1-r3已按6ff0cf7原生ACTIVE，新intake待交付 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | R1/T1原生completed/idle已核验；R1-r3待派发，D1/E1/Q1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1原v3数据f3/b99的FIFO F1已由58212d2分项PASS关闭；原1769046整包因新FD清理F2/P2正式FAIL，S0完整94,238路径/23命令接收保持。F2首次计1，84问题/83关闭。新FD修订d80667e已接收：13,825路径/27原命令、三归档/65安装包通过；157模块及两路线各6项为T1自测。R1-r3 CLAIMED待原生派发。本修订真实609/13数组消费NOT_RUN，原安装固定消费保持1769046时点；formal/train5,938和smoke/train1,583不补选。真实trainer、容量、运行配置与GPU预算待后续，正式baseline/SFT/DPO/评测/服务NOT_RUN。以下时间线保留原实际观察。
+T1原v3数据f3/b99的FIFO F1已由58212d2分项PASS关闭；原1769046整包因新FD清理F2/P2正式FAIL，S0完整94,238路径/23命令接收保持。F2首次计1，84问题/83关闭。新FD修订d80667e已接收：13,825路径/27原命令、三归档/65安装包通过；157模块及两路线各6项为T1自测。R1-r3已按6ff0cf7原生ACTIVE，新intake待交付。本修订真实609/13数组消费NOT_RUN，原安装固定消费保持1769046时点；formal/train5,938和smoke/train1,583不补选。真实trainer、容量、运行配置与GPU预算待后续，正式baseline/SFT/DPO/评测/服务NOT_RUN。以下时间线保留原实际观察。
 
 ## 恢复入口
 
@@ -278,3 +278,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 23:19:19 UTC，S0完整接收数据R2原review58212d2，证明 `b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a`。94,238路径/23原命令、626公开及T1旧621历史映射、唯一安装消费7,928成员/26完整记录通过；原147PASS和附加5PASS/1FAIL保持。R1原生23:09:12 UTC completed/idle，F1分项关闭、新F2首次正式失败1，84问题/83关闭。T1同范围接入原582与修订继续，原消费额度不增加；[正式接收](../reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md)。
 
 2026-09-07 23:39:56 UTC，S0完整接收T1 d80667e，证明 `2bd9eac089ac0e1136ad7ea2a6c063a1bfce3decec4cdd62f9bc7a1ec71d213d`；13,825路径/27原命令和终态、三归档/65安装包通过，T1原生23:29:51 UTC completed/idle。R1-r3精确范围CLAIMED，实际派发待完成；旧失败和原消费时点保持，[接收](../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。
+
+2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。

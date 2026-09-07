@@ -1,6 +1,8 @@
 # P04-SFT-DATA-V3-R3｜FD构造异常清理独立复审
 
-状态：CLAIMED，R1；完整authorization_commit由S0原生派发。精确candidate/checkout base `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`，tree `04001535b91fca46e9612f6130da1b1745eab9e4`，唯一源码parent `9e08a0961ac2fbf9e993585289b4e82b7115f016`，后者唯一parent原1769046。该候选尚未验收，不称为main生产基线。沿用独立R1原生任务及隔离worktree，gpt-6-astra/max，禁止sub-agent；新分支 `codex/review-p04-sft-data-v3-r3`，新私有scope `review-p04-sft-data-v3-r3`。
+状态：IN_PROGRESS。2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。
+
+原冻结范围：R1；完整authorization_commit如上。精确candidate/checkout base `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`，tree `04001535b91fca46e9612f6130da1b1745eab9e4`，唯一源码parent `9e08a0961ac2fbf9e993585289b4e82b7115f016`，后者唯一parent原1769046。该候选尚未验收，不称为main生产基线。沿用独立R1原生任务及隔离worktree，gpt-6-astra/max，禁止sub-agent；新分支 `codex/review-p04-sft-data-v3-r3`，新私有scope `review-p04-sft-data-v3-r3`。
 
 本轮目标是独立判定稳定F2 `data_v3_fdopen_failure_closes_successfully_opened_descriptor`，并确认本次两文件范围没有引入I/O回归。原58212d2对1769046正式FAIL/P2=1；F1已由原分项PASS关闭，F2第一次正式失败计1。S0完整接收T1的13,825路径/27原命令、三归档及65安装包字节，证明 `2bd9eac089ac0e1136ad7ea2a6c063a1bfce3decec4cdd62f9bc7a1ec71d213d`；见[完整交接](../../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。同问题计数和协调材料仅S0维护；旧失败不覆盖。
 

@@ -26,3 +26,7 @@ S0核验13,825路径、421链接和八个lstat-only FIFO，包含原12,673当前
 本修订真实609输入消费、13例转换/导出/回读均为0；实际固定消费仍对应原1769046时点。新源码真实数据消费为NOT_RUN，不把旧导出重新命名为新消费。原5 PASS/1 FAIL、所有历史失败和封存保持；S0本次新增build/install/数据API/编码/框架/模型/GPU均0。
 
 后续由[R1精确复审](../coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)决定F2关闭。独立PASS、最终组合CI、main验证完成前不验收此修订；固定Qwen模型CPU PR17/main与冻结v3 G-DATA已验收结论保持，正式模型训练/容量/评测/服务仍NOT_RUN。
+
+## 独立复审接续
+
+2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。[Draft PR19](https://github.com/kris0516/ToolAlign/pull/19)已建立；旧F2首次1和真实消费时点保持。 派发前只读脚本初次误用T1的receipt文件名读取R1终态失败已保留，改用实际envelope后通过；未重跑工作测试。

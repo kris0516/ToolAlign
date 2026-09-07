@@ -42,7 +42,7 @@
 | [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | VERIFIED（CPU） | 原bdebe4c正式PASS随PR17/main f27951a验收；原审查及缺失例外保持 |
 | [P04-SFT-DATA-V3-FD-CLOSE-FIX](tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md) 构造异常清理 | T1；R1独立复审 | 精确1769046/正式582 F2 | READY_FOR_REVIEW | 完整d80667e/原生空闲；13,825路径/27原命令、三归档/65安装包接收通过；[证据](../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md) |
 | [P04-SFT-QWEN-RUNTIME-CPU](tasks/P04_SFT_QWEN_RUNTIME_CPU.md) 有限原生训练接口 | T1拟承接；R1独立审查 | 模型CPU主干已验收；数据CPU修订R2审查中 | PLANNED | 23例容量候选已按元数据冻结；[准备](../reports/S0_P04_CAPACITY_READINESS.md)，无新编码/模型授权、未派发 |
-| [P04-SFT-DATA-V3-R3](tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md) FD修订独立复审 | R1 | 精确d80667e/原582 F2 | CLAIMED | 完整T1接收通过、两任务原生空闲已核验；待实际派发，仅CPU/无新实数据消费 |
+| [P04-SFT-DATA-V3-R3](tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md) FD修订独立复审 | R1 | 精确d80667e/原582 F2 | IN_PROGRESS | 已按6ff0cf7原生ACTIVE；1,907路径/14授权派发前通过，新branch/intake待交付，Draft PR19 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01/P02/P03已验收；待CPU衔接/容量/运行配置 | BLOCKED（模型运行） | G-DATA已PASS；T1 CPU完整交接已接收，待R1，正式模型运行仍NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |

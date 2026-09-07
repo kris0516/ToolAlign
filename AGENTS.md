@@ -170,7 +170,7 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、训练绑�
 
 数据CPU原f3/b99审查的FIFO F1已由58212d2分项PASS关闭；1769046完整R2仍因新FD构造清理F2/P2正式FAIL，S0核验94,238路径/23命令及唯一固定消费，原review保持。F2首次计1，84问题中83关闭/1未关闭，无第五次问题；全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩。
 
-T1已交付完整FD修订 `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`并原生空闲。S0核验13,825路径/27原命令、三归档/65安装包字节通过，157模块及源码/安装各6项为T1自测，READY_FOR_REVIEW；[完整接收](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1精确[R3范围](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)CLAIMED待派发；本修订真实数据消费NOT_RUN，原消费保持1769046时点，不默认重跑609输入和13数组。
+T1已交付完整FD修订 `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`并原生空闲。S0核验13,825路径/27原命令、三归档/65安装包字节通过，157模块及源码/安装各6项为T1自测，READY_FOR_REVIEW；[完整接收](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1精确[R3范围](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)已按6ff0cf7原生ACTIVE，新intake待交付；本修订真实数据消费NOT_RUN，原消费保持1769046时点，不默认重跑609输入和13数组。
 
 最多两个实现、独立R1、统一gpt-6-astra/max与单一共享GPU租约保持。D1/E1/Q1无新范围；无新费用、模型/数据上传、公网推理或正式P04授权。浏览器实显NOT_RUN单列，P00–P09持续目标未完成。
 
@@ -191,3 +191,5 @@ P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked py
 最新正式数据结论：R1原58212d2对1769046正式FAIL仅新FD构造清理F2/P2，S0已完成94,238路径/23原命令和完整7,928成员/26记录接收，R1原生空闲。F1分项关闭，连续失败1→0；新F2首次计1，84问题中83关闭/1未关闭，无第五次问题。T1同一FD修订已接原正式SHA，当前9e08a096为自测checkpoint，完整交接/独立复审待完成；模型CPU PR17主干验收与G-DATA保持。
 
 最新FD修订完整交接：2026-09-07 23:39:56 UTC，S0核验d80667e的13,825路径/27原命令、三归档/65安装包通过，T1原生23:29:51 UTC completed/idle。R1-r3精确范围CLAIMED待派发，F2仍首次1；[证据](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。
+
+2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。
