@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2范围READY未派发。E1完整01eeb74d模型CPU候选保持，R1已按完整9a29a72原生接续该模型CPU审查/ACTIVE，新intake89,074路径/14授权/42输入通过，完整verdict待交付；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2范围CLAIMED待原生派发。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包ACCEPTED待最终CI/main；真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审READY，R1模型CPU审查ACTIVE |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审CLAIMED待派发，模型CPU原R1 PASS已接收、集成待完成 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1模型CPU审查ACTIVE/intake已核验、完整verdict待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1模型CPU审查已正式PASS/接收/空闲，数据修订R2待原生接续；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -262,3 +262,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 21:32:11 UTC，S0完成R1模型CPU新intake核验89,074路径/14授权/42输入，证明 `75daa8a0582efc17daf969b5ec06e29336a023dc5837ed163e03a3b6e6f623cc`；623旧b99公开Git/快照、1,628链接/原FIFO及缺失例外保持，原模型文件只hash/header，无模型加载。PR18候选双Python CI及实际9167/639文件绑定通过，R1当前模型完整verdict和数据修订复审继续待完成。
 
 2026-09-07 21:41:04 UTC，S0用原23例cohort元数据冻结60例次容量诊断计划a25ddc2e及预先数值阈值；79训练微步/10计划更新不变，合计逻辑token193,996。padding对照原rank3确有26个padding位，所有实际编码/模型/更新仍0，原生runtime CPU仍PLANNED；见[ADR-0028/准备](../reports/S0_P04_CAPACITY_READINESS.md)。
+
+2026-09-07 22:11:01 UTC，S0完成固定Qwen CPU原R1 bdebe4c正式PASS接收，证明 `28593f448e1197711a6a9f9d8604c58d7c30ced54f7d0890812e7eb0771da890`；90,442路径/23原命令、终态/628公开、三归档/65安装包字节通过，原生22:06:02 UTC completed/idle。模型CPU范围ACCEPTED待最终CI/main，数据修订R2 CLAIMED待原生派发；20模型文件仅stat与原hash绑定、S0新增API/模型/GPU0。[正式接收](../reports/S0_P04_QWEN_REVIEW_HANDOFF.md)。

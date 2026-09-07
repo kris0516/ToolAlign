@@ -1,6 +1,6 @@
 # P04-SFT-DATA-V3-R2｜特殊文件修订独立复审
 
-状态：READY，尚未原生派发或激活消费额度；等待R1当前P04-QWEN-MODEL-R1正式交接、S0接收与原生completed/idle。沿用独立R1任务及自己的隔离worktree，gpt-6-astra/max，禁止sub-agent。新分支 `codex/review-p04-sft-data-v3-r2`、新私有scope `review-p04-sft-data-v3-r2`；由S0派发完整authorization_commit。
+状态：CLAIMED，尚未原生派发或激活消费额度。原P04-QWEN-MODEL-R1的bdebe4c正式交接已由S0接收，原生completed/idle已核验；等待S0发送本次完整authorization_commit。沿用独立R1任务及自己的隔离worktree，gpt-6-astra/max，禁止sub-agent。新分支 `codex/review-p04-sft-data-v3-r2`、新私有scope `review-p04-sft-data-v3-r2`；由S0派发完整authorization_commit。
 
 精确candidate/checkout base `1769046468eb2ebfdd9e982ba4938833760e3fe0`，tree `1373bd4c838a1af395a1ede4f7c4d7029ffad271`，源码parent `53d86109f18e4131cff1ddcb905086892580d136`。原f3候选直接承接关系及原b99正式FAIL不可改写。S0完整接收证明 `6c7cbc37e690cb270d3b33d80e0934efe1b0881191cedb6ec65e2d239e3ae39b`，见[修订接收](../../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。[原审查范围](P04_SFT_DATA_V3_REVIEW.md)和[原正式接收](../../reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)作只读历史；原轮所有消费额度均0，不在旧scope重跑。
 
@@ -21,3 +21,5 @@ intake只读核验T1完整seal/26原命令与最终exit、两原probe和所有�
 仅相关CPU测试、必要独立反例、ruff/契约/公开检查；原147用例可一次运行，不重复整仓历史HF/toy或原27全部用例来凑计数。pytest使用本任务本轮独占的新basetemp，含public-output假设的根无`.toolalign-local`祖先；普通/链接/FIFO分开封存。新增制品≤1GiB；无S0运行任务或物理GPU租约授权。
 
 保留实际argv/UTC/exit/stdout/stderr、源码/consumer时点、所有失败和终态seal。正式给出精确1769的PASS/FAIL/BLOCKED、P0/P1/P2及原F1关闭与否；同问题第5次规则由S0维护，当前为1，重复检查/辅助错误不增加轮次。原生回报完整candidate/review/tree/parents和私有证据后结束；普通消息省略model/thinking。PASS仍需S0原SHA整合、最终CI/main，不自行合并。
+
+本次切换前精确保全：当前模型review `bdebe4c2bddf927995a6c15124fab75ad04ba5de`、tree `9cfaad151f216fb3298a899d7a0fb2399e393a38`、628公开Git/冻结字节及完整scope；seal `17fe9b621357eeaea31b31483be55164fd26d1b8a017760a433fd4a301cf9671`、envelope `a8e4f84de6ff628d28b5aca9865da7f17b1f4e33d74a0ed44dfbc9aa2db35196` 和S0接收 `28593f448e1197711a6a9f9d8604c58d7c30ced54f7d0890812e7eb0771da890`。原23命令/89,807封存文件、1,664链接与4个lstat-only FIFO保持；20原模型文件仅核对旧记录和stat token，不重新打开或调用模型API。旧公开当前路径切换后依原Git/已存快照绑定；保留原30文件/1链接缺失例外，不将原模型proof中的路径转为本数据轮新增读取或调用许可。保存本次S0正式模型接收报告；完整私有实物位置随原生派发给出。
