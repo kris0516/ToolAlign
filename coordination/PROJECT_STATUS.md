@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake待交付。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包已由PR17普通合并f27951a并完成最终双Python CI/main134CPU、三归档/65安装包绑定，VERIFIED_CPU；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake已核验92,860路径，完整verdict待交接。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包已由PR17普通合并f27951a并完成最终双Python CI/main134CPU、三归档/65安装包绑定，VERIFIED_CPU；真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审R1新轮ACTIVE，模型CPU原PASS已接收、PR17主干CPU验收通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1模型CPU原轮正式PASS/接收/空闲；当前数据修订R2原生ACTIVE、intake待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1模型CPU原轮正式PASS/接收/空闲；当前数据修订R2原生ACTIVE、intake已核验92,860路径；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -270,3 +270,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 22:33:51 UTC，S0固定模型CPU隔离普通集成170be42封存通过，证明 `3eb8b4ea97b86655381ae159697c8c11ef3e2be57ec90e5d370f774bf6517ea3`；973默认CPU/48 optional跳过、三现存归档/65安装包字节通过。旧S0启动器psutil预加载干扰导致的原1失败保持，默认CPU新进程以相同1,021用例ID通过，候选未变；最终PR17 CI/main待完成，R1数据R2继续。
 
 2026-09-07 22:46:12 UTC，模型CPU主干验收完成：PR17普通合并f27951a，原01ee/bdebe保持；最终双Python CI各959/48跳过及46项P00、实际main134CPU/三现存归档/65安装包绑定通过，证明 `aabb8d3f5363aeb7d792e7e38197c41e4f91579f107c0864e1005b084beb3861`。原失败和两次只读CI核验脚本错误保留，S0新增build/install/实物模型API/框架/GPU0；[主干证据](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。数据修订R1-r2继续独立审查。
+
+2026-09-07 22:52:39/22:57:21 UTC，R1数据R2 intake及目录FD新发现分别通过S0 92,860/652路径核验，证明 `bf9068ed5fc4cd49436618fd4fe862ce6f24b214c84559cb5f6c02406711a772` / `55931af2acaaa97fad5212ad442127763f7fb55d529397d71979322da9a42954`。原附加六项为5PASS/1FAIL、最小无包装观察已关闭自有残留FD；长期累积为源码推论，新F2拟P2，正式review待交接、中间计数增量0。T1限域FD修订CLAIMED待派发，无新增真实数据/模型额度；[证据](../reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md)。

@@ -25,3 +25,5 @@ intake只读核验T1完整seal/26原命令与最终exit、两原probe和所有�
 本次切换前精确保全：当前模型review `bdebe4c2bddf927995a6c15124fab75ad04ba5de`、tree `9cfaad151f216fb3298a899d7a0fb2399e393a38`、628公开Git/冻结字节及完整scope；seal `17fe9b621357eeaea31b31483be55164fd26d1b8a017760a433fd4a301cf9671`、envelope `a8e4f84de6ff628d28b5aca9865da7f17b1f4e33d74a0ed44dfbc9aa2db35196` 和S0接收 `28593f448e1197711a6a9f9d8604c58d7c30ced54f7d0890812e7eb0771da890`。原23命令/89,807封存文件、1,664链接与4个lstat-only FIFO保持；20原模型文件仅核对旧记录和stat token，不重新打开或调用模型API。旧公开当前路径切换后依原Git/已存快照绑定；保留原30文件/1链接缺失例外，不将原模型proof中的路径转为本数据轮新增读取或调用许可。保存本次S0正式模型接收报告；完整私有实物位置随原生派发给出。
 
 本次实际派发前S0核验1,901条授权/当前公开/核心封存和最小输入路径，628份当前R1公开与621份T1修订字节保持、两原生任务空闲、共享GPU锁空闲；证明 `2d8f76e9a25bc8cc0b0da2bc6bca36a5e02f27073259024ce6a8df8d5853ab8c`。此为精确派发前检查；完整旧scope保全仍由本轮R1独立完成，未把旧完整接收的全部路径重复计为此次重hash。
+
+本轮intake于22:52:39 UTC经S0完整核验92,860路径/16授权/609输入及5原生命令，证明 `bf9068ed5fc4cd49436618fd4fe862ce6f24b214c84559cb5f6c02406711a772`；模型旧628公开/20文件stat和缺失例外保持。新目录FD异常及原5PASS/1FAIL已核验；完整正式review待交接，原scope不变，见[中间证据](../../reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md)。
