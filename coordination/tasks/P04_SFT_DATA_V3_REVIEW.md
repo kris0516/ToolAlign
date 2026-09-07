@@ -1,6 +1,6 @@
 # P04-SFT-DATA-V3-R1｜冻结数据与数组衔接独立审查
 
-状态：CLAIMED，R1，尚未原生派发。完整 candidate / 审查 checkout base 为 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；生产基线 `48be4352bbad53ced5af84186edac036dd0ff2ca`、生产 checkpoint `bfdf2a256065d5396e6f7a4860fd7c7506f5c278`。完整 authorization_commit 为包含本次冻结范围的 S0 协调提交，由原生分发给出精确 SHA。T1 已 completed/idle，S0 接收 10,935 路径/40 原命令及实际归档，证明 `6eec52c12fe6a97a04f167a636fee7813efa22a5d96728dc80273ffe8aabd190`；见[完整接收](../../reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。下述独立额度只随本轮精确原生派发生效。
+状态：IN_PROGRESS，R1，已于2026-09-07 19:40:27 UTC按完整授权 `4ea69e1339c6b0efb14d0149b77b2442601ddd9c` 原生派发并核验新轮 ACTIVE；新分支/身份与 intake 待交付。完整 candidate / 审查 checkout base 为 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；生产基线 `48be4352bbad53ced5af84186edac036dd0ff2ca`、生产 checkpoint `bfdf2a256065d5396e6f7a4860fd7c7506f5c278`。完整 authorization_commit 为包含本次冻结范围的 S0 协调提交，由原生分发给出精确 SHA。T1 已 completed/idle，S0 接收 10,935 路径/40 原命令及实际归档，证明 `6eec52c12fe6a97a04f167a636fee7813efa22a5d96728dc80273ffe8aabd190`；见[完整接收](../../reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。下述独立额度只随本轮精确原生派发生效。
 
 沿用原独立 R1 App 任务和隔离 worktree，gpt-6-astra/max；拟建 branch `codex/review-p04-sft-data-v3-r1`、私有 scope `review-p04-sft-data-v3-r1`。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026 及 REVIEW_POLICY。上一轮原 R1 `dbd11d03e69c650efdb330f79ec380dd9914fa89` 已接收；新派发前由 S0 再核验原生 completed/idle 和旧封存。新 identity 仅写新 scope，原根身份与所有旧 FAIL/PASS、原始运行和私有 f708 保持，不将 f708 加入公开历史。
 
