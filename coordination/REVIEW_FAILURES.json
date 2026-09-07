@@ -4516,10 +4516,39 @@
       ],
       "deduplication_basis": "当前82问题中的唯一新项；该来源不在原83来源处置范围，明确字面字符数证据与既有历史主题不同，未复用旧缺陷或重置已有计数",
       "data_action_status": "VERIFIED_V3_WHOLE_SOURCE_EXCLUSION"
+    },
+    {
+      "issue_id": "P04-SFT-DATA-V3-F1",
+      "stable_requirement_key": "data_v3_nonregular_input_rejected_before_blocking_open",
+      "requirement": "固定CPU输入读取必须在可阻塞操作前拒绝非普通文件，并覆盖预检查到打开之间的路径替换；保留同FD/no-follow/hash/大小/预算边界",
+      "summary": "无writer的FIFO阻塞于os.open，fstat类型校验无法执行；原空writer释放后才拒绝。",
+      "status": "OPEN_CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FIRST_FORMAL_TECHNICAL_REVIEW_FAIL",
+          "candidate": "f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa",
+          "review_commit": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(R1)",
+          "severity": "P2",
+          "finding_record_sha256": "bbcd94e9ddf3ff77d57a15291c8ccbefde90d9a3ebda57bb6b1db542355371b0",
+          "review_evidence_file_sha256": "161e7f8799fa46fc0b72ed19202331d6110e6888e782acc52a57ff98df2ef08d",
+          "evidence_seal_sha256": "cdd2a826a40066d2c570d83dfb862dc0e21b09392ef09fccb5e13bfc1ec006be",
+          "terminal_seal_sha256": "a6fb47b9616c36d99cd6dcdacd272bc7baaea02ffe2ae657c2ff05d5d6885058",
+          "s0_binding_sha256": "f240ef4ec109550b7cba4c2cea3f0a6422a1aebc6dacad41027e46e719c8beea",
+          "new_failed_revision_increment": 1,
+          "prior_intermediate_probe_increment": 0,
+          "adopted_at_utc": "2026-09-07T21:01:04.125036+00:00"
+        }
+      ],
+      "next_action": "完整修订1769046468eb2ebfdd9e982ba4938833760e3fe0已交付，S0接收后派独立复审；原中间发现修订与本次正式要求同一问题，不重复计轮次",
+      "deduplication_basis": "本轮唯一F1；原候选多次检查、T1/R1辅助脚本失败和原反例自测不增加正式失败次数"
     }
   ],
-  "prior_findings": "Q1已正式通过冻结v3的84来源/103决策实际处置与13材料审核；P02-Q-081按整来源隔离关闭并归零。82个已登记问题均已关闭其数据使用或技术整改门槛；原FAIL/UNKNOWN、旧失败事件和局部Action PASS保持，不认证未审全库。",
-  "updated_at_utc": "2026-09-07T17:23:09.980096+00:00",
+  "prior_findings": "此前82项数据使用/技术问题保持关闭，原FAIL/UNKNOWN与全部失败事件保留；新增P04-SFT-DATA-V3-F1首次正式技术FAIL计1，定点修订待独立复审。冻结v3 G-DATA批准保持。",
+  "updated_at_utc": "2026-09-07T21:01:04.125036+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",

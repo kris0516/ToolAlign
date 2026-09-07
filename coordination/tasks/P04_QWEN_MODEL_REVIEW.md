@@ -1,6 +1,6 @@
 # P04-QWEN-MODEL-R1｜固定模型接口独立CPU审查
 
-状态：READY，尚未派发；R1当前先审 v3 数据包，必须等该轮完整交接与原生终态核验后再激活本范围。精确 candidate / 审查 checkout base 为 `01eeb74d1bce3c3a3c41d84575d4d706e246e818`，tree `3b194325c9b6ecba4356f46eb4ad91c8f9e63642`；源码 `207c24c486a562760c51b8de3193c3e78028ba6d`、生产基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`。E1已completed/idle，S0核验26,330路径/34原命令、实际三归档及20原模型文件/三个小header，证明 `c8abe8953aab67664bfd9764633c176f508505e2cef09e2fd03f6222e279fff9`；[完整接收](../../reports/S0_P04_QWEN_CPU_HANDOFF.md)。完整authorization_commit由届时S0原生派发提供；本文件不提前激活独立消费。
+状态：CLAIMED，尚未原生派发；R1原数据审查b99a644已完整接收/原生completed/idle，S0接续本范围。实际分发仍以新的完整authorization_commit与原生回执为准。精确 candidate / 审查 checkout base 为 `01eeb74d1bce3c3a3c41d84575d4d706e246e818`，tree `3b194325c9b6ecba4356f46eb4ad91c8f9e63642`；源码 `207c24c486a562760c51b8de3193c3e78028ba6d`、生产基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`。E1已completed/idle，S0核验26,330路径/34原命令、实际三归档及20原模型文件/三个小header，证明 `c8abe8953aab67664bfd9764633c176f508505e2cef09e2fd03f6222e279fff9`；[完整接收](../../reports/S0_P04_QWEN_CPU_HANDOFF.md)。完整authorization_commit由届时S0原生派发提供；本文件不提前激活独立消费。
 
 沿用原独立 R1 App 任务和隔离 worktree，gpt-6-astra/max；拟用 `codex/review-p04-qwen-model-r1` 和新私有 scope `review-p04-qwen-model-r1`，禁止 sub-agent。先保存届时完整授权中的 AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、RESOURCE_LOCK、ADR-0027、本任务、[E1任务](P04_QWEN_MODEL_CPU.md)、[固定metadata](../../configs/qwen-models.v1.json)和S0完整交接报告，再切换到精确候选。原审查SHA、全部旧FAIL/PASS、私有封存、根identity和未公开f708保持；不合入新main或把f708加入公开祖先。
 
@@ -24,3 +24,7 @@
 R1旧证据保全补充：S0证明 `94054f2922bf7d75c883bff3f3ab52c6c7f4fdea0d371bf9ea16ca05c4818b90` 核对571旧公开Git/快照、989旧scope文件和1,234现存链接；原全局pytest临时fixture的30文件路径及1链接缺失，30份内容与既有封存副本hash/大小一致并已另存。按[S0实际记录](../../reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)和私有精确缺失/映射清单继承，不恢复成原件、不写成全部原路径仍在；旧PASS/FAIL和counter保持。首次intake保存本报告及该保全proof/精确清单，后续pytest用独占新basetemp。
 
 精确实物：E1 final seal `870dff7c757dc9603c0eba376eb9e59de298138340dfad9f194d3168b1d5b4ec`、FINAL_RECEIPT `0ff8efa67bf636c3b5e216f4c2c60795bbcb216fa4a9c7fed1e71b6a6c248b64`；sdist `73ee4795ca39d81021b3eed1eb1ed4b8a9e9d3caf5899469e91cfd75f5f7e1cf`、direct/rebuilt wheel `117f74f92aad166aceb16336771ec4d4bf9f98e7ac6142fb0592d2c1246373d6`。intake读取私有分发中的S0/E1完整seal、42固定输入、34命令及原helper/source时点；独立实际API固定 `validate_model_files` 每模型最多一次，共2次组成一轮，先落reservation。只读intake流式hash/header核对与API消费计数分开记录，不解码tensor值。实际调用失败即保留原失败并停止新增实物调用，提交具体请求；原创小fixture仍可诊断。E1原source/installed额度已各用1/1，不可重启其运行。派发前还须新增保全届时R1当前数据审查的完整review/seal/公开Git和新identity，继承下述更早历史例外。
+
+本次接续前保全原R1 `b99a644e3ac0386f5ebe55cfd32e51b99e89781a`：S0接收证明 `f240ef4ec109550b7cba4c2cea3f0a6422a1aebc6dacad41027e46e719c8beea` 覆盖65,185路径/1,628链接、623公开Git/冻结快照、25原命令和1个lstat-only FIFO。最终seal `a6fb47b9616c36d99cd6dcdacd272bc7baaea02ffe2ae657c2ff05d5d6885058` 与envelope `6781ee178413c284de972c4a03bb484e21b3da65bc6a2c36ed6b5a11a9eeea8e`、原FAIL/PASS及当前root/scope身份保持。切换前逐项核验；切换后旧623公开路径以原b99 Git/冻结快照绑定，不要求变化中的checkout继续包含旧文件。此前1,189历史Git绑定和30原文件路径/1链接缺失例外继续按原观察保留。所有旧固定数据/数组额度为0，不在本模型审查重跑。
+
+普通文件拒绝边界须覆盖预检查后被换成FIFO或symlink的窗口；只用原创小I/O fixture与有界自有child，无writer时不应无限等待。若实现已有不可阻塞且同FD的拒绝机制，独立核对其可观察行为即可；不为沿用某个实现形状修改候选。仍按本包原CPU/安装/固定模型文件验证额度执行。
