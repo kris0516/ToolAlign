@@ -15,11 +15,11 @@
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
 | [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | READY_FOR_REVIEW | 完整1c47/S0核验21,424路径及三归档，PR14候选CI通过；D1空闲，R1/Q1待审 |
-| [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | IN_PROGRESS | 按完整d9e5622原生派发/ACTIVE；完整intake与结论待交付 |
+| [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | IN_PROGRESS | 按完整d9e5622原生ACTIVE；S0完整intake 25,763路径/533链接通过，正式结论待交付 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |
-| [Q1-P02-v2-r3](tasks/Q1_P02_V2_REVIEW.md) 新版处置与固定材料审核 | Q1 | 精确1c47/346冻结输入 | CLAIMED | 83来源处置、10新来源11决策及3原创协议例，共14语义目标/13材料；待原生派发 |
+| [Q1-P02-v2-r3](tasks/Q1_P02_V2_REVIEW.md) 新版处置与固定材料审核 | Q1 | 精确1c47/346冻结输入 | IN_PROGRESS | 已按完整d31ca701原生派发/ACTIVE；83来源处置及14语义目标/13材料，完整intake待交付 |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 原审计技术复核 | R1 | 精确5270d1e | CHANGES_REQUESTED | 原9645055 FAIL/P2=1、S0核验9,673路径/27命令；原生空闲 |
 | [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 已验证6c81/原5270 | VERIFIED（CPU） | PR13普通合并1887feb；原R1 PASS0cefe771、最终双Python CI与main55pytest/15页面检查通过 |
 | [P02-QUALITY-AUDIT-TYPE-REVIEW](tasks/P02_QUALITY_AUDIT_TYPE_REVIEW.md) 类型修复复审 | R1 | 精确da22 | VERIFIED（CPU） | 原0cefe771 PASS/原生空闲；随PR13合并并完成main验证，原9645055 FAIL保持 |

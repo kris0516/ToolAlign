@@ -1,6 +1,6 @@
 # P02 v2 完整候选接收与候选 CI
 
-日期：2026-09-07。状态：READY_FOR_REVIEW。D1完整候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`已普通推送且原生completed/idle；[Draft PR14](https://github.com/kris0516/ToolAlign/pull/14)保持待审。S0接收核验通过，R1技术审查按完整d9e5622原生ACTIVE，Q1新346项冻结输入CLAIMED待派发；G-DATA和P04仍未放行。
+日期：2026-09-07。状态：READY_FOR_REVIEW。D1完整候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`已普通推送且原生completed/idle；[Draft PR14](https://github.com/kris0516/ToolAlign/pull/14)保持待审。S0接收核验通过，R1技术审查按完整d9e5622原生ACTIVE，Q1按完整d31ca701原生接续新版冻结输入审核/ACTIVE；G-DATA和P04仍未放行。
 
 候选以已验证`6c81dfcc855fca188181d1bb08870f47d8edacc9`为基线，采用完整D1授权`f8b81b9783892669d19aafee5a1d82a4a8409cd3`。492文件中480基线文件逐字节保持，12个允许新增文件包括两个模块、精确配置、53项CPU测试和报告。修正后实现为`f7acd93595bfeb5e81b6eafe53c8d4106ce10a68`；[原worker交接](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/coordination/handoffs/P02-quality-adjudication-r2.md)与[验证说明](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/reports/data/quality-adjudication-r2/README.md)保持原SHA。
 
@@ -28,4 +28,6 @@ S0新增构建、安装、分词、模型/框架/GPU均0。浏览器实显、真
 
 12:02 UTC实际技术派发：S0再次核验R1上一轮completed/idle、干净0ce后，按完整d9e5622c4148896803f92c53caf615975ef5254c派发精确1c47候选的独立技术审查，gpt-6-astra/max，新轮ACTIVE已确认；新branch/intake待交付。
 
-Q1新版输入现已冻结，manifest SHA`aa4fba710891eb969371c80bea931abcff8a54c988b8a4cee95ec4145bc95f7d`，346项包含286精确副本和60现存只读制品引用，副本167,662,769 bytes，S0冻结证明`317ec8423b485b0869ba374587ab9dabf78457420471ef71fbcc8e6389a0c32a`。83来源/101决策用于实际处置核验；10新材料来源的11决策加3原创协议例，共14唯一语义目标，其中13个有token材料。原83来源不重新做全批语义裁定，不新增抽样/分词。完整[Q1任务](../coordination/tasks/Q1_P02_V2_REVIEW.md)与[配置](../coordination/tasks/Q1_P02_V2_REVIEW_CONFIG.v1.json)已CLAIMED，配置SHA`102864b6712f8db20b21b82b3a999dda7819be8e506e11df39aabd58f65f15a5`；尚未原生派发。
+Q1新版输入现已冻结，manifest SHA`aa4fba710891eb969371c80bea931abcff8a54c988b8a4cee95ec4145bc95f7d`，346项包含286精确副本和60现存只读制品引用，副本167,662,769 bytes，S0冻结证明`317ec8423b485b0869ba374587ab9dabf78457420471ef71fbcc8e6389a0c32a`。83来源/101决策用于实际处置核验；10新材料来源的11决策加3原创协议例，共14唯一语义目标，其中13个有token材料。原83来源不重新做全批语义裁定，不新增抽样/分词。完整[Q1任务](../coordination/tasks/Q1_P02_V2_REVIEW.md)与[配置](../coordination/tasks/Q1_P02_V2_REVIEW_CONFIG.v1.json)已原生派发，配置SHA`102864b6712f8db20b21b82b3a999dda7819be8e506e11df39aabd58f65f15a5`；S0于12:15 UTC再次核验旧轮completed/notLoaded及干净42d9后，按完整d31ca701b49c8b387dce35aa986a9784f7f6f32e派发并核验新轮ACTIVE，gpt-6-astra/max。新branch/intake待交付。
+
+12:19 UTC技术intake接收：R1实际review/p02-quality-adjudication-r1/1c47已核验；S0接收intake共25,763路径/533链接、492候选/480不变基线、15授权副本及旧504公开Git/快照通过，独立技术结论待交付。R1原intake SHA`ccf7fb99124f1bd316382b5082629a8cd02141810ab688185a1fc4f7b115cc4e`；S0证明`d973ed315e8903fb8bdceba726fc0877e87f17e78357ba1806f407c58f823aaa`。本次只核对输入、身份、Git及现存证据，新增生产运行0；原只读辅助字段KeyError按R1记录保留，不计正式修订失败。
