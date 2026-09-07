@@ -2575,8 +2575,8 @@
       "stable_requirement_key": "json_type_fidelity_in_audit_views_and_material_checks",
       "requirement": "审计展示和校验不得把JSON布尔与数值混同而隐藏或接受换型内容",
       "summary": "原审计候选的观察引用、enum差异、target核验和HTML材料核验存在同一类型比较缺陷",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
+      "status": "CLOSED_TECHNICAL_PASS",
+      "consecutive_failed_revisions": 0,
       "events": [
         {
           "attempt": 1,
@@ -2590,13 +2590,30 @@
           "s0_binding_sha256": "cbdcdb16ef2351ee96c7ff4172c2d02f4c5350293b4c3555d73aad56e58c6b38",
           "new_failed_revision_increment": 1,
           "same_root_cause_manifestations": 4
+        },
+        {
+          "attempt": 2,
+          "event_kind": "FORMAL_TECHNICAL_REVIEW_PASS",
+          "candidate": "da22baf46248c2fc0a36e04105bb8df9b48d62fb",
+          "review_commit": "0cefe771c8d867d9e253b6603105ad31dc3a7787",
+          "verdict": "PASS",
+          "priorities": {
+            "P0": 0,
+            "P1": 0,
+            "P2": 0
+          },
+          "reviewer": "Codex-AI(R1)",
+          "evidence_seal_sha256": "42b2983811503a7eea0233bf3c579525a550cb5a16f679a7f67e2c7de14b4249",
+          "s0_binding_sha256": "f3ec0b37f27f5db9b2de87429c7e8f1767583c72926af510a082494b6b6aed7f",
+          "new_failed_revision_increment": 0,
+          "closed_root_cause_manifestations": 4
         }
       ],
-      "next_action": "E1按原授权修复三个脚本；精确新候选交R1独立复审，未通过前PR13保持Draft"
+      "next_action": "S0完成PR13最终CI/普通合并/main验证；保留原FAIL与全部四类反例"
     }
   ],
   "prior_findings": "Q1首轮14问题、r2固定50来源的47新问题/3复用、原32来源余下19问题及原审计类型P2均已按冻结证据接入；原数据无实质修订，既有语义计数不递增。三项已裁定PASS的原字节恢复仍待新版本，其他数据问题等待实际整来源隔离核验。",
-  "updated_at_utc": "2026-09-07T10:02:51.059742+00:00",
+  "updated_at_utc": "2026-09-07T11:03:04.403461+00:00",
   "last_adoption": {
     "q1_review_commit": "42d9d56804d3b7aadd0eff7efc99249ec5dbe11b",
     "q1_existing_issues_reused": 3,
@@ -2605,5 +2622,11 @@
     "existing_semantic_failure_count_increment": 0,
     "new_technical_formal_failure_events": 1,
     "highest_consecutive_failed_revisions": 1
+  },
+  "last_technical_closure": {
+    "issue_id": "P02-AUDIT-TYPE-001",
+    "review_commit": "0cefe771c8d867d9e253b6603105ad31dc3a7787",
+    "prior_failure_history_preserved": true,
+    "frozen_d1_adjudication_inputs_unchanged": true
   }
 }

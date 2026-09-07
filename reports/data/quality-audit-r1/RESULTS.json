@@ -1,0 +1,652 @@
+{
+  "aggregation_policy": "Source verdict is fail if any valid decision clearly fails, otherwise unknown if any remains unresolved, otherwise pass. Issue-level verdict defaults to its decision except explicit overrides. A pass evaluates the next action against source semantics; it does not certify later success, actuality, or an unseen tool binding. Explicit source default annotations can justify historical optional omission, without asserting normalization auto-fill.",
+  "by_decision_count": {
+    "1": {
+      "decision_verdicts": {
+        "fail": 7,
+        "pass": 121,
+        "unknown": 34
+      },
+      "decisions": 162,
+      "decisions_by_split": {
+        "train": 139,
+        "validation": 23
+      },
+      "distinct_groups": 55,
+      "source_verdicts": {
+        "fail": 7,
+        "pass": 121,
+        "unknown": 34
+      },
+      "sources": 162,
+      "sources_by_split": {
+        "train": 139,
+        "validation": 23
+      }
+    },
+    "2": {
+      "decision_verdicts": {
+        "fail": 4,
+        "pass": 24,
+        "unknown": 4
+      },
+      "decisions": 32,
+      "decisions_by_split": {
+        "train": 30,
+        "validation": 2
+      },
+      "distinct_groups": 3,
+      "source_verdicts": {
+        "fail": 3,
+        "pass": 9,
+        "unknown": 4
+      },
+      "sources": 16,
+      "sources_by_split": {
+        "train": 15,
+        "validation": 1
+      }
+    },
+    "3": {
+      "decision_verdicts": {
+        "fail": 0,
+        "pass": 5,
+        "unknown": 1
+      },
+      "decisions": 6,
+      "decisions_by_split": {
+        "train": 6
+      },
+      "distinct_groups": 1,
+      "source_verdicts": {
+        "fail": 0,
+        "pass": 1,
+        "unknown": 1
+      },
+      "sources": 2,
+      "sources_by_split": {
+        "train": 2
+      }
+    }
+  },
+  "by_selection_phase": {
+    "diagnostic/conditional_history": {
+      "decision_verdicts": {
+        "fail": 3,
+        "pass": 13,
+        "unknown": 2
+      },
+      "decisions": 18,
+      "decisions_by_split": {
+        "train": 18
+      },
+      "distinct_groups": 4,
+      "source_verdicts": {
+        "fail": 2,
+        "pass": 6,
+        "unknown": 2
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "diagnostic/identifier_scope": {
+      "decision_verdicts": {
+        "fail": 0,
+        "pass": 8,
+        "unknown": 2
+      },
+      "decisions": 10,
+      "decisions_by_split": {
+        "train": 10
+      },
+      "distinct_groups": 3,
+      "source_verdicts": {
+        "fail": 0,
+        "pass": 8,
+        "unknown": 2
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "diagnostic/optional_arguments": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 6,
+        "unknown": 3
+      },
+      "decisions": 10,
+      "decisions_by_split": {
+        "train": 10
+      },
+      "distinct_groups": 1,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 6,
+        "unknown": 3
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "diagnostic/parallel_object": {
+      "decision_verdicts": {
+        "fail": 0,
+        "pass": 7,
+        "unknown": 3
+      },
+      "decisions": 10,
+      "decisions_by_split": {
+        "train": 10
+      },
+      "distinct_groups": 3,
+      "source_verdicts": {
+        "fail": 0,
+        "pass": 7,
+        "unknown": 3
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "diagnostic/relative_time": {
+      "decision_verdicts": {
+        "fail": 2,
+        "pass": 4,
+        "unknown": 4
+      },
+      "decisions": 10,
+      "decisions_by_split": {
+        "train": 10
+      },
+      "distinct_groups": 5,
+      "source_verdicts": {
+        "fail": 2,
+        "pass": 4,
+        "unknown": 4
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "diagnostic/unit_or_encoding": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 8,
+        "unknown": 3
+      },
+      "decisions": 12,
+      "decisions_by_split": {
+        "train": 12
+      },
+      "distinct_groups": 2,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 6,
+        "unknown": 3
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "random/train": {
+      "decision_verdicts": {
+        "fail": 3,
+        "pass": 83,
+        "unknown": 19
+      },
+      "decisions": 105,
+      "decisions_by_split": {
+        "train": 105
+      },
+      "distinct_groups": 21,
+      "source_verdicts": {
+        "fail": 3,
+        "pass": 74,
+        "unknown": 19
+      },
+      "sources": 96,
+      "sources_by_split": {
+        "train": 96
+      }
+    },
+    "random/validation": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 21,
+        "unknown": 3
+      },
+      "decisions": 25,
+      "decisions_by_split": {
+        "validation": 25
+      },
+      "distinct_groups": 24,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 20,
+        "unknown": 3
+      },
+      "sources": 24,
+      "sources_by_split": {
+        "validation": 24
+      }
+    }
+  },
+  "by_split": {
+    "train": {
+      "decision_verdicts": {
+        "fail": 10,
+        "pass": 129,
+        "unknown": 36
+      },
+      "decisions": 175,
+      "decisions_by_split": {
+        "train": 175
+      },
+      "distinct_groups": 33,
+      "source_verdicts": {
+        "fail": 9,
+        "pass": 111,
+        "unknown": 36
+      },
+      "sources": 156,
+      "sources_by_split": {
+        "train": 156
+      }
+    },
+    "validation": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 21,
+        "unknown": 3
+      },
+      "decisions": 25,
+      "decisions_by_split": {
+        "validation": 25
+      },
+      "distinct_groups": 24,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 20,
+        "unknown": 3
+      },
+      "sources": 24,
+      "sources_by_split": {
+        "validation": 24
+      }
+    }
+  },
+  "category_sources": {
+    "tool_calls": 180
+  },
+  "cohorts": {
+    "additional_effective_10": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 10,
+        "unknown": 0
+      },
+      "decisions": 11,
+      "decisions_by_split": {
+        "train": 11
+      },
+      "distinct_groups": 1,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 9,
+        "unknown": 0
+      },
+      "sources": 10,
+      "sources_by_split": {
+        "train": 10
+      }
+    },
+    "new_180": {
+      "decision_verdicts": {
+        "fail": 11,
+        "pass": 150,
+        "unknown": 39
+      },
+      "decisions": 200,
+      "decisions_by_split": {
+        "train": 175,
+        "validation": 25
+      },
+      "distinct_groups": 57,
+      "source_verdicts": {
+        "fail": 10,
+        "pass": 131,
+        "unknown": 39
+      },
+      "sources": 180,
+      "sources_by_split": {
+        "train": 156,
+        "validation": 24
+      }
+    },
+    "prior_32": {
+      "decision_verdicts": {
+        "fail": 12,
+        "pass": 10,
+        "unknown": 18
+      },
+      "decisions": 40,
+      "decisions_by_split": {
+        "train": 40
+      },
+      "distinct_groups": 12,
+      "source_verdicts": {
+        "fail": 12,
+        "pass": 3,
+        "unknown": 17
+      },
+      "sources": 32,
+      "sources_by_split": {
+        "train": 32
+      }
+    },
+    "random_120": {
+      "decision_verdicts": {
+        "fail": 4,
+        "pass": 104,
+        "unknown": 22
+      },
+      "decisions": 130,
+      "decisions_by_split": {
+        "train": 105,
+        "validation": 25
+      },
+      "distinct_groups": 45,
+      "source_verdicts": {
+        "fail": 4,
+        "pass": 94,
+        "unknown": 22
+      },
+      "sources": 120,
+      "sources_by_split": {
+        "train": 96,
+        "validation": 24
+      }
+    },
+    "targeted_60": {
+      "decision_verdicts": {
+        "fail": 7,
+        "pass": 46,
+        "unknown": 17
+      },
+      "decisions": 70,
+      "decisions_by_split": {
+        "train": 70
+      },
+      "distinct_groups": 13,
+      "source_verdicts": {
+        "fail": 6,
+        "pass": 37,
+        "unknown": 17
+      },
+      "sources": 60,
+      "sources_by_split": {
+        "train": 60
+      }
+    }
+  },
+  "context_advisories": 1,
+  "coverage": {
+    "decisions": 251,
+    "heldout": 0,
+    "sources": 222
+  },
+  "created_at_utc": "2026-09-07T03:05:11.403560+00:00",
+  "excluded_from_source_denominator": "Three staged candidate Examples reuse two prior sources; three protocol fixtures are not training examples. The 16-case material table has its own separate denominator.",
+  "issue_categories": {
+    "address_completeness_unverified": 1,
+    "age_time_binding_unestablished": 1,
+    "ambiguous_user_unit_silently_assumed": 1,
+    "analysis_object_substitution": 1,
+    "category_code_mapping_unestablished": 1,
+    "code_convention_missing": 1,
+    "conditional_dependency_not_established": 1,
+    "conflicting_input_description": 1,
+    "currency_disambiguation_missing": 1,
+    "date_and_station_code_grounding_missing": 1,
+    "date_year_unestablished": 2,
+    "delivery_date_binding_missing": 1,
+    "dependent_result_grounding_unresolved": 1,
+    "entity_scope_binding_missing": 1,
+    "entity_type_substitution": 1,
+    "enum_or_encoding_convention": 1,
+    "exclusive_boundary_loses_requested_item": 1,
+    "explicit_color_encoding_mismatch": 1,
+    "explicit_optional_constraint_omitted": 2,
+    "fabricated_input_data": 1,
+    "flight_time_binding_unestablished": 1,
+    "folder_to_search_context_binding_missing": 1,
+    "geographic_grounding": 1,
+    "geographic_scope_unresolved": 1,
+    "identifier_boundary_ambiguous": 1,
+    "identifier_convention_missing": 1,
+    "identifier_format_mismatch": 2,
+    "identifier_mapping_missing": 1,
+    "identifier_mapping_unverified": 6,
+    "identifier_representation": 3,
+    "identifier_role_binding_missing": 1,
+    "identifier_scope": 1,
+    "identifier_scope_mapping_unverified": 1,
+    "identifier_terminal_punctuation_ambiguous": 1,
+    "image_input_representation_unestablished": 1,
+    "incomplete_payload": 1,
+    "incomplete_required_payload": 1,
+    "missing_corpus_placeholder": 1,
+    "missing_input_placeholder": 1,
+    "monetary_quantity_meaning_mismatch": 1,
+    "multi_value_query_semantics_unestablished": 1,
+    "numeric_area_unit_convention_missing": 1,
+    "omitted_explicit_language_constraint": 1,
+    "omitted_optional_constraint": 1,
+    "optional_default_semantics_unestablished": 1,
+    "pagination_convention": 1,
+    "preference_scale_unestablished": 1,
+    "rate_unit_convention_missing": 1,
+    "relative_date_anchor_missing": 2,
+    "relative_time_anchor": 1,
+    "relative_time_anchor_missing": 1,
+    "relative_time_boundary": 1,
+    "relative_time_resolution_mismatch": 1,
+    "requested_default_profile_binding_missing": 1,
+    "requested_population_scope_unresolved": 1,
+    "required_payload_replaced_with_description": 2,
+    "scene_identifier_binding_missing": 1,
+    "security_assessment_capability_unresolved": 1,
+    "sort_encoding_missing": 1,
+    "stock_slug_mapping_missing": 1,
+    "target_location_granularity_unverified": 1,
+    "time_bucket_mapping_unestablished": 1,
+    "time_period_convention": 1,
+    "time_scope_unestablished": 1,
+    "timezone_binding_missing": 1,
+    "tool_domain_mismatch": 1,
+    "tool_entity_domain_mismatch": 1,
+    "tool_operation_mismatch": 1,
+    "translation_content_omission": 1,
+    "unit_or_encoding_unestablished": 1,
+    "unnecessary_or_irrelevant_tool_call": 1,
+    "url_representation_unestablished": 1,
+    "username_to_id_binding_missing": 1,
+    "write_target_binding_missing": 1,
+    "wrong_operation_and_invented_input": 1
+  },
+  "issue_verdicts": {
+    "fail": 24,
+    "pass": 0,
+    "unknown": 63
+  },
+  "issues": 87,
+  "pattern_hits_overlapping": {
+    "conditional_history": {
+      "decision_verdicts": {
+        "fail": 6,
+        "pass": 41,
+        "unknown": 8
+      },
+      "decisions": 55,
+      "decisions_by_split": {
+        "train": 50,
+        "validation": 5
+      },
+      "distinct_groups": 10,
+      "eligible_pool_sources": 933,
+      "source_verdicts": {
+        "fail": 5,
+        "pass": 22,
+        "unknown": 8
+      },
+      "sources": 35,
+      "sources_by_split": {
+        "train": 31,
+        "validation": 4
+      }
+    },
+    "identifier_scope": {
+      "decision_verdicts": {
+        "fail": 2,
+        "pass": 53,
+        "unknown": 16
+      },
+      "decisions": 71,
+      "decisions_by_split": {
+        "train": 66,
+        "validation": 5
+      },
+      "distinct_groups": 13,
+      "eligible_pool_sources": 2374,
+      "source_verdicts": {
+        "fail": 2,
+        "pass": 49,
+        "unknown": 16
+      },
+      "sources": 67,
+      "sources_by_split": {
+        "train": 62,
+        "validation": 5
+      }
+    },
+    "optional_arguments": {
+      "decision_verdicts": {
+        "fail": 3,
+        "pass": 55,
+        "unknown": 18
+      },
+      "decisions": 76,
+      "decisions_by_split": {
+        "train": 68,
+        "validation": 8
+      },
+      "distinct_groups": 15,
+      "eligible_pool_sources": 1936,
+      "source_verdicts": {
+        "fail": 3,
+        "pass": 44,
+        "unknown": 18
+      },
+      "sources": 65,
+      "sources_by_split": {
+        "train": 58,
+        "validation": 7
+      }
+    },
+    "parallel_object": {
+      "decision_verdicts": {
+        "fail": 3,
+        "pass": 43,
+        "unknown": 15
+      },
+      "decisions": 61,
+      "decisions_by_split": {
+        "train": 57,
+        "validation": 4
+      },
+      "distinct_groups": 15,
+      "eligible_pool_sources": 1928,
+      "source_verdicts": {
+        "fail": 3,
+        "pass": 43,
+        "unknown": 15
+      },
+      "sources": 61,
+      "sources_by_split": {
+        "train": 57,
+        "validation": 4
+      }
+    },
+    "relative_time": {
+      "decision_verdicts": {
+        "fail": 7,
+        "pass": 49,
+        "unknown": 21
+      },
+      "decisions": 77,
+      "decisions_by_split": {
+        "train": 68,
+        "validation": 9
+      },
+      "distinct_groups": 23,
+      "eligible_pool_sources": 2485,
+      "source_verdicts": {
+        "fail": 6,
+        "pass": 38,
+        "unknown": 21
+      },
+      "sources": 65,
+      "sources_by_split": {
+        "train": 57,
+        "validation": 8
+      }
+    },
+    "unit_or_encoding": {
+      "decision_verdicts": {
+        "fail": 1,
+        "pass": 23,
+        "unknown": 7
+      },
+      "decisions": 31,
+      "decisions_by_split": {
+        "train": 28,
+        "validation": 3
+      },
+      "distinct_groups": 6,
+      "eligible_pool_sources": 662,
+      "source_verdicts": {
+        "fail": 1,
+        "pass": 17,
+        "unknown": 7
+      },
+      "sources": 25,
+      "sources_by_split": {
+        "train": 22,
+        "validation": 3
+      }
+    }
+  },
+  "population_error_rate_claimed": false,
+  "prior_comparison": {
+    "agree": 21,
+    "grade_change": 11
+  },
+  "prior_grade_transitions": {
+    "fail->fail": 12,
+    "fail->unknown": 8,
+    "unknown->pass": 3,
+    "unknown->unknown": 9
+  },
+  "proposed_sources": 79,
+  "reviewer": "Codex-AI(E1)",
+  "semantic_verdicts_computed_by_script": false,
+  "training_authorized": false
+}
