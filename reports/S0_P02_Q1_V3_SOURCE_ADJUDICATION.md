@@ -23,3 +23,5 @@ S0放行JSON SHA `1eeea3bd45daa8caf5d2867efa5859a446673888993aaaf9cc3a21b80ca555
 D1已回报两次完整数据输出一致，实际manifest `f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437`、quality revision `919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8`，有效7419/230、formal5938/213、smoke1583/194；42项定点自测及11例两engine复用通过。这些是中间交付回报，完整候选/封存和S0接收尚未完成；两份完整输出目录构建额度2/2已用，不增加第三份全量构建。
 
 [Q1原交接](../coordination/handoffs/Q1-P02-v3-sources-r4.md)、[D1范围](../coordination/tasks/P02_QUALITY_EXCLUSION.md)和[后续R1范围](../coordination/tasks/P02_QUALITY_EXCLUSION_REVIEW.md)保持各自边界。当前82个issue仍81关闭/1待修，未触发第五次暂停；浏览器实显NOT_RUN，真实trainer消费、G-DATA及P04尚未验收。本次S0新增数据构建、分词、框架、模型和GPU均0，无新环境、下载、费用、模型/数据上传或公网服务。
+
+15:00前中间补核：S0证明`95f041fe2cbd35afb0a326f1acff2c512ffa8e3e178072f8179b4b87ed35136f`核验150个实际路径、两份各29稳定制品、15,577次v2原逐行字节与7,928条sidecar的v1/v2/当前rank绑定，新增两决策均已排除。两engine各11例（含3协议）完整sequence/padding/token_texts与原记录相同，原实际编码时间保持，D1放行副本逐字匹配。两次S0字段/摘要解释辅助失败已保留并修正，数据和数组未改。此为中间实物绑定，完整候选与新两例结果未接收，尚不关闭P02-Q-081；[Q1后续实际复核范围](../coordination/tasks/Q1_P02_V3_REVIEW.md)已PLANNED未派发。
