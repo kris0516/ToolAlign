@@ -20,6 +20,21 @@
 
 原 E1 完整 seal `adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889` 和 receipt `b4b9d5898594d2c9fc9026ea75a197c4b82ee67b78a6afaa745fbb93fcc9306c` 保持。新完整候选及 seal 在最终交付回执中单列，避免把封存文件自身 hash 写入自身。
 
+## 原正式审查与修复对应
+
+S0 收尾交付的原 review 为 [964505512b56af927e4022aab260ab5a91ca5b86](https://github.com/kris0516/ToolAlign/blob/964505512b56af927e4022aab260ab5a91ca5b86/reports/review/P02-quality-audit-r1/REVIEW.md)，直接 parent 为原 5270；**FAIL，P0/P1=0、P2=1**。四份原审查文件均从精确 Git 保存，未合并或修改；原 REVIEW hash `1d413c1464739b34025052fb1e9390abdbce841377f006b78e1ed35b63ddb48e`，原 EVIDENCE hash `57700c21257680a2f6bd5590fac7d5ebfc443b908f86ff0caf594710a70e0726`。正式公开夹具只改变顶层 sys/pathlib 导入顺序、一行 Ruff 注释和空白；所有函数/测试及非导入顶层语句的 AST 相同。E1 初次要求完整 AST 顺序相同的辅助断言失败保留，实际逐项差异和校正核验已保存，无新测试运行。
+
+| 原 F1 表现 | 本轮修复与已有自查证据 |
+|---|---|
+| 观察 `0` / `false` 被错误引用 | 类型保真观察比较；原 `test_observation_reference_preserves_boolean_type` 及嵌套 0/false、1/true 回归通过 |
+| enum 的 `[0]` / `[false]` 差异遗漏 | 递归 delta 使用类型键；原 `test_schema_delta_retains_boolean_enum_change` 通过 |
+| TARGET 换型并更新摘要后被接受 | 完整目标/前缀结构和索引校验；原 `test_verifier_rejects_changed_target_boolean` 及新字段/索引变体通过 |
+| HTML 完整 Example 换型后仍称一致 | 显示 JSON 块使用类型键；R1 原页通过、封存改页拒绝，另外 7 项数组/计数/预算变体拒绝 |
+
+原 R1 对这批冻结 43 视图及 16 材料 64 个 JSON 块的实际类型差异也为 0；这不关闭原代码 FAIL。当前修复尚待另一次独立复审。
+
+首次准备候选 `42a85e31ad212dc85d224fcedf6002ef9d07f644`、seal `a014ce9848c34500bd26c6f1a22eabad31bf6887f420ea8fe07e04bb1efae8bc` 和 receipt `57a08b1f4a285d72cbe0be8910db156f92494c99f04a2af3286a732e77675c10` 保持。追加 intake `10514b17beaf872079f93edfa239e979af434316caddd49726212c4d98c969d2` 绑定四份原 review 和该候选的 498 份公开快照；首次封存的公开文件按原 Git/快照核对，不以更新后的路径冒充原件。后续仅文档变化，新固定输入执行 0。
+
 原 R1 夹具为 12,865 bytes。公开执行副本为 12,967 bytes，hash `130b9332a9e71e0c9b7fec1fe6b1987f547c1f61ae697beb42478233cc11f042`；去掉开头两行注释后与原字节相同。私有原件保持只读。R1 材料探针中的私有输出路径未直接执行；`check_material_type_fixtures.py` 使用其已封存 record / 原页 / 改页，输出到新的目录。
 
 四个修复模块的实际测量字节对应源码提交 `74a8d348e75fc57535ee0b75806106486d8629ee`，后续仅公开 R1 副本增加注释和交付文档。视图及材料自查没有重跑或换用后来提交的时间：
