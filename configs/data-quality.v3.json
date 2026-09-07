@@ -1,0 +1,160 @@
+{
+  "allowed_source_splits": [
+    "train",
+    "validation"
+  ],
+  "annotations": {
+    "existing_staging": "read_only_reference_excluded_from_effective_training",
+    "new_reannotations": 0,
+    "promotion": false
+  },
+  "config_version": "toolalign.quality-exclusion-policy.v3",
+  "disposition": {
+    "excluded_decisions": 100,
+    "excluded_sources": 81,
+    "fixed_sources": 84,
+    "inherited_sources": 83,
+    "issue_id": "P02-Q-081",
+    "new_excluded_decisions": 2,
+    "new_sources": 1,
+    "preserve_group_and_split": true,
+    "preserve_other_sources_in_same_group": true,
+    "restored_original_sources": 3,
+    "source_training_fitness_counts": {
+      "fail": 25,
+      "pass": 3,
+      "unknown": 56
+    },
+    "unit": "entire_source_all_decisions"
+  },
+  "effective_selection": {
+    "new_annotations_enter_effective_training": false,
+    "preserve_v2_rank_as_previous_selection_rank": true,
+    "restore_original_bytes_at_parent_rank": true,
+    "retain_parent_rank": true,
+    "strategy": "filter_original_selection_without_refill",
+    "unchanged_examples_keep_original_bytes": true
+  },
+  "expected_counts": {
+    "formal_train": {
+      "effective": 5938,
+      "original": 6013,
+      "quarantined_fail": 27,
+      "quarantined_unknown": 48
+    },
+    "formal_validation": {
+      "effective": 213,
+      "original": 217,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    },
+    "smoke_train": {
+      "effective": 1583,
+      "original": 1600,
+      "quarantined_fail": 5,
+      "quarantined_unknown": 12
+    },
+    "smoke_validation": {
+      "effective": 194,
+      "original": 197,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 3
+    },
+    "train": {
+      "effective": 7419,
+      "original": 7515,
+      "quarantined_fail": 35,
+      "quarantined_unknown": 61
+    },
+    "validation": {
+      "effective": 230,
+      "original": 234,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    }
+  },
+  "input_bindings": {
+    "input_manifest_file_sha256": "ebbaf56bbb5730b5d31eca195d5ac7772d148ff876fc96be1c1c5dbbadf51e06",
+    "material_projection_file_sha256": "26246a8b6cc139b2d3c6436721a021558f13fda144bd279d2941d688e872eead",
+    "new_material_source_context_file_sha256": "31f7c9bf7b72721492166bba97f4da1999a153f24894ac335ccc4132aff75161",
+    "parent_input_manifest_file_sha256": "02e1f64ffb8c11d32b7653890c25996a1deb17708b2b6e74f5d9703e09761713",
+    "parent_policy_file_sha256": "7cf53c23568cd06c9543f253d9636b4655b135f0e6daf0eb318ace2100807ccb",
+    "parent_revision_manifest_file_sha256": "0b0fdb79f728256dac42ddba75e0f3fc43aebb9502f2e9097398a482d5774251",
+    "q1_adjudications_file_sha256": "95290793ed7fea6156f668933c7c56cf831365e151a1fa0c61b2492f13c7ff9b",
+    "q1_final_seal_file_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+    "q1_proposals_file_sha256": "7886e603a93517a30c65785d3b61583504b51b89415b664ef97f54de9a2adeb9",
+    "review_failure_ledger_file_sha256": "2d603e5f03d2d77aeb524c882034f37d404073340b186246401a9a9d54badf18",
+    "source_exclusion_delta_file_sha256": "35ae90915e26ad8c25fd1d2d70cd89bfebfaee038e2f617178a049a4675b57e4"
+  },
+  "limits": {
+    "full_corpus_tokenization_runs": 0,
+    "full_v3_data_builds": 2,
+    "model_or_gpu_runs": 0,
+    "new_artifact_bytes": 1073741824,
+    "new_downloads": 0,
+    "new_environments": 0,
+    "new_material_encodings_per_engine": 2
+  },
+  "materials": {
+    "browser_actual_observation": "NOT_RUN",
+    "effective_train_examples": 10,
+    "engines": [
+      "transformers",
+      "tokenizers"
+    ],
+    "fixed_case_count_per_engine": 13,
+    "new_case_limit_per_engine": 2,
+    "new_example_ids": [
+      "9de24c6a99df5e60a40beff96f8cdccbe75aff09a07540998b24e766d5c4acc6",
+      "b2dc9cbb8c3410ae76a3214e2cbfee4fd0b30353935ddf5e4b434ea7ce332087"
+    ],
+    "new_source_semantic_review_before_encoding": true,
+    "prior_review_verdicts_remain_in_original_seal": true,
+    "protocol_enters_training": false,
+    "removed_from_materials_example_ids": [
+      "450e0fad49f93621f030ee6b7789c6351f3c6aba29f1515fd637657ca62a4cfd",
+      "b8efcf78602ac797b9d0a08f0447f30ba20e131ee2071096136d2004e580444e"
+    ],
+    "retain_original_encoding_run_identity": true,
+    "retained_case_count_per_engine": 11,
+    "retained_example_ids": [
+      "028be1996b0f3be9db17c5837c3da8781f9a1fee66e5bb41adb57e37aa0ce65a",
+      "4acd8bc7081d9ea63d94b168a065f5cbb10710ea92b76326a85085534aaf4962",
+      "530544504a6de997249846a4a2188c866df276ff667900d8efc69e5270fb7a3c",
+      "6f4570bca8c7de6bdcae2ced73f300d8c211ad71aaeea2b1ad700ece284f8353",
+      "97844e2fa29043310086e91c41dde15ee5a76ffe6a7fa60f6f71eba0e0d932a1",
+      "ad2f306cf1f9bf285b081bc992bbc93a9c7f8ace047be3623ec71a7e918d17a4",
+      "b6c5eea3555956e46303417b51ec27b15c2219368ff7b6d06fe06c70ab7cbfee",
+      "f5b535a1e1542dc2ee963cc4a3d1755b8bcd9e74ba80511ffa1c071729a86c7f",
+      "training-binding-protocol-clarify",
+      "training-binding-protocol-final",
+      "training-binding-protocol-refuse"
+    ],
+    "reuse_sequence_padding_and_token_texts_exactly": true,
+    "reuse_shared_formatter_and_sequence_kernels": true,
+    "supplemental_original_action_kinds": [
+      "final",
+      "clarify",
+      "refuse"
+    ],
+    "verdicts_prefilled": false
+  },
+  "pending": [
+    "independent_Q1_new_source_review",
+    "independent_R1_revision_review",
+    "independent_Q1_material_and_actual_exclusion_verification",
+    "S0_main_verification",
+    "G_DATA_acceptance",
+    "explicit_P04_configuration_and_capacity"
+  ],
+  "planning_deviation": {
+    "expected_formal_train": 5938,
+    "original_formal_train_lower_target": 6000,
+    "resolution": "record_actual_count_in_future_P04_configuration_without_refill",
+    "shortfall": 62
+  },
+  "review_kind": "independent_Codex_AI_Q1",
+  "status": "CPU_EXCLUSION_CANDIDATE",
+  "training_authorized": false,
+  "verified_code_base": "d3e56f68ebd67cc576d912b6f06636682b4170ab"
+}
