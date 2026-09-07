@@ -1,0 +1,1391 @@
+{
+  "archives": {
+    "default_wheel": {
+      "members": 65,
+      "sha256": "7de39c233e46a1bda302e77361ce55ef5a0c5a6f42265d5a5a50ce2dd2e2e95b",
+      "size_bytes": 161050
+    },
+    "rebuilt_wheel": {
+      "members": 65,
+      "sha256": "7de39c233e46a1bda302e77361ce55ef5a0c5a6f42265d5a5a50ce2dd2e2e95b",
+      "size_bytes": 161050
+    },
+    "sdist": {
+      "members": 128,
+      "sha256": "65623012f5046bbc46160c99d384d94532e8d30a5a08e684ca67652d5177b629",
+      "size_bytes": 289488
+    }
+  },
+  "authorization_commit": "2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a",
+  "code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "command_records": [
+    {
+      "argv_redacted": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--out-dir",
+        ".toolalign-local/quality-remediation-r1/packages/default"
+      ],
+      "command_metadata_sha256": "7df8deb0baec4691098c77e695e20f4515308657fb7e4df6f1f691debd1319cc",
+      "elapsed_seconds": 0.5149102921131998,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:08:08.253459+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-archive-build-default-r1",
+      "log_sha256": "67be13f8ce968e16a2f8d9468512a4ffe390c61c8527d75aa4f20ecc2c8f5967",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:08:07.738432+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--wheel",
+        "--out-dir",
+        ".toolalign-local/quality-remediation-r1/packages/rebuilt",
+        ".toolalign-local/quality-remediation-r1/packages/default/toolalign-0.0.1.tar.gz"
+      ],
+      "command_metadata_sha256": "b5253bc27c1e81c60a405fa1cb6e3b8bcfcafeabedb618a3abe0f0a53dd46d56",
+      "elapsed_seconds": 0.2874956668820232,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:08:36.733313+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-archive-build-rebuilt-r1",
+      "log_sha256": "67cb49c32ec45c78b017c57745012ccf736046c3b3b4822a90dc02a41a98c35b",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:08:36.445668+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "toolalign.data.quality_revision",
+        "build",
+        "--config-path",
+        "configs/data-quality.v1.json",
+        "--data-manifest-path",
+        ".toolalign-local/policy-a/manifest.json",
+        "--selection-manifest-path",
+        ".toolalign-local/training-binding-r1/selection-a/manifest.json",
+        "--training-config-path",
+        "configs/training-data.v1.json",
+        "--audit-path",
+        ".toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+        "--review-root",
+        "<S0_PRIVATE_ROOT>/delegated-review-20260907",
+        "--token-review-root",
+        ".toolalign-local/training-binding-r1/human-review",
+        "--raw-source-path",
+        ".toolalign-local/verified-source/toolace/data.json",
+        "--source-policy-path",
+        "configs/source_toolace.v1.json",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/revision-a"
+      ],
+      "command_metadata_sha256": "0a311b6f0badada03570706ff80919275f4c869ef0528799a8cae471a9c63b20",
+      "elapsed_seconds": 18.992036500014365,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T01:44:27.826046+00:00",
+      "git_head": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_head_after": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_status": "?? configs/data-quality.v1.json\n?? src/toolalign/data/quality_revision.py\n?? tests/data/quality_cases/\n?? tests/data/test_quality_revision.py",
+      "label": "quality-remediation-build-a-r1",
+      "log_sha256": "c814767e17780a533c3eb1f691b852f7f7851521eed8e5aa39f5d5b17fb2912e",
+      "source_epoch": "6daefd254e41f56ff29e5d465ab0f8b0967ce6e9b02a50e99ba0433bc24bff07",
+      "source_snapshot_files": 432,
+      "source_snapshot_manifest_sha256": "3dc76409511b8f29c2f7a21a9ac1da126624b50004f00d56abeee8c07b3407b9",
+      "started_at_utc": "2026-09-07T01:44:08.833899+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "toolalign.data.quality_revision",
+        "build",
+        "--config-path",
+        "configs/data-quality.v1.json",
+        "--data-manifest-path",
+        ".toolalign-local/policy-a/manifest.json",
+        "--selection-manifest-path",
+        ".toolalign-local/training-binding-r1/selection-a/manifest.json",
+        "--training-config-path",
+        "configs/training-data.v1.json",
+        "--audit-path",
+        ".toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+        "--review-root",
+        "<S0_PRIVATE_ROOT>/delegated-review-20260907",
+        "--token-review-root",
+        ".toolalign-local/training-binding-r1/human-review",
+        "--raw-source-path",
+        ".toolalign-local/verified-source/toolace/data.json",
+        "--source-policy-path",
+        "configs/source_toolace.v1.json",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/revision-a"
+      ],
+      "command_metadata_sha256": "08375aa5e0b9d40f9984bec362ef726bcfc02bc9149838a16ccd18a65d020765",
+      "elapsed_seconds": 20.326472624903545,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:46:05.453487+00:00",
+      "git_head": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_head_after": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_status": "?? configs/data-quality.v1.json\n?? src/toolalign/data/quality_revision.py\n?? tests/data/quality_cases/\n?? tests/data/test_quality_revision.py",
+      "label": "quality-remediation-build-a-r2",
+      "log_sha256": "1a6f02033a14ae34ebb6628559b84e9c48d5a9d1903bc664c4adee42aee71e7d",
+      "source_epoch": "44dcfdbb40a82058ae1a3f767eae4ed828b266a4db3b03e01d5ff94d6ee540d1",
+      "source_snapshot_files": 432,
+      "source_snapshot_manifest_sha256": "fb39f074aea15bd5dccaaf8ee6bc3d7eebb03d5e3c8d3559f265001462e096e6",
+      "started_at_utc": "2026-09-07T01:45:45.126908+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "toolalign.data.quality_revision",
+        "build",
+        "--config-path",
+        "configs/data-quality.v1.json",
+        "--data-manifest-path",
+        ".toolalign-local/policy-a/manifest.json",
+        "--selection-manifest-path",
+        ".toolalign-local/training-binding-r1/selection-a/manifest.json",
+        "--training-config-path",
+        "configs/training-data.v1.json",
+        "--audit-path",
+        ".toolalign-local/format-v1-r2/sequences-v1-r1/rows.jsonl",
+        "--review-root",
+        "<S0_PRIVATE_ROOT>/delegated-review-20260907",
+        "--token-review-root",
+        ".toolalign-local/training-binding-r1/human-review",
+        "--raw-source-path",
+        ".toolalign-local/verified-source/toolace/data.json",
+        "--source-policy-path",
+        "configs/source_toolace.v1.json",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/revision-b"
+      ],
+      "command_metadata_sha256": "f6cb264ec58325db5551b51f8ba867826ed1075fc6243d0be9daa3199c4850cf",
+      "elapsed_seconds": 19.84233604092151,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:48:41.396917+00:00",
+      "git_head": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_head_after": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_status": "",
+      "label": "quality-remediation-build-b-r1",
+      "log_sha256": "1a6f02033a14ae34ebb6628559b84e9c48d5a9d1903bc664c4adee42aee71e7d",
+      "source_epoch": "44dcfdbb40a82058ae1a3f767eae4ed828b266a4db3b03e01d5ff94d6ee540d1",
+      "source_snapshot_files": 432,
+      "source_snapshot_manifest_sha256": "fb39f074aea15bd5dccaaf8ee6bc3d7eebb03d5e3c8d3559f265001462e096e6",
+      "started_at_utc": "2026-09-07T01:48:21.554470+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "command_metadata_sha256": "d253006ab7d4c51eaf86d7baab802ba62200b66463959bbde6b34c8d73d5da5d",
+      "elapsed_seconds": 0.034668958047404885,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:09:50.491163+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-contract-freeze-r1",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:09:50.456351+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "reports/review/P03-ci-deadline-r1/test_deadline_boundaries.py"
+      ],
+      "command_metadata_sha256": "3b7449f1fa1ed08ab73c1dd80ec40b592c4c45654090ba7c5d196476a6f7b077",
+      "elapsed_seconds": 11.723682959098369,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:01:58.063908+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-deadline-review-r1",
+      "log_sha256": "573c8d162a2d6f13fb9775f764325f00e43e691b0a5cfd1ec0c8fd7d8ec3ee27",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.340075+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "toolalign.data.quality_materials",
+        "compare",
+        "--reference",
+        ".toolalign-local/quality-remediation-r1/review-reference",
+        "--native",
+        ".toolalign-local/quality-remediation-r1/review-native"
+      ],
+      "command_metadata_sha256": "82f8d1090262b4a795deb55aeb2aef9432ed12689259778a6e0dc3d2912f07b9",
+      "elapsed_seconds": 0.32760933390818536,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:00:04.743970+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-engine-comparison-r1",
+      "log_sha256": "2f2eb137e69a63d4e7f5ed54ad995fa4f6829c808eb498f8bddc37c5b10107ff",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:00:04.416241+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "tests",
+        "reports/review/P00/test_independent.py",
+        "reports/review/P00-r2/test_revision_boundaries.py",
+        "reports/review/P02/test_p02_boundaries.py",
+        "reports/review/P03/test_p03_lifecycle.py",
+        "reports/review/P03/test_p03_semantics.py",
+        "reports/review/P01/test_p01_processes.py",
+        "reports/review/P01/test_p01_failure_counters.py",
+        "reports/review/P01-r2/test_p01_r2_regressions.py",
+        "reports/hardware/P01_FIX_R3_REPORT_TESTS.py",
+        "reports/hardware/P01_FIX_R4_REPORT_TESTS.py"
+      ],
+      "command_metadata_sha256": "e89c1c6bfa1a38f0bbf5d137586820101e7d3fdd92c305e47acfacd3b59e3b06",
+      "elapsed_seconds": 54.50342512503266,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:02:40.817086+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-full-cpu-r1",
+      "log_sha256": "0d5f061415706f7aab1dd402bdae8759b91c45357dc549fcce9c1f7fc3f637ce",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.313519+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "reports/data/quality-remediation-r1/check_revision.py",
+        "--inputs",
+        ".toolalign-local/quality-remediation-r1/input-paths.json",
+        "--first",
+        ".toolalign-local/quality-remediation-r1/revision-a",
+        "--second",
+        ".toolalign-local/quality-remediation-r1/revision-b",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/revision-crosscheck.json"
+      ],
+      "command_metadata_sha256": "4f694bd5204e198df0bc82b2bfbffeeacca62fad93ce50ebddfed44622333c6c",
+      "elapsed_seconds": 1.2811396659817547,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:59:49.286065+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-independent-crosscheck-r1",
+      "log_sha256": "bc5106412e180fddd6dc71cb77c77688dda7829b8bfd10cec78f3a3346b8dee4",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T01:59:48.004819+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "reports/data/quality-remediation-r1/check_rejections.py",
+        "--inputs",
+        ".toolalign-local/quality-remediation-r1/input-paths.json",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/input-replacements"
+      ],
+      "command_metadata_sha256": "b70b5ff652abb05b7cc0bef0a7105bd1909d04d32e5793e9e3d1149b728d5af3",
+      "elapsed_seconds": 185.47213979205117,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:10:06.667356+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-input-replacements-r1",
+      "log_sha256": "2b40fd51d179e4828699c5bffdda83eac3bff79576be7a3a5f927123eebb1c9c",
+      "source_epoch": "970cf2a7e68833257b2625d257c0614d1b7870331fa8f19f6fc40de1e3dc98bf",
+      "source_snapshot_files": 436,
+      "source_snapshot_manifest_sha256": "6cecff5afa72e06589690216610eb80ee5f09e7f1bbd3aba9952fb41397a8989",
+      "started_at_utc": "2026-09-07T02:07:01.195059+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        "python3",
+        ".toolalign-local/quality-remediation-r1/intake.py"
+      ],
+      "command_metadata_sha256": "17e7370167b1609afa81984e6a369372f4610b6c7df967f62fd2c963e05233b8",
+      "elapsed_seconds": 0.4349369159899652,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:24:34.543581+00:00",
+      "git_head": "f4f73c9ac8e004b48a74a80ac00617a01c4da324",
+      "git_head_after": "f4f73c9ac8e004b48a74a80ac00617a01c4da324",
+      "git_status": "",
+      "label": "quality-remediation-intake-r1",
+      "log_sha256": "93c9fdee86402b38a7ef0f01ecf22e0ef8103b487ae8f3834bb77719720c474f",
+      "source_epoch": "dcde6a63bffeed56f8bd6cc2fc3055e3e5418567bf97d9f521bb66e51915aa81",
+      "source_snapshot_files": 350,
+      "source_snapshot_manifest_sha256": "ac1b44a9bf2fa158d4dc138f6f18f50b5ec08eea939274002e38a7584addef9e",
+      "started_at_utc": "2026-09-07T01:24:34.108523+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        "-m",
+        "toolalign.data.quality_materials",
+        "measure",
+        "--inputs-path",
+        ".toolalign-local/quality-remediation-r1/input-paths.json",
+        "--revision",
+        ".toolalign-local/quality-remediation-r1/revision-a",
+        "--tokenizer-root",
+        ".toolalign-local/verified-source/qwen",
+        "--engine",
+        "tokenizers",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/review-native"
+      ],
+      "command_metadata_sha256": "4089707cac2670a395bdd9423e5c2885b22e1fb0b39b09f69a5c9ecfc0173422",
+      "elapsed_seconds": 22.632808374939486,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:57:18.013491+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "",
+      "label": "quality-remediation-material-native-r1",
+      "log_sha256": "c3959a6589fda8582452fe961ed09b08f4ca3bdc769c53de64583febf46d7185",
+      "source_epoch": "911d51e6a9a818042348da46dbbc3fec5ef3a8dba298a219c8deb3a950a5fecf",
+      "source_snapshot_files": 434,
+      "source_snapshot_manifest_sha256": "3807af41593d5ab30d8ec5d3940ec93e925c32028ddbef773c35a4b2b8f222f7",
+      "started_at_utc": "2026-09-07T01:56:55.380547+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-reference-venv/bin/python",
+        "-m",
+        "toolalign.data.quality_materials",
+        "measure",
+        "--inputs-path",
+        ".toolalign-local/quality-remediation-r1/input-paths.json",
+        "--revision",
+        ".toolalign-local/quality-remediation-r1/revision-a",
+        "--tokenizer-root",
+        ".toolalign-local/verified-source/qwen",
+        "--engine",
+        "transformers",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/review-reference"
+      ],
+      "command_metadata_sha256": "17223fa72a2144792b0e0b39bb6638332fdf83f5152dce5a8d011486cd5da124",
+      "elapsed_seconds": 24.31791429198347,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:56:12.055759+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "",
+      "label": "quality-remediation-material-reference-r1",
+      "log_sha256": "509f21bbcffc79e2d453e05f2b22841e36fc12d18ac586ce576475409af36c7c",
+      "source_epoch": "911d51e6a9a818042348da46dbbc3fec5ef3a8dba298a219c8deb3a950a5fecf",
+      "source_snapshot_files": 434,
+      "source_snapshot_manifest_sha256": "3807af41593d5ab30d8ec5d3940ec93e925c32028ddbef773c35a4b2b8f222f7",
+      "started_at_utc": "2026-09-07T01:55:47.737731+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_quality_materials.py",
+        "-q"
+      ],
+      "command_metadata_sha256": "9e7995a457e528be740b08150212ad288422c9ebea872a185cc7a4e3c4b7512a",
+      "elapsed_seconds": 0.9459478750359267,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T01:54:44.641175+00:00",
+      "git_head": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_head_after": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_status": "?? src/toolalign/data/quality_materials.py\n?? tests/data/test_quality_materials.py",
+      "label": "quality-remediation-material-unit-r1",
+      "log_sha256": "0f69f5bc43dbd82aa91275d13039ec4d451a0db65d8e5913642d680f0eee58a7",
+      "source_epoch": "f5dce873b072904c0ed705be3b2a40a2be26fc230f9fcadd4589577d8d3fe95b",
+      "source_snapshot_files": 434,
+      "source_snapshot_manifest_sha256": "c36177f57fb15baca8ec89f770fb643ebded94a54366fe2112b3a1901e6e242d",
+      "started_at_utc": "2026-09-07T01:54:43.695096+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_quality_materials.py",
+        "-q"
+      ],
+      "command_metadata_sha256": "f8a80b4b7469ab970a7b3d261538731c860f88cb0734f67f98e3b11235c78f9a",
+      "elapsed_seconds": 0.9371077499818057,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T01:55:25.722794+00:00",
+      "git_head": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_head_after": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_status": "?? src/toolalign/data/quality_materials.py\n?? tests/data/test_quality_materials.py",
+      "label": "quality-remediation-material-unit-r2",
+      "log_sha256": "36c5b873bc85d912be8af52b2bee2ff86973e38062888f0cff54f7fbe181d1c2",
+      "source_epoch": "f08ac4714f63a2b9bb021753e13862ea28f0463fe8c99cdca041447988148859",
+      "source_snapshot_files": 434,
+      "source_snapshot_manifest_sha256": "8d0dccdf20ca8781816650759f05870755279f84f4abde8a51f8aab77b71df66",
+      "started_at_utc": "2026-09-07T01:55:24.785589+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_quality_materials.py",
+        "-q"
+      ],
+      "command_metadata_sha256": "7ca16a4f488f8d4962453786f383c396acb7df4fad4c862f559ac15fd01d467c",
+      "elapsed_seconds": 1.2219087909907103,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:55:47.657802+00:00",
+      "git_head": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? src/toolalign/data/quality_materials.py\n?? tests/data/test_quality_materials.py",
+      "label": "quality-remediation-material-unit-r3",
+      "log_sha256": "1b969f598283b6989f54d12dfbcabc5b2e208f76b8b43f651f34ab6e9040de3a",
+      "source_epoch": "911d51e6a9a818042348da46dbbc3fec5ef3a8dba298a219c8deb3a950a5fecf",
+      "source_snapshot_files": 434,
+      "source_snapshot_manifest_sha256": "3807af41593d5ab30d8ec5d3940ec93e925c32028ddbef773c35a4b2b8f222f7",
+      "started_at_utc": "2026-09-07T01:55:46.435753+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "reports/review/P04-sft-native-toy-r1/probe_cpu.py"
+      ],
+      "command_metadata_sha256": "ce2f662de3174595540ee658162132fd67c06ecf2a92ae0028a4b78976eacdae",
+      "elapsed_seconds": 1.0037987909745425,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:01:47.450597+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-native-cpu-review-r1",
+      "log_sha256": "7a831730207197005d65a39cab322e5f611d766ae1ce2b763990d78d00a3f3a2",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.446602+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "reports/review/P02-format/test_independent.py",
+        "reports/review/P02-format/test_audit_denominators.py"
+      ],
+      "command_metadata_sha256": "ec1446e477ed7c70e8dc3de8baeb36e43305da9f566ce65cac561b3d08115ad5",
+      "elapsed_seconds": 0.3263021248858422,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:01:46.699188+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-old-format-review-r1",
+      "log_sha256": "76f0cd44f56600a3958922c46bc54ec43566dcda3cb39d14fb79c618fe8226a9",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.372759+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "reports/data/quality-remediation-r1/check_package.py",
+        "verify",
+        "--root",
+        ".",
+        "--archives",
+        ".toolalign-local/quality-remediation-r1/packages",
+        "--output",
+        ".toolalign-local/quality-remediation-r1/package-verification",
+        "--runtime",
+        ".toolalign-local/format-fix-r3/package-verification-r1/site-packages",
+        "--inputs",
+        ".toolalign-local/quality-remediation-r1/input-paths.json",
+        "--revision",
+        ".toolalign-local/quality-remediation-r1/revision-a",
+        "--reference",
+        ".toolalign-local/quality-remediation-r1/review-reference",
+        "--native",
+        ".toolalign-local/quality-remediation-r1/review-native"
+      ],
+      "command_metadata_sha256": "44a7a062e7b89b5cb2525166af47275ea30f56ec40e36a35f167573d42e5e4ed",
+      "elapsed_seconds": 22.942306417040527,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:09:12.921085+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-package-install-check-r1",
+      "log_sha256": "a9a8e6b3b087add05b1b7f02eab43d00b9c8dd9250906215576b20e8df32381b",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:08:49.978626+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "scripts/check_public_content.py"
+      ],
+      "command_metadata_sha256": "f09c0bdb7716730520a0605c4ad1a6a8dc6bfccfac4fac0c0dff88bcbd03bdbb",
+      "elapsed_seconds": 6.566492874873802,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:09:57.160074+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-public-scan-r1",
+      "log_sha256": "06cc4ea7e2759fabc0d7618dce78b42bc7d8f9bf1cbfee93ef46ecf6ce0461c4",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:09:50.593451+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/ruff",
+        "check",
+        ".",
+        "reports/data/quality-remediation-r1"
+      ],
+      "command_metadata_sha256": "bb859111340d370780f0f3ff56c2f8cc1c0157ef8ba7d4e1c9c39e78942b0dad",
+      "elapsed_seconds": 0.061798624927178025,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:08:36.882155+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-ruff-r2",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": "ad5be2cf7b13f7e99a2a3dcd0de294bc3daee00550845b2dc011053694117c5f",
+      "source_snapshot_files": 437,
+      "source_snapshot_manifest_sha256": "bf11ca88614024acb5abfb12a1b8134ab6dd88c45cf60b3b523aa3279b996298",
+      "started_at_utc": "2026-09-07T02:08:36.820217+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "reports/review/P04-sft-cpu-r1/probe_cpu.py"
+      ],
+      "command_metadata_sha256": "ab4637be3f29ea3bededa04b899eb28526d0ff030a8e7604e0c2f32810447a67",
+      "elapsed_seconds": 0.2818601250182837,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:01:46.757276+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-sft-cpu-review-r1",
+      "log_sha256": "a06f39b04a4afd615f3353233d2cd78efaf8d7655a1c956fe6fbc93017c50442",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.475222+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".toolalign-local/tokenizer-venv/bin/python",
+        ".toolalign-local/quality-remediation-r1/cpu-tests.py",
+        "-q",
+        "reports/review/P02-training-binding-r1/probe_training_binding.py"
+      ],
+      "command_metadata_sha256": "7e343503567256b5a3d7883fb3dfadd87e0a3b04b6d6e08a2fd829ca7dc2f9cb",
+      "elapsed_seconds": 1.557932750089094,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TOOLALIGN_TOKENIZER_DIR": "<WORKTREE>/.toolalign-local/verified-source/qwen",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T02:01:47.969035+00:00",
+      "git_head": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_head_after": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+      "git_status": "?? reports/data/quality-remediation-r1/",
+      "label": "quality-remediation-training-binding-review-r1",
+      "log_sha256": "af33cd209eb69d8396e88a55345d6ef8419911061f87d4729bafc1d873590a82",
+      "source_epoch": "4b4724511a2b7f2d15d03bd5a511afb855441502ebab96007ed9955ac73289ef",
+      "source_snapshot_files": 435,
+      "source_snapshot_manifest_sha256": "f346e05476222cb6a89bd980319b9332e0bd62e862555a4f4f4906d2e65978bc",
+      "started_at_utc": "2026-09-07T02:01:46.410942+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_quality_revision.py",
+        "-q"
+      ],
+      "command_metadata_sha256": "48b127ad0083ea181ea6ae6533152da761aee7e9c38cdf3f8d382e591d398ab3",
+      "elapsed_seconds": 0.7865985841490328,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:43:29.827898+00:00",
+      "git_head": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_head_after": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_status": "?? configs/data-quality.v1.json\n?? src/toolalign/data/quality_revision.py\n?? tests/data/quality_cases/\n?? tests/data/test_quality_revision.py",
+      "label": "quality-remediation-unit-r1",
+      "log_sha256": "068d62170fea25cec66d9dd1861198a9a5039b4343a5a2a3b013e59106388cc7",
+      "source_epoch": "09f311a9cd89d328347fea3b6dee3b7c9ccecb0f13a0f37f435e78187045ea01",
+      "source_snapshot_files": 432,
+      "source_snapshot_manifest_sha256": "c2defa12fdbf6fde79202aa23697310d2da3d8b9d41be5ffff68e7ca60a660ef",
+      "started_at_utc": "2026-09-07T01:43:29.041025+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    },
+    {
+      "argv_redacted": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_quality_revision.py",
+        "-q"
+      ],
+      "command_metadata_sha256": "150dbba1a96e443d65cd233834e0c6f6b07d25617473e0e5b36989b1c06211d3",
+      "elapsed_seconds": 0.6548643750138581,
+      "environment_redacted": {
+        "HF_HUB_OFFLINE": "1",
+        "PYTHONPATH": "src",
+        "TOKENIZERS_PARALLELISM": "false",
+        "TRANSFORMERS_OFFLINE": "1",
+        "USE_FLAX": "0",
+        "USE_TF": "0",
+        "USE_TORCH": "0"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T01:46:49.667281+00:00",
+      "git_head": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_head_after": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+      "git_status": "?? configs/data-quality.v1.json\n?? src/toolalign/data/quality_revision.py\n?? tests/data/quality_cases/\n?? tests/data/test_quality_revision.py",
+      "label": "quality-remediation-unit-r2",
+      "log_sha256": "3a7c9d8101a3253826bcb838a6cb1218c6b7d1dda8162956d4887d236da72928",
+      "source_epoch": "44dcfdbb40a82058ae1a3f767eae4ed828b266a4db3b03e01d5ff94d6ee540d1",
+      "source_snapshot_files": 432,
+      "source_snapshot_manifest_sha256": "fb39f074aea15bd5dccaaf8ee6bc3d7eebb03d5e3c8d3559f265001462e096e6",
+      "started_at_utc": "2026-09-07T01:46:49.012281+00:00",
+      "wrapper_sha256": "64274861ce8e5ec79579e78fab949b5b787766724737c75ad985bd5ca02740f3"
+    }
+  ],
+  "config_sha256": "ddc7902386c5f00032ec938c8baa7f2f338b9d88c260ed0803e00e797feb83ce",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "cpu_tests": {
+    "groups": [
+      {
+        "label": "full-cpu",
+        "passed": 1007,
+        "skipped": 2
+      },
+      {
+        "label": "old-format-review",
+        "passed": 60,
+        "skipped": 0
+      },
+      {
+        "label": "deadline-review",
+        "passed": 2,
+        "skipped": 0
+      },
+      {
+        "label": "training-binding-review",
+        "passed": 13,
+        "skipped": 0
+      },
+      {
+        "label": "sft-cpu-review",
+        "passed": 44,
+        "skipped": 0
+      },
+      {
+        "label": "native-cpu-review",
+        "passed": 34,
+        "skipped": 0
+      }
+    ],
+    "new_quality_cases_included": 76,
+    "passed": 1160,
+    "skipped": 2,
+    "training_binding_subtests_separate": 110
+  },
+  "default_install": {
+    "command_count": 4,
+    "installed_api_sha256": "e4f79aa42b42399d63a34ed405a00d5bb1243b4faa883a46ec8faae326bf7e6f",
+    "installed_source_files": 60,
+    "isolated": true,
+    "no_bytecode": true,
+    "no_site": true,
+    "optional_imports": [],
+    "source_cwd_imports": 0,
+    "summary_sha256": "f596c23d12ac6a20596693c59e12791698a01617b7e1aa54b90f18e64c3ea35b"
+  },
+  "input_bindings": {
+    "assignments_sha256": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db",
+    "data_manifest_canonical_sha256": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+    "data_manifest_file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+    "lineage_sha256": "3f6a8db88a77b6df02c58c538471bbfb157a3fd9655c6a79160c0ae345a38f5c",
+    "parent_representation_rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "parent_selection_manifest_file_sha256": "eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "provenance_sha256": "d1e98d0b5ff6fba25b9fe5540bc7af9b6aad8ed4ee4ce693b430d5d09cdf804f",
+    "raw_source_sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "reannotation_drafts_sha256": "74fb70f994c5348a13b8b788e3b7ffeba6d7e9e8caa2537b2c602ac434bbfd54",
+    "remediation_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8",
+    "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+    "semantic_review_sha256": "db25e89712bacca9d23dd048ec260c9756d8aa344e89945948f556aa2a9ece3a",
+    "token_review_sha256": "9fcb218ce3748e25a7c844426c46e4889ad5750aa55d89edc4d9914a07a5b598",
+    "train_sha256": "9c0215f0b91d1774042273f4377a3aac942fa26249d76820597eed9044e870e0",
+    "validation_sha256": "c336bfc58d521aee499c2522bca75fa6c6e4ea356cf34856832ae768a34e9c8b"
+  },
+  "input_rejections": {
+    "negative_cli_calls": 12,
+    "outcome": "ALL_REJECTED_WITHOUT_OUTPUT_DIRECTORY",
+    "producer_patches": 0,
+    "summary_sha256": "fdb0471083a28456ed79ad2bfd621bcf34bbf70ab88cc2cc8d15afb23f159176"
+  },
+  "materials": {
+    "actual_engine_measurements": 32,
+    "browser_actual_observation": "NOT_RUN",
+    "categories": {
+      "effective_selected_train": 10,
+      "original_protocol_only": 3,
+      "staged_dependent_prefix": 1,
+      "staged_direct_annotation": 2
+    },
+    "consumer": {
+      "contract_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+      "package_files": {
+        "contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+        "data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+        "data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+        "data/quality_materials.py": "bed3b5fe3f8c8ae781d7b91a8da673851ac7a15af76de0d41a5995a30729ee7d",
+        "data/quality_revision.py": "cb6dce2a974de6ea1a64fc5ad4970488536fe124302a43ea673cc8b59dd5458c",
+        "data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+        "data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+        "data/training_review.py": "f1a7c0ba9d2461a15631f0f9f2394d618a8cf8d33bf8d957e00078d5cabb2097",
+        "data/training_selection.py": "ad3f9c86f125dd8f7c87345fd4f38a1847db986e9157873beea2adafd219b3cd",
+        "model_io/descriptor.v1.json": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+        "model_io/format.py": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+        "model_io/offline.py": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+        "model_io/sequence.py": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+        "tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b"
+      },
+      "python": "3.14.7"
+    },
+    "coverage": {
+      "actual_count": 10,
+      "actual_materials": {
+        "multiple_messages": 10,
+        "multiple_target_calls": 3,
+        "multiple_tools": 7,
+        "non_ascii": 1,
+        "observation_history": 1
+      },
+      "available_action_kinds": {
+        "tool_calls": 5980
+      },
+      "available_in_selected_train": {
+        "multiple_messages": 5980,
+        "multiple_target_calls": 2138,
+        "multiple_tools": 4699,
+        "non_ascii": 253,
+        "observation_history": 248
+      },
+      "browser_actual_observation": "NOT_RUN",
+      "distinct_count": 16,
+      "new_annotations_enter_training": false,
+      "old_quarantined_materials_used_as_effective": 0,
+      "protocol_examples_enter_training": false,
+      "protocol_only_count": 3,
+      "quality_revision_sha256": "6656f5cbf74634f55dde31a0d68cc19a206a2130e1e27b8d214b147708078708",
+      "selected_union_count": 5980,
+      "semantic_review": "UNFILLED_FOR_DELEGATED_AI_REVIEW",
+      "staged_dependent_count": 1,
+      "staged_direct_count": 2
+    },
+    "distinct_cases": 16,
+    "external_execution": "NOT_RUN",
+    "native_manifest_sha256": "112f63a488672502697996dcc265fadfe1a3a388b9d8d78f2ff28caddc6733be",
+    "records_sha256": "0908dbf24fe43acb89ccb063427b2f5fa2f4803baace5ec1d57aafc2907bf6dc",
+    "reference_manifest_sha256": "11469fdf48ff5c8caf5882b5e02f1c66d8a410303320dfbfc4dd57b8e6c65d57",
+    "semantic_verdicts_filled": 0,
+    "tokenizers_native": {
+      "formal": {
+        "decoding_parameters": {
+          "clean_up_tokenization_spaces": null,
+          "skip_special_tokens": false
+        },
+        "encoding_parameters": {
+          "add_special_tokens": false
+        },
+        "engine": "tokenizers",
+        "eos_token": "<|im_end|>",
+        "eos_token_id": 151645,
+        "files": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          }
+        },
+        "packages": {
+          "Jinja2": "3.1.6",
+          "tokenizers": "0.22.2"
+        },
+        "render_parameters": {
+          "add_generation_prompt": true,
+          "enable_thinking": false,
+          "tools": null
+        },
+        "repo_id": "Qwen/Qwen3-1.7B",
+        "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      },
+      "smoke": {
+        "decoding_parameters": {
+          "clean_up_tokenization_spaces": null,
+          "skip_special_tokens": false
+        },
+        "encoding_parameters": {
+          "add_special_tokens": false
+        },
+        "engine": "tokenizers",
+        "eos_token": "<|im_end|>",
+        "eos_token_id": 151645,
+        "files": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          }
+        },
+        "packages": {
+          "Jinja2": "3.1.6",
+          "tokenizers": "0.22.2"
+        },
+        "render_parameters": {
+          "add_generation_prompt": true,
+          "enable_thinking": false,
+          "tools": null
+        },
+        "repo_id": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      }
+    },
+    "tokenizers_reference": {
+      "formal": {
+        "decoding_parameters": {
+          "clean_up_tokenization_spaces": false,
+          "skip_special_tokens": false
+        },
+        "encoding_parameters": {
+          "add_special_tokens": false
+        },
+        "engine": "transformers",
+        "eos_token": "<|im_end|>",
+        "eos_token_id": 151645,
+        "files": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          }
+        },
+        "packages": {
+          "Jinja2": "3.1.6",
+          "tokenizers": "0.23.2",
+          "transformers": "5.16.1"
+        },
+        "render_parameters": {
+          "add_generation_prompt": true,
+          "enable_thinking": false,
+          "tools": null
+        },
+        "repo_id": "Qwen/Qwen3-1.7B",
+        "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      },
+      "smoke": {
+        "decoding_parameters": {
+          "clean_up_tokenization_spaces": false,
+          "skip_special_tokens": false
+        },
+        "encoding_parameters": {
+          "add_special_tokens": false
+        },
+        "engine": "transformers",
+        "eos_token": "<|im_end|>",
+        "eos_token_id": 151645,
+        "files": {
+          "LICENSE": {
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          "tokenizer.json": {
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          "tokenizer_config.json": {
+            "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+            "size_bytes": 9732
+          }
+        },
+        "packages": {
+          "Jinja2": "3.1.6",
+          "tokenizers": "0.23.2",
+          "transformers": "5.16.1"
+        },
+        "render_parameters": {
+          "add_generation_prompt": true,
+          "enable_thinking": false,
+          "tools": null
+        },
+        "repo_id": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      }
+    }
+  },
+  "preserved_failures": {
+    "command_labels": [
+      "quality-remediation-build-a-r1",
+      "quality-remediation-material-unit-r1",
+      "quality-remediation-material-unit-r2"
+    ],
+    "pre_command_wrapper_failure_sha256": "e340ecb416bb248a08bb3d65ee8487e230e4c09bb1ece85cdd07e24e38aabe63",
+    "ruff_first_attempt_started": false
+  },
+  "private_final_seal": "Supplied in the native handoff; includes subsequent final content/scope checks, original-input preservation, total byte budget and candidate remote equality.",
+  "production_and_tests_commit": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+  "raw_command_count_at_report_snapshot": 26,
+  "review_kind": "kris_delegated_ai_not_human",
+  "revision": {
+    "annotations": {
+      "dependent_prefix_revisions": 1,
+      "direct_action_revisions": 2,
+      "enters_effective_training": false,
+      "external_execution": "NOT_RUN",
+      "semantic_verdict": null,
+      "status": "STAGED_PENDING_INDEPENDENT_REVIEW"
+    },
+    "counts": {
+      "formal_train": {
+        "effective": 5980,
+        "original": 6013,
+        "quarantined_fail": 22,
+        "quarantined_unknown": 11
+      },
+      "formal_validation": {
+        "effective": 217,
+        "original": 217
+      },
+      "smoke_train": {
+        "effective": 1593,
+        "original": 1600,
+        "quarantined_fail": 3,
+        "quarantined_unknown": 4
+      },
+      "smoke_validation": {
+        "effective": 197,
+        "original": 197
+      },
+      "train": {
+        "effective": 7475,
+        "original": 7515,
+        "quarantined_fail": 26,
+        "quarantined_unknown": 14
+      },
+      "validation": {
+        "effective": 234,
+        "original": 234,
+        "quarantined_fail": 0,
+        "quarantined_unknown": 0
+      }
+    },
+    "new_full_corpus_tokenization": 0,
+    "pending": [
+      "expanded_train_validation_quality_audit",
+      "independent_revision_review",
+      "S0_main_verification",
+      "G_DATA_quality_acceptance",
+      "explicit_P04_authorization_and_capacity"
+    ],
+    "quality_revision_sha256": "6656f5cbf74634f55dde31a0d68cc19a206a2130e1e27b8d214b147708078708",
+    "quarantine_source_counts": {
+      "fail": 20,
+      "unknown": 12
+    },
+    "unrelated_examples_retained_in_affected_groups": 5586
+  },
+  "revision_manifest_sha256": "d97c5d542a0890e1b05d84fcd703895bbd041ad07887fcc370497cfa60d17d3b",
+  "schema": "toolalign.quality-remediation-evidence.v1",
+  "status": "WORKER_EVIDENCE_READY_FOR_INDEPENDENT_REVIEW",
+  "task": "P02-QUALITY-REMEDIATION",
+  "training_authorized": false,
+  "two_build_crosscheck": {
+    "checked_at_utc": "2026-09-07T01:59:49.247125+00:00",
+    "counts": {
+      "formal_train": {
+        "effective": 5980,
+        "original": 6013,
+        "quarantined_fail": 22,
+        "quarantined_unknown": 11
+      },
+      "formal_validation": {
+        "effective": 217,
+        "original": 217
+      },
+      "smoke_train": {
+        "effective": 1593,
+        "original": 1600,
+        "quarantined_fail": 3,
+        "quarantined_unknown": 4
+      },
+      "smoke_validation": {
+        "effective": 197,
+        "original": 197
+      },
+      "train": {
+        "effective": 7475,
+        "original": 7515,
+        "quarantined_fail": 26,
+        "quarantined_unknown": 14
+      },
+      "validation": {
+        "effective": 234,
+        "original": 234,
+        "quarantined_fail": 0,
+        "quarantined_unknown": 0
+      }
+    },
+    "effective_example_bytes_preserved": 7709,
+    "quality_revision_sha256": "6656f5cbf74634f55dde31a0d68cc19a206a2130e1e27b8d214b147708078708",
+    "quarantine_all_source_decisions": 40,
+    "run_created_at_utc": [
+      "2026-09-07T01:46:05.367755+00:00",
+      "2026-09-07T01:48:41.317113+00:00"
+    ],
+    "semantic_acceptance": "PENDING_INDEPENDENT_REVIEW",
+    "stable_files_per_build": 24,
+    "stable_manifest_sha256": "d97c5d542a0890e1b05d84fcd703895bbd041ad07887fcc370497cfa60d17d3b",
+    "staged_dependent": 1,
+    "staged_direct": 2,
+    "status": "PASS_WORKER_STDLIB_CROSSCHECK",
+    "training_authorized": false,
+    "two_actual_builds_identical": true,
+    "unchanged_other_sources_in_affected_groups": 5586
+  }
+}
