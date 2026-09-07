@@ -45,3 +45,5 @@ ADR-0022登记本批委托AI方式：内容审阅以原来源、结构化记录�
 G-DATA仍因已发现问题、修订版本/独立复核和配置绑定待验收而未通过。正式模型容量、baseline/SFT/DPO、评测和服务均未放行。此次委托不扩大费用、GPU、模型加载、原始资料上传或公网范围，training_authorized=false。
 
 私有证据摘要：原seal `f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c`；追加来源说明 `d1e98d0b5ff6fba25b9fe5540bc7af9b6aad8ed4ee4ce693b430d5d09cdf804f`；S0交接核验 `3eae5f03e96c145ffde5f64b6d05d136fa8b7c177eb68a3504ddd6797e8bd355`。原始内容、详细样本ID、对话标识及绝对本机路径仅本地保留。
+
+01:17 UTC实际分发：S0在两名worker原轮completed、各自旧分支干净的基础上，按完整2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a分别原生发送D1质量修订与E1扩展审计，显式gpt-6-astra/max；两新轮ACTIVE均已核验，分支/输入intake待交付。共享GPU租约空闲，无新GPU任务。范围/配置已普通推送且远端读回一致，准备状态不再作为当前运行状态。
