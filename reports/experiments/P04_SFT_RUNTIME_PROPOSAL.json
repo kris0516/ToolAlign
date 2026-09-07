@@ -1,0 +1,1702 @@
+{
+  "S0_owned_future_configuration_files": [
+    "configs/sft-runtime-v3-cpu.v1.json (proposed name; actual bytes pending)",
+    "configs/sft-qwen-capacity.v1.json (proposed name; actual bytes pending)",
+    "configs/sft-qwen-smoke.v1.json (proposed name; actual bytes pending)",
+    "configs/sft-qwen-formal.v1.json (proposed name; actual bytes pending)"
+  ],
+  "actual_this_scope": {
+    "allowed_coordination_and_git_transport": "existing native task messages and ordinary candidate push only",
+    "browser_attempts": 0,
+    "business_api_calls": 0,
+    "data_builds": 0,
+    "downloads": 0,
+    "framework_imports": 0,
+    "generation_requests": 0,
+    "gpu_launches": 0,
+    "model_loads": 0,
+    "new_dependencies": 0,
+    "new_environments": 0,
+    "new_private_byte_limit": 134217728,
+    "optimizer_updates": 0,
+    "paid_resources": 0,
+    "production_test_build_install_runs": 0,
+    "sequence_generations": 0
+  },
+  "authorization_commit": "8929cbbef0b24f9a4053adfe778bb4ef76147293",
+  "backend": {
+    "P01_compile_disabled_history_is_this_run_evidence": false,
+    "compile_enabled": true,
+    "evaluation_entry": "mlx_lm.tuner.trainer.evaluate",
+    "fallback_or_extra_launch_without_new_S0_scope": false,
+    "grad_checkpoint": false,
+    "gradient_log_norm_and_nonfinite_policy": "finite loss/parameters checked at synchronized report/update boundaries; failure retains actual/unknown counters and invalidates candidate; no false guarantee of pre-update rejection",
+    "lora": {
+      "actual_shapes_and_content_hashes": "PENDING",
+      "adapter_dtype": "float32",
+      "dropout": 0.0,
+      "expected_adapted_modules": 56,
+      "expected_trainable_tensors": 112,
+      "freeze_base_before_conversion": true,
+      "keys": [
+        "self_attn.q_proj",
+        "self_attn.v_proj"
+      ],
+      "layers": 28,
+      "rank": 8,
+      "scale": 2.0,
+      "scale_definition": "direct multiplier; alpha=16 only under alpha/r convention",
+      "trainable_paths": "model.layers.{0..27}.self_attn.{q_proj,v_proj}.{lora_a,lora_b}",
+      "use_dora": false,
+      "zero_B_adapter_original_forward_equality_required": true
+    },
+    "loss": "mean CE over shifted completion + one EOS for each microbatch 1; average these per-example gradients over the actual accumulation divisor",
+    "mlx": "0.32.2",
+    "mlx_lm": "0.31.3",
+    "model_load_entry": "mlx_lm.utils.load(existing_resolved_local_directory, tokenizer_config={trust_remote_code:false}, lazy=false)",
+    "model_load_guards": [
+      "local file bytes manifest pre/post",
+      "model_type=qwen3",
+      "reject model_file/custom code and quantization overrides",
+      "28 layers",
+      "base bfloat16",
+      "no automatic download fallback",
+      "single model resident at a time"
+    ],
+    "optimizer": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "bias_correction": false,
+      "eps": 1e-08,
+      "learning_rate": 0.0001,
+      "name": "mlx.optimizers.Adam",
+      "scheduler": null,
+      "weight_decay": 0.0
+    },
+    "packing": false,
+    "reuse_loss_and_iterator": [
+      "completion_loss",
+      "OrderedBatches"
+    ],
+    "right_padding": "Qwen causal attention means right pads follow supervised targets; microbatch 1 and no cache; actual padded/unpadded logits/loss comparison remains required",
+    "seed": 42,
+    "seed_once_before_lora_initialization": true,
+    "shuffle": false,
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "thin_iterator_wrapper": "reconcile finite authorized ranks, attempted/yielded versus synchronized completed microsteps, resource counters and final callback; no replacement training loop",
+    "training_entry": "mlx_lm.tuner.trainer.train",
+    "truncate": false
+  },
+  "baseline_and_p03": {
+    "cold_start": "existing P03 deadline includes child load; record cold and warm timings. If 30 seconds cannot cover loading, fail and request S0 separate lifecycle/protocol scope; no silent warmup outside accounting.",
+    "decoding": {
+      "draft_model": null,
+      "extra_stop_strings": [],
+      "kv_quantization": null,
+      "max_new_tokens": 256,
+      "prompt_cache": "none across requests/states",
+      "request_deadline_seconds": 30,
+      "required_training_eos_token_id": 151645,
+      "sampler": "greedy argmax",
+      "seed": 42,
+      "stop_identity_resolution": "S0 freezes exact tokenizer/model generation config bytes and complete stop list including training EOS 151645; require raw and SFT wrapper EOS sets match that list before generation",
+      "stop_token_ids": "PENDING",
+      "temperature": 0.0,
+      "thinking": false,
+      "top_p": 1.0
+    },
+    "diagnostic_request_proposal": {
+      "full_harness": {
+        "max_model_decisions_per_case": 3,
+        "max_tool_rounds_per_case": 2,
+        "states": [
+          "raw",
+          "selected_SFT"
+        ],
+        "train": 2,
+        "validation": 2
+      },
+      "ids_and_tool_oracle_bindings": "PENDING",
+      "max_generated_tokens_per_model_capacity": 14336,
+      "max_generation_decisions_per_model_capacity": 56,
+      "single_decision": {
+        "states": [
+          "raw",
+          "selected_SFT"
+        ],
+        "train": 8,
+        "validation": 8
+      }
+    },
+    "diagnostics_not_checkpoint_selection": "select by the predeclared full validation CE rule only; no choosing config/checkpoint from the diagnostic raw outputs",
+    "excluded_from_selection_tuning_and_answer_generation": [
+      "test",
+      "ood_test",
+      "BFCL evaluation"
+    ],
+    "format_and_template": "prompt_messages(ModelInput) plus fixed template, tools=None, add_generation_prompt=True, enable_thinking=False, add_special_tokens=False",
+    "interface": "ModelBackend.generate(ModelInput, GenerationConfig) -> ModelOutput",
+    "new_module": "src/toolalign/inference/qwen_backend.py",
+    "no_generation_repair": true,
+    "output": "raw exact text, token counters and finish_reason, model identity; P03 reparses raw with parse_action then validates each registered local tool",
+    "prompt_to_generator": "exact integer prompt IDs; avoid stream_generate string auto-BOS path",
+    "raw_vs_sft": "within each fixed model capacity: same original base revision/dtype and tokenizer; raw has no adapter, SFT adds only accepted adapter",
+    "role_boundary": "model receives ModelInput only; oracle and expected_action remain on evaluator side",
+    "runtime_status": "NOT_RUN",
+    "state": "pickle only immutable configuration; lazy load and acquire lease inside existing P03 spawned child, retain until process exit; do not serialize loaded MLX model or raw oracle state",
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "termination": "count EOS in generated-token budget, remove only the terminal EOS ID before exact decode; retain all other special tokens/whitespace; length, deadline and parser failures remain failures",
+    "tool_scope": "ToolACE targets are not assumed registered. Use only S0-frozen existing train/validation tasks whose exact tools and local oracle bindings are supported; no tool-name mapping or invented external execution; otherwise report single-decision parsing scope only."
+  },
+  "capacity_candidate": {
+    "all_training_and_teacher_forced_padded_upper_bound": 219648,
+    "array_artifact_sha256": "PENDING",
+    "automatic_retries": 0,
+    "capacity_rank_mapping": "local capacity_rank 1..15 plus original smoke selection_rank; overfit records explicit pass and original ID; never pass repeated rows to canonical one-epoch validation",
+    "capacity_training": {
+      "microsteps": 15,
+      "passes": 1,
+      "segments": [
+        {
+          "divisor": 8,
+          "microsteps": 8
+        },
+        {
+          "divisor": 7,
+          "microsteps": 7
+        }
+      ],
+      "unique_rows": 15,
+      "updates": 2
+    },
+    "cpu_engine": "tokenizers 0.23.2 in existing verified environment; separately authorized CPU stage",
+    "cumulative_microsteps": 79,
+    "cumulative_optimizer_updates": 10,
+    "example_ids": "PENDING",
+    "fail_policy": "retain partial/raw evidence and no automatic retry, threshold change, length reduction, compile disabling or formal promotion; S0 freezes next scope",
+    "formal_smoke_sample_count_credit": 0,
+    "maximum_adapter_files": 4,
+    "maximum_cpu_sequence_encodings": 23,
+    "maximum_generation_requests": 0,
+    "maximum_initial_and_reload_model_loads": 2,
+    "maximum_mlx_peak_bytes": 25769803776,
+    "maximum_new_artifact_bytes": 536870912,
+    "maximum_owned_gpu_child_launches": 1,
+    "maximum_process_rss_bytes": 32212254720,
+    "maximum_swap_growth_bytes": 1073741824,
+    "maximum_teacher_forced_forward_examples": 64,
+    "maximum_wall_seconds_including_load_hash_compile_validation_reload": 900,
+    "model_profile": "smoke",
+    "overfit_training": {
+      "divisor": 8,
+      "microsteps": 64,
+      "passes": 8,
+      "rows": "first eight of fixed capacity subset in parent rank order",
+      "unique_rows": 8,
+      "updates": 8
+    },
+    "padding_buckets": [
+      1024,
+      1536
+    ],
+    "pass_evidence": [
+      "actual 1536-bucket forward/backward with complete masks and no truncation",
+      "15-row coverage and actual 8+7 updates",
+      "79 completed microsteps / 10 updates including explicitly repeated overfit rows",
+      "finite overfit CE10 <= 0.90 * CE2 or CE10 <= 0.1; predeclared before launch",
+      "only declared LoRA tensors changed and at least one changed; frozen base bytes unchanged",
+      "saved/reloaded adapter bitwise equality and fixed teacher-forced CE <= 1e-5 absolute difference",
+      "right-padding vs unpadded supervised CE absolute <= 0.02; diagnostic tolerance proposal, not prior Qwen evidence",
+      "actual compiled-path evidence; synchronized counters/time/resources and owned-child reaping"
+    ],
+    "required_memory_pressure_level": 1,
+    "run_config_file_sha256": "PENDING",
+    "runtime_status": "NOT_RUN",
+    "scope": "REAL_CAPACITY_0_6B",
+    "selection": "From accepted v3 smoke only: include max total-token row in 1536 bucket, max completion-token row and min completion-token row (tie by selection_rank), fill unique rows by existing rank to 15, then sort by existing rank. Validation takes max total, max completion and fills by rank to 8. S0 freezes IDs before encoding or model observation.",
+    "sequence_cap": 1536,
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "total_logical_padded_token_cap": 262144,
+    "train_padded_token_upper_bound": 121344,
+    "unique_train_examples": 15,
+    "unique_validation_examples": 8,
+    "validation_and_train_diagnostics": "8-row overfit CE at step2 and step10; fixed validation8 at step2, step10 and reload; additional fixed zero-adapter and padded/unpadded comparisons within forward cap"
+  },
+  "checkpoints": {
+    "baseline_step_zero_scoring": "separate BaselineEvidence; never inserted into positive-step SFT candidates",
+    "candidate_failure": "NaN/Inf, missing/duplicate validation row, wrong token denominator, stale saved bytes or incomplete updates reject score",
+    "compare_only_same": [
+      "scope",
+      "profile",
+      "run_id",
+      "base identity",
+      "quality/selection/validation identity",
+      "runtime config",
+      "adapter config",
+      "tokenizer/format",
+      "validation reduction"
+    ],
+    "file_limits": {
+      "max_complete_files_before_retention": 4,
+      "max_retained_after_sealed_cleanup": 3,
+      "scored_candidates_per_profile": 3,
+      "unscored_native_save_per_profile": 1
+    },
+    "hashing": "stream named leaves one at a time; include original dtype/shape and raw uint8 view bytes; do not convert BF16 to float32 before hashing; hash frozen base and LoRA separately",
+    "native_validation_tolerance_proposed": "absolute <= 1e-5 * max(1, abs(CE)); S0 freezes before any run",
+    "new_module": "toolalign.training.sft.qwen_checkpoint",
+    "reload": "release original model+optimizer then load exact original base locally, same LoRA paths/scaling, strict adapter keys/shapes/dtypes and bitwise content; evaluate selected checkpoint and fixed greedy prompts",
+    "reload_optimizer": "none; source checkpoint step is provenance, not a fabricated new optimizer.step",
+    "reload_tolerances_proposed": {
+      "fixed_greedy_token_ids": "exact",
+      "parameter_bytes": "exact",
+      "teacher_forced_ce_abs": 1e-05
+    },
+    "resume_level": "weights_only_restart; no exact optimizer/RNG resume claim",
+    "retention": "best, last and most recent distinct scored rollback; preserve score/hash/cleanup receipts for every removed own artifact; never remove original source evidence",
+    "scope_values": [
+      "REAL_CAPACITY_0_6B",
+      "REAL_SFT_SMOKE",
+      "REAL_SFT_FORMAL"
+    ],
+    "score_fields": [
+      "scope",
+      "profile",
+      "run_id",
+      "model_revision",
+      "base_file_manifest_sha256",
+      "base_parameter_content_sha256",
+      "adapter_metadata_sha256",
+      "adapter_parameter_content_sha256",
+      "runtime_config_sha256",
+      "quality_revision_sha256",
+      "selection_manifest_sha256",
+      "train_identity_sha256",
+      "validation_identity_sha256",
+      "tokenizer_and_format_identity_sha256",
+      "checkpoint_file_sha256",
+      "optimizer_state_sha256",
+      "optimizer_step",
+      "completed_microsteps",
+      "completed_ordered_ranks_sha256",
+      "validation_ce_sum",
+      "validation_supervised_tokens",
+      "validation_ce"
+    ],
+    "selection_rule": [
+      "minimum validation_ce",
+      "then earlier optimizer_step",
+      "then checkpoint_file_sha256 lexical order"
+    ],
+    "sequence": [
+      "native train returns on full boundary",
+      "synchronize model and optimizer",
+      "read actual optimizer.step and completed ranks",
+      "validate actual saved trainable keys/shapes/dtypes/raw bytes",
+      "record checkpoint file + config + runtime state identity",
+      "evaluate full fixed validation in fresh finite iterator",
+      "verify validation reduction and immutable state",
+      "publish score only after every check passes"
+    ],
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "toy_Score_and_validate_score_unchanged": true,
+    "upstream_load_adapters_strict_false_is_not_sufficient": true,
+    "use_existing_ValidationTotals_for_smoke_formal_validation": true,
+    "validation_reduction": "sum completion CE across all examples / sum supervised completion+EOS tokens"
+  },
+  "code_base": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+  "contract_version": "toolalign.contracts.v1",
+  "coordination_version": "coordination.v1",
+  "data_consumer": {
+    "do_not_call": [
+      "training_selection.build",
+      "quality_exclusion.build",
+      "upstream TextDataset/ChatDataset/CompletionsDataset"
+    ],
+    "entry_proposal": "toolalign.training.sft.data_v3.prepare_v3",
+    "full_selected_encoding_scope": "PENDING",
+    "guard_requirements": [
+      "pin actual bytes before parsing; no symlink/path escape; bounded declared members only",
+      "strict native JSON types; reject duplicate keys, nonfinite, bool-as-int and float-as-int",
+      "verify quality revision, S0 policy, selection, training-binding, inherited format/tokenizer/audit identities together",
+      "only train/validation content views; heldout/test/ood/BFCL metadata hash-only when explicitly required",
+      "selection_rank consecutive 1..N; parent_selection_rank original v1; previous_selection_rank v2; join by Example ID",
+      "exact original Example JSONL bytes before view reserialization; unchanged source/group/split and ordered subset without refill",
+      "staging excluded; original audit length and response cap unchanged; minimum fitting bucket exact",
+      "new v3 rank/hash checks wrap view_from_records; that kernel alone does not validate quality ancestry",
+      "typed comparison of every array position and metadata, not Python equality alone"
+    ],
+    "old_prepare_remains_unchanged": true,
+    "production_train_validation_permissions_remain_false_in_data_artifacts": true,
+    "reuse": [
+      "SelectionView",
+      "SelectedRow",
+      "view_from_records",
+      "training_selection.validate_pair",
+      "training_sequence",
+      "collate_sequence",
+      "collate_selected",
+      "epoch_plan"
+    ],
+    "runtime_grant_is_a_separate_S0_bound_artifact": true,
+    "static_materials": {
+      "arrays": [
+        "sequence_ids",
+        "prompt_ids",
+        "concatenated_ids",
+        "attention_mask",
+        "loss_mask",
+        "causal_input_ids",
+        "causal_target_ids",
+        "causal_loss_mask",
+        "token_texts"
+      ],
+      "cases": 13,
+      "future_cpu_rebind": "reconstruct and type-check sealed Sequence/Batch arrays; compare the complete collator output",
+      "join_key": "Example ID plus original sequence/run identity; never current case index",
+      "new_D1_cases": 2,
+      "new_T1_encoding_count": "PENDING",
+      "original_non_tool_protocol_fixtures": 3,
+      "protocol_fixtures_enter_training": false,
+      "retained_original_encoding_cases": 11,
+      "runtime_rebind": "S0 separately freezes exact encode calls; actual arrays must match original length/audit and full reviewed arrays",
+      "static_reuse_is_new_measurement": false
+    },
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "tokenizer_process_boundary": "OfflineQwenTokenizer rejects loaded MLX/Torch; encode/export in a framework-free CPU phase; GPU consumes immutable verified numeric Batch artifacts",
+    "verify_with": "accepted future quality_exclusion.verify or its S0-approved read-only verifier; exact API is pending"
+  },
+  "format_id": "toolalign.action-json.qwen3-message-roles.v1",
+  "frozen_inputs": {
+    "actual_v3_candidate_commit": "PENDING",
+    "additional_existing_mlx_source_files_read": 4,
+    "bytes_excluding_manifest": 166598,
+    "files": 10,
+    "manifest_file_sha256": "eb5f25bd164c1394c0d82350a1f1d0ccc09ddb1306dac3977403b695d7f1ac02",
+    "metadata_paths_are_provenance_only": true,
+    "policy_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+    "projection_file_sha256": "9052c0b40e83a494b8c259df782df1d6b934a193ec22bcf5cc77594a829dd4fa"
+  },
+  "gates": [
+    {
+      "framework_imports": 0,
+      "id": "A",
+      "model_loads": 0,
+      "permissions_do_not_imply": [
+        "B",
+        "C",
+        "D"
+      ],
+      "requires": [
+        "accepted_v3_and_Q1_R1_S0_seals",
+        "S0_exact_CPU_config"
+      ],
+      "scope": "V3_CPU_BINDING_AND_STATIC_ARRAY_REBIND",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "id": "B",
+      "permissions_do_not_imply": [
+        "C",
+        "D"
+      ],
+      "requires": [
+        "A_main_verified",
+        "S0_fixed_ids_array_encoding_and_runtime_budget",
+        "shared_GPU_lease"
+      ],
+      "scope": "FINITE_REAL_0_6B_CAPACITY_OVERFIT_RELOAD",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "id": "C",
+      "permissions_do_not_imply": [
+        "D"
+      ],
+      "requires": [
+        "B_accepted",
+        "G_DATA_accepted",
+        "S0_exact_smoke_config_budget_and_arrays"
+      ],
+      "scope": "0_6B_ONE_EPOCH_SMOKE",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "id": "D",
+      "permissions_do_not_imply": [
+        "P05",
+        "P06_final_test",
+        "P07_serving"
+      ],
+      "requires": [
+        "C_accepted",
+        "G_DATA_accepted",
+        "1_7B_new_native_path_and_2048_budget_evidence",
+        "S0_exact_formal_config_budget_and_arrays"
+      ],
+      "scope": "1_7B_RAW_BASELINE_AND_ONE_EPOCH_SFT",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    }
+  ],
+  "implementation_packages": [
+    {
+      "add": [
+        "src/toolalign/training/sft/data_v3.py",
+        "tests/training/test_sft_data_v3.py"
+      ],
+      "apis": [
+        "prepare_v3(*, sft_config_path, quality_revision_path, accepted_input_root) -> views, report",
+        "rebind_review_arrays(*, sealed_cases, material_binding) -> typed comparison report",
+        "export_selected_batches(*, views, exact_encoding_grant, tokenizer) -> immutable numeric artifacts"
+      ],
+      "gate": "A",
+      "minimal_verification": [
+        "wrong quality/selection/training-binding digest rejected",
+        "bool/float substitutions, current/v2/v1 rank mix, staging/final split and same-ID altered Example bytes rejected",
+        "all 13 complete arrays/reused encoding identities compared",
+        "no framework import, build or tokenization from metadata prepare; encode grant enforced"
+      ],
+      "order": 1,
+      "owner": "T1 under new S0 task",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "add": [
+        "src/toolalign/training/sft/qwen_training.py",
+        "src/toolalign/training/sft/qwen_checkpoint.py",
+        "src/toolalign/training/sft/qwen_run.py",
+        "tests/training/test_sft_qwen_runtime.py"
+      ],
+      "apis": [
+        "plan_runtime_segments(*, prepared_views, frozen_checkpoint_steps) -> finite segments",
+        "train_qwen_segments(*, lease, model, optimizer, batches, run_grant) -> execution evidence",
+        "score_saved_qwen(*, lease, checkpoint, runtime_state, validation_batches, run_grant) -> RealScore",
+        "select_real_checkpoint(scores) -> comparable best checkpoint",
+        "supervise_qwen(*, exact_config, input_binding, output) -> terminal evidence"
+      ],
+      "gate": "B implementation before execution",
+      "minimal_verification": [
+        "4-call partitions for both projected profiles; local/global counters cannot alias",
+        "wrong/stale adapter, wrong optimizer step, duplicate/missing validation, altered RNG or frozen base rejected",
+        "toy/real and capacity/formal score mixing rejected; finite validation denominator from actual tokens",
+        "fresh optimizer at segment boundary, reseed and false completed rank accounting rejected",
+        "bounded real CPU children cover launch, monitor, artifact, termination and cleanup failures without loading a framework"
+      ],
+      "order": 2,
+      "owner": "T1 under new S0 task",
+      "runtime_verification": "Only one separately authorized capacity child; no new production numeric run in this proposal",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "add": [
+        "reports/experiments/future-capacity-evidence (path frozen by S0)"
+      ],
+      "apis": [
+        "execute the exact finite capacity_candidate after accepted CPU/runtime implementation"
+      ],
+      "gate": "B",
+      "minimal_verification": [
+        "actual 1536 capacity, compiled path, 8+7 update divisor, overfit and reload; all NOT_RUN now"
+      ],
+      "order": 3,
+      "owner": "S0 authorizes; T1 executes; R1/Q1 review",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    },
+    {
+      "add": [
+        "src/toolalign/inference/qwen_backend.py",
+        "tests/evaluation/test_qwen_backend_boundary.py"
+      ],
+      "apis": [
+        "QwenBackend.generate(request, generation_config) -> ModelOutput"
+      ],
+      "formal_budget": "PENDING new native 1.7B/2048 evidence; S0 explicitly authorizes runs separately",
+      "gate": "C then D",
+      "minimal_verification": [
+        "same exact prompt IDs raw/SFT; first EOS and token-256 boundary; no raw repair",
+        "spawn pickling without MLX in parent; lease conflict; deadline during cold load; accurate cancellation/reaping",
+        "original fixed validation baselines, 3 scored post-update states and selected checkpoint full reload validation"
+      ],
+      "order": 4,
+      "owner": "S0 freezes configs/budgets; T1 training; E1/P03 coordination",
+      "status": "PROPOSED_NOT_AUTHORIZED"
+    }
+  ],
+  "models": [
+    {
+      "base_dtype": "bfloat16",
+      "custom_model_file_allowed": false,
+      "historical_hash_is_new_measurement": false,
+      "historical_p01_model_hash": "c8277aece81bbdb466c899ad37afaf8587a6cba7119f9cdc52dd49b37252eb82",
+      "local_only": true,
+      "local_weight_file_manifest_sha256": "PENDING",
+      "original_checkpoint": true,
+      "profile": "smoke",
+      "quantization": "none",
+      "repo_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "runtime_parameter_content_sha256": "PENDING",
+      "status": "PROPOSED_NOT_AUTHORIZED",
+      "trust_remote_code": false
+    },
+    {
+      "base_dtype": "bfloat16",
+      "custom_model_file_allowed": false,
+      "historical_hash_is_new_measurement": false,
+      "historical_p01_model_hash": "c3cc19430177bf7bfd9dcbdd4bd1ef53dbe4deb4463e223a46dac02fd6557aed",
+      "local_only": true,
+      "local_weight_file_manifest_sha256": "PENDING",
+      "original_checkpoint": true,
+      "profile": "formal",
+      "quantization": "none",
+      "repo_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "runtime_parameter_content_sha256": "PENDING",
+      "status": "PROPOSED_NOT_AUTHORIZED",
+      "trust_remote_code": false
+    }
+  ],
+  "new_input_bindings_required_from_S0": [
+    "accepted_v3_candidate_commit_and_main_verification",
+    "quality_manifest_file_and_canonical_hashes_and_quality_revision",
+    "selection_manifest_and_all_four_examples_sidecars_exclusion_file_hashes",
+    "training_binding_file_hash_and_parent_v1_v2_manifest_hashes",
+    "Q1_actual_exclusion_and_13_materials_seal_and_R1_review",
+    "material_case_to_example_mapping_and_original_encoding_epochs",
+    "runtime_S0_config_file_hash_and_exact_scope_launch_lease_budget",
+    "actual_local_weight_files_config_generation_config_and_tokenizer_hashes",
+    "selected_encoding_call_count_and_cpu_array_artifact_hashes"
+  ],
+  "old_files_and_rules_to_preserve": [
+    "old data/quality v1/v2 and SFT CPU/native toy configs and reports",
+    "toy 13-example/16-token/4096-parameter/two-update bounds and Score scope",
+    "P01 Budget authorization and compile-disabled historical outcomes",
+    "contracts, dependencies, top-level CLI/default imports and protected S0 coordination files",
+    "original train/group/split/ranks/byte identities; no refill to reach 6000"
+  ],
+  "owner": "T1",
+  "p05_handoff": {
+    "new_DPO_runs_this_scope": 0,
+    "planned_backend": "only previously accepted alternative chain after separate S0 P05 grant; primary DPO FAIL retained",
+    "policy_initialization": "same accepted SFT composition",
+    "reference": "frozen accepted SFT composition; disabling all adapters returns raw base, not SFT reference",
+    "requires": [
+      "S0-accepted SFT checkpoint commit/run/validation/selection/review identities",
+      "original base file manifest and parameter hashes plus exact SFT adapter bytes and metadata",
+      "tokenizer/template/format/quantization/dtype and rendering/encoding/stop identities",
+      "train-only preference data manifest and Q1 judgments",
+      "reference logprob-cache identity over checkpoint/input IDs/masks/precision/source",
+      "cross-library target/scaling/forward and reference-frozen numerical checks"
+    ],
+    "status": "PENDING"
+  },
+  "production_implementation_authorized": false,
+  "profiles": {
+    "formal": {
+      "accumulation": 8,
+      "actual_v3_selection_manifest_file_sha256": "PENDING",
+      "checkpoint_optimizer_steps": [
+        250,
+        500,
+        743
+      ],
+      "count_basis": "FROZEN_V3_METADATA_PROJECTION_NOT_ACTUAL_OUTPUT",
+      "epoch": 1,
+      "executed_microsteps": 0,
+      "executed_optimizer_updates": 0,
+      "full_validation_passes_in_training": 3,
+      "full_validation_total_including_baseline_reload": 5,
+      "mandatory_native_saves": 4,
+      "max_sequence_length": 2048,
+      "micro_batch_size": 1,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "native_train_calls": [
+        {
+          "call": 1,
+          "cumulative_completed_microsteps": 2000,
+          "global_optimizer_step_after": 250,
+          "global_optimizer_step_before": 0,
+          "gradient_divisor": 8,
+          "local_iteration_end": 2000,
+          "local_iteration_start": 1,
+          "local_microsteps": 2000,
+          "periodic_eval_interval": 2001,
+          "periodic_save_interval": 2001,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 1,
+          "rank_stop_inclusive": 2000,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 0,
+          "slice_stop": 2000,
+          "updates_this_call": 250,
+          "val_dataset": null
+        },
+        {
+          "call": 2,
+          "cumulative_completed_microsteps": 4000,
+          "global_optimizer_step_after": 500,
+          "global_optimizer_step_before": 250,
+          "gradient_divisor": 8,
+          "local_iteration_end": 2000,
+          "local_iteration_start": 1,
+          "local_microsteps": 2000,
+          "periodic_eval_interval": 2001,
+          "periodic_save_interval": 2001,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 2001,
+          "rank_stop_inclusive": 4000,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 2000,
+          "slice_stop": 4000,
+          "updates_this_call": 250,
+          "val_dataset": null
+        },
+        {
+          "call": 3,
+          "cumulative_completed_microsteps": 5936,
+          "global_optimizer_step_after": 742,
+          "global_optimizer_step_before": 500,
+          "gradient_divisor": 8,
+          "local_iteration_end": 1936,
+          "local_iteration_start": 1,
+          "local_microsteps": 1936,
+          "periodic_eval_interval": 1937,
+          "periodic_save_interval": 1937,
+          "post_save_full_validation": false,
+          "rank_start_inclusive": 4001,
+          "rank_stop_inclusive": 5936,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 4000,
+          "slice_stop": 5936,
+          "updates_this_call": 242,
+          "val_dataset": null
+        },
+        {
+          "call": 4,
+          "cumulative_completed_microsteps": 5938,
+          "global_optimizer_step_after": 743,
+          "global_optimizer_step_before": 742,
+          "gradient_divisor": 2,
+          "local_iteration_end": 2,
+          "local_iteration_start": 1,
+          "local_microsteps": 2,
+          "periodic_eval_interval": 3,
+          "periodic_save_interval": 3,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 5937,
+          "rank_stop_inclusive": 5938,
+          "report_interval": 2,
+          "save_at_return": true,
+          "slice_start": 5936,
+          "slice_stop": 5938,
+          "updates_this_call": 1,
+          "val_dataset": null
+        }
+      ],
+      "new_wall_time_and_launch_budget": "PENDING",
+      "raw_baseline_full_validation_passes": 1,
+      "reload_full_validation_passes": 1,
+      "runtime_status": "NOT_RUN",
+      "scored_checkpoints": 3,
+      "status": "PROPOSED_NOT_AUTHORIZED",
+      "train_projection": {
+        "causal_positions_including_masked": 9824462,
+        "completion_including_eos_tokens": 536238,
+        "one_epoch_plan": {
+          "executed_updates": 0,
+          "full_eight_microstep_updates": 742,
+          "microsteps": 5938,
+          "tail_divisor": 2,
+          "tail_microsteps": 2,
+          "total_updates": 743
+        },
+        "ordered_example_ids_sha256": "93c41855d3b9fd14a33ec83b9515e6cf96d3791c674ad39bc7bfa55c2bc366bb",
+        "original_v1_rank_order_sha256": "098383048d748ff281b9fa95b50ae1e5552135282f6e987c35147ee9418fb4ec",
+        "padded_sequence_tokens": 9830400,
+        "padding_bucket_counts": {
+          "1024": 977,
+          "1536": 2598,
+          "2048": 2363
+        },
+        "parent_v2_rows": 5940,
+        "prior_v2_rank_order_sha256": "d3fa9f6d9f7eb77dd20a57dd516730adcc7107e30b6825a02040338db44ff1ba",
+        "projected_v3_rows": 5938,
+        "prompt_tokens": 7905078,
+        "removed_rows": 2,
+        "sequence_tokens": 8441316
+      },
+      "validation_projection": {
+        "causal_positions_including_masked": 298795,
+        "completion_including_eos_tokens": 23841,
+        "ordered_example_ids_sha256": "187b2e23a92d7638049ba1b7ef3572232563e8af52e6e5b6a75997ebe6f0a431",
+        "original_v1_rank_order_sha256": "858325296e3a50b57015a84349ccbac57df752ac51d074ef1a266c5b726c1b0d",
+        "padded_sequence_tokens": 299008,
+        "padding_bucket_counts": {
+          "1024": 74,
+          "1536": 120,
+          "2048": 19
+        },
+        "parent_v2_rows": 213,
+        "prior_v2_rank_order_sha256": "3ec8daac11bb8f46a72fb37451edf864c339e94efdbae302ec5a7c10de6131a7",
+        "projected_v3_rows": 213,
+        "prompt_tokens": 224599,
+        "removed_rows": 0,
+        "sequence_tokens": 248440
+      }
+    },
+    "smoke": {
+      "accumulation": 8,
+      "actual_v3_selection_manifest_file_sha256": "PENDING",
+      "checkpoint_optimizer_steps": [
+        66,
+        132,
+        198
+      ],
+      "count_basis": "FROZEN_V3_METADATA_PROJECTION_NOT_ACTUAL_OUTPUT",
+      "epoch": 1,
+      "executed_microsteps": 0,
+      "executed_optimizer_updates": 0,
+      "full_validation_passes_in_training": 3,
+      "full_validation_total_including_baseline_reload": 5,
+      "mandatory_native_saves": 4,
+      "max_sequence_length": 1536,
+      "micro_batch_size": 1,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "native_train_calls": [
+        {
+          "call": 1,
+          "cumulative_completed_microsteps": 528,
+          "global_optimizer_step_after": 66,
+          "global_optimizer_step_before": 0,
+          "gradient_divisor": 8,
+          "local_iteration_end": 528,
+          "local_iteration_start": 1,
+          "local_microsteps": 528,
+          "periodic_eval_interval": 529,
+          "periodic_save_interval": 529,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 1,
+          "rank_stop_inclusive": 528,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 0,
+          "slice_stop": 528,
+          "updates_this_call": 66,
+          "val_dataset": null
+        },
+        {
+          "call": 2,
+          "cumulative_completed_microsteps": 1056,
+          "global_optimizer_step_after": 132,
+          "global_optimizer_step_before": 66,
+          "gradient_divisor": 8,
+          "local_iteration_end": 528,
+          "local_iteration_start": 1,
+          "local_microsteps": 528,
+          "periodic_eval_interval": 529,
+          "periodic_save_interval": 529,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 529,
+          "rank_stop_inclusive": 1056,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 528,
+          "slice_stop": 1056,
+          "updates_this_call": 66,
+          "val_dataset": null
+        },
+        {
+          "call": 3,
+          "cumulative_completed_microsteps": 1576,
+          "global_optimizer_step_after": 197,
+          "global_optimizer_step_before": 132,
+          "gradient_divisor": 8,
+          "local_iteration_end": 520,
+          "local_iteration_start": 1,
+          "local_microsteps": 520,
+          "periodic_eval_interval": 521,
+          "periodic_save_interval": 521,
+          "post_save_full_validation": false,
+          "rank_start_inclusive": 1057,
+          "rank_stop_inclusive": 1576,
+          "report_interval": 8,
+          "save_at_return": true,
+          "slice_start": 1056,
+          "slice_stop": 1576,
+          "updates_this_call": 65,
+          "val_dataset": null
+        },
+        {
+          "call": 4,
+          "cumulative_completed_microsteps": 1583,
+          "global_optimizer_step_after": 198,
+          "global_optimizer_step_before": 197,
+          "gradient_divisor": 7,
+          "local_iteration_end": 7,
+          "local_iteration_start": 1,
+          "local_microsteps": 7,
+          "periodic_eval_interval": 8,
+          "periodic_save_interval": 8,
+          "post_save_full_validation": true,
+          "rank_start_inclusive": 1577,
+          "rank_stop_inclusive": 1583,
+          "report_interval": 7,
+          "save_at_return": true,
+          "slice_start": 1576,
+          "slice_stop": 1583,
+          "updates_this_call": 1,
+          "val_dataset": null
+        }
+      ],
+      "new_wall_time_and_launch_budget": "PENDING",
+      "raw_baseline_full_validation_passes": 1,
+      "reload_full_validation_passes": 1,
+      "runtime_status": "NOT_RUN",
+      "scored_checkpoints": 3,
+      "status": "PROPOSED_NOT_AUTHORIZED",
+      "train_projection": {
+        "causal_positions_including_masked": 2212817,
+        "completion_including_eos_tokens": 141211,
+        "one_epoch_plan": {
+          "executed_updates": 0,
+          "full_eight_microstep_updates": 197,
+          "microsteps": 1583,
+          "tail_divisor": 7,
+          "tail_microsteps": 7,
+          "total_updates": 198
+        },
+        "ordered_example_ids_sha256": "bb9e01d8da0e8a61bded075d2ddf530eb1c0a2a6baf0fd0560d0fa8092ca6f5d",
+        "original_v1_rank_order_sha256": "18d317043ede65a7037c894d4320b8c595eb320eded608f8e32854eb10c102ae",
+        "padded_sequence_tokens": 2214400,
+        "padding_bucket_counts": {
+          "1024": 424,
+          "1536": 1159
+        },
+        "parent_v2_rows": 1583,
+        "prior_v2_rank_order_sha256": "f182db9a5f412fb255611bb9b1659b4474ce0ae955094d50358ccd190937fbaf",
+        "projected_v3_rows": 1583,
+        "prompt_tokens": 1747784,
+        "removed_rows": 0,
+        "sequence_tokens": 1888995
+      },
+      "validation_projection": {
+        "causal_positions_including_masked": 259902,
+        "completion_including_eos_tokens": 21226,
+        "ordered_example_ids_sha256": "870108febc3d3e8465d6a3a84086bfb2f3659c3b728196101669e620c67918ab",
+        "original_v1_rank_order_sha256": "c3c120a0903eb033a958f760dda6799e1f1b7ff749770851e2e872eb60ff9198",
+        "padded_sequence_tokens": 260096,
+        "padding_bucket_counts": {
+          "1024": 74,
+          "1536": 120
+        },
+        "parent_v2_rows": 194,
+        "prior_v2_rank_order_sha256": "167a8b664fdd044151a36cd7a2f493331203402ad303032d0ff34528c382d588",
+        "projected_v3_rows": 194,
+        "prompt_tokens": 195266,
+        "removed_rows": 0,
+        "sequence_tokens": 216492
+      }
+    }
+  },
+  "proposal_is_executable_configuration": false,
+  "runtime_resource_policy": {
+    "child_checks": "synchronized completed microstep/update boundaries and before/after each validation/hash/save/reload; one operation may transiently exceed a sampling threshold, retain peak and stop",
+    "formal_1_7B_native_2048_trial_and_budget": "PENDING",
+    "framework_import_after_child_acquires_actual_lease": true,
+    "lease_owned_for_all_model_residency": true,
+    "no_other_monkeypatch": "train/evaluate/iterator/compile code unchanged; only public injected loss/iterate_batches/callback and previously reviewed wired guard",
+    "not_reused_as_formal_limits": [
+      "P01 Budget.validate with 900 seconds/120 microsteps",
+      "native_toy 300 seconds/4GiB supervisor"
+    ],
+    "parent_checks": "wall, RSS, swap growth, pressure and own artifact bytes at <=1s intervals; unavailable measurement is failure, not zero",
+    "parent_never_loads_framework": true,
+    "single_gpu_common_git_lock": true,
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "stop": "persist only already verified completed updates/checkpoints; signal and reap exact owned child, then verify lock release; never kill unknown PID or clear another task lock",
+    "supervisor": "new exact-scope thin parent uses own Popen object + process start identity, start/reservation before imports, bounded polling, finally reap and separately report diagnostic failures",
+    "terminal": "actual exit/start/end/resource/diagnostic errors and attempted/completed/unknown counters; failed cleanup must not erase primary failure or allow success",
+    "wired_limit": "reuse preserve_wired_limit in one dedicated leased child; suppress and record upstream train/generate setter requests; finally restore API; zero actual setter/system-limit increases",
+    "wired_observations_and_rejections": {
+      "guard_return_value": "0 is a synthetic suppressed-call return, never a measurement of the real prior process limit",
+      "limitations": "this proposal did not read device_info or process wired state; no read-only current-process wired getter is established by these source stubs; defaults and old toy events are not current measurements; runtime guard/restore evidence remains NOT_RUN",
+      "observations": "record device_info, guard/API identities, every suppressed request; normal train expects one recommendation request per call; fully exhausted stream_generate expects recommendation then synthetic restore request 0",
+      "preflight": "require exact version/source, Metal GPU, readable native-int 0 < recommendation < memory_size, active reviewed guard and dedicated process",
+      "reject": "missing/changed guard or source, unreadable/malformed metadata, unexpected setter request or any actual setter invocation; stop with failure, do not call setter to probe prior value",
+      "source_stub_fact": "documented default process wired limit is 0; device_info reports system recommendation/limit and physical memory, not a demonstrated current process getter",
+      "upstream_generate_fact": "wired_limit calls setter with recommendation and finally with returned old_limit",
+      "upstream_train_fact": "Metal available -> every train call invokes set_wired_limit(device_info max_recommended_working_set_size)"
+    }
+  },
+  "schema": "toolalign.sft-runtime-proposal.v1",
+  "segment_state": {
+    "compiled_cache_reuse_or_cost_free_reentry_claimed": false,
+    "kept_across_calls": [
+      "same model object with its updated parameter state; array objects may change on update",
+      "optimizer object and m/v/global step state",
+      "mx.random.state container and post-consumption content",
+      "ordered epoch cursor and completed-rank ledger"
+    ],
+    "local_to_global_update": "step_before + local_iteration // divisor at each completed local update; read optimizer.step and require exact equality",
+    "rank_accounting": "raw iterator visitation is attempted, not proof of executed optimization; completion callback/return plus optimizer step and successful synchronization reconcile; unknown on unobservable failure",
+    "rebuilt_per_train_call": [
+      "TrainingArgs",
+      "finite train iterator",
+      "loss_value_and_grad closure",
+      "compiled step closure",
+      "state list referencing shared states",
+      "local it=1..N",
+      "grad_accum=None",
+      "loss/token/report/train_time local counters"
+    ],
+    "rebuilt_per_validation": [
+      "finite validation iterator",
+      "ValidationTotals numerator/denominator/ordered coverage"
+    ],
+    "seed_reinitialization_between_segments": false,
+    "state_proof": "same object identity is necessary but insufficient; synchronize and hash named model/optimizer/RNG state at boundaries; lazy optimizer initialization after the first update is expected",
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "timing": "host monotonic span includes every native call and synchronization; per-call compilation, per-bucket first use, validations, hashing and I/O separately; global elapsed never resets",
+    "validation_model_mode": "evaluate calls model.eval and leaves it there; record prior mode and restore in finally; require train mode at next call/first consumed batch",
+    "validation_state_invariance": [
+      "model parameters",
+      "optimizer state/step",
+      "RNG content",
+      "saved checkpoint bytes"
+    ]
+  },
+  "source_evidence": {
+    "collator": {
+      "bytes": 4615,
+      "kind": "repository",
+      "line_count": 83,
+      "path": "src/toolalign/training/sft/collator.py",
+      "ranges": [
+        {
+          "end": 62,
+          "start": 28,
+          "utf8_sha256": "9c4a631db185925f8c269b00cf1d012a1d6c2e0e6ea73e5bb181fe6ce15d589d"
+        },
+        {
+          "end": 83,
+          "start": 65,
+          "utf8_sha256": "fe041359b436afcd2fe8c89546c21810ae40ad9bd8798c32ccfd140b78f40879"
+        }
+      ],
+      "sha256": "2bee5bcba478134265f19e3c297d4f59b7e6a0edf6545af70c203a57a8ca72f7"
+    },
+    "epoch_plan": {
+      "bytes": 1739,
+      "kind": "repository",
+      "line_count": 57,
+      "path": "src/toolalign/training/sft/plan.py",
+      "ranges": [
+        {
+          "end": 57,
+          "start": 10,
+          "utf8_sha256": "8ef205393a4f2581810d8fb0fe25d9975163436b63ebd1dd01eb1ec58bf9b807"
+        }
+      ],
+      "sha256": "d10602b687eef366ef246fd697b4164f5b5af76d9c5dbd3a85d5f34c2326bbd6"
+    },
+    "format": {
+      "bytes": 6090,
+      "kind": "repository",
+      "line_count": 165,
+      "path": "src/toolalign/model_io/format.py",
+      "ranges": [
+        {
+          "end": 85,
+          "start": 55,
+          "utf8_sha256": "9b413feb9761b2970c6d3b2e130c2e262fb8b5b7bb46c17c5d635d3067a2c156"
+        },
+        {
+          "end": 165,
+          "start": 112,
+          "utf8_sha256": "e08a839b0472a071ae5f6fd2a5fbb5b5df0d2681709f09e1822eba733960ec03"
+        }
+      ],
+      "sha256": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31"
+    },
+    "gpu_lease": {
+      "bytes": 4244,
+      "kind": "repository",
+      "line_count": 127,
+      "path": "src/toolalign/runtime/gpu_lock.py",
+      "ranges": [
+        {
+          "end": 41,
+          "start": 25,
+          "utf8_sha256": "dbcb4b49db4b35a5c19ddb99d5526a519db2834b6b9c9e5763ddd4d0b882db4c"
+        },
+        {
+          "end": 127,
+          "start": 61,
+          "utf8_sha256": "c87ed6caddb45963e626ff18d30aedd70510e04b4ac4fbbf4f1469f332ba3a6b"
+        }
+      ],
+      "sha256": "22569ddd0b2bce636f778ca103a3cc71197f6b2a9b3bcf517eec44565f9a4b79"
+    },
+    "mlx_array": {
+      "bytes": 173554,
+      "kind": "additional_source",
+      "line_count": 4938,
+      "path": "mlx/core/__init__.pyi",
+      "ranges": [
+        {
+          "end": 89,
+          "start": 75,
+          "utf8_sha256": "1efa48a279803a7d225693009854e718bf3732fce824eb86fa6d05d9413c586b"
+        },
+        {
+          "end": 905,
+          "start": 813,
+          "utf8_sha256": "5e196c43ba45df6ad3d84f26bed5530a62deda5ebab69910b3d1f6322db853ec"
+        },
+        {
+          "end": 1978,
+          "start": 1967,
+          "utf8_sha256": "fc99db0e3892d5d29729c4a1da9797ecaf55cd41f20e35ebc136b5c820504986"
+        }
+      ],
+      "sha256": "9ab12f532bfbcb37f5530c1957e0f748180f8d905678984c35d9b1dac1c0c115"
+    },
+    "mlx_module": {
+      "bytes": 26169,
+      "kind": "additional_source",
+      "line_count": 705,
+      "path": "mlx/nn/layers/base.py",
+      "ranges": [
+        {
+          "end": 69,
+          "start": 62,
+          "utf8_sha256": "2318b5eada3f4a974a2c06372f7c8bccc315add306994b5dada73792a4c019c8"
+        },
+        {
+          "end": 611,
+          "start": 585,
+          "utf8_sha256": "f422799223db125bc07df1575843c8e58e85ce9c57053857e7217c946cb8d3b8"
+        }
+      ],
+      "sha256": "ec749e1d50fd1a5e57e0aedc8e6eb13fc697e630f59333a0e24aee62a8dc7f0f"
+    },
+    "mlx_optimizer": {
+      "bytes": 35903,
+      "kind": "additional_source",
+      "line_count": 991,
+      "path": "mlx/optimizers/optimizers.py",
+      "ranges": [
+        {
+          "end": 29,
+          "start": 10,
+          "utf8_sha256": "29a0a4fc5f522feee4030f38b13e8b3d41c49f25e49623b015e6d26c4024c581"
+        },
+        {
+          "end": 133,
+          "start": 85,
+          "utf8_sha256": "fef285d8d06532f1f4fb19119adce5f51e5ceef616471bc44b84b7a143e92bca"
+        },
+        {
+          "end": 545,
+          "start": 493,
+          "utf8_sha256": "7057cf7235856409c9673259d79cd04b2f73abad0ce10516771986e7d4247b10"
+        }
+      ],
+      "sha256": "57501691b4cf5e16cc4edd738f2dd358305e6c54bcd4bb93c7d10144d09e2c3a"
+    },
+    "mlx_random": {
+      "bytes": 10116,
+      "kind": "additional_source",
+      "line_count": 248,
+      "path": "mlx/core/random.pyi",
+      "ranges": [
+        {
+          "end": 17,
+          "start": 11,
+          "utf8_sha256": "0975ca3d6ada10dd59fc5266aca002f57cc02ae4aa13bd6f006c1099a33f9f8f"
+        },
+        {
+          "end": 54,
+          "start": 42,
+          "utf8_sha256": "3036423f982d9af65b48beb8f160bba756ef8745392fff968dbdf737a5d90383"
+        }
+      ],
+      "sha256": "cc48e32ebb1a266e7af981c83e400cf880c3f7d0ed4a3296ab7d08c722d724b0"
+    },
+    "offline_tokenizer": {
+      "bytes": 9957,
+      "kind": "repository",
+      "line_count": 221,
+      "path": "src/toolalign/model_io/offline.py",
+      "ranges": [
+        {
+          "end": 39,
+          "start": 21,
+          "utf8_sha256": "452f6a83c9047b952258987961cab3d4e4f7b52b3e50e00f23cea1e53f5fabb5"
+        },
+        {
+          "end": 163,
+          "start": 103,
+          "utf8_sha256": "b8050deadb11774e2c60896119624c70396336f4ce0446bcecce595165bbef12"
+        },
+        {
+          "end": 221,
+          "start": 177,
+          "utf8_sha256": "bafff27c4547f54f2e74e11a237bb6f69607b1bba9633940acd4a5cc6f4db11a"
+        }
+      ],
+      "sha256": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3"
+    },
+    "p01_budget": {
+      "bytes": 7235,
+      "kind": "repository",
+      "line_count": 189,
+      "path": "src/toolalign/training/compatibility/core.py",
+      "ranges": [
+        {
+          "end": 180,
+          "start": 133,
+          "utf8_sha256": "d2f68aba634e56a560a3cd6047a53a32b54946002c370795692b9c0351e13599"
+        }
+      ],
+      "sha256": "5a019dc973e9ff64801acfb060079d0e0a464ce182ce3c31f711d1fcc54e0671"
+    },
+    "p01_history": {
+      "bytes": 81677,
+      "kind": "repository",
+      "line_count": 2164,
+      "path": "reports/hardware/P01_RESULTS.json",
+      "ranges": [
+        {
+          "end": 5,
+          "start": 1,
+          "utf8_sha256": "ac5e5bc0e1ddd991fee093dcc5614966f7edc399e36ffc516e3f3575900b7a48"
+        }
+      ],
+      "sha256": "d0fb9deb067b1e3f6f8b85855a0d1509b3bc15569065bbfed22a5c95928f42bd"
+    },
+    "p01_model": {
+      "bytes": 24813,
+      "kind": "repository",
+      "line_count": 610,
+      "path": "src/toolalign/training/compatibility/model_probe.py",
+      "ranges": [
+        {
+          "end": 115,
+          "start": 109,
+          "utf8_sha256": "1d8fa6a30a27e27002abc7dfd0e2d49551cb8a0bb7a4bbf2a8b77d83d28201bc"
+        },
+        {
+          "end": 165,
+          "start": 160,
+          "utf8_sha256": "c727ca390a9c9836ef1d1e56b5fac4aea41b1aee667909b650b0eec773a5a911"
+        },
+        {
+          "end": 256,
+          "start": 221,
+          "utf8_sha256": "6066b7d76204b3ed82ff5048cfb2b2f01cd332d9371c0c1aa65d4102688f80be"
+        },
+        {
+          "end": 330,
+          "start": 299,
+          "utf8_sha256": "6a756a270d24b592c55c3e780aa16033b02f00f73135cbbfd8752f8e559fe59a"
+        }
+      ],
+      "sha256": "abbb7b40e6f82837f548570906ba509774de20498d50570ffd613cb58b7ddbca"
+    },
+    "p01_preregistration": {
+      "bytes": 8284,
+      "kind": "repository",
+      "line_count": 47,
+      "path": "reports/hardware/P01_PREREGISTRATION.md",
+      "ranges": [
+        {
+          "end": 25,
+          "start": 9,
+          "utf8_sha256": "d5177be75a1e308cd4c05adbef6be90f8463958e5cdd044ebf511d2e85e379af"
+        }
+      ],
+      "sha256": "a6638a2b04ffc5d20a0ffa06e04bc7850e1b597b5e0ca34db158b9cc0bc36977"
+    },
+    "p03_harness": {
+      "bytes": 19179,
+      "kind": "repository",
+      "line_count": 453,
+      "path": "src/toolalign/evaluation/harness.py",
+      "ranges": [
+        {
+          "end": 115,
+          "start": 91,
+          "utf8_sha256": "5bf81e2123b4b516845d74e4274ee2a2101a2c1af4edba1348db7a0aeb979c21"
+        },
+        {
+          "end": 315,
+          "start": 299,
+          "utf8_sha256": "adc94da9f0a637d45c0d2fd021ab40655076197ec286d5dc60817e81d5b3d11d"
+        },
+        {
+          "end": 397,
+          "start": 363,
+          "utf8_sha256": "6e961a75f1041697fc316efb7e965956223280b329da03d520f63fd26e8459f9"
+        }
+      ],
+      "sha256": "b4aff77d4adffea786d742d5c5aeeee72f99feaf3783ee0f01ad504aa84bb987"
+    },
+    "p03_interface": {
+      "bytes": 4177,
+      "kind": "repository",
+      "line_count": 182,
+      "path": "src/toolalign/contracts/interfaces.py",
+      "ranges": [
+        {
+          "end": 68,
+          "start": 39,
+          "utf8_sha256": "56164fed9e873b5da1520f11f1dfbcccf636ca17cf1365c29a6b67be51eb2064"
+        },
+        {
+          "end": 174,
+          "start": 157,
+          "utf8_sha256": "c608522760488d1f3cc4dea9a4f2b59febf7c753e1ac244dbe32bf8ce868ed2f"
+        }
+      ],
+      "sha256": "f57963758c61aab8dee29a3d9517160ed726ed5b985391b7424467003393cd55"
+    },
+    "p03_process": {
+      "bytes": 4611,
+      "kind": "repository",
+      "line_count": 138,
+      "path": "src/toolalign/tools/isolation.py",
+      "ranges": [
+        {
+          "end": 138,
+          "start": 56,
+          "utf8_sha256": "a8f393de4b0add9632b78478aad52a101ff80dc56de13e5b92cb468778e18f75"
+        }
+      ],
+      "sha256": "84a96791205488bad6bd3fe43a42f33f7abcbfb5fc8bb0b64f27aa13e5667f6f"
+    },
+    "protocol": {
+      "bytes": 598,
+      "kind": "repository",
+      "line_count": 19,
+      "path": "configs/protocol.v1.json",
+      "ranges": [
+        {
+          "end": 19,
+          "start": 1,
+          "utf8_sha256": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15"
+        }
+      ],
+      "sha256": "e1c38ac24c1faff3f631ca27b7dc9e8ab80ea951cd07f00c8d91b9fc61ebaa15"
+    },
+    "quality_filter": {
+      "bytes": 47089,
+      "kind": "repository",
+      "line_count": 746,
+      "path": "src/toolalign/data/quality_revision.py",
+      "ranges": [
+        {
+          "end": 324,
+          "start": 281,
+          "utf8_sha256": "c5534f74fe42b2501fbb9d7bdee1dc00b480feceb84a67ebf3334d0b4de28448"
+        }
+      ],
+      "sha256": "cb6dce2a974de6ea1a64fc5ad4970488536fe124302a43ea673cc8b59dd5458c"
+    },
+    "quality_v2": {
+      "bytes": 37267,
+      "kind": "repository",
+      "line_count": 560,
+      "path": "src/toolalign/data/quality_adjudication.py",
+      "ranges": [
+        {
+          "end": 37,
+          "start": 27,
+          "utf8_sha256": "475b7fd7e63bfe35fcd1749ddf651da37db0984ad3107d61e7a0c305920a1320"
+        },
+        {
+          "end": 477,
+          "start": 356,
+          "utf8_sha256": "bff70c91da9f649d0a9237371afb163c8edef904103bcec52247839c784f2a47"
+        },
+        {
+          "end": 536,
+          "start": 500,
+          "utf8_sha256": "1d3d01be6d8a757841bfa76b1a8a907fe5390a8d57457164cdc7f3395eb29ece"
+        }
+      ],
+      "sha256": "3c7edbc6994b544c2c91cb3652e98f3a9dd6e3393fd2b13176cb629409697405"
+    },
+    "selection_v1": {
+      "bytes": 17874,
+      "kind": "repository",
+      "line_count": 343,
+      "path": "src/toolalign/data/training_selection.py",
+      "ranges": [
+        {
+          "end": 124,
+          "start": 53,
+          "utf8_sha256": "cebaba0111a449ef4096d434d715742e10144ea333e793dcf585b798e03a0594"
+        },
+        {
+          "end": 320,
+          "start": 305,
+          "utf8_sha256": "fed4a6c33dec6c85e8882ed695b0c1f11a786632e0018c4bf715c4c59b378ff7"
+        }
+      ],
+      "sha256": "ad3f9c86f125dd8f7c87345fd4f38a1847db986e9157873beea2adafd219b3cd"
+    },
+    "sequence": {
+      "bytes": 6135,
+      "kind": "repository",
+      "line_count": 158,
+      "path": "src/toolalign/model_io/sequence.py",
+      "ranges": [
+        {
+          "end": 71,
+          "start": 13,
+          "utf8_sha256": "cbaa4c973797058e9d199cb06f7be21694ed116199eb1b66efb31d1759efbdd3"
+        },
+        {
+          "end": 122,
+          "start": 74,
+          "utf8_sha256": "bb36db63d4af34194182cb83fa29f9061ac1862abd5ee152718134bd9a9418ad"
+        },
+        {
+          "end": 158,
+          "start": 126,
+          "utf8_sha256": "d71e1b22a22f98f69e88c4c631671eff33e44592ecdfac70ab6e17d53652763a"
+        }
+      ],
+      "sha256": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63"
+    },
+    "sft_config": {
+      "bytes": 842,
+      "kind": "repository",
+      "line_count": 27,
+      "path": "src/toolalign/training/sft/config.py",
+      "ranges": [
+        {
+          "end": 25,
+          "start": 10,
+          "utf8_sha256": "9ea13df2bf17fe52af11ddd060f2ab121d968f7d4925a24f97e1c1ae7f1f27e7"
+        }
+      ],
+      "sha256": "aede5020b8dce0a71b5d242251878c928c558a796775cfa4e37076a7ecd5fe98"
+    },
+    "sft_data": {
+      "bytes": 5602,
+      "kind": "repository",
+      "line_count": 114,
+      "path": "src/toolalign/training/sft/data.py",
+      "ranges": [
+        {
+          "end": 73,
+          "start": 16,
+          "utf8_sha256": "7e77f90618784cb7006098b06cc17f2ff626e0d1ff74b3f5916fd39f4f6894b9"
+        },
+        {
+          "end": 114,
+          "start": 76,
+          "utf8_sha256": "cafeb465d3f61295dc2c100edacb19f59d7b817fe6d4c805888e5876a0e8fd34"
+        }
+      ],
+      "sha256": "4d5e475f27f9699349a4e6fdf46f3187c05001fc0a97c47b4457e809844e45e9"
+    },
+    "toy_adapter": {
+      "bytes": 10629,
+      "kind": "repository",
+      "line_count": 208,
+      "path": "src/toolalign/training/sft/mlx_adapter.py",
+      "ranges": [
+        {
+          "end": 38,
+          "start": 23,
+          "utf8_sha256": "342c8a767f582a2f7301d6dd2db3c578bd17f20b346304fa42fd8f7e18e10994"
+        },
+        {
+          "end": 80,
+          "start": 41,
+          "utf8_sha256": "99c0beed6c32689255fa786fc846d5679fae3451474deb64a89e035c17fe3501"
+        },
+        {
+          "end": 152,
+          "start": 84,
+          "utf8_sha256": "3b02934d0a905a9ac3383902bdf80381be8716a1b9e0cb5fe671a2dd829241f1"
+        },
+        {
+          "end": 208,
+          "start": 163,
+          "utf8_sha256": "6a82df582ffa3b8194ff43df9853686411846f14d63152a7eb67a756a84469d6"
+        }
+      ],
+      "sha256": "72010be489316cceaa20e1e35bc223f8f135d3de16d6ab53ddb08fe0e18682ed"
+    },
+    "toy_score": {
+      "bytes": 4105,
+      "kind": "repository",
+      "line_count": 94,
+      "path": "src/toolalign/training/sft/validation.py",
+      "ranges": [
+        {
+          "end": 49,
+          "start": 14,
+          "utf8_sha256": "987b420a26c37596dfde844549914d5b54cfe116abd912da52f6a58675d93396"
+        },
+        {
+          "end": 94,
+          "start": 52,
+          "utf8_sha256": "8dcea2bbf637e197753f5db92dba9ddc1b725960a9b6635526a0f01e8672a7fc"
+        }
+      ],
+      "sha256": "b80af4ed4bd39a21a34cf0e114ce506a70c9ae7b7fb62e9175d83871f97167f5"
+    },
+    "toy_supervisor": {
+      "bytes": 34781,
+      "kind": "repository",
+      "line_count": 651,
+      "path": "src/toolalign/training/sft/native_toy.py",
+      "ranges": [
+        {
+          "end": 142,
+          "start": 124,
+          "utf8_sha256": "205e8911d1e816cea17dc00157b5e9dff7524cfe3c68943a2872f31de135502c"
+        },
+        {
+          "end": 218,
+          "start": 184,
+          "utf8_sha256": "5dbd8fb948eec6db75fa57ba74fd821b461db1eeecf5bfd5011d26535cb1c740"
+        },
+        {
+          "end": 419,
+          "start": 340,
+          "utf8_sha256": "3dfc8724aa0251399813b054a5b43514955b7d08b0905e0f5fe5bd2d33d01cde"
+        },
+        {
+          "end": 638,
+          "start": 519,
+          "utf8_sha256": "f3e0c2dcaa3d782eeb1b7243ed6a2225cf9743ef035e5fcd487ef65896fa7815"
+        }
+      ],
+      "sha256": "f4ce51fecad6bc914f806a9cd53c631166651212503ae5e376a32eb01a0aaedd"
+    },
+    "upstream_attention": {
+      "bytes": 3908,
+      "kind": "fixed_input",
+      "line_count": 137,
+      "path": "upstream/mlx_lm/models/base.py",
+      "ranges": [
+        {
+          "end": 55,
+          "start": 45,
+          "utf8_sha256": "a8ebacf963b3f96e9ad838a7a870d1ef6da33aec5233b133b0d0c744c3b33e5e"
+        }
+      ],
+      "sha256": "61330e1c065739cd712bfeb09d673f33797cde7e613e95bf6d9ebbee9006f373"
+    },
+    "upstream_datasets": {
+      "bytes": 9588,
+      "kind": "fixed_input",
+      "line_count": 332,
+      "path": "upstream/mlx_lm/tuner/datasets.py",
+      "ranges": [
+        {
+          "end": 132,
+          "start": 11,
+          "utf8_sha256": "c135ee6e24bdcc0269ccf502875060e7d6ae420a21a4f3ae101396e897111f22"
+        },
+        {
+          "end": 325,
+          "start": 309,
+          "utf8_sha256": "7c3f27b2c328690bdc430809df47abcb86ea49791efb9a640813bb96a1f1b659"
+        }
+      ],
+      "sha256": "fa112840e6ea98a4ff18428792fe2ab023999c2da51ea64b3ebdf8657a152f17"
+    },
+    "upstream_generate": {
+      "bytes": 73689,
+      "kind": "fixed_input",
+      "line_count": 2096,
+      "path": "upstream/mlx_lm/generate.py",
+      "ranges": [
+        {
+          "end": 266,
+          "start": 229,
+          "utf8_sha256": "ff0248c748dd007c7679d9534a4d49be0564b4d2046428329dd7cb38964d01f1"
+        },
+        {
+          "end": 329,
+          "start": 307,
+          "utf8_sha256": "5f0ba582238527ff692571f5a2f7f5439d549f28fe78e08bf4c6f2e9a271fa87"
+        },
+        {
+          "end": 421,
+          "start": 386,
+          "utf8_sha256": "a9bf3645ed18696da96c15b64532a2f66a83ccc9be8c6ad3af59a5790d6c7191"
+        },
+        {
+          "end": 753,
+          "start": 657,
+          "utf8_sha256": "61087d5124c88681b1c5697489ec5e7f9f00b665185fa42797bf0bcb65e4639c"
+        }
+      ],
+      "sha256": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f"
+    },
+    "upstream_loader": {
+      "bytes": 32417,
+      "kind": "fixed_input",
+      "line_count": 991,
+      "path": "upstream/mlx_lm/utils.py",
+      "ranges": [
+        {
+          "end": 256,
+          "start": 234,
+          "utf8_sha256": "1daf1c136d95933677b39a9ac7ba83b65b5a83fac7da97dcb745d2596e50a046"
+        },
+        {
+          "end": 336,
+          "start": 282,
+          "utf8_sha256": "2e8141cca165dc0257d39929953853a9593091ba9b75c0acbd455c323cc6597b"
+        },
+        {
+          "end": 420,
+          "start": 414,
+          "utf8_sha256": "dbbfe7acc235251adf21d39031d2b09959503038d2e836901d9f285d108a43d1"
+        },
+        {
+          "end": 502,
+          "start": 453,
+          "utf8_sha256": "60952445087f11e0ffb5c7da8bae4b7a36020fd0c8965ead1e6ce7421fce0cc8"
+        }
+      ],
+      "sha256": "ba0371e9c88d52b34d71271945c2394005fbcb2bfb2ee9f6f82d627a33b72422"
+    },
+    "upstream_lora": {
+      "bytes": 8402,
+      "kind": "fixed_input",
+      "line_count": 285,
+      "path": "upstream/mlx_lm/tuner/lora.py",
+      "ranges": [
+        {
+          "end": 32,
+          "start": 11,
+          "utf8_sha256": "6414efb182b6c1cfcefc89a7770323c47b45759cea57aac536d4efe2827eac73"
+        },
+        {
+          "end": 98,
+          "start": 67,
+          "utf8_sha256": "411c5349324e232fa536eaa741b7c1b14c9e0c71776a28bfbad89386a2f6bc9d"
+        }
+      ],
+      "sha256": "4d3a8edab111d4ddba33398ba8700203db7b61621c39e9c348fdd50e57278b45"
+    },
+    "upstream_lora_loader": {
+      "bytes": 5515,
+      "kind": "fixed_input",
+      "line_count": 168,
+      "path": "upstream/mlx_lm/tuner/utils.py",
+      "ranges": [
+        {
+          "end": 138,
+          "start": 38,
+          "utf8_sha256": "14e334b5e66ec25225adcbb6d427f524036cdc79e88c3e41d713a4e6ca2cb4a3"
+        }
+      ],
+      "sha256": "166eaf5e5f923113bed43614a5fb7319795fa0cac5a7fa319ea54e5f0045b553"
+    },
+    "upstream_qwen": {
+      "bytes": 7364,
+      "kind": "fixed_input",
+      "line_count": 223,
+      "path": "upstream/mlx_lm/models/qwen3.py",
+      "ranges": [
+        {
+          "end": 89,
+          "start": 32,
+          "utf8_sha256": "a466cf183afa408942489af5dc80029cdfd3ba219d5d4f2a769aef359fc30c60"
+        },
+        {
+          "end": 188,
+          "start": 129,
+          "utf8_sha256": "80f7014c10e268c2ba9893779f40306950609c6a0bdf37c3755010eaf82e4ce7"
+        },
+        {
+          "end": 223,
+          "start": 221,
+          "utf8_sha256": "e347398aa99008e1ec83c413d5a472e4984a9ee14bea84b9da4dcfd867ff941b"
+        }
+      ],
+      "sha256": "2284df96ecb669109b281df4534470b18f285aa9a5e41735ad682f601f93c639"
+    },
+    "upstream_train": {
+      "bytes": 12582,
+      "kind": "fixed_input",
+      "line_count": 387,
+      "path": "upstream/mlx_lm/tuner/trainer.py",
+      "ranges": [
+        {
+          "end": 99,
+          "start": 86,
+          "utf8_sha256": "57a73ea5a993ca52fe02282aed1cf8643b0e91ca1c66a1afc54de4ce639dda8c"
+        },
+        {
+          "end": 173,
+          "start": 102,
+          "utf8_sha256": "2e04bf6aea4fa68ac7f74ade4fc9e7ffeb43e5e2dc102c523e9f1abd5f908e86"
+        },
+        {
+          "end": 215,
+          "start": 176,
+          "utf8_sha256": "000739ac5a0587b3c6e6de9c9b725b6a952af60995f6dedd0c5018588724e23c"
+        },
+        {
+          "end": 281,
+          "start": 218,
+          "utf8_sha256": "77063c45029dcdbd280d21145bd1d3b19800b94f3ca9b6e319a56943c3d32ffc"
+        },
+        {
+          "end": 330,
+          "start": 286,
+          "utf8_sha256": "bab41fee7d0e2742fef7efab4c97634a38a7122b1a150e60776f9f5e0a1db953"
+        },
+        {
+          "end": 387,
+          "start": 332,
+          "utf8_sha256": "45d796906f3b860ec52a377b0741ecd79e7477adc7e228f164198831b0b97196"
+        }
+      ],
+      "sha256": "ee33ebdbd20a184108541cb490d08085485e71a82ffd6d68d7d216029ecd28fe"
+    },
+    "wired_guard": {
+      "bytes": 19080,
+      "kind": "repository",
+      "line_count": 500,
+      "path": "src/toolalign/training/compatibility/execution.py",
+      "ranges": [
+        {
+          "end": 269,
+          "start": 253,
+          "utf8_sha256": "9053edf60b23dde89b8e2d74f49bf5a6952b286b64697cc5faac3a105900c6fa"
+        }
+      ],
+      "sha256": "22635be51783928ed732760168351a57e51846ed5f97cade687efb8b97c8bae1"
+    }
+  },
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "task_id": "P04-SFT-RUNTIME-PROPOSAL",
+  "training_authorized": false,
+  "unresolved_evidence": [
+    "actual v3 deliverables/quality gate and 13-material final seals",
+    "exact S0 CPU/runtime config hashes and actual encoding work limits",
+    "actual model, adapter/optimizer/RNG state and source identities under native compile",
+    "actual 0.6B/1536 memory, padding equivalence, overfit and reload",
+    "separate 1.7B/2048 native path and measured complete runtime budget",
+    "actual EOS/config compatibility and complete P03 generation/lifecycle",
+    "independent R1/Q1 review, main validation and accepted SFT artifact for P05"
+  ]
+}
