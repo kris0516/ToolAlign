@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake待交付。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包ACCEPTED待最终CI/main；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake待交付。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包已由PR17普通合并f27951a并完成最终双Python CI/main134CPU、三归档/65安装包绑定，VERIFIED_CPU；真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审R1新轮ACTIVE，模型CPU原PASS已接收、隔离集成接续 |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审R1新轮ACTIVE，模型CPU原PASS已接收、PR17主干CPU验收通过 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | R1模型CPU原轮正式PASS/接收/空闲；当前数据修订R2原生ACTIVE、intake待交付；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1原v3数据与固定13例数组CPU适配已完整交接为f3b7f1a1；原48be435基线和609固定输入/配置e27a7d4b保持。R1原安装固定消费通过，整包b99a644正式FAIL仅FIFO F1/P2；T1按90ded89交付完整1769046修订，新branch/intake与53d8610源码反例已由S0核验，完整修订接收已核验12,675路径/26原命令、三归档及65生产包字节；复审READY尚未激活，当前修订真实数据消费NOT_RUN。真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
+T1原v3数据与固定13例数组CPU适配已完整交接为f3b7f1a1；原48be435基线和609固定输入/配置e27a7d4b保持。R1原安装固定消费通过，整包b99a644正式FAIL仅FIFO F1/P2；T1按90ded89交付完整1769046修订，新branch/intake与53d8610源码反例已由S0核验，完整修订接收已核验12,675路径/26原命令、三归档及65生产包字节；复审已按1cb1b0a原生ACTIVE，完整新证据接收待完成。真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
 
 ## 恢复入口
 
@@ -268,3 +268,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 22:20:19 UTC，S0按完整1cb1b0a原生接续精确1769046的P04-SFT-DATA-V3-R2并核验ACTIVE，gpt-6-astra/max。派发前1,901路径/两任务空闲/共享锁空闲通过；旧模型完整接收28593f保持。新branch/intake与修订正式复审待完成，S0接续模型CPU包隔离集成。
 
 2026-09-07 22:33:51 UTC，S0固定模型CPU隔离普通集成170be42封存通过，证明 `3eb8b4ea97b86655381ae159697c8c11ef3e2be57ec90e5d370f774bf6517ea3`；973默认CPU/48 optional跳过、三现存归档/65安装包字节通过。旧S0启动器psutil预加载干扰导致的原1失败保持，默认CPU新进程以相同1,021用例ID通过，候选未变；最终PR17 CI/main待完成，R1数据R2继续。
+
+2026-09-07 22:46:12 UTC，模型CPU主干验收完成：PR17普通合并f27951a，原01ee/bdebe保持；最终双Python CI各959/48跳过及46项P00、实际main134CPU/三现存归档/65安装包绑定通过，证明 `aabb8d3f5363aeb7d792e7e38197c41e4f91579f107c0864e1005b084beb3861`。原失败和两次只读CI核验脚本错误保留，S0新增build/install/实物模型API/框架/GPU0；[主干证据](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。数据修订R1-r2继续独立审查。
