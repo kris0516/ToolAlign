@@ -21,3 +21,7 @@ E1追加材料intake已由S0核对192路径/75副本/4授权，证明`1825eae3b6
 E1已封存16例最终AI审阅，S0核对138路径、120封存文件及15关联证据，证明`fc673f57c9e416cde9a9f558fc6a0afbb2e750f65d740e45535a4279ad42600b`。语义14 pass/1 fail/1 unknown、mask16 pass；10实际train来源全部11决策覆盖，3协议和3staging分母单列、晋升0。新PDF仍fail，聚类后继unknown；两直接草案的建议pass不改变暂存/长度门。E1检查器首次误期望旧HTML ModelInput区块的exit1和脚本/日志保留，修正为实际完整Example后通过；S0未增加分词/模型。
 
 02:56 UTC建立[Draft PR12](https://github.com/kris0516/ToolAlign/pull/12)，精确head9b7cf01、创建时base2ee1123；候选[CI34077964683](https://github.com/kris0516/ToolAlign/actions/runs/34077964683)实际IN_PROGRESS，未宣称通过。无本机gh命令时使用现有GitHub connector，未安装新工具。PR保持Draft，R1/Q1及E1最终范围继续。
+
+候选CI核验补记（03:07 UTC）：CI34077964683已completed/success，Python3.11/3.14两个job各14步骤全部成功，各713 passed/48默认环境缺可选分词前提skip，另46项P00通过。S0保存两份原日志，核对实际checkout`f2a41c41c07026fbddbaa115d753550904d3d94a`的parents为2ee1123+9b7cf01、456文件恰好对应两输入合并，证明`67c643df696a1547d110f2ff7645542573719d7b439e881e3ed9ec241265f02a`。归档检查日志显示241私有canary排除与18原创fixture保持；本次S0无新build/install/模型。此为候选CI，不代替R1独立审查或最终main验收，PR12仍Draft。
+
+E1于03:02 UTC封存全部180来源/200决策，S0已收到并核对seal文件hash`1c5efbe8d9e04fe96c307a2fc46960ab513377b1e81d6dd28c205e7e0abeeea2`；431关联文件与逐项完整内容仍待本轮S0接收核验，完整candidate/handoff未交付。随机120与定向60的分母保持分开，不以合并判定比例外推全库质量。
