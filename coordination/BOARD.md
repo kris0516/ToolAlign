@@ -16,7 +16,7 @@
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整9b7cf01/原生空闲；S0核验9,685路径/32命令/实际归档安装，见[交接](../reports/S0_P02_QUALITY_HANDOFF.md) |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | IN_PROGRESS | 按完整6e9d29b实际派发/ACTIVE，440候选及10授权文件intake核验通过，结论待交付 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | ACCEPTED（首轮）；下轮准备 | 原5100c65已交付/原生空闲，S0核验603路径并保留原SHA整合；[裁定接收](../reports/S0_P02_Q1_ADJUDICATION.md)，50来源接续尚未派发 |
-| [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | 现有Q1 | 固定50来源/60决策 | CLAIMED，待原生派发 | 114文件私有包eebc74d7已冻结，46 train/4 validation；原Q1已completed/idle |
+| [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | 现有Q1 | 固定50来源/60决策 | IN_PROGRESS | 按39cba8b原生派发/ACTIVE，新分支及934路径完整intake通过；固定50/60范围继续 |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 审计技术复核 | R1 | 精确5270d1e；当前审查结束 | READY | 原R1仍审9b7，未提前切换或实际派发 |
 | [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整5270d1e/原生空闲，S0核验4,536路径/26命令，Draft PR13；[证据](../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md) |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | READY_FOR_REVIEW | 16例AI判断已交付/S0核验138路径；语义14/1/1、mask16 pass；质量未放行 |
