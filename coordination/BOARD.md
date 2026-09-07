@@ -10,13 +10,14 @@
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | VERIFIED | R1-r3 PASS 7e20706；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并d10722e，最终双Python CI与main655CPU/21条隔离命令通过；[G1分项证据](../reports/S0_P01_MAIN_VERIFICATION.md)，首选DPO旧FAIL保留 |
-| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED；质量CHANGES_REQUESTED | 原技术PASS与PR5验收保持；kris委托AI副本已收到，32个问题来源待新版本处理，G-DATA未通过；[交接](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
+| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED；质量CHANGES_REQUESTED | 原技术PASS与PR5验收保持；kris委托AI副本已收到，83来源新版已交付待R1/Q1独立审核，G-DATA未通过；[交接](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
-| [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | IN_PROGRESS | 按完整f8b81b9原生派发/ACTIVE；S0核验8,977路径及217输入intake通过 |
+| [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | READY_FOR_REVIEW | 完整1c47/S0核验21,424路径及三归档，PR14候选CI通过；D1空闲，R1/Q1待审 |
+| [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | CLAIMED | 完整交接已接收；新范围准备，尚未原生派发 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
-| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版数据仍待实施 |
+| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 原审计技术复核 | R1 | 精确5270d1e | CHANGES_REQUESTED | 原9645055 FAIL/P2=1、S0核验9,673路径/27命令；原生空闲 |
 | [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 已验证6c81/原5270 | VERIFIED（CPU） | PR13普通合并1887feb；原R1 PASS0cefe771、最终双Python CI与main55pytest/15页面检查通过 |
