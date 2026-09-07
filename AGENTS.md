@@ -93,6 +93,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | Q1扩展裁定实际派发与审查交接 | 按39cba8b原生派发Q1/ACTIVE，934路径完整intake通过；PR13双Python候选CI及实际459文件绑定通过。R1原PASS1e45cf2已交付/原生空闲，完整S0接收待完成，后续技术scope未派发；[证据](reports/S0_P02_QUALITY_AUDIT_HANDOFF.md) |
 | 2026-09-07 | 质量修订独立技术审查接收 | 原R1 PASS1e45cf2/原生空闲；S0核验14,011路径/42命令/14源码快照，CPU范围ACCEPTED；[接收报告](reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。PR12最终集成待完成，Q1新50来源继续 |
 | 2026-09-07 | 质量修订隔离集成与审计技术接续 | 普通集成f90be60实际1,186CPU/2跳过、三新归档及60安装包字节通过；[证据](reports/S0_P02_QUALITY_INTEGRATION.md)。PR12最终CI/main待完成；R1精确5270审计技术轮已原生ACTIVE |
+| 2026-09-07 | 质量修订CPU主干验收 | VERIFIED；[PR12](https://github.com/kris0516/ToolAlign/pull/12)普通合并6c81dfc，原R1 PASS1e45cf2保持；最终双Python CI及main1,186CPU/2跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。Q1/R1后续范围继续，G-DATA/P04未授权 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -118,15 +119,17 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均VERIFIED。P04-SFT-CPU准备已由PR10合并e28f1db，原R1 PASS800480b与main1014CPU/2 HF-only跳过保持，原CPU上游KeyError负结果保留。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备CPU技术范围保持VERIFIED。P04-SFT-NATIVE-TOY固定原创数值范围已由PR11合并b2247d8并完成独立R1/最终CI/main验证；13原创例/64参数、原CPU上游KeyError和历史负例保持。真实模型训练与评测仍NOT_RUN。
 
-P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。R1质量修订CPU审查已原生派发/ACTIVE，不增加框架运行。
+P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
 
-用户已将全部后续人工审核交给专门独立Q1，按ADR-0023和REVIEW_POLICY接续；Q1首轮14来源/15决策已正式交付5100c65并原生空闲，S0核验603路径、以45a3eaa整合。下一轮50来源/60决策已按39cba8b原生派发/ACTIVE，934路径完整intake通过。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；R1精确技术范围已交付原PASS1e45cf2并原生空闲，S0完整封存接收待完成；原R1/Q1首轮完整intake合计1024路径证明保持。E1完整固定180审计候选5270d1e已交付/原生空闲，S0核验4,536路径/26命令并发布Draft PR13；16例材料语义14/1/1、mask16 pass的138路径证明保持。新PDF问题首次未通过，后续需整来源修订；同一问题第五次正式修订未通过才整体暂停并通知kris。
+Q1首轮5100c65已接收并原SHA整合；新固定50来源/60决策裁定按39cba8b继续ACTIVE，完整结果待封存。E1完整5270d1e已交付/原生空闲，S0核验4,536路径及候选双Python CI；R1按完整769f9ff原生接续该CPU审计技术范围/ACTIVE，S0核验8,658路径intake、438候选/428基线、10授权副本及旧封存。D1/E1/T1当前无新实现。
 
-最多两个实现、独立R1和单一GPU租约约束保持。浏览器实显仍NOT_RUN，既有URL安全拒绝不绕过；页面体验待办不阻塞本轮委托AI内容整改。G-DATA因质量修订/独立复核/重新绑定待完成而未通过，真实模型容量和P04正式训练未放行，完整P00–P09目标继续。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 
-最新接续：P02质量修订原R1 PASS1e45cf2已接收，普通集成f90be60实际1,186CPU/2跳过、三份新归档及60安装包文件通过；27条命令均符合预期，包含八次预期输入拒绝。PR12最终CI/main待完成。R1已按完整769f9ff原生接续精确5270审计技术复核/ACTIVE，intake待交付；Q1固定50来源/60决策继续，G-DATA和正式P04未授权。
+最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本轮main新增构建/安装/API/模型/框架均0，共享GPU锁实际空闲；无新费用、数据/模型上传或公网服务。完整P00–P09目标继续。
+
+最新审计代码发现：原5270的JSON false/0保真问题已由R1复现、S0确认；[定点修复](coordination/tasks/P02_QUALITY_AUDIT_TYPE_FIX.md)已CLAIMED待派发E1。R1原候选整包审查及冻结材料影响核查继续，PR13保持Draft；Q1继续原50来源范围，PR12主干技术验收保持。
 
 ## 工作记录
 

@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。P02质量修订原R1 PASS1e45cf2已接收，普通集成f90be60实际1,186CPU/2跳过、三份新归档及60安装包文件通过；27条命令均符合预期，包含八次预期输入拒绝。PR12最终CI/main待完成。R1已按完整769f9ff原生接续精确5270审计技术复核/ACTIVE，intake待交付；Q1固定50来源/60决策继续，G-DATA和正式P04未授权。[集成证据](../reports/S0_P02_QUALITY_INTEGRATION.md)。
+更新时间：2026-09-07。P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfc，原候选9b7cf01/R1 PASS1e45cf2保持。最终双Python CI各14步骤及实际main1,186CPU/2跳过、三现存归档/60安装包绑定通过；[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。R1精确5270审计技术轮ACTIVE，8,658路径intake通过；Q1固定50来源/60决策裁定继续。新版数据/选择/配置绑定、G-DATA和正式P04尚未通过。 R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复CLAIMED待原生派发；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,14 +12,14 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0隔离集成PR12已通过，最终CI/main待完成；R1审计代码复核与Q1新增来源裁定继续 |
+| 当前任务/分支 | S0 main/PR12技术VERIFIED；R1审计代码复核与Q1新增来源裁定继续 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | R1与Q1当前轮ACTIVE；D1/E1/T1原轮completed/idle；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
-| 当前实现 | 既有CPU/原生toy技术验收保持；P02原数据流程技术验证通过，语义发现已接收并等待新版本整改 |
+| 当前实现 | 既有CPU/原生toy及P02质量修订工具技术VERIFIED；质量问题及后续新版整改继续 |
 | 已验收训练/数据/评测/服务 | CPU准备与原创64参数native toy技术范围VERIFIED；真实数据语义、正式模型训练/评测及服务没有整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
 | 重 GPU 作业 | T1三次及R1两次固定toy原运行均已结束并独立核验；原R1额度2/2，S0集成/main框架新增0，共享锁实际空闲 |
@@ -207,3 +207,7 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 04:00 UTC接续准备：R1原1e45cf2对9b7cf01的CPU技术PASS已由S0完整接收：14,011路径、42原命令、14源码快照、三现存归档及60安装包文件绑定通过；1,186CPU/2跳过为R1实际结果。PR12隔离集成/最终CI/main待完成。R1下一5270审计技术包CLAIMED待原生派发，Q1固定50来源/60决策继续ACTIVE；G-DATA和正式P04未授权。
 
 04:11 UTC隔离集成：P02质量修订原R1 PASS1e45cf2已接收，普通集成f90be60实际1,186CPU/2跳过、三份新归档及60安装包文件通过；27条命令均符合预期，包含八次预期输入拒绝。PR12最终CI/main待完成。R1已按完整769f9ff原生接续精确5270审计技术复核/ACTIVE，intake待交付；Q1固定50来源/60决策继续，G-DATA和正式P04未授权。
+
+04:22 UTC质量修订主干验收：P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfc，原候选9b7cf01/R1 PASS1e45cf2保持。最终双Python CI各14步骤及实际main1,186CPU/2跳过、三现存归档/60安装包绑定通过；[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。R1精确5270审计技术轮ACTIVE，8,658路径intake通过；Q1固定50来源/60决策裁定继续。新版数据/选择/配置绑定、G-DATA和正式P04尚未通过。
+
+04:27 UTC审计代码发现：R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复CLAIMED待原生派发；原R1继续冻结候选并核定实际影响，尚非整包正式结论。

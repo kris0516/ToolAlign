@@ -1,6 +1,6 @@
 # P02-QUALITY-REMEDIATION｜委托AI审查后的数据整改
 
-状态：ACCEPTED（CPU技术范围），PR12最终集成/CI/main待完成。完整9b7cf019b1d55501a7e656dbfb79b13bc7369fa0与原R1 PASS1e45cf2已由S0接收，14,011路径证明bda9b18f；见[S0接收报告](../../reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。以下保留原派发与范围，本包不放行G-DATA或正式训练。
+状态：VERIFIED（CPU技术范围）。PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原候选9b7cf01及原R1 PASS1e45cf2保持；最终双Python CI与main1,186CPU/2跳过、三现存归档/60安装包绑定通过，见[主干证据](../../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。原范围与历史失败保持，质量/G-DATA和正式P04尚未通过。
 
 - owner：D1；只用现有独立Codex任务及其隔离worktree，gpt-6-astra / max，禁止sub-agent。
 - code_base：`86b80bada50ac7c8f4b3910e3831a397ed65a853`。
