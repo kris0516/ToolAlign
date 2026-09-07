@@ -1,0 +1,824 @@
+{
+  "archives": {
+    "default_wheel": {
+      "members": 67,
+      "sha256": "9b877e659d0c8057529384b53c9730e63656cb0e530df04d20629eb9d4cf4385",
+      "size_bytes": 176042
+    },
+    "rebuilt_wheel": {
+      "members": 67,
+      "sha256": "9b877e659d0c8057529384b53c9730e63656cb0e530df04d20629eb9d4cf4385",
+      "size_bytes": 176042
+    },
+    "sdist": {
+      "members": 134,
+      "sha256": "d89d391c00aa1f8dde989b3078a345f241a177ff0cf8f9d319e51d95681d5bfc",
+      "size_bytes": 307250
+    }
+  },
+  "authorization_commit": "f8b81b9783892669d19aafee5a1d82a4a8409cd3",
+  "code_base": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+  "command_records": [
+    {
+      "command_metadata_sha256": "45cae2ab2ba121543cb6057d02fa5a2893561c42440a7ef71e1e2cf13abeaefb",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:24:38.436149+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-archive-default-r1",
+      "log_sha256": "1d7cbdb9eeb1446528ceca3ba08965436e6dde8d81d4e9b630a185760c327489",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:37.902123+00:00"
+    },
+    {
+      "command_metadata_sha256": "9c58563b09e5322a266afdc70d5d19c2e1269b285c779a4815e968631451f0be",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:24:59.140063+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-archive-rebuilt-r1",
+      "log_sha256": "7c6170c128df675096e6d70c3187468fb8b10e2d0c767edfb0d80d63fe8fa515",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:58.878888+00:00"
+    },
+    {
+      "command_metadata_sha256": "229f0ab177077ce41223b47df3437f05817ef95c85878c90f241cee43e99ddc4",
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T10:57:01.582790+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-binding-r1",
+      "log_sha256": "f2829c60af7a61915108233b90887fb451579c21900e147ee639d285ddd62986",
+      "source_epoch": "00964d18042cbe931d500960767f0c62812d420673b3f1957ec8d7be212636a8",
+      "started_at_utc": "2026-09-07T10:56:42.500498+00:00"
+    },
+    {
+      "command_metadata_sha256": "e03e6e6368a51b64a51d8b4b5ae0156b3e2bd33c78eabb1946cd87123e0f85f9",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T10:57:51.457736+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-binding-r2",
+      "log_sha256": "cdc05156046cad47065ebcb432fd89c12d1a55762ee79ae47dec724d96d3c9cb",
+      "source_epoch": "5fdf5d10d3c947f4acbc6251edae88a697f264760a7ec04f60c6bf9cbfd0597f",
+      "started_at_utc": "2026-09-07T10:57:32.069232+00:00"
+    },
+    {
+      "command_metadata_sha256": "963a51ce707f75521b62beda7a9960d8041a2eccb84dd95c4dc7255db4317788",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T10:43:15.873663+00:00",
+      "git_head": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-branch-create-r1",
+      "log_sha256": "929702608acc9873e0151ed7726945963f8adaca87fc662d62265136d1a69ff7",
+      "source_epoch": "dd21ae3eebe80e76ac8b9f02b05449e39950b4d18c07b8c4a8bcb0382ab64583",
+      "started_at_utc": "2026-09-07T10:43:15.829628+00:00"
+    },
+    {
+      "command_metadata_sha256": "014fa09648c6f8148fc6687edf331d843feb2b4bfeeb542d7c8587859f1621d3",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:06:20.855378+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-build-a-r1",
+      "log_sha256": "672ec6c5f61cad694c6b10cdd010fff0a3ff1804b064b14ae5c86a49b884c4a6",
+      "source_epoch": "4cb4ac1c361b889e914963f2508a66dce6a5b20f131189f8f1430260bf7cd591",
+      "started_at_utc": "2026-09-07T11:05:59.048130+00:00"
+    },
+    {
+      "command_metadata_sha256": "1b908b9bf8f76c06a7f4c1732bfe2042d9ea05c063cb8a45193472174ac0dc2a",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:22:42.979026+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-build-a-r2",
+      "log_sha256": "672ec6c5f61cad694c6b10cdd010fff0a3ff1804b064b14ae5c86a49b884c4a6",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:22:21.270339+00:00"
+    },
+    {
+      "command_metadata_sha256": "5ac4c41119f95eacc92454fb61341281ef8a98d5542538b93dda203d2029201c",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:07:26.156612+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-build-b-r1",
+      "log_sha256": "672ec6c5f61cad694c6b10cdd010fff0a3ff1804b064b14ae5c86a49b884c4a6",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:07:04.341371+00:00"
+    },
+    {
+      "command_metadata_sha256": "b7bd2c4783f6da834b923af5e5fdf2f6face9d3640a1bf6100f424a2bd9c7cc5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:23:07.724790+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-build-b-r2",
+      "log_sha256": "672ec6c5f61cad694c6b10cdd010fff0a3ff1804b064b14ae5c86a49b884c4a6",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:22:45.095224+00:00"
+    },
+    {
+      "command_metadata_sha256": "a2f6ccaef0d70c3d6f233af9486df741841f2a1a27c4e35a01adb34e4f10fd7a",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:24:10.596627+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-commit-correction-r1",
+      "log_sha256": "d9a28e5c4b2b71027b1377c65c841f451c8fffed472cb6d3fe844c61b2cc0faa",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:10.558470+00:00"
+    },
+    {
+      "command_metadata_sha256": "d6093e0315330341fcf7fb73e89f9d7c8b531f0a32f336ebf1a67b21ada2d91c",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:17:53.219229+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-commit-implementation-r1",
+      "log_sha256": "66a8ad0d792e97a9840959653e3511ec5ef926b74a88a9331f975dccd30c8b39",
+      "source_epoch": "d41e905ed2e1a6c91a4dcb3288d298132ba8b055b283defb38b8d45c9e556e8b",
+      "started_at_utc": "2026-09-07T11:17:53.179703+00:00"
+    },
+    {
+      "command_metadata_sha256": "d207ceeb8130d8c109dc1d27743fb3b664d836cf7e49cce4764f4ff8c6d97186",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:14:37.153453+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-contract-r1",
+      "log_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "source_epoch": "4b99733d792cf13b5122b7da6e21b0afc6e12382a5c83915f10e42401165cf9b",
+      "started_at_utc": "2026-09-07T11:14:37.118953+00:00"
+    },
+    {
+      "command_metadata_sha256": "0db9c97628ee90e42ac379b0c87d8b5a030a2fdc5f945d5a088146a4ea0c75de",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:13:33.556032+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-deadline-binding-r1",
+      "log_sha256": "1bc0c25cd6bdbbcbd67f7d783f638c05cced9d12c468263c09344ed23302224b",
+      "source_epoch": "5990f420f799ff2a43c0de643094c7aa6c7714d8d99920f38ba878c9a80026bb",
+      "started_at_utc": "2026-09-07T11:13:20.642875+00:00"
+    },
+    {
+      "command_metadata_sha256": "a749ae8b9a1c687a3d550e463045c2055bf477fdd301020f3c475db128cde98f",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:10:43.878060+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-existing-boundaries-r1",
+      "log_sha256": "7fbd4b059da98e47d41d40c49f4f2c4d9b741e5ec9a41093751b73ff61dd1d17",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:10:29.572545+00:00"
+    },
+    {
+      "command_metadata_sha256": "3a6bef921352a300c992ac3c349e8cbd26909d29efb1da5e09b75ba32cba8f75",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:11:01.706680+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-format-review-r1",
+      "log_sha256": "e2248242ccbe16d51170b350805f58e5df8d35ee2719e98f3cd2b317cf4200c1",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:11:01.421245+00:00"
+    },
+    {
+      "command_metadata_sha256": "a4822e7d14a69001b245e6f2e360a4a3b822c3740bebbc110e6fcfe9d4c99460",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:09:31.780460+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-full-r1",
+      "log_sha256": "72c62da54408d7853e82fafaa61bbee531b567c104d1e38665e6bb590371fb26",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:08:54.916859+00:00"
+    },
+    {
+      "command_metadata_sha256": "b91672febd33ab1df331c78ff797ddc7bec390a5db2d76fddd84ed4c19223049",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:23:23.895036+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-cpu-full-r2",
+      "log_sha256": "6d02ecab8a1b945a3c8be5820a2422b19bc719d3dead8fa098a55490fe161f4e",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:22:46.244901+00:00"
+    },
+    {
+      "command_metadata_sha256": "586fb13be20d03d9cd6320b7ba598115b116af482c19261a33193e9154317423",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:13:21.798401+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-native-quality-review-r1",
+      "log_sha256": "e83b46698301cee645c0ae248cf780a6863644ab79816818ea57bf5840ba3ebf",
+      "source_epoch": "5990f420f799ff2a43c0de643094c7aa6c7714d8d99920f38ba878c9a80026bb",
+      "started_at_utc": "2026-09-07T11:13:20.654679+00:00"
+    },
+    {
+      "command_metadata_sha256": "2027146b3338dbcdf073a72538f9d0cb9139427751317e267b62d40ef2a372c2",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:13:20.875328+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-cpu-sft-review-r1",
+      "log_sha256": "daec4c25ce8bed15350cca82bf156448b39a462ef35e79d7222771e3005dc916",
+      "source_epoch": "5990f420f799ff2a43c0de643094c7aa6c7714d8d99920f38ba878c9a80026bb",
+      "started_at_utc": "2026-09-07T11:13:20.649751+00:00"
+    },
+    {
+      "command_metadata_sha256": "3c2316eac6c01c0b1ecbe18bb0831d011e3390759911e4009de9866b98870b9e",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:13:00.031594+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-crosscheck-r1",
+      "log_sha256": "fe30d4188be0d0556a0c6cb6cba2b885d871835bd4b37566b86771045b8200ae",
+      "source_epoch": "5990f420f799ff2a43c0de643094c7aa6c7714d8d99920f38ba878c9a80026bb",
+      "started_at_utc": "2026-09-07T11:12:56.159384+00:00"
+    },
+    {
+      "command_metadata_sha256": "a0255ed4e3fe656529e35a75ce035be8b58a6f6eab94642beb3744abcced764e",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:23:54.215484+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-crosscheck-r2",
+      "log_sha256": "995d69f2b7cecdd3c08ee713e6e4466faf05089fb5494499ac306067e4a04a1b",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:23:50.351323+00:00"
+    },
+    {
+      "command_metadata_sha256": "88ffaae2d7c07c453cead658d3d7045074e6153992dde8ee22c9866a8e3c060e",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:24:10.466664+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-diff-correction-r1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:10.440657+00:00"
+    },
+    {
+      "command_metadata_sha256": "8aedc30cedd09cab41e960e5f10306f479c1270bed7e3eca008494d40085920a",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:17:22.645102+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-diff-implementation-r1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_epoch": "d41e905ed2e1a6c91a4dcb3288d298132ba8b055b283defb38b8d45c9e556e8b",
+      "started_at_utc": "2026-09-07T11:17:22.618951+00:00"
+    },
+    {
+      "command_metadata_sha256": "754db5f2a9e7959a53f9d540d42286c01b259729c74893c50429dff9292b802a",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:08:34.584271+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-freeze-materials-r1",
+      "log_sha256": "5f2e808785a782588de0c5743d11d62e65e8f79dda3452207603e1c9dca513b7",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:08:10.832404+00:00"
+    },
+    {
+      "command_metadata_sha256": "eae2671cb2012daa3ba0c32ea5b459a3572b5a70f8387d1ce61cc961bdf857d2",
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T10:40:38.135444+00:00",
+      "git_head": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+      "git_head_after": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+      "label": "quality-adjudication-intake-r1",
+      "log_sha256": "977f16fb69b34ce8826192f8b72a1a7d3256588335ef1c290e9ac46215e3fdbb",
+      "source_epoch": "dd21ae3eebe80e76ac8b9f02b05449e39950b4d18c07b8c4a8bcb0382ab64583",
+      "started_at_utc": "2026-09-07T10:40:33.601974+00:00"
+    },
+    {
+      "command_metadata_sha256": "f67e2e81a1176f7ce412768e96dae16f6fa2598c3f06d6f26f4c84fef1712ba6",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T10:41:30.803056+00:00",
+      "git_head": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+      "git_head_after": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+      "label": "quality-adjudication-intake-r2",
+      "log_sha256": "78554fa582cea434afabd0b94d15586eddf0dec5bd5f74ea5c08bfdcf23cf1be",
+      "source_epoch": "dd21ae3eebe80e76ac8b9f02b05449e39950b4d18c07b8c4a8bcb0382ab64583",
+      "started_at_utc": "2026-09-07T10:41:26.314093+00:00"
+    },
+    {
+      "command_metadata_sha256": "f1ac79a0ba70adcc033dc9e11baa9a4a4a1d839caaab682b32ba6f4a016b1593",
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T11:18:19.996257+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-material-binding-negative-r1",
+      "log_sha256": "9c99a614ce363cb414dd8dcfa9d90829ea07d7ddd100668cd709ac1f3dd9b115",
+      "source_epoch": "791e95735056973d2f53f8aabaaddb588caec3c6eb0e381f7079748879f40952",
+      "started_at_utc": "2026-09-07T11:18:19.591940+00:00"
+    },
+    {
+      "command_metadata_sha256": "e2af694bb13d6bddf8d40fe9dd016ff00be8cd5745e3cfb05a696ab50eda5993",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:15:00.084120+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-material-compare-r1",
+      "log_sha256": "5a4df93e7da249847eeb440e146c770d8c71879a0f36557d894917787c804d9d",
+      "source_epoch": "4b99733d792cf13b5122b7da6e21b0afc6e12382a5c83915f10e42401165cf9b",
+      "started_at_utc": "2026-09-07T11:14:35.855397+00:00"
+    },
+    {
+      "command_metadata_sha256": "1a5681279763c28a349638e67cd2baddcbed13867f4e19f4659ef982a2a915ee",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:25:51.313281+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-material-compare-r2",
+      "log_sha256": "78e7a3aba936ef4a6270955b501c60c181694179239d89172e2c2a0ccbee526d",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:25:25.757545+00:00"
+    },
+    {
+      "command_metadata_sha256": "4a6379f3f2542d8cc6a233bbc4347256d3fbdfaf132e46712b36cbabeaae8803",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:10:09.872029+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-material-native-r1",
+      "log_sha256": "af252796f4cad2c801c246ea05c3e4d1983dff973ab088bd331a66aea5c293d1",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:09:46.028093+00:00"
+    },
+    {
+      "command_metadata_sha256": "999eb52581ae47b8c7829501ce58c7c48d471691f0abbfe637ad06e9ae3f498f",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:11:26.108300+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-material-reference-r1",
+      "log_sha256": "e681d36f756c237a8ebbecb8e71a8272ebbab77f5df77dbe88b1c386383b9543",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:11:00.272849+00:00"
+    },
+    {
+      "command_metadata_sha256": "ce8478e2a589be84b2f7778f452e2f9a591758610a3982ad277ff1a4688db6fe",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:27:51.395430+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-new-test-denominator-r1",
+      "log_sha256": "57012583b19cce2d2a2a7b24394aeb6f68a2d20ddbcc550fbf664d66103a058c",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:27:51.214941+00:00"
+    },
+    {
+      "command_metadata_sha256": "21b7d9476f79a78abc51ac323dfa88be76897105261a12267af98937b328501e",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:26:58.138051+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-package-install-r1",
+      "log_sha256": "a6761c6fc7218c9c4b0457a58a8250405e7acfb78bf39fee997dd0b1469efe24",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:25:24.604673+00:00"
+    },
+    {
+      "command_metadata_sha256": "4206982d916868cc5efe6929c4538c48b5ba824f5d0aa8157d90abf4b26208f3",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:17:28.473581+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-public-r1",
+      "log_sha256": "6e7727485e2ada87f8e0d2d7e98455996a7804a616096898b385dd3128cc58ad",
+      "source_epoch": "d41e905ed2e1a6c91a4dcb3288d298132ba8b055b283defb38b8d45c9e556e8b",
+      "started_at_utc": "2026-09-07T11:17:21.457426+00:00"
+    },
+    {
+      "command_metadata_sha256": "b7087936bc76256847cb0a90563192e2d57f3a45cb42fab8dbbdfe3e196ab896",
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T11:05:14.978552+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-ruff-r1",
+      "log_sha256": "3ec7efefa417b92362a926cbc1dbac67e1f032dfb921cbfae37bee957e95aec4",
+      "source_epoch": "b57067f48fc86be2dfb11495e85712e76854732bd9a596cb3589889a18006e48",
+      "started_at_utc": "2026-09-07T11:05:14.894423+00:00"
+    },
+    {
+      "command_metadata_sha256": "b0860527838ea0e52e3a9c34ce0f4fbff18292ee038c9e278ff7eeaeb2a0c8ac",
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T11:14:37.025272+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-ruff-r2",
+      "log_sha256": "d9848e2e8788ba1ff221ce1ec2049403e3c202170537d63d916fb352d10c5120",
+      "source_epoch": "4b99733d792cf13b5122b7da6e21b0afc6e12382a5c83915f10e42401165cf9b",
+      "started_at_utc": "2026-09-07T11:14:36.979948+00:00"
+    },
+    {
+      "command_metadata_sha256": "a5910c1504e61424c190b32da45590d8afcfaa38de53aec4070385dca311bb25",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:22:47.459230+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-ruff-r3",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:22:47.414940+00:00"
+    },
+    {
+      "command_metadata_sha256": "3782a94544ec57118d5ccab1c60b682bb95ae454ed83880314b9aad3498355e4",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:24:10.348392+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-stage-correction-r1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:10.312490+00:00"
+    },
+    {
+      "command_metadata_sha256": "b450715e7f9cdc3122ed1adc24b462ef06930f861369b94c4fd5aeca778e4fea",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:17:21.364878+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-stage-implementation-r1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_epoch": "d41e905ed2e1a6c91a4dcb3288d298132ba8b055b283defb38b8d45c9e556e8b",
+      "started_at_utc": "2026-09-07T11:17:21.334103+00:00"
+    },
+    {
+      "command_metadata_sha256": "2d0e82ba2575eaccfa6b51952ca5a8053e12c3cbfe149b3292c19acc88a87c41",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:25:02.057172+00:00",
+      "git_head": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "git_head_after": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+      "label": "quality-adjudication-static-republication-r1",
+      "log_sha256": "7bcab31a64e8ec6757e99080c840d64f1baf487fd3a6742daec3334498b881b3",
+      "source_epoch": "bdf1526edca0164cd88ccdaad6a548b392449ce16af83ad6622549aabcd0f200",
+      "started_at_utc": "2026-09-07T11:24:36.751783+00:00"
+    },
+    {
+      "command_metadata_sha256": "d0fedf33b478dd2a959f9f4ab5a5aa4900390fad046acb8e2a7ad4d3aad680d8",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:05:07.843245+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-unit-r1",
+      "log_sha256": "233d4c455924228c3f8e3d3383de2dce327720cd02b5016f47463d3db9fc2c86",
+      "source_epoch": "b57067f48fc86be2dfb11495e85712e76854732bd9a596cb3589889a18006e48",
+      "started_at_utc": "2026-09-07T11:05:06.525289+00:00"
+    },
+    {
+      "command_metadata_sha256": "9c78ad4eed71511d84fb3303a3304feaf5b86c5c095e86685e0b95d67f3c2668",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:07:06.853201+00:00",
+      "git_head": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "git_head_after": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+      "label": "quality-adjudication-unit-r2",
+      "log_sha256": "f6b196515067991c033786b984f1bd3f6ec18ac4ae86a52972643f739743a155",
+      "source_epoch": "f4f4e2681f9814ab93a1fbb96065349b302f27292b6f1aad1edaecaba5b3c8d5",
+      "started_at_utc": "2026-09-07T11:07:05.462309+00:00"
+    },
+    {
+      "command_metadata_sha256": "7e0b4589285a4e41856f7fb6071f7a5b495833cbff35332690ec553c9cb4b148",
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T11:19:24.253660+00:00",
+      "git_head": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "git_head_after": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+      "label": "quality-adjudication-unit-r3",
+      "log_sha256": "7d50fb75f96cc3465fc31d095136722b42d1bdd8eed045fce27677fb85193040",
+      "source_epoch": "17d0db984c8241f766da17866dc1f63fc8008245fd03c605d8f95fbc1f43c5c5",
+      "started_at_utc": "2026-09-07T11:19:22.434142+00:00"
+    }
+  ],
+  "config_sha256": "7cf53c23568cd06c9543f253d9636b4655b135f0e6daf0eb318ace2100807ccb",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "cpu_tests": {
+    "groups": [
+      {
+        "label": "default_tests_after_metadata_corrections",
+        "passed": 766,
+        "skipped": 48
+      },
+      {
+        "label": "existing_boundary_reports",
+        "passed": 248,
+        "skipped": 0
+      },
+      {
+        "label": "format_reports",
+        "passed": 60,
+        "skipped": 0
+      },
+      {
+        "label": "deadline_and_training_binding_reports",
+        "passed": 15,
+        "skipped": 0
+      },
+      {
+        "label": "sft_cpu_reports",
+        "passed": 44,
+        "skipped": 0
+      },
+      {
+        "label": "native_cpu_and_quality_v1_reports",
+        "passed": 60,
+        "skipped": 0
+      }
+    ],
+    "new_tests_included": 53,
+    "passed": 1193,
+    "reason_for_tokenizer_related_skips": "S0 confirmed the fixed 13 cases per engine boundary; no additional fixture encoding. Not a repeat of the prior 1186-check environment.",
+    "repeated_runs_not_added_to_denominator": true,
+    "skipped": 48,
+    "subtests_separate": 110
+  },
+  "default_install": {
+    "actual_Qwen_encoding": "NOT_RUN_IN_DEFAULT_INSTALL",
+    "commands": 6,
+    "includes_fresh_build_and_verify": true,
+    "installed_api_sha256": "3a65193513ef78972e6055f06f53ec85deb0e2403fba4f9cdcb542641a33472a",
+    "installed_package_files": 62,
+    "optional_imports": [],
+    "source_cwd_imports": 0,
+    "status": "PASS",
+    "summary_file_sha256": "d97bc93f31faa6e794f58d6946e1640f8e25eef1f05ddf32941f077dd58c773d"
+  },
+  "frozen_input_items": 217,
+  "generated_at_utc": "2026-09-07T11:33:27.666257+00:00",
+  "input_bindings": {
+    "input_manifest_file_sha256": "02e1f64ffb8c11d32b7653890c25996a1deb17708b2b6e74f5d9703e09761713",
+    "parent_representation_rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "parent_selection_manifest_file_sha256": "eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "prior_quality_manifest_file_sha256": "d97c5d542a0890e1b05d84fcd703895bbd041ad07887fcc370497cfa60d17d3b",
+    "prior_quality_policy_file_sha256": "ddc7902386c5f00032ec938c8baa7f2f338b9d88c260ed0803e00e797feb83ce",
+    "q1_r1_adjudications_file_sha256": "4866810a0fcaeade746fa042534cdf4018345b7fdf64dba435f47538e457d86c",
+    "q1_r2_adjudications_file_sha256": "545bc938c43b83993f7ebf3b33c37395ef69af96ccf166decf2ad719c1868e54",
+    "q1_r2_proposals_file_sha256": "7255c75ded4d1675bfd5920efad07fe9d699cdd6d0b55168c7d7d8d6c33ce2a7",
+    "review_failure_ledger_file_sha256": "951619661cc6982b30f104f39a64b953d5721382c94b0f05fc12edf7ff014f51",
+    "source_dispositions_file_sha256": "16304c09fcd5d11bde706a97265c346271c9a342636a7a6c134c82418e340bcd"
+  },
+  "materials": {
+    "actual_new_encoding_calls_during_republication": 0,
+    "all_28_payload_files_per_engine_reused_exactly": true,
+    "browser_actual_observation": "NOT_RUN",
+    "case_categories": {
+      "effective_selected_train": 10,
+      "original_protocol_only": 3
+    },
+    "engine_measurements": 26,
+    "frozen_selection_sha256": "915954fff442c4bf4e9865225c0985c7eeb832e11faed66f382c49597e7d109c",
+    "native_manifest_sha256": "a4b534f87074427939c3f064e0cc0ba89d7ada3b07ac5422a73d049428a411c2",
+    "original_encodings": {
+      "tokenizers": {
+        "original_consumer": {
+          "contract_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "package_files": {
+            "contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+            "data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+            "data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+            "data/quality_adjudication.py": "44a3ede2fa8dbf6739350d1c6623805def290a29948704d5a2e0fb3ad5d9e8b1",
+            "data/quality_adjudication_materials.py": "91cfe8f6605fbd5eabb517ae089eb9973056e50129d8a96383d928e328e4a9ae",
+            "data/quality_materials.py": "bed3b5fe3f8c8ae781d7b91a8da673851ac7a15af76de0d41a5995a30729ee7d",
+            "data/quality_revision.py": "cb6dce2a974de6ea1a64fc5ad4970488536fe124302a43ea673cc8b59dd5458c",
+            "data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+            "data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+            "data/training_review.py": "f1a7c0ba9d2461a15631f0f9f2394d618a8cf8d33bf8d957e00078d5cabb2097",
+            "data/training_selection.py": "ad3f9c86f125dd8f7c87345fd4f38a1847db986e9157873beea2adafd219b3cd",
+            "model_io/descriptor.v1.json": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+            "model_io/format.py": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+            "model_io/offline.py": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+            "model_io/sequence.py": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+            "tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b"
+          },
+          "python": "3.14.7"
+        },
+        "original_created_at_utc": "2026-09-07T11:10:09.796909+00:00",
+        "original_manifest_sha256": "6add4166aaf832e9bf64c11fec394711b73cb7ba1eb1387c13d83aa72ff48fc5"
+      },
+      "transformers": {
+        "original_consumer": {
+          "contract_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+          "package_files": {
+            "contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+            "data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+            "data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+            "data/quality_adjudication.py": "44a3ede2fa8dbf6739350d1c6623805def290a29948704d5a2e0fb3ad5d9e8b1",
+            "data/quality_adjudication_materials.py": "91cfe8f6605fbd5eabb517ae089eb9973056e50129d8a96383d928e328e4a9ae",
+            "data/quality_materials.py": "bed3b5fe3f8c8ae781d7b91a8da673851ac7a15af76de0d41a5995a30729ee7d",
+            "data/quality_revision.py": "cb6dce2a974de6ea1a64fc5ad4970488536fe124302a43ea673cc8b59dd5458c",
+            "data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+            "data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+            "data/training_review.py": "f1a7c0ba9d2461a15631f0f9f2394d618a8cf8d33bf8d957e00078d5cabb2097",
+            "data/training_selection.py": "ad3f9c86f125dd8f7c87345fd4f38a1847db986e9157873beea2adafd219b3cd",
+            "model_io/descriptor.v1.json": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+            "model_io/format.py": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+            "model_io/offline.py": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+            "model_io/sequence.py": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+            "tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b"
+          },
+          "python": "3.14.7"
+        },
+        "original_created_at_utc": "2026-09-07T11:11:25.970092+00:00",
+        "original_manifest_sha256": "1270110760a300844f9f1fedd03477f0ff4ac8ffb1ddce3aa9d759e92cb0f7c2"
+      }
+    },
+    "records_sha256": "330ce458bb7983d911a1adbfee797bdf82e6f93c7c3cb4e1144f5e767c036f06",
+    "reference_manifest_sha256": "760ab55d590ef0fdd09b9f99014ef307baae86a9c6a7c52f9111eb013a23361e",
+    "semantic_verdicts_filled": 0,
+    "static_html_exact": true,
+    "static_republication_proof_sha256": "8057f2aa6a8ab64d7d557c798757c0652e89bb4a2e0d9abc4d8c894e19c860de",
+    "status": "PASS_COMPLETE_RECORD_EQUALITY",
+    "training_authorized": false,
+    "unique_examples": 13
+  },
+  "not_run": [
+    "browser_actual_observation",
+    "new_staging_encoding",
+    "whole_corpus_encoding",
+    "GPU_or_model",
+    "trainer_consumption",
+    "external_tool_execution",
+    "independent_R1_and_Q1_acceptance",
+    "S0_main_verification",
+    "G_DATA_or_P04_authorization"
+  ],
+  "original_encoding_source_bytes_commit": "d64531c6ae648b6f314c9b2a5b10b321f5adedf9",
+  "preserved_failures": [
+    {
+      "command": "quality-adjudication-intake-r1",
+      "kind": "intake_disposition_enum_assumption",
+      "resolution": "Actual frozen enum adopted; all inputs rechecked before production."
+    },
+    {
+      "command": "quality-adjudication-binding-r1",
+      "kind": "round_qualified_seal_member_binding",
+      "resolution": "Same basename in nested prior review refused; exact round-qualified member binding added."
+    },
+    {
+      "command": "quality-adjudication-material-binding-negative-r1",
+      "kind": "material_top_level_revision_binding",
+      "resolution": "Original fixture reproduced accepted redeclaration; final verifier binds revision and parent tokenizer identity."
+    },
+    {
+      "commands": [
+        "quality-adjudication-ruff-r1",
+        "quality-adjudication-ruff-r2"
+      ],
+      "kind": "ruff_import_checks",
+      "resolution": "Unused import and import order fixed; full Ruff passes."
+    },
+    {
+      "kind": "S0_source_vs_decision_denominator",
+      "original_manifest_sha256": "349e9540e5ad5bee15e2a110a5d371d931346c0be53f1f2b5625a7e6dcbb29a8",
+      "resolution": "5182 distinct sources and 5553 decisions now separate; original output retained."
+    }
+  ],
+  "private_final_seal": "Delivered to S0 with the exact final candidate; original raw inputs and private paths are not published.",
+  "production_and_tests_commit": "f7acd93595bfeb5e81b6eafe53c8d4106ce10a68",
+  "raw_command_count_at_report_snapshot": 43,
+  "review_kind": "independent_Codex_AI_Q1_and_original_E1",
+  "reviewed_source_count": 83,
+  "reviewed_source_decisions": 101,
+  "revision": {
+    "annotations": {
+      "existing_staging_preserved": true,
+      "new_annotations": 0,
+      "promoted": 0
+    },
+    "counts": {
+      "formal_train": {
+        "effective": 5940,
+        "original": 6013,
+        "quarantined_fail": 25,
+        "quarantined_unknown": 48
+      },
+      "formal_validation": {
+        "effective": 213,
+        "original": 217,
+        "quarantined_fail": 1,
+        "quarantined_unknown": 3
+      },
+      "smoke_train": {
+        "effective": 1583,
+        "original": 1600,
+        "quarantined_fail": 5,
+        "quarantined_unknown": 12
+      },
+      "smoke_validation": {
+        "effective": 194,
+        "original": 197,
+        "quarantined_fail": 0,
+        "quarantined_unknown": 3
+      },
+      "train": {
+        "effective": 7421,
+        "original": 7515,
+        "quarantined_fail": 33,
+        "quarantined_unknown": 61
+      },
+      "validation": {
+        "effective": 230,
+        "original": 234,
+        "quarantined_fail": 1,
+        "quarantined_unknown": 3
+      }
+    },
+    "other_decisions_retained_in_affected_groups": 5553,
+    "other_sources_retained_in_affected_groups": 5182,
+    "planning_deviation": {
+      "expected_formal_train": 5940,
+      "original_formal_train_lower_target": 6000,
+      "resolution": "record_actual_count_in_future_P04_configuration_without_refill",
+      "shortfall": 60
+    },
+    "quality_revision_sha256": "615248b9a9ed05a6753fab546c547579c24c0d23adc36528ad4d85784919f8ff",
+    "restored_original_decisions": 3,
+    "restored_original_sources": 3,
+    "source_training_fitness_counts": {
+      "fail": 24,
+      "pass": 3,
+      "unknown": 56
+    }
+  },
+  "revision_manifest_sha256": "0b0fdb79f728256dac42ddba75e0f3fc43aebb9502f2e9097398a482d5774251",
+  "schema": "toolalign.quality-adjudication-worker-evidence.v2",
+  "source_bytes_commit_is_not_execution_head_claim": true,
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "task": "P02-QUALITY-ADJUDICATION-r2",
+  "training_authorized": false,
+  "two_build_crosscheck": {
+    "checked_at_utc": "2026-09-07T11:23:54.183462+00:00",
+    "counts": {
+      "formal_train": {
+        "effective": 5940,
+        "original": 6013,
+        "quarantined_fail": 25,
+        "quarantined_unknown": 48
+      },
+      "formal_validation": {
+        "effective": 213,
+        "original": 217,
+        "quarantined_fail": 1,
+        "quarantined_unknown": 3
+      },
+      "smoke_train": {
+        "effective": 1583,
+        "original": 1600,
+        "quarantined_fail": 5,
+        "quarantined_unknown": 12
+      },
+      "smoke_validation": {
+        "effective": 194,
+        "original": 197,
+        "quarantined_fail": 0,
+        "quarantined_unknown": 3
+      },
+      "train": {
+        "effective": 7421,
+        "original": 7515,
+        "quarantined_fail": 33,
+        "quarantined_unknown": 61
+      },
+      "validation": {
+        "effective": 230,
+        "original": 234,
+        "quarantined_fail": 1,
+        "quarantined_unknown": 3
+      }
+    },
+    "effective_original_line_bytes_preserved": 7651,
+    "excluded_decisions": 98,
+    "fixed_input_files_verified": 217,
+    "manifest_file_sha256": "0b0fdb79f728256dac42ddba75e0f3fc43aebb9502f2e9097398a482d5774251",
+    "other_decisions_retained_in_affected_groups": 5553,
+    "other_sources_retained_in_affected_groups": 5182,
+    "quality_revision_sha256": "615248b9a9ed05a6753fab546c547579c24c0d23adc36528ad4d85784919f8ff",
+    "restored_original_decisions": 3,
+    "restored_original_sources": 3,
+    "restored_profile_members": {
+      "formal/train": 1,
+      "formal/validation": 0,
+      "smoke/train": 1,
+      "smoke/validation": 0
+    },
+    "run_created_at_utc": [
+      "2026-09-07T11:22:42.894569+00:00",
+      "2026-09-07T11:23:07.639366+00:00"
+    ],
+    "semantic_acceptance": "PENDING_INDEPENDENT_REVIEW",
+    "stable_files_per_build": 29,
+    "status": "PASS_WORKER_STDLIB_CROSSCHECK",
+    "training_authorized": false,
+    "two_actual_builds_identical": true,
+    "whole_source_exclusions": 80
+  },
+  "two_build_crosscheck_file_sha256": "e4b26482afe13db806d78b02835e36e0d9f99bad7e1449f39f76b50857d9f03d"
+}
