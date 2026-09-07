@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。R1原1e45cf2对9b7cf01的CPU技术PASS已由S0完整接收：14,011路径、42原命令、14源码快照、三现存归档及60安装包文件绑定通过；1,186CPU/2跳过为R1实际结果。PR12隔离集成/最终CI/main待完成。R1下一5270审计技术包CLAIMED待原生派发，Q1固定50来源/60决策继续ACTIVE；G-DATA和正式P04未授权。[接收证据](../reports/S0_P02_QUALITY_REVIEW_ACCEPTANCE.md)。
+更新时间：2026-09-07。P02质量修订原R1 PASS1e45cf2已接收，普通集成f90be60实际1,186CPU/2跳过、三份新归档及60安装包文件通过；27条命令均符合预期，包含八次预期输入拒绝。PR12最终CI/main待完成。R1已按完整769f9ff原生接续精确5270审计技术复核/ACTIVE，intake待交付；Q1固定50来源/60决策继续，G-DATA和正式P04未授权。[集成证据](../reports/S0_P02_QUALITY_INTEGRATION.md)。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；R1的D1候选PASS待S0完整接收，Q1新50来源裁定ACTIVE；E1完整候选待技术复核，原PR11验收保持 |
+| 当前任务/分支 | S0隔离集成PR12已通过，最终CI/main待完成；R1审计代码复核与Q1新增来源裁定继续 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1/E1/R1原轮completed/idle；Q1新50来源轮ACTIVE；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1与Q1当前轮ACTIVE；D1/E1/T1原轮completed/idle；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -205,3 +205,5 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 21:35:58 UTC完成P04原生toy main验收：P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。[主干证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。本轮13条main命令无失败，110 subtests另记；原安装发生于a1c467a，main新增build/install/API和框架均0。main证明07d240a83632bec66026e643a4936469982c5ad80bec2855fa59d1f36f2a0d9a；旧负例、warning和审计失败保留。
 
 04:00 UTC接续准备：R1原1e45cf2对9b7cf01的CPU技术PASS已由S0完整接收：14,011路径、42原命令、14源码快照、三现存归档及60安装包文件绑定通过；1,186CPU/2跳过为R1实际结果。PR12隔离集成/最终CI/main待完成。R1下一5270审计技术包CLAIMED待原生派发，Q1固定50来源/60决策继续ACTIVE；G-DATA和正式P04未授权。
+
+04:11 UTC隔离集成：P02质量修订原R1 PASS1e45cf2已接收，普通集成f90be60实际1,186CPU/2跳过、三份新归档及60安装包文件通过；27条命令均符合预期，包含八次预期输入拒绝。PR12最终CI/main待完成。R1已按完整769f9ff原生接续精确5270审计技术复核/ACTIVE，intake待交付；Q1固定50来源/60决策继续，G-DATA和正式P04未授权。
