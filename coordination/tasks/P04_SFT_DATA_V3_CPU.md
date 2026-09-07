@@ -1,6 +1,6 @@
 # P04-SFT-DATA-V3-CPU｜冻结v3数据与审阅数组衔接
 
-状态：CLAIMED，T1，尚未原生派发。code_base为已合并`48be4352bbad53ced5af84186edac036dd0ff2ca`，其生产源码与已验证PR15 main90c4da9保持；G-DATA已按[固定v3批准](../approvals/P02_DATA_V3.json)通过。authorization_commit由S0原生消息提供完整SHA。遵循plan-v0.1、coordination.v1、toolalign.contracts.v1和角色保留Action JSON v1，gpt-6-astra/max。
+状态：IN_PROGRESS，T1；已于2026-09-07 17:45:52 UTC按完整授权`0fa77e228021091e357505a0e81a5d3ba0777928`原生派发并核验新轮ACTIVE。新branch/20授权/609输入intake待交付。code_base为已合并`48be4352bbad53ced5af84186edac036dd0ff2ca`，其生产源码与已验证PR15 main90c4da9保持；G-DATA已按[固定v3批准](../approvals/P02_DATA_V3.json)通过。authorization_commit由S0原生消息提供完整SHA。遵循plan-v0.1、coordination.v1、toolalign.contracts.v1和角色保留Action JSON v1，gpt-6-astra/max。
 
 沿用T1独立App任务，gpt-6-astra/max；branch codex/p04-sft-data-v3-cpu-r1，私有scope p04-sft-data-v3-cpu-r1。先保存完整授权中的任务、S0精确配置、AGENTS/GOAL/PROTOCOL、REVIEW_POLICY、ADR及v3/Q1/R1/main验收；保全原4baa367方案、f7326d1固定toy及此前已封存Git/运行/根identity。只在自己的worktree切换新base，新identity只写新scope。
 
