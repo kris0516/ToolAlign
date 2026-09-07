@@ -1,0 +1,21 @@
+{
+  "candidate_v3_data_exists": false,
+  "config_version": "toolalign.q1-v3-source-review-config.v1",
+  "fixed_sources": 2,
+  "input_manifest_file_sha256": "7d9ad0102b965a75071032d5be3e60dd1a91c09894a739ed852952c1ebbcfd2c",
+  "model": "gpt-6-astra",
+  "new_artifact_bytes": 134217728,
+  "new_encoding_or_model_runs": 0,
+  "no_resampling_or_mutation": true,
+  "raw_turns": 8,
+  "review_current_action_and_full_source_fitness_separately": true,
+  "reviewer": "Codex-AI(Q1)",
+  "source_context_file_sha256": "31f7c9bf7b72721492166bba97f4da1999a153f24894ac335ccc4132aff75161",
+  "task": "Q1-P02-v3-sources-r4",
+  "thinking": "max",
+  "token_mask_and_exclusion_acceptance_in_scope": false,
+  "training_authorized": false,
+  "valid_decisions": 3,
+  "verified_code_base": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+  "whole_source_all_valid_decisions_required": true
+}
