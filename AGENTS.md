@@ -95,6 +95,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 质量修订隔离集成与审计技术接续 | 普通集成f90be60实际1,186CPU/2跳过、三新归档及60安装包字节通过；[证据](reports/S0_P02_QUALITY_INTEGRATION.md)。PR12最终CI/main待完成；R1精确5270审计技术轮已原生ACTIVE |
 | 2026-09-07 | 质量修订CPU主干验收 | VERIFIED；[PR12](https://github.com/kris0516/ToolAlign/pull/12)普通合并6c81dfc，原R1 PASS1e45cf2保持；最终双Python CI及main1,186CPU/2跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。Q1/R1后续范围继续，G-DATA/P04未授权 |
 | 2026-09-07 | 第二轮裁定、审计原FAIL与修复交接 | 原Q1 42d9已接收/原SHA整合，S0核验1,643路径；原R1 FAIL9645055核验9,673路径，TYPE-001首次1次；E1最终da22修复核验2,943路径/37原命令，R1-r2范围CLAIMED待派发，见[交接](reports/S0_P02_AUDIT_TYPE_FIX_HANDOFF.md) |
+| 2026-09-07 | 审计修复复审与新版数据范围 | R1按完整e8def03原生审da22/ACTIVE；D1 v2的217输入/83来源/101决策已冻结，S0核对374路径，CLAIMED待派发，见[新范围](reports/S0_P02_QUALITY_V2_SCOPE.md)；原失败与未训练门槛保持 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -124,7 +125,7 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时�
 
 P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
 
-Q1第二轮原42d9d56已接收/原生空闲，S0核验1,643路径；R1原5270正式FAIL9645055已核验9,673路径，TYPE-001首次未通过1次；E1最终da22修复/原生空闲，S0核验2,943路径，R1精确复审CLAIMED待原生派发。下一数据版按已裁定规则隔离80来源/98决策、恢复3来源，完整输入冻结中，尚未生成。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
+Q1第二轮原42d9已接收/原生空闲；R1原5270正式FAIL9645055的TYPE-001首次未通过1次；E1最终da22修复交接已核验。R1按e8def03原生接续精确da22复审/ACTIVE，新intake待S0核验。D1新数据版217项输入和v2配置已冻结，处置80来源/98决策隔离、3来源恢复，CLAIMED待原生派发；[新范围](reports/S0_P02_QUALITY_V2_SCOPE.md)。PR12 CPU技术VERIFIED保持，G-DATA/P04未授权。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 

@@ -1,0 +1,126 @@
+{
+  "config_version": "toolalign.quality-adjudication-policy.v2",
+  "status": "CPU_ADJUDICATION_CANDIDATE",
+  "training_authorized": false,
+  "verified_code_base": "6c81dfcc855fca188181d1bb08870f47d8edacc9",
+  "review_kind": "independent_Codex_AI_Q1_and_original_E1",
+  "input_bindings": {
+    "input_manifest_file_sha256": "02e1f64ffb8c11d32b7653890c25996a1deb17708b2b6e74f5d9703e09761713",
+    "source_dispositions_file_sha256": "16304c09fcd5d11bde706a97265c346271c9a342636a7a6c134c82418e340bcd",
+    "review_failure_ledger_file_sha256": "951619661cc6982b30f104f39a64b953d5721382c94b0f05fc12edf7ff014f51",
+    "prior_quality_policy_file_sha256": "ddc7902386c5f00032ec938c8baa7f2f338b9d88c260ed0803e00e797feb83ce",
+    "prior_quality_manifest_file_sha256": "d97c5d542a0890e1b05d84fcd703895bbd041ad07887fcc370497cfa60d17d3b",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "parent_selection_manifest_file_sha256": "eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd",
+    "parent_representation_rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "q1_r1_adjudications_file_sha256": "4866810a0fcaeade746fa042534cdf4018345b7fdf64dba435f47538e457d86c",
+    "q1_r2_adjudications_file_sha256": "545bc938c43b83993f7ebf3b33c37395ef69af96ccf166decf2ad719c1868e54",
+    "q1_r2_proposals_file_sha256": "7255c75ded4d1675bfd5920efad07fe9d699cdd6d0b55168c7d7d8d6c33ce2a7"
+  },
+  "allowed_source_splits": [
+    "train",
+    "validation"
+  ],
+  "disposition": {
+    "unit": "entire_source_all_decisions",
+    "fixed_sources": 83,
+    "excluded_sources": 80,
+    "excluded_decisions": 98,
+    "restored_original_sources": 3,
+    "source_training_fitness_counts": {
+      "fail": 24,
+      "unknown": 56,
+      "pass": 3
+    },
+    "preserve_group_and_split": true,
+    "preserve_other_sources_in_same_group": true
+  },
+  "effective_selection": {
+    "strategy": "filter_original_selection_without_refill",
+    "restore_original_bytes_at_parent_rank": true,
+    "retain_parent_rank": true,
+    "unchanged_examples_keep_original_bytes": true,
+    "new_annotations_enter_effective_training": false
+  },
+  "expected_counts": {
+    "train": {
+      "original": 7515,
+      "quarantined_fail": 33,
+      "quarantined_unknown": 61,
+      "effective": 7421
+    },
+    "validation": {
+      "original": 234,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3,
+      "effective": 230
+    },
+    "formal_train": {
+      "original": 6013,
+      "quarantined_fail": 25,
+      "quarantined_unknown": 48,
+      "effective": 5940
+    },
+    "formal_validation": {
+      "original": 217,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3,
+      "effective": 213
+    },
+    "smoke_train": {
+      "original": 1600,
+      "quarantined_fail": 5,
+      "quarantined_unknown": 12,
+      "effective": 1583
+    },
+    "smoke_validation": {
+      "original": 197,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 3,
+      "effective": 194
+    }
+  },
+  "planning_deviation": {
+    "original_formal_train_lower_target": 6000,
+    "expected_formal_train": 5940,
+    "shortfall": 60,
+    "resolution": "record_actual_count_in_future_P04_configuration_without_refill"
+  },
+  "annotations": {
+    "new_reannotations": 0,
+    "promotion": false,
+    "existing_staging": "read_only_reference_excluded_from_effective_training"
+  },
+  "materials": {
+    "effective_train_examples": 10,
+    "supplemental_original_action_kinds": [
+      "final",
+      "clarify",
+      "refuse"
+    ],
+    "protocol_enters_training": false,
+    "fixed_case_count_per_engine": 13,
+    "engines": [
+      "transformers",
+      "tokenizers"
+    ],
+    "new_case_limit_per_engine": 13,
+    "verdicts_prefilled": false,
+    "browser_actual_observation": "NOT_RUN",
+    "reuse_shared_formatter_and_sequence_kernels": true
+  },
+  "limits": {
+    "new_artifact_bytes": 2147483648,
+    "new_environments": 0,
+    "new_downloads": 0,
+    "model_or_gpu_runs": 0,
+    "full_corpus_tokenization_runs": 0
+  },
+  "pending": [
+    "independent_R1_revision_review",
+    "independent_Q1_material_and_disposition_verification",
+    "S0_main_verification",
+    "G_DATA_acceptance",
+    "explicit_P04_configuration_and_capacity"
+  ]
+}
