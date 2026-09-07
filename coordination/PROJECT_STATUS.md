@@ -260,3 +260,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 21:21:25–27 UTC，S0完成T1特殊文件修订1769046接收，证明 `6c7cbc37e690cb270d3b33d80e0934efe1b0881191cedb6ec65e2d239e3ae39b`；12,675路径/26原命令与终态、三归档/65生产包文件、四个原FIFO节点通过，旧证据保持。Draft PR18已建立，R1-r2精确范围READY未派发，原F1连续失败仍1；当前修订真实数据消费NOT_RUN，R1当前模型CPU轮继续。[接收](../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
 
 2026-09-07 21:32:11 UTC，S0完成R1模型CPU新intake核验89,074路径/14授权/42输入，证明 `75daa8a0582efc17daf969b5ec06e29336a023dc5837ed163e03a3b6e6f623cc`；623旧b99公开Git/快照、1,628链接/原FIFO及缺失例外保持，原模型文件只hash/header，无模型加载。PR18候选双Python CI及实际9167/639文件绑定通过，R1当前模型完整verdict和数据修订复审继续待完成。
+
+2026-09-07 21:41:04 UTC，S0用原23例cohort元数据冻结60例次容量诊断计划a25ddc2e及预先数值阈值；79训练微步/10计划更新不变，合计逻辑token193,996。padding对照原rank3确有26个padding位，所有实际编码/模型/更新仍0，原生runtime CPU仍PLANNED；见[ADR-0028/准备](../reports/S0_P04_CAPACITY_READINESS.md)。

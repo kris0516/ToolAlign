@@ -296,3 +296,11 @@ ADR-0025主干与质量验收补记（2026-09-08）：PR15普通合并90c4da9，
 两个已在本机的原模型及现有库/源码由S0固定，metadata只绑定身份、不提供执行许可。明确区分311个序列化BF16 tensor、sanitize后的预期310底座叶和112个LoRA A/B；记录双EOS及原采样默认值。E1仅做CPU测试与有限真实文件hash/header核对，不导入框架或反序列化tensor。T1当前 data_v3.py 与旧公共代码/配置不变，不要求T1提前消费E1候选。两包分别经R1与main验收后，T1真实runtime应复用此共同接口，避免另写加载/adapter身份逻辑。旧只读方案作为历史提案保留，新所有权以本ADR和完整任务授权为准。
 
 R1按两包完整候选的实际交付和资源状态逐包接续；仅在各worker原生终态后分发精确候选。S0后续冻结容量与运行配置；本包模型/框架/GPU/新编码和正式训练额度为0，原费用、隐私与单一共享租约边界保持。
+
+## ADR-0028｜容量诊断先固定同例前向与数值判定
+
+日期：2026-09-08；状态：仅计划已冻结，无运行授权。当前R1审模型CPU、数据修订r2 READY；两个包及后续原生runtime仍须独立R1/最终CI/main。S0将已接收方案的64例次诊断上限收敛为[固定60例次清单](plans/P04_QWEN_CAPACITY_DIAGNOSTICS.v1.json)，沿用原23例cohort，原15例/8+7与前8例重复8遍保持79微步/10计划更新。该清单在任何新模型输出前固定，见[元数据证据](../reports/S0_P04_CAPACITY_READINESS.md)。
+
+raw validation8、raw/零LoRA的padding两对共4、step2/10/reload各16，逐个绑定原rank/数据身份；padding对照取已选1536 bucket中最长且实际有padding的原例，不扩大23个唯一例。CE、同例重载、冻结底座/adapter身份和过拟合阈值按计划固定；未列4次不作为调试/重试额度。失败须保留并按具体原因调整后续独立范围，不能看到输出后改阈值或增步凑PASS。
+
+本计划与cohort都不是运行配置，实际编码/框架/模型/GPU/优化0。T1后续CPU实现保存并只用原创模拟验证规则；未来S0运行授权还须绑定已验收runtime源码、实际23例数组、单一物理GPU租约及准确wall/RSS/MLX/swap/制品预算。grad_checkpoint固定False、native compile保持，与原方案相同；旧toy/P01守卫不修改，完整smoke/formal不继承容量adapter。

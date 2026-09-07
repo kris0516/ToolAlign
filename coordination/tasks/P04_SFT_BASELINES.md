@@ -1,6 +1,6 @@
 # P04｜原始模型与 SFT 实验
 
-最新依赖（2026-09-08）：P02冻结v3的G-DATA已PASS；原R1技术、PR15 main90c4da9和Q1 7941实际处置/13材料通过，82问题均关闭。T1原v3 CPU候选f3经R1正式b99a644审查FAIL/P2=1，定点修订1769046已交付/原生空闲，完整接收及复审待完成；正式模型仍待容量实测、精确运行配置/GPU预算与独立验收。所有人工审核由Q1承接，无需kris抄填或签字。浏览器实显NOT_RUN单列；[数据批准](../approvals/P02_DATA_V3.json)。
+最新依赖（2026-09-08）：P02冻结v3的G-DATA已PASS；原R1技术、PR15 main90c4da9和Q1 7941实际处置/13材料通过，82问题均关闭。T1原v3 CPU候选f3经R1正式b99a644审查FAIL/P2=1，定点修订1769046已完整接收/候选CI通过/原生空闲，独立r2 READY待派发；正式模型仍待容量实测、精确运行配置/GPU预算与独立验收。所有人工审核由Q1承接，无需kris抄填或签字。浏览器实显NOT_RUN单列；[数据批准](../approvals/P02_DATA_V3.json)。
 
 状态：BLOCKED（正式模型运行）。P00/P01受限G1/P03 CPU、数据/共用格式、SFT CPU准备与原创native toy技术均VERIFIED；G-DATA已通过冻结v3范围。真实trainer消费、0.6B1536及1.7B2048容量和正式baseline/SFT仍NOT_RUN，training_authorized=false。本任务尚未分发正式训练；以下历史准备记录保持。
 

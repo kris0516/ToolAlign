@@ -1,0 +1,351 @@
+{
+  "acceptance": {
+    "all_frozen_base_leaf_bytes_unchanged": true,
+    "at_least_one_declared_lora_leaf_changed": true,
+    "finite_nonnegative_CE_and_positive_integer_supervision": true,
+    "global_optimizer_steps_after_capacity_and_overfit": [
+      2,
+      10
+    ],
+    "initial_all_lora_B_raw_bytes_zero": true,
+    "native_and_independent_aggregate_CE_abs_delta_max_formula": "1e-5 * max(1, abs(CE_independent))",
+    "overfit_comparison": "CE_step10 <= 0.90 * CE_step2 OR CE_step10 <= 0.1",
+    "overfit_reduction": "total_CE_over_total_supervised_tokens_on_same_first_8_train_examples",
+    "padded_unpadded_BF16_CE_abs_delta_max": 0.02,
+    "reload_all_lora_and_frozen_base_leaf_bytes_exact": true,
+    "reload_same_examples_CE_abs_delta_max": 1e-05,
+    "unknown_incomplete_nonfinite_or_budget_failure_is_not_PASS": true,
+    "zero_adapter_same_representation_CE_abs_delta_max": 1e-05
+  },
+  "actual_forward_examples": 0,
+  "actual_model_updates": 0,
+  "arrays": "PENDING_SEPARATE_23_EXAMPLE_CPU_ENCODING_SCOPE",
+  "created_at_utc": "2026-09-07T21:41:04.174198+00:00",
+  "data_approval_sha256": "1edb1e889b91dbde5dc6208b8dff2afdaa4b4a20a0ba5c166e9b55750429ec44",
+  "forward_groups": [
+    {
+      "expected_training_step": 0,
+      "group": "raw_baseline_validation",
+      "logical_causal_positions": 10744,
+      "logical_tokens": 10752,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        64,
+        150
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "validation",
+      "state": "raw",
+      "supervised_tokens": 1006
+    },
+    {
+      "expected_training_step": 0,
+      "group": "raw_padding_pair",
+      "logical_causal_positions": 3044,
+      "logical_tokens": 3046,
+      "model_forward_examples": 2,
+      "original_smoke_ranks": [
+        3,
+        3
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "unpadding_equivalence_only"
+      ],
+      "split": "train",
+      "state": "raw",
+      "supervised_tokens": 334
+    },
+    {
+      "expected_training_step": 0,
+      "group": "zero_adapter_padding_pair",
+      "logical_causal_positions": 3044,
+      "logical_tokens": 3046,
+      "model_forward_examples": 2,
+      "original_smoke_ranks": [
+        3,
+        3
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "unpadding_equivalence_only"
+      ],
+      "split": "train",
+      "state": "lora_initial",
+      "supervised_tokens": 334
+    },
+    {
+      "expected_training_step": 2,
+      "group": "step2_overfit_train",
+      "logical_causal_positions": 11256,
+      "logical_tokens": 11264,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "train",
+      "state": "lora",
+      "supervised_tokens": 848
+    },
+    {
+      "expected_training_step": 2,
+      "group": "step2_validation",
+      "logical_causal_positions": 10744,
+      "logical_tokens": 10752,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        64,
+        150
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "validation",
+      "state": "lora",
+      "supervised_tokens": 1006
+    },
+    {
+      "expected_training_step": 10,
+      "group": "step10_overfit_train",
+      "logical_causal_positions": 11256,
+      "logical_tokens": 11264,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "train",
+      "state": "lora",
+      "supervised_tokens": 848
+    },
+    {
+      "expected_training_step": 10,
+      "group": "step10_validation",
+      "logical_causal_positions": 10744,
+      "logical_tokens": 10752,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        64,
+        150
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "validation",
+      "state": "lora",
+      "supervised_tokens": 1006
+    },
+    {
+      "expected_training_step": 10,
+      "group": "reload_step10_overfit_train",
+      "logical_causal_positions": 11256,
+      "logical_tokens": 11264,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "train",
+      "state": "reloaded_lora",
+      "supervised_tokens": 848
+    },
+    {
+      "expected_training_step": 10,
+      "group": "reload_step10_validation",
+      "logical_causal_positions": 10744,
+      "logical_tokens": 10752,
+      "model_forward_examples": 8,
+      "original_smoke_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        64,
+        150
+      ],
+      "representations": [
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket",
+        "original_padding_bucket"
+      ],
+      "split": "validation",
+      "state": "reloaded_lora",
+      "supervised_tokens": 1006
+    }
+  ],
+  "is_run_authorization": false,
+  "measurement_rules": [
+    "Each listed example causes at most one teacher-forced forward; reuse its unreduced loss for independent totals and the injected native evaluate result instead of running a second full validation pass.",
+    "Unpadding equivalence removes only right padding in a diagnostic view; it never truncates valid tokens, changes target masks or replaces the original training arrays.",
+    "Raw baseline and initial LoRA share step 0; final reloaded step 10 is source metadata for weights_only_restart, not a new optimizer claiming 10 updates.",
+    "Retain all original failures. Do not add examples, forwards, updates, retries or alter thresholds after seeing results.",
+    "One future GPU child and at most two sequential model loads are a proposal ceiling, not activated by this plan. Actual wall/RSS/MLX/swap/artifact limits remain subject to a separate precise S0 run authorization."
+  ],
+  "model": {
+    "base_dtype": "BF16",
+    "grad_checkpoint": false,
+    "id": "Qwen/Qwen3-0.6B",
+    "lora_dropout": 0,
+    "lora_dtype": "F32",
+    "lora_rank": 8,
+    "lora_scale": 2,
+    "native_compile": true,
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca"
+  },
+  "model_metadata_sha256": "b8a5e48bc2b93064c511ba796dabf55024f65df97fe0db39c43366b7bc877145",
+  "model_or_framework_or_GPU_or_encoding_calls_authorized": 0,
+  "optimization_authorized": false,
+  "owner": "S0",
+  "padding_probe": {
+    "capacity_rank": 3,
+    "original_smoke_rank": 3,
+    "padding_bucket": 1536,
+    "sequence_tokens": 1510,
+    "supervised_tokens": 167
+  },
+  "padding_probe_rule": "Among the existing 15 train rows, choose the longest actual sequence strictly shorter than its 1536 padding bucket, ties by original smoke rank. No new row selection.",
+  "private_fixed_events_sha256": "8a05b19501d03b168b90e60b40e091f8e31219260c05be448a93369ed53b82a4",
+  "runtime_dependency": "BOTH_DATA_AND_MODEL_CPU_AND_RUNTIME_CPU_MAIN_VERIFIED",
+  "schema": "toolalign.qwen06-capacity-diagnostic-plan.v1",
+  "source_cohort_sha256": "a6e09dbff4050f259ac5219efc0b67fb3a89a601c5d56dd2125b7bcb9dfe9f6d",
+  "status": "FROZEN_PLAN_ONLY_NOT_RUN_AUTHORIZATION",
+  "totals": {
+    "combined_logical_token_ceiling": 262144,
+    "combined_logical_tokens": 193996,
+    "diagnostic_forward_examples": 60,
+    "diagnostic_logical_causal_positions": 82832,
+    "diagnostic_logical_tokens": 82892,
+    "diagnostic_supervised_tokens": 7236,
+    "generation_requests": 0,
+    "training_logical_causal_positions": 111025,
+    "training_logical_tokens": 111104,
+    "training_microsteps": 79,
+    "training_supervised_tokens": 8320,
+    "training_updates_planned": 10,
+    "unused_original_forward_ceiling_slots_authorized": 0
+  },
+  "training_authorized": false,
+  "training_plan": {
+    "actual_updates": 0,
+    "capacity_gradient_divisors": [
+      8,
+      7
+    ],
+    "capacity_microsteps": 15,
+    "capacity_updates": 2,
+    "overfit_microsteps": 64,
+    "overfit_original_smoke_ranks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "overfit_repetitions": 8,
+    "overfit_updates": 8,
+    "total_training_microsteps": 79,
+    "total_updates_planned": 10,
+    "training_logical_padding_tokens": 111104,
+    "training_supervised_tokens": 8320
+  }
+}
