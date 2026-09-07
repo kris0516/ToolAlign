@@ -31,3 +31,7 @@ S0新增构建、安装、分词、模型/框架/GPU均0。浏览器实显、真
 Q1新版输入现已冻结，manifest SHA`aa4fba710891eb969371c80bea931abcff8a54c988b8a4cee95ec4145bc95f7d`，346项包含286精确副本和60现存只读制品引用，副本167,662,769 bytes，S0冻结证明`317ec8423b485b0869ba374587ab9dabf78457420471ef71fbcc8e6389a0c32a`。83来源/101决策用于实际处置核验；10新材料来源的11决策加3原创协议例，共14唯一语义目标，其中13个有token材料。原83来源不重新做全批语义裁定，不新增抽样/分词。完整[Q1任务](../coordination/tasks/Q1_P02_V2_REVIEW.md)与[配置](../coordination/tasks/Q1_P02_V2_REVIEW_CONFIG.v1.json)已原生派发，配置SHA`102864b6712f8db20b21b82b3a999dda7819be8e506e11df39aabd58f65f15a5`；S0于12:15 UTC再次核验旧轮completed/notLoaded及干净42d9后，按完整d31ca701b49c8b387dce35aa986a9784f7f6f32e派发并核验新轮ACTIVE，gpt-6-astra/max。新branch/intake待交付。
 
 12:19 UTC技术intake接收：R1实际review/p02-quality-adjudication-r1/1c47已核验；S0接收intake共25,763路径/533链接、492候选/480不变基线、15授权副本及旧504公开Git/快照通过，独立技术结论待交付。R1原intake SHA`ccf7fb99124f1bd316382b5082629a8cd02141810ab688185a1fc4f7b115cc4e`；S0证明`d973ed315e8903fb8bdceba726fc0877e87f17e78357ba1806f407c58f823aaa`。本次只核对输入、身份、Git及现存证据，新增生产运行0；原只读辅助字段KeyError按R1记录保留，不计正式修订失败。
+
+12:29 UTC，Q1新review/q1-quality-v2-r3/d9e5622的完整intake经S0接收：2,606当前路径、529新基线、452旧公开Git/双快照、511旧私有文件、12授权副本、286冻结副本/60引用均匹配。S0证明`f6fa05c9a5accdd44fc122eb43da2bfe4323ed4288434494c0aad0187da41695`；10条原intake命令及34源码/输出绑定另证`b4d3cce69d8e93b504e1bd8ca8cdc90245e6d9efebf6fc8d579b49a6e890a68d`。首个辅助脚本对两旧seal结构假设不符的exit1保持，兼容读取后通过，不增加正式修订失败。Q1按固定83来源处置、14唯一语义目标/13材料继续，尚无最终独立结论。
+
+同日Git-only组合预检查在S0 main9303bc0与精确候选1c47间exit0，无冲突，生成树42675fcf4a9e215d6446067e8f4d6979fd11c7f9；未改变checkout、未创建集成提交或运行测试，不能代替最终集成CI/main。

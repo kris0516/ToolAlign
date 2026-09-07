@@ -19,7 +19,7 @@
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |
-| [Q1-P02-v2-r3](tasks/Q1_P02_V2_REVIEW.md) 新版处置与固定材料审核 | Q1 | 精确1c47/346冻结输入 | IN_PROGRESS | 已按完整d31ca701原生派发/ACTIVE；83来源处置及14语义目标/13材料，完整intake待交付 |
+| [Q1-P02-v2-r3](tasks/Q1_P02_V2_REVIEW.md) 新版处置与固定材料审核 | Q1 | 精确1c47/346冻结输入 | IN_PROGRESS | 按完整d31ca701原生ACTIVE；S0核验2,606路径/10原命令，83来源处置及14语义目标/13材料审核继续 |
 | [P02-QUALITY-AUDIT-REVIEW](tasks/P02_QUALITY_AUDIT_REVIEW.md) 原审计技术复核 | R1 | 精确5270d1e | CHANGES_REQUESTED | 原9645055 FAIL/P2=1、S0核验9,673路径/27命令；原生空闲 |
 | [P02-QUALITY-AUDIT-TYPE-FIX](tasks/P02_QUALITY_AUDIT_TYPE_FIX.md) 审计JSON类型保真 | E1 | 已验证6c81/原5270 | VERIFIED（CPU） | PR13普通合并1887feb；原R1 PASS0cefe771、最终双Python CI与main55pytest/15页面检查通过 |
 | [P02-QUALITY-AUDIT-TYPE-REVIEW](tasks/P02_QUALITY_AUDIT_TYPE_REVIEW.md) 类型修复复审 | R1 | 精确da22 | VERIFIED（CPU） | 原0cefe771 PASS/原生空闲；随PR13合并并完成main验证，原9645055 FAIL保持 |
