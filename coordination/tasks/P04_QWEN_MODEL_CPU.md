@@ -1,6 +1,6 @@
 # P04-QWEN-MODEL-CPU｜固定本地 Qwen 加载与参数身份
 
-状态：CLAIMED，E1；S0 已冻结输入，尚未原生派发。此 CPU 实现与 T1 的 v3 数据/数组衔接并行，互不依赖变化中的代码；两个包各自通过 R1、最终 CI/main 后，才可供 T1 的真实运行接口复用。采用独立 E1 App 任务，gpt-6-astra/max，禁止 sub-agent。
+状态：IN_PROGRESS，E1；已于2026-09-07 18:21:42 UTC按完整授权 `427e5e8fb49a4719afd5e09b53c2d012c52e7e80` 原生派发并核验新轮ACTIVE。新branch/14授权/42输入intake待交付。此 CPU 实现与 T1 的 v3 数据/数组衔接并行，互不依赖变化中的代码；两个包各自通过 R1、最终 CI/main 后，才可供 T1 的真实运行接口复用。采用独立 E1 App 任务，gpt-6-astra/max，禁止 sub-agent。
 
 code_base `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`；authorization_commit 由 S0 实际原生消息提供完整 SHA。固定输入 manifest 为 `41aadaa79eac7467c7ef2b7c39a0524ec894d1b0e9c616d7a6ab303d05e33cc5`，旧 E1 保全证明 `61caaa835a609cc598f8480b0741eb1e115f80c54f077c2876df3970b9378144`。新分支 `codex/p04-qwen-model-cpu-r1`，新私有 scope `p04-qwen-model-cpu-r1`。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1 和 ADR-0027。切换前保存完整授权副本及旧审计/类型修订 seal、所有旧 FAIL/PASS、分支和根 identity；新身份只写新 scope。
 

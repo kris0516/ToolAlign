@@ -1,6 +1,6 @@
 # S0｜固定 Qwen 模型接口 CPU 准备
 
-状态：**CLAIMED，输入已冻结，尚未原生派发**。任务 [P04-QWEN-MODEL-CPU](../coordination/tasks/P04_QWEN_MODEL_CPU.md)由原独立 E1 承接，gpt-6-astra/max；代码基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d` 的生产源码保持已验证 PR15 main90c4da9。本包新增固定文件验证、延迟 loader 和参数/LoRA 身份接口，供后续训练与推理复用；与 T1 当前数据 CPU 适配使用独立模块和 worktree。两包各自完成独立审查及 main 验证后，再冻结真实运行范围。
+状态：**IN_PROGRESS，已原生派发并核验 ACTIVE**。任务 [P04-QWEN-MODEL-CPU](../coordination/tasks/P04_QWEN_MODEL_CPU.md)由原独立 E1 承接，gpt-6-astra/max；代码基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d` 的生产源码保持已验证 PR15 main90c4da9。本包新增固定文件验证、延迟 loader 和参数/LoRA 身份接口，供后续训练与推理复用；与 T1 当前数据 CPU 适配使用独立模块和 worktree。两包各自完成独立审查及 main 验证后，再冻结真实运行范围。
 
 S0 于 2026-09-07 18:04:24 UTC 只读核对两模型 20 个现有文件、9 份环境 metadata 和固定源码，35 路径证明 `8effb47b0123e9510820393733ea90b5cfd5260d045d5fd2114afbb07e75a0e5`。通过 stdlib 读取 safetensors header 并流式 hash 原 tensor 字节，未构造数组或反序列化 tensor 值；固定源码表明 tied-embedding loader 移除独立 `lm_head.weight`，LoRA 将 56 个底座权重名映射至 `.linear.weight`。实际加载及参数装配仍 NOT_RUN。
 
@@ -22,3 +22,5 @@ S0 于 2026-09-07 18:04:24 UTC 只读核对两模型 20 个现有文件、9 份�
 E1 原 da22baf 类型修订已 completed/notLoaded、分支干净。S0 复核原接收 2,943 路径、498 原公开 Git/新快照、1,209 当前旧 scope 文件、39 链接文本、原 refs 和根 identity，保全证明 `61caaa835a609cc598f8480b0741eb1e115f80c54f077c2876df3970b9378144`。冻结总证明 `9157b518ed35bd13caf693b0457d8157113c55c1e266b68eb8240148618c76ff`，3,503 当前路径；检查器 exit 0，共享 GPU OS 锁实际未持有。
 
 本轮 S0 新模型/框架/GPU/编码/数据构建/下载/安装均 0，未运行生产测试。E1 的实际新身份/intake、完整候选/CPU 证据、R1、最终 CI/main 均待完成。后续真实参数、容量、零 LoRA/冻结底座与 adapter 重载须另有运行证据；不存在正式模型训练、评测或服务验收。
+
+实际派发：2026-09-07 18:21:42 UTC，S0再次核验E1旧轮completed/notLoaded、干净da22baf和完整授权 `427e5e8fb49a4719afd5e09b53c2d012c52e7e80` 远端一致后，原生接续E1，显式gpt-6-astra/max；新轮ACTIVE已确认。新branch/14授权副本/42输入完整intake待交付，尚未登记实现或运行通过。T1继续原CPU数据范围，当前两个实现，R1/Q1/D1无新派发。
