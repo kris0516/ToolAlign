@@ -1,0 +1,630 @@
+{
+  "actual_review_consumption": {
+    "calls_per_model": 1,
+    "data_builds_or_arrays": 0,
+    "fixed_model_validation_API_calls": 2,
+    "framework_tensor_tokenizer_model_GPU_runs": 0,
+    "new_archive_builds": 0,
+    "new_environments_dependencies_downloads": 0,
+    "new_weight_copies": 0,
+    "offline_no_deps_installs": 1,
+    "remaining_install": 0,
+    "remaining_real_model_validation_calls": 0,
+    "tensor_value_decoding": 0
+  },
+  "authorization_commit": "9a29a72f9c418ff5c18c12f0065eae4f311aa3ec",
+  "candidate": "01eeb74d1bce3c3a3c41d84575d4d706e246e818",
+  "candidate_tree": "3b194325c9b6ecba4356f46eb4ad91c8f9e63642",
+  "completed_verification_commands_before_report": {
+    "checkout": {
+      "ended_at_utc": "2026-09-07T21:14:06.121525+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1638,
+        "sha256": "fdede363a15e0868e7fcab717b42cc4234a81e809bef84193b1d461cbb906bd5"
+      },
+      "source_after": {
+        "file_count": 623,
+        "files_sha256": "070bbdc50e2c64ffaea57d37e5ff00d5f107b435c7529ad4eea52ef1466bf6a6",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 623,
+        "files_sha256": "9aa95d1759c021fba3adf5a2a9046a4fc285f097628b1e7f423cdbf2a65722c6",
+        "head": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a"
+      },
+      "started_at_utc": "2026-09-07T21:14:06.097363+00:00",
+      "stderr": {
+        "bytes": 58,
+        "sha256": "04b34def3299620184680f39ec602ed36270b96c5ce85b1f77e3088054b284f9"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "contract": {
+      "ended_at_utc": "2026-09-07T21:46:49.518380+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1878,
+        "sha256": "8683cca1a753a1ea0ba1eed084ebb3d54a39d03e27a6a71330269bfd34a6f71e"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:49.481491+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 39,
+        "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+      }
+    },
+    "diff-check": {
+      "ended_at_utc": "2026-09-07T21:46:49.517762+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1652,
+        "sha256": "84734009cf663a8c5335c27ee42363fef58e0a67e9a91d07b0a4e7c52dc28f8f"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:49.494803+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "existing-unit": {
+      "ended_at_utc": "2026-09-07T21:32:07.662254+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 2509,
+        "sha256": "8c29d85fd4728e461c208345f603144a47672f8bb015b3d6d458dbc0d0c243b8"
+      },
+      "source_after": {
+        "file_count": 623,
+        "files_sha256": "070bbdc50e2c64ffaea57d37e5ff00d5f107b435c7529ad4eea52ef1466bf6a6",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 623,
+        "files_sha256": "070bbdc50e2c64ffaea57d37e5ff00d5f107b435c7529ad4eea52ef1466bf6a6",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:32:06.608322+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 180,
+        "sha256": "f76eb24e1d098b09ed488bf156a021402c520c7be07abc692fe3229bb38a7d30"
+      }
+    },
+    "independent": {
+      "ended_at_utc": "2026-09-07T21:40:20.611509+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 2588,
+        "sha256": "285f719caf85fb0f9d0404ff04186fb92d98122caef144a9b55ae2a8d8595adb"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:40:20.081507+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 2088,
+        "sha256": "61f83cac5d8cf3b868c16b0448c27c606d6ec94c28b74749ea3d69ecf9ae560a"
+      }
+    },
+    "install": {
+      "ended_at_utc": "2026-09-07T21:44:06.679907+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 2041,
+        "sha256": "512ce6ce4b8f9bf326297b70a8384fdd6576b1eab8681659a323277bb3e86a10"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:44:06.541624+00:00",
+      "stderr": {
+        "bytes": 345,
+        "sha256": "486a6e1800a8e23c454cd738f4c2260696de34c8e6525fd458d555ef987c479a"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "installed-files": {
+      "ended_at_utc": "2026-09-07T21:46:12.078871+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 2115,
+        "sha256": "de70678887c4570fd58dc41fd71cb3a944e86d1117f008d8542ab8066bba1e67"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:09.654579+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 841,
+        "sha256": "d8d08ec11f1098f55a9b809fcdfe8074e4f261358b32f19ba586fa050eac9967"
+      }
+    },
+    "installed-smoke": {
+      "ended_at_utc": "2026-09-07T21:46:00.607101+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 2116,
+        "sha256": "e1f0ae7e98e8e3450e43bb157d14f4b7de06bc6587f9211767061a5cf611ae5d"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:00.463223+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 221,
+        "sha256": "0968c82331a522d0a4025d472fbeb283b1446cf664591cc0700d3e441927da3b"
+      }
+    },
+    "intake": {
+      "ended_at_utc": "2026-09-07T21:22:25.356786+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1910,
+        "sha256": "1ddaf6b5a309424fb45a3e9df1bfa875d652c2b7eca95131f372e77110797ee1"
+      },
+      "source_after": {
+        "file_count": 623,
+        "files_sha256": "070bbdc50e2c64ffaea57d37e5ff00d5f107b435c7529ad4eea52ef1466bf6a6",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 623,
+        "files_sha256": "070bbdc50e2c64ffaea57d37e5ff00d5f107b435c7529ad4eea52ef1466bf6a6",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:22:08.769979+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 695,
+        "sha256": "1a135cc929554ebce5f6e30ed3354d5e37e81e983b6da459fa903612167197ae"
+      }
+    },
+    "native-audit": {
+      "ended_at_utc": "2026-09-07T21:43:01.402668+00:00",
+      "exit_code": 1,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1933,
+        "sha256": "dee6239ee094cd8105f0b7edac4fdf43c634684d4d5413e8480aefc797d300dd"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:43:01.329125+00:00",
+      "stderr": {
+        "bytes": 288,
+        "sha256": "d830a81a15dcc6cdfc4550a4856bf11bcfc5217d8a0f39ee2eadc5770c846853"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "native-audit-r2": {
+      "ended_at_utc": "2026-09-07T21:43:20.390180+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1939,
+        "sha256": "84040ad7b4756d1497726af8c2235fcb15921d4e528c1189f11d924aa6b67f97"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:43:20.306600+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 545,
+        "sha256": "e85e32f31f235a6b5e9bb3a72cdaa4974b191ba1162f36619914609ed528eea1"
+      }
+    },
+    "preserve-prior": {
+      "ended_at_utc": "2026-09-07T21:12:16.343303+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1941,
+        "sha256": "2d4ad818590a63fce2a79ca21b252b3351cd9cf5958c98fccf040de7b4f49a27"
+      },
+      "source_after": {
+        "file_count": 623,
+        "files_sha256": "9aa95d1759c021fba3adf5a2a9046a4fc285f097628b1e7f423cdbf2a65722c6",
+        "head": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a"
+      },
+      "source_before": {
+        "file_count": 623,
+        "files_sha256": "9aa95d1759c021fba3adf5a2a9046a4fc285f097628b1e7f423cdbf2a65722c6",
+        "head": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a"
+      },
+      "started_at_utc": "2026-09-07T21:11:54.192794+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 354,
+        "sha256": "633a141511d6c2571e206b9890c12542e44d4e4036b5880b5dfbf844a228cfaf"
+      }
+    },
+    "public-scan": {
+      "ended_at_utc": "2026-09-07T21:46:58.434305+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1883,
+        "sha256": "b7a5aa26bd149c9c1faba51802b59538146cd7f5f90395ee640842b7d5d1cdd5"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:49.468155+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 92,
+        "sha256": "968dac9909a9457124a312b47bec89951a4f7a1b9003f956fe860e6e4ae6fc37"
+      }
+    },
+    "read-authorization": {
+      "ended_at_utc": "2026-09-07T21:07:51.170153+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1959,
+        "sha256": "b1b720130be2716f0bc12b8dd56850a066d9dcedb6581b12b8246ef599f6c9e8"
+      },
+      "source_after": {
+        "file_count": 623,
+        "files_sha256": "9aa95d1759c021fba3adf5a2a9046a4fc285f097628b1e7f423cdbf2a65722c6",
+        "head": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a"
+      },
+      "source_before": {
+        "file_count": 623,
+        "files_sha256": "9aa95d1759c021fba3adf5a2a9046a4fc285f097628b1e7f423cdbf2a65722c6",
+        "head": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a"
+      },
+      "started_at_utc": "2026-09-07T21:07:51.021950+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 1956,
+        "sha256": "480934dfa8449c459ed4abbcf955417e5b3fb5f25f93a7e7451f9f27a2476f5a"
+      }
+    },
+    "ruff": {
+      "ended_at_utc": "2026-09-07T21:46:49.534273+00:00",
+      "exit_code": 0,
+      "owned_command_child_reaped": true,
+      "receipt": {
+        "bytes": 1664,
+        "sha256": "f22f5fc6d787371931c36ca84d1dcdcb5bb5a18b2b21e020591c9921d9d05714"
+      },
+      "source_after": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "source_before": {
+        "file_count": 625,
+        "files_sha256": "4d1b8c2efddedf7f508d01f01dcfe82665df585040c9f9d099ee13e641f3cdf3",
+        "head": "01eeb74d1bce3c3a3c41d84575d4d706e246e818"
+      },
+      "started_at_utc": "2026-09-07T21:46:49.460042+00:00",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      }
+    }
+  },
+  "configuration": {
+    "bytes": 372437,
+    "is_run_authorization": false,
+    "sha256": "b8a5e48bc2b93064c511ba796dabf55024f65df97fe0db39c43366b7bc877145"
+  },
+  "contract_versions": [
+    "plan-v0.1",
+    "toolalign.contracts.v1",
+    "role-preserving Action JSON v1",
+    "ADR-0027"
+  ],
+  "created_at_utc": "2026-09-07T21:55:15.451308+00:00",
+  "evidence_identities": {
+    "authorization-files.json": {
+      "bytes": 2480,
+      "sha256": "7d2391e73a870bd8f336da647ee17d052c265f9d14596bd17a5b849689b31e36"
+    },
+    "existing-unit-processes.json": {
+      "bytes": 46213,
+      "sha256": "c6cce0dd6fa6abef4a817771c4879772e437cbc2c651aaee8cef0f5cd26ed75b"
+    },
+    "independent-processes.json": {
+      "bytes": 5316,
+      "sha256": "4e1ab06472390bfbd93fa6dce1336114309fd398a39d8fa7a1cd01df649993f7"
+    },
+    "installed-files.json": {
+      "bytes": 12767,
+      "sha256": "3f66d177cec3ea54820c2c0072a05ce4d4f629f98838c869977dd50de4afc5b0"
+    },
+    "installed-smoke.json": {
+      "bytes": 25611,
+      "sha256": "971f158c0a25c53df93138fd3231d6dd6603f4db8e9fd0980fd04855747f5c7e"
+    },
+    "intake.json": {
+      "bytes": 7518696,
+      "sha256": "55c6329497116a7f650723ca9906d0dc95a3314dc6c8472e904344986382a73e"
+    },
+    "native-audit.json": {
+      "bytes": 105811,
+      "sha256": "eede4c5e2a3988527908358a67f5d45c4c1da7c318428d8feff92eb40653659b"
+    },
+    "preservation-proof.json": {
+      "bytes": 20616259,
+      "sha256": "469d0f0a2ff05cf4301f063be3d592acdf70e44c407477f256044fa6ad69d07b"
+    },
+    "task-identity.json": {
+      "bytes": 737,
+      "sha256": "78e0a6bca3fffee27d9b99ecae010626dbdba5d5525ce823fed814c2b185f715"
+    }
+  },
+  "final_seal": "Private terminal seal and native S0 handoff bind this review commit, all later publication receipts and unchanged earlier evidence.",
+  "finding_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "findings": [],
+  "input_manifest": {
+    "bytes": 17915,
+    "environment_metadata": 9,
+    "exact_copies": 13,
+    "original_model_files": 20,
+    "read_only_references": 29,
+    "sha256": "41aadaa79eac7467c7ef2b7c39a0524ec894d1b0e9c616d7a6ab303d05e33cc5"
+  },
+  "installed": {
+    "cwd_outside_checkout": true,
+    "isolated_python": "-B -I -S",
+    "unleased_load_rejected_before_framework": true,
+    "verified_installed_RECORD_entries": 75,
+    "verified_module_origins": 9,
+    "verified_package_files": 65,
+    "verified_unchanged_wheel_members_except_RECORD": 69
+  },
+  "intake": {
+    "candidate_files": 623,
+    "checked_files": 23838,
+    "extra_provenance_paths_not_dereferenced": 3142,
+    "original_archives": {
+      "direct_wheel_members": 70,
+      "rebuilt_wheel_members": 70,
+      "sdist_files": 144
+    },
+    "original_commands": 34,
+    "original_installed_package_files": 65,
+    "original_source_snapshots": 20862,
+    "production_base_files": 617
+  },
+  "limitations": [
+    "Real MLX/model construction, actual LoRA assembly/reload, forward/backward, optimization, generation and capacity are NOT_RUN.",
+    "311/310/56/112 runtime expectations are source/header-derived, not live tensor measurements.",
+    "Original per-tensor hashes are fixed S0 inputs; this review independently binds original whole-file bytes, headers and complete names/shapes without decoding tensors.",
+    "Metadata is not execution authorization. S0 final CI/main integration and separate authorized real-model validation remain required.",
+    "No public service, data/model upload, paid API/cloud use, or training authorization is created."
+  ],
+  "model": "gpt-6-astra",
+  "model_results": {
+    "Qwen/Qwen3-0.6B": {
+      "expected_base_leaf_count": 310,
+      "expected_base_parameter_count": 596049920,
+      "generation_eos_ids": [
+        151645,
+        151643
+      ],
+      "model_id": "Qwen/Qwen3-0.6B",
+      "padding_id": 151643,
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "runtime_status": "NOT_RUN",
+      "serialized_parameter_count": 751632384,
+      "serialized_tensor_count": 311,
+      "training_eos_id": 151645
+    },
+    "Qwen/Qwen3-1.7B": {
+      "expected_base_leaf_count": 310,
+      "expected_base_parameter_count": 1720574976,
+      "generation_eos_ids": [
+        151645,
+        151643
+      ],
+      "model_id": "Qwen/Qwen3-1.7B",
+      "padding_id": 151643,
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "runtime_status": "NOT_RUN",
+      "serialized_parameter_count": 2031739904,
+      "serialized_tensor_count": 311,
+      "training_eos_id": 151645
+    }
+  },
+  "preserved_failures": [
+    {
+      "candidate_status": "corrected",
+      "exit_code": 1,
+      "label": "006-ruff-new",
+      "owner": "E1",
+      "reason": "unused test import"
+    },
+    {
+      "candidate_status": "corrected",
+      "exit_code": 1,
+      "label": "007-pytest-origin-state",
+      "owner": "E1",
+      "reason": "test error-prefix expectation"
+    },
+    {
+      "correction": "bind the observed four-line command and compare the recorder suffix exactly; native-audit-r2 passed all 34",
+      "exit_code": 1,
+      "label": "native-audit",
+      "owner": "R1",
+      "reason": "review checker initially compared the complete 003 shell output to the recorder-only output; two sed excerpts and wc precede the recorder"
+    },
+    {
+      "evidence": "original native tool output retained; excluded from the 15 formal verification receipts",
+      "exit_code": 1,
+      "label": "read-only console inspection",
+      "native_chunk_id": "a05a86",
+      "owner": "R1",
+      "reason": "display helper sliced a dictionary while printing receipt structure; no candidate or API operation"
+    }
+  ],
+  "prior_review_preservation": {
+    "historical_public_git_bindings": 1189,
+    "missing_originals_restored": 0,
+    "old_formal_FAIL_and_counter_unchanged": true,
+    "old_public_git_and_frozen_snapshot_files": 623,
+    "old_review": "b99a644e3ac0386f5ebe55cfd32e51b99e89781a",
+    "original_missing_files": 30,
+    "original_missing_links": 1,
+    "prior_FIFO_lstat_only": 1,
+    "prior_intake_regular_files": 65186,
+    "prior_symlinks_not_followed": 1628
+  },
+  "production_base": "a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d",
+  "reviewer": "R1 independent AI review",
+  "schema": "toolalign.r1.qwen-model-cpu-review.v1",
+  "scope": "fixed Qwen CPU interface and file validation only",
+  "source_checkpoint": "207c24c486a562760c51b8de3193c3e78028ba6d",
+  "task": "P04-QWEN-MODEL-R1",
+  "tests": {
+    "all_observed_test_children_reaped": true,
+    "existing_candidate_tests_passed": 120,
+    "existing_suite_owned_forks": 1,
+    "existing_suite_owned_subprocesses": 90,
+    "original_bounded_IO_child_processes": 7,
+    "original_byte_array_simulation_checks": 5,
+    "original_model_mapping_checks": 2,
+    "r1_original_tests_passed": 14,
+    "unrelated_test_groups_repeated": 0
+  },
+  "thinking": "max",
+  "verdict": "PASS"
+}
