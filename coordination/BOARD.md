@@ -35,7 +35,7 @@
 | [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；独立R1；S0验收 | CPU已验证50867c0、ADR-0021 | VERIFIED（固定原创数值） | 原R1 PASS67976fd保持；[PR11](https://github.com/kris0516/ToolAlign/pull/11)合并b2247d8，最终双Python CI与main1084CPU/2跳过、三现存归档/58安装包字节绑定通过；[证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。正式模型与人工仍待完成 |
 | [P04-SFT-RUNTIME-PROPOSAL](tasks/P04_SFT_RUNTIME_PROPOSAL.md) 真实模型接口只读方案 | T1；S0接收 | 已验证d3；固定10份源码/元数据 | ACCEPTED（方案） | 原4baa367交付/原生空闲，S0核验5,744路径/20命令/35来源80区间，普通合并7bf05d1；[接收](../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)，无新生产/模型授权 |
 | [P04-SFT-DATA-V3-CPU](tasks/P04_SFT_DATA_V3_CPU.md) v3数据与审阅数组衔接 | T1；R1独立审查 | 已验收48be435/G-DATA v3 | READY_FOR_REVIEW | 完整f3b7f1a1/原生空闲；S0核验10,935路径/40原命令/实际三归档，source/installed均PASS；[接收](../reports/S0_P04_DATA_V3_CPU_HANDOFF.md) |
-| [P04-SFT-DATA-V3-R1](tasks/P04_SFT_DATA_V3_REVIEW.md) v3数组衔接技术复核 | R1 | 精确f3b7f1a1完整候选 | IN_PROGRESS | 按完整4ea69e1原生派发/新轮ACTIVE；intake待交付，Draft PR16，技术结论待完成 |
+| [P04-SFT-DATA-V3-R1](tasks/P04_SFT_DATA_V3_REVIEW.md) v3数组衔接技术复核 | R1 | 精确f3b7f1a1完整候选 | IN_PROGRESS | 按完整4ea69e1原生ACTIVE；64,645路径intake/16授权/609输入核验，PR16双Python候选CI通过，技术结论待完成 |
 | [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | READY_FOR_REVIEW | 完整01eeb74d/原生空闲；S0核验26,330路径/34原命令/三归档，120CPU为E1自测；[Draft PR17与接收](../reports/S0_P04_QWEN_CPU_HANDOFF.md) |
 | [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | READY | 实物及范围已冻结；待R1当前数据轮完整结束后派发，模型实跑未授权 |
 | [P04-SFT-QWEN-RUNTIME-CPU](tasks/P04_SFT_QWEN_RUNTIME_CPU.md) 有限原生训练接口 | T1拟承接；R1独立审查 | 数据与模型CPU主干均待验收 | PLANNED | 23例容量候选已按元数据冻结；[准备](../reports/S0_P04_CAPACITY_READINESS.md)，无新编码/模型授权、未派发 |

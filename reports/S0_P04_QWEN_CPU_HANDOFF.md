@@ -25,3 +25,5 @@
 E1早期四次pytest使用默认共享临时根的事实保持。旧R1的30文件/1链接原路径缺失按[S0保全记录](S0_P04_REVIEW_EVIDENCE_PREPARATION.md)继承，不把范围内保全写成全局临时目录未变；没有恢复或清理旧目录、没有重跑已成功测试。后续pytest使用新的任务独占basetemp。
 
 [R1固定模型CPU审查](../coordination/tasks/P04_QWEN_MODEL_REVIEW.md)已准备精确候选，等待当前数据审查正式结束和原生终态后派发。最终CI/main及真实loader、零LoRA对照、容量、保存/重载、baseline/SFT/DPO/正式评测均未验收。本次S0新构建/安装、生产validation API、框架/模型/tokenizer/GPU均0；直接原字节/header检查单列，不称模型已加载或服务已上线。无需kris操作。
+
+PR17候选CI34157109407已完成，Python3.11/3.14各14步骤成功、各959 passed/48 skipped。原日志及Git确认实际CI合并 `66fc03a90bc09b72671c08f1b585c102efae6fe7`，父为2f1c184与完整候选01eeb74d，632文件tree保持627份main基线及6份候选改动；独立R1和最终CI/main仍待接续。

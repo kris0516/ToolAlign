@@ -27,3 +27,5 @@ R1 [完整独立范围](../coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)现可�
 19:40:27 UTC，S0 按完整 `4ea69e1339c6b0efb14d0149b77b2442601ddd9c` 原生派发 R1 的精确 f3b7f1a1 独立 CPU 审查，并读回新轮 ACTIVE，gpt-6-astra/max；新分支/intake 待交付。[Draft PR16](https://github.com/kris0516/ToolAlign/pull/16)已建立，未合并；候选 CI 仍待观察。E1完整候选01eeb74d已交付/原生空闲，S0完整接收另行进行。
 
 PR16候选CI34156411244已完成，Python3.11/3.14各14步骤成功、各974 passed/48 skipped。两份原日志确认实际CI合并 `017c290e63881e144481f887b26ec2b7c4b55aae`，父为S0授权4ea69e1与候选f3b7f1a1；S0直接核对627份main基线及6份候选改动在632文件CI tree中保持。该候选CI不代替R1或后续最终CI/main验收。
+
+19:57:46 UTC，R1新分支/真实身份及完整intake经S0核验；原intake `c1fb2b114b9898409358102830c1a0467ceebe45bff6c4044cf535b879b9bade`，S0证明 `1c8cda1a12488dc2994815f2e2b92254c00c0c78eeb591dc6c933ca06240c8cf`。64,645当前路径含R1 intake的11,572路径/370链接和原保全；16授权副本、618候选/612基线、609输入及40原T1命令保持。原R1的571公开路径按旧Git/快照重定位，30文件/1链接缺失例外未恢复。R1本次intake两条辅助失败和五份原命令均保留；intake时安装/固定消费0，后续执行另按真实reservation计数。独立技术结论继续PENDING。
