@@ -1,6 +1,8 @@
 # P02-QUALITY-EXCLUSION-R1｜v3定点排除与复用材料技术审查
 
-状态：IN_PROGRESS，已于2026-09-07 15:46:03 UTC按完整授权`7a731c5f08a561f5941fcba5996004706f373392`原生派发并核验ACTIVE。精确candidate `5825d789ee89afedbfff31e828223608c6f435e2`，实现/实际新编码 `6054b349c344cbbad30c12ce8fe8820c59e8bc10`，完整D1已交付/原生空闲；S0核验32,579路径/644链接、44原命令/18源码epoch、完整数组与实际归档，见[完整接收](../../reports/S0_P02_QUALITY_V3_HANDOFF.md)。代码基线为已验证`d3e56f68ebd67cc576d912b6f06636682b4170ab`，R1已从完整candidate建立指定新分支；本轮intake的33,422路径/644链接、19授权副本/347冻结输入及新身份已由S0核验，原intake SHA `23c605822c626432475913f3113adc10ed7c034ae8f6b9622815bd22bbcc126f`。完整审查结论待交付。
+状态：ACCEPTED（CPU技术）。原独立review `dbd11d03e69c650efdb330f79ec380dd9914fa89`对精确5825d789正式PASS，P0/P1/P2均0、原生completed/idle；S0核验52,757路径/1,235链接、30命令/11时点并完成隔离集成。[接收与集成](../../reports/S0_P02_QUALITY_V3_INTEGRATION.md)。PR15最终CI/main和Q1 r5待完成，G-DATA/P04未授权。以下为原范围与实际intake，额度不重置。
+
+原记录：状态：IN_PROGRESS，已于2026-09-07 15:46:03 UTC按完整授权`7a731c5f08a561f5941fcba5996004706f373392`原生派发并核验ACTIVE。精确candidate `5825d789ee89afedbfff31e828223608c6f435e2`，实现/实际新编码 `6054b349c344cbbad30c12ce8fe8820c59e8bc10`，完整D1已交付/原生空闲；S0核验32,579路径/644链接、44原命令/18源码epoch、完整数组与实际归档，见[完整接收](../../reports/S0_P02_QUALITY_V3_HANDOFF.md)。代码基线为已验证`d3e56f68ebd67cc576d912b6f06636682b4170ab`，R1已从完整candidate建立指定新分支；本轮intake的33,422路径/644链接、19授权副本/347冻结输入及新身份已由S0核验，原intake SHA `23c605822c626432475913f3113adc10ed7c034ae8f6b9622815bd22bbcc126f`。完整审查结论待交付。
 
 R1使用原有独立App任务，gpt-6-astra/max。新branch拟为`codex/review-p02-quality-exclusion-r1`，从精确candidate创建；新私有scope `review-p02-quality-exclusion-r1`。先按届时完整授权保存AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、本任务、D1 v3任务/精确配置、ADR-0025、S0完整交接和Q1新来源接收报告。切换前核验原R1分支/提交、旧公开Git/快照、私有封存及根identity，具体hash在正式分发时绑定；新身份不覆盖旧identity。
 

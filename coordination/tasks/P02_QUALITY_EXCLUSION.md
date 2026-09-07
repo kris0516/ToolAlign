@@ -1,6 +1,8 @@
 # P02-QUALITY-EXCLUSION-v3｜排除一处新来源问题并复用已测材料
 
-状态：READY_FOR_REVIEW。完整5825d789ee89afedbfff31e828223608c6f435e2已交付/原生空闲，S0于15:37:36 UTC核验32,579路径/44原命令、18源码epoch、完整13例与三现存归档；[接收](../../reports/S0_P02_QUALITY_V3_HANDOFF.md)，[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)。D1本轮2/2完整输出和4/4新sequence额度已用尽；待独立R1/Q1与main，不再续跑本scope。
+状态：ACCEPTED（CPU技术）。完整5825d789获原R1 PASS dbd11d0，S0完整交接核验及隔离424f158实测839CPU/48跳过、21拒绝/6对照、归档与安装通过。[接收与集成](../../reports/S0_P02_QUALITY_V3_INTEGRATION.md)。PR15最终CI/main和Q1 r5待完成，G-DATA/P04未授权。以下为原范围与实际intake，额度不重置。
+
+原记录：状态：READY_FOR_REVIEW。完整5825d789ee89afedbfff31e828223608c6f435e2已交付/原生空闲，S0于15:37:36 UTC核验32,579路径/44原命令、18源码epoch、完整13例与三现存归档；[接收](../../reports/S0_P02_QUALITY_V3_HANDOFF.md)，[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)。D1本轮2/2完整输出和4/4新sequence额度已用尽；待独立R1/Q1与main，不再续跑本scope。
 
 - code_base：已验证main `d3e56f68ebd67cc576d912b6f06636682b4170ab`。
 - 新branch：`codex/p02-quality-exclusion-v3`；新私有scope：`quality-exclusion-v3`，只在自己的隔离worktree操作。原1c47候选、旧分支和全部封存保持；不pull/reset/rebase原分支。
