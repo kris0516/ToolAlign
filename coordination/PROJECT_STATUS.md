@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；D1 v3定点排除与Q1两来源审核CLAIMED |
+| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；D1 v3定点排除与Q1两来源审核已原生ACTIVE |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | 全部原轮已交付/空闲；D1 v3与Q1固定两来源新范围已冻结、待原生派发；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 v3与Q1固定两来源已按完整3e18145原生派发/ACTIVE，新branch/intake待交付；R1/E1/T1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)已冻结，D1 347输入/精确配置和Q1固定2来源/3目标/8turn均CLAIMED待派发。预计有效7419/formal5938，原代表材料11例复用、2新增；仅在S0收到Q1新来源结论后放行4次新序列生成。实际v3数据/材料、R1及Q1后续核验均未交付，G-DATA/P04保持未授权。
+ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)已冻结，D1 347输入/精确配置和Q1固定2来源/3目标/8turn已按完整3e18145原生派发并确认新轮ACTIVE，intake待交付。预计有效7419/formal5938，原代表材料11例复用、2新增；仅在S0收到Q1新来源结论后放行4次新序列生成。实际v3数据/材料、R1及Q1后续核验均未交付，G-DATA/P04保持未授权。
 
 P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
 

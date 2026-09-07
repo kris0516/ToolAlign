@@ -16,8 +16,8 @@
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
 | [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | VERIFIED（CPU） | PR14普通合并d3e56f6；原R1 PASS d5b8、最终双Python CI/main62测试与三归档绑定通过；质量整改继续 |
 | [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | VERIFIED（CPU） | 原d5b8 PASS/原生空闲；随PR14普通合并并完成最终CI/main验证 |
-| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1 | 已验证d3e56f6；ADR-0025 | CLAIMED | 347输入及精确v3配置冻结；预计formal5938，11材料复用/2新增；待原生派发 |
-| [Q1-P02-v3-sources-r4](tasks/Q1_P02_V3_SOURCE_REVIEW.md) 两替换来源提前审核 | Q1 | 固定2来源/3目标/8原turn | CLAIMED | 8份输入冻结；仅来源语义，不提前验收v3数据或mask；待原生派发 |
+| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1 | 已验证d3e56f6；ADR-0025 | IN_PROGRESS | 按完整3e18145原生派发/ACTIVE；347输入、新branch intake待交付，编码待S0按Q1结论放行 |
+| [Q1-P02-v3-sources-r4](tasks/Q1_P02_V3_SOURCE_REVIEW.md) 两替换来源提前审核 | Q1 | 固定2来源/3目标/8原turn | IN_PROGRESS | 按完整3e18145原生派发/ACTIVE；8份输入intake待交付，仅来源语义 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
 | [Q1-P02-r2](tasks/Q1_P02_EXPANDED_REVIEW.md) 扩展发现独立裁定 | Q1 | 固定50来源/60决策 | ACCEPTED | 原42d9/S0核验1,643路径及41命令；[接收](../reports/S0_P02_Q1_R2_ADJUDICATION.md) |

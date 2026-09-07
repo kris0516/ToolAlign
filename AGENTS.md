@@ -107,6 +107,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 新版数据与材料CPU主干验收 | VERIFIED；[PR14](https://github.com/kris0516/ToolAlign/pull/14)普通合并d3e56f6，原R1 PASS d5b8保持；最终双Python CI及main62测试、三归档/62安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md)。Q1完整结论与下一质量修订仍待完成 |
 | 2026-09-07 | Q1新版正式接收与问题台账裁定 | 原8a738ab交付/原生空闲，S0核验3,135路径/80命令并普通整合7395530；旧83来源处置及13 mask PASS，新P02-Q-081首次失败1，77旧问题关闭；[接收证据](reports/S0_P02_Q1_V2_ADJUDICATION.md)，G-DATA/P04仍待新版 |
 | 2026-09-07 | v3定点排除与替换来源审核范围 | 已验证d3e56f6为base；D1固定347输入、Q1固定2来源/3目标已冻结，两范围CLAIMED待原生派发；11旧材料复用/2新例待来源审查，见[范围](reports/S0_P02_QUALITY_V3_SCOPE.md) |
+| 2026-09-07 | v3实现与替换来源审核实际派发 | 核对16,049路径/327链接和原轮completed后，按完整3e18145原生派发D1/Q1并确认两新轮ACTIVE；gpt-6-astra/max，新branch/intake待交付，见[证据](reports/S0_P02_QUALITY_V3_SCOPE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -138,7 +139,7 @@ P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1b
 
 P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。 [接收与台账](reports/S0_P02_Q1_V2_ADJUDICATION.md)。
 
-ADR-0025的v3定点排除范围已冻结：[D1任务](coordination/tasks/P02_QUALITY_EXCLUSION.md)含347输入，保留原选择/字节及11例旧编码，仅2例新增；[Q1提前审核](coordination/tasks/Q1_P02_V3_SOURCE_REVIEW.md)固定2来源/3目标/8turn。两任务CLAIMED、尚未原生派发，现有工作者空闲；D1编码待S0按Q1精确结论放行，实际v3处置/材料及R1验收仍待交付。无新增GPU或训练许可。
+ADR-0025的v3定点排除范围已冻结：[D1任务](coordination/tasks/P02_QUALITY_EXCLUSION.md)含347输入，保留原选择/字节及11例旧编码，仅2例新增；[Q1提前审核](coordination/tasks/Q1_P02_V3_SOURCE_REVIEW.md)固定2来源/3目标/8turn。两任务已于13:55:51 UTC按完整3e18145原生派发并确认新轮ACTIVE，实际新branch/input intake待交付，R1/E1/T1无新范围；D1编码待S0按Q1精确结论放行，实际v3处置/材料及R1验收仍待交付。无新增GPU或训练许可。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 
