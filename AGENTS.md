@@ -185,3 +185,5 @@ P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked py
 最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)已按完整1cb1b0a原生派发/ACTIVE，原模型CPU审查已接收/空闲；新branch/intake待交付。新修订真实数据消费NOT_RUN，原F1保持未关闭，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
 
 当前数据复审新发现：R1原六项I/O附加检查5PASS/1FAIL，目录替换导致fdopen构造失败残留FD；S0已核验原最小观察/源码与两条原生命令，拟P04-SFT-DATA-V3-F2/P2。原F1及时拒绝分项通过，正式关闭/新增失败计数等精确review交接后登记；中间增量0。[新修订](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md)CLAIMED待派发，仅CPU、无新真实数据调用。
+
+2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。

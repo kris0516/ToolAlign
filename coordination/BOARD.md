@@ -40,7 +40,7 @@
 | [P04-SFT-DATA-V3-R2](tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md) 特殊文件修订复审 | R1 | 精确1769046/原正式b99 F1 | IN_PROGRESS | 原bdebe模型轮接收/空闲后，按完整1cb1b0a原生派发/ACTIVE；新branch/身份/intake待交付 |
 | [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | VERIFIED（CPU） | PR17普通合并f27951a，原R1 PASS bdebe4c保持；最终双Python CI/main134CPU、三现存归档/65安装包绑定通过；[主干证据](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md) |
 | [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | ACCEPTED | 原bdebe4c正式PASS/P0/P1/P2均0，完整封存和原生空闲已核验；旧b99及缺失例外保持 |
-| [P04-SFT-DATA-V3-FD-CLOSE-FIX](tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md) 构造异常清理 | T1；R1独立复审 | 精确1769046及新F2最小证据 | CLAIMED | 目录替换后FD残留已核验，完整R1 verdict待交接；新七份输入冻结，仅CPU、原生派发待完成 |
+| [P04-SFT-DATA-V3-FD-CLOSE-FIX](tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md) 构造异常清理 | T1；R1独立复审 | 精确1769046及新F2最小证据 | IN_PROGRESS | 目录替换后FD残留已核验，完整R1 verdict待交接；已按完整df37a3c原生ACTIVE，新branch/intake待交付，仅CPU |
 | [P04-SFT-QWEN-RUNTIME-CPU](tasks/P04_SFT_QWEN_RUNTIME_CPU.md) 有限原生训练接口 | T1拟承接；R1独立审查 | 模型CPU主干已验收；数据CPU修订R2审查中 | PLANNED | 23例容量候选已按元数据冻结；[准备](../reports/S0_P04_CAPACITY_READINESS.md)，无新编码/模型授权、未派发 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01/P02/P03已验收；待CPU衔接/容量/运行配置 | BLOCKED（模型运行） | G-DATA已PASS；T1 CPU完整交接已接收，待R1，正式模型运行仍NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |

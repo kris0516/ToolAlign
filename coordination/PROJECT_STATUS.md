@@ -272,3 +272,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 22:46:12 UTC，模型CPU主干验收完成：PR17普通合并f27951a，原01ee/bdebe保持；最终双Python CI各959/48跳过及46项P00、实际main134CPU/三现存归档/65安装包绑定通过，证明 `aabb8d3f5363aeb7d792e7e38197c41e4f91579f107c0864e1005b084beb3861`。原失败和两次只读CI核验脚本错误保留，S0新增build/install/实物模型API/框架/GPU0；[主干证据](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。数据修订R1-r2继续独立审查。
 
 2026-09-07 22:52:39/22:57:21 UTC，R1数据R2 intake及目录FD新发现分别通过S0 92,860/652路径核验，证明 `bf9068ed5fc4cd49436618fd4fe862ce6f24b214c84559cb5f6c02406711a772` / `55931af2acaaa97fad5212ad442127763f7fb55d529397d71979322da9a42954`。原附加六项为5PASS/1FAIL、最小无包装观察已关闭自有残留FD；长期累积为源码推论，新F2拟P2，正式review待交接、中间计数增量0。T1限域FD修订CLAIMED待派发，无新增真实数据/模型额度；[证据](../reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md)。
+
+2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。
