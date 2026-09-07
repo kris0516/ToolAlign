@@ -1,6 +1,6 @@
 # P04 v3 SFT 数据 CPU 完整交接接收
 
-S0 已接收 T1 完整候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；状态 **READY_FOR_REVIEW_CPU**。T1 原生轮已 completed/idle，普通推送的远端分支与本机相同。独立 R1 尚未派发，本次接收不签技术 PASS。
+S0 已接收 T1 完整候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；状态 **READY_FOR_REVIEW_CPU**。T1 原生轮已 completed/idle，普通推送的远端分支与本机相同。接收时独立 R1 尚未派发；现已按文末记录进入独立审查，本次接收不签技术 PASS。
 
 候选直接承接生产 checkpoint `bfdf2a256065d5396e6f7a4860fd7c7506f5c278`；原 code_base `48be4352bbad53ced5af84186edac036dd0ff2ca` 的 612 份公开文件保持。新增六份为数据模块、原创测试、S0 精确配置、两份实验报告和 handoff；成文只新增三份未打包文档，实际成功消费和三归档中的生产字节未变。[T1 报告](experiments/P04_SFT_DATA_V3_CPU.md)与[正式交接](../coordination/handoffs/P04-sft-data-v3-cpu-r1.md)尚在该候选，合并前从精确 Git 提交读取。
 
@@ -25,3 +25,5 @@ R1 [完整独立范围](../coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)现可�
 本轮 S0 构建、安装、数据 API、编码、框架/模型/GPU均为 0。R1 独立审查、最终 CI/main、真实 trainer、容量、正式 baseline/SFT/DPO/评测与服务仍待各自验收。G-DATA 冻结 v3 批准和旧失败保持；无需 kris 操作。
 
 19:40:27 UTC，S0 按完整 `4ea69e1339c6b0efb14d0149b77b2442601ddd9c` 原生派发 R1 的精确 f3b7f1a1 独立 CPU 审查，并读回新轮 ACTIVE，gpt-6-astra/max；新分支/intake 待交付。[Draft PR16](https://github.com/kris0516/ToolAlign/pull/16)已建立，未合并；候选 CI 仍待观察。E1完整候选01eeb74d已交付/原生空闲，S0完整接收另行进行。
+
+PR16候选CI34156411244已完成，Python3.11/3.14各14步骤成功、各974 passed/48 skipped。两份原日志确认实际CI合并 `017c290e63881e144481f887b26ec2b7c4b55aae`，父为S0授权4ea69e1与候选f3b7f1a1；S0直接核对627份main基线及6份候选改动在632文件CI tree中保持。该候选CI不代替R1或后续最终CI/main验收。

@@ -1,6 +1,6 @@
 # P04-QWEN-MODEL-R1｜固定模型接口独立CPU审查
 
-状态：PLANNED，尚未派发。等待 E1 的完整候选、原始证据及原生终态；精确 candidate/code_base、完整授权和交接 seal 均待 S0 接收后填入。不审变化中的候选，不提前运行下述独立消费。
+状态：READY，尚未派发；R1当前先审 v3 数据包，必须等该轮完整交接与原生终态核验后再激活本范围。精确 candidate / 审查 checkout base 为 `01eeb74d1bce3c3a3c41d84575d4d706e246e818`，tree `3b194325c9b6ecba4356f46eb4ad91c8f9e63642`；源码 `207c24c486a562760c51b8de3193c3e78028ba6d`、生产基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`。E1已completed/idle，S0核验26,330路径/34原命令、实际三归档及20原模型文件/三个小header，证明 `c8abe8953aab67664bfd9764633c176f508505e2cef09e2fd03f6222e279fff9`；[完整接收](../../reports/S0_P04_QWEN_CPU_HANDOFF.md)。完整authorization_commit由届时S0原生派发提供；本文件不提前激活独立消费。
 
 沿用原独立 R1 App 任务和隔离 worktree，gpt-6-astra/max；拟用 `codex/review-p04-qwen-model-r1` 和新私有 scope `review-p04-qwen-model-r1`，禁止 sub-agent。先保存届时完整授权中的 AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、RESOURCE_LOCK、ADR-0027、本任务、[E1任务](P04_QWEN_MODEL_CPU.md)、[固定metadata](../../configs/qwen-models.v1.json)和S0完整交接报告，再切换到精确候选。原审查SHA、全部旧FAIL/PASS、私有封存、根identity和未公开f708保持；不合入新main或把f708加入公开祖先。
 
@@ -22,3 +22,5 @@
 保留实际argv/UTC/exit/原始stdout/stderr、源码/consumer时点、所有失败和最终seal。给出精确candidate的PASS/FAIL/BLOCKED与P0/P1/P2；只提交本轮审查目录和handoff，review直接以该candidate为parent。普通推送、原生回报完整candidate/review/tree/parents/封存后结束；普通回报省略model/thinking。PASS仍需S0整合/最终CI/main，真实模型与容量另审；同问题第五次规则由S0按正式台账执行。
 
 R1旧证据保全补充：S0证明 `94054f2922bf7d75c883bff3f3ab52c6c7f4fdea0d371bf9ea16ca05c4818b90` 核对571旧公开Git/快照、989旧scope文件和1,234现存链接；原全局pytest临时fixture的30文件路径及1链接缺失，30份内容与既有封存副本hash/大小一致并已另存。按[S0实际记录](../../reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)和私有精确缺失/映射清单继承，不恢复成原件、不写成全部原路径仍在；旧PASS/FAIL和counter保持。首次intake保存本报告及该保全proof/精确清单，后续pytest用独占新basetemp。
+
+精确实物：E1 final seal `870dff7c757dc9603c0eba376eb9e59de298138340dfad9f194d3168b1d5b4ec`、FINAL_RECEIPT `0ff8efa67bf636c3b5e216f4c2c60795bbcb216fa4a9c7fed1e71b6a6c248b64`；sdist `73ee4795ca39d81021b3eed1eb1ed4b8a9e9d3caf5899469e91cfd75f5f7e1cf`、direct/rebuilt wheel `117f74f92aad166aceb16336771ec4d4bf9f98e7ac6142fb0592d2c1246373d6`。intake读取私有分发中的S0/E1完整seal、42固定输入、34命令及原helper/source时点；独立实际API固定 `validate_model_files` 每模型最多一次，共2次组成一轮，先落reservation。只读intake流式hash/header核对与API消费计数分开记录，不解码tensor值。实际调用失败即保留原失败并停止新增实物调用，提交具体请求；原创小fixture仍可诊断。E1原source/installed额度已各用1/1，不可重启其运行。派发前还须新增保全届时R1当前数据审查的完整review/seal/公开Git和新identity，继承下述更早历史例外。

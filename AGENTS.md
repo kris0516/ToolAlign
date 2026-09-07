@@ -123,6 +123,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 固定模型CPU intake与构建前提核验 | E1实际新branch/617基线/14授权/42输入及旧封存通过，4,266路径证明4b1ef1f2；现存离线Hatchling runtime 196路径/168 RECORD核验通过，无新环境；[证据](reports/S0_P04_QWEN_MODEL_CPU_PREPARATION.md)，完整candidate/R1待完成 |
 | 2026-09-08 | v3 SFT CPU完整交接与独立范围 | T1完整f3b7f1a1已交付/原生空闲；S0核验10,935路径/40原命令与现存三归档，两条消费PASS；R1精确范围CLAIMED待派发，见[接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md) |
 | 2026-09-08 | v3 SFT CPU独立审查实际派发 | R1按完整4ea69e1原生派发精确f3b7f1a1并核验新轮ACTIVE，intake待交付；[Draft PR16](https://github.com/kris0516/ToolAlign/pull/16)建立，E1完整01eeb74d已交付/原生空闲待S0接收 |
+| 2026-09-08 | 固定Qwen CPU完整交接接收 | E1完整01eeb74d/原生空闲，S0核验26,330路径/34原命令/实际三归档及622小header；[Draft PR17与接收](reports/S0_P04_QWEN_CPU_HANDOFF.md)，独立R1后续范围READY未派发 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -154,7 +155,7 @@ P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce
 
 Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已于19:40:27 UTC按完整4ea69e1原生派发/新轮ACTIVE，新branch/intake待交付；Draft PR16已建立，[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已交付/原生空闲，完整S0实物接收待完成；D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已于19:40:27 UTC按完整4ea69e1原生派发/新轮ACTIVE，新branch/intake待交付；Draft PR16已建立，[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，Draft PR17与后续R1范围READY；D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
 
