@@ -1,0 +1,119 @@
+{
+  "actual_new_encoding_commit": "6054b349c344cbbad30c12ce8fe8820c59e8bc10",
+  "browser_actual_observation": "NOT_RUN",
+  "candidate_commit": "5825d789ee89afedbfff31e828223608c6f435e2",
+  "code_base": "7a731c5f08a561f5941fcba5996004706f373392",
+  "config_version": "toolalign.q1-v3-material-review-config.v1",
+  "copied_input_bytes": 29269007,
+  "copied_input_items": 223,
+  "counts": {
+    "formal_train": {
+      "effective": 5938,
+      "original": 6013,
+      "quarantined_fail": 27,
+      "quarantined_unknown": 48
+    },
+    "formal_validation": {
+      "effective": 213,
+      "original": 217,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    },
+    "smoke_train": {
+      "effective": 1583,
+      "original": 1600,
+      "quarantined_fail": 5,
+      "quarantined_unknown": 12
+    },
+    "smoke_validation": {
+      "effective": 194,
+      "original": 197,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 3
+    },
+    "train": {
+      "effective": 7419,
+      "original": 7515,
+      "quarantined_fail": 35,
+      "quarantined_unknown": 61
+    },
+    "validation": {
+      "effective": 230,
+      "original": 234,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    }
+  },
+  "d1_completion_file_sha256": "1d65726003a5eed3b6b74a4ba77bc0e49cd724d0f0dab82733ac8ec9e3e7cc0f",
+  "d1_completion_receipt_file_sha256": "871c318fe264ec84c90a37aeb20b92f07ce71e6992c4ba4b71bd2fea2e04920d",
+  "d1_input_manifest_file_sha256": "ebbaf56bbb5730b5d31eca195d5ac7772d148ff876fc96be1c1c5dbbadf51e06",
+  "d1_policy_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+  "dispositions": {
+    "excluded_decisions": 100,
+    "excluded_sources": 81,
+    "restored_decisions": 3,
+    "restored_sources": 3,
+    "total_decisions": 103,
+    "total_sources": 84
+  },
+  "encoding_release_file_sha256": "1eeea3bd45daa8caf5d2867efa5859a446673888993aaaf9cc3a21b80ca555fd",
+  "fixed_input_items": 294,
+  "formal_issue": "P02-Q-081",
+  "frozen_material_manifest_file_sha256": "fd67660beace936707d2638b0e1b06c302abb08018d07a6eb8ccf05c1b93d0b5",
+  "full_material_records_canonical_sha256": "a41f5c24a55eb5e4fed434b9352b655fbf78e5aa68276de5de183671c81412de",
+  "heldout_test_ood_bfcl_semantic_reading_authorized": false,
+  "independent_actual_exclusion_and_token_mask_review_required": true,
+  "inherited_existing_complete_records": 11,
+  "input_manifest_file_sha256": "b2ae91538823c2e64af68deb871736134e488df00937df34e2cfd207470e4a8c",
+  "issue_ledger_file_sha256": "2d603e5f03d2d77aeb524c882034f37d404073340b186246401a9a9d54badf18",
+  "material_records_across_two_engines": 26,
+  "model": "gpt-6-astra",
+  "native_material_manifest_file_sha256": "d37aa9d34e0fd90e99391f2411324bb8a9163bf12a4b1953d67ffd8973e6c585",
+  "new_actual_material_examples": 2,
+  "new_artifact_bytes": 1073741824,
+  "new_business_api_calls": 0,
+  "new_dependencies_environments_downloads": 0,
+  "new_encoding_or_dataset_builds": 0,
+  "new_example_ids": [
+    "9de24c6a99df5e60a40beff96f8cdccbe75aff09a07540998b24e766d5c4acc6",
+    "b2dc9cbb8c3410ae76a3214e2cbfee4fd0b30353935ddf5e4b434ea7ce332087"
+  ],
+  "new_framework_model_gpu_runs": 0,
+  "new_production_tests": 0,
+  "new_samples": 0,
+  "new_source_core_seal_file_sha256": "1602656ef4a5b3d2ef62734d428dae6dab3cb858ff46d8a28528b5fb9defaa9c",
+  "new_source_final_seal_file_sha256": "dc0b470b3c827d3e8aa7c6b1d719efad928d5688f358fac96da22a6ee97f1de0",
+  "new_source_review_commit": "9c12c47fd815f86992078313bac88dcec253f37f",
+  "new_two_source_semantics_inherit_only_after_original_input_binding": true,
+  "no_repeat_semantic_audit_of_old_eighty_three_sources": true,
+  "old_eleven_semantic_and_mask_verdicts_inherit_only_after_full_record_equality": true,
+  "prior_adjudication_seal_file_sha256": "456fa5e3f9d7c5d30fcf94b5b6b6f5d6f8fd27e3f297e5ac821ff85506cadb9f",
+  "prior_consecutive_failed_revisions": 1,
+  "prior_final_seal_file_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+  "prior_review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+  "provenance_paths_do_not_expand_authorization": true,
+  "read_only_input_references": 71,
+  "real_trainer_consumption": "NOT_RUN",
+  "reference_material_manifest_file_sha256": "affb910add686885b8bc8410c086be4797be11dcb6fca2bae5b8329839b69469",
+  "retained_example_ids": [
+    "028be1996b0f3be9db17c5837c3da8781f9a1fee66e5bb41adb57e37aa0ce65a",
+    "4acd8bc7081d9ea63d94b168a065f5cbb10710ea92b76326a85085534aaf4962",
+    "530544504a6de997249846a4a2188c866df276ff667900d8efc69e5270fb7a3c",
+    "6f4570bca8c7de6bdcae2ced73f300d8c211ad71aaeea2b1ad700ece284f8353",
+    "97844e2fa29043310086e91c41dde15ee5a76ffe6a7fa60f6f71eba0e0d932a1",
+    "ad2f306cf1f9bf285b081bc992bbc93a9c7f8ace047be3623ec71a7e918d17a4",
+    "b6c5eea3555956e46303417b51ec27b15c2219368ff7b6d06fe06c70ab7cbfee",
+    "f5b535a1e1542dc2ee963cc4a3d1755b8bcd9e74ba80511ffa1c071729a86c7f",
+    "training-binding-protocol-clarify",
+    "training-binding-protocol-final",
+    "training-binding-protocol-refuse"
+  ],
+  "reviewer": "Codex-AI(Q1)",
+  "task": "Q1-P02-v3-r5",
+  "thinking": "max",
+  "training_authorized": false,
+  "unique_material_examples": 13,
+  "v3_manifest_file_sha256": "f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437",
+  "v3_quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+  "verified_production_base": "d3e56f68ebd67cc576d912b6f06636682b4170ab"
+}

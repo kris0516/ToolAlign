@@ -1,8 +1,10 @@
 # Q1-P02-v3-r5｜实际排除与13例材料复核
 
-状态：PLANNED，未派发。D1完整v3 candidate、最终制品/seal、固定输入manifest、Q1配置和本轮S0 authorization_commit均PENDING，须在S0完整接收后冻结。已接收Q1原`9c12c47fd815f86992078313bac88dcec253f37f`仅覆盖两新增来源的语义，不替代本轮实际排除或token/mask核验。
+状态：CLAIMED，固定输入及配置已冻结，待原生派发。D1完整候选`5825d789ee89afedbfff31e828223608c6f435e2`已正式接收；completion `1d65726003a5eed3b6b74a4ba77bc0e49cd724d0f0dab82733ac8ec9e3e7cc0f`、receipt `871c318fe264ec84c90a37aeb20b92f07ce71e6992c4ba4b71bd2fea2e04920d`。本轮固定294输入的manifest为`b2ae91538823c2e64af68deb871736134e488df00937df34e2cfd207470e4a8c`；[精确配置](Q1_P02_V3_REVIEW_CONFIG.v1.json)为`e6a1c4ac922662992f5afeba338d88e522015367f5753c8c0ebc0743994ce51e`。S0 authorization_commit以原生派发的完整SHA为准；[冻结证据](../../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md)。原`9c12c47fd815f86992078313bac88dcec253f37f`仅覆盖两新增来源语义，不替代本轮实际排除或token/mask核验。
 
-沿用独立Q1 App任务及gpt-6-astra/max；新branch拟为`codex/q1-quality-v3-materials-r5`、新私有scope `q1-v3-materials-r5`。code_base在正式派发时确定。先保存完整授权中的本任务/配置、AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、ADR-0025、D1范围/精确v3配置、S0候选接收及两来源正式接收报告。切换前保全原9c及旧公开Git/快照、全部旧私有seal/终端回执和根identity，新身份只写新scope。
+沿用独立Q1 App任务及gpt-6-astra/max；新branch为`codex/q1-quality-v3-materials-r5`、新私有scope `q1-v3-materials-r5`。code_base固定为S0协调基线`7a731c5f08a561f5941fcba5996004706f373392`，其生产基线仍是已验证`d3e56f68ebd67cc576d912b6f06636682b4170ab`；候选5825单独冻结，不把未合并候选写成main生产能力。先保存完整授权中的本任务/配置、AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、ADR-0025所在DECISIONS、D1范围/精确v3配置、S0候选接收、两来源正式接收及本次冻结报告。切换前保全原9c及旧公开Git/快照、全部旧私有seal/终端回执和根identity，新身份只写新scope。
+
+223精确副本共29,269,007 bytes，71只读引用；包括v3和v2各30个实际输出、当前66份材料、旧66份材料、原测量13份、新旧两源码epoch的36份元数据/consumer源码、两次新编码原命令/预算/精确放行及原8a/9c判定。全部路径和字节绑定既有S0正式接收或明确固定hash。大型数据仅作identity、处置、rank及原行字节检查；来源和语义判断按本任务继承规则处理，不把出处路径当作递归读取授权。
 
 输入由S0按精确candidate冻结，副本与只读引用逐项校验原字节/hash/类型；出处路径不自动增加读取范围。包括实际v3有效数据/选择/排除/恢复/lineage、完整13例两engine材料/HTML、旧11例的原运行/判定、新两例原编码及S0精确放行、原8a和9c裁定、当前稳定issue台账。heldout/test/ood/BFCL仅核验hash/隔离元数据，禁止语义读取、调用样本工具或追加抽样。
 
