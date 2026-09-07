@@ -1,6 +1,6 @@
 # P02-QUALITY-REMEDIATION｜委托AI审查后的数据整改
 
-状态：IN_PROGRESS。S0已按完整授权2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a原生派发并确认新轮ACTIVE，gpt-6-astra/max；分支/输入intake待确认。本包处理真实审阅发现，不把原P02技术验收改写为语义通过。
+状态：IN_PROGRESS。S0已按完整授权2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a原生派发并确认新轮ACTIVE，gpt-6-astra/max；01:30 UTC直接核验新分支/身份、428基线文件、2009输入及旧证据路径、10授权副本和精确配置通过，候选待交付。本包处理真实审阅发现，不把原P02技术验收改写为语义通过。
 
 - owner：D1；只用现有独立Codex任务及其隔离worktree，gpt-6-astra / max，禁止sub-agent。
 - code_base：`86b80bada50ac7c8f4b3910e3831a397ed65a853`。

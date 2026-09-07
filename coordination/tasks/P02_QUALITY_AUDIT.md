@@ -1,6 +1,6 @@
 # P02-QUALITY-AUDIT｜仅train/validation的扩展语义审计
 
-状态：IN_PROGRESS。S0已按完整授权2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a原生派发并确认新轮ACTIVE，gpt-6-astra/max；分支/输入intake待确认。这是D1整改的独立证据输入，不修改D1代码或原数据。
+状态：IN_PROGRESS。S0已按完整授权2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a原生派发并确认新轮ACTIVE，gpt-6-astra/max；01:30 UTC直接核验新分支/身份、428基线文件、3235旧制品、7授权副本、13输入绑定及21份原审查封存通过，实际新抽样/判断待交付。这是D1整改的独立证据输入，不修改D1代码或原数据。
 
 - owner：E1；现有独立Codex任务及隔离worktree，gpt-6-astra / max，禁止sub-agent。
 - code_base：`86b80bada50ac7c8f4b3910e3831a397ed65a853`；新branch：`work/p02-quality-audit`，保留原分支与全部旧制品。

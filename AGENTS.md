@@ -83,6 +83,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 原生SFT固定toy主干验收 | VERIFIED；[PR11](https://github.com/kris0516/ToolAlign/pull/11)合并b2247d8，原R1 PASS67976fd保持；最终双Python CI及main1084CPU/2跳过、三现存归档/58安装包字节绑定通过，见[主干证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。正式模型与人工门槛保持 |
 | 2026-09-07 | 委托AI语义审阅交接与CPU整改范围 | 21份封存输出/63份输入及100/13两份AI副本核验；报告标记20个fail来源、12个unknown来源，G-DATA质量CHANGES_REQUESTED。D1数据修订/E1扩展审计CLAIMED待原生分发；见[新范围](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)及ADR-0022 |
 | 2026-09-07 | 质量修订及扩展审计实际接续 | 按完整2aa0cf4原生派发D1/E1并确认两新轮ACTIVE，gpt-6-astra/max；分支/输入intake待核验，T1/R1无新范围，GPU空闲 |
+| 2026-09-07 | 质量整改两任务intake核验 | D1/E1实际新分支/身份、两份428文件基线和精确配置通过，合计6125条当前输入/旧证据路径保持，证明c1d479b1；继续原轮次，候选及新审计待交付，见[证据](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -112,7 +113,7 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时�
 
 P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1/R1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。
 
-kris已明确委托AI审查并填写本批两套P02材料。按ADR-0022接收Codex-AI副本，不记作本人已看，不要求重复填写；报告中的32个问题来源进入整改。D1的[P02质量修订](coordination/tasks/P02_QUALITY_REMEDIATION.md)与E1的[扩展审计](coordination/tasks/P02_QUALITY_AUDIT.md)已按完整2aa0cf4原生派发并确认新轮ACTIVE，均从已验证86b80ba开始，仅CPU；分支/输入intake待核验。
+kris已明确委托AI审查并填写本批两套P02材料。按ADR-0022接收Codex-AI副本，不记作本人已看，不要求重复填写；报告中的32个问题来源进入整改。D1的[P02质量修订](coordination/tasks/P02_QUALITY_REMEDIATION.md)与E1的[扩展审计](coordination/tasks/P02_QUALITY_AUDIT.md)已按完整2aa0cf4原生派发并确认新轮ACTIVE，均从已验证86b80ba开始，仅CPU；01:30 UTC实际新分支/身份、配置和6125条当前文件路径核验通过，候选/新审计待交付。
 
 最多两个实现、独立R1和单一GPU租约约束保持。浏览器实显仍NOT_RUN，既有URL安全拒绝不绕过；页面体验待办不阻塞本轮委托AI内容整改。G-DATA因质量修订/独立复核/重新绑定待完成而未通过，真实模型容量和P04正式训练未放行，完整P00–P09目标继续。
 
