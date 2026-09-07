@@ -19,9 +19,437 @@
           "reviewer": "Codex-AI(E1); S0 verified source binding",
           "evidence_sha256": "27b1970c9c4fd308a1a7b41b59b26c64454ef1ffe242bca286b95ab327b985dc",
           "s0_binding_sha256": "2bbd0a12cce1c26a4f80941b373b375e1d2e2ee7866e9ec5fbf8cd276068e732"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "5dbc0a29221a6f609945c71f60b3c98cccfe3023f06b945da6cdc8b58233d512",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ],
+      "next_action": "在下一冻结版本整来源隔离并重绑有效数据、选择与配置"
+    },
+    {
+      "issue_id": "P02-Q-002",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "首步遗漏显式距离度量，修订后的旧观察与后继条件未验证",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "f1963fc49f3942ae27b7f0fb31174148d78ca92c12fd4899fee37028a2f7e9c7",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "d3419d4d6f80e4cc9deede7ee89ac21454eedaa2d8b989b59fdfff17d2a66fc9",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-003",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "翻译目标遗漏显式颜色词；直接修订仍超既定上下文",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "8566bc83a2fc63be6102c58e112a99a6750f03245d2d37035b91efa508ef8518",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "e1c392528ff8973cc918d7d8eb16361167d301e46dd3dd68ba299d274bbe1629",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-004",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "多个调用缺少端点约定或标识映射依据",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "77d6b023aac0b1d39a35ea1843f9a1d71cc619272a085fec8a2a69584c965e01",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "40bfd9bf67a72df728d729ee62f226d9d941d4d41d9c814c9341c88a3d3527a8",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-005",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "姓名与接口标识之间的接受规则未说明",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "c54e987757c5fe98a3443ba105be7e8d71bc1ae392fbb0b533a9ca84f78f961a",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "95ce5efd73c4e11068f91cd86cd1628903860b3ae5f00a988847fd81cd881535",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-006",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "相对日期缺少可确定年份的来源锚点",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "6bde36552cc7094e2e10bfa434ced76e104577304571cb33fd5709d1e6cbb6be",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "821ada99d4c5eb28f72e4732966edca97bbfc27f88ee9fd685a5015f4b7665d2",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-007",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "多个必要前提缺少与来源绑定的证据",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "df827312ef0ad3fb141eae8863425c2a04f43064d64501eb550f978ced63ae32",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "11414b965f031d82f5f5dbb7f21557c72f11a801f4b501c8d6ce2fce92c1eafe",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-008",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "目标对象与隐式上下文之间的绑定未知",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "64c82b8192cbc5b9d0830b11ff988a1c9b57412bc192bf9559a11f6554359b0f",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "b7bbfa6b7538d69ce59a9c4c438b0a8cb1d186d644964e4d9a5a142eafdb95ba",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-009",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "对象标识缺少来源映射，尚无证据证明映射矛盾",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "fa8e0cde1fe87e93bcd9835d71ed697c02dba1a50b1db515042971a37ce20945",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "b7d6ae0261884476a0f1b379e8ed685981b3bf299c16cdb82f224c4b20b6ea9b",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-010",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "用户名与标识的接口接受约定未确定",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "b6e4f372eda51fb69e9f2ce3771712ecfbbda06d8d1bda41da8a5537cef6fada",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "75b2095dc4bfa9f44be8df2fe1083768f6fcd888b2f84cbd755c513889f05205",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-011",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "参数解释需要尚未提供的来源约定",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "retain_quarantine",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "FAIL",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "8a113106084fcbaf995c792bf6327baecab22a302ecec03c5f3fee447a329308",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "UNKNOWN",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "ab01a8cdf80c3724e3fa417085e3cb9968d6eedb2d9feb264abebc4d2714f682",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-012",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "普通页码解释在当前来源中支持下一步调用",
+      "status": "CLOSED_ADJUDICATED_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "restore_original_bytes_next_revision",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "UNKNOWN",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "8f61636d26a4c109cfe7530efd2e7bb4f2509dea9b6c57b4b9791dd023a2d333",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "64adb4b188649548b24b68dfea4e8085cd902f8aa95ff5922eeaa4185907d96d",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-013",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "候选检索作为分步信息获取得到来源支持",
+      "status": "CLOSED_ADJUDICATED_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "restore_original_bytes_next_revision",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "UNKNOWN",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "55ada8e86da8a635f77cc156a00d0c5c0ec281002fcd138da275ef8775070891",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "29db0e5379e20de94ecd29319f7323680dd21b2232d3c464b690f948aa5386a8",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
+        }
+      ]
+    },
+    {
+      "issue_id": "P02-Q-014",
+      "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
+      "summary": "自动建议作为搜索规划步骤得到来源支持",
+      "status": "CLOSED_ADJUDICATED_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "PENDING_NEW_VERSION",
+      "next_action": "restore_original_bytes_next_revision",
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "ORIGINAL_FORMAL_NOT_PASS",
+          "candidate_data_manifest_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+          "verdict": "UNKNOWN",
+          "reviewer": "kris-delegated AI",
+          "review_created_at_utc": "2026-09-07T00:47:34.719695+00:00",
+          "evidence_sha256": "b8d4773612c4978dd351e75b01a110670b28ba3bc57ceba3f195d945b813b95e",
+          "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+          "original_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8"
+        },
+        {
+          "event_kind": "INDEPENDENT_ADJUDICATION_SAME_INPUT",
+          "review_commit": "5100c65dad05ec510e399cc84c86ca1cee419ee2",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "adjudication_record_sha256": "ba464c36de7a3423ee140a882711b83b9b1d5cd6b29c487732a1f61c8fea871b",
+          "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
+          "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
+          "new_failed_revision_increment": 0
         }
       ]
     }
   ],
-  "prior_findings": "原32来源及历史工程失败仍保留原审查；Q1给出稳定问题映射，S0仅依据真实修订轮次接入，不将多次读同一输入计作新失败。"
+  "prior_findings": "已接入Q1首轮14个稳定问题映射；原32来源其余发现与全部旧失败仍保留，待完整审计接续。首次未通过及当前改判分开登记，不以同一候选的多人重读累加。",
+  "updated_at_utc": "2026-09-07T03:24:19.414734+00:00"
 }

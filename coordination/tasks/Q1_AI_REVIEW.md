@@ -1,6 +1,6 @@
 # Q1-AI-REVIEW｜承接后续审核与首轮质量裁定
 
-状态：IN_PROGRESS。S0已按完整6e9d29b2d408f9e3a2f319406b05eb1a97b16153创建独立Codex任务并核验原生ACTIVE、真实身份、隔离branch/base和7授权文件；完整输入intake已由S0直接核验：38载荷原件/副本、14来源/15决策、428基线和7授权文件匹配；合并R1的本次1024路径证明e6b6adf3。用户已明确授权单独对话承接全部后续人工审核，见 ADR-0023 与 [审核规则](../REVIEW_POLICY.md)。
+状态：ACCEPTED（首轮裁定）；后续接续准备。原5100c65已普通推送/原生completed、S0核验603路径，以45a3eaa保持原SHA整合；见[接收证据](../../reports/S0_P02_Q1_ADJUDICATION.md)。三项恢复、十项暂挂、一项新增隔离供下一版本；当前数据改动0。新50来源/60决策范围由S0另给精确授权，当前未派发。
 
 - owner：Q1；全新 App 独立任务及隔离 worktree，gpt-6-astra / max；禁止 sub-agent。
 - code_base：已验证 `86b80bada50ac7c8f4b3910e3831a397ed65a853`；首轮 branch `review/q1-quality-r1`。先保存实际授权提交中的本任务/配置/AGENTS/GOAL/PROTOCOL/REVIEW_POLICY，再在自己的 worktree 建分支。授权完整 SHA 由 S0 原生消息给出。

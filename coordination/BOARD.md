@@ -15,8 +15,8 @@
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1 | 已验证86b80ba、ADR-0022 | READY_FOR_REVIEW | 完整9b7cf01/原生空闲；S0核验9,685路径/32命令/实际归档安装，见[交接](../reports/S0_P02_QUALITY_HANDOFF.md) |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | IN_PROGRESS | 按完整6e9d29b实际派发/ACTIVE，440候选及10授权文件intake核验通过，结论待交付 |
-| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | IN_PROGRESS | 原生创建/ACTIVE，14来源15决策与38载荷/7授权文件intake核验通过；裁定待交付 |
-| [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | IN_PROGRESS | 固定180新来源/200决策审计继续；原32/40独立判断及比较已交接核验，S0尚未裁定等级变化 |
+| [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 新独立Q1 | ADR-0023/冻结14来源 | ACCEPTED（首轮）；下轮准备 | 原5100c65已交付/原生空闲，S0核验603路径并保留原SHA整合；[裁定接收](../reports/S0_P02_Q1_ADJUDICATION.md)，50来源接续尚未派发 |
+| [P02-QUALITY-AUDIT](tasks/P02_QUALITY_AUDIT.md) 扩展语义审计 | E1 | 已验证86b80ba、ADR-0022 | IN_PROGRESS | 固定180/200语义seal核验436路径，完整候选待接收；Q1已裁定首轮11等级变化，下一轮精确接续准备 |
 | [P02-QUALITY-MATERIAL-REVIEW](tasks/P02_QUALITY_MATERIAL_REVIEW.md) 修订后16例审阅 | E1当前任务追加 | 精确1c90材料/新修订manifest | READY_FOR_REVIEW | 16例AI判断已交付/S0核验138路径；语义14/1/1、mask16 pass；质量未放行 |
 | [P03](tasks/P03_EXECUTION_HARNESS.md) 工具与 oracle | E1 | P00 | VERIFIED | R1-r2 PASS a78071b；[PR7](https://github.com/kris0516/ToolAlign/pull/7)合并29a5e4c，最终双Python CI及main551CPU/18条隔离命令通过，见[主干证据](../reports/S0_P03_MAIN_VERIFICATION.md)；真实模型/正式评测NOT_RUN |
 | [P03-CI-DEADLINE](tasks/P03_CI_DEADLINE.md) 截止时间测试稳定性 | E1；R1独立审查 | 最终CI实际失败；main4a1fa84 | VERIFIED | 原R1 1531892对947144f PASS；随PR8合并36b6988并完成最终CI/main验证，旧失败保留；E1/R1空闲 |
