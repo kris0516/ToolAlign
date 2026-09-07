@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。已接收kris委托AI完成的两套P02审阅副本，S0核对21份封存输出/63份输入和全部身份、计数、选择影响；[交接证据](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)。报告标记20个fail来源及12个unknown来源，质量CHANGES_REQUESTED；D1数据修订/E1扩展审计已原生派发并确认新轮ACTIVE，01:30 UTC新分支/输入intake核验通过，候选与新判断待交付。原P00/P01/P03及CPU支持、PR11原生toy的VERIFIED证据保持。浏览器实显仍NOT_RUN，正式模型容量和P04未放行，training_authorized=false；完整P00–P09目标保持。
+更新时间：2026-09-07。已接收kris委托AI完成的两套P02审阅副本，S0核对21份封存输出/63份输入和全部身份、计数、选择影响；[交接证据](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)。报告标记20个fail来源及12个unknown来源，质量CHANGES_REQUESTED；D1数据修订/E1扩展审计继续原轮：首版32来源40决策暂挂视图及16例新材料已获S0中间核验，原32来源的E1独立判断已接收而未裁定，完整候选/新180审计待交付；[中间证据](../reports/S0_P02_QUALITY_INTERMEDIATE.md)。16例精确追加审阅READY未发送。原P00/P01/P03及CPU支持、PR11原生toy的VERIFIED证据保持。浏览器实显仍NOT_RUN，正式模型容量和P04未放行，training_authorized=false；完整P00–P09目标保持。
 
 | 项目 | 当前记录 |
 |---|---|

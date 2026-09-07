@@ -1,0 +1,59 @@
+{
+  "config_version": "toolalign.quality-material-review-policy.v1",
+  "status": "CPU_DELEGATED_AI_REVIEW_INPUT",
+  "training_authorized": false,
+  "owner": "E1",
+  "reviewer": "Codex-AI(E1)",
+  "verified_code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "material_code_commit": "1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e",
+  "revision_code_commit": "53bf6bd617a454c022fdd03c09276b162df1f1fa",
+  "input_bindings": {
+    "quality_revision_manifest_file_sha256": "d97c5d542a0890e1b05d84fcd703895bbd041ad07887fcc370497cfa60d17d3b",
+    "quality_revision_sha256": "6656f5cbf74634f55dde31a0d68cc19a206a2130e1e27b8d214b147708078708",
+    "reference_material_manifest_file_sha256": "11469fdf48ff5c8caf5882b5e02f1c66d8a410303320dfbfc4dd57b8e6c65d57",
+    "native_material_manifest_file_sha256": "112f63a488672502697996dcc265fadfe1a3a388b9d8d78f2ff28caddc6733be",
+    "material_records_canonical_sha256": "0908dbf24fe43acb89ccb063427b2f5fa2f4803baace5ec1d57aafc2907bf6dc",
+    "parent_data_manifest_file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+    "parent_train_sha256": "9c0215f0b91d1774042273f4377a3aac942fa26249d76820597eed9044e870e0",
+    "assignments_sha256": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db",
+    "lineage_sha256": "3f6a8db88a77b6df02c58c538471bbfb157a3fd9655c6a79160c0ae345a38f5c",
+    "raw_source_sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "original_delegated_review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+    "reannotation_drafts_sha256": "74fb70f994c5348a13b8b788e3b7ffeba6d7e9e8caa2537b2c602ac434bbfd54",
+    "S0_material_intake_proof_sha256": "20dfcf0d4d0d39c44883b1a501626b8f42f54ea195e52fbcc137edff0f01a2a6",
+    "E1_prior_independent_seal_sha256": "2797c582e90fc45a600bc0c94c98b63f9dd5419dc8cb44639025c009cd880046",
+    "E1_prior_comparison_sha256": "254a7af645df9c49b0ce789ff6effca1a8326bd20365deca99afdc0ff411ebdf",
+    "E1_draft_review_sha256": "dc1f56b8e6620cf9364a561684f43625bc66d6f6042e4206b20053f5ac92b9e6"
+  },
+  "cases": {
+    "effective_selected_train": 10,
+    "original_protocol_only": 3,
+    "staged_direct_annotation": 2,
+    "staged_dependent_prefix": 1,
+    "unique_cases": 16
+  },
+  "source_review": {
+    "real_source_split": "train",
+    "all_valid_decisions_per_real_source": true,
+    "exact_identity_prior_E1_review_reuse_allowed": true,
+    "heldout_semantic_exposure": false,
+    "separate_from_frozen_180_source_denominator": true,
+    "preserve_original_32_independent_first_pass": true
+  },
+  "verdict_columns": [
+    "semantic_verdict",
+    "token_mask_verdict"
+  ],
+  "allowed_verdicts": [
+    "pass",
+    "fail",
+    "unknown"
+  ],
+  "write_to_original_materials": false,
+  "staged_annotations_enter_training": false,
+  "new_tokenizer_or_model_or_gpu_runs": 0,
+  "new_environments_or_downloads": 0,
+  "browser_actual_observation": "NOT_RUN",
+  "changes_to_frozen_180_sample": false,
+  "total_E1_scope_artifact_byte_limit": 1073741824
+}
