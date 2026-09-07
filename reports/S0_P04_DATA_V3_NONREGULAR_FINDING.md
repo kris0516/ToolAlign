@@ -13,3 +13,5 @@ R1 在冻结候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 发现一个非普
 R1继续冻结原候选完成整包审查；新修订须独立复核并经最终CI/main才能验收。既有13例成功消费、原两次失败、G-DATA和两候选CI保持原时点，不关闭本次发现。
 
 20:09:29 UTC，S0再次核验T1原轮completed/idle及原10,935路径/370链接后，按完整 `90ded89286d130b2e36dd7e18d334ed603ced9f6` 原生派发定点修复并核验新轮ACTIVE，gpt-6-astra/max。实际新branch/intake待确认；R1当前仍审原f3b7f1a1，正式结论待交付。
+
+20:25:39–40 UTC，S0核验T1实际新分支 `codex/p04-sft-data-v3-nonregular-fix-r1`、新scope身份、原生gpt-6-astra/max、13份完整授权和7份最小反例副本；共11,051路径/370链接通过，证明 `a376cfb1f65bcd1c93752ad6f206222acd100b0e497fff6d09d56101cbd14e10`。618旧公开文件绑定原f3 Git与冻结快照，原10,935路径及609输入、seal/receipt、5旧分支和root identity保持。当前 `53d86109f18e4131cff1ddcb905086892580d136` 只改两授权源码/测试；这是代码checkpoint，完整候选、源码/安装原探针结果与独立复审待交付。原记录器因缺失commands父目录而启动失败的事实保持，未补造其精确开始UTC；其后不同r2 label的intake及branch/activate三原命令exit0。S0本次只读接收，新生产API、归档/安装、编码、模型/GPU均0，原R1继续冻结f3。
