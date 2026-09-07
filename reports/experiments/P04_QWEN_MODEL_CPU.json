@@ -1,0 +1,326 @@
+{
+  "api": [
+    "validate_model_files",
+    "require_current_lease",
+    "load_qwen_model",
+    "QwenModel.model",
+    "QwenModel.parameter_identity",
+    "QwenModel.attach_lora",
+    "QwenModel.reload_adapter"
+  ],
+  "archives": {
+    "binding_sha256": "f5c4dbd69e3332f30dae50ad372d114ee70a88822a083818be95028dc22e46ce",
+    "direct_wheel": {
+      "bytes": 204275,
+      "sha256": "117f74f92aad166aceb16336771ec4d4bf9f98e7ac6142fb0592d2c1246373d6"
+    },
+    "installed_package_files": 65,
+    "package_files": 65,
+    "real_builds": 3,
+    "rebuilt_wheel": {
+      "bytes": 204275,
+      "sha256": "117f74f92aad166aceb16336771ec4d4bf9f98e7ac6142fb0592d2c1246373d6"
+    },
+    "sdist": {
+      "bytes": 401044,
+      "sha256": "73ee4795ca39d81021b3eed1eb1ed4b8a9e9d3caf5899469e91cfd75f5f7e1cf"
+    },
+    "sdist_git_bound_files": 143,
+    "sdist_members": 144
+  },
+  "authorization_commit": "427e5e8fb49a4719afd5e09b53c2d012c52e7e80",
+  "build_support_supplement": "97ca7091c239f5fbfbdbde2db401eb72532bb38a",
+  "code_base": "a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "cpu_tests": {
+    "classification": "original CPU fixtures, physical OS-lock boundaries, explicitly MOCK_ONLY runtime objects",
+    "exact_test_record_sha256": "3e6ce63102b8a7712da2f36ecdba3f3eaad042664e2c3f6c9dd561d839c13d6c",
+    "failed": 0,
+    "passed": 120,
+    "prior_success_counts_not_added": true,
+    "run_before_source_commit_with_identical_source_bytes": true,
+    "skipped": 0,
+    "test_source_matched_source_commit": true
+  },
+  "execution_status": {
+    "actual_adapter_reload": "NOT_RUN",
+    "actual_forward_optimizer_generate": "NOT_RUN",
+    "actual_framework_gpu_tokenizer_runs": 0,
+    "actual_lora_assembly": "NOT_RUN",
+    "actual_model_loads": "NOT_RUN",
+    "actual_runtime_parameter_identity": "NOT_RUN",
+    "browser_business_api_downloads": 0,
+    "data_view_builds": 0,
+    "new_private_artifact_cap_bytes": 1073741824,
+    "new_weight_copies": 0,
+    "training_authorized": false
+  },
+  "file_validation": {
+    "files_per_round": 20,
+    "framework_import_attempts": 0,
+    "headers_per_round": 622,
+    "installed_evidence_sha256": "c4416f988c27a205dfc0279d0e293d8200a2893b9f1d5eddc2d8613277a319a2",
+    "installed_rounds": 1,
+    "intake_hashing_is_a_separate_required_receipt": true,
+    "models_per_round": 2,
+    "real_tensor_values_deserialized": 0,
+    "source_evidence_sha256": "21512c5f0787b23a86c1f76c43f9c561717c0fb4869b6e53f9c4d90619d94ffd",
+    "source_rounds": 1
+  },
+  "independent_review": "NOT_RUN; S0 dispatches a precise new R1 task after final handoff",
+  "installation": {
+    "all_toolalign_imports_from_target": true,
+    "evidence_sha256": "1e9cd90418121d082694571c6ae253cff3cf6a04492a59c74be04342c8cdbbed",
+    "existing_runtime_rechecked_paths": 196,
+    "hatchling": "1.27.0",
+    "new_default_target": 1,
+    "new_dependency_installations": 0,
+    "new_environments": 0,
+    "non_source_cwd": true,
+    "offline": true,
+    "python": "3.14.7",
+    "rejection_cases": 4,
+    "uv": "0.12.5",
+    "uv_no_cache": true
+  },
+  "intake": {
+    "S0_accepted_proof_sha256": "4b1ef1f20cb8b6d09f18b7c366ae84a7530bb5aff758d1f75e73a712cad27cf5",
+    "authorization_copies": 14,
+    "baseline_files": 617,
+    "input_copied_bytes": 748369,
+    "input_exact_copies": 13,
+    "input_members": 42,
+    "input_readonly_references": 29,
+    "receipt_checked_files": 4135,
+    "receipt_self_additional_file": 1,
+    "receipt_sha256": "b8e52fb6388c0336cd1337738fbaa9aba8b74b4fea9e9effb7b3fdedbf09f599",
+    "supplement_copies": 2
+  },
+  "integration_CI_main": "NOT_RUN for this new package; owned by S0",
+  "model_facts": {
+    "Qwen/Qwen3-0.6B": {
+      "expected_lora_leaves": 112,
+      "expected_lora_parameters": 1146880,
+      "expected_runtime_base_leaves": 310,
+      "expected_runtime_base_parameters": 596049920,
+      "files": 9,
+      "generation_eos_ids": [
+        151645,
+        151643
+      ],
+      "generation_original": {
+        "bos_token_id": 151643,
+        "do_sample": true,
+        "eos_token_id": [
+          151645,
+          151643
+        ],
+        "pad_token_id": 151643,
+        "temperature": 0.6,
+        "top_k": 20,
+        "top_p": 0.95,
+        "transformers_version": "4.51.0"
+      },
+      "padding_id": 151643,
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "runtime_measurement_status": "NOT_RUN",
+      "serialized_bf16_tensor_headers": 311,
+      "serialized_parameters": 751632384,
+      "training_eos_id": 151645
+    },
+    "Qwen/Qwen3-1.7B": {
+      "expected_lora_leaves": 112,
+      "expected_lora_parameters": 1605632,
+      "expected_runtime_base_leaves": 310,
+      "expected_runtime_base_parameters": 1720574976,
+      "files": 11,
+      "generation_eos_ids": [
+        151645,
+        151643
+      ],
+      "generation_original": {
+        "bos_token_id": 151643,
+        "do_sample": true,
+        "eos_token_id": [
+          151645,
+          151643
+        ],
+        "pad_token_id": 151643,
+        "temperature": 0.6,
+        "top_k": 20,
+        "top_p": 0.95,
+        "transformers_version": "4.51.0"
+      },
+      "padding_id": 151643,
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "runtime_measurement_status": "NOT_RUN",
+      "serialized_bf16_tensor_headers": 311,
+      "serialized_parameters": 2031739904,
+      "training_eos_id": 151645
+    }
+  },
+  "owner": "E1",
+  "preservation": {
+    "baseline_files_unchanged": 617,
+    "current_paths_checked": 4376,
+    "evidence_sha256": "da29eaddd36f45cb45e760748153cec1a0f98af48f9492ce1ebbe6485a45ee1c",
+    "old_FAIL_PASS_preserved": true,
+    "old_candidate": "da22baf46248c2fc0a36e04105bb8df9b48d62fb",
+    "old_links": 39,
+    "old_public_checkout_locations_bound_via_original_Git_and_snapshots": 498,
+    "old_public_git_and_snapshot_files": 498,
+    "old_refs_preserved": true,
+    "old_scope_files": 1209,
+    "root_identity_preserved": true
+  },
+  "preserved_failures": [
+    {
+      "exit_code": 1,
+      "label": "006-ruff-new",
+      "reason": "unused test import; resolved as the origin tests were completed"
+    },
+    {
+      "exit_code": 1,
+      "failed": 1,
+      "label": "007-pytest-origin-state",
+      "passed": 117,
+      "reason": "test expected runtime_ prefix; strict source size rejection correctly returned file_size_mismatch; test expectation fixed"
+    }
+  ],
+  "reported_at_utc": "2026-09-07T19:22:15.512866+00:00",
+  "schema": "toolalign.e1.qwen-model-cpu-report.v1",
+  "source_commit": "207c24c486a562760c51b8de3193c3e78028ba6d",
+  "source_files": {
+    "configs/qwen-models.v1.json": "b8a5e48bc2b93064c511ba796dabf55024f65df97fe0db39c43366b7bc877145",
+    "src/toolalign/model_io/qwen_model.py": "e9ecf4ad145682da239c422e3e3e3f156b4d7c203758f330317c6f4456d10e1a",
+    "tests/model_io/test_qwen_model.py": "e432807eec158a46859914b22e8805fe835c2427f7845e076ba924fbbb64ed00"
+  },
+  "status": "READY_FOR_REVIEW",
+  "task_id": "P04-QWEN-MODEL-CPU",
+  "temporary_test_directory_note": {
+    "S0_reported_missing_prior_shared_fixture": true,
+    "cleanup_attribution": "S0 investigation; not inferred here",
+    "first_four_pytest_commands_used_default_shared_root": true,
+    "old_temporary_directory_restored_or_cleaned": false,
+    "subsequent_pytest_requires_new_exclusive_basetemp": true,
+    "successful_runs_repeated_after_notice": 0
+  },
+  "verification_commands": {
+    "009-pytest-final-source": {
+      "exit_code": 0,
+      "record_sha256": "3e6ce63102b8a7712da2f36ecdba3f3eaad042664e2c3f6c9dd561d839c13d6c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3b94057d89f663c71d33803504786e7924c83a55d09efaf7dc27af3e3b8a1d41",
+      "utc_finished": "2026-09-07T19:03:38.009668+00:00",
+      "utc_started": "2026-09-07T19:03:37.063991+00:00"
+    },
+    "011-ruff-all": {
+      "exit_code": 0,
+      "record_sha256": "2cb8afaa327f6ec0aad6fe53aab35e2d73036f967f8931dc36f3313e138e4539",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "utc_finished": "2026-09-07T19:05:45.292118+00:00",
+      "utc_started": "2026-09-07T19:05:45.248176+00:00"
+    },
+    "012-contract-freeze": {
+      "exit_code": 0,
+      "record_sha256": "a938d9b35b42252b87c039e0a4473873bfe701283208cc258fc2018fff1fbdb3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190",
+      "utc_finished": "2026-09-07T19:05:45.309709+00:00",
+      "utc_started": "2026-09-07T19:05:45.264905+00:00"
+    },
+    "013-public-content": {
+      "exit_code": 0,
+      "record_sha256": "6b2da87282ed5ffcb4a5fcf79f57b118ee9ce3cd05710faab59456e7b635d376",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a5a50e2c61009a998400970a4eb562a3ca450216e4079e6b4efa82d98d7f0fe2",
+      "utc_finished": "2026-09-07T19:05:55.244184+00:00",
+      "utc_started": "2026-09-07T19:05:45.295560+00:00"
+    },
+    "014-diff-check": {
+      "exit_code": 0,
+      "record_sha256": "44d113e85ee35953e2c343ed3cf49f2667e92173848a7178f83c3d73195c6381",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utc_finished": "2026-09-07T19:05:45.313511+00:00",
+      "utc_started": "2026-09-07T19:05:45.277592+00:00"
+    },
+    "016-source-real-files": {
+      "exit_code": 0,
+      "record_sha256": "760af3246ee2d2c13b4ce66a1c1896ac54234b6cb4a585fe5bd6d41939224e03",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b0d9401c9f32021f4a38f421de66e3959d17282d6c4659ae6cba09240adabae3",
+      "utc_finished": "2026-09-07T19:07:53.848641+00:00",
+      "utc_started": "2026-09-07T19:07:51.579019+00:00"
+    },
+    "017-build-sdist-wheel": {
+      "exit_code": 0,
+      "record_sha256": "231e7ca311fd6167e7e31ffbff78981fed0dbdea6462bb30fe7553b376446080",
+      "stderr_sha256": "44744cbda3c3b2107c524b6cf25b85889070111ba2eb8511d33d28b2e28afde1",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utc_finished": "2026-09-07T19:09:01.980677+00:00",
+      "utc_started": "2026-09-07T19:09:01.788984+00:00"
+    },
+    "018-check-extract-sdist": {
+      "exit_code": 0,
+      "record_sha256": "477ebc462cb5b977c3047d4a0da2a3a5293ffc0e2e3a3c23c41eeb1ed100a28b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "8b821e5d8c195b2b2f344b3f8a850e8936d543aed52ec468b5a3771bee2a64fa",
+      "utc_finished": "2026-09-07T19:11:04.195950+00:00",
+      "utc_started": "2026-09-07T19:11:04.113688+00:00"
+    },
+    "019-rebuild-wheel": {
+      "exit_code": 0,
+      "record_sha256": "79d6c4af4758722e5f1e1936426a7e2f1da62408be31f90751f0102033a4d03b",
+      "stderr_sha256": "390f55d67eccdbf6ea4ad4de4f6ebfe3f1dd006ec943c9ec7e1e0a6ee21f34ad",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utc_finished": "2026-09-07T19:11:46.822649+00:00",
+      "utc_started": "2026-09-07T19:11:46.718089+00:00"
+    },
+    "020-install-default-target": {
+      "exit_code": 0,
+      "record_sha256": "af82c14b707dd27a21cc7149ee2fae1e77c4aea1e84e7d36d2804c2db2d0783d",
+      "stderr_sha256": "d06a850a5e92261f3ca5a212728e8ca33b60d387adb87e76b06a8e7a68c8f57e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utc_finished": "2026-09-07T19:11:47.035378+00:00",
+      "utc_started": "2026-09-07T19:11:46.925756+00:00"
+    },
+    "021-installed-smoke": {
+      "exit_code": 0,
+      "record_sha256": "213770e8c7f6e3133cc1363292295db767cb69cf748007cac11931ebc17c1755",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "98640063e245590558dcab1a01d856b863224e030875f661fd73e2bbe1a8b46e",
+      "utc_finished": "2026-09-07T19:12:42.026513+00:00",
+      "utc_started": "2026-09-07T19:12:41.944567+00:00"
+    },
+    "022-installed-real-files": {
+      "exit_code": 0,
+      "record_sha256": "9e3576f738f9570a825c5dce119b7b7520970a05c8c922666c91649cd7c18524",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "91aa4cc79603061ebaaa7454a4d73d92087765a5b2003981376dbb92513212fc",
+      "utc_finished": "2026-09-07T19:12:44.228431+00:00",
+      "utc_started": "2026-09-07T19:12:42.126730+00:00"
+    },
+    "023-archive-installed-binding": {
+      "exit_code": 0,
+      "record_sha256": "a7be05556564b5f81b6bd27e4114e954ad5bddec2f0177ed4519c8ae42908712",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "48019d537c283c8478654302f59f883be918e2f86778a093e3caf33d36c052d2",
+      "utc_finished": "2026-09-07T19:13:56.924990+00:00",
+      "utc_started": "2026-09-07T19:13:56.818674+00:00"
+    },
+    "024-preserve-old-and-runtime": {
+      "exit_code": 0,
+      "record_sha256": "526a89ab4bd1aa62dc6d9ebc026d7f07fcb4b2218410721b5a27ae800361f246",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "202fdf1ba2092aa4459b825fb4868d7d190f640b4291ad44244841929906762c",
+      "utc_finished": "2026-09-07T19:16:19.918527+00:00",
+      "utc_started": "2026-09-07T19:16:07.560222+00:00"
+    }
+  }
+}
