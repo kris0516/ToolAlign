@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
+from json_values import json_equal, json_key
+
 
 def encoded(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
@@ -95,12 +97,12 @@ def inspect_record(record, page, descriptor):
     sequence = record["sequence"]
     padding = record["padding"]
     binding = record["source_binding"]
-    assert binding["example_id"] == example["example_id"]
+    assert json_equal(binding["example_id"], example["example_id"])
     assert binding["example_sha256"] == canonical(example)
     assert binding["action_sha256"] == canonical(example["expected_action"])
     assert binding["model_input_sha256"] == canonical({k: example[k] for k in ("messages", "tools")})
     for key in ("source", "source_revision", "source_record_hash", "group_id", "split"):
-        assert binding[key] == example[key]
+        assert json_equal(binding[key], example[key])
     if case["category"] != "original_protocol_only":
         assert example["example_id"] == canonical({k: v for k, v in example.items() if k not in {"example_id", "group_id", "split"}})
         assert example["split"] == "train"
@@ -108,7 +110,7 @@ def inspect_record(record, page, descriptor):
         assert case["enters_effective_training"] is False
     if "annotation" in case:
         annotation = case["annotation"]
-        assert annotation["example_id"] == example["example_id"]
+        assert json_equal(annotation["example_id"], example["example_id"])
         assert annotation["example_sha256"] == binding["example_sha256"]
         assert annotation["candidate_model_input_sha256"] == binding["model_input_sha256"]
         assert annotation["candidate_action_sha256"] == binding["action_sha256"]
@@ -120,32 +122,34 @@ def inspect_record(record, page, descriptor):
     completion = wire_json(example["expected_action"])
     assert sequence["prompt_text"] == prompt
     assert sequence["completion_text"] == completion
-    assert json.loads(completion) == example["expected_action"]
+    assert json_equal(json.loads(completion), example["expected_action"])
     assert sequence["prompt_sha256"] == sha(prompt.encode())
     assert sequence["completion_sha256"] == sha(completion.encode())
-    assert sequence["completion_utf8_bytes"] == len(completion.encode())
+    assert json_equal(sequence["completion_utf8_bytes"], len(completion.encode()))
     assert sequence["instruction_sha256"] == sha(descriptor["instruction"].encode())
     assert sequence["format_id"] == descriptor["format_id"]
     assert sequence["prefix_stable"] is True
     ids, prompt_ids = sequence["sequence_ids"], sequence["prompt_ids"]
+    for values in (ids, prompt_ids):
+        assert type(values) is list and all(type(v) is int and v >= 0 for v in values)
     p, n = len(prompt_ids), len(ids)
     c = n - p - 1
     assert p > 0 and c > 0
-    assert sequence["prompt_tokens"] == p
-    assert sequence["total_tokens"] == n
-    assert sequence["completion_tokens"] == c
-    assert sequence["completion_tokens_including_eos"] == c + 1
-    assert ids[:p] == prompt_ids
-    assert sequence["concatenated_ids"] == ids[:-1]
-    assert ids[-1] == sequence["eos_token_id"] == 151645
-    assert ids[p:].count(151645) == sequence["append_eos_count"] == 1
+    assert json_equal(sequence["prompt_tokens"], p)
+    assert json_equal(sequence["total_tokens"], n)
+    assert json_equal(sequence["completion_tokens"], c)
+    assert json_equal(sequence["completion_tokens_including_eos"], c + 1)
+    assert json_equal(ids[:p], prompt_ids)
+    assert json_equal(sequence["concatenated_ids"], ids[:-1])
+    assert json_equal(ids[-1], 151645) and json_equal(sequence["eos_token_id"], 151645)
+    assert ids[p:].count(151645) == 1 and json_equal(sequence["append_eos_count"], 1)
     mask = [int(i >= p) for i in range(n)]
-    assert sequence["loss_mask"] == mask
-    assert sequence["causal_input_ids"] == ids[:-1]
-    assert sequence["causal_target_ids"] == ids[1:]
-    assert sequence["causal_loss_mask"] == mask[1:]
-    assert sequence["first_supervised_causal_position"] == p - 1
-    assert sequence["last_supervised_causal_position"] == n - 2
+    assert json_equal(sequence["loss_mask"], mask)
+    assert json_equal(sequence["causal_input_ids"], ids[:-1])
+    assert json_equal(sequence["causal_target_ids"], ids[1:])
+    assert json_equal(sequence["causal_loss_mask"], mask[1:])
+    assert json_equal(sequence["first_supervised_causal_position"], p - 1)
+    assert json_equal(sequence["last_supervised_causal_position"], n - 2)
     hash_fields = {"sequence_ids": "sequence_sha256"}
     for name in ("prompt_ids", "concatenated_ids", "loss_mask", "causal_loss_mask", "causal_input_ids", "causal_target_ids"):
         hash_fields[name] = name + "_sha256"
@@ -153,45 +157,47 @@ def inspect_record(record, page, descriptor):
         assert sequence[field] == canonical(sequence[name])
 
     bucket = padding["bucket"]
-    assert bucket >= n
-    assert padding["unpadded_length"] == n
-    assert padding["pad_token_id"] == 151643
+    assert type(bucket) is int and bucket >= n
+    assert json_equal(padding["unpadded_length"], n)
+    assert json_equal(padding["pad_token_id"], 151643)
     padded = ids + [151643] * (bucket - n)
     attention = [int(i < n) for i in range(bucket)]
     loss = [int(p <= i < n) for i in range(bucket)]
-    assert padding["sequence_ids"] == padded
-    assert padding["attention_mask"] == attention
-    assert padding["loss_mask"] == loss
-    assert padding["causal_input_ids"] == padded[:-1]
-    assert padding["causal_target_ids"] == padded[1:]
-    assert padding["causal_loss_mask"] == loss[1:]
-    assert padding["effective_supervised_targets"] == sum(loss) == sum(loss[1:]) == c + 1
-    assert padding["first_supervised_causal_position"] == p - 1
-    assert padding["last_supervised_causal_position"] == n - 2
+    assert json_equal(padding["sequence_ids"], padded)
+    assert json_equal(padding["attention_mask"], attention)
+    assert json_equal(padding["loss_mask"], loss)
+    assert json_equal(padding["causal_input_ids"], padded[:-1])
+    assert json_equal(padding["causal_target_ids"], padded[1:])
+    assert json_equal(padding["causal_loss_mask"], loss[1:])
+    assert json_equal(padding["effective_supervised_targets"], c + 1)
+    assert sum(loss) == sum(loss[1:]) == c + 1
+    assert json_equal(padding["first_supervised_causal_position"], p - 1)
+    assert json_equal(padding["last_supervised_causal_position"], n - 2)
     texts = record["token_texts"]
+    assert type(texts) is list and all(type(t) is str for t in texts)
     assert len(texts) == bucket
     assert texts[n - 1] == "<|im_end|>"
     assert all(t == "<|endoftext|>" for t in texts[n:])
     budget = record["budget_observations"]
     assert budget["used_to_promote_staged_annotation"] is False
-    assert budget["response_256_including_eos"] == (c + 1 <= 256)
-    assert budget["context_including_eos"] == {str(size): n <= size for size in (1024, 1536, 2048)}
+    assert json_equal(budget["response_256_including_eos"], c + 1 <= 256)
+    assert json_equal(budget["context_including_eos"], {str(size): n <= size for size in (1024, 1536, 2048)})
 
     parsed = StaticPage()
     parsed.feed(page)
     parsed.close()
     assert not parsed.active_tags
     assert prompt in parsed.pre and completion in parsed.pre
-    json_blocks = []
+    json_blocks = set()
     for block in parsed.pre:
         try:
-            json_blocks.append(json.loads(block))
+            json_blocks.add(json_key(json.loads(block)))
         except json.JSONDecodeError:
             pass
     # The revised material page shows the complete Example (including its full
     # ModelInput), rather than the older page's standalone ModelInput block.
     for expected in (example, example["expected_action"], sequence, padding):
-        assert expected in json_blocks
+        assert json_key(expected) in json_blocks
     assert len(parsed.rows) == bucket
     for i, row in enumerate(parsed.rows):
         segment = "prompt" if i < p else "completion" if i < n - 1 else "eos" if i == n - 1 else "padding"
@@ -224,7 +230,7 @@ def main():
     descriptor = json.loads(descriptor_bytes)
     assert sha(descriptor_bytes) == "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207"
     manifests = {name: json.loads((args.inputs / name / "manifest.json").read_text()) for name in ("review-reference", "review-native")}
-    assert manifests["review-reference"]["case_order"] == manifests["review-native"]["case_order"]
+    assert json_equal(manifests["review-reference"]["case_order"], manifests["review-native"]["case_order"])
     results, records, vocabulary = [], [], {}
     for name in manifests["review-reference"]["case_order"]:
         pair = []
@@ -232,7 +238,7 @@ def main():
             payload = (args.inputs / engine / (name + ".json")).read_bytes()
             assert sha(payload) == manifest["artifacts"][name + ".json"]["sha256"]
             pair.append(json.loads(payload))
-        assert pair[0] == pair[1]
+        assert json_equal(pair[0], pair[1])
         record = pair[0]
         page = (args.inputs / "review-reference" / (name + ".html")).read_bytes()
         assert sha(page) == manifests["review-reference"]["artifacts"][name + ".html"]["sha256"]

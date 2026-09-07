@@ -1,7 +1,7 @@
 """Render complete selected source semantics with explicit lossless references.
 
 No verdicts are computed. Raw source instructions are printed as inert data.
-Exact string equality and parsed JSON equality only remove repeated displays.
+Exact strings and type-preserving parsed JSON keys only remove repeated displays.
 Non-semantic Example and lineage metadata remain in the frozen input packets.
 """
 
@@ -10,6 +10,8 @@ import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+
+from json_values import json_equal, json_key
 
 
 def dump(value):
@@ -22,7 +24,7 @@ def sha(data):
 
 def delta(before, after, path=""):
     """An exact structural delta, not a semantic approximation."""
-    if before == after:
+    if json_equal(before, after):
         return []
     if isinstance(before, dict) and isinstance(after, dict):
         result = []
@@ -48,6 +50,7 @@ def render(paths):
     coverage = []
 
     def string(value, label):
+        assert type(value) is str
         if value in strings:
             return {"exact_string_ref": strings[value]}
         strings[value] = label
@@ -85,14 +88,15 @@ def render(paths):
                             observations.append((item["results"], f"{label}:json[{offset}].results"))
                 except (ValueError, TypeError):
                     pass
-        toolsets = []
-        normalized_messages = []
+        toolsets = {}
+        normalized_messages = {}
         for decision in decisions:
             example = decision["example"]
             tools = example["tools"]
-            if tools not in toolsets:
+            tools_key = json_key(tools)
+            if tools_key not in toolsets:
                 toolset_id = len(toolsets)
-                toolsets.append(tools)
+                toolsets[tools_key] = toolset_id
                 assert len(raw_tools) == len(tools)
                 for index, (raw_tool, tool) in enumerate(zip(raw_tools, tools)):
                     normalized = {
@@ -102,12 +106,13 @@ def render(paths):
                     original = {k: raw_tool[k] for k in ("name", "description", "parameters")}
                     lines.append(f"NORMALIZED_TOOL {toolset_id}:{index} raw_tool_index={index} DELTA " + dump(delta(original, normalized)))
             else:
-                toolset_id = toolsets.index(tools)
+                toolset_id = toolsets[tools_key]
             refs = []
             for message in example["messages"]:
-                if message not in normalized_messages:
+                message_key = json_key(message)
+                if message_key not in normalized_messages:
                     message_id = len(normalized_messages)
-                    normalized_messages.append(message)
+                    normalized_messages[message_key] = message_id
                     value = dict(message)
                     content = value["content"]
                     reference = None
@@ -115,14 +120,14 @@ def render(paths):
                         try:
                             parsed = json.loads(content)
                             for observation, label in observations:
-                                if parsed == observation:
+                                if json_equal(parsed, observation):
                                     reference = {"equal_json_value_ref": label}
                                     break
                         except ValueError:
                             pass
                     value["content"] = reference or string(content, f"{name}:normalized_message{message_id}.content")
                     lines.append("NORMALIZED_MESSAGE " + str(message_id) + " " + dump(value))
-                refs.append(normalized_messages.index(message))
+                refs.append(normalized_messages[message_key])
             turn_index = decision["lineage"]["source_turn_index"]
             lines.append("TARGET " + dump({
                 "source_turn_index": turn_index,
@@ -156,6 +161,7 @@ def main():
         "rendered_at_utc": datetime.now(timezone.utc).isoformat(),
         "view_sha256": sha(view.encode()), "view_bytes": len(view.encode()),
         "renderer_sha256": sha(Path(__file__).read_bytes()), "coverage": coverage,
+        "json_values_sha256": sha(Path(__file__).with_name("json_values.py").read_bytes()),
         "semantic_review_completed": False,
     }
     args.output.with_suffix(".json").write_text(dump(meta) + "\n")

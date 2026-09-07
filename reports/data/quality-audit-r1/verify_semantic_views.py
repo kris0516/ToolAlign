@@ -11,6 +11,14 @@ import json
 import re
 from pathlib import Path
 
+from json_values import json_equal
+
+
+def index_value(value, size):
+    """JSON references must be nonnegative integers, never booleans or floats."""
+    assert type(value) is int and 0 <= value < size
+    return value
+
 
 def verify(view_path, packets):
     text = view_path.read_text(encoding="utf-8")
@@ -83,6 +91,7 @@ def verify(view_path, packets):
         elif line.startswith("TARGET "):
             current["targets"].append(json.loads(line.removeprefix("TARGET ")))
     assert set(rendered) == {item["packet"] for item in metadata["coverage"]}
+    assert len(rendered) == len(metadata["coverage"])
     totals = {"sources": 0, "decisions": 0, "raw_turns": 0, "prefix_messages": 0}
     for name, actual in rendered.items():
         packet_path = packets / (name + ".json")
@@ -90,18 +99,34 @@ def verify(view_path, packets):
         recorded = next(item for item in metadata["coverage"] if item["packet"] == name)
         assert hashlib.sha256(packet_path.read_bytes()).hexdigest() == recorded["packet_sha256"]
         source = packet["source"]
+        identity = packet["identity"]
+        assert json_equal(actual["identity"], {
+            "source_index": identity["source_index"], "split": identity["split"],
+            "valid_decisions": identity["valid_decision_count"],
+        })
+        assert json_equal(recorded, {
+            "packet": name, "packet_sha256": hashlib.sha256(packet_path.read_bytes()).hexdigest(),
+            "source_record_hash": identity["source_record_hash"],
+            "example_ids": [item["example"]["example_id"] for item in packet["valid_decisions"]],
+            "raw_turn_count": len(source["conversations"]),
+            "normalized_message_count": len(actual["messages"]),
+            "toolset_count": len({toolset for toolset, _ in actual["tools"]}),
+        })
         span = packet["valid_decisions"][0]["lineage"]["system_conversion"]["schema_span"]
-        assert actual["head"] == source["system"][:span[0]]
-        assert actual["tail"] == source["system"][span[1]:]
-        assert actual["raw_tools"] == json.loads(source["system"][span[0]:span[1]])
-        assert actual["turns"] == source["conversations"]
+        assert json_equal(actual["head"], source["system"][:span[0]])
+        assert json_equal(actual["tail"], source["system"][span[1]:])
+        assert json_equal(actual["raw_tools"], json.loads(source["system"][span[0]:span[1]]))
+        assert json_equal(actual["turns"], source["conversations"])
         assert len(actual["targets"]) == len(packet["valid_decisions"])
         for target, decision in zip(actual["targets"], packet["valid_decisions"]):
             example = decision["example"]
-            assert target["source_turn_index"] == decision["lineage"]["source_turn_index"]
-            assert target["example_id"] == example["example_id"]
-            assert target["expected_action"] == example["expected_action"]
-            messages = [copy.deepcopy(actual["messages"][index]) for index in target["complete_prefix_message_refs"]]
+            assert json_equal(target["source_turn_index"], decision["lineage"]["source_turn_index"])
+            assert json_equal(target["example_id"], example["example_id"])
+            assert json_equal(target["expected_action"], example["expected_action"])
+            refs = target["complete_prefix_message_refs"]
+            assert type(refs) is list
+            messages = [copy.deepcopy(actual["messages"][index_value(index, len(actual["messages"]))])
+                        for index in refs]
             expected_messages = copy.deepcopy(example["messages"])
             # Observation references preserve exact JSON values, rather than serialization spacing.
             for sequence in (messages, expected_messages):
@@ -111,12 +136,13 @@ def verify(view_path, packets):
                             message["content"] = json.loads(message["content"])
                         except ValueError:
                             pass
-            assert messages == expected_messages
+            assert json_equal(messages, expected_messages)
+            toolset = index_value(target["toolset"], recorded["toolset_count"])
             for index, tool in enumerate(example["tools"]):
-                assert actual["tools"][(target["toolset"], index)] == {
+                assert json_equal(actual["tools"][(toolset, index)], {
                     "name": tool["name"], "description": tool["description"],
                     "parameters": tool["parameters_json_schema"],
-                }
+                })
             totals["prefix_messages"] += len(messages)
         totals["sources"] += 1
         totals["decisions"] += len(actual["targets"])
