@@ -244,3 +244,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 19:48:48 UTC，E1完整01eeb74d的S0接收通过，证明c8abe895；623候选/617基线、34原命令及三归档/65安装包文件已核对，原20模型文件仅流式hash/header检查，无tensor解码或模型加载。Draft PR17建立；R1当前精确T1数据轮继续，E1技术review READY尚未派发。[完整接收](../reports/S0_P04_QWEN_CPU_HANDOFF.md)。
 
 19:57:46 UTC，R1精确f3b7f1a1的新branch/intake已核验，S0证明1c8cda1a12488dc2994815f2e2b92254c00c0c78eeb591dc6c933ca06240c8cf；原失败、旧公开Git映射及缺失例外保持，独立审查继续。PR16/17双Python候选CI均通过，实际CI合并017c290/66fc03a及全部源码绑定已核验；不替代R1或最终CI/main。
+
+20:03:20 UTC，S0核验R1原FIFO反例与精确f3b7f1a1源码的630路径绑定；原child已回收，外层应即时拒绝断言exit1。P04-SFT-DATA-V3-F1暂标P2，完整正式verdict待交付，计数增量0。T1定点CPU修复CLAIMED待派发，固定7份最小输入，不新增真实数据/编码/模型额度；[原发现](../reports/S0_P04_DATA_V3_NONREGULAR_FINDING.md)。
