@@ -1,0 +1,112 @@
+{
+  "schema": "toolalign.q1-public-review-summary.v2",
+  "task": "Q1-P02-r2",
+  "status": "REVIEW_COMPLETE_CHANGES_REQUESTED",
+  "reviewer": "Codex-AI(Q1)",
+  "model": "gpt-6-astra",
+  "thinking": "max",
+  "authorization_commit": "39cba8bc68edea00266f142dbdf0091da50bd9ec",
+  "code_base": "b63de055efe68500ff206dadcdc95e94884062f2",
+  "e1_candidate": "5270d1e9bdadb9db36deac7ba9b2e256b267b831",
+  "input_manifest_sha256": "eebc74d745610b518df6ce377c69c50d1271e7aa5d70ba58e8289396cf4857fe",
+  "input_payload_files": 114,
+  "input_payload_bytes": 1996572,
+  "counts": {
+    "sources": 50,
+    "decisions": 60,
+    "calls": 121,
+    "source_action_verdicts": {
+      "unknown": 38,
+      "fail": 10,
+      "pass": 2
+    },
+    "decision_action_verdicts": {
+      "unknown": 38,
+      "pass": 11,
+      "fail": 11
+    },
+    "call_verdicts": {
+      "pass": 54,
+      "unknown": 56,
+      "fail": 11
+    },
+    "source_training_fitness": {
+      "unknown": 39,
+      "fail": 11
+    },
+    "source_dispositions": {
+      "hold_entire_source": 39,
+      "quarantine_entire_source": 11
+    },
+    "decision_dispositions": {
+      "hold_entire_source": 45,
+      "quarantine_entire_source": 15
+    },
+    "splits": {
+      "train": 46,
+      "validation": 4
+    },
+    "source_verdicts_by_split": {
+      "train": {
+        "unknown": 35,
+        "fail": 9,
+        "pass": 2
+      },
+      "validation": {
+        "unknown": 3,
+        "fail": 1
+      }
+    },
+    "e1_to_q1_changed_sources": 1,
+    "e1_to_q1_changed_decisions": 1,
+    "isolated_advisory_source_action_verdicts": {
+      "pass": 1
+    },
+    "isolated_advisory_decision_action_verdicts": {
+      "pass": 2
+    },
+    "proposed_issue_groups": 50,
+    "existing_issue_groups_reused": 3,
+    "proposed_new_issue_groups": 47,
+    "initial_assessment_refinements": 10
+  },
+  "verification": {
+    "status": "PASS",
+    "checked_unique_paths": 978,
+    "base_tracked_files_unchanged": 449,
+    "old_sealed_files_preserved": 133,
+    "all_old_paths_preserved": 135,
+    "raw_schema_occurrences": 185,
+    "normalized_prefix_message_occurrences": 178,
+    "failed_helper_commands_preserved": 6,
+    "native_export_errors_preserved": 2
+  },
+  "core_seal": {
+    "sha256": "1c15ea51138cda852646703626db283d6cd14c047cb481053c36a745f9ba5baf",
+    "files": 289,
+    "bytes": 4966091
+  },
+  "new_substantive_revision_attempts": 0,
+  "new_substantive_revision_failure_increments": 0,
+  "highest_existing_failure_count": 1,
+  "same_issue_failure_threshold": 5,
+  "whole_goal_pause_recommended": false,
+  "source_data_mutations": 0,
+  "new_sampling": false,
+  "heldout_semantics_read": false,
+  "reading_material_provenance": {
+    "complete_frozen_json_packets_read_directly": true,
+    "q1_owned_display_and_prefix_binding_helpers_used": true,
+    "e1_semantic_view_scripts_called_imported_or_reused": false,
+    "e1_generated_semantic_views_used": false,
+    "e1_judgments_compared_after_independent_initial_assessment_seal": true,
+    "provenance_addendum_changes_adjudications_or_counters": false
+  },
+  "training_authorized": false,
+  "limits": [
+    "Purposively selected fixed subset; no population error-rate estimate.",
+    "Action judgments and historical content/whole-source fitness are separate.",
+    "No production implementation technical approval or real business/model execution.",
+    "No source text, indices, identifiers, credentials or local-machine paths are published."
+  ]
+}
