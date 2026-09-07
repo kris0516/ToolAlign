@@ -37,4 +37,4 @@ D1 默认 CPU **839 passed／48 optional skipped**，新增 73 项包含在 839 
 
 S0 新数据构建、编码、build/install、框架、模型／GPU和业务 API 均 0。两次完整 v3 构建、4 次新 sequence 的 D1 额度已用尽。R1 后续仅准一次独立完整输出／一次临时安装，真实分词和新归档构建 0；Q1 仅做实际处置与固定材料审核。所有后续人工环节继续由独立 Q1 承接；同问题第五次规则和当前 P02-Q-081 失败计数 1 保持。浏览器实显、真实 trainer 消费及正式模型实验仍 NOT_RUN。
 
-后续核验：PR15候选双Python CI各14步骤成功，原日志绑定实际合并417fcf9和全部590文件；R1已按7a731c5原生ACTIVE、完整intake经S0核验。Q1 r5的294固定输入与精确配置已按21f9210原生ACTIVE，新intake待核验；见[本轮证据](S0_P02_Q1_V3_REVIEW_DISPATCH.md)。
+后续核验：PR15候选双Python CI各14步骤成功，原日志绑定实际合并417fcf9和全部590文件；R1已按7a731c5原生ACTIVE、完整intake经S0核验。Q1 r5的294固定输入与精确配置已按21f9210原生ACTIVE，4,811路径/16授权/294输入的完整intake已核验；见[本轮证据](S0_P02_Q1_V3_REVIEW_DISPATCH.md)。
