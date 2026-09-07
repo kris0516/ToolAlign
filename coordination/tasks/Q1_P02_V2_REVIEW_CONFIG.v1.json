@@ -1,0 +1,50 @@
+{
+  "schema": "toolalign.q1-data-v2-review-config.v1",
+  "task": "Q1-P02-v2-r3",
+  "reviewer": "Codex-AI(Q1)",
+  "model": "gpt-6-astra",
+  "thinking": "max",
+  "code_base": "d9e5622c4148896803f92c53caf615975ef5254c",
+  "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+  "input_manifest_sha256": "aa4fba710891eb969371c80bea931abcff8a54c988b8a4cee95ec4145bc95f7d",
+  "s0_candidate_receipt_sha256": "6c9b88d9cd49931381f6aac7713cbc0ffcead6eb9d732b84fae37d7dac155d9e",
+  "candidate_completion_sha256": "0198fce2c6a3e3eac1a11f7538becd85527152b2a35931a49d6137b853e2bc04",
+  "candidate_data_manifest_sha256": "0b0fdb79f728256dac42ddba75e0f3fc43aebb9502f2e9097398a482d5774251",
+  "fixed_material_selection_sha256": "915954fff442c4bf4e9865225c0985c7eeb832e11faed66f382c49597e7d109c",
+  "original_D1_ledger_sha256": "951619661cc6982b30f104f39a64b953d5721382c94b0f05fc12edf7ff014f51",
+  "current_S0_ledger_sha256": "141d09728ae152846d56370be4b983db5cf08b66ffe61f49b603015cccaed04c",
+  "payload_items": 346,
+  "exact_copies": 286,
+  "immutable_references": 60,
+  "exact_copy_bytes": 167662769,
+  "adoption": {
+    "sources": 83,
+    "decisions": 101,
+    "excluded_sources": 80,
+    "excluded_decisions": 98,
+    "restored_sources": 3,
+    "restored_decisions": 3,
+    "excluded_issue_ids": 77,
+    "restored_issue_ids": 3,
+    "old_semantic_verdicts_unchanged": true
+  },
+  "semantic_review": {
+    "actual_train_sources": 10,
+    "all_valid_source_decisions": 11,
+    "raw_turns": 26,
+    "original_protocol_examples": 3,
+    "unique_targets": 14,
+    "whole_source_context_required": true
+  },
+  "materials": {
+    "unique_cases": 13,
+    "existing_engine_measurements": 26,
+    "new_tokenizer_runs": 0,
+    "browser_actual_observation": "NOT_RUN"
+  },
+  "new_sampling": false,
+  "new_full_prior_83_source_semantic_adjudication": false,
+  "same_issue_failure_threshold": 5,
+  "artifact_cap_bytes": 1073741824,
+  "training_authorized": false
+}

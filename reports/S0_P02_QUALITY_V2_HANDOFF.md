@@ -1,6 +1,6 @@
 # P02 v2 完整候选接收与候选 CI
 
-日期：2026-09-07。状态：READY_FOR_REVIEW。D1完整候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`已普通推送且原生completed/idle；[Draft PR14](https://github.com/kris0516/ToolAlign/pull/14)保持待审。S0接收核验通过，R1技术审查CLAIMED待派发，Q1的新处置/材料包准备中；G-DATA和P04仍未放行。
+日期：2026-09-07。状态：READY_FOR_REVIEW。D1完整候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`已普通推送且原生completed/idle；[Draft PR14](https://github.com/kris0516/ToolAlign/pull/14)保持待审。S0接收核验通过，R1技术审查按完整d9e5622原生ACTIVE，Q1新346项冻结输入CLAIMED待派发；G-DATA和P04仍未放行。
 
 候选以已验证`6c81dfcc855fca188181d1bb08870f47d8edacc9`为基线，采用完整D1授权`f8b81b9783892669d19aafee5a1d82a4a8409cd3`。492文件中480基线文件逐字节保持，12个允许新增文件包括两个模块、精确配置、53项CPU测试和报告。修正后实现为`f7acd93595bfeb5e81b6eafe53c8d4106ce10a68`；[原worker交接](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/coordination/handoffs/P02-quality-adjudication-r2.md)与[验证说明](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/reports/data/quality-adjudication-r2/README.md)保持原SHA。
 
@@ -25,3 +25,7 @@ D1的CPU自测1,193/48跳过由最终默认766/48和原未受修改影响的427/
 D1首次intake、seal同名绑定、材料revision反例及两次Ruff原失败保持；另3次私有wrapper快照创建竞争发生在检查启动前，未计作实际测试结果，后续逐条命令已完成。S0独立输出脚本首次错误地索引含排除记录的旧lineage，材料脚本两次误把原Action哈希/尖括号转义后的completion当同一表示；原脚本和失败日志保留，修正的是S0断言，没有改变候选或材料。本轮未修改正式失败台账。
 
 S0新增构建、安装、分词、模型/框架/GPU均0。浏览器实显、真实trainer消费、业务工具执行和正式评测仍NOT_RUN；旧staging不晋升。R1按[精确技术范围](../coordination/tasks/P02_QUALITY_ADJUDICATION_REVIEW.md)独立复核，Q1随后核验实际处置和14个唯一语义目标（11个实际决策加3个原创协议例），其中13个有token材料。最终集不作语义读取；只有后续独立审核与main验证才能推进G-DATA。
+
+12:02 UTC实际技术派发：S0再次核验R1上一轮completed/idle、干净0ce后，按完整d9e5622c4148896803f92c53caf615975ef5254c派发精确1c47候选的独立技术审查，gpt-6-astra/max，新轮ACTIVE已确认；新branch/intake待交付。
+
+Q1新版输入现已冻结，manifest SHA`aa4fba710891eb969371c80bea931abcff8a54c988b8a4cee95ec4145bc95f7d`，346项包含286精确副本和60现存只读制品引用，副本167,662,769 bytes，S0冻结证明`317ec8423b485b0869ba374587ab9dabf78457420471ef71fbcc8e6389a0c32a`。83来源/101决策用于实际处置核验；10新材料来源的11决策加3原创协议例，共14唯一语义目标，其中13个有token材料。原83来源不重新做全批语义裁定，不新增抽样/分词。完整[Q1任务](../coordination/tasks/Q1_P02_V2_REVIEW.md)与[配置](../coordination/tasks/Q1_P02_V2_REVIEW_CONFIG.v1.json)已CLAIMED，配置SHA`102864b6712f8db20b21b82b3a999dda7819be8e506e11df39aabd58f65f15a5`；尚未原生派发。

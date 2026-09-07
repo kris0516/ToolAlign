@@ -99,6 +99,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 审计类型修复独立验收与集成 | 原R1 PASS0cefe771已接收/空闲；S0核验10,213路径/23命令，普通集成7e11409实际55pytest及15页面检查通过，原9645055 FAIL保持；TYPE-001关闭，PR13最终CI/main待完成，见[证据](reports/S0_P02_AUDIT_INTEGRATION.md) |
 | 2026-09-07 | 审计CPU技术主干验收 | VERIFIED；[PR13](https://github.com/kris0516/ToolAlign/pull/13)普通合并1887feb，原R1 PASS0cefe771与原FAIL9645055保持；最终双Python CI及main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[证据](reports/S0_P02_AUDIT_MAIN_VERIFICATION.md) |
 | 2026-09-07 | 新版数据完整接收与候选CI | D1完整1c47e6a已交付/原生空闲；S0核验21,424路径/57命令/三归档及6安装命令，Draft PR14双Python CI通过；R1精确审查CLAIMED、Q1输入准备中，见[接收证据](reports/S0_P02_QUALITY_V2_HANDOFF.md) |
+| 2026-09-07 | 新版技术复核实际派发与Q1冻结范围 | R1按完整d9e5622原生审精确1c47/ACTIVE；Q1新346项输入已冻结，83来源处置与14唯一语义目标/13材料范围CLAIMED，见[接收证据](reports/S0_P02_QUALITY_V2_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -128,7 +129,7 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时�
 
 P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
 
-审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1精确技术范围CLAIMED待派发，Q1新版处置/材料包准备中；G-DATA/P04仍待独立审核及main验证。
+审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1已按完整d9e5622原生派发/ACTIVE；Q1新版346项输入已冻结、CLAIMED待派发。G-DATA/P04仍待独立审核及main验证。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 

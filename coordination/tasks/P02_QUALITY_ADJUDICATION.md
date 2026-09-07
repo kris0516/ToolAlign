@@ -1,6 +1,6 @@
 # P02-QUALITY-ADJUDICATION｜采用独立裁定的新数据版本
 
-状态：READY_FOR_REVIEW。完整候选1c47e6af6af3e3419db97bdbb1296e6f56e04c2b已普通推送，D1原生completed/idle；S0核验21,424路径/57原命令、三归档与6安装命令，Draft PR14候选双Python CI通过。R1精确审查CLAIMED待派发，Q1新处置/材料包准备中，见[接收报告](../../reports/S0_P02_QUALITY_V2_HANDOFF.md)。以下原冻结授权保持。
+状态：READY_FOR_REVIEW。完整候选1c47e6af6af3e3419db97bdbb1296e6f56e04c2b已普通推送，D1原生completed/idle；S0核验21,424路径/57原命令、三归档与6安装命令，Draft PR14候选双Python CI通过。R1按完整d9e5622原生ACTIVE，Q1新处置/材料346项输入已冻结、CLAIMED待派发，见[接收报告](../../reports/S0_P02_QUALITY_V2_HANDOFF.md)。以下原冻结授权保持。
 
 - code_base：已验证PR12 main `6c81dfcc855fca188181d1bb08870f47d8edacc9`。
 - 新branch：`codex/p02-quality-adjudication-r2`，仅自己的隔离worktree；原`work/p02-quality-remediation`的9b7cf01与旧产物保持，不pull/reset/rebase旧分支。

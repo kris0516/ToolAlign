@@ -257,3 +257,5 @@ ADR-0022/0023审计修复接续：R1在PR13原5270中间复现JSON false/0混同
 ADR-0022/0023审计主干补记：原R1 0cefe771对da22正式PASS，PR13普通合并1887feb且最终双Python CI/main55pytest及15页面检查通过，审计CPU技术VERIFIED。TYPE-001关闭、原9645055首次FAIL及反例保留；D1冻结217项输入与Q1原判断不追溯改写，G-DATA/P04待新版及独立审核，见[证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。
 
 ADR-0024候选接收补记：D1完整1c47e6a已普通推送/原生空闲，S0核验21,424路径、57原命令、15源码epoch及三实际归档/6安装命令通过。新版实际80来源98决策排除、3来源恢复、formal5,940条；原字节/rank及材料13例静态重封装绑定已核验。Draft PR14候选双Python CI通过，R1精确技术范围CLAIMED待派发，Q1实际处置与新材料包准备中；未修改原台账、未合并候选或放行G-DATA/P04，见[接收证据](../reports/S0_P02_QUALITY_V2_HANDOFF.md)。
+
+ADR-0024独立审核接续：R1已按完整d9e5622原生接续精确1c47候选/ACTIVE，Q1新346项输入绑定同一候选、83来源实际处置和14唯一语义目标/13材料，范围CLAIMED待原生派发。Q1处置PASS可按稳定issue关闭训练使用问题，原语义FAIL/UNKNOWN不改写；不扩大为新的180来源或全库语义审查。
