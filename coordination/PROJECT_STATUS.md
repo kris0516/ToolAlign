@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；D1 v3定点排除与Q1两来源审核已原生ACTIVE |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1 v3与Q1固定两来源已按完整3e18145原生派发/ACTIVE，新branch/intake待交付；R1/E1/T1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 v3实际branch/intake已核验通过；Q1固定两来源原生ACTIVE/intake待接收；T1只读方案CLAIMED待派发，R1/E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
