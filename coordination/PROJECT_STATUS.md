@@ -233,3 +233,6 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 
 
 18:48:32 UTC，S0核验T1固定CPU修复checkpoint bfdf2a2及373路径/12原命令，source祖先root绑定与installed混合Q1 seal原失败保持；135新模块自测通过。精确复测批准已准备，source/installed各新一次prepare、原各一次13例转换额度保持，新三归档/target另存；实际原生激活待发送，candidate/R1尚未验收。[证据](../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)。
+
+
+T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活；两次原失败与原c7归档保持，当前bfdf2a2/new target字节已核验。独立R1仍PLANNED，等待完整交付。18:57:34 UTC，S0按已接收方案用v3既有长度/rank冻结15 train+8 validation容量候选，最大实际train长度1536，cohort a6e09dbf、证明04bb6a6e；只做元数据准备，实际编码/模型/更新仍0。[后续准备](../reports/S0_P04_CAPACITY_READINESS.md)。

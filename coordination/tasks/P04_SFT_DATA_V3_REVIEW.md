@@ -21,6 +21,8 @@
 
 本轮拟用现有默认 CPU 环境，新增制品 ≤1 GiB；独立实际固定消费最多一次 `prepare_v3` 和一次完整 13 例转换/导出/回读，优先在新安装 target 执行。该额度须随精确派发生效，当前为计划。先核对 T1 实际 sdist、wheel、从 sdist 重建 wheel 的成员、源载荷、metadata/entry points/LICENSE/RECORD 和实际构建时点；可直接使用已完整绑定的默认 wheel，一次离线 `--no-deps` 安装到 R1 新 target。默认外部 cwd 验证模块来自该 target、无源码回退，完成新入口和完整数组核验。新归档构建、新持久环境/依赖/下载、真实 tokenizer、全数据 build、框架/模型/GPU/优化/生成/API 均为 0。原创小 fixture 不计固定实际消费。
 
-运行与本次改动有关的 CPU 测试、独立反例、ruff、契约和公开扫描；重复用例与独立新增数分开，不凑累计测试总数。每次使用新临时目录，保留实际 argv/UTC/exit/stdout/stderr、源码时点、失败及旧 seal。核对 T1 源/安装各一次实际消费与原命令、归档和消费者身份；原生工具日志中的截断不能被写成完整输出已显示。
+运行与本次改动有关的 CPU 测试、独立反例、ruff、契约和公开扫描；重复用例与独立新增数分开，不凑累计测试总数。每次使用新临时目录，保留实际 argv/UTC/exit/stdout/stderr、源码时点、失败及旧 seal。核对 T1 源/安装的全部实际prepare尝试、原失败、S0追加批准、各次保留记录及最多各一次成功的完整转换/导出/回读；同时绑定原命令、归档和消费者身份。原source缺失终态counter不可补造，traceback/源码推定与installed实际counter分别记录。原生工具日志中的截断不能被写成完整输出已显示。
 
 正式输出精确 candidate 的 PASS/FAIL/BLOCKED 与 P0/P1/P2。审查提交直接以该 candidate 为 parent，只含本轮审查目录和 handoff；普通推送并原生向 S0 交付完整 SHA、tree/parents、原始失败、实物索引与 seal 后结束。普通回报省略 model/thinking。PASS 后仍需 S0 整合、最终 CI/main 验证；真实 runtime 和模型额度另行冻结。同问题第五次规则由 S0 按正式问题台账执行，不把非阻断建议扩展成无限整改。
+
+T1中间复测按S0完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活，精确批准[本轮CPU复测](../approvals/P04_DATA_V3_PREPARE_RETRY_R2.json)。R1 intake需保存该批准与原失败/所有修订证据；不能将135自测或S0重试前置核验当作正式技术PASS。实际最终候选及新复测终态仍待S0接收。
