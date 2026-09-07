@@ -1,6 +1,6 @@
 # P02-QUALITY-ADJUDICATION｜采用独立裁定的新数据版本
 
-状态：CLAIMED，输入与配置已冻结，完整S0授权提交发布后原生派发现有D1，统一gpt-6-astra/max。
+状态：IN_PROGRESS。S0核验D1原轮completed/notLoaded、干净9b7及8,124保全路径后，按完整f8b81b9783892669d19aafee5a1d82a4a8409cd3于10:33:49 UTC原生派发，gpt-6-astra/max，新轮ACTIVE已核验。新分支/217输入intake待交付。
 
 - code_base：已验证PR12 main `6c81dfcc855fca188181d1bb08870f47d8edacc9`。
 - 新branch：`codex/p02-quality-adjudication-r2`，仅自己的隔离worktree；原`work/p02-quality-remediation`的9b7cf01与旧产物保持，不pull/reset/rebase旧分支。
