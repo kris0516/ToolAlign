@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，612基线/20授权/609输入完整intake经S0核验通过，7,010路径证明e6d4c83e；E1的固定Qwen模型接口CPU包已按完整427e5e8原生ACTIVE，4,266路径intake及既有离线构建runtime核验通过；正式模型运行及P04仍未授权。
+更新时间：2026-09-08。P02 v3技术和Q1质量已验收，G-DATA PASS（冻结v3）；T1完整CPU候选f3b7f1a1已交付/原生空闲，S0核验10,935路径/40原命令、两条成功消费和现存三归档，独立R1范围CLAIMED待派发。E1完整Qwen CPU候选01eeb74d已交付/原生空闲，S0完整实物接收待完成；正式模型运行及P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -236,3 +236,5 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 
 
 T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活；两次原失败与原c7归档保持，当前bfdf2a2/new target字节已核验。独立R1仍PLANNED，等待完整交付。18:57:34 UTC，S0按已接收方案用v3既有长度/rank冻结15 train+8 validation容量候选，最大实际train长度1536，cohort a6e09dbf、证明04bb6a6e；只做元数据准备，实际编码/模型/更新仍0。[后续准备](../reports/S0_P04_CAPACITY_READINESS.md)。
+
+19:34:50 UTC，T1完整f3b7f1a1接收通过；618候选文件、原612基线和六文件范围保持，40原命令/终态exit已核对。source/installed prepare各两次含原失败，完整数组转换各一次；135为T1自测，S0未重跑消费。R1精确审查CLAIMED，实际派发待完成；[接收](../reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。
