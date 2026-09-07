@@ -130,6 +130,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | 特殊文件修复intake核验 | T1新branch/13授权/7反例输入及旧证据11,051路径/370链接通过，53d8610两文件修订继续；原R1整包结论/完整候选待交付，见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FINDING.md) |
 | 2026-09-08 | v3数据正式技术退回与修订交接 | 原R1 b99a644正式FAIL/P2=1已接收/原生空闲，65,185路径/25命令通过；FIFO F1首次计1，T1完整1769046已交付/空闲、接收中，下一模型R1范围CLAIMED；[证据](reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md) |
 | 2026-09-08 | 固定模型CPU独立审查实际接续 | R1旧b99轮completed/idle及91,517路径保全后，按完整9a29a72原生派发01ee模型CPU审查/新轮ACTIVE；新intake待交付，T1完整修订接收继续，无新模型运行 |
+| 2026-09-08 | v3特殊文件修订完整接收 | T1完整1769046/原生空闲，S0核验12,675路径/26命令、三归档及四原FIFO节点；Draft PR18和R1-r2 READY未派发；原正式F1计数1保持，[接收](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -174,3 +175,5 @@ R1原b99a644已正式判定原f3数据CPU候选FAIL，唯一P2/P04-SFT-DATA-V3-F
 P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked pytest`、`uv run --locked ruff check .`、`uv run --locked python scripts/check_contract_freeze.py` 与 `uv run --locked python scripts/check_public_content.py`。这些是 CPU 基础测试，不代表模型/业务测试。`scripts/publish_plan_repo.sh` 和 `MANIFEST.sha256` 是历史规划包发布资料，不再用于当前仓库验收。
 
 本地pytest使用任务/轮次独占的新`--basetemp`，避免默认共享根清理历史目录；含public-output假设的测试不置于`.toolalign-local`祖先下。旧全局pytest临时fixture的30文件/1链接原路径缺失已单列，30内容均与现存封存副本一致；见[实际保全记录](reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)。不恢复后冒充原件，不因目录更换重跑既有成功。
+
+最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)为READY，等待当前模型CPU审查结束后派发。新修订真实数据消费NOT_RUN，原F1保持未关闭，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
