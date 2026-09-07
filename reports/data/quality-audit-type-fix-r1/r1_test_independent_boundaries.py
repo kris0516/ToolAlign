@@ -1,3 +1,5 @@
+# ruff: noqa: E402, I001
+# R1 probe body retained verbatim; the original source is sealed separately.
 """Original CPU review probes: inert data, no external operations or real corpus."""
 
 import copy
