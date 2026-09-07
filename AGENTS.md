@@ -134,6 +134,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | 模型CPU独立intake与数据修订候选CI | R1新01ee模型轮intake经S0核验89,074路径/14授权/42输入；原证据保全通过、技术verdict待交付。PR18候选双Python CI各986/48跳过和9167/639文件绑定通过，[模型接收](reports/S0_P04_QWEN_CPU_HANDOFF.md) |
 | 2026-09-08 | 固定模型CPU独立审查接收 | 原R1 PASS bdebe4c对精确01ee，原生completed/idle；S0核验90,442路径/23原命令、三归档/65安装包字节，ACCEPTED待最终CI/main；[接收](reports/S0_P04_QWEN_REVIEW_HANDOFF.md)。数据修订R2已CLAIMED待原生接续 |
 | 2026-09-08 | 数据特殊文件修订独立复审实际派发 | 原R1 bdebe模型轮已接收/空闲，按完整1cb1b0a原生派发精确1769046的新R2轮/ACTIVE；新branch/intake待交付，原F1仍1；[范围](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)，S0模型包集成接续 |
+| 2026-09-08 | 固定模型CPU隔离集成 | 普通集成170be42保留原01ee/bdebe，默认CPU973/48跳过、三现存归档/65安装包字节通过；原S0缓存预加载干扰失败保留，最终CI/main待完成；[证据](reports/S0_P04_QWEN_CPU_INTEGRATION.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。

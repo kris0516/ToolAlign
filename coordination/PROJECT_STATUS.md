@@ -266,3 +266,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 22:11:01 UTC，S0完成固定Qwen CPU原R1 bdebe4c正式PASS接收，证明 `28593f448e1197711a6a9f9d8604c58d7c30ced54f7d0890812e7eb0771da890`；90,442路径/23原命令、终态/628公开、三归档/65安装包字节通过，原生22:06:02 UTC completed/idle。模型CPU范围ACCEPTED待最终CI/main，数据修订R2 CLAIMED待原生派发；20模型文件仅stat与原hash绑定、S0新增API/模型/GPU0。[正式接收](../reports/S0_P04_QWEN_REVIEW_HANDOFF.md)。
 
 2026-09-07 22:20:19 UTC，S0按完整1cb1b0a原生接续精确1769046的P04-SFT-DATA-V3-R2并核验ACTIVE，gpt-6-astra/max。派发前1,901路径/两任务空闲/共享锁空闲通过；旧模型完整接收28593f保持。新branch/intake与修订正式复审待完成，S0接续模型CPU包隔离集成。
+
+2026-09-07 22:33:51 UTC，S0固定模型CPU隔离普通集成170be42封存通过，证明 `3eb8b4ea97b86655381ae159697c8c11ef3e2be57ec90e5d370f774bf6517ea3`；973默认CPU/48 optional跳过、三现存归档/65安装包字节通过。旧S0启动器psutil预加载干扰导致的原1失败保持，默认CPU新进程以相同1,021用例ID通过，候选未变；最终PR17 CI/main待完成，R1数据R2继续。
