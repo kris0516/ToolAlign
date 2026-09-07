@@ -118,6 +118,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | v3独立技术接收与隔离集成 | 原R1 PASS dbd11d0/原生空闲；S0核验52,757路径/30命令，普通隔离424f158实测839CPU/48跳过、21拒绝/6对照、三归档与64安装包通过；[证据](reports/S0_P02_QUALITY_V3_INTEGRATION.md)。PR15最终CI/main、Q1/G-DATA仍待完成 |
 | 2026-09-08 | P02 v3主干及Q1质量验收 | VERIFIED；[PR15](https://github.com/kris0516/ToolAlign/pull/15)普通合并90c4da9，原R1 PASS dbd11d0、最终双Python CI与main73测试/21拒绝/6对照及归档绑定通过；Q1原7941核验5,115路径/42命令，84来源处置及13材料PASS。82问题全部关闭，G-DATA PASS（冻结v3），[主干证据](reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md)、[质量批准](reports/S0_P02_Q1_V3_ADJUDICATION.md)；正式训练仍未授权 |
 | 2026-09-08 | SFT v3数据/审阅数组CPU实际接续 | 按完整0fa77e2原生派发T1并核验新轮ACTIVE，gpt-6-astra/max；code_base48be435、609输入/配置e27a7d4b保持，新branch/完整intake待交付；[范围](reports/S0_P04_DATA_V3_CPU_DISPATCH.md)，无新编码/模型/GPU许可 |
+| 2026-09-08 | v3数据CPU适配完整intake | T1实际新branch/48be435、612基线/20授权/609输入核验通过，7,010路径证明e6d4c83e；继续原0fa77e2实现范围。[独立审查范围](coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)PLANNED，候选/独立结论待交付；无新编码/模型 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -149,7 +150,7 @@ P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce
 
 Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标。当前无问题达到阈值。Q1/R1/D1/E1无新范围；T1下一v3数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，609输入/精确配置已冻结，新branch/intake待交付；见[新范围](coordination/tasks/P04_SFT_DATA_V3_CPU.md)。真实trainer消费、0.6B1536及1.7B2048容量、明确P04运行配置/GPU预算仍待独立范围；training_authorized=false。浏览器实显NOT_RUN单列。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标。当前无问题达到阈值。Q1/R1/D1/E1无新派发；T1的v3数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，新branch/612基线/20授权/609输入完整intake由S0核验通过，7,010路径证明e6d4c83e；见[当前范围](coordination/tasks/P04_SFT_DATA_V3_CPU.md)。R1后续审查PLANNED，待完整candidate/原生终态。真实trainer消费、0.6B1536及1.7B2048容量、明确P04运行配置/GPU预算仍待独立范围；training_authorized=false。浏览器实显NOT_RUN单列。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
 

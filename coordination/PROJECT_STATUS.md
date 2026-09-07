@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，609固定输入/精确配置已冻结、完整intake待交付；正式模型运行及P04仍未授权。
+更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，612基线/20授权/609输入完整intake经S0核验通过，7,010路径证明e6d4c83e；正式模型运行及P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,7 +12,7 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，下一T1 CPU适配准备中 |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，T1 CPU适配ACTIVE/intake已验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
 | 独立实现/reviewer 对话 | D1 5825、R1 dbd11d0、Q1 7941均已正式接收/空闲；T1接续v3 CPU适配原生ACTIVE；E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |

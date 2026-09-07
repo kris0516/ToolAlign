@@ -13,3 +13,5 @@ T1 上一 4baa367 轮原生 completed/notLoaded、工作区干净；5,744 原接
 T1 保全证明 `8644138a91d76281c4be89b87ef308c5431e4fde254bd8b509f99b025d30a259`；冻结总证明 `0526b064a3a606416edd7aa84e93bbb5ad4bc202824aa4951264e95350bcc492`，实际核对 6,357 路径，S0 新生产测试/编码/模型/框架/GPU均 0。后续须实际派发、核验新 identity/branch/intake、完整候选、R1 独立审查、最终 CI 和 main；本准备未提前登记实现成功。真实 trainer、容量、正式模型实验和浏览器实显仍 NOT_RUN，无新费用或外部发布。
 
 实际派发：2026-09-07 17:45:52 UTC，S0再次核验T1旧轮completed/notLoaded及完整授权`0fa77e228021091e357505a0e81a5d3ba0777928`远端一致后，原生接续T1并显式使用gpt-6-astra/max。新轮ACTIVE已确认；新branch/identity/20授权副本/609输入的完整intake仍待T1交付，不提前登记实现结果或关闭后续审查门。
+
+完整 intake：2026-09-07 17:55:20 UTC，S0 直接核对实际新分支 `codex/p04-sft-data-v3-cpu-r1` 与精确 48be435、612 基线文件、20 授权副本、609 输入、新原生身份及旧 Git/封存，7,010 当前路径通过，证明 `e6d4c83e9ee050c449c030e0b848b46d62b7cf4ebd0f03e0ae6e30e5dd368d2f`。197 原链接文本和两个原悬空状态保持；原三个 worker receipt 皆 exit 0，其原生 argv 交叉绑定留至完整交接。本次 S0 实际数据 prepare/转换/编码/框架均 0。T1 继续同一 CPU 实现；[独立 R1 范围](../coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)已 PLANNED，待完整 candidate/原生终态后冻结和派发。
