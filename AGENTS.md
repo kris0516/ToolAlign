@@ -112,6 +112,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | Q1新来源intake与T1方案实际接续 | Q1实际branch/intake经S0核验3,506路径/16命令通过；T1按完整8929cbb原生派发并确认ACTIVE，实际新branch/intake待交付；D1/Q1继续，无新GPU |
 | 2026-09-07 | T1只读方案完整intake核验 | S0核验5,617路径/197链接、553基线/18授权/10输入与2原回执通过，实际新branch/精确d3及旧f732封存保持；[接收证据](coordination/handoffs/S0-P04-runtime-proposal-intake-r1.md)，方案继续，正式训练未授权 |
 | 2026-09-07 | Q1两来源正式接收与v3编码放行 | 原9c12c47交付/原生空闲，S0核验3,671路径/34命令并普通整合eab828f；2来源/3目标PASS，14:48:51 UTC原两例编码已精确原生放行；[接收证据](reports/S0_P02_Q1_V3_SOURCE_ADJUDICATION.md)，实际v3/R1/Q1材料待验 |
+| 2026-09-07 | P04真实运行只读方案接收 | 原4baa367交付/原生空闲，S0核验5,744路径/20命令/35来源80区间并普通合并7bf05d1；ACCEPTED（方案），实际模型仍NOT_RUN；[证据](reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -143,7 +144,7 @@ P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1b
 
 P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。 [接收与台账](reports/S0_P02_Q1_V2_ADJUDICATION.md)。
 
-ADR-0025的v3定点排除范围已冻结：[D1任务](coordination/tasks/P02_QUALITY_EXCLUSION.md)含347输入，保留原选择/字节及11例旧编码，仅2例新增；[Q1提前审核](coordination/tasks/Q1_P02_V3_SOURCE_REVIEW.md)固定2来源/3目标/8turn。D1按完整3e18145继续ACTIVE，两份v3数据及11例旧材料复用已回报；Q1完整9c12c47来源PASS已正式接收/原生空闲，S0核验3,671路径/34原命令并普通整合eab828f，14:48:51 UTC已按精确放行1eeea3bd原生通知D1运行原两例编码。T1只读P04方案实际branch/intake经S0核验5,617路径/197链接，原轮继续ACTIVE；R1后续v3范围PLANNED未派发，E1无新范围。实际v3完整候选/处置/材料及R1验收仍待交付。无新增GPU或训练许可。
+ADR-0025的v3定点排除范围已冻结：[D1任务](coordination/tasks/P02_QUALITY_EXCLUSION.md)含347输入，保留原选择/字节及11例旧编码，仅2例新增；[Q1提前审核](coordination/tasks/Q1_P02_V3_SOURCE_REVIEW.md)固定2来源/3目标/8turn。D1按完整3e18145继续ACTIVE，两份v3数据及11例旧材料复用已回报；Q1完整9c12c47来源PASS已正式接收/原生空闲，S0核验3,671路径/34原命令并普通整合eab828f，14:48:51 UTC已按精确放行1eeea3bd原生通知D1运行原两例编码。T1完整4baa367只读方案已交付/原生空闲，S0核验5,744路径/20原命令、35来源/80区间并普通合并7bf05d1；[方案接收](reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)。R1后续v3范围PLANNED未派发，E1无新范围。实际v3完整候选/处置/材料及R1验收仍待交付。无新增GPU或训练许可。
 
 全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
 

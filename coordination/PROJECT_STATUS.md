@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；Q1两来源PASS已接收，D1 v3原两例编码已精确放行 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1 v3继续ACTIVE、原两例新编码已放行；Q1完整9c12c47来源PASS已接收/空闲；T1只读方案ACTIVE，R1后续v3审查PLANNED未派发、E1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 v3继续ACTIVE、原两例新编码已放行；Q1完整9c12c47来源PASS已接收/空闲；T1原4baa367只读方案已接收/空闲，R1后续v3审查PLANNED未派发、E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -227,3 +227,6 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 14:48:51 UTC，Q1新两来源正式PASS已接收并普通整合eab828f；3,671路径/34原命令/49真实exec调用和终端034退出绑定通过。原P02-Q-081保持计数1，新增问题0。S0按精确JSON1eeea3bd原生放行D1的两固定新例/两engine共4次新sequence生成；旧11例（含3协议例）保持原编码。完整候选、独立技术及实际材料审核继续待交付。
 
 14:59:22 UTC，S0中间核验两份v3稳定输出、15,577原逐行字节/7,928排名记录及11例两engine完整复用数组通过，150路径证明95f041fe；D1精确放行副本一致。Q1后续实际排除/13材料复核范围PLANNED，等待完整candidate与新两例编码交付；R1未派发。
+
+
+15:16:38 UTC，T1原4baa367只读方案接收通过并普通合并7bf05d1。S0核验5,744路径/20原命令、35来源/80区间，计划198/743更新完整覆盖并保留尾批；实际更新0。T1空闲，D1继续最终封存，R1/Q1 v3完整审核未派发；[方案接收](../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)。

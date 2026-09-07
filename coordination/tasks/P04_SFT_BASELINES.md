@@ -76,3 +76,6 @@ P04-SFT-NATIVE-TOY完整f7326d1已交付，T1原生空闲，S0完整字节/命�
 原生toy独立部分现ACCEPTED：原R1 67976fd对f7326d1 PASS，T1/R1空闲；S0普通集成a1c467a通过1084CPU/2跳过、新三归档及默认安装/native守卫。见[集成证据](../../reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。实际8+5更新/evaluate/checkpoint仅覆盖固定原创64参数问题；最终CI/main待完成，本包真实0.6B容量、1.7B baseline/SFT、实际页面和两项人工仍未完成。
 
 21:35 UTC：原生固定toy已完成最终CI/main并VERIFIED，原CPU支持负结果保持。本包真实模型训练及人工依赖继续BLOCKED；本段更新依赖证据，不领取正式P04。
+
+
+2026-09-07，T1真实运行只读方案4baa367已由S0接收并普通合并7bf05d1；35来源/80引用、四段198/743计划更新及状态/保存/容量边界经静态核验，见[接收证据](../../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)。后续先依验收后的v3冻结CPU数据消费范围；方案仍PROPOSED_NOT_AUTHORIZED，本包真实模型/容量/训练继续NOT_RUN。
