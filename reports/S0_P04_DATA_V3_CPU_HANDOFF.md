@@ -29,3 +29,5 @@ R1 [完整独立范围](../coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)现可�
 PR16候选CI34156411244已完成，Python3.11/3.14各14步骤成功、各974 passed/48 skipped。两份原日志确认实际CI合并 `017c290e63881e144481f887b26ec2b7c4b55aae`，父为S0授权4ea69e1与候选f3b7f1a1；S0直接核对627份main基线及6份候选改动在632文件CI tree中保持。该候选CI不代替R1或后续最终CI/main验收。
 
 19:57:46 UTC，R1新分支/真实身份及完整intake经S0核验；原intake `c1fb2b114b9898409358102830c1a0467ceebe45bff6c4044cf535b879b9bade`，S0证明 `1c8cda1a12488dc2994815f2e2b92254c00c0c78eeb591dc6c933ca06240c8cf`。64,645当前路径含R1 intake的11,572路径/370链接和原保全；16授权副本、618候选/612基线、609输入及40原T1命令保持。原R1的571公开路径按旧Git/快照重定位，30文件/1链接缺失例外未恢复。R1本次intake两条辅助失败和五份原命令均保留；intake时安装/固定消费0，后续执行另按真实reservation计数。独立技术结论继续PENDING。
+
+2026-09-07 20:29:54–55 UTC，S0只读接收R1原安装版固定消费，证明 `b9526ea3570bc569f9478349a58a7ee002e321cf70cc249873d35aa96bc95b42`，1,468路径及原3命令/source时点通过。原实际消费发生20:10:56–20:13:47 UTC：prepare、quality verify、13例转换/导出/回读各1次，安装1次，当前原范围额度余0。四视图7,928成员的原行/规范JSON/sidecar/三代rank、13例26 engine原记录和完整数组逐项绑定，导出2,030,656字节 SHA `9b711be1ba6b301e6efb8c9853c0c6b98fdaa2db9db2e2cd2fa348739ca6ba0b` 与原T1相同。65安装包文件、32实际ToolAlign模块来源和5个既有默认依赖对齐；未构建新序列或导入模型框架。此成功对应原f3候选；FIFO F1仍OPEN，完整R1 verdict待交付，不能提前签整包PASS。S0本次生产API/build/install/编码/模型/GPU新增0。

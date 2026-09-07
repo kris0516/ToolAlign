@@ -250,3 +250,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 20:09:29 UTC，T1非普通文件定点修复已按完整90ded89原生派发/ACTIVE，原交接和7份新输入冻结；尚待新branch/intake。无新真实数据、编码或模型额度。
 
 2026-09-07 20:25:39–40 UTC，S0核验T1特殊文件修复新branch、真实原生gpt-6-astra/max与13授权/7反例输入，共11,051路径/370链接通过，证明 `a376cfb1f65bcd1c93752ad6f206222acd100b0e497fff6d09d56101cbd14e10`。618旧公开文件按原f3 Git和冻结快照保全；原10,935路径、609旧输入、seal/receipt、5旧分支及root identity保持。当前53d8610只改两授权源码/测试，原记录器缺commands父目录的启动失败保持，未补造精确开始UTC。S0无新数据API/build/install/编码/模型/GPU；原R1结论与完整修订/复审仍待交付。
+
+2026-09-07 20:29–20:32 UTC，S0接收原R1安装固定消费与T1源码I/O修订证据，分别核验1,468/96路径。原f3四视图7,928成员和13例26 engine完整数组一致，原范围实际消费/安装额度已用尽；T1 53d8610的原FIFO源码probe及时拒绝、child已回收，147相关CPU为T1自测。两条事实分别见[原数据接收](../reports/S0_P04_DATA_V3_CPU_HANDOFF.md)和[定点修复](../reports/S0_P04_DATA_V3_NONREGULAR_FINDING.md)；原R1正式verdict、T1安装probe/完整候选及复审未完成，P04正式模型保持未授权。
