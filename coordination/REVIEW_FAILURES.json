@@ -4462,8 +4462,8 @@
       "stable_requirement_key": "domain_history_literal_character_count",
       "requirement": "有效训练来源的历史叙述不得与同一来源可直接核验的明确字面输入矛盾；当前Action与前缀适用性分开判断",
       "summary": "域名字面串18字符被历史assistant写为17字符，进入同来源后继有效目标前缀；另保留未核实SEO建议范围。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
       "events": [
         {
           "attempt": 1,
@@ -4482,33 +4482,65 @@
           "current_action_verdict": "PASS_FOR_BOTH_LOCAL_TARGETS",
           "new_failed_revision_increment": 1,
           "same_source_unknown_subfinding_counted_separately": false
+        },
+        {
+          "attempt": 2,
+          "event_kind": "FORMAL_SUBSTANTIVE_REVISION_REVIEW_PASS",
+          "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
+          "review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "468f8165519ea8f8c3bb8d3263ce17e2d8755f0557b27c10aa01ed7671dfb747",
+          "event_proposals_file_sha256": "7100c829cac3d83ed8adca8cad07f3779a4b2cf30f200e6af77528ab3afe9fe0",
+          "evidence_seal_sha256": "d9da8add7457a253865462e59745f4ae8b29dc3d99ae3595ee8e2133bfea5117",
+          "final_evidence_seal_sha256": "c272ffa263786086a5d83c057408aac0baabb82f8608e948b6fdbc0495bb74e9",
+          "s0_binding_sha256": "48aae102b248963b95537c688214c0871c4ed995315e059077cbc6be7869c496",
+          "actual_disposition_proof_sha256": "23bf31faef557df982bca8469e6cb630011ccf755eec5fb88d12672686a82dc6",
+          "actual_material_proof_sha256": "de9166be496625e8488658f56487352914ab9d522aba321cdb7742231dece3f0",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "resolution": "WHOLE_SOURCE_EXCLUDED_WITH_ORIGINAL_BYTES_AND_REBOUND_SELECTION_MATERIALS",
+          "previous_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "prior_failure_events_preserved": true,
+          "source_semantic_FAIL_preserved": true,
+          "source_restoration_authorized": false,
+          "adopted_at_utc": "2026-09-07T17:23:09.980096+00:00"
         }
       ],
-      "next_action": "下一冻结版本整来源排除两条决策，保留其原字节与局部Action PASS，重绑有效数据/选择/材料后独立复核",
+      "next_action": "保持该来源两条决策隔离及全部原失败；当前冻结v3数据可进入后续S0授权的CPU消费范围",
       "related_existing_issue_ids": [
         "P02-Q-037",
         "P02-Q-060"
       ],
       "deduplication_basis": "当前82问题中的唯一新项；该来源不在原83来源处置范围，明确字面字符数证据与既有历史主题不同，未复用旧缺陷或重置已有计数",
-      "data_action_status": "PENDING_NEW_VERSION_WHOLE_SOURCE_EXCLUSION"
+      "data_action_status": "VERIFIED_V3_WHOLE_SOURCE_EXCLUSION"
     }
   ],
-  "prior_findings": "Q1已核验新版83来源实际处置：77个排除问题关闭训练使用门槛、3个恢复问题保持关闭；原技术类型问题继续关闭。新材料另发现一处来源历史字面字符数矛盾，P02-Q-081首次正式失败计1，等待整来源排除；旧FAIL/UNKNOWN语义与所有失败事件保持。",
-  "updated_at_utc": "2026-09-07T13:34:32.100472+00:00",
+  "prior_findings": "Q1已正式通过冻结v3的84来源/103决策实际处置与13材料审核；P02-Q-081按整来源隔离关闭并归零。82个已登记问题均已关闭其数据使用或技术整改门槛；原FAIL/UNKNOWN、旧失败事件和局部Action PASS保持，不认证未审全库。",
+  "updated_at_utc": "2026-09-07T17:23:09.980096+00:00",
   "last_adoption": {
-    "q1_review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
-    "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
-    "actual_sources_verified": 83,
-    "actual_decisions_verified": 101,
-    "existing_issue_pass_events": 80,
-    "existing_exclusion_counters_reset_1_to_0": 77,
-    "existing_restorations_verified": 3,
-    "new_deduplicated_issue": "P02-Q-081",
-    "new_formal_failure_events": 1,
-    "highest_consecutive_failed_revisions": 1,
-    "closed_issue_count": 81,
-    "open_issue_count": 1,
-    "old_failures_and_semantic_verdicts_preserved": true
+    "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
+    "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
+    "main_verification_commit": "90c4da99f093b846a6b0ca0343d8293739ce2bea",
+    "actual_sources_verified": 84,
+    "actual_decisions_verified": 103,
+    "excluded_sources": 81,
+    "excluded_decisions": 100,
+    "original_restored_sources": 3,
+    "original_restored_decisions": 3,
+    "existing_issue_pass_events": 1,
+    "closed_issue_id": "P02-Q-081",
+    "existing_exclusion_counters_reset_1_to_0": 1,
+    "new_deduplicated_issues": 0,
+    "new_formal_failure_events": 0,
+    "other_issue_revision_increments": 0,
+    "highest_consecutive_failed_revisions": 0,
+    "closed_issue_count": 82,
+    "open_issue_count": 0,
+    "old_failures_and_semantic_verdicts_preserved": true,
+    "s0_binding_sha256": "48aae102b248963b95537c688214c0871c4ed995315e059077cbc6be7869c496"
   },
   "last_technical_closure": {
     "issue_id": "P02-AUDIT-TYPE-001",
@@ -4525,6 +4557,21 @@
       "existing_semantic_failure_count_increment": 0,
       "new_technical_formal_failure_events": 1,
       "highest_consecutive_failed_revisions": 1
+    },
+    {
+      "q1_review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+      "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+      "actual_sources_verified": 83,
+      "actual_decisions_verified": 101,
+      "existing_issue_pass_events": 80,
+      "existing_exclusion_counters_reset_1_to_0": 77,
+      "existing_restorations_verified": 3,
+      "new_deduplicated_issue": "P02-Q-081",
+      "new_formal_failure_events": 1,
+      "highest_consecutive_failed_revisions": 1,
+      "closed_issue_count": 81,
+      "open_issue_count": 1,
+      "old_failures_and_semantic_verdicts_preserved": true
     }
   ]
 }

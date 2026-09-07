@@ -116,6 +116,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | P02 v3完整交接接收与候选PR | 原5825d789交付/原生空闲，S0核验32,579路径/44命令/18 epoch及实际数据/编码/归档，READY_FOR_REVIEW；[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)和[接收证据](reports/S0_P02_QUALITY_V3_HANDOFF.md)，R1范围READY待派发 |
 | 2026-09-08 | v3技术审查intake与Q1实际材料冻结 | R1按完整7a731c5原生ACTIVE，S0核验33,422路径/644链接、19授权/347输入；Q1 r5的294输入/配置已按完整21f9210原生派发/ACTIVE，S0核验4,811路径/16授权/294输入的完整intake。PR15候选双Python 28步骤及实际590合并文件通过，见[证据](reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md) |
 | 2026-09-08 | v3独立技术接收与隔离集成 | 原R1 PASS dbd11d0/原生空闲；S0核验52,757路径/30命令，普通隔离424f158实测839CPU/48跳过、21拒绝/6对照、三归档与64安装包通过；[证据](reports/S0_P02_QUALITY_V3_INTEGRATION.md)。PR15最终CI/main、Q1/G-DATA仍待完成 |
+| 2026-09-08 | P02 v3主干及Q1质量验收 | VERIFIED；[PR15](https://github.com/kris0516/ToolAlign/pull/15)普通合并90c4da9，原R1 PASS dbd11d0、最终双Python CI与main73测试/21拒绝/6对照及归档绑定通过；Q1原7941核验5,115路径/42命令，84来源处置及13材料PASS。82问题全部关闭，G-DATA PASS（冻结v3），[主干证据](reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md)、[质量批准](reports/S0_P02_Q1_V3_ADJUDICATION.md)；正式训练仍未授权 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -141,19 +142,15 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备CPU技术范围保持VERIFIED。P04-SFT-NATIVE-TOY固定原创数值范围已由PR11合并b2247d8并完成独立R1/最终CI/main验证；13原创例/64参数、原CPU上游KeyError和历史负例保持。真实模型训练与评测仍NOT_RUN。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、训练绑定、SFT CPU准备及固定原创native toy均保持VERIFIED。旧CPU上游KeyError、单段丢尾反例、原FAIL和测量时点保持；真实模型正式训练/评测和服务仍NOT_RUN。
 
-P02质量修订CPU技术子包VERIFIED；PR12普通合并6c81dfcc855fca188181d1bb08870f47d8edacc9，原9b7cf01与原R1 PASS1e45cf2保持。最终双Python CI各14步骤及main1,186CPU/2 HF-only跳过、三现存归档/60安装包绑定通过，见[主干证据](reports/S0_P02_QUALITY_MAIN_VERIFICATION.md)。可用能力为固定32来源/40决策暂挂、原选择过滤和staging材料；后续Q1质量决定尚未纳入此冻结版本，不等于G-DATA通过。
+P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce2bea`，原候选5825d789与原R1 PASS dbd11d0保留。最终双Python CI各14步骤、实际main73新增测试/21拒绝/6对照、三份现存归档与64安装包字节绑定通过；[主干证据](reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md)。
 
-P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。 [接收与台账](reports/S0_P02_Q1_V2_ADJUDICATION.md)。
+Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-ADR-0025的v3定点排除范围已冻结：[D1任务](coordination/tasks/P02_QUALITY_EXCLUSION.md)含347输入，保留原选择/字节及11例旧编码，仅2例新增；[Q1提前审核](coordination/tasks/Q1_P02_V3_SOURCE_REVIEW.md)固定2来源/3目标/8turn。D1完整5825d789已交付/原生空闲，S0核验32,579路径/44命令/18 epoch、完整13例及实际三归档，已建[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)；Q1完整9c12c47来源PASS已正式接收/原生空闲，S0核验3,671路径/34原命令并普通整合eab828f，14:48:51 UTC已按精确放行1eeea3bd原生通知D1运行原两例编码。T1完整4baa367只读方案已交付/原生空闲，S0核验5,744路径/20原命令、35来源/80区间并普通合并7bf05d1；[方案接收](reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)。R1原dbd11d0技术PASS已正式接收/原生空闲，S0核验52,757路径/30命令并完成隔离424f158的839CPU/48跳过、21拒绝/6对照及归档/安装验证；Q1 r5的294输入和精确配置按完整21f9210已原生ACTIVE，S0核验4,811路径/16授权的完整intake；PR15候选双Python 28步骤及实际590合并文件通过。[本轮证据](reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md)，E1无新范围。v3 CPU技术已ACCEPTED，PR15最终CI/main与Q1独立处置/材料仍待完成；[技术接收与集成](reports/S0_P02_QUALITY_V3_INTEGRATION.md)。无新增GPU或训练许可。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标。当前无问题达到阈值。Q1/R1/D1/T1/E1均已结束上一轮；T1下一v3数据/审阅数组CPU适配正在准备，未派发。真实trainer消费、0.6B1536及1.7B2048容量、明确P04运行配置/GPU预算仍待独立范围；training_authorized=false。浏览器实显NOT_RUN单列。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；按REVIEW_POLICY，同一问题连续第五次正式修订未通过才暂停整个目标并通知kris，前四次自主整改。现有失败保留，尚无问题达到五次。新版质量/选择/配置绑定与独立复核未完成，G-DATA和P04正式训练未授权；浏览器实显仍NOT_RUN，旧URL安全拒绝不绕过。
-
-最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本轮main新增构建/安装/API/模型/框架均0，共享GPU锁实际空闲；无新费用、数据/模型上传或公网服务。完整P00–P09目标继续。
-
-最新审计代码记录：原R1 0cefe771对da22正式PASS，TYPE-001已由S0关闭，原5270/9645055 FAIL及全部四类反例保持。审计CPU代码VERIFIED，PR13已普通合并1887feb并通过最终CI/main；Q1裁定仍绑定原packet，不追溯重写旧视图或语义判断。
+最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
 
 ## 工作记录
 

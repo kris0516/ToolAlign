@@ -1,8 +1,8 @@
 # P04｜原始模型与 SFT 实验
 
-最新依赖（2026-09-07，ADR-0022/0023）：本批P02语义/token-mask材料已由kris委托AI审阅，结果进入质量整改；不再等待本人抄填；后续审核全部交独立Q1，同问题第五次正式修订未通过才整体暂停并通知kris。P04仍BLOCKED于质量修订、新绑定/独立复核及真实模型容量/正式运行授权。浏览器实显0页/NOT_RUN保留，既有拒绝不绕过；页面体验待办不阻塞本轮CPU数据整改。旧时间线中的“待人审”保持其原观察时间，不覆盖该最新委托。
+最新依赖（2026-09-08）：P02冻结v3的G-DATA已PASS；原R1技术、PR15 main90c4da9和Q1 7941实际处置/13材料通过，82问题均关闭。下一步是T1的v3数据与固定审阅数组CPU衔接，尚未派发；正式模型仍待容量实测、精确运行配置/GPU预算与独立验收。所有人工审核由Q1承接，无需kris抄填或签字。浏览器实显NOT_RUN单列；[数据批准](../approvals/P02_DATA_V3.json)。
 
-状态：BLOCKED；尚未分发或领取正式训练。P00/P01受限G1/P03 CPU、共用格式、训练绑定与CPU准备已VERIFIED；固定原创native toy亦经R1 PASS67976fd、PR11合并b2247d8及最终CI/main验证，见[数值子包主干证据](../../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。该证据覆盖13原创rank/64参数的8+5尾批、evaluate及checkpoint；本批语义/token-mask审阅现按ADR-0022采用kris委托AI方式，仍待质量修订/新绑定及独立复核、真实0.6B容量和正式1.7B baseline/SFT。页面体验待办单列为NOT_RUN。training_authorized=false，S0准备及toy验收不构成本包模型训练许可。
+状态：BLOCKED（正式模型运行）。P00/P01受限G1/P03 CPU、数据/共用格式、SFT CPU准备与原创native toy技术均VERIFIED；G-DATA已通过冻结v3范围。真实trainer消费、0.6B1536及1.7B2048容量和正式baseline/SFT仍NOT_RUN，training_authorized=false。本任务尚未分发正式训练；以下历史准备记录保持。
 
 | 字段 | 初始值 |
 |---|---|

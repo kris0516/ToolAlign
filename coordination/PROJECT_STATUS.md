@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02 v3 CPU技术ACCEPTED；原R1 PASS dbd11d0已交付/原生空闲，S0核验52,757路径/30命令后普通隔离集成424f158，839CPU/48跳过、21拒绝/6对照及三归档/64安装包文件通过。PR15最终CI/main及Q1 r5实际处置与材料裁定待完成；旧82问题仍81关闭/1待修、最高连续失败1，G-DATA/P04未授权。
+更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。下一步准备T1的SFT数据/审阅数组CPU适配，正式模型运行及P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,15 +12,15 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/隔离424f158的v3 CPU集成通过；PR15最终CI/main待完成，R1已接收/空闲、Q1 r5 ACTIVE |
+| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，下一T1 CPU适配准备中 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1完整5825d789已交付/空闲；R1原dbd11d0技术PASS已正式接收/空闲；Q1 r5固定294输入按21f9210原生ACTIVE，新分支/完整intake的4,811路径、16授权/294输入已核验；T1方案已接收/空闲、E1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 5825、R1 dbd11d0、Q1 7941与T1方案均已正式接收/空闲；E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
-| 当前实现 | 既有CPU/原生toy、P02审计及新版数据工具技术VERIFIED；后续来源质量整改继续 |
-| 已验收训练/数据/评测/服务 | CPU准备与原创64参数native toy技术范围VERIFIED；真实数据语义、正式模型训练/评测及服务没有整包验收 |
+| 当前实现 | 既有CPU/原创native toy和P02 v3数据、处置/选择/材料工具VERIFIED |
+| 已验收训练/数据/评测/服务 | 冻结v3数据G-DATA PASS；正式模型训练/评测与服务尚无验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
 | 重 GPU 作业 | T1三次及R1两次固定toy原运行均已结束并独立核验；原R1额度2/2，S0集成/main框架新增0，共享锁实际空闲 |
 | 费用/公开上传 | 无付费云资源；无模型/数据上传；无公网推理 |
@@ -29,13 +29,11 @@
 
 ## 当前门槛
 
-v3技术已ACCEPTED，S0隔离集成424f158实测839CPU/48跳过、21拒绝/6对照、现存归档与安装通过；[接收与集成](../reports/S0_P02_QUALITY_V3_INTEGRATION.md)。以下原intake/候选CI记录保留其发生时间；PR15最终CI/main与Q1正式裁定继续待完成。
+PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md)。原R1 PASS dbd11d0、最终双Python CI34145748913各14步和main73新增测试、21拒绝/6对照、三现存归档/64安装包字节通过，实际main90c4da9。原main proof的Q1 pending保留原观察时间。
 
-ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)继续。Q1完整9c12c47的2来源/3目标PASS已正式接收、原生空闲；S0核验3,671路径/34命令，14:48:51 UTC已按精确放行1eeea3bd原生通知D1进行原两例/两engine共4次新sequence生成。D1完整5825d789已接收，S0核验32,579路径/44原命令/18 epoch及完整13例和实际归档；[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)，候选CI双Python全部28步骤及实际590合并文件通过；R1按7a731c5原生ACTIVE，S0核验33,422路径/644链接；Q1 r5固定294输入与配置按21f9210原生ACTIVE，S0已核验4,811路径及16授权的完整intake，后续独立审核和G-DATA/P04未验收。[本轮冻结](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md)。[Q1接收与放行](../reports/S0_P02_Q1_V3_SOURCE_ADJUDICATION.md)。
+Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
-
-P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
+T1下一v3数据与固定13例数组CPU适配正在准备，尚未派发；真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
 
 ## 恢复入口
 

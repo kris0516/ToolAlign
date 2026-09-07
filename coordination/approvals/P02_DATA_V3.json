@@ -1,0 +1,117 @@
+{
+  "G_DATA": "PASS_FROZEN_V3_SCOPE",
+  "approved_at_utc": "2026-09-07T17:23:09.980096+00:00",
+  "candidate_commit": "5825d789ee89afedbfff31e828223608c6f435e2",
+  "counts": {
+    "formal_train": {
+      "effective": 5938,
+      "original": 6013,
+      "quarantined_fail": 27,
+      "quarantined_unknown": 48
+    },
+    "formal_validation": {
+      "effective": 213,
+      "original": 217,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    },
+    "smoke_train": {
+      "effective": 1583,
+      "original": 1600,
+      "quarantined_fail": 5,
+      "quarantined_unknown": 12
+    },
+    "smoke_validation": {
+      "effective": 194,
+      "original": 197,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 3
+    },
+    "train": {
+      "effective": 7419,
+      "original": 7515,
+      "quarantined_fail": 35,
+      "quarantined_unknown": 61
+    },
+    "validation": {
+      "effective": 230,
+      "original": 234,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    }
+  },
+  "data_binding": {
+    "effective_files": {
+      "effective/train.jsonl": "294876d27b39f9991c274e8aa795b5c352ace5b073d20a19bc40d25fa10e9221",
+      "effective/validation.jsonl": "455eaa4afd773f436f2510ad5325cabeb0edf7852ae5bc8b14599c9b97c3570d"
+    },
+    "manifest_file_sha256": "f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "quality_config_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+    "quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+    "selection_manifest_file_sha256": "d765493c156d047cfaadce9c49e7edf25b973907d6a764f3272090786693efbc",
+    "training_binding_file_sha256": "588c94b6bed580f6ddf0e30eef4442915c24a0dc2ad40f33b2d8772cd4a29059"
+  },
+  "heldout_or_BFCL_used_for_training_or_selection": false,
+  "independent_quality_review": {
+    "adjudication_seal_sha256": "d9da8add7457a253865462e59745f4ae8b29dc3d99ae3595ee8e2133bfea5117",
+    "commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
+    "final_seal_sha256": "c272ffa263786086a5d83c057408aac0baabb82f8608e948b6fdbc0495bb74e9",
+    "reviewer": "Codex-AI(Q1)",
+    "s0_receipt_sha256": "48aae102b248963b95537c688214c0871c4ed995315e059077cbc6be7869c496",
+    "verdict": "PASS_WITHIN_FIXED_Q1_SCOPE"
+  },
+  "independent_technical_review": {
+    "commit": "dbd11d03e69c650efdb330f79ec380dd9914fa89",
+    "reviewer": "Codex-AI(R1)",
+    "s0_receipt_sha256": "51870b8dc68081fd8cda189009a5e8fc7046d06850011594b4959c8fe3f75296",
+    "verdict": "PASS"
+  },
+  "issue_ledger_file_sha256": "022356d8dc6fdf273804d0f78e58416677799e303b0dc1b6a46b1e7b1ffcb992",
+  "issues": {
+    "closed": 82,
+    "historical_failures_preserved": true,
+    "maximum_consecutive_failures": 0,
+    "open": 0,
+    "registered": 82
+  },
+  "limitations": [
+    "Quality review is bounded; unseen corpus quality is not certified.",
+    "Publisher metadata is preserved without relicensing third-party data.",
+    "Historical immutable candidate manifests retain their original pending status; this approval is a separate S0 decision.",
+    "Browser actual observation and real trainer consumption remain NOT_RUN.",
+    "Formal baseline, SFT, DPO, model capacity and serving are not authorized by this data approval."
+  ],
+  "materials": {
+    "engine_records": 26,
+    "inherited_complete": 11,
+    "new_mask_reviews": 2,
+    "new_semantic_reviews": 0,
+    "protocol_only_not_training": 3,
+    "semantic_pass": 13,
+    "token_mask_pass": 13,
+    "unique": 13
+  },
+  "new_annotations_enter_training": false,
+  "optimization_authorized": false,
+  "owner": "S0",
+  "q1_ordinary_merge": "10a22a08c3c3e2eccfc469d1a29a950ced33af18",
+  "s0_main_verification_sha256": "465cd283490649b118efed1d050ec69cf1ea17315e78c3bd8ada1760144359ef",
+  "s0_quality_adoption_sha256": "26f30c21390105f082a6aaefeb3366318353feee70a8f3460a2795f585fadf77",
+  "schema": "toolalign.s0.data-approval.v3",
+  "scope": "VERSIONED_DATA_SELECTION_AND_REVIEWED_MATERIALS",
+  "source": {
+    "access": {
+      "authenticated": false,
+      "checked_date": "2026-09-06",
+      "gated": false
+    },
+    "license_evidence": "README.md YAML license tag; upstream tree has no separate LICENSE file",
+    "license_id": "Apache-2.0",
+    "lock_file_sha256": "70c1f7b3f563cb7bf8284fa5cfd48c7036ca37f09db6ca3c822a4f4fb8994347",
+    "repo_id": "Team-ACE/ToolACE",
+    "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734"
+  },
+  "technical_verified_main": "90c4da99f093b846a6b0ca0343d8293739ce2bea",
+  "training_authorized": false
+}

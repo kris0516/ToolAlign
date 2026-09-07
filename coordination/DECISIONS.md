@@ -279,3 +279,5 @@ Q1原8a738ab确认旧83来源处置和13材料mask，通过实际隔离关闭77�
 ADR-0025并行只读准备：T1的P04-SFT-RUNTIME-PROPOSAL现CLAIMED，固定10份源码/元数据166,598 bytes及已验证d3基线，待原生派发。范围只提交真实Qwen消费/原生训练、尾批/检查点/容量与同配置基线的可落实方案，新增生产实现/框架/模型运行均0；D1加T1最多两个实现/准备任务，Q1保持独立来源审核。实际v3数据与质量门槛不因方案放行。
 
 14:15:28 UTC实际派发T1只读方案：原轮completed/notLoaded和干净f732、5,416原文件/197链接再次核验后，按完整8929cbb原生派发并确认ACTIVE，gpt-6-astra/max。新branch/intake待交付；D1/Q1的实际新branch和完整输入现均经S0核验通过，原3e18145范围继续。
+
+ADR-0025主干与质量验收补记（2026-09-08）：PR15普通合并90c4da9，原R1 dbd11d0、最终双Python CI/main技术VERIFIED；原Q1 7941已接收并普通合并10a22a0，84来源实际处置和13材料PASS。P02-Q-081第2次正式审核PASS后关闭并归零，82问题全部关闭，旧FAIL/UNKNOWN和全部历史事件保持。S0批准G-DATA的冻结v3范围，见[数据批准](approvals/P02_DATA_V3.json)与[接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)。原candidate pending字段不回写；正式模型配置/容量和CPU trainer适配独立接续，training_authorized=false。

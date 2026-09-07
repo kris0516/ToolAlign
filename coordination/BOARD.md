@@ -10,15 +10,15 @@
 | [S0-SHARED-01](tasks/S0_SHARED_01.md) 公共依赖/来源政策 | S0 | P01/P02 实际申请 | VERIFIED | R1 PASS `e4127d9`；审查 `8ceea3f`；合并 `18fc847`；main 233 项 CPU 检查及 wheel 通过 |
 | [S0-SHARED-02](tasks/S0_SHARED_02.md) P01环境/归档边界 | S0 | P01共享申请及实际打包缺陷 | VERIFIED | R1-r3 PASS `f8ec7ff`；审查 `ad3b519`；合并 `37c00de`；main176CPU、归档与隔离安装通过 |
 | [P01](tasks/P01_HARDWARE_COMPATIBILITY.md) 本机校准与兼容 | T1 | P00 | VERIFIED | R1-r3 PASS 7e20706；[PR6](https://github.com/kris0516/ToolAlign/pull/6)合并d10722e，最终双Python CI与main655CPU/21条隔离命令通过；[G1分项证据](../reports/S0_P01_MAIN_VERIFICATION.md)，首选DPO旧FAIL保留 |
-| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1 | P00 | MERGED；质量CHANGES_REQUESTED | 原技术PASS与PR5验收保持；kris委托AI副本已收到，83来源新版技术已VERIFIED，Q1确认旧处置并新增P02-Q-081待整改，G-DATA未通过；[交接](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
+| [P02](tasks/P02_DATA_PIPELINE.md) 数据治理 | D1；Q1/R1；S0验收 | P00 | VERIFIED（冻结v3/G-DATA） | PR15技术main90c4da9、原R1 dbd11d0和Q1 7941通过；82问题关闭，13材料PASS；[质量批准](../reports/S0_P02_Q1_V3_ADJUDICATION.md)，正式训练待独立范围 |
 | [P02-FORMAT-v1](tasks/P02_DATA_PIPELINE.md) 共用格式与序列 | D1；R1审查 | P02代码、ADR-0017 | VERIFIED | 原R1 b9f7567 PASS，PR8合并36b6988；最终双Python CI、main843CPU/2 HF-only skipped及归档绑定通过，见[主干证据](../reports/S0_P02_FORMAT_MAIN_VERIFICATION.md)；旧FAIL保持 |
 | [P02-TRAINING-BINDING](tasks/P02_TRAINING_BINDING.md) 训练选择与人工序列材料 | D1；R1审查 | 已验证36b6988、ADR-0019 | VERIFIED（CPU） | 原R1 PASS40252f8及[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50的main919CPU/2跳过/归档证据保持。本批AI审阅已接收，实际页面NOT_RUN；修订版绑定/G-DATA/P04未完成 |
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
 | [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | VERIFIED（CPU） | PR14普通合并d3e56f6；原R1 PASS d5b8、最终双Python CI/main62测试与三归档绑定通过；质量整改继续 |
 | [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | VERIFIED（CPU） | 原d5b8 PASS/原生空闲；随PR14普通合并并完成最终CI/main验证 |
-| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1；S0集成 | 已验证d3e56f6；ADR-0025 | ACCEPTED（CPU） | 原R1 PASS dbd11d0、S0完整接收与隔离424f158实测839CPU/48跳过、21拒绝/6对照及三归档/安装通过；[证据](../reports/S0_P02_QUALITY_V3_INTEGRATION.md)，PR15最终CI/main及Q1待完成 |
-| [P02-QUALITY-EXCLUSION-R1](tasks/P02_QUALITY_EXCLUSION_REVIEW.md) v3技术独立复核 | R1 | 精确5825d789 | ACCEPTED | 原dbd11d0 PASS/P0/P1/P2均0、原生空闲；S0核验52,757路径/1,235链接、30命令/11时点；[接收](../reports/S0_P02_QUALITY_V3_INTEGRATION.md) |
-| [Q1-P02-v3-r5](tasks/Q1_P02_V3_REVIEW.md) 实际排除与13例材料 | Q1 | 精确5825d789/294固定输入 | IN_PROGRESS | 按完整21f9210原生ACTIVE；输入b2ae9153/配置e6a1c4ac，原9c/556公共及767 scope保全，4,811路径/16授权/294输入intake已核验；[范围](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md) |
+| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1；S0集成 | 已验证d3e56f6；ADR-0025 | VERIFIED（CPU） | PR15普通合并90c4da9、原R1 dbd11d0保持；最终双Python CI/main73测试/21拒绝/6对照及归档绑定通过；[主干](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md) |
+| [P02-QUALITY-EXCLUSION-R1](tasks/P02_QUALITY_EXCLUSION_REVIEW.md) v3技术独立复核 | R1 | 精确5825d789 | VERIFIED（CPU） | 原dbd11d0 PASS、原生空闲；随PR15普通合并90c4da9并完成最终CI/main验证 |
+| [Q1-P02-v3-r5](tasks/Q1_P02_V3_REVIEW.md) 实际排除与13例材料 | Q1 | 精确5825d789/294固定输入 | ACCEPTED | 原7941 PASS/原生空闲；S0核验5,115路径/42命令，84来源处置与13材料通过，P02-Q-081关闭；[接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md) |
 | [Q1-P02-v3-sources-r4](tasks/Q1_P02_V3_SOURCE_REVIEW.md) 两替换来源提前审核 | Q1 | 固定2来源/3目标/8原turn | ACCEPTED（来源） | 原9c12c47正式交付/原生空闲；S0核验3,671路径/34命令，2来源/3Action及前缀PASS，旧issue计数不变；实际v3材料待后续审核 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
@@ -34,7 +34,7 @@
 | [P04-SFT-CPU](tasks/P04_SFT_CPU_PREPARATION.md) SFT数据/collator与数值衔接 | T1；R1独立审查 | 技术基线42eaa50、ADR-0020 | VERIFIED（CPU部分） | 原R1 PASS800480b保持；[PR10](https://github.com/kris0516/ToolAlign/pull/10)合并e28f1db，最终双Python CI、main1014CPU/2跳过及三归档/57安装包文件绑定通过，见[证据](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)。原CPU上游入口KeyError保留 |
 | [P04-SFT-NATIVE-TOY](tasks/P04_SFT_NATIVE_TOY.md) 原生尾周期与状态绑定 | T1；独立R1；S0验收 | CPU已验证50867c0、ADR-0021 | VERIFIED（固定原创数值） | 原R1 PASS67976fd保持；[PR11](https://github.com/kris0516/ToolAlign/pull/11)合并b2247d8，最终双Python CI与main1084CPU/2跳过、三现存归档/58安装包字节绑定通过；[证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。正式模型与人工仍待完成 |
 | [P04-SFT-RUNTIME-PROPOSAL](tasks/P04_SFT_RUNTIME_PROPOSAL.md) 真实模型接口只读方案 | T1；S0接收 | 已验证d3；固定10份源码/元数据 | ACCEPTED（方案） | 原4baa367交付/原生空闲，S0核验5,744路径/20命令/35来源80区间，普通合并7bf05d1；[接收](../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)，无新生产/模型授权 |
-| [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01,P02,P03 | BLOCKED | NOT_RUN |
+| [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01/P02/P03已验收；待CPU衔接/容量/运行配置 | BLOCKED（模型运行） | G-DATA已PASS；正式模型运行仍NOT_RUN，下一CPU包准备中 |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |
 | [P07](tasks/P07_LOCAL_SERVING.md) serving/cache | I1 | P01,P03,P04 | BLOCKED | NOT_RUN |
