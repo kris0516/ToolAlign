@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3 G-DATA PASS及模型CPU PR17/main f27951a验收保持。R1数据R2原58212d2对1769046正式FAIL仅新F2/P2，S0核验94,238路径/23原命令和唯一固定消费，R1原生空闲；F1关闭1→0，F2首次1。T1已按df37a3c同轮修订FD清理，9e08a096为自测checkpoint，完整candidate/精确复审待完成。真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。模型CPU PR17/main与冻结v3 G-DATA验收保持。T1 FD修订完整d80667e已由S0核验13,825路径/27原命令、三归档/65安装包；T1原生空闲，R1-r3 CLAIMED待派发。原F1已关闭，F2首次1保持；真实模型/容量/正式P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，原b99数据审查与T1修订1769046均已接收，数据修订复审R1新轮ACTIVE，模型CPU原PASS已接收、PR17主干CPU验收通过 |
+| 当前任务/分支 | S0 main；模型CPU VERIFIED，数据最新FD修订d80667e接收通过，R1-r3 CLAIMED待派发 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1模型CPU原轮正式PASS/接收/空闲；当前数据修订R2原生ACTIVE、intake已核验92,860路径；T1/D1/E1/Q1空闲，T1完整修订1769046待复审；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1/T1原生completed/idle已核验；R1-r3待派发，D1/E1/Q1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1原v3数据与固定13例数组CPU适配已完整交接为f3b7f1a1；原48be435基线和609固定输入/配置e27a7d4b保持。R1原安装固定消费通过，整包b99a644正式FAIL仅FIFO F1/P2；T1按90ded89交付完整1769046修订，新branch/intake与53d8610源码反例已由S0核验，完整修订接收已核验12,675路径/26原命令、三归档及65生产包字节；复审已按1cb1b0a原生ACTIVE，完整新证据接收待完成。真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
+T1原v3数据f3/b99的FIFO F1已由58212d2分项PASS关闭；原1769046整包因新FD清理F2/P2正式FAIL，S0完整94,238路径/23命令接收保持。F2首次计1，84问题/83关闭。新FD修订d80667e已接收：13,825路径/27原命令、三归档/65安装包通过；157模块及两路线各6项为T1自测。R1-r3 CLAIMED待原生派发。本修订真实609/13数组消费NOT_RUN，原安装固定消费保持1769046时点；formal/train5,938和smoke/train1,583不补选。真实trainer、容量、运行配置与GPU预算待后续，正式baseline/SFT/DPO/评测/服务NOT_RUN。以下时间线保留原实际观察。
 
 ## 恢复入口
 
@@ -276,3 +276,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。
 
 2026-09-07 23:19:19 UTC，S0完整接收数据R2原review58212d2，证明 `b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a`。94,238路径/23原命令、626公开及T1旧621历史映射、唯一安装消费7,928成员/26完整记录通过；原147PASS和附加5PASS/1FAIL保持。R1原生23:09:12 UTC completed/idle，F1分项关闭、新F2首次正式失败1，84问题/83关闭。T1同范围接入原582与修订继续，原消费额度不增加；[正式接收](../reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md)。
+
+2026-09-07 23:39:56 UTC，S0完整接收T1 d80667e，证明 `2bd9eac089ac0e1136ad7ea2a6c063a1bfce3decec4cdd62f9bc7a1ec71d213d`；13,825路径/27原命令和终态、三归档/65安装包通过，T1原生23:29:51 UTC completed/idle。R1-r3精确范围CLAIMED，实际派发待完成；旧失败和原消费时点保持，[接收](../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。

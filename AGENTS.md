@@ -138,6 +138,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | 固定 Qwen 模型接口 CPU 主干验收 | VERIFIED_CPU；[PR17](https://github.com/kris0516/ToolAlign/pull/17)普通合并f27951a，原R1 PASS bdebe4c保持；最终双Python CI与main134CPU、三现存归档/65安装包字节通过；[主干证据](reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。真实模型/容量/正式训练仍未运行 |
 | 2026-09-08 | 数据 R2 intake 与 FD 异常核验 | 92,860路径/16授权/609输入及本轮5原生命令通过；新目录构造失败残留FD已核验652路径/2原命令，拟P2/F2，正式review待交接；T1限域CPU修订CLAIMED待派发；[证据](reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md) |
 | 2026-09-08 | 数据CPU修订R2正式接收 | 原58212d2对1769046正式FAIL，仅F2/P2；S0核验94,238路径/23原命令及唯一固定消费，R1空闲。F1关闭1→0，F2首次1；T1同轮FD修订继续，[证据](reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md) |
+| 2026-09-08 | FD清理修订完整交接 | T1完整d80667e/原生空闲；S0核验13,825路径/27原命令、三归档/65安装包，READY_FOR_REVIEW；R1-r3 CLAIMED待派发，F2首次1保持，[证据](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -163,17 +164,15 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 ## 当前允许的阶段
 
-P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、训练绑定、SFT CPU准备及固定原创native toy均保持VERIFIED。旧CPU上游KeyError、单段丢尾反例、原FAIL和测量时点保持；真实模型正式训练/评测和服务仍NOT_RUN。
+P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、训练绑定、SFT CPU准备及固定原创native toy保持VERIFIED。P02 v3 CPU由PR15/main `90c4da99f093b846a6b0ca0343d8293739ce2bea`验收；Q1原7941正式PASS与S0精确批准保持，G-DATA为PASS_FROZEN_V3_SCOPE，见[批准](coordination/approvals/P02_DATA_V3.json)。旧CPU KeyError、单段丢尾、FAIL/UNKNOWN及所有运行时点保留。
 
-P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce2bea`，原候选5825d789与原R1 PASS dbd11d0保留。最终双Python CI各14步骤、实际main73新增测试/21拒绝/6对照、三份现存归档与64安装包字节绑定通过；[主干证据](reports/S0_P02_QUALITY_V3_MAIN_VERIFICATION.md)。
+固定Qwen模型CPU已由PR17/main `f27951aea573d3e220b053563078d5e428564419`验收；原R1 bdebe4c、最终双Python CI/main134CPU及三归档/65安装包绑定保持，见[主干证据](reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。真实模型/容量/正式训练、评测和服务均NOT_RUN。
 
-Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
+数据CPU原f3/b99审查的FIFO F1已由58212d2分项PASS关闭；1769046完整R2仍因新FD构造清理F2/P2正式FAIL，S0核验94,238路径/23命令及唯一固定消费，原review保持。F2首次计1，84问题中83关闭/1未关闭，无第五次问题；全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标，当前无问题达到阈值。T1完整 v3 SFT CPU 候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 已交付/原生空闲；S0 核验10,935路径/40原命令及实际三归档，两条固定消费通过，旧失败和全部额度保持。R1 已对原候选提交b99a644正式FAIL/P2=1，S0核验65,185路径/25命令并确认原生空闲；16授权/609输入保持，Draft PR16双Python候选CI通过；[完整接收](reports/S0_P04_DATA_V3_CPU_HANDOFF.md)。E1完整Qwen CPU候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已接收/原生空闲，S0核验26,330路径/34原命令及三归档，PR17已普通合并f27951a并完成最终双Python CI/main134CPU、三现存归档/65安装包绑定，VERIFIED_CPU；原R1 bdebe4c正式PASS及90,442路径/23原命令接收保持。数据修订R2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake已由S0核验，完整verdict待交接；T1新增FD清理CPU修订CLAIMED待派发，D1/Q1无新范围。真实trainer、两模型容量和明确P04运行配置仍待后续范围，正式训练未授权，浏览器实显NOT_RUN单列。
+T1已交付完整FD修订 `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`并原生空闲。S0核验13,825路径/27原命令、三归档/65安装包字节通过，157模块及源码/安装各6项为T1自测，READY_FOR_REVIEW；[完整接收](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1精确[R3范围](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)CLAIMED待派发；本修订真实数据消费NOT_RUN，原消费保持1769046时点，不默认重跑609输入和13数组。
 
-R1原b99a644已正式判定原f3数据CPU候选FAIL，唯一P2/P04-SFT-DATA-V3-F1首次计1；S0完整核验65,185路径/25原命令，R1原生completed/idle。T1在同一原中间发现上交付完整修订1769046并已空闲，147CPU和源码/安装原反例PASS为自测；S0完整接收已核验12,675路径/26原命令及三归档，独立复审已按1cb1b0a原生ACTIVE，完整新接收待完成。原成文时正式SHA尚未追加的记录保持，S0直接绑定原b99与新修订，不重复计轮次；[接收](reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)。PR16仍Draft，未将失败候选合并main；E1模型CPU原R1 bdebe4c正式PASS及完整封存已接收，原生空闲，模型包已由PR17/main f27951a完成CPU验收，数据修订R2继续原生审查。
-
-最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
+最多两个实现、独立R1、统一gpt-6-astra/max与单一共享GPU租约保持。D1/E1/Q1无新范围；无新费用、模型/数据上传、公网推理或正式P04授权。浏览器实显NOT_RUN单列，P00–P09持续目标未完成。
 
 ## 工作记录
 
@@ -190,3 +189,5 @@ P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked py
 2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。
 
 最新正式数据结论：R1原58212d2对1769046正式FAIL仅新FD构造清理F2/P2，S0已完成94,238路径/23原命令和完整7,928成员/26记录接收，R1原生空闲。F1分项关闭，连续失败1→0；新F2首次计1，84问题中83关闭/1未关闭，无第五次问题。T1同一FD修订已接原正式SHA，当前9e08a096为自测checkpoint，完整交接/独立复审待完成；模型CPU PR17主干验收与G-DATA保持。
+
+最新FD修订完整交接：2026-09-07 23:39:56 UTC，S0核验d80667e的13,825路径/27原命令、三归档/65安装包通过，T1原生23:29:51 UTC completed/idle。R1-r3精确范围CLAIMED待派发，F2仍首次1；[证据](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。

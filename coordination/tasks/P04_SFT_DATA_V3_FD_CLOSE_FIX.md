@@ -1,6 +1,8 @@
 # P04-SFT-DATA-V3-FD-CLOSE-FIX｜构造失败时释放输入 FD
 
-状态：IN_PROGRESS，T1。已于2026-09-07 23:03:59 UTC按完整 `df37a3c64bb114b70ab8221d167ea021e22524e7` 原生派发并核验新轮ACTIVE，gpt-6-astra/max；656路径/12授权/7输入派发前核验通过，证明 `ebef278ddbb0a2a0f09c9a0b7cc0b2e057c69844b8658cc19114880d46d7735f`。新branch/intake待交付。code_base/父候选 `1769046468eb2ebfdd9e982ba4938833760e3fe0`，tree `1373bd4c838a1af395a1ede4f7c4d7029ffad271`；这是待修订的候选，不是已验收生产基线。完整 authorization_commit 由 S0 原生派发提供。统一 gpt-6-astra/max；沿用原 T1 独立 App 任务及隔离 worktree，新分支 `codex/p04-sft-data-v3-fd-close-fix-r1`，新私有 scope `p04-sft-data-v3-fd-close-fix-r1`，禁止 sub-agent。
+当前状态：READY_FOR_REVIEW。T1完整d80667e/原生空闲；S0完整接收通过，见[证据](../../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1-r3待实际派发，F2首次1保持。
+
+原派发记录：T1。已于2026-09-07 23:03:59 UTC按完整 `df37a3c64bb114b70ab8221d167ea021e22524e7` 原生派发并核验新轮ACTIVE，gpt-6-astra/max；656路径/12授权/7输入派发前核验通过，证明 `ebef278ddbb0a2a0f09c9a0b7cc0b2e057c69844b8658cc19114880d46d7735f`。新branch/intake待交付。code_base/父候选 `1769046468eb2ebfdd9e982ba4938833760e3fe0`，tree `1373bd4c838a1af395a1ede4f7c4d7029ffad271`；这是待修订的候选，不是已验收生产基线。完整 authorization_commit 由 S0 原生派发提供。统一 gpt-6-astra/max；沿用原 T1 独立 App 任务及隔离 worktree，新分支 `codex/p04-sft-data-v3-fd-close-fix-r1`，新私有 scope `p04-sft-data-v3-fd-close-fix-r1`，禁止 sub-agent。
 
 目标只关闭 [S0 核验的 P2/F2](../../reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md)：预检查后路径变为目录，成功 `os.open` 得到的 FD 在 `os.fdopen` 构造失败时仍打开。把裸 FD 到 stream 的所有权交接和构造失败清理写清楚，异常时释放同一自有 FD，保留原异常/原因；正常读取、hash-only、大小/预算/摘要、同 FD 核对、O_NOFOLLOW/O_NONBLOCK 和原 DataError 分类保持。正常成功交接后的清理由 stream 完成，不能再次关闭已转交或不属于自己的 FD。不要复制修改其它 I/O 组件或借机重构。
 
