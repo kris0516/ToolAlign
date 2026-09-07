@@ -1,8 +1,12 @@
 # P02-QUALITY-EXCLUSION-R1｜v3定点排除与复用材料技术审查
 
-状态：PLANNED，未派发。D1精确candidate、最终制品/封存及本轮S0 authorization_commit均PENDING；完整交接经S0核验后才领取。代码基线为已验证`d3e56f68ebd67cc576d912b6f06636682b4170ab`，不以正在变化的D1文件签署结论。
+状态：READY，待原生派发。精确candidate `5825d789ee89afedbfff31e828223608c6f435e2`，实现/实际新编码 `6054b349c344cbbad30c12ce8fe8820c59e8bc10`，完整D1已交付/原生空闲；S0核验32,579路径/644链接、44原命令/18源码epoch、完整数组与实际归档，见[完整接收](../../reports/S0_P02_QUALITY_V3_HANDOFF.md)。本轮S0 authorization_commit以原生分发的完整SHA为准。代码基线为已验证`d3e56f68ebd67cc576d912b6f06636682b4170ab`，R1从上述完整candidate创建新分支。
 
 R1使用原有独立App任务，gpt-6-astra/max。新branch拟为`codex/review-p02-quality-exclusion-r1`，从精确candidate创建；新私有scope `review-p02-quality-exclusion-r1`。先按届时完整授权保存AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、本任务、D1 v3任务/精确配置、ADR-0025、S0完整交接和Q1新来源接收报告。切换前核验原R1分支/提交、旧公开Git/快照、私有封存及根identity，具体hash在正式分发时绑定；新身份不覆盖旧identity。
+
+旧R1精确提交 `d5b8d17207be7295f3ae5c6a51edd9b8fe968001` 已原生completed/notLoaded；S0提前核验498旧公共文件、2093本轮旧scope文件和769历史链接，preservation SHA `74d655d5176ba7563eeb3264a806e6b97310ea36cc41b42252712d968221fd91`。完整交接manifest、原S0输入与实际数据/材料/归档的只读路径在私有分发中给出。不能覆盖旧pytest basetemp；本轮每次检查使用新临时目录并计入1GiB。
+
+本次实际绑定：D1 completion `1d65726003a5eed3b6b74a4ba77bc0e49cd724d0f0dab82733ac8ec9e3e7cc0f`，收尾receipt `871c318fe264ec84c90a37aeb20b92f07ce71e6992c4ba4b71bd2fea2e04920d`，S0接收证明 `2eba41c079a18a4e973738c5caf3ca3309bb211a1e5f1f2f80be90620615e379`；输出manifest `f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437`、quality revision `919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8`、13例records `a41f5c24a55eb5e4fed434b9352b655fbf78e5aa68276de5de183671c81412de`。D1的2/2全量输出与4/4新sequence额度均已用尽；R1自己的下述独立CPU额度另记，不能重启D1编码预算。
 
 完整审查新增v3 wrapper、材料模块、S0精确配置与新测试，不只看末次提交。旧生产/测试/依赖/配置保持字节身份。固定v3输入manifest `ebbaf56bbb5730b5d31eca195d5ac7772d148ff876fc96be1c1c5dbbadf51e06`、配置 `784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261`；不擅自用当前台账或其他任务输出替换已冻结输入。
 
