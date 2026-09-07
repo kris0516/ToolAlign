@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1已按完整d9e5622原生派发/ACTIVE，完整intake已由S0核验；Q1按完整d31ca701原生接续新版346项冻结输入审核/ACTIVE，新分支及完整intake经S0核验2,606路径与10原命令通过。G-DATA/P04仍待独立审核及main验证。
+更新时间：2026-09-07。审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1原PASS d5b8d17已交付/原生空闲，S0核验29,543路径/769链接、28原命令及三归档/62安装包文件通过，CPU技术ACCEPTED。Q1按完整d31ca701继续ACTIVE，原83来源处置中间PASS，新材料一来源历史矛盾及两决策影响待最终封存。PR14最终集成/CI/main、完整质量验收与G-DATA/P04仍待完成。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/PR13审计CPU技术VERIFIED；PR14新版READY_FOR_REVIEW |
+| 当前任务/分支 | S0 main/PR13审计CPU技术VERIFIED；PR14新版CPU技术ACCEPTED待集成 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1完整1c47/原生空闲；R1按完整d9e5622原生ACTIVE，Q1按完整d31ca701原生ACTIVE，完整346项输入及旧证据intake核验通过；E1/T1空闲；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1原d5b8正式PASS/原生空闲；Q1按完整d31ca701继续ACTIVE；D1/E1/T1空闲；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1已按完整d9e5622原生派发/ACTIVE，完整intake已由S0核验；Q1按完整d31ca701原生接续新版346项冻结输入审核/ACTIVE，新分支及完整intake经S0核验2,606路径与10原命令通过。G-DATA/P04仍待独立审核及main验证。
+审计CPU技术子包VERIFIED；PR13普通合并1887feb，原da22修复、原9645055 FAIL与新0cefe771 PASS保持。最终双Python CI各14步骤及实际main55pytest/15页面检查、三现存归档/60安装包绑定通过，见[主干证据](../reports/S0_P02_AUDIT_MAIN_VERIFICATION.md)。TYPE-001关闭，原首次失败保留。D1完整1c47e6a已交付/原生空闲；S0核验21,424路径、57原命令、三归档及6安装命令通过，Draft PR14候选双Python CI通过。R1原PASS d5b8d17已交付/原生空闲，S0核验29,543路径/769链接、28原命令及三归档/62安装包文件通过，CPU技术ACCEPTED。Q1按完整d31ca701继续ACTIVE，原83来源处置中间PASS，新材料一来源历史矛盾及两决策影响待最终封存。PR14最终集成/CI/main、完整质量验收与G-DATA/P04仍待完成。
 
 P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
 

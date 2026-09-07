@@ -1,6 +1,6 @@
 # P02 v2 完整候选接收与候选 CI
 
-日期：2026-09-07。状态：READY_FOR_REVIEW。D1完整候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`已普通推送且原生completed/idle；[Draft PR14](https://github.com/kris0516/ToolAlign/pull/14)保持待审。S0接收核验通过，R1技术审查按完整d9e5622原生ACTIVE，Q1按完整d31ca701原生接续新版冻结输入审核/ACTIVE；G-DATA和P04仍未放行。
+日期：2026-09-07。状态：ACCEPTED（CPU技术）。D1完整1c47候选的原R1 PASS d5b8已接收/原生空闲；S0核验29,543路径/769链接及28原命令通过，见[独立技术接收](S0_P02_QUALITY_V2_REVIEW_ACCEPTANCE.md)。Draft PR14最终集成/CI/main与Q1完整质量结论待完成；G-DATA/P04未放行。
 
 候选以已验证`6c81dfcc855fca188181d1bb08870f47d8edacc9`为基线，采用完整D1授权`f8b81b9783892669d19aafee5a1d82a4a8409cd3`。492文件中480基线文件逐字节保持，12个允许新增文件包括两个模块、精确配置、53项CPU测试和报告。修正后实现为`f7acd93595bfeb5e81b6eafe53c8d4106ce10a68`；[原worker交接](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/coordination/handoffs/P02-quality-adjudication-r2.md)与[验证说明](https://github.com/kris0516/ToolAlign/blob/1c47e6af6af3e3419db97bdbb1296e6f56e04c2b/reports/data/quality-adjudication-r2/README.md)保持原SHA。
 

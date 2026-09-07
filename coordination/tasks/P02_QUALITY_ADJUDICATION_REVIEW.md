@@ -1,6 +1,6 @@
 # P02-QUALITY-ADJUDICATION-R1｜新版数据与材料技术独立审查
 
-状态：IN_PROGRESS。S0再次核验原生completed/idle及干净0ce后，按完整d9e5622c4148896803f92c53caf615975ef5254c于12:02:41 UTC原生派发，新轮ACTIVE已核验；完整intake与独立结论待交付。使用现有独立R1任务、gpt-6-astra / max，不创建新任务或sub-agent。
+状态：ACCEPTED（CPU技术）。原R1审查d5b8d17207be7295f3ae5c6a51edd9b8fe968001对精确1c47e6a正式PASS，原生completed/idle；S0核验29,543路径/769链接、28原命令/8源码时点和三归档/62安装包文件，见[接收证据](../../reports/S0_P02_QUALITY_V2_REVIEW_ACCEPTANCE.md)。以下冻结任务范围保持。
 
 - 精确候选：`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`；原已验证生产基线`6c81dfcc855fca188181d1bb08870f47d8edacc9`。
 - 原D1授权：`f8b81b9783892669d19aafee5a1d82a4a8409cd3`；修正后生产/测试提交`f7acd93595bfeb5e81b6eafe53c8d4106ce10a68`。本轮S0 authorization_commit由私有分发词提供。
