@@ -1,0 +1,120 @@
+{
+  "schema": "toolalign.q1-v3-material-review-summary.v1",
+  "task": "Q1-P02-v3-r5",
+  "status": "PASS_WITHIN_FIXED_Q1_SCOPE",
+  "reviewer": "Codex-AI(Q1)",
+  "model": "gpt-6-astra",
+  "thinking": "max",
+  "authorization_commit": "21f92107d03f776a3b81d4d61d39072e96d236d3",
+  "code_base": "7a731c5f08a561f5941fcba5996004706f373392",
+  "candidate_commit": "5825d789ee89afedbfff31e828223608c6f435e2",
+  "quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+  "fixed_input_manifest_sha256": "b2ae91538823c2e64af68deb871736134e488df00937df34e2cfd207470e4a8c",
+  "actual_dispositions": {
+    "excluded_decisions": 100,
+    "excluded_sources": 81,
+    "restored_decisions": 3,
+    "restored_sources": 3,
+    "total_decisions": 103,
+    "total_sources": 84,
+    "verdict": "PASS"
+  },
+  "counts": {
+    "formal_train": {
+      "effective": 5938,
+      "original": 6013,
+      "quarantined_fail": 27,
+      "quarantined_unknown": 48
+    },
+    "formal_validation": {
+      "effective": 213,
+      "original": 217,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    },
+    "smoke_train": {
+      "effective": 1583,
+      "original": 1600,
+      "quarantined_fail": 5,
+      "quarantined_unknown": 12
+    },
+    "smoke_validation": {
+      "effective": 194,
+      "original": 197,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 3
+    },
+    "train": {
+      "effective": 7419,
+      "original": 7515,
+      "quarantined_fail": 35,
+      "quarantined_unknown": 61
+    },
+    "validation": {
+      "effective": 230,
+      "original": 234,
+      "quarantined_fail": 1,
+      "quarantined_unknown": 3
+    }
+  },
+  "materials": {
+    "unique": 13,
+    "engine_records": 26,
+    "retained_old_unique": 11,
+    "retained_old_train": 8,
+    "retained_protocol_only": 3,
+    "new_unique_sequences_reviewed": 2,
+    "new_engine_sequences_reviewed": 4,
+    "semantic_pass_unique": 13,
+    "token_mask_pass_unique": 13,
+    "static_html_pass_records": 26,
+    "fail": 0,
+    "unknown": 0,
+    "unjudged": 0,
+    "complete_static_token_rows": 37888,
+    "complete_static_token_cells": 303104,
+    "complete_static_pre_blocks": 208,
+    "semantic_reviews_inherited_only": true,
+    "new_semantic_source_reviews": 0
+  },
+  "encoding_provenance": {
+    "status": "PASS",
+    "producer_new_sequence_calls": 4,
+    "producer_old_eleven_reencodings": 0,
+    "producer_third_source_target_encodings": 0,
+    "producer_recorded_sequence_failures": 0,
+    "Q1_new_encodings": 0
+  },
+  "issue_events": {
+    "P02-Q-081": "PASS_CLOSURE_PROPOSED_TO_S0",
+    "prior_consecutive_failed_revisions": 1,
+    "proposed_consecutive_failed_revisions": 0,
+    "new_failed_revision_increment": 0,
+    "new_issue_proposals": 0,
+    "other_issue_updates": 0,
+    "old_failures_preserved": true,
+    "ledger_modified": false
+  },
+  "not_run": [
+    "browser_actual_observation",
+    "real_trainer_consumption",
+    "Q1_production_tests",
+    "Q1_dataset_build",
+    "Q1_tokenizer_encoding",
+    "Q1_framework_model_GPU_runs",
+    "Q1_business_tool_API_calls"
+  ],
+  "independent_technical_review": "SEPARATE_R1_SCOPE_NOT_SIGNED_BY_Q1",
+  "G_DATA": "S0_DECISION_AFTER_R1_AND_MAIN_VERIFICATION",
+  "training_authorized": false,
+  "public_schema": "toolalign.q1-v3-r5-public-summary.v1",
+  "adjudication_seal_sha256": "d9da8add7457a253865462e59745f4ae8b29dc3d99ae3595ee8e2133bfea5117",
+  "adjudication_seal_files": 993,
+  "adjudication_seal_bound_bytes": 63870668,
+  "local_failures_preserved": {
+    "logged_helper_read_mode_failures": 4,
+    "additional_read_only_lookup_failures": 3,
+    "formal_quality_failure_increment": 0
+  },
+  "private_original_data_published": false
+}
