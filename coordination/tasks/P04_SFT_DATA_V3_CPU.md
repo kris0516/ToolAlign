@@ -29,3 +29,8 @@ S0批准文件SHA `1edb1e889b91dbde5dc6208b8dff2afdaa4b4a20a0ba5c166e9b55750429e
 切换前保全原4baa367的556公开Git/快照、161当前scope文件、5,744原接收路径和197原链接文本；S0保全SHA `8644138a91d76281c4be89b87ef308c5431e4fde254bd8b509f99b025d30a259`。其中2个旧测试链接当前悬空且未列为应保留目标文件，保留其原链接文本；原seal没有记录旧目标存在性，不补造。该记录不允许新增输入symlink。准备证明 `0526b064a3a606416edd7aa84e93bbb5ad4bc202824aa4951264e95350bcc492`；[分发准备](../../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)。T1旧轮原生completed/notLoaded、新分支尚未建立，不把准备写成实际派发。
 
 保存授权中的20份文件后切换：AGENTS、GOAL、PROTOCOL、REVIEW_POLICY、REVIEW_FAILURES、RESOURCE_LOCK、DECISIONS、本任务、configs/sft-data-v3.v1.json、configs/data-quality.v3.json、configs/training-data.v1.json、P02_DATA_V3批准、S0 v3主干报告、S0 Q1 v3接收报告、本次分发报告、原runtime方案.md/.json、S0方案接收报告、原R1 v3 REVIEW.md及原Q1 v3 README.md。首次回报精确任务/branch/base、授权副本、输入hash与保全结果；新identity只写新scope，保留根identity。当前最多一个实现（T1），D1/E1/R1/Q1无新范围，GPU无新许可。交接文件为`coordination/handoffs/P04-sft-data-v3-cpu-r1.md`；完整候选、原始失败、实际source/installed验证和seal交付后结束，由S0接续独立R1。
+
+
+固定复测补充：S0于2026-09-07 18:48:32 UTC核验T1已提交checkpoint `bfdf2a256065d5396e6f7a4860fd7c7506f5c278`、两处输入绑定修复和原证据，373路径/12原命令证明 `e8668110c9412d3bc5d1015a38efc2d7ea94b9ec48b1d106ed759b80642b50d0`。按[精确CPU复测批准](../approvals/P04_DATA_V3_PREPARE_RETRY_R2.json)，source/installed各追加一次prepare，总尝试上限各2（含原失败）；两边原13例转换/导出/回读额度仍各剩1。只允许一次新三归档和新default target，旧三归档/target/失败/保留号不覆盖；生产与配置严格绑定bfdf2a2，真实模型许可保持0。此批准由同轮完整S0原生提交激活，不是candidate验收。
+
+上述一次新三归档/target已由T1完成并经S0字节核验，证明 `c2c8fcc68ede5e994d5060692c316abf997cb03faa9138b39a6f5514302287f7`；本批准剩余build/install为0，使用现存r2 target执行所准installed prepare。

@@ -15,3 +15,12 @@ T1 保全证明 `8644138a91d76281c4be89b87ef308c5431e4fde254bd8b509f99b025d30a25
 实际派发：2026-09-07 17:45:52 UTC，S0再次核验T1旧轮completed/notLoaded及完整授权`0fa77e228021091e357505a0e81a5d3ba0777928`远端一致后，原生接续T1并显式使用gpt-6-astra/max。新轮ACTIVE已确认；新branch/identity/20授权副本/609输入的完整intake仍待T1交付，不提前登记实现结果或关闭后续审查门。
 
 完整 intake：2026-09-07 17:55:20 UTC，S0 直接核对实际新分支 `codex/p04-sft-data-v3-cpu-r1` 与精确 48be435、612 基线文件、20 授权副本、609 输入、新原生身份及旧 Git/封存，7,010 当前路径通过，证明 `e6d4c83e9ee050c449c030e0b848b46d62b7cf4ebd0f03e0ae6e30e5dd368d2f`。197 原链接文本和两个原悬空状态保持；原三个 worker receipt 皆 exit 0，其原生 argv 交叉绑定留至完整交接。本次 S0 实际数据 prepare/转换/编码/框架均 0。T1 继续同一 CPU 实现；[独立 R1 范围](../coordination/tasks/P04_SFT_DATA_V3_REVIEW.md)已 PLANNED，待完整 candidate/原生终态后冻结和派发。
+
+
+CPU中间修复与复测范围（2026-09-07）：原source尝试18:25:48–18:25:49 UTC在D1祖先路径绑定处失败；原installed尝试18:34:43–18:34:44 UTC在Q1混合seal的`relative_path`处失败。两次均早于实际quality_exclusion.verify及13例转换；source原helper未保存失败计数，未到达由原traceback/源码推定，installed保存的计数明确为prepare1、verify/转换/导出/回读0。旧失败、两保留记录、原三归档及旧target均保持。
+
+T1提交checkpoint `bfdf2a256065d5396e6f7a4860fd7c7506f5c278`：90个明确固定的外部祖先成员按原kind/path/hash绑定；Q1 seal的private条目与3个public-at-commit条目分别验证，不跟随历史可变公共路径。当前新增模块135项CPU自测通过；原常规组758通过/3临时目录假设失败保留，仅更换临时目录后原3项通过，旧测试字节不改。S0只读核验373路径/12原命令与源码快照，证明 `e8668110c9412d3bc5d1015a38efc2d7ea94b9ec48b1d106ed759b80642b50d0`；未运行S0生产消费/build/install。旧source-only请求在源码随后变化时被S0校验拒绝，原辅助失败保持，没有产生旧请求批准。
+
+[本轮精确CPU批准](../coordination/approvals/P04_DATA_V3_PREPARE_RETRY_R2.json)仅准source/installed各新一次只读prepare及原未使用的各一次13例转换/导出/回读，旧失败计入总prepare各2。为安装版按当前源码做一次新三归档和新target，全部用新私有路径。完整candidate/R1/最终CI/main与实际模型路径仍待完成；本次135为T1自测，不作为S0独立审查结论。
+
+18:51:22 UTC，T1已在新路径完成修订后的三归档和default target，S0核对226路径、原5条构建/安装命令、70/70/143归档成员及65份包文件字节，证明 `c2c8fcc68ede5e994d5060692c316abf997cb03faa9138b39a6f5514302287f7`。新direct/rebuilt wheel均8070c495，sdist be725d44；该一次重建额度已使用，本批准不再添加构建/安装调用。复测直接使用该固定新target，旧c7源码归档与失败仍保留。

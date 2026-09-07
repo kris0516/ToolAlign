@@ -230,3 +230,6 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 
 
 15:16:38 UTC，T1原4baa367只读方案接收通过并普通合并7bf05d1。S0核验5,744路径/20原命令、35来源/80区间，计划198/743更新完整覆盖并保留尾批；实际更新0。T1空闲，D1继续最终封存，R1/Q1 v3完整审核未派发；[方案接收](../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)。
+
+
+18:48:32 UTC，S0核验T1固定CPU修复checkpoint bfdf2a2及373路径/12原命令，source祖先root绑定与installed混合Q1 seal原失败保持；135新模块自测通过。精确复测批准已准备，source/installed各新一次prepare、原各一次13例转换额度保持，新三归档/target另存；实际原生激活待发送，candidate/R1尚未验收。[证据](../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)。

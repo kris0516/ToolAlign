@@ -1,0 +1,62 @@
+{
+  "S0_prerequisite_proof_sha256": "e8668110c9412d3bc5d1015a38efc2d7ea94b9ec48b1d106ed759b80642b50d0",
+  "additional_original_fixed_views_per_successful_prepare": 4,
+  "additional_prepare_attempts": {
+    "installed": 1,
+    "source": 1
+  },
+  "code_base": "48be4352bbad53ced5af84186edac036dd0ff2ca",
+  "code_checkpoint": "bfdf2a256065d5396e6f7a4860fd7c7506f5c278",
+  "constraints": [
+    "Validate exact checkpoint and production/test/config/input pins before each attempt.",
+    "Use existing default CPU environment and existing local build support; no dependency or environment changes.",
+    "Reserve before each production call and persist actual terminal counters on PASS and FAIL.",
+    "Stop further actual fixed consumption after either new attempt fails; continue permitted CPU diagnosis and report to S0.",
+    "No data build, new sequence generation or decoder/tokenizer construction.",
+    "Keep original pending fields, old review failures and current G-DATA scope unchanged.",
+    "CPU retry permission is not independent R1 acceptance or real training authorization."
+  ],
+  "destinations": "New private retry paths only; no overwrite of original evidence. Retry helper may only bind this grant, adjust new destinations/reservations and persist terminal counters, retaining original helpers by exact snapshot.",
+  "existing_r2_archives_and_target": {
+    "S0_proof_sha256": "c2c8fcc68ede5e994d5060692c316abf997cb03faa9138b39a6f5514302287f7",
+    "direct_and_rebuilt_wheel_sha256": "8070c4954dfb9a60a689b76ccfe46694b35d9dc056a262381de0e26a72aef3dc",
+    "package_files": 65,
+    "sdist_sha256": "be725d44fa290eb13072e6f360999c7b9a13edbd5e2b67aa222a0115f1a80ffe",
+    "status": "S0_BYTE_BINDING_VERIFIED",
+    "worker_package_report_sha256": "89cff9aa8459be610025f76706ed38e7a4da4132bb275314695fcd39a800a5e7"
+  },
+  "failed_attempts_consume_reservations": true,
+  "fixed_input_manifest_sha256": "08e865ff98bd476c94153033bc192664d72cee64443184576532c0289a610dd7",
+  "issued_at_utc": "2026-09-07T18:49:49.352271+00:00",
+  "new_full_data_builds": 0,
+  "new_tokenizer_framework_model_GPU_optimization_generation_API_download_environment_runs": 0,
+  "one_time_archive_rebuild_group": {
+    "already_completed": true,
+    "direct_wheel": 1,
+    "new_default_target": 1,
+    "rebuilt_wheel_from_new_sdist": 1,
+    "remaining_build_or_install_calls": 0,
+    "sdist": 1
+  },
+  "optimization_authorized": false,
+  "original_authorization_commit": "0fa77e228021091e357505a0e81a5d3ba0777928",
+  "production_pins": {
+    "configs/sft-data-v3.v1.json": "e27a7d4bcdd378944af56559833c3bcd10f601b689a75f1daec96b884bd780c1",
+    "src/toolalign/training/sft/data_v3.py": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+    "tests/training/test_sft_data_v3.py": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+  },
+  "remaining_conversion_export_readback_attempts": {
+    "installed": 1,
+    "source": 1
+  },
+  "request_sha256": "3e619cb8991cbec5ad7ec87fd8cf6dc2038221797bd00c2f941d79696c558a62",
+  "retain_original_reservations_failures_archives_and_target": true,
+  "schema": "toolalign.S0.data-v3-prepare-retry.v1",
+  "status": "AUTHORIZED_FIXED_CPU_RETRY",
+  "task": "P04-SFT-DATA-V3-CPU",
+  "total_prepare_attempt_limits_including_old_failures": {
+    "installed": 2,
+    "source": 2
+  },
+  "training_authorized": false
+}
