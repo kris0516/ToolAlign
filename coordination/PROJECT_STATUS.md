@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。P02新版数据与材料CPU技术VERIFIED；PR14普通合并d3e56f6，原1c47候选及原R1 PASS d5b8保持。最终双Python CI各14步骤及实际main62测试、三现存归档/62安装包文件绑定通过，见[主干证据](../reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md)。Q1继续封存完整语义/mask与issue结论；中间83来源处置PASS，新来源历史矛盾待下一版整来源整改。G-DATA/P04仍未授权。
+更新时间：2026-09-07。P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/PR14新版数据CPU技术VERIFIED；后续质量整改待Q1正式接收 |
+| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；Q1新问题P02-Q-081整改准备 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1原d5b8正式PASS/原生空闲；Q1按完整d31ca701继续ACTIVE；D1/E1/T1空闲；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | Q1原8a738ab和R1原d5b8均已交付/原生空闲；D1/E1/T1空闲，新D1范围准备中；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P02新版数据与材料CPU技术VERIFIED；PR14普通合并d3e56f6，原1c47候选及原R1 PASS d5b8保持。最终双Python CI各14步骤及实际main62测试、三现存归档/62安装包文件绑定通过，见[主干证据](../reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md)。Q1继续封存完整语义/mask与issue结论；中间83来源处置PASS，新来源历史矛盾待下一版整来源整改。G-DATA/P04仍未授权。
+P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
 
 P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
 
@@ -215,3 +215,5 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 04:27 UTC审计代码发现：R1在PR13原5270中间复现JSON false/0混同，S0确认delta漏项并保存438原公开文件，见[中间证据](../reports/S0_P02_AUDIT_TYPE_FINDING.md)。E1限域类型保真修复已原生派发/ACTIVE；原R1继续冻结候选并核定实际影响，尚非整包正式结论。
 
 04:31 UTC实际派发：E1类型保真定点修复已于04:31:54 UTC按完整3002657851248a22143b0d30a1d8168be2629df1原生派发并核验ACTIVE，gpt-6-astra/max；新分支/merge/intake待交付。R1继续冻结5270核查原包，Q1原50来源裁定继续，训练门槛保持。
+
+13:34 UTC，Q1完整新版处置/材料结论已接收：旧83来源处置PASS、13例mask全部PASS，新一来源历史字符数矛盾为P02-Q-081首次失败1；S0关闭77旧排除问题并核验3项恢复，所有原事件/FAIL/UNKNOWN保持。[接收与台账说明](../reports/S0_P02_Q1_V2_ADJUDICATION.md)。下一版数据/选择/材料待精确授权和独立复核，无需kris介入。

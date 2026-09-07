@@ -9,8 +9,8 @@
       "issue_id": "P02-Q-001",
       "requirement": "有效训练工具输入必须具备完成任务所需的完整载荷",
       "summary": "修订代表材料含有字面省略标记的截断PDF编码，需按完整来源隔离",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
       "events": [
         {
           "attempt": 1,
@@ -41,19 +41,43 @@
           "s0_binding_sha256": "154c21e79048eca06f228b0edf0e880a34377d0e63e0cc5e53b4a925fbbff00b",
           "source_instances": 1,
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "71df628a4b22f734bb94e9f48fd7b06c5a749760714a5ac81918b3840b2312cc",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 2,
+          "affected_valid_decisions": 3,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "在下一冻结版本整来源隔离并重绑有效数据、选择与配置",
-      "stable_requirement_key": "complete_pdf_payload"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "stable_requirement_key": "complete_pdf_payload",
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-002",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "首步遗漏显式距离度量，修订后的旧观察与后继条件未验证",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -75,17 +99,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "524c74c4a3243e5a32036c14e08aac2b8aa97972df9f74b47f07b537b8a01be1",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-003",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "翻译目标遗漏显式颜色词；直接修订仍超既定上下文",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -107,17 +154,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "857d4aae4c39fb8ed2a4c227ddb8e4c99bcb4abb335b6a7b56d291125d9f55c4",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-004",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "多个调用缺少端点约定或标识映射依据",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -139,17 +209,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "3c6e300c06cbcd6733040b1eb28d3f5fe8197e03e8dcf4f575933f40258ea21a",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-005",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "姓名与接口标识之间的接受规则未说明",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -171,17 +264,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "0688b49efea436bc33fbe875b286a1d76c119ee0f8b4f2b90816a8e317b51189",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-006",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "相对日期缺少可确定年份的来源锚点",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -215,18 +331,41 @@
           "s0_binding_sha256": "154c21e79048eca06f228b0edf0e880a34377d0e63e0cc5e53b4a925fbbff00b",
           "source_instances": 5,
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "914a9d17415712f65414126762ef77c5e43778606e687083161aaea7dde336ac",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 6,
+          "affected_valid_decisions": 6,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "stable_requirement_key": "source_time_anchor"
+      "stable_requirement_key": "source_time_anchor",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-007",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "多个必要前提缺少与来源绑定的证据",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -248,17 +387,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "fca2b5a4384627dca3c6588513828fd604a22b822040125f6f41c8b7205a90d7",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-008",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "目标对象与隐式上下文之间的绑定未知",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -280,17 +442,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "c06bdb186f1e9dd1b23896c68d62aed167d2336e96c145e8ceb3d1b79a3c6225",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-009",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "对象标识缺少来源映射，尚无证据证明映射矛盾",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -312,17 +497,40 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "7efec820bedd8d5e1b98a094f8b7fdc42eefae3711af5cde309934a85771e34d",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-010",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "用户名与标识的接口接受约定未确定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -356,18 +564,41 @@
           "s0_binding_sha256": "154c21e79048eca06f228b0edf0e880a34377d0e63e0cc5e53b4a925fbbff00b",
           "source_instances": 1,
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "648d71942f59e91e2559ea228e5be35dc5dcc46ead9237cea5f4edf99c306020",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 2,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "stable_requirement_key": "activity_user_identifier"
+      "stable_requirement_key": "activity_user_identifier",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-011",
       "requirement": "下一步Action必须得到完整来源、工具声明及必要历史的支持",
       "summary": "参数解释需要尚未提供的来源约定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "retain_quarantine",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -389,8 +620,31 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "45acc10dd6f2dfdcc349e5c540a6ab5f60639a812915283b6ab4a87f646bf7f6",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-012",
@@ -398,8 +652,8 @@
       "summary": "普通页码解释在当前来源中支持下一步调用",
       "status": "CLOSED_ADJUDICATED_PASS",
       "consecutive_failed_revisions": 0,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "restore_original_bytes_next_revision",
+      "data_action_status": "VERIFIED_RESTORED_ORIGINAL_BYTES",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -421,8 +675,31 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_ORIGINAL_BYTES_RESTORATION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "c917a3c93b9ef2ad7517099a7f413fc78cbe57a78783f98dd488c7fcbdcb0fe6",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 0,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-013",
@@ -430,8 +707,8 @@
       "summary": "候选检索作为分步信息获取得到来源支持",
       "status": "CLOSED_ADJUDICATED_PASS",
       "consecutive_failed_revisions": 0,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "restore_original_bytes_next_revision",
+      "data_action_status": "VERIFIED_RESTORED_ORIGINAL_BYTES",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -453,8 +730,31 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_ORIGINAL_BYTES_RESTORATION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "e42ba24fef84e2dcbcbfef14fc6c38b665ff0327c8c6079f5fbc678169242bd4",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 0,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-014",
@@ -462,8 +762,8 @@
       "summary": "自动建议作为搜索规划步骤得到来源支持",
       "status": "CLOSED_ADJUDICATED_PASS",
       "consecutive_failed_revisions": 0,
-      "data_action_status": "PENDING_NEW_VERSION",
-      "next_action": "restore_original_bytes_next_revision",
+      "data_action_status": "VERIFIED_RESTORED_ORIGINAL_BYTES",
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
       "events": [
         {
           "attempt": 1,
@@ -485,8 +785,31 @@
           "evidence_seal_sha256": "825c99c9af55b73885e1b297db34a7cfb175cda1da89a0f1fffcc7cd08a15b25",
           "s0_binding_sha256": "1141eaa1b96ab96a96b34aba65f2228f061e1184134e411ac31af57c3d296047",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_ORIGINAL_BYTES_RESTORATION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "468b3123080dcd42a0eefb651ef160b19cc01f4d658b1ccea6a1527fd448aeec",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 0,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
-      ]
+      ],
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-015",
@@ -497,9 +820,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -514,9 +837,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "3280a72218f1a307c0adb43deb56b1e5a83eaf8ca83e56c172ff74a84b5e68ad",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 2,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-016",
@@ -527,9 +873,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -544,9 +890,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "4f0551d04ca8f1d91a676ac17b5f8d1c1c7b33ad033e0634a7085079e309c806",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 2,
+          "affected_valid_decisions": 3,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-017",
@@ -557,9 +926,9 @@
         "P02-Q-008"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -574,9 +943,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "dfea5a54f6817d550b00bdf539eb3719fc9abadc76d3c5bd10a17d0d0b41f135",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-018",
@@ -587,9 +979,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -604,9 +996,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "0e78c6345b30bd23ed5180bfde6cea9b076e282c382114104264496832db2cec",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-019",
@@ -617,9 +1032,9 @@
         "P02-Q-013"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -634,9 +1049,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "5cd473e322c7986f3c37eeaad4438f83c8f321a9bdb410b45f3780929c1694fa",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-020",
@@ -647,9 +1085,9 @@
         "P02-Q-006"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -664,9 +1102,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "cb06c4f5bba209de150f03b9bc8b337398b570422bbc0da886dde894150c6eb2",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-021",
@@ -677,9 +1138,9 @@
         "P02-Q-005"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -694,9 +1155,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "cd72e58a413be209430dbb0b14d8778efd9a4bdd58f4dc618aea9b666ca9ae06",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-022",
@@ -707,9 +1191,9 @@
         "P02-Q-012"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -724,9 +1208,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "d92a83c4752064c3d27a77debb209ddc21bcef677fbc2d508b7aa7484ee0da48",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-023",
@@ -738,9 +1245,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -755,9 +1262,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "8e34890b19250c3bdd66fab7df6425097a58442e10edade0e791b78ba6b02d1e",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 3,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-024",
@@ -768,9 +1298,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -785,9 +1315,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "798e582fe4506c07dcb25db850ff0afd018f13d2b5fffa843baaf40652081d48",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-025",
@@ -798,9 +1351,9 @@
         "P02-Q-006"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -815,9 +1368,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "e6532da46c768036c3a72d76e3199ec776f59ffcd9923dabc3b4a3ef8bf71c06",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-026",
@@ -828,9 +1404,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -845,9 +1421,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "986396ec3dafea7db68f6cb31f7ddabe758badc8c24139cab0c3d40113abbaae",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-027",
@@ -858,9 +1457,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -875,9 +1474,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "1e7d2ef94eaf8fdafca84c5195b234450b4cd02d48695014dc30680fa7bf9d92",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-028",
@@ -888,9 +1510,9 @@
         "P02-Q-006"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -905,9 +1527,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "39cceb852e57d63b6310833735c02178a316f2d9c774ae1da731b573613f1d3d",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-029",
@@ -918,9 +1563,9 @@
         "P02-Q-010"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -935,9 +1580,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "d11063f7051ae916762c73de8bde9a16b0de97f36fd1b7fa4f02a1de688bfb07",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-030",
@@ -948,9 +1616,9 @@
         "P02-Q-001"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -965,9 +1633,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "cb5f5ae290e53b3d4b2ab7fa8d8b62e7b91c1d50cbf6925983c5d6b14d24a12c",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-031",
@@ -978,9 +1669,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -995,9 +1686,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "acfc9e08ae9c35714fbf2ee58b6db0caf416236ae2dafbd27729eb2104f5406b",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-032",
@@ -1008,9 +1722,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1025,9 +1739,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "4ead207faa4cce015cc072601d5790c50ae47b9cee771603d90e4c11db4f62db",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-033",
@@ -1038,9 +1775,9 @@
         "P02-Q-008"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1055,9 +1792,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "8f7b5c210f5f8a1ff92bce35a6da78594e008980b14ac6a42b79d3d63df84cec",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-034",
@@ -1068,9 +1828,9 @@
         "P02-Q-001"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1085,9 +1845,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "e383b68d281572796458634e8db36add94a10622ceb5219ab1918c167dfe368e",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-035",
@@ -1098,9 +1881,9 @@
         "P02-Q-006"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1115,9 +1898,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "399d736b0928d2bcbe35629ae58521b856571df3a3d5990049c762eca5fe14d7",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-036",
@@ -1128,9 +1934,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1145,9 +1951,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "635a17a0f35591e10cace7a0151d1a5ef05c8e555832cd7d120ccd5bce088275",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-037",
@@ -1156,9 +1985,9 @@
       "summary": "E1单独历史advisory，Q1首次正式内容FAIL；两个有效Action均保持PASS。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1173,9 +2002,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "6890e0d7120ef8fe9567066e55b8b5c7b0f412d0d7a0ba7fe6edc164daa5ee48",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-038",
@@ -1184,9 +2036,9 @@
       "summary": "维修费用与受损物品价值是不同金额含义。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1201,9 +2053,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "f3216202d444ca9933af4c52220f9912014167d351cd2a9546f024fabc43d8d3",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-039",
@@ -1214,9 +2089,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1231,9 +2106,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "071577e3afaf867e0a768ad1c830624c42a66c74088bcff000aa0d34f39fb8a0",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-040",
@@ -1245,9 +2143,9 @@
         "P02-Q-002"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1262,9 +2160,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "912344b19f717a3bc76234975e26e444593047126a6c5779a4cdc6e7c05588e3",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-041",
@@ -1275,9 +2196,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1292,9 +2213,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "3af13150852671e2d174430c768a86f89a7b9a1667b318e14e51452e89a77fe5",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-042",
@@ -1305,9 +2249,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1322,9 +2266,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "7d6deff7f72a50c4a7167bb66cc7da806a0aec5d2a26e227b278598fca8b5453",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-043",
@@ -1337,9 +2304,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1354,9 +2321,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "4dc4c85605e415ec62d9c65b913d7262aa67966759de7e337ba4dfff13191a10",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-044",
@@ -1367,9 +2357,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1384,9 +2374,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "cc4ea92d9c42ca7f676073b9ff0b1eb88bbc4506bc003d05bcb19f3b73dca899",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-045",
@@ -1395,9 +2408,9 @@
       "summary": "货币兑换清单与股票预测支持集的明示能力范围不同。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1412,9 +2425,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "c203b1715aa0014250735ef0ab015d510d63773a33b1ef449ad5bdeccdd5209d",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-046",
@@ -1425,9 +2461,9 @@
         "P02-Q-005"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1442,9 +2478,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "e97d9131f61373961ae4780278c24641c3c2527b4d05728b966bf2c156ace554",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-047",
@@ -1455,9 +2514,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1472,9 +2531,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "81bcc75a77c8d1fc356ae1dce47e6ba01c65898f7b1b2c54cdb8d9f962ee25af",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-048",
@@ -1485,9 +2567,9 @@
         "P02-Q-008"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1502,9 +2584,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "7035f8a4bd72a8d9922e800235f39561610e5503069ef68cb05578b2815658f7",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-049",
@@ -1515,9 +2620,9 @@
         "P02-Q-006"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1532,9 +2637,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "0ea987d88dcb58dfb6f2caa1db08242dda5ef2debcbc9cee9f004326d66b1cc0",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-050",
@@ -1545,9 +2673,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1562,9 +2690,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "39d853c0b3cdfa6edfb7410b6dc5537165cb8a2be0d2baf469c934d0b4414ee5",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-051",
@@ -1573,9 +2724,9 @@
       "summary": "排名查询不是未来赛程查询。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1590,9 +2741,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "42872fbf1f9fd611e34a12d386e226cec16eccd23f7f87a6be6aa3ac34ee490b",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-052",
@@ -1604,9 +2778,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1621,9 +2795,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "ae6ce8a3f506479cc8d8fe4d821df6b209178d1ec7cdf3ca75b416f9197922e1",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-053",
@@ -1634,9 +2831,9 @@
         "P02-Q-005"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1651,9 +2848,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "91ce8cf803ee77a901f4b523cfa757aacceb6bada8226bb63b2e2baea45250cf",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-054",
@@ -1662,9 +2882,9 @@
       "summary": "工具总述与kem字段的输入方向冲突。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1679,9 +2899,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "67498c50801840db7df1f8aa3c87bf530a810a9dff5c6f6b41fa9d73be6ca7ef",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-055",
@@ -1692,9 +2935,9 @@
         "P02-Q-009"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1709,9 +2952,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "6a05c845dd610d2d31f272d166bfd4532f2c110bc26428bc54a93a60747adf2c",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-056",
@@ -1722,9 +2988,9 @@
         "P02-Q-008"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1739,9 +3005,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "26db173602e90b29c88b50853490df6de4fdf147ee059e12a09d621c5e068cf1",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-057",
@@ -1753,9 +3042,9 @@
         "P02-Q-011"
       ],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1770,9 +3059,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "d1539f00fc542ac2a43685dc4e2ad91d62900f49f158e2debc8469fee7dac77d",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-058",
@@ -1781,9 +3093,9 @@
       "summary": "严格since下界漏掉明确请求的起始ID，区别于可过滤的上界多取。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1798,9 +3110,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "dee884836071c91b574f19a9d2234a327c15d37541688b0d93a6780c6ea9784a",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-059",
@@ -1809,9 +3144,9 @@
       "summary": "当前声明不支持历史承诺的持续交易状态观察。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1826,9 +3161,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "5269defd1d6c9de5549104fb3ad3d926ab17384113a9fde6b2b212545f598a4a",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-060",
@@ -1837,9 +3195,9 @@
       "summary": "Q1补充的历史解释条件缺口，未给现实财经结论。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1854,9 +3212,32 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "d41e9bbd45ea3dd5d055929d2a51aff8870919c57aad2e91966748580ded5b77",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-061",
@@ -1865,9 +3246,9 @@
       "summary": "E1已指出的历史置信度范围缺声明，Q1单列供整来源处理。",
       "related_existing_issue_ids": [],
       "deduplication_basis": "按具体工具/字段、所需证据与历史问题排重；相关主题不自动认作同一问题，旧ID和计数保持。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "event_kind": "FIRST_REGISTERED_FORMAL_NOT_PASS",
@@ -1882,18 +3263,41 @@
           "new_failed_revision_increment": 0,
           "attempt": 1,
           "initial_registration_count": 1
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "7e477894fbe79255c16b3e72bee248927af5be30cb6c3a25c354efeced30bf5f",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "按已冻结整来源处置从有效数据、选择和配置中隔离，待独立核验后关闭"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-062",
       "stable_requirement_key": "completed_retrieval_followed_by_unrequested_repeat",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "原查询已完成后的闲聊不支持重复实时查询",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -1918,18 +3322,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "374b34a4b16b688251a989fd08f2bef55b008afbccf6f68a35d292dc70095d48",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 3,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-063",
       "stable_requirement_key": "fallback_condition_after_reset_not_established",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "重置成功不证明用户指定的连接问题仍未改善",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -1954,18 +3381,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "60022db162751c77ff4f317bd3c7db7cd1048ad398fd6d94c2e3eb74d53524c0",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 3,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-064",
       "stable_requirement_key": "price_sort_direction_contract",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "价格排序字段的方向编码缺少该接口约定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -1990,18 +3440,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "9293f54ab0973ba42736e415551999b7b5a3ab47c6954f2636adee981a159032",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-065",
       "stable_requirement_key": "company_specific_endpoint_scope",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "结果与指定公司的端点范围绑定缺失",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2026,18 +3499,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "4d5961edb8b764a87b9dc4a5827fcf8794f2b625467e5ba65647408b4655bd1c",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-066",
       "stable_requirement_key": "interval_count_operation_and_country_binding",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "日期计数使用未给定的结果作输入，另有地理代码绑定缺口",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2062,18 +3558,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "b84f6646f06c6e631432714b6610f1795db2d71eb87159b11e174d5d524e4ca7",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-067",
       "stable_requirement_key": "anchored_last_july_resolution",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "来源时间锚已给出，但相对月份被解为错误年份",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2098,18 +3617,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "65a828fdaa7de927ad623adc4b842e101485453caf816c5018ee8f8752047fdc",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-068",
       "stable_requirement_key": "application_identifier_role_binding",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "业务申请与调用软件的标识角色尚未明确",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2134,18 +3676,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "61103086d0b8e8d152707df83850fd472ca1bf21e465dbff43faec9e01e0d5e8",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-069",
       "stable_requirement_key": "album_object_in_required_song_field",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "专辑对象被放入要求歌曲对象的参数",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2170,18 +3735,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "944c991cb0cae5c0b32f607b0d4e61465b136cac5f72e020c36b587d8673423d",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-070",
       "stable_requirement_key": "interest_rate_numeric_unit_contract",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "利率的小数与百分数输入约定未知",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2206,18 +3794,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "97eb4e0ac64d10978e78b5b204e10aea8c06cac19e361a55dabb45c72467ae27",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-071",
       "stable_requirement_key": "ambiguous_airflow_user_unit",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "用户给出的含混单位不足以支持精确换算",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2242,18 +3853,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "e8f2290e8662efe1d041b1485c23c58c206c2638848765fa9d1a896b04158d0b",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-072",
       "stable_requirement_key": "review_text_payload_replaced_by_description",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "所需评论文本被集合描述替代，实际载荷未提供",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2278,18 +3912,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "6c87a5212e0cd168cee0bd893288f5465911d63245f12476303929f813080746",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-073",
       "stable_requirement_key": "explicit_forecast_adjustment_omitted",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "用户明示的预测调整不能因参数可选而省略",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2314,18 +3971,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "80f35b2606b32c8b21cbc476201ea25c49f8740d9645c2f89891e82fc1e72112",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-074",
       "stable_requirement_key": "stock_ohlc_vs_crypto_domain",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "股票范围的行情工具没有来源证据支持加密资产输入",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2350,18 +4030,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "dee7bebaacd567d240e4eb0039eb22826da15b08ad87ae23ce602fbc8e5f4de0",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-075",
       "stable_requirement_key": "image_collection_payload_replaced_by_category",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "所需图像集合被类别描述代替",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2386,18 +4089,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "de809205d5a967b13fa597a9811a6e53e46d650ad7db96770677c1d56b614327",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-076",
       "stable_requirement_key": "ambiguous_dollar_currency",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "前缀未消除美元及其他同名货币歧义",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2422,18 +4148,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "9537c1bd3b955f74129e5489231d8662435fe439ecb56bc798f8f2982b3562c4",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-077",
       "stable_requirement_key": "tomorrow_delivery_schedule_binding",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "配送目标未与用户指定日期建立可核验绑定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2458,18 +4207,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "d72cefb13b9c095c1e18cee7d3f706d67633777072ef75762072567cc395e108",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-078",
       "stable_requirement_key": "hex_color_encoding_and_scene_binding",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "颜色输入不符显式十六进制要求，另有场景标识映射缺口",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2494,18 +4266,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "354f2d8269849b28c972d5a2472d70cd697d0071423bd046243ea7ceca1c5a73",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-079",
       "stable_requirement_key": "area_input_numeric_unit_contract",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "输出体积单位不能确定面积输入的单位约定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2530,18 +4325,41 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "ef506b3107a7464d439ee2b83e5cacb176486fb1a4693c051cf56ae30c3226cd",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-Q-080",
       "stable_requirement_key": "company_stock_slug_mapping",
       "requirement": "有效训练来源的Action及必要历史必须得到完整来源和工具声明支持",
       "summary": "可读股票slug与来源指定实体的映射未确定",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
-      "data_action_status": "PENDING_NEW_VERSION",
+      "status": "CLOSED_TRAINING_USE_DISPOSITION_PASS",
+      "consecutive_failed_revisions": 0,
+      "data_action_status": "VERIFIED_EXCLUDED_ENTIRE_SOURCE",
       "events": [
         {
           "attempt": 1,
@@ -2566,9 +4384,32 @@
           "evidence_seal_sha256": "adcf1a3ffd22a3803afc4cce7914f3bb37ee515a2eee282733521b05ff349889",
           "s0_binding_sha256": "eb50aab537f8aba07a1930159656965e2555858fea33b00861c199dd7786a32a",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "SUBSTANTIVE_NEW_VERSION_WHOLE_SOURCE_EXCLUSION_VERIFIED",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "PASS",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "4165e9c59f199d95cbb2f0e66aac56a1ef0f7c5bf1a5271f9ca3473f98bcf300",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "adoption_matrix_sha256": "497eaa00982061d6c81692e191f65af3d7356e3440de33db419ee6d10fceda2a",
+          "source_instances": 1,
+          "affected_valid_decisions": 1,
+          "prior_consecutive_failed_revisions": 1,
+          "consecutive_failed_revisions_after": 0,
+          "new_failed_revision_increment": 0,
+          "original_semantic_verdicts_unchanged": true,
+          "historical_failures_preserved": true
         }
       ],
-      "next_action": "保留整来源隔离并重绑下一冻结版本；独立确认实际排除后可关闭，原语义结论和失败保留"
+      "next_action": "已由Q1核验实际整来源处置，保持原语义与历史失败；后续版本保全该处置",
+      "data_main_verification": {
+        "merge_commit": "d3e56f68ebd67cc576d912b6f06636682b4170ab",
+        "proof_sha256": "29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e",
+        "report": "reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md"
+      }
     },
     {
       "issue_id": "P02-AUDIT-TYPE-001",
@@ -2615,23 +4456,75 @@
         "proof_sha256": "b0f572ff612b1a49aa7ae83595146b241e5b25fb78e74ed85d34219f06325cc1",
         "report": "reports/S0_P02_AUDIT_MAIN_VERIFICATION.md"
       }
+    },
+    {
+      "issue_id": "P02-Q-081",
+      "stable_requirement_key": "domain_history_literal_character_count",
+      "requirement": "有效训练来源的历史叙述不得与同一来源可直接核验的明确字面输入矛盾；当前Action与前缀适用性分开判断",
+      "summary": "域名字面串18字符被历史assistant写为17字符，进入同来源后继有效目标前缀；另保留未核实SEO建议范围。",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FIRST_FORMAL_DISCOVERY_IN_FIXED_NEW_MATERIAL_SOURCE",
+          "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+          "review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(Q1)",
+          "event_record_sha256": "ce61cd24acd69697676adfa83ad08007fd1db4563db38b457f697d1de24d8425",
+          "finding_record_sha256": "1a2f857dce7c35ef98e9b7975f892beca4abbda4e0b7018c9f606232cbb878e3",
+          "source_judgment_sha256": "70aee541280ab0996cccc4c9df67b40d2dc5a0b7456223adb7ee37d120aa9dd7",
+          "evidence_seal_sha256": "d55464470f9962410f4e2a928eca2c3b7b3facbb14202ec9ceee3bd72f8a2dd9",
+          "s0_binding_sha256": "51a5b5a29765cb17752637ede232236bafb064ac90b33dc493487d14638c1c33",
+          "source_instances": 1,
+          "affected_valid_decisions": 2,
+          "current_action_verdict": "PASS_FOR_BOTH_LOCAL_TARGETS",
+          "new_failed_revision_increment": 1,
+          "same_source_unknown_subfinding_counted_separately": false
+        }
+      ],
+      "next_action": "下一冻结版本整来源排除两条决策，保留其原字节与局部Action PASS，重绑有效数据/选择/材料后独立复核",
+      "related_existing_issue_ids": [
+        "P02-Q-037",
+        "P02-Q-060"
+      ],
+      "deduplication_basis": "当前82问题中的唯一新项；该来源不在原83来源处置范围，明确字面字符数证据与既有历史主题不同，未复用旧缺陷或重置已有计数",
+      "data_action_status": "PENDING_NEW_VERSION_WHOLE_SOURCE_EXCLUSION"
     }
   ],
-  "prior_findings": "Q1首轮14问题、r2固定50来源的47新问题/3复用、原32来源余下19问题及原审计类型P2均已按冻结证据接入；原数据无实质修订，既有语义计数不递增。三项已裁定PASS的原字节恢复仍待新版本，其他数据问题等待实际整来源隔离核验。",
-  "updated_at_utc": "2026-09-07T11:11:01.458393+00:00",
+  "prior_findings": "Q1已核验新版83来源实际处置：77个排除问题关闭训练使用门槛、3个恢复问题保持关闭；原技术类型问题继续关闭。新材料另发现一处来源历史字面字符数矛盾，P02-Q-081首次正式失败计1，等待整来源排除；旧FAIL/UNKNOWN语义与所有失败事件保持。",
+  "updated_at_utc": "2026-09-07T13:34:32.100472+00:00",
   "last_adoption": {
-    "q1_review_commit": "42d9d56804d3b7aadd0eff7efc99249ec5dbe11b",
-    "q1_existing_issues_reused": 3,
-    "q1_new_requirement_groups_registered": 47,
-    "previously_unregistered_original_source_issues": 19,
-    "existing_semantic_failure_count_increment": 0,
-    "new_technical_formal_failure_events": 1,
-    "highest_consecutive_failed_revisions": 1
+    "q1_review_commit": "8a738abc1f9485e072b87283cdd9003329d3524a",
+    "candidate": "1c47e6af6af3e3419db97bdbb1296e6f56e04c2b",
+    "actual_sources_verified": 83,
+    "actual_decisions_verified": 101,
+    "existing_issue_pass_events": 80,
+    "existing_exclusion_counters_reset_1_to_0": 77,
+    "existing_restorations_verified": 3,
+    "new_deduplicated_issue": "P02-Q-081",
+    "new_formal_failure_events": 1,
+    "highest_consecutive_failed_revisions": 1,
+    "closed_issue_count": 81,
+    "open_issue_count": 1,
+    "old_failures_and_semantic_verdicts_preserved": true
   },
   "last_technical_closure": {
     "issue_id": "P02-AUDIT-TYPE-001",
     "review_commit": "0cefe771c8d867d9e253b6603105ad31dc3a7787",
     "prior_failure_history_preserved": true,
     "frozen_d1_adjudication_inputs_unchanged": true
-  }
+  },
+  "adoption_history": [
+    {
+      "q1_review_commit": "42d9d56804d3b7aadd0eff7efc99249ec5dbe11b",
+      "q1_existing_issues_reused": 3,
+      "q1_new_requirement_groups_registered": 47,
+      "previously_unregistered_original_source_issues": 19,
+      "existing_semantic_failure_count_increment": 0,
+      "new_technical_formal_failure_events": 1,
+      "highest_consecutive_failed_revisions": 1
+    }
+  ]
 }
