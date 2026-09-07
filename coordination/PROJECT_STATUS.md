@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。[主干证据](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。P00、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与CPU准备既有验收保持。实际页面、kris语义/token-mask审查、真实模型容量及正式P04未完成，training_authorized=false；完整P00–P09目标保持。
+更新时间：2026-09-07。已接收kris委托AI完成的两套P02审阅副本，S0核对21份封存输出/63份输入和全部身份、计数、选择影响；[交接证据](../reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)。报告标记20个fail来源及12个unknown来源，质量CHANGES_REQUESTED；D1数据修订/E1扩展审计CLAIMED待原生分发。原P00/P01/P03及CPU支持、PR11原生toy的VERIFIED证据保持。浏览器实显仍NOT_RUN，正式模型容量和P04未放行，training_authorized=false；完整P00–P09目标保持。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,14 +12,14 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；PR11已合并b2247d8并完成最终CI/main验证，固定原创数值部分VERIFIED；原R1 PASS67976fd保持 |
+| 当前任务/分支 | S0 main；接收委托AI质量发现，准备D1质量修订与E1扩展审计；code_base86b80ba，原PR11验收保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | T1完整f7326d1与R1 PASS67976fd均已交付/原生空闲，D1/E1无新实现；模型/推理gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1/E1旧轮原生completed/空闲已核验；新CPU任务待分发，T1/R1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
 | GitHub 写入能力 | 本机 Git push dry-run 成功；connector 确认 admin/push 权限 |
-| 当前实现 | 已验收CPU基础包/契约/GPU锁、P01受限兼容校准、P03本地工具/oracle/scripted接口；P02数据流程技术验证通过，整包待审 |
+| 当前实现 | 既有CPU/原生toy技术验收保持；P02原数据流程技术验证通过，语义发现已接收并等待新版本整改 |
 | 已验收训练/数据/评测/服务 | CPU准备与原创64参数native toy技术范围VERIFIED；真实数据语义、正式模型训练/评测及服务没有整包验收 |
 | 已运行模型实验 | 0.6B smoke 与 1.7B 长度校准的原始证据已独立核验并由S0限定验收；不作为正式P04/P05结果 |
 | 重 GPU 作业 | T1三次及R1两次固定toy原运行均已结束并独立核验；原R1额度2/2，S0集成/main框架新增0，共享锁实际空闲 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-P00及既有VERIFIED技术包保持。原生toy已完成独立PASS、普通合并及最终CI/main验证，新增GPU scope的8+5更新、44-token evaluate和实际checkpoint绑定通过；原CPU上游KeyError记录保持。P02整包/G-DATA仍待kris语义审查，13例实际页面和token/mask人工判断、真实0.6B容量、正式1.7B baseline/SFT尚未完成。100/13人工表仍全空，正式P04未授权；最多两个实现和单一GPU租约约束保持。
+P00及既有VERIFIED技术包保持。按ADR-0022，本批两套P02材料已经由kris委托AI填写并交付，原空白表留作冻结输入，不再据此认定未收到审阅；无需kris抄填。G-DATA仍因质量问题、新版本/选择/配置绑定、扩展审计及独立复核未完成而待验收。实际浏览器显示0页/NOT_RUN单列，不阻塞本轮CPU内容整改，也不冒称已看。真实0.6B容量和正式1.7B baseline/SFT未运行，training_authorized=false；最多两个实现和单一GPU租约保持。
 
 ## 恢复入口
 

@@ -16,6 +16,8 @@ SFT 默认 completion-only loss：监督 assistant 工具调用和指定最终�
 
 预测位置采用 next-token shift；padding/被 mask token 不计入分母；EOS 处理一致。手工检查至少 10 条含工具 schema、多轮 observation、无工具判断的样本。
 
+2026-09-07本批P02的10条真实train及3条协议材料，kris已明确委托AI审阅，按ADR-0022记录审阅者和局限，不要求本人重复填写。已有问题需在修订版重新绑定、独立复核；真实trainer/collator与材料的对应仍须实证，不能用静态材料替代训练行为。浏览器实显NOT_RUN不记为通过，且不阻塞本轮CPU内容整改。
+
 ## 3. 起始配置是待校准参数，不是性能保证
 
 | 项目 | 初始实验值 | 调整边界 |

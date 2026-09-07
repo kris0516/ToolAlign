@@ -1,0 +1,100 @@
+{
+  "config_version": "toolalign.quality-audit-policy.v1",
+  "status": "CPU_DELEGATED_AI_REVIEW",
+  "training_authorized": false,
+  "verified_code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "input_bindings": {
+    "data_manifest_file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+    "data_manifest_canonical_sha256": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+    "train_sha256": "9c0215f0b91d1774042273f4377a3aac942fa26249d76820597eed9044e870e0",
+    "validation_sha256": "c336bfc58d521aee499c2522bca75fa6c6e4ea356cf34856832ae768a34e9c8b",
+    "assignments_sha256": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db",
+    "lineage_sha256": "3f6a8db88a77b6df02c58c538471bbfb157a3fd9655c6a79160c0ae345a38f5c",
+    "raw_source_sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+    "semantic_review_sha256": "db25e89712bacca9d23dd048ec260c9756d8aa344e89945948f556aa2a9ece3a",
+    "token_review_sha256": "9fcb218ce3748e25a7c844426c46e4889ad5750aa55d89edc4d9914a07a5b598",
+    "remediation_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8",
+    "provenance_sha256": "d1e98d0b5ff6fba25b9fe5540bc7af9b6aad8ed4ee4ce693b430d5d09cdf804f",
+    "old_semantic_samples_sha256": "d8a608ba59fa375762aca65412f76fbef29046897b9e546c359bdccc3de62033",
+    "old_token_original_sources_sha256": "b9308e39a82201cdf97df383a735d3558a7f0f4abe5b9ddd9df05c6842492b47"
+  },
+  "allowed_source_splits": [
+    "train",
+    "validation"
+  ],
+  "review_unit": "all_valid_decisions_of_source",
+  "exclude_all_previous_semantic_and_actual_token_sources": true,
+  "sampling": {
+    "rank_domain": "toolalign.quality-review.v1",
+    "seed": 42,
+    "tie_break": "source_record_hash_ascending",
+    "random_by_split": {
+      "train": 96,
+      "validation": 24
+    },
+    "targeted_max_per_pattern": 10,
+    "targeted_after_random": true,
+    "targeted_split_pool": "train_and_validation",
+    "global_deduplication": true,
+    "underfilled_pool": "report_actual_do_not_refill",
+    "new_source_limit": 180,
+    "freeze_before_verdicts": true
+  },
+  "patterns": [
+    {
+      "name": "conditional_history",
+      "user_text_regex": "\\b(if|unless|only after|provided that)\\b",
+      "regex_flags": "IGNORECASE",
+      "or_valid_decision_count_greater_than": 1
+    },
+    {
+      "name": "identifier_scope",
+      "invoked_parameter_name_suffix_regex": "(id|slug|symbol|code)$",
+      "regex_flags": "IGNORECASE",
+      "name_normalization": "strip_non_ascii_alphanumeric"
+    },
+    {
+      "name": "unit_or_encoding",
+      "invoked_parameter_name_or_description_regex": "\\b(rate|percent|percentage|unit|units|currency|sort|direction|page)\\b",
+      "regex_flags": "IGNORECASE"
+    },
+    {
+      "name": "relative_time",
+      "user_text_regex": "\\b(today|tomorrow|yesterday|recent|current|next|last|this)\\b",
+      "regex_flags": "IGNORECASE"
+    },
+    {
+      "name": "parallel_object",
+      "maximum_expected_tool_calls_at_least": 3
+    },
+    {
+      "name": "optional_arguments",
+      "any_invoked_declared_optional_parameter_omitted": true
+    }
+  ],
+  "prior_issue_review": {
+    "source_count": 32,
+    "separate_from_new_sample_denominator": true,
+    "preserve_original_judgments": true,
+    "report_agreement_and_grade_changes": true
+  },
+  "verdicts": {
+    "values": [
+      "pass",
+      "fail",
+      "unknown"
+    ],
+    "missing_convention_is_not_automatic_contradiction": true,
+    "reviewer": "Codex-AI(E1)",
+    "human_claim": false,
+    "keyword_trigger_is_not_verdict": true
+  },
+  "limits": {
+    "new_artifact_bytes": 1073741824,
+    "new_environments": 0,
+    "new_downloads": 0,
+    "model_or_gpu_runs": 0
+  },
+  "browser_actual_observation": "NOT_RUN"
+}

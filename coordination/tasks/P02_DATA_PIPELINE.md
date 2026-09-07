@@ -1,5 +1,7 @@
 # P02｜数据规范化、许可与分组隔离
 
+最新状态（2026-09-07，ADR-0022）：原代码MERGED/技术验收保持，质量CHANGES_REQUESTED。kris已将本批两套材料明确委托AI，S0已接收100/13两份Codex-AI副本及32个问题来源；不要求本人重复填写，不称本人或R1已看。后续按[P02质量修订](P02_QUALITY_REMEDIATION.md)及[扩展审计](P02_QUALITY_AUDIT.md)处理，G-DATA未通过。以下原派发/验收时间线保持历史含义。
+
 状态：MERGED；完整候选`b0d8d83750c48cd951c16b50cfa28a7898976e72`获R1技术PASS（审查`8e4fdbd7374130c77262a57e55049f9cef4bf651`），PR5合并为`2ec17673c18ffbc817b1ff8512e53e44a11766a5`，最终CI及main技术验证通过，见[集成证据](../../reports/S0_P02_MAIN_VERIFICATION.md)。kris真实语义审查请求已发，整包/G-DATA仍待本人语义审查，不能标VERIFIED。训练选择/配置绑定已随PR9合并42eaa50并通过独立R1/最终CI/main CPU技术验证，见[绑定证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)；实际页面及token/mask人工项仍待完成。原候选`46f546504f73588caa2e71aac316c3c312306df6`保留。S0于2026-09-06首次授权本任务并核对原生独立对话、code_base与工作分支。P00已在`cd091e3a53986b59b170baf5b746644f369135d1`合并并验证；本包原code_base为随后仅更新协调/证据文档的`ebcaf586f8e65f5306259f6b134e1c5cce30cf48`。
 
 本文件所在的 S0 派发提交是 authorization_commit，由原生派发消息给出完整 SHA。Worker 在切换 code_base 前用 `git show <authorization_commit>:<本任务路径>` 读取并保存私有副本；公共任务文件只由 S0 更新。
@@ -45,7 +47,7 @@
 
 ## 人工检查与交接
 
-G-DATA 必须有 kris 的真实质量抽查。先准备可查看的分层样本包、来源索引、review 表和问题分类，再向 S0 报告等待人工；模型抽查不能记为 kris 通过。冻结的偏好抽检规则用于未来 P05，不把其误标结论虚构为已完成。人工审查未完成时可交 pipeline 的代码/自动证据给独立 R1，但 P02 与 G-DATA 不能宣称 VERIFIED。
+原默认方式为kris真实质量抽查；本批现依用户明确委托改为Codex-AI审阅（ADR-0022），直接使用已填副本并准确标身份，模型审查不能记为kris本人通过。新发现须修订并独立复核，不能仅因填完表就把P02/G-DATA标VERIFIED。冻结的偏好抽检规则用于未来P05，未被本批委托更改。原始材料和空白表保留，浏览器实显NOT_RUN独立登记。
 
 交接：`coordination/handoffs/P02-r1.md`。附 command/exit/log hash、来源与转换许可、实际 group/split 计数、错误/排除清单、人工包位置和未完成项；不得提交原始数据/私有路径。长度或 schema 兼容问题提交 S0，继续可独立的审计，不能自行降低数据门。
 

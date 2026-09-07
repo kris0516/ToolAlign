@@ -1,5 +1,7 @@
 # P02-TRAINING-BINDING｜固定训练选择与人工序列材料
 
+最新补记（2026-09-07，ADR-0022）：本包原CPU技术VERIFIED保持；本批两套材料已由kris委托AI审阅并由S0接收，原空白表留作冻结输入，无需本人重复填写。发现的质量问题进入[P02质量修订](P02_QUALITY_REMEDIATION.md)与[扩展审计](P02_QUALITY_AUDIT.md)，修订版选择/配置及独立复核待完成。浏览器实显NOT_RUN独立保留，不阻塞本轮CPU内容整改；正式训练继续未授权。以下原轮次记录保持历史范围。
+
 状态：VERIFIED（CPU技术范围）；训练绑定已随[PR9](https://github.com/kris0516/ToolAlign/pull/9)合并42eaa50并完成最终双Python CI与main919CPU/2 HF-only skipped、现存三归档及49份安装包载荷绑定，CPU技术范围VERIFIED；原R1 PASS40252f8保持。见[主干证据](../../reports/S0_P02_TRAINING_BINDING_MAIN_VERIFICATION.md)。原代表/最长/非ASCII实际页面观察、kris语义/token-mask人审仍未完成，G-DATA/P04正式训练未放行；D1/R1空闲，无新模型/GPU授权。
 
 | 字段 | 本轮值 |

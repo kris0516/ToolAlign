@@ -1,0 +1,123 @@
+{
+  "config_version": "toolalign.quality-revision-policy.v1",
+  "status": "CPU_REMEDIATION_CANDIDATE",
+  "training_authorized": false,
+  "verified_code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "review_kind": "kris_delegated_ai_not_human",
+  "input_bindings": {
+    "data_manifest_file_sha256": "c728dfe385e340fadf1e5949976c012709fc10a1dbca9010548edf74785259e5",
+    "data_manifest_canonical_sha256": "87f86783706424553a5c889d51cbbadc33c3c4218e44b3f3ee95058a718b1756",
+    "train_sha256": "9c0215f0b91d1774042273f4377a3aac942fa26249d76820597eed9044e870e0",
+    "validation_sha256": "c336bfc58d521aee499c2522bca75fa6c6e4ea356cf34856832ae768a34e9c8b",
+    "assignments_sha256": "51ce05ecbd8a986c3ea1b585f1a1b186dd6e94d2bcc3ce5b498ccdcf40ded3db",
+    "lineage_sha256": "3f6a8db88a77b6df02c58c538471bbfb157a3fd9655c6a79160c0ae345a38f5c",
+    "raw_source_sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "review_seal_sha256": "f438ef1145ae074fe0879d33e931655a551b179230a6fa0743a24b5e4439160c",
+    "semantic_review_sha256": "db25e89712bacca9d23dd048ec260c9756d8aa344e89945948f556aa2a9ece3a",
+    "token_review_sha256": "9fcb218ce3748e25a7c844426c46e4889ad5750aa55d89edc4d9914a07a5b598",
+    "remediation_proposal_sha256": "aaa59ea486d9a93b5dec5676123ae1a15c9b44e6877cdc92376c5d66e978ece8",
+    "provenance_sha256": "d1e98d0b5ff6fba25b9fe5540bc7af9b6aad8ed4ee4ce693b430d5d09cdf804f",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "parent_selection_manifest_file_sha256": "eb4bbfe66966d95fb3a77126e4b3ee248faa66db587422846421e25b7a8242bd",
+    "parent_representation_rows_sha256": "36b8cbfe6773c08f7a28521a99ed8783723a8f7fa3b2a3fa87915d8d1d871aff",
+    "reannotation_drafts_sha256": "74fb70f994c5348a13b8b788e3b7ffeba6d7e9e8caa2537b2c602ac434bbfd54"
+  },
+  "allowed_source_splits": [
+    "train",
+    "validation"
+  ],
+  "quarantine": {
+    "unit": "entire_source_all_decisions",
+    "verdicts": [
+      "fail",
+      "unknown"
+    ],
+    "expected_source_counts": {
+      "fail": 20,
+      "unknown": 12
+    },
+    "preserve_group_and_split": true,
+    "preserve_unrelated_sources_in_same_group": true
+  },
+  "effective_selection": {
+    "strategy": "filter_original_selection_without_refill",
+    "preserve_relative_rank": true,
+    "retain_parent_rank": true,
+    "unchanged_examples_keep_original_bytes": true,
+    "new_annotations_enter_effective_training": false
+  },
+  "expected_counts": {
+    "train": {
+      "original": 7515,
+      "quarantined_fail": 26,
+      "quarantined_unknown": 14,
+      "effective": 7475
+    },
+    "validation": {
+      "original": 234,
+      "quarantined_fail": 0,
+      "quarantined_unknown": 0,
+      "effective": 234
+    },
+    "formal_train": {
+      "original": 6013,
+      "quarantined_fail": 22,
+      "quarantined_unknown": 11,
+      "effective": 5980
+    },
+    "smoke_train": {
+      "original": 1600,
+      "quarantined_fail": 3,
+      "quarantined_unknown": 4,
+      "effective": 1593
+    },
+    "formal_validation": {
+      "original": 217,
+      "effective": 217
+    },
+    "smoke_validation": {
+      "original": 197,
+      "effective": 197
+    }
+  },
+  "annotations": {
+    "status": "STAGED_PENDING_INDEPENDENT_REVIEW",
+    "direct_action_revisions": 2,
+    "source_parser_auto_fill": false,
+    "preserve_original_source_record_hash": true,
+    "preserve_group_and_split": true,
+    "recompute_changed_example_identity": true,
+    "rebuild_dependent_prefix_candidates": true,
+    "inherited_observations": "UNVERIFIED_AFTER_ACTION_CHANGE",
+    "promotion": false
+  },
+  "materials": {
+    "effective_train_examples": 10,
+    "supplemental_original_action_kinds": [
+      "final",
+      "clarify",
+      "refuse"
+    ],
+    "protocol_enters_training": false,
+    "new_case_limit_per_engine": 20,
+    "engines": [
+      "transformers",
+      "tokenizers"
+    ],
+    "semantic_verdicts_prefilled": false,
+    "browser_actual_observation": "NOT_RUN"
+  },
+  "limits": {
+    "new_artifact_bytes": 2147483648,
+    "new_environments": 0,
+    "new_downloads": 0,
+    "model_or_gpu_runs": 0
+  },
+  "pending": [
+    "expanded_train_validation_quality_audit",
+    "independent_revision_review",
+    "S0_main_verification",
+    "G_DATA_quality_acceptance",
+    "explicit_P04_authorization_and_capacity"
+  ]
+}

@@ -81,6 +81,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 原生SFT固定toy独立审查实际派发 | 核验R1原轮completed/notLoaded及干净800480b后，按完整482f899实际派发精确f7326d1，gpt-6-astra/max，新轮ACTIVE已确认；[Draft PR11](https://github.com/kris0516/ToolAlign/pull/11)候选双Python CI通过、R1 intake核验通过，独立结论待交付 |
 | 2026-09-07 | 原生SFT固定toy独立验收与隔离集成 | 原R1 PASS67976fd已交付/原生空闲；S0核对58,108路径/38原命令，普通集成a1c467a实际1084CPU/2跳过、新三归档及默认安装/native守卫通过，见[证据](reports/S0_P04_SFT_NATIVE_TOY_INTEGRATION.md)。ACCEPTED，PR11最终CI/main待完成 |
 | 2026-09-07 | 原生SFT固定toy主干验收 | VERIFIED；[PR11](https://github.com/kris0516/ToolAlign/pull/11)合并b2247d8，原R1 PASS67976fd保持；最终双Python CI及main1084CPU/2跳过、三现存归档/58安装包字节绑定通过，见[主干证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。正式模型与人工门槛保持 |
+| 2026-09-07 | 委托AI语义审阅交接与CPU整改范围 | 21份封存输出/63份输入及100/13两份AI副本核验；报告标记20个fail来源、12个unknown来源，G-DATA质量CHANGES_REQUESTED。D1数据修订/E1扩展审计CLAIMED待原生分发；见[新范围](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)及ADR-0022 |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -108,9 +109,11 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均VERIFIED。P04-SFT-CPU准备已由PR10合并e28f1db，原R1 PASS800480b与main1014CPU/2 HF-only跳过保持，原CPU上游KeyError负结果保留。
 
-P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1/D1/E1/R1无新范围，共享GPU空闲；R1框架2/2已结束，S0新增框架0。
+P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1/R1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。
 
-最多两个实现、独立R1和单一GPU租约约束保持。实际页面、kris语义/token-mask人审及真实模型容量未完成，G-DATA和P04正式训练未放行，完整P00–P09目标继续。
+kris已明确委托AI审查并填写本批两套P02材料。按ADR-0022接收Codex-AI副本，不记作本人已看，不要求重复填写；报告中的32个问题来源进入整改。D1的[P02质量修订](coordination/tasks/P02_QUALITY_REMEDIATION.md)与E1的[扩展审计](coordination/tasks/P02_QUALITY_AUDIT.md)已CLAIMED待原生分发，均从已验证86b80ba开始，仅CPU。
+
+最多两个实现、独立R1和单一GPU租约约束保持。浏览器实显仍NOT_RUN，既有URL安全拒绝不绕过；页面体验待办不阻塞本轮委托AI内容整改。G-DATA因质量修订/独立复核/重新绑定待完成而未通过，真实模型容量和P04正式训练未放行，完整P00–P09目标继续。
 
 ## 工作记录
 

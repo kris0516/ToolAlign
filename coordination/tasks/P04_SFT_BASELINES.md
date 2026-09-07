@@ -1,5 +1,7 @@
 # P04｜原始模型与 SFT 实验
 
+最新依赖（2026-09-07，ADR-0022）：本批P02语义/token-mask材料已由kris委托AI审阅，结果进入质量整改；不再等待本人抄填。P04仍BLOCKED于质量修订、新绑定/独立复核及真实模型容量/正式运行授权。浏览器实显0页/NOT_RUN保留，既有拒绝不绕过；页面体验待办不阻塞本轮CPU数据整改。旧时间线中的“待人审”保持其原观察时间，不覆盖该最新委托。
+
 状态：BLOCKED；尚未分发或领取正式训练。P00/P01受限G1/P03 CPU、共用格式、训练绑定与CPU准备已VERIFIED；固定原创native toy亦经R1 PASS67976fd、PR11合并b2247d8及最终CI/main验证，见[数值子包主干证据](../../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。该证据覆盖13原创rank/64参数的8+5尾批、evaluate及checkpoint；本包仍待实际页面、kris语义/token-mask人审、真实0.6B容量、正式1.7B baseline/SFT。training_authorized=false，S0准备及toy验收不构成本包模型训练许可。
 
 | 字段 | 初始值 |
@@ -27,7 +29,7 @@ src/toolalign/training/sft、tests/training、reports/experiments；训练 confi
 
 ## 验收
 
-10条token/mask人工核对；少量样本过拟合；正式run manifest；训练参数变化范围；保存重载；原始/SFT同生成配置；真实资源和失败日志。
+10条token/mask核对（本批采用ADR-0022中kris明确委托的AI方式，实际trainer对应仍须验证）；少量样本过拟合；正式run manifest；训练参数变化范围；保存重载；原始/SFT同生成配置；真实资源和失败日志。
 
 S0/worker在实际实现前把上述验收转换成可运行命令与预期，完成后附命令/退出码/日志。当前没有声称这些测试已执行。
 
