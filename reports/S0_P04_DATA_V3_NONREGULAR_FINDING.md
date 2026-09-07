@@ -11,3 +11,5 @@ R1 在冻结候选 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa` 发现一个非普
 [定点CPU修订](../coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_FIX.md)已准备，原T1任务确认completed/idle、干净f3b7f1a1；实际派发另记。修订要求打开前拒绝非普通文件，同时用非阻塞打开与同FD校验覆盖路径被替换的窗口，保留原no-follow/hash/大小/预算/退出语义。只运行原创I/O反例、相关CPU测试、默认安装和必要三归档；不增加实际数据prepare、13例转换、编码或模型额度。
 
 R1继续冻结原候选完成整包审查；新修订须独立复核并经最终CI/main才能验收。既有13例成功消费、原两次失败、G-DATA和两候选CI保持原时点，不关闭本次发现。
+
+20:09:29 UTC，S0再次核验T1原轮completed/idle及原10,935路径/370链接后，按完整 `90ded89286d130b2e36dd7e18d334ed603ced9f6` 原生派发定点修复并核验新轮ACTIVE，gpt-6-astra/max。实际新branch/intake待确认；R1当前仍审原f3b7f1a1，正式结论待交付。

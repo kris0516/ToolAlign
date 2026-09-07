@@ -1,6 +1,6 @@
 # P04-SFT-DATA-V3-NONREGULAR-FIX｜拒绝阻塞的特殊文件输入
 
-状态：CLAIMED，T1，尚未原生派发。code_base与父候选为 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；不是已通过R1的生产基线。原生产基线48be435、原bfdf2a2源码和全部已交付证据保持。完整authorization_commit为包含本次范围的S0协调提交，由原生消息给出精确SHA。统一gpt-6-astra/max，plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026和REVIEW_POLICY。
+状态：IN_PROGRESS，T1；已于2026-09-07 20:09:29 UTC按完整 `90ded89286d130b2e36dd7e18d334ed603ced9f6` 原生派发，并核验新轮ACTIVE。新branch/身份/7份输入及旧证据intake待交付。code_base与父候选为 `f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa`，tree `1cd40f093c17da1c5a1f1399117c29eb3c1d9547`；不是已通过R1的生产基线。原生产基线48be435、原bfdf2a2源码和全部已交付证据保持。完整authorization_commit为包含本次范围的S0协调提交，由原生消息给出精确SHA。统一gpt-6-astra/max，plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026和REVIEW_POLICY。
 
 沿用原T1独立App任务及自己的worktree，新建 `codex/p04-sft-data-v3-nonregular-fix-r1` 与新私有scope `p04-sft-data-v3-nonregular-fix-r1`。先保存完整授权中的AGENTS/GOAL/PROTOCOL、REVIEW_POLICY/REVIEW_FAILURES、RESOURCE_LOCK、ADR-0026、本任务、原数据CPU任务/精确配置、S0完整交接与[原发现](../../reports/S0_P04_DATA_V3_NONREGULAR_FINDING.md)。切换前核验原f3b7f1a1分支、618旧公开Git/快照、原scope终态seal、旧失败、root identity及固定609输入；新身份只写新scope，旧scope/旧分支和T1上一轮未打包文档不修改、不覆盖。
 
