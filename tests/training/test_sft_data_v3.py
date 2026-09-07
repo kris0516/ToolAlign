@@ -2,6 +2,8 @@
 
 import copy
 import json
+import os
+import subprocess
 import sys
 from dataclasses import FrozenInstanceError, replace
 from pathlib import Path
@@ -768,3 +770,122 @@ def test_fixed_input_coverage_types_and_paths(file_bundle, mutation):
         manifest_path.write_bytes(manifest_path.read_bytes() + b" ")
     with pytest.raises(DataError):
         v._open_bundle(config_path, manifest_path)
+
+
+@pytest.mark.parametrize("kind", ["fifo", "directory", "symlink"])
+def test_nonregular_read_is_rejected_before_open(tmp_path, monkeypatch, kind):
+    path = tmp_path / "original-nonregular-input"
+    if kind == "fifo":
+        os.mkfifo(path, 0o600)
+    elif kind == "directory":
+        path.mkdir()
+    else:
+        target = tmp_path / "original-regular-target"
+        target.write_bytes(b"original target")
+        path.symlink_to(target)
+
+    def unexpected_open(*args, **kwargs):
+        pytest.fail("A known nonregular input must be rejected before opening it")
+
+    with monkeypatch.context() as context:
+        context.setattr(v.os, "open", unexpected_open)
+        expected = "v3_symlink_forbidden" if kind == "symlink" else "v3_regular_file_budget"
+        with pytest.raises(DataError, match=expected):
+            v._read(path, size=0)
+
+
+_ORIGINAL_READ_REPLACEMENT = r'''
+import json
+import os
+import stat
+import sys
+from pathlib import Path
+from toolalign.data.common import DataError
+from toolalign.training.sft import data_v3 as v
+
+target, replacement = Path(sys.argv[1]), sys.argv[2]
+original_open = os.open
+opened = 0
+
+def replace_before_open(path, flags, *args, **kwargs):
+    global opened
+    if Path(path) == target:
+        opened += 1
+        assert opened == 1
+        target.unlink()
+        if replacement == "fifo":
+            os.mkfifo(target, 0o600)
+        else:
+            target.symlink_to(target.with_name("original-link-target"))
+    return original_open(path, flags, *args, **kwargs)
+
+v.os.open = replace_before_open
+try:
+    v._read(target, size=0)
+except DataError as error:
+    expected = "v3_regular_file_budget" if replacement == "fifo" else "v3_input_io_failure"
+    assert str(error) == expected
+    info = target.lstat()
+    print(json.dumps({"error": str(error), "open_calls": opened, "writer_calls": 0,
+                      "replacement_is_fifo": stat.S_ISFIFO(info.st_mode),
+                      "replacement_is_symlink": stat.S_ISLNK(info.st_mode),
+                      "mode": stat.S_IMODE(info.st_mode), "module_origin": v.__file__}))
+else:
+    raise AssertionError("replacement accepted")
+'''
+
+
+@pytest.mark.parametrize("replacement", ["fifo", "symlink"])
+def test_nonregular_replacement_after_precheck_cannot_block_or_follow(tmp_path, replacement):
+    path = tmp_path / "original-regular-input"
+    path.write_bytes(b"")
+    (tmp_path / "original-link-target").write_bytes(b"original link target")
+    script = tmp_path / "original-replacement-probe.py"
+    script.write_text(_ORIGINAL_READ_REPLACEMENT)
+    argv = [sys.executable, "-B", str(script), str(path), replacement]
+    process = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    timed_out = False
+    try:
+        stdout, stderr = process.communicate(timeout=10)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+        process.kill()
+        stdout, stderr = process.communicate(timeout=10)
+    finally:
+        if process.poll() is None:
+            process.kill()
+            process.wait(timeout=10)
+    (tmp_path / "child-stdout.log").write_bytes(stdout)
+    (tmp_path / "child-stderr.log").write_bytes(stderr)
+    (tmp_path / "child-result.json").write_text(json.dumps({
+        "argv": argv, "pid": process.pid, "exit_code": process.returncode,
+        "child_reaped": process.poll() is not None, "timed_out": timed_out,
+        "source": "original_IO_fixture", "real_data_API_calls": 0,
+    }, sort_keys=True) + "\n")
+    assert not timed_out, "Replaced input must reject without any FIFO writer"
+    assert process.returncode == 0, stderr.decode(errors="replace")
+    result = json.loads(stdout)
+    assert result["open_calls"] == 1 and result["writer_calls"] == 0
+    assert result["replacement_is_fifo"] is (replacement == "fifo")
+    assert result["replacement_is_symlink"] is (replacement == "symlink")
+
+
+@pytest.mark.parametrize("content", [True, False])
+@pytest.mark.parametrize("payload", [b"", b"original binary I/O fixture\x00\xff\n"])
+def test_regular_read_and_hash_only_semantics_unchanged(tmp_path, content, payload):
+    path = tmp_path / "original-regular-input"
+    path.write_bytes(payload)
+    actual = v._read(path, digest=v._sha(payload), size=len(payload), content=content)
+    assert actual == (payload if content else None)
+
+
+@pytest.mark.parametrize("kwargs, error", [
+    ({"size": 1}, "v3_input_size_mismatch"),
+    ({"digest": "0" * 64}, "v3_input_hash_mismatch"),
+    ({"limit": 1}, "v3_regular_file_budget"),
+])
+def test_regular_read_keeps_size_hash_and_budget_errors(tmp_path, kwargs, error):
+    path = tmp_path / "original-regular-input"
+    path.write_bytes(b"original I/O fixture")
+    with pytest.raises(DataError, match=error):
+        v._read(path, **kwargs)

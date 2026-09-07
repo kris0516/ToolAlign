@@ -82,12 +82,15 @@ def _relative(value):
 
 
 def _read(path, *, digest=None, size=None, content=True, limit=_MAX_FILE):
-    """Hash the same no-follow file descriptor whose bytes may be decoded later."""
+    """Reject special paths without blocking; hash the checked no-follow descriptor."""
     path = _path(path)
     if size is not None:
         require(type(size) is int and 0 <= size <= limit, "v3_input_size_type")
     try:
-        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW), "rb") as stream:
+        require(stat.S_ISREG(path.lstat().st_mode), "v3_regular_file_budget")
+        # A regular path can become a FIFO after lstat. Open without waiting for
+        # a writer, then reject the actual object through the same descriptor.
+        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), "rb") as stream:
             info = os.fstat(stream.fileno())
             require(stat.S_ISREG(info.st_mode) and info.st_size <= limit, "v3_regular_file_budget")
             require(size is None or info.st_size == size, "v3_input_size_mismatch")
