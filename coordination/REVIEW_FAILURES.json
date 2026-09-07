@@ -1,0 +1,27 @@
+{
+  "schema": "toolalign.review-failure-ledger.v1",
+  "owner": "S0",
+  "policy": "ADR-0023",
+  "same_issue_threshold": 5,
+  "whole_goal_paused": false,
+  "issues": [
+    {
+      "issue_id": "P02-Q-001",
+      "requirement": "有效训练工具输入必须具备完成任务所需的完整载荷",
+      "summary": "修订代表材料含有字面省略标记的截断PDF编码，需按完整来源隔离",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "candidate": "9b7cf019b1d55501a7e656dbfb79b13bc7369fa0",
+          "verdict": "FAIL",
+          "reviewer": "Codex-AI(E1); S0 verified source binding",
+          "evidence_sha256": "27b1970c9c4fd308a1a7b41b59b26c64454ef1ffe242bca286b95ab327b985dc",
+          "s0_binding_sha256": "2bbd0a12cce1c26a4f80941b373b375e1d2e2ee7866e9ec5fbf8cd276068e732"
+        }
+      ]
+    }
+  ],
+  "prior_findings": "原32来源及历史工程失败仍保留原审查；Q1给出稳定问题映射，S0仅依据真实修订轮次接入，不将多次读同一输入计作新失败。"
+}

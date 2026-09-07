@@ -1,0 +1,18 @@
+{
+  "schema": "toolalign.q1-ai-review-config.v1",
+  "task": "Q1-AI-REVIEW-r1",
+  "reviewer": "Codex-AI(Q1)",
+  "code_base": "86b80bada50ac7c8f4b3910e3831a397ed65a853",
+  "input_manifest_sha256": "2bbd0a12cce1c26a4f80941b373b375e1d2e2ee7866e9ec5fbf8cd276068e732",
+  "source_count": 14,
+  "valid_decision_count": 15,
+  "grade_disagreement_sources": 11,
+  "annotation_sources": 2,
+  "new_effective_problem_sources": 1,
+  "staged_cases": 3,
+  "allowed_splits": ["train"],
+  "new_tokenizer_or_model_runs": 0,
+  "same_issue_failed_revision_threshold": 5,
+  "training_authorized": false,
+  "new_artifacts_limit_bytes": 1073741824
+}

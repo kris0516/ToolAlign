@@ -27,7 +27,7 @@ T1 改 training/dpo 与训练测试；D1 改 data/preferences 与审计，两个
 
 ## 验收
 
-多解tie剔除；人工分层审查；reference logprob缓存身份；ln2/梯度/mask/reload测试；正式paired data/run manifests；SFT对照完全一致。
+多解tie剔除；独立Q1委托AI分层审查（ADR-0023，保留原内容标准与实际AI身份）；reference logprob缓存身份；ln2/梯度/mask/reload测试；正式paired data/run manifests；SFT对照完全一致。
 
 S0/worker在实际实现前把上述验收转换成可运行命令与预期，完成后附命令/退出码/日志。当前没有声称这些测试已执行。
 

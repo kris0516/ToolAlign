@@ -16,7 +16,8 @@
 - 验收命令及预期：未实现的命令标记 PLANNED
 - 正向测试：
 - 负向/边界测试：
-- 人工检查点：
+- 独立AI审核检查点与owner（后续原人工范围由Q1承接）：
+- 稳定issue ID/连续正式修订未通过次数（第五次整体暂停，见REVIEW_POLICY）：
 - 交接路径：`coordination/handoffs/<TASK-ID>-r1.md`
 - 阻塞与降级：
 

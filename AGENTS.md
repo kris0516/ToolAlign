@@ -11,6 +11,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 - 长期 goal 覆盖 P00–P09，用户已将活动目标正文改为 max；本对话每 30 分钟跟进一次，无变化保持安静。任务/自动跟进 ID 与绝对工作路径仅存本机 `.toolalign-local/`。
 - 所有 worker/reviewer 使用 **独立 Codex 对话**与隔离 worktree，不得使用 sub-agent。最多同时两个实现任务，R1 可做纯 CPU 独立审查。
 - 新建或按授权调整任务时显式使用 gpt-6-astra / max；普通回报给 S0 时省略 `model` 和 `thinking`，保留已设好的 max。不要根据旧分发词传入 xhigh。完整目标约束见 [GOAL.md](coordination/GOAL.md)。
+- 最新用户审核授权（2026-09-07）：全部后续人工审核由专门独立Q1 AI对话承接，含P05偏好和最终交接材料；无需kris填写/签字/答辩。按[审核规则](coordination/REVIEW_POLICY.md)，同一问题连续第5次正式修订审核未通过才暂停整个目标并通知kris，第1–4次自主整改。实际AI身份与旧失败保留，费用/隐私/资源边界不变。
 - P00 必须经 R1 对精确提交独立审查、S0 合并并验证 main 后，才可分发 P01–P03。
 - 可用开发工具为 VS Code、Xcode 和 Python 3.14。P00 核心包不依赖 MLX；MLX/PyTorch 的可用 Python/版本由 P01 实测并通过 S0 更新锁文件。
 
@@ -85,6 +86,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 质量修订及扩展审计实际接续 | 按完整2aa0cf4原生派发D1/E1并确认两新轮ACTIVE，gpt-6-astra/max；分支/输入intake待核验，T1/R1无新范围，GPU空闲 |
 | 2026-09-07 | 质量整改两任务intake核验 | D1/E1实际新分支/身份、两份428文件基线和精确配置通过，合计6125条当前输入/旧证据路径保持，证明c1d479b1；继续原轮次，候选及新审计待交付，见[证据](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
 | 2026-09-07 | 质量修订及AI复核中间交接 | 53bf原32来源/40决策暂挂及1c90的16例材料实物核验通过；E1原32独立判断12 fail/17 unknown/3 pass已收，旧标签及暂挂未改；追加16例审阅已按完整eca0777原生发送E1/原轮ACTIVE，intake及完整候选/180审计/R1待完成，见[证据](reports/S0_P02_QUALITY_INTERMEDIATE.md) |
+| 2026-09-07 | 质量修订完整交接与后续AI审核授权 | D1完整9b7cf01/原生空闲、S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；用户指定后续人工审核全部交独立Q1，14来源首轮与R1技术任务READY，同问题第五次未通过才整体暂停；[证据](reports/S0_P02_QUALITY_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -112,9 +114,9 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 
 P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、截止时间修订、训练绑定与SFT准备的CPU技术范围均VERIFIED。P04-SFT-CPU准备已由PR10合并e28f1db，原R1 PASS800480b与main1014CPU/2 HF-only跳过保持，原CPU上游KeyError负结果保留。
 
-P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1/R1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。
+P04-SFT-NATIVE-TOY固定原创数值部分VERIFIED；PR11已普通合并b2247d8，原候选f7326d1与原R1 PASS67976fd保持。最终双Python CI各14步骤及main1084CPU/2 HF-only跳过、三份现存归档/58份安装包绑定通过。见[完整main证据](reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)。可验收能力为固定13原创rank/64参数的原生两次更新、尾段/evaluate/checkpoint身份及受限终态；原CPU上游KeyError仍是历史负结果。T1无新范围，共享GPU空闲；原R1框架2/2已结束，S0新增框架0。R1质量修订CPU审查READY待派发，不增加框架运行。
 
-kris已明确委托AI审查并填写本批两套P02材料。按ADR-0022接收Codex-AI副本，不记作本人已看，不要求重复填写；报告中的32个问题来源进入整改。D1的[P02质量修订](coordination/tasks/P02_QUALITY_REMEDIATION.md)与E1的[扩展审计](coordination/tasks/P02_QUALITY_AUDIT.md)已按完整2aa0cf4原生派发并确认新轮ACTIVE，均从已验证86b80ba开始，仅CPU；01:30 UTC实际新分支/身份、配置和6125条当前文件路径核验通过，候选/新审计待交付。
+用户已将全部后续人工审核交给专门独立Q1，按ADR-0023和REVIEW_POLICY接续；Q1首轮14来源/15决策READY待创建。D1完整9b7cf01已交付/原生空闲，S0核验9,685路径/32命令/三归档及安装，READY_FOR_REVIEW；R1精确技术范围READY。E1原固定180审计继续，16例追加intake通过、最终材料seal已收到待核验。新PDF问题首次未通过，后续需整来源修订；同一问题第五次正式修订未通过才整体暂停并通知kris。
 
 最多两个实现、独立R1和单一GPU租约约束保持。浏览器实显仍NOT_RUN，既有URL安全拒绝不绕过；页面体验待办不阻塞本轮委托AI内容整改。G-DATA因质量修订/独立复核/重新绑定待完成而未通过，真实模型容量和P04正式训练未放行，完整P00–P09目标继续。
 
