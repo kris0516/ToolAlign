@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-07。Q1首轮14来源/15决策已正式交付5100c65、原生completed/idle，S0核验603路径并以45a3eaa保留原SHA整合；三项恢复、十项继续暂挂和一项新增隔离进入新版准备。问题映射已接入，原失败保留，重复裁定增量0；同问题第五次才整体暂停。E1固定180来源/200决策语义seal核验436路径，完整候选/交接仍待接收；下一Q1范围50来源/60决策准备中，尚未派发。R1精确9b7技术审查继续，PR12候选双Python CI通过，仍Draft；G-DATA/P04和完整目标未完成。
+更新时间：2026-09-07。Q1首轮5100c65已接收/原生空闲，603路径证明及原SHA整合保持；三项恢复、十项暂挂、一项新增隔离待新版，问题历史已绑定。E1完整5270d1e已交付/原生空闲，S0核验4,536路径/26命令，普通发布Draft PR13；[完整证据](../reports/S0_P02_QUALITY_AUDIT_HANDOFF.md)。Q1新50来源/60决策包114文件已冻结，CLAIMED待原生派发；R1继续精确9b7技术审查，之后的5270技术scope READY。PR12候选双Python CI通过，数据新版、G-DATA/P04及完整目标继续未完成。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；D1候选待R1，Q1首轮已接收、下一轮准备；E1最终交接待核验，原PR11验收保持 |
+| 当前任务/分支 | S0 main；D1候选待R1，Q1新50来源范围CLAIMED待派发；E1完整候选READY_FOR_REVIEW，原PR11验收保持 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1/Q1原轮completed/idle；E1原轮ACTIVE收尾、R1原轮ACTIVE技术审查；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1/Q1/E1原轮completed/idle；R1原轮ACTIVE技术审查，Q1下一范围待实际派发；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
