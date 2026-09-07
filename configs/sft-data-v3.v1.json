@@ -1,0 +1,185 @@
+{
+  "G_DATA": "PASS_FROZEN_V3_SCOPE",
+  "actual_model_updates": 0,
+  "actual_train_materials": 10,
+  "allowed_content_splits": [
+    "train",
+    "validation"
+  ],
+  "browser_actual_observation": "NOT_RUN",
+  "config_version": "toolalign.sft-data-v3-cpu.v1",
+  "d1_input_manifest_file_sha256": "ebbaf56bbb5730b5d31eca195d5ac7772d148ff876fc96be1c1c5dbbadf51e06",
+  "data_binding": {
+    "effective_files": {
+      "effective/train.jsonl": "294876d27b39f9991c274e8aa795b5c352ace5b073d20a19bc40d25fa10e9221",
+      "effective/validation.jsonl": "455eaa4afd773f436f2510ad5325cabeb0edf7852ae5bc8b14599c9b97c3570d"
+    },
+    "manifest_file_sha256": "f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "quality_config_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+    "quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+    "selection_manifest_file_sha256": "d765493c156d047cfaadce9c49e7edf25b973907d6a764f3272090786693efbc",
+    "training_binding_file_sha256": "588c94b6bed580f6ddf0e30eef4442915c24a0dc2ad40f33b2d8772cd4a29059"
+  },
+  "engine_records": 26,
+  "export": {
+    "format": "NATIVE_JSON",
+    "new_sequence_calls": 0,
+    "overwrite": false,
+    "partial_publication_is_success": false,
+    "required_binding": [
+      "original_example_line",
+      "current_profiles_and_three_generation_ranks",
+      "quality_revision",
+      "complete_original_sequence_and_batch",
+      "Q1_judgment",
+      "original_producer_epoch_and_run",
+      "current_CPU_consumer"
+    ],
+    "scope": "REVIEW_ARRAY_ADAPTATION_ONLY"
+  },
+  "independent_quality_review": {
+    "adjudication_seal_sha256": "d9da8add7457a253865462e59745f4ae8b29dc3d99ae3595ee8e2133bfea5117",
+    "commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
+    "final_seal_sha256": "c272ffa263786086a5d83c057408aac0baabb82f8608e948b6fdbc0495bb74e9",
+    "reviewer": "Codex-AI(Q1)",
+    "s0_receipt_sha256": "48aae102b248963b95537c688214c0871c4ed995315e059077cbc6be7869c496",
+    "verdict": "PASS_WITHIN_FIXED_Q1_SCOPE"
+  },
+  "independent_technical_review": {
+    "commit": "dbd11d03e69c650efdb330f79ec380dd9914fa89",
+    "reviewer": "Codex-AI(R1)",
+    "s0_receipt_sha256": "51870b8dc68081fd8cda189009a5e8fc7046d06850011594b4959c8fe3f75296",
+    "verdict": "PASS"
+  },
+  "input_manifest_file_sha256": "08e865ff98bd476c94153033bc192664d72cee64443184576532c0289a610dd7",
+  "issue_ledger_file_sha256": "022356d8dc6fdf273804d0f78e58416677799e303b0dc1b6a46b1e7b1ffcb992",
+  "limits": {
+    "framework_model_gpu_runs": 0,
+    "full_data_builds": 0,
+    "installed_fixed_material_conversion_export_readback_sets": 1,
+    "installed_fixed_prepare_calls": 1,
+    "new_environments_or_downloads": 0,
+    "new_private_artifacts_bytes": 1073741824,
+    "new_tokenizer_sequence_calls": 0,
+    "source_fixed_material_conversion_export_readback_sets": 1,
+    "source_fixed_prepare_calls": 1
+  },
+  "material_case_ids": [
+    "effective-01",
+    "effective-02",
+    "effective-03",
+    "effective-04",
+    "effective-05",
+    "effective-06",
+    "effective-07",
+    "effective-08",
+    "effective-09",
+    "effective-10",
+    "protocol-clarify",
+    "protocol-final",
+    "protocol-refuse"
+  ],
+  "material_records_canonical_sha256": "a41f5c24a55eb5e4fed434b9352b655fbf78e5aa68276de5de183671c81412de",
+  "optimization_authorized": false,
+  "plan": {
+    "epochs": 1,
+    "formal": {
+      "full_updates": 742,
+      "tail_microsteps": 2,
+      "train_examples": 5938,
+      "updates": 743
+    },
+    "gradient_accumulation": 8,
+    "microbatch": 1,
+    "packing": false,
+    "shuffle": false,
+    "smoke": {
+      "full_updates": 197,
+      "tail_microsteps": 7,
+      "train_examples": 1583,
+      "updates": 198
+    },
+    "truncate": false
+  },
+  "profiles": {
+    "formal": {
+      "context_tokens_including_eos_cap": 2048,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "padding_buckets": [
+        1024,
+        1536,
+        2048
+      ],
+      "train_limit": null,
+      "validation_limit": null
+    },
+    "smoke": {
+      "context_tokens_including_eos_cap": 1536,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "padding_buckets": [
+        1024,
+        1536
+      ],
+      "train_limit": 1600,
+      "validation_limit": null
+    }
+  },
+  "protocol_only_materials": 3,
+  "q1_adjudications_file_sha256": "84613324653ca8613789c10fa0948990438873376ca55611ee0714fe3aca4f5f",
+  "q1_material_validation_file_sha256": "de9166be496625e8488658f56487352914ab9d522aba321cdb7742231dece3f0",
+  "real_trainer_consumption": "NOT_RUN",
+  "s0_data_approval_file_sha256": "1edb1e889b91dbde5dc6208b8dff2afdaa4b4a20a0ba5c166e9b55750429ec44",
+  "scope": "REVIEW_ARRAY_ADAPTATION_ONLY",
+  "training_authorized": false,
+  "unique_review_materials": 13,
+  "verified_code_base": "48be4352bbad53ced5af84186edac036dd0ff2ca",
+  "view_summaries": {
+    "formal": {
+      "train": {
+        "effective_selected_count": 5938,
+        "parent_selected_count": 6013,
+        "quarantined_counts": {
+          "fail": 27,
+          "unknown": 48
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "93c41855d3b9fd14a33ec83b9515e6cf96d3791c674ad39bc7bfa55c2bc366bb"
+      },
+      "validation": {
+        "effective_selected_count": 213,
+        "parent_selected_count": 217,
+        "quarantined_counts": {
+          "fail": 1,
+          "unknown": 3
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "187b2e23a92d7638049ba1b7ef3572232563e8af52e6e5b6a75997ebe6f0a431"
+      }
+    },
+    "smoke": {
+      "train": {
+        "effective_selected_count": 1583,
+        "parent_selected_count": 1600,
+        "quarantined_counts": {
+          "fail": 5,
+          "unknown": 12
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "bb9e01d8da0e8a61bded075d2ddf530eb1c0a2a6baf0fd0560d0fa8092ca6f5d"
+      },
+      "validation": {
+        "effective_selected_count": 194,
+        "parent_selected_count": 197,
+        "quarantined_counts": {
+          "fail": 0,
+          "unknown": 3
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "870108febc3d3e8465d6a3a84086bfb2f3659c3b728196101669e620c67918ab"
+      }
+    }
+  }
+}

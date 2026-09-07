@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。下一步准备T1的SFT数据/审阅数组CPU适配，正式模型运行及P04仍未授权。
+更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已CLAIMED待派发，609固定输入/精确配置已冻结；正式模型运行及P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1下一v3数据与固定13例数组CPU适配正在准备，尚未派发；真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
+T1下一v3数据与固定13例数组CPU适配已CLAIMED，按48be435和609固定输入/配置e27a7d4b准备完成，尚未原生派发；真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
 
 ## 恢复入口
 

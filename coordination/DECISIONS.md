@@ -281,3 +281,10 @@ ADR-0025并行只读准备：T1的P04-SFT-RUNTIME-PROPOSAL现CLAIMED，固定10�
 14:15:28 UTC实际派发T1只读方案：原轮completed/notLoaded和干净f732、5,416原文件/197链接再次核验后，按完整8929cbb原生派发并确认ACTIVE，gpt-6-astra/max。新branch/intake待交付；D1/Q1的实际新branch和完整输入现均经S0核验通过，原3e18145范围继续。
 
 ADR-0025主干与质量验收补记（2026-09-08）：PR15普通合并90c4da9，原R1 dbd11d0、最终双Python CI/main技术VERIFIED；原Q1 7941已接收并普通合并10a22a0，84来源实际处置和13材料PASS。P02-Q-081第2次正式审核PASS后关闭并归零，82问题全部关闭，旧FAIL/UNKNOWN和全部历史事件保持。S0批准G-DATA的冻结v3范围，见[数据批准](approvals/P02_DATA_V3.json)与[接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)。原candidate pending字段不回写；正式模型配置/容量和CPU trainer适配独立接续，training_authorized=false。
+
+
+## ADR-0026｜冻结v3数据与审阅数组的CPU消费适配
+
+日期：2026-09-08；状态：已采纳，T1任务CLAIMED待原生派发。G-DATA已通过冻结v3，PR15/R1/Q1及S0批准保持。先用新精确配置接入既有只读verifier与四个SelectionView，将13份已审数组转换到原Sequence/Batch并做有限导出/回读；不以修改旧v1配置校验来接受任意manifest。新模块独立，旧公共代码/契约/锁文件/默认CLI和toy保持，配置由S0固定。[任务](tasks/P04_SFT_DATA_V3_CPU.md)、[配置](../configs/sft-data-v3.v1.json)和[冻结证据](../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)。
+
+选择已封存数组衔接是因为格式、语义与mask已经独立审核，当前未知是实际CPU消费者的身份、rank/类型和数据接入。此步骤不需要再编码或认证未审全库。D1历史pending/FAIL及原时间保持，新S0数据批准单独绑定；3原创协议例继续训练外。源/安装版各一组固定消费，新增真实编码/模型/框架/GPU/优化0；独立R1与main验证后才准备真实runtime和容量范围。正式训练授权继续false。
