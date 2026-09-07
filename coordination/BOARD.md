@@ -39,7 +39,7 @@
 | [P04-SFT-DATA-V3-NONREGULAR-FIX](tasks/P04_SFT_DATA_V3_NONREGULAR_FIX.md) 特殊文件非阻塞拒绝 | T1 | 原f3b7f1a1/正式b99a644 F1 | READY_FOR_REVIEW | 完整1769046/原生空闲；S0核验12,675路径/26命令及三归档，Draft PR18；[完整接收](../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)，R1-r2 READY |
 | [P04-SFT-DATA-V3-R2](tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md) 特殊文件修订复审 | R1 | 精确1769046/原正式b99 F1 | READY | 等当前模型CPU审查结束、S0接收与原生空闲后派发；新consumer消费额度尚未激活 |
 | [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | READY_FOR_REVIEW | 完整01eeb74d/原生空闲；S0核验26,330路径/34原命令/三归档，120CPU为E1自测；[Draft PR17与接收](../reports/S0_P04_QWEN_CPU_HANDOFF.md) |
-| [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | IN_PROGRESS | 原b99数据轮完成/空闲后，按完整9a29a72原生接续/ACTIVE；91,517路径派发前保全通过，新intake待交付 |
+| [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | IN_PROGRESS | 原b99数据轮完成/空闲后，按完整9a29a72原生接续/ACTIVE；派发前保全与新intake89,074路径/14授权/42输入通过；原b99及缺失例外保持，正式verdict待交付 |
 | [P04-SFT-QWEN-RUNTIME-CPU](tasks/P04_SFT_QWEN_RUNTIME_CPU.md) 有限原生训练接口 | T1拟承接；R1独立审查 | 数据与模型CPU主干均待验收 | PLANNED | 23例容量候选已按元数据冻结；[准备](../reports/S0_P04_CAPACITY_READINESS.md)，无新编码/模型授权、未派发 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01/P02/P03已验收；待CPU衔接/容量/运行配置 | BLOCKED（模型运行） | G-DATA已PASS；T1 CPU完整交接已接收，待R1，正式模型运行仍NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |

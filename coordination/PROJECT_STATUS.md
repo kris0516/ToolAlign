@@ -258,3 +258,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 21:06:16 UTC，S0核验R1原b99轮completed/idle与干净HEAD、E1完整01ee/原封存，并只读再核验91,517路径/原链接与1个lstat-only FIFO，证明 `e247fd615d9589d19af4fdc5908a2e81b3378e6fb8dbfac9a6dff1aecc6c8800`。按完整9a29a72原生接续P04-QWEN-MODEL-R1，显式gpt-6-astra/max，新轮ACTIVE已确认；新branch/身份/42输入intake待交付。本轮仅模型接口CPU独立审查，真实模型/框架/编码/GPU未授权。T1修订完整接收继续。
 
 2026-09-07 21:21:25–27 UTC，S0完成T1特殊文件修订1769046接收，证明 `6c7cbc37e690cb270d3b33d80e0934efe1b0881191cedb6ec65e2d239e3ae39b`；12,675路径/26原命令与终态、三归档/65生产包文件、四个原FIFO节点通过，旧证据保持。Draft PR18已建立，R1-r2精确范围READY未派发，原F1连续失败仍1；当前修订真实数据消费NOT_RUN，R1当前模型CPU轮继续。[接收](../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
+
+2026-09-07 21:32:11 UTC，S0完成R1模型CPU新intake核验89,074路径/14授权/42输入，证明 `75daa8a0582efc17daf969b5ec06e29336a023dc5837ed163e03a3b6e6f623cc`；623旧b99公开Git/快照、1,628链接/原FIFO及缺失例外保持，原模型文件只hash/header，无模型加载。PR18候选双Python CI及实际9167/639文件绑定通过，R1当前模型完整verdict和数据修订复审继续待完成。

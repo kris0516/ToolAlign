@@ -1,6 +1,6 @@
 # P04 固定 Qwen CPU 包完整交接接收
 
-完整候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已由 E1 普通推送，原生任务 completed/idle，远端分支相同；状态 **READY_FOR_REVIEW_CPU**。[Draft PR17](https://github.com/kris0516/ToolAlign/pull/17)已建立。S0 完整接收通过，独立 R1 尚未开始此包，当前先审查 v3 数据适配器。
+完整候选 `01eeb74d1bce3c3a3c41d84575d4d706e246e818` 已由 E1 普通推送，原生任务 completed/idle，远端分支相同；状态 **READY_FOR_REVIEW_CPU**。[Draft PR17](https://github.com/kris0516/ToolAlign/pull/17)已建立。S0 完整接收通过；独立R1已在原数据轮结束后接续本包，最新intake接收见文末，正式技术verdict待交付。
 
 候选 tree `3b194325c9b6ecba4356f46eb4ad91c8f9e63642`；其直接父为源码提交 `207c24c486a562760c51b8de3193c3e78028ba6d`，源码提交直接承接已验证生产基线 `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`。617 基线文件保持，新增六份为固定模型模块、原创测试、S0 原字节 metadata 配置、两报告和 handoff。最终三份文档不改变打包源码。
 
@@ -27,3 +27,7 @@ E1早期四次pytest使用默认共享临时根的事实保持。旧R1的30文�
 [R1固定模型CPU审查](../coordination/tasks/P04_QWEN_MODEL_REVIEW.md)已准备精确候选，等待当前数据审查正式结束和原生终态后派发。最终CI/main及真实loader、零LoRA对照、容量、保存/重载、baseline/SFT/DPO/正式评测均未验收。本次S0新构建/安装、生产validation API、框架/模型/tokenizer/GPU均0；直接原字节/header检查单列，不称模型已加载或服务已上线。无需kris操作。
 
 PR17候选CI34157109407已完成，Python3.11/3.14各14步骤成功、各959 passed/48 skipped。原日志及Git确认实际CI合并 `66fc03a90bc09b72671c08f1b585c102efae6fe7`，父为2f1c184与完整候选01eeb74d，632文件tree保持627份main基线及6份候选改动；独立R1和最终CI/main仍待接续。
+
+2026-09-07 21:31:59–21:32:11 UTC，S0核验R1新分支、原生gpt-6-astra/max及精确01ee新身份、14份授权副本（13指定材料另加PROJECT_STATUS）、42固定输入和4条原始intake命令，证明 `75daa8a0582efc17daf969b5ec06e29336a023dc5837ed163e03a3b6e6f623cc`。89,074实际文件路径、1,628旧链接、623原b99公开Git/快照与1,090原scope文件保持；原1个FIFO仅lstat、30文件/1链接原路径缺失例外保持。R1完整intake `55c6329497116a7f650723ca9906d0dc95a3314dc6c8472e904344986382a73e`，preservation `469d0f0a2ff05cf4301f063be3d592acdf70e44c407477f256044fa6ad69d07b`，不替代技术结论。
+
+R1实际核对23,838路径、34份E1原命令及20,862源码快照、三归档和三个原小header；另3,142条旧provenance路径仅绑定原S0证明，未将证明中的路径当作新增模型/数据读取权限。S0以原字节/header独立核对622个serialized tensor的名称、shape、BF16、offset、payload/index，未解码tensor值。S0首份接收脚本误将header字段与另外含raw_tensor_sha256的metadata全对象比较而退出，原脚本/错误日志保持；按两类字段职责核验后通过，无生产API重跑。R1 intake成文时安装/validate_model_files均0，后续最多一次离线target安装及两模型各一次API按原授权执行；S0本次生产API、安装/框架/模型/GPU均0。

@@ -23,3 +23,5 @@ S0 于2026-09-07 21:21:25–21:21:27 UTC核验12,675条文件路径，证明 `6c
 失败不删除：T1记录器因缺commands父目录产生的启动失败保留，精确开始UTC仍未记录；补目录后的新intake与后续测试/probe/构建/安装通过。S0接收脚本先后因比较项包含snapshot字段、将授权索引当Git文件而退出；两个原脚本及错误日志保留，按实际schema核验后通过，不计产品缺陷或正式修订失败。原R1/T1更早失败及缺失counter保持。
 
 当前修订的真实609输入prepare、13例转换/导出/回读均 **NOT_RUN**；旧成功仅属于原bfdf2a2/f3时点，不能更名为修订已消费。后续[独立复审](../coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)将单独绑定新consumer，排在R1当前模型CPU审查之后；此次仅READY，未提前派发或激活额度。S0本次新生产API、构建/安装、编码、框架/模型/GPU均0。冻结v3的G-DATA批准保持，真实runtime、容量、正式训练/评测/服务仍未验收。
+
+PR18候选CI34162930570双Python各14步骤成功，各986 passed/48 skipped，另独立P00历史组各46 passed。原日志与Git绑定实际CI合并 `9167d439b1a34ee72bf2fc0b4599dcf2f10f8ffd`（父06931e2/1769046），639文件保持631份当时main和8新增文件；第9份candidate改动为main已存在且等字节的固定配置。证明 `9b3d2b8dcdf668356a0597be63dcdfd78f626e8e806134746c5195633ff552ba`；首次S0核验把9份candidate改动均当作main新增的断言失败保留，按实际共同配置映射后通过。此次不是最终集成CI或main验收，R1-r2仍READY未派发。
