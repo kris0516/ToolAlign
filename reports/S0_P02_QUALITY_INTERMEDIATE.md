@@ -21,7 +21,7 @@ S0于01:57 UTC独立核对D1数据模块`53bf6bd617a454c022fdd03c09276b162df1f1f
 
 材料模块`1c90ce0ba5f505e4ca4e7118012c351c5e9dff2e`已实际用两个原有CPU tokenizer引擎生成同16例：10有效train、3原创协议、2直接重标、1后继前缀。S0于02:03 UTC核对99条当前文件/消费源码路径及两份原命令，完整记录逐值相同，逐例原来源/新选择/parent身份、Action文本、全数组mask/next-token shift/EOS/padding相符。两CSV身份不变且判定列全空。证明`20dfcf0d4d0d39c44883b1a501626b8f42f54ea195e52fbcc137edff0f01a2a6`；reference manifest `11469fdf48ff5c8caf5882b5e02f1c66d8a410303320dfbfc4dd57b8e6c65d57`，native manifest `112f63a488672502697996dcc265fadfe1a3a388b9d8d78f2ff28caddc6733be`。
 
-S0没有新增tokenizer/模型/框架运行；两个worker测量合计32条引擎记录，独立例数16。静态文件存在不代表实际浏览器显示，后者继续NOT_RUN。本批将按[精确追加范围](../coordination/tasks/P02_QUALITY_MATERIAL_REVIEW.md)交E1独立填写语义与token/mask两列，当前READY未原生发送；原180来源抽样保持。
+S0没有新增tokenizer/模型/框架运行；两个worker测量合计32条引擎记录，独立例数16。静态文件存在不代表实际浏览器显示，后者继续NOT_RUN。本批已于02:14 UTC按完整eca077730648b91c03781306270356ddd70662ac及[精确追加范围](../coordination/tasks/P02_QUALITY_MATERIAL_REVIEW.md)原生交E1独立填写语义与token/mask两列，显式gpt-6-astra/max；原轮ACTIVE已核验，追加输入intake待确认，原180来源抽样保持。
 
 ## 原32来源的独立初判交接
 

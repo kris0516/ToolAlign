@@ -84,7 +84,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-07 | 委托AI语义审阅交接与CPU整改范围 | 21份封存输出/63份输入及100/13两份AI副本核验；报告标记20个fail来源、12个unknown来源，G-DATA质量CHANGES_REQUESTED。D1数据修订/E1扩展审计CLAIMED待原生分发；见[新范围](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md)及ADR-0022 |
 | 2026-09-07 | 质量修订及扩展审计实际接续 | 按完整2aa0cf4原生派发D1/E1并确认两新轮ACTIVE，gpt-6-astra/max；分支/输入intake待核验，T1/R1无新范围，GPU空闲 |
 | 2026-09-07 | 质量整改两任务intake核验 | D1/E1实际新分支/身份、两份428文件基线和精确配置通过，合计6125条当前输入/旧证据路径保持，证明c1d479b1；继续原轮次，候选及新审计待交付，见[证据](reports/S0_P02_DELEGATED_REVIEW_INTAKE.md) |
-| 2026-09-07 | 质量修订及AI复核中间交接 | 53bf原32来源/40决策暂挂及1c90的16例材料实物核验通过；E1原32独立判断12 fail/17 unknown/3 pass已收，旧标签及暂挂未改；追加16例审阅READY，完整候选/180审计/R1待完成，见[证据](reports/S0_P02_QUALITY_INTERMEDIATE.md) |
+| 2026-09-07 | 质量修订及AI复核中间交接 | 53bf原32来源/40决策暂挂及1c90的16例材料实物核验通过；E1原32独立判断12 fail/17 unknown/3 pass已收，旧标签及暂挂未改；追加16例审阅已按完整eca0777原生发送E1/原轮ACTIVE，intake及完整候选/180审计/R1待完成，见[证据](reports/S0_P02_QUALITY_INTERMEDIATE.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
