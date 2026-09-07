@@ -1,0 +1,1093 @@
+{
+  "G_DATA": "PASS_FROZEN_V3_SCOPE",
+  "actual_final_calls_per_consumer": {
+    "build_calls": 0,
+    "export_review_arrays": 1,
+    "new_encoding_calls": 0,
+    "prepare_v3": 1,
+    "quality_exclusion.verify": 1,
+    "read_review_arrays": 1,
+    "rebind_review_arrays": 1
+  },
+  "authorization_commit": "0fa77e228021091e357505a0e81a5d3ba0777928",
+  "auxiliary_observation_limits": [
+    "Some exploratory rg lookups referenced nonexistent paths; these were read-only lookup failures.",
+    "One native-message wrapper had a JavaScript syntax error before dispatch; corrected dispatch succeeded.",
+    "A read-only result-summary projection expected a mapping where guard_events is a list; it exited 1, then a bounded projection succeeded.",
+    "These exploratory observations have no fabricated structured counter receipts; execution failures above retain complete command receipts."
+  ],
+  "branch": "codex/p04-sft-data-v3-cpu-r1",
+  "browser_actual_observation": "NOT_RUN",
+  "code_base": "48be4352bbad53ced5af84186edac036dd0ff2ca",
+  "commands": [
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/training/test_sft_data_v3.py",
+        "-q",
+        "--basetemp=<scope>/pytest-r1"
+      ],
+      "elapsed_seconds": 1.609379333909601,
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T18:18:34.580149+00:00",
+      "label": "unit-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 1243,
+          "sha256": "0ac1b6a0f8782509132971d9484760b011a92ce3148d0e611970be93422b3e09"
+        }
+      },
+      "receipt_sha256": "59c67535fa14fc0aee282178141f61de7fc4d7696d5b308003ecaaef88f14a7e",
+      "source_module_sha256": "11f08786917d5aa2c2025994326d587bc444adfb5e611996c21f2dc3cddc204a",
+      "started_at_utc": "2026-09-07T18:18:32.932975+00:00",
+      "test_file_sha256": "d7a307177348283e7567a9dba8e006be98efa0f008888fcd0da72b81c41596cf"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/training/test_sft_data_v3.py",
+        "-q",
+        "--basetemp=<scope>/pytest-r2"
+      ],
+      "elapsed_seconds": 1.7672099999617785,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:21:36.045070+00:00",
+      "label": "unit-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 180,
+          "sha256": "92ba45e97570f36e53a4a36b4c8c166be6b948924bea6f4b19ff098761113df0"
+        }
+      },
+      "receipt_sha256": "a7e2615cf422d3656240bfc5c80b31a4cb269d42aa71899cafcff6690ea5338b",
+      "source_module_sha256": "11f08786917d5aa2c2025994326d587bc444adfb5e611996c21f2dc3cddc204a",
+      "started_at_utc": "2026-09-07T18:21:34.252074+00:00",
+      "test_file_sha256": "040e98fc1471d0f95c7b97d7b17b01993eb636653819dbdaa5082bbd961d0812"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/training/test_sft_data_v3.py",
+        "-q",
+        "--basetemp=<scope>/pytest-r5"
+      ],
+      "elapsed_seconds": 1.9688175828196108,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:38:54.137248+00:00",
+      "label": "unit-r5",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 180,
+          "sha256": "ade3517650c3483de01a4e881ccb8d5ce842245489e482025ecdd1dc970cb067"
+        }
+      },
+      "receipt_sha256": "febee711a7fc44d7f86981b162088fc05f838956f80ead65586b23491fb45294",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:38:52.141987+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/contracts",
+        "tests/data",
+        "tests/evaluation",
+        "tests/tools",
+        "tests/runtime",
+        "tests/test_public_content.py",
+        "tests/training/sft/test_preparation.py",
+        "tests/training/test_sft_data_v3.py",
+        "--ignore=tests/data/test_tokenizer_alignment.py",
+        "-q",
+        "--basetemp=<scope>/pytest-r3"
+      ],
+      "elapsed_seconds": 44.52333850017749,
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T18:29:13.816339+00:00",
+      "label": "cpu-r3",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 3878,
+          "sha256": "3e87e55b34ed1a63c203f28b8b91a5ac382fbe47bf1a29d68e2b9874a46bb62b"
+        }
+      },
+      "receipt_sha256": "a27f117a3d8bd5a04077f8e80dd930afda33473980be951b00d753fc9b63f801",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:28:29.266160+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/data/test_pipeline.py::test_public_or_symlink_output_rejected",
+        "tests/data/test_quality_revision.py::test_existing_output_public_output_and_wrong_policy_bytes_are_rejected",
+        "tests/data/test_training_selection.py::test_existing_empty_nonempty_and_symlink_outputs_are_never_overwritten",
+        "-q",
+        "--basetemp=<pytest-public-root>"
+      ],
+      "elapsed_seconds": 0.17584562487900257,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:31:03.593525+00:00",
+      "label": "cpu-environment-fix-r4",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 98,
+          "sha256": "6affff3fa6ce0c6f95578cfcdc5fb8f6e18696d0b51309940bab380bda460a3e"
+        }
+      },
+      "receipt_sha256": "8b2fdaa5e494679055f81cbbc1a7532409bc2f1a20d981eced3a8cbcc2645a66",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:31:03.393488+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.06443600007332861,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:29:34.683204+00:00",
+      "label": "lint-r3",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 19,
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        }
+      },
+      "receipt_sha256": "8eb1cf682f5e05c3eb161f4c10800f27851473f46d61358e9334db8cc5ead638",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:29:34.591333+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/toolalign/training/sft/data_v3.py",
+        "tests/training/test_sft_data_v3.py"
+      ],
+      "elapsed_seconds": 0.05366879212670028,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:39:21.885280+00:00",
+      "label": "lint-r5",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 19,
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        }
+      },
+      "receipt_sha256": "2bef1428f0cb96d7faf7752914b9b3eb61e92231c834926f76cc6bf9d99ec73b",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:39:21.805235+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "scripts/check_contract_freeze.py"
+      ],
+      "elapsed_seconds": 0.01717200013808906,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:29:34.791066+00:00",
+      "label": "contract-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 39,
+          "sha256": "cbd2ccd1c8bb7222da949ce7cca8ba74134a38f89a35b3295062c93c4e10d190"
+        }
+      },
+      "receipt_sha256": "906b9e8ce7a172a1da7a8d220a1b1b399cb67afa325d4f0f6c829c53584521aa",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:29:34.749838+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "scripts/check_public_content.py"
+      ],
+      "elapsed_seconds": 9.724615457933396,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:29:44.609679+00:00",
+      "label": "public-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 92,
+          "sha256": "1b21ef96fd10426345e50754ec132daf7f0c28f84c84d9f99c3daa2fe7522100"
+        }
+      },
+      "receipt_sha256": "85ee55d9729ad346fd9bf56b51e65f5deb77a316890e2c4fcda037ff9694345b",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:29:34.859917+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/fixed_check.py",
+        "source"
+      ],
+      "elapsed_seconds": 0.6333249579183757,
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T18:25:49.254522+00:00",
+      "label": "fixed-source-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 1244,
+          "sha256": "aa2978bc89aff1e6f8e858502bc6d55087a0cd09b5712a46cb3f183fa3527a2c"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "8ce26c4bde9ac38d0f1e68829fc165e08822cc75e13ebdd43b68de3992d00caf",
+      "source_module_sha256": "11f08786917d5aa2c2025994326d587bc444adfb5e611996c21f2dc3cddc204a",
+      "started_at_utc": "2026-09-07T18:25:48.594438+00:00",
+      "test_file_sha256": "040e98fc1471d0f95c7b97d7b17b01993eb636653819dbdaa5082bbd961d0812"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "-I",
+        "-S",
+        "<scope>/installed_check.py"
+      ],
+      "elapsed_seconds": 1.0974097091238946,
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-07T18:34:44.714182+00:00",
+      "label": "fixed-installed-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 1399,
+          "sha256": "5c5f1308d473821502a7cbc5eb6f2ca32163bc36c3061b0f642743610cc392d4"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "aa0c580348f149b658cd1d769d584da413508e618c807e990490f540cbdfad12",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:34:43.590877+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--sdist",
+        "--out-dir",
+        "<scope>/packages/sdist"
+      ],
+      "elapsed_seconds": 0.2114692919421941,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:32:08.244050+00:00",
+      "label": "build-sdist-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 129,
+          "sha256": "27543c330b20f1f90e9515b2578345a97381b032811ea5520b19611da89e522b"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "38ccb8d4f155d598bff3814777e214676063e17d4738d84f82aa0544728c0fb5",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:32:08.007561+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "--out-dir",
+        "<scope>/packages/direct"
+      ],
+      "elapsed_seconds": 0.09836779208853841,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:32:43.910655+00:00",
+      "label": "build-direct-wheel-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 126,
+          "sha256": "1e9e6960d5fb0a3ec6e48214add1477c39ecace7a61d89628b483c37214cc80b"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "23e0b01589e2a34295c820d47febcb7e9d97267defd838b13c1cf72b1c0af097",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:32:43.786666+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "<scope>/packages/sdist/toolalign-0.0.1.tar.gz",
+        "--out-dir",
+        "<scope>/packages/rebuilt"
+      ],
+      "elapsed_seconds": 0.12795766605995595,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:32:44.111532+00:00",
+      "label": "build-rebuilt-wheel-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 152,
+          "sha256": "b3cdedc2a4a36c5edb7df8805fa770a59e275736700fdc3224255784f84ea032"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "37c36b14228ca88b4092039486ff0a9c30ead5014446d38b744753051e5680fc",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:32:43.957613+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--no-python-downloads",
+        "--python",
+        ".venv/bin/python",
+        "--target",
+        "<scope>/installed/default",
+        "<scope>/packages/direct/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "elapsed_seconds": 0.047523749992251396,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:32:44.227575+00:00",
+      "label": "install-default-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 425,
+          "sha256": "432e7e733051743e5087b11b0ca9cb610a9d1de25af50a64ff1575b3e0d79f2b"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "5e4b74cffede0998e2b13312bb2630f56c83e56b31133343ba3999e7515fe11c",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:32:44.156059+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/check_packages.py"
+      ],
+      "elapsed_seconds": 0.044796833069995046,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:33:53.920886+00:00",
+      "label": "packages-verify-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 652,
+          "sha256": "4f6add3c41dde292175ba7e5ee506f844e904135433601b5c6ffb18543693c27"
+        }
+      },
+      "receipt_sha256": "5dc00d4a962a89c8ce02492aad4d27f44e688002fbfc801ffb5a0252f5d2d629",
+      "source_module_sha256": "c7f9149f48628cd13606989daaf2cdc7e545eb904a185f4802fff9e087ddda16",
+      "started_at_utc": "2026-09-07T18:33:53.848215+00:00",
+      "test_file_sha256": "8dbb1c8fa2546c368537634e850d991d7b3e639b3d3c4bc67494f1e954909c15"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--sdist",
+        "--out-dir",
+        "<scope>/packages/sdist-r2"
+      ],
+      "elapsed_seconds": 0.16906812507659197,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:45:51.000690+00:00",
+      "label": "build-sdist-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 132,
+          "sha256": "c9caae4be24cc1f9af6c6a8a5a456d981c831ed4a3f176a9438fa4967c70c026"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "a58e1847c44787fbd2e14e754de9c24cbbc5f154cc3e3a79ca92bcd1b0ecdef3",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:45:50.804712+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "--out-dir",
+        "<scope>/packages/direct-r2"
+      ],
+      "elapsed_seconds": 0.09862941596657038,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:45:51.169452+00:00",
+      "label": "build-direct-wheel-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 129,
+          "sha256": "e7885bc455478dcfe968479d7952098f539a627ec85d9ab8b20ba26b4fae8b49"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "18e994b293cbc9c3feef410afb959ddb30fd1f68fe4d381bec442313245763e8",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:45:51.046985+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "<scope>/packages/sdist-r2/toolalign-0.0.1.tar.gz",
+        "--out-dir",
+        "<scope>/packages/rebuilt-r2"
+      ],
+      "elapsed_seconds": 0.12333820783533156,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:45:51.362429+00:00",
+      "label": "build-rebuilt-wheel-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 155,
+          "sha256": "a9110013c09f936362f092c505d0fa83fe2950a8ef272539cbfc09f32a9daec4"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "c0bfcc86936e55b5932144beb50afb31f5c9d1d0ad3b9d1bd69cbceee7f25743",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:45:51.215120+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--no-python-downloads",
+        "--python",
+        ".venv/bin/python",
+        "--target",
+        "<scope>/installed/default-r2",
+        "<scope>/packages/direct-r2/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "elapsed_seconds": 0.0275521669536829,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:45:51.473286+00:00",
+      "label": "install-default-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 427,
+          "sha256": "cadfafcde3889237784069f68089bc8d6ce75d2c3ba20ef0cc38789abcbe4272"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "d3995d0527fa5b57d2b3df049e3e59df8af0ffc2c83e18f11f8fee0e7c93a9c8",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:45:51.420186+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/check_packages_r2.py"
+      ],
+      "elapsed_seconds": 0.04129837499931455,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:47:01.488630+00:00",
+      "label": "packages-verify-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 652,
+          "sha256": "87c0d2ec44c02f3550d2e6b32f78944b634bee4af5205d7b1436ed81190f5a35"
+        }
+      },
+      "receipt_sha256": "c593bc55cc330be1175195f354b4c02421a2ae8bd7edb9273c1334c98e1d10d2",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:47:01.424910+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/verify_preservation.py"
+      ],
+      "elapsed_seconds": 5.780427833087742,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T18:44:08.429581+00:00",
+      "label": "preservation-after-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 791,
+          "sha256": "520e77d3583dfdc2aac179f568c28dbc9399f942aa56bdc244c81287a6107937"
+        }
+      },
+      "receipt_sha256": "07b28689f5b6b09047bec1dcdfc6392c2ce6b8562631048ef2ee4721be6f1756",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:44:02.621714+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/fixed_check_r2.py",
+        "source"
+      ],
+      "elapsed_seconds": 168.64964145910926,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T19:01:32.497448+00:00",
+      "label": "fixed-source-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 959,
+          "sha256": "2c3bdc9cf6a13a5326e1ef31c463aeda9874f89ce6616329b100518dc8bfef30"
+        }
+      },
+      "receipt_sha256": "76fe139a5be2707713e8e25de7fe922967ed7eddee64f0744a346fdbb7dd9625",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T18:58:43.821060+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "-I",
+        "-S",
+        "<scope>/installed_check_r2.py"
+      ],
+      "elapsed_seconds": 162.01794579206035,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T19:07:13.526776+00:00",
+      "label": "fixed-installed-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 962,
+          "sha256": "6df790490e6cbbe1b11712b204144d89a7a4cd73ecd7817c6d6e84fdce23158a"
+        }
+      },
+      "receipt_sha256": "d289b0399d7018c7771fb528e88302ad9f11cb46f31d8f7e7297c9e88fcba283",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T19:04:31.481776+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_with_private_destinations_replaced": [
+        ".venv/bin/python",
+        "<scope>/compare_delivery.py"
+      ],
+      "elapsed_seconds": 0.05175300012342632,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T19:08:54.621405+00:00",
+      "label": "delivery-compare-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 416,
+          "sha256": "9f04eb7d71f0b0c13daa5cab8fe912cf4bf679cba7c9ef2aec13def08fa3829c"
+        }
+      },
+      "receipt_sha256": "24f618782ff2415c3741940ac53b29974b5f649df35ffc689ab959fe777f910d",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T19:08:54.543085+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    }
+  ],
+  "consumer_identity": {
+    "contract_sha256": "ce17b0a5bc4e8363e1d67bf125212444bab1103ddfc0c4e390bef82afce881cb",
+    "package_files": {
+      "contracts/validation.py": "d9220cab265495ce8be0c19487ff27be1dad736b858ed9d66ec4e360a61aef69",
+      "data/common.py": "89a8edc8a56e8af927d90cb322145464ee94df8a7f3ca9e02030b21397557f32",
+      "data/grouping.py": "6b2e4850594bc4dbb2585f514718e595a7d5438a3d1ea5e26ce2ee5d7206ed94",
+      "data/quality_adjudication.py": "3c7edbc6994b544c2c91cb3652e98f3a9dd6e3393fd2b13176cb629409697405",
+      "data/quality_adjudication_materials.py": "289ae5a919e2aecbf85ef2aab3742e2a79b7d33ae5ac9154405ba3879c485291",
+      "data/quality_exclusion.py": "96728da3d23940442df20bb3ff9238870887b8797affbd0266cdcbc6ea2db201",
+      "data/quality_materials.py": "bed3b5fe3f8c8ae781d7b91a8da673851ac7a15af76de0d41a5995a30729ee7d",
+      "data/quality_revision.py": "cb6dce2a974de6ea1a64fc5ad4970488536fe124302a43ea673cc8b59dd5458c",
+      "data/source_policy.py": "d031f9283db046b38f0b942763f5cc685fae1fede3e5272a33f6fbe926d010cd",
+      "data/toolace.py": "19743cc8428b46545707caeb7113f84b712f8161907f90f8763a0233aba961bb",
+      "data/training_review.py": "f1a7c0ba9d2461a15631f0f9f2394d618a8cf8d33bf8d957e00078d5cabb2097",
+      "data/training_selection.py": "ad3f9c86f125dd8f7c87345fd4f38a1847db986e9157873beea2adafd219b3cd",
+      "model_io/descriptor.v1.json": "e985dd734a6e3478eb14f80d702e1c79817e955d488e6a37ceeab857b4a79207",
+      "model_io/format.py": "84b522170d5c5e11b444842f7123d8656778c9d6aa5a274290089aee11a11d31",
+      "model_io/offline.py": "f1354c349708c09e82661fbde3d7b9b96df16a5f9634b28097b66973bbe4ddf3",
+      "model_io/sequence.py": "b2e5e1f26e7236cfc80f131ac2d2ef48bd59cbe06b30e30872bb4021e0670e63",
+      "tools/_json.py": "15f67a014fc1f2a044b8a180f425ab2cde1d668939c55a96d937e4a23373211b",
+      "training/sft/__init__.py": "b052e5287fabcccd89f4ae5db85db8e87196322c14a597a8e234e8b3b4ad0696",
+      "training/sft/__main__.py": "c3d013c50954b096ad29365c3e45e81b6726454a5204519301ce7f3daffef577",
+      "training/sft/collator.py": "2bee5bcba478134265f19e3c297d4f59b7e6a0edf6545af70c203a57a8ca72f7",
+      "training/sft/config.py": "aede5020b8dce0a71b5d242251878c928c558a796775cfa4e37076a7ecd5fe98",
+      "training/sft/data.py": "4d5e475f27f9699349a4e6fdf46f3187c05001fc0a97c47b4457e809844e45e9",
+      "training/sft/data_v3.py": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "training/sft/mlx_adapter.py": "72010be489316cceaa20e1e35bc223f8f135d3de16d6ab53ddb08fe0e18682ed",
+      "training/sft/plan.py": "d10602b687eef366ef246fd697b4164f5b5af76d9c5dbd3a85d5f34c2326bbd6",
+      "training/sft/validation.py": "b80af4ed4bd39a21a34cf0e114ce506a70c9ae7b7fb62e9175d83871f97167f5"
+    },
+    "python": "3.14.7"
+  },
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1",
+    "toolalign.action-json.qwen3-message-roles.v1"
+  ],
+  "data_binding": {
+    "effective_files": {
+      "effective/train.jsonl": "294876d27b39f9991c274e8aa795b5c352ace5b073d20a19bc40d25fa10e9221",
+      "effective/validation.jsonl": "455eaa4afd773f436f2510ad5325cabeb0edf7852ae5bc8b14599c9b97c3570d"
+    },
+    "manifest_file_sha256": "f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "quality_config_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+    "quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+    "selection_manifest_file_sha256": "d765493c156d047cfaadce9c49e7edf25b973907d6a764f3272090786693efbc",
+    "training_binding_file_sha256": "588c94b6bed580f6ddf0e30eef4442915c24a0dc2ad40f33b2d8772cd4a29059"
+  },
+  "effective_counts": {
+    "train": 7419,
+    "validation": 230
+  },
+  "finalization": "Final document scan, six-file scope check, candidate commit, ordinary push, remote match and terminal seal are bound by the final private handoff receipt. No further real fixed consumption or build/install is authorized.",
+  "fixed_execution_elapsed_seconds": {
+    "installed": {
+      "conversion_export_readback_seconds": 8.097879207925871,
+      "prepare_seconds": 153.53075962513685
+    },
+    "source": {
+      "conversion_export_readback_seconds": 8.413885415997356,
+      "prepare_seconds": 160.08204908389598
+    }
+  },
+  "fixed_input_manifest_sha256": "08e865ff98bd476c94153033bc192664d72cee64443184576532c0289a610dd7",
+  "fixed_input_members": {
+    "copied_bytes": 320921,
+    "exact_copies": 6,
+    "hash_only_no_deserialization_payloads": 3,
+    "read_only_references": 603,
+    "total": 609
+  },
+  "formal_2048_capacity": "NOT_RUN",
+  "formal_training_DPO_evaluation_service": "NOT_RUN",
+  "implementation_checkpoint": "bfdf2a256065d5396e6f7a4860fd7c7506f5c278",
+  "independent_review": "NOT_RUN_FOR_THIS_CANDIDATE",
+  "old_evidence_preservation": {
+    "current_baseline_files": 612,
+    "fixed_inputs_unchanged": 609,
+    "old_branch_refs": 4,
+    "old_dangling_links_preserved": 2,
+    "old_private_file_checks": 5190,
+    "old_public_Git_and_snapshots": 556,
+    "old_symlinks": 197,
+    "root_identity_unchanged": true
+  },
+  "optimization_authorized": false,
+  "packages": {
+    "archives": {
+      "direct": {
+        "bytes": 204581,
+        "regular_members": 70,
+        "sha256": "8070c4954dfb9a60a689b76ccfe46694b35d9dc056a262381de0e26a72aef3dc"
+      },
+      "rebuilt": {
+        "bytes": 204581,
+        "regular_members": 70,
+        "sha256": "8070c4954dfb9a60a689b76ccfe46694b35d9dc056a262381de0e26a72aef3dc"
+      },
+      "sdist": {
+        "bytes": 354205,
+        "regular_members": 143,
+        "sha256": "be725d44fa290eb13072e6f360999c7b9a13edbd5e2b67aa222a0115f1a80ffe"
+      }
+    },
+    "current_group_built_before_final_docs": true,
+    "documentation_does_not_change_packaged_members": true,
+    "downloads": 0,
+    "installed_distributions": {
+      "attrs": "26.1.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "toolalign": "0.0.1"
+    },
+    "installed_toolalign_files": 65,
+    "new_environment_created": false,
+    "old_archive_group_and_default_target_retained": true,
+    "source_default_rebuilt_all_package_bytes_equal": true,
+    "status": "PASS"
+  },
+  "plans": {
+    "formal": {
+      "count": 5938,
+      "epochs": 1,
+      "micro_batch_size": 1,
+      "optimizer_updates_executed": 0,
+      "optimizer_updates_planned": 743,
+      "packing": false,
+      "seed": 42,
+      "segments": [
+        {
+          "divisor": 8,
+          "start": 0,
+          "stop": 5936
+        },
+        {
+          "divisor": 2,
+          "start": 5936,
+          "stop": 5938
+        }
+      ],
+      "shuffle": false,
+      "status": "CPU_PLAN_ONLY",
+      "training_reduction": "mean_of_per_example_completion_token_mean_losses",
+      "truncation": false
+    },
+    "smoke": {
+      "count": 1583,
+      "epochs": 1,
+      "micro_batch_size": 1,
+      "optimizer_updates_executed": 0,
+      "optimizer_updates_planned": 198,
+      "packing": false,
+      "seed": 42,
+      "segments": [
+        {
+          "divisor": 8,
+          "start": 0,
+          "stop": 1576
+        },
+        {
+          "divisor": 7,
+          "start": 1576,
+          "stop": 1583
+        }
+      ],
+      "shuffle": false,
+      "status": "CPU_PLAN_ONLY",
+      "training_reduction": "mean_of_per_example_completion_token_mean_losses",
+      "truncation": false
+    }
+  },
+  "production_pins": {
+    "configs/sft-data-v3.v1.json": "e27a7d4bcdd378944af56559833c3bcd10f601b689a75f1daec96b884bd780c1",
+    "src/toolalign/training/sft/data_v3.py": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+    "tests/training/test_sft_data_v3.py": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+  },
+  "proof_sha256": {
+    "array_container": "9b711be1ba6b301e6efb8c9853c0c6b98fdaa2db9db2e2cd2fa348739ca6ba0b",
+    "array_manifest": "92679555ce08cfcf8cdbd4097343f6535ab2214f991933d41dfbadbdf16993f9",
+    "delivery_comparison": "ca8c3008959d6a9b4478775280d677023c80885ad080de723ae3ca93ccc168d1",
+    "frozen_retry_request": "3e619cb8991cbec5ad7ec87fd8cf6dc2038221797bd00c2f941d79696c558a62",
+    "installed_result": "4237a21dba30e9d3c4cd643d41beffb1ca0259ded1e4918e2ce52ab6da826593",
+    "old_evidence_preservation": "e6ef5436c6aef3262298aca8d4c07506e79a15b43d0ed5fbe8d17c717a8a4eb6",
+    "package_verification": "89cff9aa8459be610025f76706ed38e7a4da4132bb275314695fcd39a800a5e7",
+    "prepared_report": "39803189023ad4ed7136f52abbfc03dc9a1d0aed9405a331b09dcc127517f004",
+    "retry_grant": "0dcef6488eeec3f246560dabd7590a2239fd1238b97073cf5758fb7b8e549bbe",
+    "source_result": "fa9ec294f5eeef84a15f0a435180c4b528f098d181ba3e93c84fbf6c63b8e0fe"
+  },
+  "real_trainer_consumption": "NOT_RUN",
+  "remaining_build_or_install_calls": 0,
+  "remaining_fixed_consumption_attempts": 0,
+  "resource_counts": {
+    "GPU_jobs": 0,
+    "business_APIs": 0,
+    "downloads": 0,
+    "framework_imports_in_fixed_consumers": 0,
+    "full_data_builds": 0,
+    "generations": 0,
+    "model_loads": 0,
+    "model_or_data_uploads": 0,
+    "new_environments": 0,
+    "new_sequence_calls": 0,
+    "new_tokenizer_renderer_encoder_decoder_calls": 0,
+    "optimizer_updates": 0,
+    "paid_resources": 0,
+    "private_artifact_limit_bytes": 1073741824
+  },
+  "retained_failures": [
+    {
+      "cause": "The new path-negative fixture put its supposed public path under a private pytest base.",
+      "command": "unit-r1",
+      "exit_code": 1,
+      "resolution": "Corrected only the new fixture's public-root observation; unit-r2 and final unit-r5 passed.",
+      "result": "96 passed, 1 failed",
+      "retained": true
+    },
+    {
+      "cause": "Three unchanged old tests require a pytest root outside the private output directory.",
+      "command": "cpu-r3",
+      "exit_code": 1,
+      "resolution": "Reran only these three with a fresh public temporary root; 3 passed, old tests and production unchanged.",
+      "result": "758 passed, 3 failed",
+      "retained": true
+    },
+    {
+      "cause": "Initial root binding assumed every historical D1 member lived beneath its logical root; 90 approved references use immutable external artifact paths.",
+      "command": "fixed-source-r1",
+      "evidence_limit": "The pre-verifier failure location is established by retained traceback and source snapshot, not a retroactively claimed counter log.",
+      "exit_code": 1,
+      "reservation_consumed": true,
+      "resolution": "Validate each descriptor against the pinned D1 manifest, preserving strict hash, type and root policy.",
+      "result": "v3_root_binding",
+      "retained": true,
+      "terminal_profile_counters_recorded": false
+    },
+    {
+      "actual_counters": {
+        "build_calls": 0,
+        "export_review_arrays": 0,
+        "new_encoding_calls": 0,
+        "prepare_v3": 1,
+        "quality_exclusion.verify": 0,
+        "read_review_arrays": 0,
+        "rebind_review_arrays": 0
+      },
+      "cause": "The Q1 final seal has 1104 private entries and 3 public Git entries with different path keys.",
+      "command": "fixed-installed-r1",
+      "exit_code": 1,
+      "reservation_consumed": true,
+      "resolution": "Validate both declared forms and the pinned review commit without opening mutable historical public paths.",
+      "result": "KeyError: relative_path",
+      "retained": true,
+      "terminal_profile_counters_recorded": true
+    }
+  ],
+  "retry_authorization_commit": "8c8aff8300bfa564db7d47be79e6c3f764360a8b",
+  "review_arrays": {
+    "Q1_and_original_producer_epochs_bound": true,
+    "effective_training_cases": 10,
+    "export_container_bytes": 2030656,
+    "export_manifest_bytes": 3013,
+    "inherited_original_encodings": 11,
+    "maximum_export_payload_bytes": 16777216,
+    "new_encodings_this_task": 0,
+    "original_engine_records": 26,
+    "output_file_count_per_consumer": 2,
+    "prior_v3_new_encodings": 2,
+    "protocol_diagnostic_cases": 3,
+    "readback_type": "tuple[Batch, ...]",
+    "source_installed_all_positions_equal": true,
+    "token_texts_including_padding_bound": true,
+    "unique_cases": 13,
+    "validated_padded_arrays_per_case": 6,
+    "validated_unpadded_arrays_per_case": 7
+  },
+  "schema": "toolalign.p04.sft-data-v3-cpu-report.v1",
+  "scope": "REVIEW_ARRAY_ADAPTATION_ONLY",
+  "selection_invariants": [
+    "Original JSONL bytes checked before normalized immutable view buffers",
+    "Consecutive v3 rank, original v1 parent rank, verified v2 previous rank",
+    "Whole-source exclusion with stable order; other sources in the same group preserved",
+    "No refill, split/group changes, staging promotion or heldout content views"
+  ],
+  "smoke_1536_capacity": "NOT_RUN",
+  "status": "READY_FOR_REVIEW_CPU",
+  "task": "P04-SFT-DATA-V3-CPU",
+  "tests": {
+    "contract_freeze": "PASS",
+    "counts_are_not_summed_as_unique_coverage": true,
+    "earlier_regular_CPU_selection": {
+      "failed": 3,
+      "includes_earlier_121_new_tests": true,
+      "label": "cpu-r3",
+      "passed": 758
+    },
+    "excluded_unchanged_suites": [
+      "model_io",
+      "tokenizer_alignment",
+      "compatibility",
+      "native_toy",
+      "HF-only"
+    ],
+    "final_new_original_fixtures": {
+      "failed": 0,
+      "label": "unit-r5",
+      "passed": 135
+    },
+    "only_three_failed_unchanged_tests_rerun": {
+      "failed": 0,
+      "label": "cpu-environment-fix-r4",
+      "passed": 3
+    },
+    "public_scan_before_documentation": "PASS",
+    "ruff": "PASS"
+  },
+  "total_conversion_export_readback_groups": {
+    "installed": 1,
+    "source": 1
+  },
+  "total_prepare_attempts_including_retained_failures": {
+    "installed": 2,
+    "source": 2
+  },
+  "training_authorized": false,
+  "upstream_reviews": {
+    "S0_current_ledger_sha256": "022356d8dc6fdf273804d0f78e58416677799e303b0dc1b6a46b1e7b1ffcb992",
+    "S0_data_approval_sha256": "1edb1e889b91dbde5dc6208b8dff2afdaa4b4a20a0ba5c166e9b55750429ec44",
+    "closed_issue_count": 82,
+    "historical_pending_fields_unchanged": true,
+    "quality_Q1_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
+    "quality_reviewer": "Codex-AI(Q1)",
+    "quality_scope": "PASS_WITHIN_FIXED_Q1_SCOPE",
+    "technical_R1_commit": "dbd11d03e69c650efdb330f79ec380dd9914fa89"
+  },
+  "views": {
+    "formal/train": {
+      "count": 5938,
+      "identity_sha256": "93c41855d3b9fd14a33ec83b9515e6cf96d3791c674ad39bc7bfa55c2bc366bb"
+    },
+    "formal/validation": {
+      "count": 213,
+      "identity_sha256": "187b2e23a92d7638049ba1b7ef3572232563e8af52e6e5b6a75997ebe6f0a431"
+    },
+    "smoke/train": {
+      "count": 1583,
+      "identity_sha256": "bb9e01d8da0e8a61bded075d2ddf530eb1c0a2a6baf0fd0560d0fa8092ca6f5d"
+    },
+    "smoke/validation": {
+      "count": 194,
+      "identity_sha256": "870108febc3d3e8465d6a3a84086bfb2f3659c3b728196101669e620c67918ab"
+    }
+  },
+  "worker": "T1",
+  "worker_validation": "PASS_WITH_RETAINED_FAILURES"
+}
