@@ -137,6 +137,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | 固定模型CPU隔离集成 | 普通集成170be42保留原01ee/bdebe，默认CPU973/48跳过、三现存归档/65安装包字节通过；原S0缓存预加载干扰失败保留，最终CI/main待完成；[证据](reports/S0_P04_QWEN_CPU_INTEGRATION.md) |
 | 2026-09-08 | 固定 Qwen 模型接口 CPU 主干验收 | VERIFIED_CPU；[PR17](https://github.com/kris0516/ToolAlign/pull/17)普通合并f27951a，原R1 PASS bdebe4c保持；最终双Python CI与main134CPU、三现存归档/65安装包字节通过；[主干证据](reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。真实模型/容量/正式训练仍未运行 |
 | 2026-09-08 | 数据 R2 intake 与 FD 异常核验 | 92,860路径/16授权/609输入及本轮5原生命令通过；新目录构造失败残留FD已核验652路径/2原命令，拟P2/F2，正式review待交接；T1限域CPU修订CLAIMED待派发；[证据](reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md) |
+| 2026-09-08 | 数据CPU修订R2正式接收 | 原58212d2对1769046正式FAIL，仅F2/P2；S0核验94,238路径/23原命令及唯一固定消费，R1空闲。F1关闭1→0，F2首次1；T1同轮FD修订继续，[证据](reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -182,8 +183,10 @@ P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked py
 
 本地pytest使用任务/轮次独占的新`--basetemp`，避免默认共享根清理历史目录；含public-output假设的测试不置于`.toolalign-local`祖先下。旧全局pytest临时fixture的30文件/1链接原路径缺失已单列，30内容均与现存封存副本一致；见[实际保全记录](reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)。不恢复后冒充原件，不因目录更换重跑既有成功。
 
-最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)已按完整1cb1b0a原生派发/ACTIVE，原模型CPU审查已接收/空闲；新branch/intake待交付。新修订真实数据消费NOT_RUN，原F1保持未关闭，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
+最新修订接收：T1完整1769046已由S0接收，Draft PR18；[独立R1-r2](coordination/tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md)已按完整1cb1b0a原生派发/ACTIVE，原模型CPU审查已接收/空闲；新branch/intake待交付。新修订真实数据消费NOT_RUN，原F1已由58212d2分项关闭，新F2首次计1；旧T1 NOT_RUN时点保持，详情见[证据](reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。
 
 当前数据复审新发现：R1原六项I/O附加检查5PASS/1FAIL，目录替换导致fdopen构造失败残留FD；S0已核验原最小观察/源码与两条原生命令，拟P04-SFT-DATA-V3-F2/P2。原F1及时拒绝分项通过，正式关闭/新增失败计数等精确review交接后登记；中间增量0。[新修订](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md)CLAIMED待派发，仅CPU、无新真实数据调用。
 
 2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。
+
+最新正式数据结论：R1原58212d2对1769046正式FAIL仅新FD构造清理F2/P2，S0已完成94,238路径/23原命令和完整7,928成员/26记录接收，R1原生空闲。F1分项关闭，连续失败1→0；新F2首次计1，84问题中83关闭/1未关闭，无第五次问题。T1同一FD修订已接原正式SHA，当前9e08a096为自测checkpoint，完整交接/独立复审待完成；模型CPU PR17主干验收与G-DATA保持。

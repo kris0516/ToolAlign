@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。冻结v3的G-DATA保持PASS。R1对原数据CPU候选f3正式FAIL/P2=1，原review b99a644已接收/原生空闲，S0核验65,185路径/25原命令；唯一FIFO F1首次正式失败计1。T1完整修订1769046已接收/原生空闲，S0核验12,675路径/26原命令，Draft PR18候选CI通过；精确R1-r2已按完整1cb1b0a原生派发/ACTIVE，新branch/intake已核验92,860路径，完整verdict待交接。E1完整01eeb74d模型CPU候选已获原R1 bdebe4c正式PASS，S0核验90,442路径/23原命令及终态，R1原生空闲；模型包已由PR17普通合并f27951a并完成最终双Python CI/main134CPU、三归档/65安装包绑定，VERIFIED_CPU；真实模型/容量/正式P04仍未授权。
+更新时间：2026-09-08。冻结v3 G-DATA PASS及模型CPU PR17/main f27951a验收保持。R1数据R2原58212d2对1769046正式FAIL仅新F2/P2，S0核验94,238路径/23原命令和唯一固定消费，R1原生空闲；F1关闭1→0，F2首次1。T1已按df37a3c同轮修订FD清理，9e08a096为自测checkpoint，完整candidate/精确复审待完成。真实模型/容量/正式P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -274,3 +274,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 22:52:39/22:57:21 UTC，R1数据R2 intake及目录FD新发现分别通过S0 92,860/652路径核验，证明 `bf9068ed5fc4cd49436618fd4fe862ce6f24b214c84559cb5f6c02406711a772` / `55931af2acaaa97fad5212ad442127763f7fb55d529397d71979322da9a42954`。原附加六项为5PASS/1FAIL、最小无包装观察已关闭自有残留FD；长期累积为源码推论，新F2拟P2，正式review待交接、中间计数增量0。T1限域FD修订CLAIMED待派发，无新增真实数据/模型额度；[证据](../reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md)。
 
 2026-09-07 23:03:59 UTC，S0核验T1旧轮completed/notLoaded与干净1769046后，按完整df37a3c原生启动FD清理修订/ACTIVE，gpt-6-astra/max。656路径/12授权/7输入通过；旧GPU owner metadata保留且实际锁未持有。新branch/intake待交付，原R1继续冻结1769046正式封存；T1旧621公开通过原Git/快照保全，无新真实数据/模型额度。
+
+2026-09-07 23:19:19 UTC，S0完整接收数据R2原review58212d2，证明 `b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a`。94,238路径/23原命令、626公开及T1旧621历史映射、唯一安装消费7,928成员/26完整记录通过；原147PASS和附加5PASS/1FAIL保持。R1原生23:09:12 UTC completed/idle，F1分项关闭、新F2首次正式失败1，84问题/83关闭。T1同范围接入原582与修订继续，原消费额度不增加；[正式接收](../reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md)。

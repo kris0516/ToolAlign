@@ -1,5 +1,6 @@
 # P04-SFT-DATA-V3-R2｜特殊文件修订独立复审
 
+当前正式状态：CHANGES_REQUESTED。原review `58212d26bdb1c6a681a1ac34ccae854daefca8d3` 对1769046正式FAIL，仅新F2/P2；原F1分项PASS已关闭，F2首次计1。S0于23:19:19 UTC完成94,238路径/23原命令接收，原生23:09:12 UTC completed/idle；[正式接收](../../reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md)。以下派发/intake记录按原时点保留。
 状态：IN_PROGRESS。S0核验原bdebe4c模型轮completed/idle及核心封存后，于2026-09-07 22:20:19 UTC按完整 `1cb1b0a6ffc157edcb53b41f21cef883f4729d13` 原生派发并核验新轮ACTIVE，gpt-6-astra/max；新branch/身份/intake待交付。实际新scope额度仅按下述范围执行，旧模型和旧数据scope额度保持0。沿用独立R1任务及自己的隔离worktree，gpt-6-astra/max，禁止sub-agent。新分支 `codex/review-p04-sft-data-v3-r2`、新私有scope `review-p04-sft-data-v3-r2`；由S0派发完整authorization_commit。
 
 精确candidate/checkout base `1769046468eb2ebfdd9e982ba4938833760e3fe0`，tree `1373bd4c838a1af395a1ede4f7c4d7029ffad271`，源码parent `53d86109f18e4131cff1ddcb905086892580d136`。原f3候选直接承接关系及原b99正式FAIL不可改写。S0完整接收证明 `6c7cbc37e690cb270d3b33d80e0934efe1b0881191cedb6ec65e2d239e3ae39b`，见[修订接收](../../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)。[原审查范围](P04_SFT_DATA_V3_REVIEW.md)和[原正式接收](../../reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md)作只读历史；原轮所有消费额度均0，不在旧scope重跑。

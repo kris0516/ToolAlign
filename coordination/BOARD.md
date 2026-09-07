@@ -37,7 +37,7 @@
 | [P04-SFT-DATA-V3-CPU](tasks/P04_SFT_DATA_V3_CPU.md) v3数据与审阅数组衔接 | T1；R1独立审查 | 已验收48be435/G-DATA v3 | CHANGES_REQUESTED | 原R1 b99a644正式FAIL/P2=1，S0核验65,185路径/25命令；修订1769046完整接收通过，Draft PR18/R1-r2 READY待派发 |
 | [P04-SFT-DATA-V3-R1](tasks/P04_SFT_DATA_V3_REVIEW.md) v3数组衔接技术复核 | R1 | 精确f3b7f1a1完整候选 | CHANGES_REQUESTED | b99a644原生空闲；唯一FIFO F1首次正式失败1，正常消费PASS保持，[接收](../reports/S0_P04_DATA_V3_REVIEW_HANDOFF.md) |
 | [P04-SFT-DATA-V3-NONREGULAR-FIX](tasks/P04_SFT_DATA_V3_NONREGULAR_FIX.md) 特殊文件非阻塞拒绝 | T1 | 原f3b7f1a1/正式b99a644 F1 | READY_FOR_REVIEW | 完整1769046/原生空闲；S0核验12,675路径/26命令及三归档，Draft PR18；[完整接收](../reports/S0_P04_DATA_V3_NONREGULAR_FIX_HANDOFF.md)，R1-r2 READY |
-| [P04-SFT-DATA-V3-R2](tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md) 特殊文件修订复审 | R1 | 精确1769046/原正式b99 F1 | IN_PROGRESS | 原bdebe模型轮接收/空闲后，按完整1cb1b0a原生派发/ACTIVE；新branch/身份/intake待交付 |
+| [P04-SFT-DATA-V3-R2](tasks/P04_SFT_DATA_V3_NONREGULAR_REVIEW.md) 特殊文件修订复审 | R1 | 精确1769046/原正式b99 F1 | CHANGES_REQUESTED | 原58212d2正式FAIL仅新F2/P2；原F1关闭，F2首次计1；94,238路径/23原命令已接收，R1原生空闲；[证据](../reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md) |
 | [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | VERIFIED（CPU） | PR17普通合并f27951a，原R1 PASS bdebe4c保持；最终双Python CI/main134CPU、三现存归档/65安装包绑定通过；[主干证据](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md) |
 | [P04-QWEN-MODEL-R1](tasks/P04_QWEN_MODEL_REVIEW.md) 固定模型接口独立复核 | R1 | 精确01eeb74d完整候选 | ACCEPTED | 原bdebe4c正式PASS/P0/P1/P2均0，完整封存和原生空闲已核验；旧b99及缺失例外保持 |
 | [P04-SFT-DATA-V3-FD-CLOSE-FIX](tasks/P04_SFT_DATA_V3_FD_CLOSE_FIX.md) 构造异常清理 | T1；R1独立复审 | 精确1769046及新F2最小证据 | IN_PROGRESS | 目录替换后FD残留已核验，完整R1 verdict待交接；已按完整df37a3c原生ACTIVE，新branch/intake待交付，仅CPU |
