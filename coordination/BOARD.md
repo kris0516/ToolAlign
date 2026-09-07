@@ -16,8 +16,8 @@
 | [P02-QUALITY-REMEDIATION](tasks/P02_QUALITY_REMEDIATION.md) 来源暂挂与新版本候选 | D1；R1/S0验收 | 已验证86b80ba、ADR-0022 | VERIFIED（CPU） | PR12普通合并6c81dfc；原R1 PASS1e45cf2、最终双Python CI及main1,186CPU/2跳过，见[主干证据](../reports/S0_P02_QUALITY_MAIN_VERIFICATION.md) |
 | [P02-QUALITY-ADJUDICATION](tasks/P02_QUALITY_ADJUDICATION.md) 裁定后新数据版本 | D1 | 已验证6c81；ADR-0024 | VERIFIED（CPU） | PR14普通合并d3e56f6；原R1 PASS d5b8、最终双Python CI/main62测试与三归档绑定通过；质量整改继续 |
 | [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | VERIFIED（CPU） | 原d5b8 PASS/原生空闲；随PR14普通合并并完成最终CI/main验证 |
-| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1 | 已验证d3e56f6；ADR-0025 | READY_FOR_REVIEW | 完整5825d789交付/原生空闲，S0核验32,579路径/44命令及实际编码/归档；[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)，待R1/Q1/main |
-| [P02-QUALITY-EXCLUSION-R1](tasks/P02_QUALITY_EXCLUSION_REVIEW.md) v3技术独立复核 | R1 | 精确5825d789 | IN_PROGRESS | 按完整7a731c5原生ACTIVE；S0核验33,422路径/644链接、19授权/347输入及新身份，独立结论待交付 |
+| [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1；S0集成 | 已验证d3e56f6；ADR-0025 | ACCEPTED（CPU） | 原R1 PASS dbd11d0、S0完整接收与隔离424f158实测839CPU/48跳过、21拒绝/6对照及三归档/安装通过；[证据](../reports/S0_P02_QUALITY_V3_INTEGRATION.md)，PR15最终CI/main及Q1待完成 |
+| [P02-QUALITY-EXCLUSION-R1](tasks/P02_QUALITY_EXCLUSION_REVIEW.md) v3技术独立复核 | R1 | 精确5825d789 | ACCEPTED | 原dbd11d0 PASS/P0/P1/P2均0、原生空闲；S0核验52,757路径/1,235链接、30命令/11时点；[接收](../reports/S0_P02_QUALITY_V3_INTEGRATION.md) |
 | [Q1-P02-v3-r5](tasks/Q1_P02_V3_REVIEW.md) 实际排除与13例材料 | Q1 | 精确5825d789/294固定输入 | IN_PROGRESS | 按完整21f9210原生ACTIVE；输入b2ae9153/配置e6a1c4ac，原9c/556公共及767 scope保全，4,811路径/16授权/294输入intake已核验；[范围](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md) |
 | [Q1-P02-v3-sources-r4](tasks/Q1_P02_V3_SOURCE_REVIEW.md) 两替换来源提前审核 | Q1 | 固定2来源/3目标/8原turn | ACCEPTED（来源） | 原9c12c47正式交付/原生空闲；S0核验3,671路径/34命令，2来源/3Action及前缀PASS，旧issue计数不变；实际v3材料待后续审核 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |

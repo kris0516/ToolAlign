@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
+更新时间：2026-09-08。P02 v3 CPU技术ACCEPTED；原R1 PASS dbd11d0已交付/原生空闲，S0核验52,757路径/30命令后普通隔离集成424f158，839CPU/48跳过、21拒绝/6对照及三归档/64安装包文件通过。PR15最终CI/main及Q1 r5实际处置与材料裁定待完成；旧82问题仍81关闭/1待修、最高连续失败1，G-DATA/P04未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；D1完整v3已接收/PR15候选CI通过，R1 ACTIVE/Q1 r5 ACTIVE |
+| 当前任务/分支 | S0 main/隔离424f158的v3 CPU集成通过；PR15最终CI/main待完成，R1已接收/空闲、Q1 r5 ACTIVE |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1完整5825d789已交付/空闲；R1精确v3按7a731c5原生ACTIVE、完整intake已核验；Q1 r5固定294输入按21f9210原生ACTIVE，新分支/完整intake的4,811路径、16授权/294输入已核验；T1方案已接收/空闲、E1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1完整5825d789已交付/空闲；R1原dbd11d0技术PASS已正式接收/空闲；Q1 r5固定294输入按21f9210原生ACTIVE，新分支/完整intake的4,811路径、16授权/294输入已核验；T1方案已接收/空闲、E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -28,6 +28,8 @@
 精确本机路径、task ID、自动跟进 ID 和对话映射保存在 `.toolalign-local/`，不提交公开仓库。
 
 ## 当前门槛
+
+v3技术已ACCEPTED，S0隔离集成424f158实测839CPU/48跳过、21拒绝/6对照、现存归档与安装通过；[接收与集成](../reports/S0_P02_QUALITY_V3_INTEGRATION.md)。以下原intake/候选CI记录保留其发生时间；PR15最终CI/main与Q1正式裁定继续待完成。
 
 ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)继续。Q1完整9c12c47的2来源/3目标PASS已正式接收、原生空闲；S0核验3,671路径/34命令，14:48:51 UTC已按精确放行1eeea3bd原生通知D1进行原两例/两engine共4次新sequence生成。D1完整5825d789已接收，S0核验32,579路径/44原命令/18 epoch及完整13例和实际归档；[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)，候选CI双Python全部28步骤及实际590合并文件通过；R1按7a731c5原生ACTIVE，S0核验33,422路径/644链接；Q1 r5固定294输入与配置按21f9210原生ACTIVE，S0已核验4,811路径及16授权的完整intake，后续独立审核和G-DATA/P04未验收。[本轮冻结](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md)。[Q1接收与放行](../reports/S0_P02_Q1_V3_SOURCE_ADJUDICATION.md)。
 
