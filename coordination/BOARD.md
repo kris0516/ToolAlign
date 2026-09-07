@@ -18,7 +18,7 @@
 | [P02-QUALITY-ADJUDICATION-R1](tasks/P02_QUALITY_ADJUDICATION_REVIEW.md) 新版技术审查 | R1 | 精确1c47e6a | VERIFIED（CPU） | 原d5b8 PASS/原生空闲；随PR14普通合并并完成最终CI/main验证 |
 | [P02-QUALITY-EXCLUSION-v3](tasks/P02_QUALITY_EXCLUSION.md) 定点来源排除与材料复用 | D1 | 已验证d3e56f6；ADR-0025 | READY_FOR_REVIEW | 完整5825d789交付/原生空闲，S0核验32,579路径/44命令及实际编码/归档；[Draft PR15](https://github.com/kris0516/ToolAlign/pull/15)，待R1/Q1/main |
 | [P02-QUALITY-EXCLUSION-R1](tasks/P02_QUALITY_EXCLUSION_REVIEW.md) v3技术独立复核 | R1 | 精确5825d789 | IN_PROGRESS | 按完整7a731c5原生ACTIVE；S0核验33,422路径/644链接、19授权/347输入及新身份，独立结论待交付 |
-| [Q1-P02-v3-r5](tasks/Q1_P02_V3_REVIEW.md) 实际排除与13例材料 | Q1 | 精确5825d789/294固定输入 | CLAIMED | 输入b2ae9153和配置e6a1c4ac已冻结，原9c/空闲/556公共及767 scope保全，待原生派发；[范围](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md) |
+| [Q1-P02-v3-r5](tasks/Q1_P02_V3_REVIEW.md) 实际排除与13例材料 | Q1 | 精确5825d789/294固定输入 | IN_PROGRESS | 按完整21f9210原生ACTIVE；输入b2ae9153/配置e6a1c4ac，原9c/556公共及767 scope保全，新intake待核验；[范围](../reports/S0_P02_Q1_V3_REVIEW_DISPATCH.md) |
 | [Q1-P02-v3-sources-r4](tasks/Q1_P02_V3_SOURCE_REVIEW.md) 两替换来源提前审核 | Q1 | 固定2来源/3目标/8原turn | ACCEPTED（来源） | 原9c12c47正式交付/原生空闲；S0核验3,671路径/34命令，2来源/3Action及前缀PASS，旧issue计数不变；实际v3材料待后续审核 |
 | [P02-QUALITY-REVIEW](tasks/P02_QUALITY_REVIEW.md) 修订技术独立审查 | R1 | 精确9b7cf01 | VERIFIED（CPU） | 原PASS1e45cf2保持；随PR12普通合并并完成最终CI/main验证，质量门槛保持 |
 | [Q1-AI-REVIEW](tasks/Q1_AI_REVIEW.md) 后续委托AI审核 | 独立Q1 | ADR-0023 | ACCEPTED（首轮与r2） | 原5100/42d9保留SHA整合；两轮已接收/空闲，新版候选已交付，新Q1范围准备中 |
