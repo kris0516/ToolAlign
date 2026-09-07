@@ -150,7 +150,7 @@ P02 v3 CPU技术VERIFIED；PR15普通合并`90c4da99f093b846a6b0ca0343d8293739ce
 
 Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10a22a08c3c3e2eccfc469d1a29a950ced33af18`；84来源/103决策实际处置、13唯一材料/两engine26记录PASS。P02-Q-081第2次正式审核PASS，连续失败1→0；82已登记问题均关闭使用/技术整改门槛，所有旧事件与FAIL/UNKNOWN保持。G-DATA为PASS_FROZEN_V3_SCOPE，精确批准见[数据批准](coordination/approvals/P02_DATA_V3.json)及[接收说明](reports/S0_P02_Q1_V3_ADJUDICATION.md)。冻结D1候选中的历史pending和旧台账不回写；当前批准单独绑定。
 
-全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标。当前无问题达到阈值。Q1/R1/D1/E1无新派发；T1的v3数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，新branch/612基线/20授权/609输入完整intake由S0核验通过，7,010路径证明e6d4c83e；见[当前范围](coordination/tasks/P04_SFT_DATA_V3_CPU.md)。R1后续审查PLANNED，待完整candidate/原生终态。真实trainer消费、0.6B1536及1.7B2048容量、明确P04运行配置/GPU预算仍待独立范围；training_authorized=false。浏览器实显NOT_RUN单列。
+全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩；同一问题连续第五次正式修订未通过才暂停整个目标。当前无问题达到阈值。Q1/R1/D1无新派发；E1固定Qwen模型接口CPU范围已按ADR-0027 CLAIMED/42输入冻结，待原生派发；T1的v3数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，新branch/612基线/20授权/609输入完整intake由S0核验通过，7,010路径证明e6d4c83e；见[当前范围](coordination/tasks/P04_SFT_DATA_V3_CPU.md)。R1后续审查PLANNED，待完整candidate/原生终态。真实trainer消费、0.6B1536及1.7B2048容量、明确P04运行配置/GPU预算仍待独立范围；training_authorized=false。浏览器实显NOT_RUN单列。
 
 最多两个实现、独立R1、统一gpt-6-astra/max和单一共享GPU租约保持。S0本次main及质量接收无新构建/安装/编码/模型/框架运行，无费用、数据/模型上传或公网服务。P00–P09持续目标仍未完成。
 

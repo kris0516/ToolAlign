@@ -288,3 +288,11 @@ ADR-0025主干与质量验收补记（2026-09-08）：PR15普通合并90c4da9，
 日期：2026-09-08；状态：已采纳，T1任务CLAIMED待原生派发。G-DATA已通过冻结v3，PR15/R1/Q1及S0批准保持。先用新精确配置接入既有只读verifier与四个SelectionView，将13份已审数组转换到原Sequence/Batch并做有限导出/回读；不以修改旧v1配置校验来接受任意manifest。新模块独立，旧公共代码/契约/锁文件/默认CLI和toy保持，配置由S0固定。[任务](tasks/P04_SFT_DATA_V3_CPU.md)、[配置](../configs/sft-data-v3.v1.json)和[冻结证据](../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)。
 
 选择已封存数组衔接是因为格式、语义与mask已经独立审核，当前未知是实际CPU消费者的身份、rank/类型和数据接入。此步骤不需要再编码或认证未审全库。D1历史pending/FAIL及原时间保持，新S0数据批准单独绑定；3原创协议例继续训练外。源/安装版各一组固定消费，新增真实编码/模型/框架/GPU/优化0；独立R1与main验证后才准备真实runtime和容量范围。正式训练授权继续false。
+
+## ADR-0027｜数据无关的固定Qwen加载接口并行CPU实现
+
+日期：2026-09-08；状态：已采纳，E1任务CLAIMED待原生派发。T1继续原v3数据/数组CPU范围；将固定本地Qwen文件验证、延迟loader和LoRA参数身份拆为独立 `model_io/qwen_model.py`，供后续训练和推理共同使用。此接口不依赖变化中的数据适配，因此可以在最多两个实现任务内并行推进；不提前实现训练循环、评测生成或扩大GPU许可。[任务](tasks/P04_QWEN_MODEL_CPU.md)、[固定metadata](../configs/qwen-models.v1.json)、[原字节与冻结证据](../reports/S0_P04_QWEN_MODEL_CPU_PREPARATION.md)。
+
+两个已在本机的原模型及现有库/源码由S0固定，metadata只绑定身份、不提供执行许可。明确区分311个序列化BF16 tensor、sanitize后的预期310底座叶和112个LoRA A/B；记录双EOS及原采样默认值。E1仅做CPU测试与有限真实文件hash/header核对，不导入框架或反序列化tensor。T1当前 data_v3.py 与旧公共代码/配置不变，不要求T1提前消费E1候选。两包分别经R1与main验收后，T1真实runtime应复用此共同接口，避免另写加载/adapter身份逻辑。旧只读方案作为历史提案保留，新所有权以本ADR和完整任务授权为准。
+
+R1按两包完整候选的实际交付和资源状态逐包接续；仅在各worker原生终态后分发精确候选。S0后续冻结容量与运行配置；本包模型/框架/GPU/新编码和正式训练额度为0，原费用、隐私与单一共享租约边界保持。
