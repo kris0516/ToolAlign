@@ -1,6 +1,7 @@
 """Original tiny fixtures. No production corpus, tokenizer or model is opened."""
 
 import copy
+import errno
 import json
 import os
 import subprocess
@@ -889,3 +890,166 @@ def test_regular_read_keeps_size_hash_and_budget_errors(tmp_path, kwargs, error)
     path.write_bytes(b"original I/O fixture")
     with pytest.raises(DataError, match=error):
         v._read(path, **kwargs)
+
+
+def _assert_descriptor_closed(fd):
+    with pytest.raises(OSError) as error:
+        os.fstat(fd)
+    assert error.value.errno == errno.EBADF
+
+
+def test_directory_replacement_fdopen_failure_closes_real_descriptor(tmp_path, monkeypatch):
+    path = tmp_path / "original-directory-replacement"
+    path.write_bytes(b"")
+    original_open = os.open
+    opened = []
+
+    def replace_before_open(target, flags, *args, **kwargs):
+        assert Path(target) == path and not opened
+        assert flags & os.O_NONBLOCK and flags & os.O_NOFOLLOW
+        path.unlink()
+        path.mkdir()
+        fd = original_open(target, flags, *args, **kwargs)
+        opened.append(fd)
+        return fd
+
+    with monkeypatch.context() as patch:
+        patch.setattr(v.os, "open", replace_before_open)
+        with pytest.raises(DataError, match="^v3_input_io_failure$") as error:
+            v._read(path, size=0, content=False)
+    assert isinstance(error.value.__cause__, IsADirectoryError)
+    assert path.is_dir() and len(opened) == 1
+    _assert_descriptor_closed(opened[0])
+
+
+@pytest.mark.parametrize("error_type", [OSError, ValueError, KeyboardInterrupt])
+def test_fdopen_constructor_failure_closes_owned_fd_and_preserves_error(
+    tmp_path, monkeypatch, error_type,
+):
+    path = tmp_path / "original-constructor-failure"
+    path.write_bytes(b"original fixture")
+    original_close, opened, closed = os.close, [], []
+    original_error = error_type("original constructor error")
+
+    def failed_fdopen(fd, mode):
+        assert mode == "rb"
+        opened.append(fd)
+        raise original_error
+
+    def observed_close(fd):
+        closed.append(fd)
+        return original_close(fd)
+
+    with monkeypatch.context() as patch:
+        patch.setattr(v.os, "fdopen", failed_fdopen)
+        patch.setattr(v.os, "close", observed_close)
+        expected_type = DataError if error_type is OSError else error_type
+        with pytest.raises(expected_type) as error:
+            v._read(path)
+    assert len(opened) == 1 and closed == opened
+    _assert_descriptor_closed(opened[0])
+    if error_type is OSError:
+        assert str(error.value) == "v3_input_io_failure"
+        assert error.value.__cause__ is original_error
+    else:
+        assert error.value is original_error
+
+
+def test_fd_cleanup_error_does_not_replace_constructor_cause(tmp_path, monkeypatch):
+    path = tmp_path / "original-cleanup-failure"
+    path.write_bytes(b"original fixture")
+    original_close, opened, closed = os.close, [], []
+    original_error = OSError(errno.ENOMEM, "original stream construction failure")
+
+    def failed_fdopen(fd, mode):
+        opened.append(fd)
+        raise original_error
+
+    def close_then_error(fd):
+        closed.append(fd)
+        original_close(fd)
+        raise OSError(errno.EIO, "original cleanup error fixture")
+
+    with monkeypatch.context() as patch:
+        patch.setattr(v.os, "fdopen", failed_fdopen)
+        patch.setattr(v.os, "close", close_then_error)
+        with pytest.raises(DataError, match="^v3_input_io_failure$") as error:
+            v._read(path)
+    assert error.value.__cause__ is original_error
+    assert len(opened) == 1 and closed == opened
+    _assert_descriptor_closed(opened[0])
+
+
+def test_failed_open_does_not_close_any_descriptor(tmp_path, monkeypatch):
+    path = tmp_path / "original-open-failure"
+    path.write_bytes(b"original fixture")
+    original_error = PermissionError(errno.EACCES, "original open failure")
+    closed = []
+
+    def failed_open(*args, **kwargs):
+        raise original_error
+
+    with monkeypatch.context() as patch:
+        patch.setattr(v.os, "open", failed_open)
+        patch.setattr(v.os, "close", closed.append)
+        with pytest.raises(DataError, match="^v3_input_io_failure$") as error:
+            v._read(path)
+    assert error.value.__cause__ is original_error and closed == []
+
+
+@pytest.mark.parametrize("outcome", ["content", "hash_only", "read_error", "stat_error"])
+def test_stream_owns_transferred_fd_on_success_and_later_errors(tmp_path, monkeypatch, outcome):
+    path = tmp_path / "original-stream-ownership"
+    payload = b"original stream ownership fixture\x00\xff\n"
+    path.write_bytes(payload)
+    original_fdopen, original_fstat = os.fdopen, os.fstat
+    streams, descriptors, exits, raw_closes = [], [], [], []
+    original_error = OSError(errno.EIO, "original stream I/O failure")
+
+    class ObservedStream:
+        def __init__(self, stream):
+            self.stream = stream
+
+        def __enter__(self):
+            self.stream.__enter__()
+            return self
+
+        def __exit__(self, *args):
+            exits.append(args[0])
+            return self.stream.__exit__(*args)
+
+        def fileno(self):
+            return self.stream.fileno()
+
+        def read(self, *args):
+            if outcome == "read_error":
+                raise original_error
+            return self.stream.read(*args)
+
+    def observed_fdopen(fd, mode):
+        stream = original_fdopen(fd, mode)
+        streams.append(stream)
+        descriptors.append(fd)
+        return ObservedStream(stream)
+
+    def observed_fstat(fd):
+        assert descriptors == [fd]
+        if outcome == "stat_error":
+            raise original_error
+        return original_fstat(fd)
+
+    with monkeypatch.context() as patch:
+        patch.setattr(v.os, "fdopen", observed_fdopen)
+        patch.setattr(v.os, "fstat", observed_fstat)
+        patch.setattr(v.os, "close", raw_closes.append)
+        if outcome.endswith("error"):
+            with pytest.raises(DataError, match="^v3_input_io_failure$") as error:
+                v._read(path)
+            assert error.value.__cause__ is original_error
+        else:
+            result = v._read(path, digest=v._sha(payload), size=len(payload),
+                             content=outcome == "content")
+            assert result == (payload if outcome == "content" else None)
+    assert len(streams) == len(descriptors) == len(exits) == 1
+    assert streams[0].closed and raw_closes == []
+    _assert_descriptor_closed(descriptors[0])

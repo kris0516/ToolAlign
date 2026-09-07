@@ -90,7 +90,20 @@ def _read(path, *, digest=None, size=None, content=True, limit=_MAX_FILE):
         require(stat.S_ISREG(path.lstat().st_mode), "v3_regular_file_budget")
         # A regular path can become a FIFO after lstat. Open without waiting for
         # a writer, then reject the actual object through the same descriptor.
-        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), "rb") as stream:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+        try:
+            stream = os.fdopen(fd, "rb")
+        except BaseException:
+            # Until construction succeeds, the reader still owns the raw FD.
+            # A cleanup error must not replace the original constructor error.
+            try:
+                os.close(fd)
+            except OSError:
+                pass
+            raise
+        # Successful construction transfers cleanup to the stream, even when
+        # validation or reading raises; never close the transferred FD again.
+        with stream:
             info = os.fstat(stream.fileno())
             require(stat.S_ISREG(info.st_mode) and info.st_size <= limit, "v3_regular_file_budget")
             require(size is None or info.st_size == size, "v3_input_size_mismatch")
