@@ -1,6 +1,6 @@
 # P02-QUALITY-REVIEW-r1｜质量修订技术独立审查
 
-状态：IN_PROGRESS。S0已核验R1原轮completed/notLoaded及干净67976fd，按完整6e9d29b2d408f9e3a2f319406b05eb1a97b16153实际派发精确9b7cf01并确认新原生轮ACTIVE；branch/input intake待核验。语义裁定由独立Q1承接，E1继续原固定审计；本包技术PASS不等于G-DATA或P04通过。
+状态：IN_PROGRESS。S0已核验R1原轮completed/notLoaded及干净67976fd，按完整6e9d29b2d408f9e3a2f319406b05eb1a97b16153实际派发精确9b7cf01并确认新原生轮ACTIVE；branch/input intake已由S0直接核验：440候选、428不变基线、10授权文件与原seal匹配；合并Q1的本次1024路径证明e6b6adf3。语义裁定由独立Q1承接，E1继续原固定审计；本包技术PASS不等于G-DATA或P04通过。
 
 - owner：R1；复用原独立 App 任务及自己的隔离 worktree，gpt-6-astra / max。
 - 精确候选/code_base：`9b7cf019b1d55501a7e656dbfb79b13bc7369fa0`；原实现已验证基线 `86b80bada50ac7c8f4b3910e3831a397ed65a853`；原 D1 授权 `2aa0cf4a756e78d32cf10130edbe6d0e3925bf3a`。

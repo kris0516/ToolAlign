@@ -15,3 +15,9 @@ E1追加材料intake已由S0核对192路径/75副本/4授权，证明`1825eae3b6
 独立技术结论、E1完整扩展审计、Q1裁定、新数据最终版本、最终CI/main及正式模型容量/P04仍待完成。training_authorized=false，原P00–P09目标继续ACTIVE。
 
 02:44 UTC实际派发：S0创建Q1独立任务并读回真实身份、ACTIVE轮次、新review/q1-quality-r1分支和7授权副本；同一完整6e9d29b授权派发R1精确9b7技术审查，新轮ACTIVE。未重复创建Q1，App列表未即时显示时用实际身份和原生状态确认；两个新scope完整intake待交接。30分钟原自动跟进已更新并读回ACTIVE/原频率/五次政策。
+
+02:53 UTC，R1/Q1的完整intake合计1,024当前路径核验通过，证明`e6b6adf3c4703a0e6e7e157afc013a92d74b537d24e0a87497b7ba39a221c949`。R1实际精确9b7的440候选/428基线、10授权和原seal；Q1实际86b80的428基线/7授权、38原载荷与副本、14来源/15决策均对应。两者继续原ACTIVE轮，结论待交付。
+
+E1已封存16例最终AI审阅，S0核对138路径、120封存文件及15关联证据，证明`fc673f57c9e416cde9a9f558fc6a0afbb2e750f65d740e45535a4279ad42600b`。语义14 pass/1 fail/1 unknown、mask16 pass；10实际train来源全部11决策覆盖，3协议和3staging分母单列、晋升0。新PDF仍fail，聚类后继unknown；两直接草案的建议pass不改变暂存/长度门。E1检查器首次误期望旧HTML ModelInput区块的exit1和脚本/日志保留，修正为实际完整Example后通过；S0未增加分词/模型。
+
+02:56 UTC建立[Draft PR12](https://github.com/kris0516/ToolAlign/pull/12)，精确head9b7cf01、创建时base2ee1123；候选[CI34077964683](https://github.com/kris0516/ToolAlign/actions/runs/34077964683)实际IN_PROGRESS，未宣称通过。无本机gh命令时使用现有GitHub connector，未安装新工具。PR保持Draft，R1/Q1及E1最终范围继续。
