@@ -24,3 +24,8 @@ E1 原 da22baf 类型修订已 completed/notLoaded、分支干净。S0 复核原
 本轮 S0 新模型/框架/GPU/编码/数据构建/下载/安装均 0，未运行生产测试。E1 的实际新身份/intake、完整候选/CPU 证据、R1、最终 CI/main 均待完成。后续真实参数、容量、零 LoRA/冻结底座与 adapter 重载须另有运行证据；不存在正式模型训练、评测或服务验收。
 
 实际派发：2026-09-07 18:21:42 UTC，S0再次核验E1旧轮completed/notLoaded、干净da22baf和完整授权 `427e5e8fb49a4719afd5e09b53c2d012c52e7e80` 远端一致后，原生接续E1，显式gpt-6-astra/max；新轮ACTIVE已确认。新branch/14授权副本/42输入完整intake待交付，尚未登记实现或运行通过。T1继续原CPU数据范围，当前两个实现，R1/Q1/D1无新派发。
+
+
+2026-09-07 18:34:20 UTC，S0核验E1真实新分支/身份、617基线、14授权副本、42输入及旧证据，4,266路径通过，证明 `4b1ef1f20cb8b6d09f18b7c366ae84a7530bb5aff758d1f75e73a712cad27cf5`。实现方receipt实际列4,135文件；将receipt本身另计所得4,136不作为其内部清单数。原两条intake/切支命令exit0及原stdout/stderr已绑定，完整candidate与原生命令交叉核对仍待正式交付。
+
+构建前提已核验：18:43:55 UTC，S0只读检查现存Python 3.14.7构建runtime，Hatchling 1.27.0、packaging 26.3、pathspec 1.1.1、pluggy 1.6.0、trove-classifiers 2026.6.1.19与168项RECORD hash一致，196路径及Hatchling CLI/uv入口通过；证明 `34753a7bc583fb15635c372c02675cb0a210a18127c49a681f2f6b3f87c2bff0`。允许E1在原三归档及默认target范围只读复用该既有runtime，具体路径仅私有消息提供；用`-B`/`PYTHONDONTWRITEBYTECODE=1`，产物留在本轮scope，离线安装使用现有uv且不更新cache。新增环境/依赖安装、S0构建/target、模型/框架调用均0。

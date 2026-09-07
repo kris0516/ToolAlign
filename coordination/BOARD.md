@@ -36,7 +36,7 @@
 | [P04-SFT-RUNTIME-PROPOSAL](tasks/P04_SFT_RUNTIME_PROPOSAL.md) 真实模型接口只读方案 | T1；S0接收 | 已验证d3；固定10份源码/元数据 | ACCEPTED（方案） | 原4baa367交付/原生空闲，S0核验5,744路径/20命令/35来源80区间，普通合并7bf05d1；[接收](../reports/S0_P04_RUNTIME_PROPOSAL_ACCEPTANCE.md)，无新生产/模型授权 |
 | [P04-SFT-DATA-V3-CPU](tasks/P04_SFT_DATA_V3_CPU.md) v3数据与审阅数组衔接 | T1；R1独立审查 | 已验收48be435/G-DATA v3 | IN_PROGRESS | 按完整0fa77e2原生ACTIVE；固定609输入08e865ff/配置e27a7d4b；7,010路径完整intake/612基线与旧证据保全通过；[准备](../reports/S0_P04_DATA_V3_CPU_DISPATCH.md)，新编码/模型0 |
 | [P04-SFT-DATA-V3-R1](tasks/P04_SFT_DATA_V3_REVIEW.md) v3数组衔接技术复核 | R1 | 待T1完整candidate/原生终态 | PLANNED | 范围已准备，精确candidate/授权/独立消费额度待冻结；尚未派发 |
-| [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | IN_PROGRESS | 按完整427e5e8原生ACTIVE；42输入/配置b8a5e48b保持，3,503路径/旧E1保全通过；[准备](../reports/S0_P04_QWEN_MODEL_CPU_PREPARATION.md)，新intake待交付 |
+| [P04-QWEN-MODEL-CPU](tasks/P04_QWEN_MODEL_CPU.md) 固定模型加载与参数身份 | E1；R1独立审查 | 已验证a2b595c生产基线；固定模型metadata | IN_PROGRESS | 按完整427e5e8原生ACTIVE；42输入/配置b8a5e48b保持，3,503准备及4,266路径intake通过，既有离线构建runtime核验；[准备](../reports/S0_P04_QWEN_MODEL_CPU_PREPARATION.md)，完整candidate待交付 |
 | [P04](tasks/P04_SFT_BASELINES.md) 原始模型/SFT | T1 | P01/P02/P03已验收；待CPU衔接/容量/运行配置 | BLOCKED（模型运行） | G-DATA已PASS；T1 CPU衔接ACTIVE/intake已验证，正式模型运行仍NOT_RUN |
 | [P05](tasks/P05_PREFERENCE_DPO.md) 偏好与 DPO | T1；D1 配合 | P04 | BLOCKED | NOT_RUN |
 | [P06](tasks/P06_EVALUATION_ABLATIONS.md) 固定协议评测 | E1 | P04；DPO 对照需 P05 | BLOCKED | NOT_RUN |

@@ -1,6 +1,6 @@
 # P04-QWEN-MODEL-CPU｜固定本地 Qwen 加载与参数身份
 
-状态：IN_PROGRESS，E1；已于2026-09-07 18:21:42 UTC按完整授权 `427e5e8fb49a4719afd5e09b53c2d012c52e7e80` 原生派发并核验新轮ACTIVE。新branch/14授权/42输入intake待交付。此 CPU 实现与 T1 的 v3 数据/数组衔接并行，互不依赖变化中的代码；两个包各自通过 R1、最终 CI/main 后，才可供 T1 的真实运行接口复用。采用独立 E1 App 任务，gpt-6-astra/max，禁止 sub-agent。
+状态：IN_PROGRESS，E1；已于2026-09-07 18:21:42 UTC按完整授权 `427e5e8fb49a4719afd5e09b53c2d012c52e7e80` 原生派发并核验新轮ACTIVE。实际新branch/617基线/14授权/42输入已由S0核验，4,266路径证明 `4b1ef1f20cb8b6d09f18b7c366ae84a7530bb5aff758d1f75e73a712cad27cf5`。此 CPU 实现与 T1 的 v3 数据/数组衔接并行，互不依赖变化中的代码；两个包各自通过 R1、最终 CI/main 后，才可供 T1 的真实运行接口复用。采用独立 E1 App 任务，gpt-6-astra/max，禁止 sub-agent。
 
 code_base `a2b595c39d84f4e3ba32ee5893f3fff8c9202f4d`；authorization_commit 由 S0 实际原生消息提供完整 SHA。固定输入 manifest 为 `41aadaa79eac7467c7ef2b7c39a0524ec894d1b0e9c616d7a6ab303d05e33cc5`，旧 E1 保全证明 `61caaa835a609cc598f8480b0741eb1e115f80c54f077c2876df3970b9378144`。新分支 `codex/p04-qwen-model-cpu-r1`，新私有 scope `p04-qwen-model-cpu-r1`。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1 和 ADR-0027。切换前保存完整授权副本及旧审计/类型修订 seal、所有旧 FAIL/PASS、分支和根 identity；新身份只写新 scope。
 
@@ -31,3 +31,5 @@ CPU 验证以原创小 fixture 和模拟对象为主：错误目录/hash/header/
 首次 intake：保存完整授权中的 AGENTS、GOAL、PROTOCOL、REVIEW_POLICY、REVIEW_FAILURES、RESOURCE_LOCK、DECISIONS、本任务、configs/qwen-models.v1.json、S0 本次准备报告、原 runtime 方案.md/.json、S0 方案接收报告、S0 P02 审计主干报告，共14份。私有输入42成员（13精确副本/29只读引用），副本748,369 bytes；复制原 manifest 与13副本，其余按清单只读。原E1 da22baf的498公开Git/快照、1,209旧scope文件、原2,943接收路径、39链接文本和旧refs/根identity保持。冻结总证明 `9157b518ed35bd13caf693b0457d8157113c55c1e266b68eb8240148618c76ff`。[准备报告](../../reports/S0_P04_QWEN_MODEL_CPU_PREPARATION.md)。新branch/base、真实原生身份、授权/输入和保全结果由S0核验后继续原轮实现。
 
 元数据文件的 `is_run_authorization=false` 说明该文件不是运行许可；它的预期参数和源码身份供未来已授权调用方校验，不是要求永久禁用将来真实 loader。E1本轮没有任何真实模型调用许可；后续S0任务/精确运行配置与调用方物理租约分别承担执行许可和资源控制。源码/模拟测试不得冒充真实加载，生产入口不提供跳过固定字节/来源/租约验证的参数。原创fixture只提交JSON或普通代码，临时小safetensors在测试目录生成，不提交任何权重文件。
+
+构建支持补充：S0已核验既有离线Hatchling 1.27.0 runtime，证明 `34753a7bc583fb15635c372c02675cb0a210a18127c49a681f2f6b3f87c2bff0`，具体路径由同轮原生消息提供。可在原三归档/默认target范围只读复用，用`-B`与`PYTHONDONTWRITEBYTECODE=1`，输出仅新scope；现有uv只离线、无依赖、无cache写入安装。无需新环境或依赖下载，不扩大模型/数据运行许可。

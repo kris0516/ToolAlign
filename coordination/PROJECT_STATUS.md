@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，612基线/20授权/609输入完整intake经S0核验通过，7,010路径证明e6d4c83e；E1的固定Qwen模型接口CPU包已按完整427e5e8原生ACTIVE，新intake待交付；正式模型运行及P04仍未授权。
+更新时间：2026-09-08。P02 v3技术主干VERIFIED，PR15合并90c4da9；Q1原7941实际处置与13材料PASS已接收，82问题全部关闭，G-DATA PASS（冻结v3）。T1的SFT数据/审阅数组CPU适配已按完整0fa77e2原生ACTIVE，612基线/20授权/609输入完整intake经S0核验通过，7,010路径证明e6d4c83e；E1的固定Qwen模型接口CPU包已按完整427e5e8原生ACTIVE，4,266路径intake及既有离线构建runtime核验通过；正式模型运行及P04仍未授权。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -14,7 +14,7 @@
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
 | 当前任务/分支 | S0 main；PR15技术及Q1质量已验收，T1 CPU适配ACTIVE/intake已验证 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1 5825、R1 dbd11d0、Q1 7941均已正式接收/空闲；T1接续v3 CPU适配原生ACTIVE；E1固定模型CPU范围原生ACTIVE/intake待交付；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 5825、R1 dbd11d0、Q1 7941均已正式接收/空闲；T1接续v3 CPU适配原生ACTIVE；E1固定模型CPU范围原生ACTIVE/intake已核验；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1下一v3数据与固定13例数组CPU适配已按完整0fa77e2原生ACTIVE，code_base48be435和609固定输入/配置e27a7d4b保持，新branch/intake待交付；真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
+T1下一v3数据与固定13例数组CPU适配已按完整0fa77e2原生ACTIVE，code_base48be435和609固定输入/配置e27a7d4b保持，新branch/intake已核验；真实trainer消费、容量实测、明确模型运行配置与GPU预算仍待后续范围。formal/train实际5,938且不补选，smoke/train1,583；所有旧training_authorized=false保持，正式baseline/SFT/DPO/评测/服务NOT_RUN。浏览器实显0页/NOT_RUN单列。以下时间线保留各次实际状态，当前状态以本节为准。
 
 ## 恢复入口
 
