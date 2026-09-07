@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；D1 v3定点排除与Q1两来源审核已原生ACTIVE |
+| 当前任务/分支 | S0 main/PR14 CPU技术VERIFIED；Q1两来源PASS已接收，D1 v3原两例编码已精确放行 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | D1 v3实际branch/intake已核验通过；Q1固定两来源实际branch/intake已核验3,506路径；T1只读方案实际branch/intake已核验5,617路径/197链接、原轮ACTIVE，R1/E1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | D1 v3继续ACTIVE、原两例新编码已放行；Q1完整9c12c47来源PASS已接收/空闲；T1只读方案ACTIVE，R1后续v3审查PLANNED未派发、E1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -29,7 +29,7 @@
 
 ## 当前门槛
 
-ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)已冻结，D1 347输入/精确配置和Q1固定2来源/3目标/8turn已按完整3e18145原生派发并确认新轮ACTIVE，intake待交付。预计有效7419/formal5938，原代表材料11例复用、2新增；仅在S0收到Q1新来源结论后放行4次新序列生成。实际v3数据/材料、R1及Q1后续核验均未交付，G-DATA/P04保持未授权。
+ADR-0025：[v3定点范围](../reports/S0_P02_QUALITY_V3_SCOPE.md)继续。Q1完整9c12c47的2来源/3目标PASS已正式接收、原生空闲；S0核验3,671路径/34命令，14:48:51 UTC已按精确放行1eeea3bd原生通知D1进行原两例/两engine共4次新sequence生成。D1两份实际数据回报有效7419/formal5938、11旧材料复用和42定点自测通过，完整候选/封存仍待接收；后续R1/Q1实际处置/材料和G-DATA/P04未验收。[Q1接收与放行](../reports/S0_P02_Q1_V3_SOURCE_ADJUDICATION.md)。
 
 P02新版CPU技术VERIFIED；PR14合并d3e56f6及原R1 PASS d5b8、最终CI/main证据保持。Q1完整8a738ab已交付/原生空闲，S0核验3,135路径与80原命令并保留原SHA整合。旧83来源实际处置PASS，77旧排除问题关闭、3恢复及TYPE-001保持关闭；新P02-Q-081首次失败计1，下一版需整来源排除2决策并重绑材料。82问题中81关闭/1待修，未达第五次暂停；G-DATA/P04未授权。
 
@@ -223,3 +223,5 @@ P04原生toy完整交接：f7326d1823c4cf132ae44525f4755c96c88ec159实际远端�
 14:19 UTC接续：D1/Q1完整v3 intake分别经S0核验15,904路径/327链接和3,506路径通过；T1只读方案已于14:15:28 UTC按完整8929cbb原生派发/ACTIVE，新branch/intake待交付。D1编码仍待Q1精确来源结论与S0放行；无新GPU/正式训练。
 
 14:28:40 UTC，T1只读方案实际新branch/intake经S0核验5,617路径/197链接、553基线/408旧Git快照、18授权/10输入及2原回执通过；证明eeaa498e。D1同轮回报21项原创CPU定点自测通过，完整v3构建0/2、新编码0/4，仍待Q1正式裁定及S0放行；自测不替代独立R1。
+
+14:48:51 UTC，Q1新两来源正式PASS已接收并普通整合eab828f；3,671路径/34原命令/49真实exec调用和终端034退出绑定通过。原P02-Q-081保持计数1，新增问题0。S0按精确JSON1eeea3bd原生放行D1的两固定新例/两engine共4次新sequence生成；旧11例（含3协议例）保持原编码。完整候选、独立技术及实际材料审核继续待交付。

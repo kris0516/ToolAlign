@@ -1,6 +1,6 @@
 # P02-QUALITY-EXCLUSION-v3｜排除一处新来源问题并复用已测材料
 
-状态：IN_PROGRESS。已于13:55:51 UTC按完整3e18145b66baa7bce498926869b2d52bd0503453原生派发D1并核验新轮ACTIVE，gpt-6-astra/max；实际新branch/精确d3与完整intake已于14:08:52 UTC由S0核验15,904路径/327链接、553基线/16授权/347输入/3原命令通过。依赖PR14的CPU主干VERIFIED与Q1原8a738ab正式交付。R1后续技术复核、Q1实际处置/材料验收与G-DATA仍待完成。
+状态：IN_PROGRESS。已于13:55:51 UTC按完整3e18145b66baa7bce498926869b2d52bd0503453原生派发D1并核验新轮ACTIVE，gpt-6-astra/max；实际新branch/精确d3与完整intake已于14:08:52 UTC由S0核验15,904路径/327链接、553基线/16授权/347输入/3原命令通过。依赖PR14的CPU主干VERIFIED与Q1原8a738ab正式交付。R1后续技术复核、Q1实际处置/材料验收与G-DATA仍待完成。14:48:51 UTC，S0已正式接收Q1原9c12c47的两来源PASS，并按精确放行JSON1eeea3bd45daa8caf5d2867efa5859a446673888993aaaf9cc3a21b80ca555fd原生通知D1执行原两例编码；实际编码/完整候选待交付。
 
 - code_base：已验证main `d3e56f68ebd67cc576d912b6f06636682b4170ab`。
 - 新branch：`codex/p02-quality-exclusion-v3`；新私有scope：`quality-exclusion-v3`，只在自己的隔离worktree操作。原1c47候选、旧分支和全部封存保持；不pull/reset/rebase原分支。

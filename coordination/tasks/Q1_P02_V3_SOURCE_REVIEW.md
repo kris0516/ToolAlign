@@ -1,6 +1,6 @@
 # Q1-P02-v3-sources-r4｜独立审核两个固定替换来源
 
-状态：IN_PROGRESS。已于13:55:51 UTC按完整3e18145b66baa7bce498926869b2d52bd0503453原生派发Q1并核验新轮ACTIVE，gpt-6-astra/max；实际新branch/精确d3与完整intake已于14:19:16 UTC由S0核验3,506路径、553基线/13授权/8输入/16原命令通过。此范围与D1的v3 CPU实现并行，提前判定新来源，尚无v3数据/编码交付。
+状态：ACCEPTED（仅来源语义）。完整9c12c47fd815f86992078313bac88dcec253f37f已正式交付/原生空闲；S0核验3,671路径/34原命令/49真实exec调用并普通整合eab828f。2来源/3Action及前缀/6调用PASS，无新增问题；14:48:51 UTC已按精确S0放行原生通知D1执行原两例编码。[接收证据](../../reports/S0_P02_Q1_V3_SOURCE_ADJUDICATION.md)。实际v3排除/材料、G-DATA/P04仍待验，以下冻结审核范围保持。
 
 code_base：已验证main `d3e56f68ebd67cc576d912b6f06636682b4170ab`；新branch `review/q1-quality-v3-sources-r4`，新私有scope `q1-v3-sources-r4`。保持独立App任务、gpt-6-astra/max；先从完整authorization_commit保存AGENTS、GOAL、PROTOCOL、REVIEW_POLICY、REVIEW_FAILURES、本任务/配置、D1任务、ADR-0025及Q1前轮接收报告，再从code_base新建分支。原8a738ab、原分支、根identity及全部旧私有seal/失败不改，不pull/reset旧分支。
 
