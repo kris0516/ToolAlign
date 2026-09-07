@@ -1,0 +1,17 @@
+# P02新版数据与材料：主干CPU验收
+
+**VERIFIED，仅CPU技术子包。** [PR14](https://github.com/kris0516/ToolAlign/pull/14)普通合并为`d3e56f68ebd67cc576d912b6f06636682b4170ab`；原D1候选`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`和独立R1 PASS`d5b8d17207be7295f3ae5c6a51edd9b8fe968001`均保留。Q1质量整改和正式训练门槛继续独立维护。
+
+[最终CI34126191678](https://github.com/kris0516/ToolAlign/actions/runs/34126191678)的Python3.11/3.14两job各14步骤全部成功，各766 passed/48 optional skipped、另46项P00；归档检查排除241私有canary，保留18公开fixture。真实CI checkout为`9913428f287d5fc57e3cc0424dd291f2794c6d58`，父提交为`23af69863f8b01f6fa38a921ea030c43bf8d9031`与最终PR head`e96759a44de9ccf8b7025c12ec2aec08b0a2679b`。不能使用connector返回的旧base字段替代真实checkout；S0直接核对日志和Git父提交。
+
+CI、PR head与实际main的tree均为`f9a1f7b7b1837c14806bae9438050c8e40a129ef`，553份文件逐字节一致。CI绑定证明`f2ad4b9c2de23ce2de4e50d855fdfcd6d372b98fe9b9b4532826b77ca9021f93`；两个原job日志SHA为`5901bb1a846cca7c3a634c8ccfd83140a54761d4d238b2bb44990f8a231999c2`和`5cdc2da54ca42e7dd1be4adaf1843a89c10a89fa433d2a803498ceb24c191d9f`。
+
+实际main运行**62 passed/0 skipped**：53项本次变更测试和9项独立R1边界反例。Ruff、四契约冻结、公开扫描553路径及diff检查通过，共5条命令exit0，执行前后main提交和553源码字节不变；24个实际导入模块来自main源码。已通过的[隔离集成](S0_P02_QUALITY_V2_INTEGRATION.md)775 passed/48 skipped保留原时点，不计作本次62项main执行。
+
+main另将三份现存归档全部成员及62个现存安装包文件绑定当前源码：sdist 134成员，两wheel各67成员；sdist SHA`d89d391c00aa1f8dde989b3078a345f241a177ff0cf8f9d319e51d95681d5bfc`，两个wheel均为`9b877e659d0c8057529384b53c9730e63656cb0e530df04d20629eb9d4cf4385`。原D1构建/R1安装/S0集成verify的真实时点保留；本轮main新增构建、安装、安装入口调用、数据构建与材料编码均0。
+
+main证明`29bedc94e062f71eaccdbc30f434472b8d3a4fbe30619efb7658c381109d4e7e`于13:20:47 UTC核对1,234路径/11链接、5条原命令、CI与现存安装/归档绑定。main本轮无失败；前一集成Ruff环境值错误、原D1/R1的所有失败和编码源码时点均完整保留。复现argv、UTC、stdout/stderr、源码与原始数据仅存本机私有证据。
+
+可用能力为按冻结83来源裁定执行80来源/98决策整来源排除、3/3原字节恢复，保留原split/group/父rank、不补选和staging不晋升；版本化数据/选择与13例完整材料技术绑定已验收。有效train/validation为7,421/230，formal为5,940/213，smoke为1,583/194。
+
+Q1中间确认原83来源实际处置和全部13例mask，但另发现一来源历史矛盾，完整语义结论、issue事件和终态封存待接收。下一质量修订尚未生成。G-DATA仍未通过，training_authorized=false；旧SFT prepare仍拒绝新版selection，未来适配需单独任务。正式模型训练/评测、浏览器实显与服务部署均NOT_RUN，无新增框架/GPU、费用、数据/模型上传或公网服务。

@@ -1,6 +1,6 @@
 # P02-QUALITY-ADJUDICATION-R1｜新版数据与材料技术独立审查
 
-状态：ACCEPTED（CPU技术）。原R1审查d5b8d17207be7295f3ae5c6a51edd9b8fe968001对精确1c47e6a正式PASS，原生completed/idle；S0核验29,543路径/769链接、28原命令/8源码时点和三归档/62安装包文件，见[接收证据](../../reports/S0_P02_QUALITY_V2_REVIEW_ACCEPTANCE.md)。以下冻结任务范围保持。
+状态：VERIFIED（CPU技术）。PR14普通合并d3e56f68ebd67cc576d912b6f06636682b4170ab，原候选1c47与独立R1 PASS d5b8保持；最终双Python CI及实际main62测试/三归档绑定通过，见[主干证据](../../reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md)。Q1质量整改、G-DATA/P04仍待完成。以下冻结任务范围保持。
 
 - 精确候选：`1c47e6af6af3e3419db97bdbb1296e6f56e04c2b`；原已验证生产基线`6c81dfcc855fca188181d1bb08870f47d8edacc9`。
 - 原D1授权：`f8b81b9783892669d19aafee5a1d82a4a8409cd3`；修正后生产/测试提交`f7acd93595bfeb5e81b6eafe53c8d4106ce10a68`。本轮S0 authorization_commit由私有分发词提供。

@@ -1,6 +1,6 @@
 # P02-QUALITY-ADJUDICATION｜采用独立裁定的新数据版本
 
-状态：ACCEPTED（CPU技术）。完整1c47候选的原R1 PASS d5b8已由S0接收，原生空闲；PR14最终集成/CI/main和Q1完整质量结论仍待完成，见[接收证据](../../reports/S0_P02_QUALITY_V2_REVIEW_ACCEPTANCE.md)。以下原冻结授权保持。
+状态：VERIFIED（CPU技术）。PR14普通合并d3e56f68ebd67cc576d912b6f06636682b4170ab，原候选1c47与独立R1 PASS d5b8保持；最终双Python CI及实际main62测试/三归档绑定通过，见[主干证据](../../reports/S0_P02_QUALITY_V2_MAIN_VERIFICATION.md)。Q1质量整改、G-DATA/P04仍待完成。以下冻结任务范围保持。
 
 - code_base：已验证PR12 main `6c81dfcc855fca188181d1bb08870f47d8edacc9`。
 - 新branch：`codex/p02-quality-adjudication-r2`，仅自己的隔离worktree；原`work/p02-quality-remediation`的9b7cf01与旧产物保持，不pull/reset/rebase旧分支。
