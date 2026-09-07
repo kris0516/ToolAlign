@@ -1,6 +1,6 @@
 # P02 quality-audit-r1｜复核证据
 
-本轮实际内容提交为 `e5030e917e249eaa456f116b1b6490abae9c7e30`，parent 为采样器提交 `7298456d5b54361beed0df681964078bc200957a`，tree 为 `4c2f941b7c1b4545a52e4152165f3794fe1450f0`。本文件和交接单随后仅作文档提交；最终完整 SHA、parent/tree、公开检查与私有封存由原生交接按实际结果登记。本轮只作本地提交，没有 push。
+本轮实际内容提交为 `e5030e917e249eaa456f116b1b6490abae9c7e30`，parent 为采样器提交 `7298456d5b54361beed0df681964078bc200957a`，tree 为 `4c2f941b7c1b4545a52e4152165f3794fe1450f0`。本文件和交接单随后仅作文档提交；首个文档提交为 `fde0f4c9baee3c083807023d085aed34b168ea9f`，之后补记下述封存清单失败。最终完整 SHA、parent/tree、公开检查与私有封存由原生交接按实际结果登记。本轮只作本地提交，没有 push。
 
 日志中的 HEAD 是各命令实际执行时的 HEAD。初始 fixture 在基线 HEAD、两个尚未追踪的原创脚本上运行，精确脚本字节由采样器 worktree manifest 映射至 `7298456`。其后新增脚本在该 HEAD 的工作文件上执行，八份最终报告目录文件由 implementation worktree manifest 映射至 `e5030e9`，没有把后来提交冒写为先前运行 HEAD。两个 manifest 的 SHA 分别为私有原记录所载，以及 `9c2c3b355bfda1a8ec3166ea39234bd7d0bf67f9c8c354c74472dbf3f91638b3`。
 
@@ -21,10 +21,15 @@
 | delivery-lint | 0 | 本报告目录 Ruff | `82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18` |
 | preservation-final | 0 | 4,441 个不同文件的封存/范围核对 | `dd0826c34713c90e2be0d8e9ebf9f54a2b3a0e049a9d4cf9a3f37f77c53f8ae8` |
 | public-content-candidate | 0 | 436 路径 index 与 working tree 启发式扫描 | `60e284bc324ea890c92c4dfcdd384463a5dc5b321ba15ae367976ce709570f32` |
+| final-candidate，首个文档提交 | 0 | 精确八份内容文件、私有导出计数、十路径范围 | `1b99f6c99d34ad93ae6f7f5afb33dea7fcddc6325e469c673a31c6d4e14cdd94` |
+| public-content-final，首个文档提交 | 0 | 438 路径启发式扫描 | `885836f27a69a563a8939f6f6ad47858b481707d98d3765f255b53dc6cf18f43` |
+| final-seal 首次 | **1** | E1 清单脚本拒绝先前 fixture 留下的本目录符号链接 | `a7bf21bffb93764655ecfe2fa1d7190cbc8f133b17da7b05904b95f9a91da1ae` |
 
 所有命令的完整 argv、真实 UTC、elapsed、exit、HEAD、index tree 和日志 hash 保存在本机原始检查记录；包含私有输入路径的命令不公开。初始 sampler-lint、审阅汇总前的 audit-ruff-final 也保留原记录，未代替或重复运行未变的生产测试。
 
 首次材料检查失败仅因 E1 检查器的 HTML 区块假设错误。修改前检查器已保存，SHA 为 `343f197f11322b5edd8ad14fd5cb13cac4e4d80013e5ec04fb2ea3b810abaa73`；之后将该一处检查改为比对实际完整 Example，原 Sequence/padding/mask 断言全部保留。原 D1 材料不变，第一次失败日志不删除。辅助只读定位也曾因猜测文件名出现 exit1/2；显示截断的语义材料均在判定前补读完整。没有为未单独落盘的辅助读取伪造“原始日志 hash”。
+
+首次最终封存也 exit1：先前 12 项原创 fixture 的 pytest 临时目录留下一个 `current` 符号链接，E1 清单脚本禁止任何链接，尚未写出 seal 即停止。已保存失败脚本、原日志和说明；修正为记录链接目标字符串及 hash、不跟随链接，并核实其指向本审计目录。该修正不改变测试、原数据、判断或汇总。最终再次封存的实际结果由私有最终 receipt 与原生交接登记。
 
 保全核对包含 428 份基线追踪文件、3,235 件旧私有制品、13 项原始输入、21 项旧委托封存文件、追加 105 项原输入与 75 份私有副本，以及本轮各级样本/判断 seal；重复绑定只算一次不同文件。原三条工作/远端跟踪 refs 保持。精确输入、名单、group/split 与原审查字节不变。公开文件另与本批来源 hash、Example/group 标识及完整原句比对；启发式扫描不是全面隐私保证。该检查时新增私有制品为 28,979,268 bytes，最终交接另登记封存后的大小，额度为 1 GiB。
 
