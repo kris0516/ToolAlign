@@ -20,3 +20,5 @@
 核对E1实际三归档的成员、源载荷、metadata/entry points/LICENSE/RECORD及构建源码时点；可直接使用绑定的默认wheel，一次离线`--no-deps`安装到R1新target，外部cwd核对纯导入/拒绝及固定文件验证来自安装目录。新归档构建0，除非独立发现具体归档缺陷后由S0调整范围。只跑本次相关CPU和独立反例、ruff、契约、公开扫描；无关历史HF/数据/toy组不重复跑，重复用例不累加成独立计数。
 
 保留实际argv/UTC/exit/原始stdout/stderr、源码/consumer时点、所有失败和最终seal。给出精确candidate的PASS/FAIL/BLOCKED与P0/P1/P2；只提交本轮审查目录和handoff，review直接以该candidate为parent。普通推送、原生回报完整candidate/review/tree/parents/封存后结束；普通回报省略model/thinking。PASS仍需S0整合/最终CI/main，真实模型与容量另审；同问题第五次规则由S0按正式台账执行。
+
+R1旧证据保全补充：S0证明 `94054f2922bf7d75c883bff3f3ab52c6c7f4fdea0d371bf9ea16ca05c4818b90` 核对571旧公开Git/快照、989旧scope文件和1,234现存链接；原全局pytest临时fixture的30文件路径及1链接缺失，30份内容与既有封存副本hash/大小一致并已另存。按[S0实际记录](../../reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)和私有精确缺失/映射清单继承，不恢复成原件、不写成全部原路径仍在；旧PASS/FAIL和counter保持。首次intake保存本报告及该保全proof/精确清单，后续pytest用独占新basetemp。

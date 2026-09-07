@@ -26,3 +26,5 @@
 正式输出精确 candidate 的 PASS/FAIL/BLOCKED 与 P0/P1/P2。审查提交直接以该 candidate 为 parent，只含本轮审查目录和 handoff；普通推送并原生向 S0 交付完整 SHA、tree/parents、原始失败、实物索引与 seal 后结束。普通回报省略 model/thinking。PASS 后仍需 S0 整合、最终 CI/main 验证；真实 runtime 和模型额度另行冻结。同问题第五次规则由 S0 按正式问题台账执行，不把非阻断建议扩展成无限整改。
 
 T1中间复测按S0完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活，精确批准[本轮CPU复测](../approvals/P04_DATA_V3_PREPARE_RETRY_R2.json)。R1 intake需保存该批准与原失败/所有修订证据；不能将135自测或S0重试前置核验当作正式技术PASS。实际最终候选及新复测终态仍待S0接收。
+
+R1旧证据保全补充：S0证明 `94054f2922bf7d75c883bff3f3ab52c6c7f4fdea0d371bf9ea16ca05c4818b90` 核对571旧公开Git/快照、989旧scope文件和1,234现存链接；原全局pytest临时fixture的30文件路径及1链接缺失，30份内容与既有封存副本hash/大小一致并已另存。按[S0实际记录](../../reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)和私有精确缺失/映射清单继承，不恢复成原件、不写成全部原路径仍在；旧PASS/FAIL和counter保持。首次intake保存本报告及该保全proof/精确清单，后续pytest用独占新basetemp。

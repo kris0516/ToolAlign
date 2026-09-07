@@ -56,6 +56,8 @@ worker 不执行其他 worktree 的 git reset/clean/stash，不 force push main�
 
 worktree 是版本控制隔离，不是 OS 安全沙箱；脚本、数据和凭据权限仍需单独限制。
 
+本地多任务运行pytest时，显式指定本任务/本轮独占的新`--basetemp`，不使用会按保留数量清理其他历史目录的默认共享pytest根，不复用或清空旧证据目录。含public-output假设的测试使用无`.toolalign-local`祖先的独占临时根。仅为更换目录不重跑既有成功；历史临时原路径缺失须如实登记，等字节封存副本不能冒充仍存在的原路径。已发生的30文件/1链接缺失见[S0记录](../reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)。
+
 ## 6. 冲突和集成
 
 公共 contracts、lock files、顶层配置与协调文件由 S0 所有。两个 worker 都需要同一改动时，S0 先出最小公共变更，不能让它们各自复制一份不兼容类型。

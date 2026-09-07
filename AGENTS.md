@@ -161,3 +161,5 @@ Q1原`7941f1f56519ea2eac437c669ac2c6445a0329f6`已正式接收并普通合并`10
 每次开始报告 task ID、base commit、工作分支、读取的契约版本、影响文件、测试计划；每次结束写 `coordination/handoffs/<TASK>-<revision>.md`。不得用“已完成”代替证据。
 
 P00 验证入口：`uv sync --locked --python 3.14`，随后 `uv run --locked pytest`、`uv run --locked ruff check .`、`uv run --locked python scripts/check_contract_freeze.py` 与 `uv run --locked python scripts/check_public_content.py`。这些是 CPU 基础测试，不代表模型/业务测试。`scripts/publish_plan_repo.sh` 和 `MANIFEST.sha256` 是历史规划包发布资料，不再用于当前仓库验收。
+
+本地pytest使用任务/轮次独占的新`--basetemp`，避免默认共享根清理历史目录；含public-output假设的测试不置于`.toolalign-local`祖先下。旧全局pytest临时fixture的30文件/1链接原路径缺失已单列，30内容均与现存封存副本一致；见[实际保全记录](reports/S0_P04_REVIEW_EVIDENCE_PREPARATION.md)。不恢复后冒充原件，不因目录更换重跑既有成功。
