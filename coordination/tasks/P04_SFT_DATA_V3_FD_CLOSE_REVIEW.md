@@ -1,6 +1,8 @@
 # P04-SFT-DATA-V3-R3｜FD构造异常清理独立复审
 
-状态：IN_PROGRESS。2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。
+状态：ACCEPTED（CPU技术）。原R1 `f2f11e04a94cebb0ad658851d4e22a8452180556` 对精确d80667e正式PASS，P0/P1/P2均0；S0核验96,720路径/29原命令及原生completed/idle，F2关闭1→0，84问题全部关闭。原582 FAIL/F1历史保持；待组合、最终CI/main，真实数据/模型额度不增加。见[正式接收](../../reports/S0_P04_DATA_V3_REVIEW_R3_HANDOFF.md)。
+
+原记录：状态：IN_PROGRESS。2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。
 
 原冻结范围：R1；完整authorization_commit如上。精确candidate/checkout base `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`，tree `04001535b91fca46e9612f6130da1b1745eab9e4`，唯一源码parent `9e08a0961ac2fbf9e993585289b4e82b7115f016`，后者唯一parent原1769046。该候选尚未验收，不称为main生产基线。沿用独立R1原生任务及隔离worktree，gpt-6-astra/max，禁止sub-agent；新分支 `codex/review-p04-sft-data-v3-r3`，新私有scope `review-p04-sft-data-v3-r3`。
 

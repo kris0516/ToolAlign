@@ -1,6 +1,8 @@
 # P04-SFT-DATA-V3-FD-CLOSE-FIX｜构造失败时释放输入 FD
 
-当前状态：READY_FOR_REVIEW。T1完整d80667e/原生空闲；S0完整接收通过，见[证据](../../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1-r3待实际派发，F2首次1保持。
+状态：ACCEPTED（CPU技术）。原R1 `f2f11e04a94cebb0ad658851d4e22a8452180556` 对精确d80667e正式PASS，P0/P1/P2均0；S0核验96,720路径/29原命令及原生completed/idle，F2关闭1→0，84问题全部关闭。原582 FAIL/F1历史保持；待组合、最终CI/main，真实数据/模型额度不增加。见[正式接收](../../reports/S0_P04_DATA_V3_REVIEW_R3_HANDOFF.md)。
+
+原记录：当前状态：READY_FOR_REVIEW。T1完整d80667e/原生空闲；S0完整接收通过，见[证据](../../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1-r3待实际派发，F2首次1保持。
 
 原派发记录：T1。已于2026-09-07 23:03:59 UTC按完整 `df37a3c64bb114b70ab8221d167ea021e22524e7` 原生派发并核验新轮ACTIVE，gpt-6-astra/max；656路径/12授权/7输入派发前核验通过，证明 `ebef278ddbb0a2a0f09c9a0b7cc0b2e057c69844b8658cc19114880d46d7735f`。新branch/intake待交付。code_base/父候选 `1769046468eb2ebfdd9e982ba4938833760e3fe0`，tree `1373bd4c838a1af395a1ede4f7c4d7029ffad271`；这是待修订的候选，不是已验收生产基线。完整 authorization_commit 由 S0 原生派发提供。统一 gpt-6-astra/max；沿用原 T1 独立 App 任务及隔离 worktree，新分支 `codex/p04-sft-data-v3-fd-close-fix-r1`，新私有 scope `p04-sft-data-v3-fd-close-fix-r1`，禁止 sub-agent。
 

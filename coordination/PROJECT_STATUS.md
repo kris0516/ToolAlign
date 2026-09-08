@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新时间：2026-09-08。模型CPU PR17/main与冻结v3 G-DATA验收保持。T1 FD修订完整d80667e已由S0核验13,825路径/27原命令、三归档/65安装包；T1原生空闲，R1-r3已按6ff0cf7原生ACTIVE，新intake待交付。原F1已关闭，F2首次1保持；真实模型/容量/正式P04未授权。
+更新时间：2026-09-08。原R1 `f2f11e04a94cebb0ad658851d4e22a8452180556` 对精确d80667e正式PASS，P0/P1/P2均0；S0核验96,720路径/29原命令及原生completed/idle，F2关闭1→0，84问题全部关闭。原582 FAIL/F1历史保持；待组合、最终CI/main，真实数据/模型额度不增加。模型CPU PR17/main与冻结v3 G-DATA保持。
 
 | 项目 | 当前记录 |
 |---|---|
@@ -12,9 +12,9 @@
 | Supervisor | S0；本机独立 Codex 对话，已领取 |
 | S0 模型/推理 | gpt-6-astra / max（最高）；已提交原生设置；普通回报省略 model/thinking |
 | 领取时间 | `2026-09-05T21:19:08.074530+00:00` |
-| 当前任务/分支 | S0 main；模型CPU VERIFIED，数据最新FD修订d80667e接收通过，R1-r3已按6ff0cf7原生ACTIVE，新intake待交付 |
+| 当前任务/分支 | S0 main；原f2f11e0对数据d806正式PASS已接收，待隔离集成/最终CI/main；后续运行CPU配置fa9e52b4已冻结 |
 | 当前契约 | toolalign.contracts.v1 已冻结；五类 wire schema + 六个 Protocol |
-| 独立实现/reviewer 对话 | R1/T1原生completed/idle已核验；R1-r3待派发，D1/E1/Q1无新范围；统一gpt-6-astra/max |
+| 独立实现/reviewer 对话 | R1本轮completed/idle，T1/D1/E1/Q1无新范围；统一gpt-6-astra/max |
 | 子任务派发模型 | gpt-6-astra / max（最高）；所有子任务与 S0 统一，旧极高规则废止 |
 | 持久运行 | P00–P09持续目标未完成；本对话每 30 分钟跟进；电脑及 App 需保持运行 |
 | 本地工具 | Python 3.14、uv、VS Code、Xcode 可用；P00 venv 实测 Python 3.14.7 |
@@ -33,7 +33,7 @@ PR15技术VERIFIED：[主干证据](../reports/S0_P02_QUALITY_V3_MAIN_VERIFICATI
 
 Q1原7941正式PASS已接收，S0核验5,115路径/42原命令、普通合并10a22a0；81来源/100决策排除和3原来源恢复、13材料PASS。P02-Q-081第2次正式审核按完整隔离关闭，连续失败1→0；82问题均关闭，旧FAIL/UNKNOWN与所有失败事件保持，无需kris介入。G-DATA PASS_FROZEN_V3_SCOPE；[质量接收](../reports/S0_P02_Q1_V3_ADJUDICATION.md)、[精确批准](approvals/P02_DATA_V3.json)。不认证未审全库，不改写冻结candidate中的历史pending。
 
-T1原v3数据f3/b99的FIFO F1已由58212d2分项PASS关闭；原1769046整包因新FD清理F2/P2正式FAIL，S0完整94,238路径/23命令接收保持。F2首次计1，84问题/83关闭。新FD修订d80667e已接收：13,825路径/27原命令、三归档/65安装包通过；157模块及两路线各6项为T1自测。R1-r3已按6ff0cf7原生ACTIVE，新intake待交付。本修订真实609/13数组消费NOT_RUN，原安装固定消费保持1769046时点；formal/train5,938和smoke/train1,583不补选。真实trainer、容量、运行配置与GPU预算待后续，正式baseline/SFT/DPO/评测/服务NOT_RUN。以下时间线保留原实际观察。
+原R1 `f2f11e04a94cebb0ad658851d4e22a8452180556` 对精确d80667e正式PASS，P0/P1/P2均0；S0核验96,720路径/29原命令及原生completed/idle，F2关闭1→0，84问题全部关闭。原582 FAIL/F1历史保持；待组合、最终CI/main，真实数据/模型额度不增加。固定消费仍保持1769046时点，新d806消费NOT_RUN；formal/train5,938和smoke/train1,583不补选。后续CPU运行配置fa9e52b4按ADR-0029冻结，等待数据主干才派发；容量/正式baseline/SFT/DPO/评测/服务仍NOT_RUN。以下时间线保留原观察。
 
 ## 恢复入口
 

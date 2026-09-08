@@ -139,6 +139,7 @@ ToolAlign 研究小模型工具选择、参数语义和执行反馈的后训练�
 | 2026-09-08 | 数据 R2 intake 与 FD 异常核验 | 92,860路径/16授权/609输入及本轮5原生命令通过；新目录构造失败残留FD已核验652路径/2原命令，拟P2/F2，正式review待交接；T1限域CPU修订CLAIMED待派发；[证据](reports/S0_P04_DATA_V3_R2_INTAKE_AND_FD_FINDING.md) |
 | 2026-09-08 | 数据CPU修订R2正式接收 | 原58212d2对1769046正式FAIL，仅F2/P2；S0核验94,238路径/23原命令及唯一固定消费，R1空闲。F1关闭1→0，F2首次1；T1同轮FD修订继续，[证据](reports/S0_P04_DATA_V3_REVIEW_R2_HANDOFF.md) |
 | 2026-09-08 | FD清理修订完整交接 | T1完整d80667e/原生空闲；S0核验13,825路径/27原命令、三归档/65安装包，READY_FOR_REVIEW；R1-r3 CLAIMED待派发，F2首次1保持，[证据](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md) |
+| 2026-09-08 | 数据FD修订独立审查接收 | 原R1 f2f11e0对d806正式PASS/原生空闲；S0核验96,720路径/29命令，F2关闭1→0、84问题全部关闭；ACCEPTED待组合/最终CI/main，[证据](reports/S0_P04_DATA_V3_REVIEW_R3_HANDOFF.md) |
 | 尚未验收 | 模型训练、正式评测、推理 API/服务部署 | 无验收结果；无公网服务、无模型/数据上传 |
 
 每次阶段验收或部署后更新此表，并链接精确 commit、独立审查、复现命令与限制；只写实际发生的交付，不把安装基础包写成模型服务上线。
@@ -168,9 +169,9 @@ P00、共享支持、P01受限兼容校准、P03 CPU、共用格式、训练绑�
 
 固定Qwen模型CPU已由PR17/main `f27951aea573d3e220b053563078d5e428564419`验收；原R1 bdebe4c、最终双Python CI/main134CPU及三归档/65安装包绑定保持，见[主干证据](reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)。真实模型/容量/正式训练、评测和服务均NOT_RUN。
 
-数据CPU原f3/b99审查的FIFO F1已由58212d2分项PASS关闭；1769046完整R2仍因新FD构造清理F2/P2正式FAIL，S0核验94,238路径/23命令及唯一固定消费，原review保持。F2首次计1，84问题中83关闭/1未关闭，无第五次问题；全部后续人工审核由独立Q1承接，无需kris填写、签字或答辩。
+原R1 `f2f11e04a94cebb0ad658851d4e22a8452180556` 对精确d80667e正式PASS，P0/P1/P2均0；S0核验96,720路径/29原命令及原生completed/idle，F2关闭1→0，84问题全部关闭。原582 FAIL/F1历史保持；待组合、最终CI/main，真实数据/模型额度不增加。见[正式接收](reports/S0_P04_DATA_V3_REVIEW_R3_HANDOFF.md)。
 
-T1已交付完整FD修订 `d80667e4f6e3a63d5c49d4293e99271ca3c2aca1`并原生空闲。S0核验13,825路径/27原命令、三归档/65安装包字节通过，157模块及源码/安装各6项为T1自测，READY_FOR_REVIEW；[完整接收](reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。独立R1精确[R3范围](coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)已按6ff0cf7原生ACTIVE，新intake待交付；本修订真实数据消费NOT_RUN，原消费保持1769046时点，不默认重跑609输入和13数组。
+原624候选文件不变，原模块157、源码6、独立FD4及限定安装6通过；首次安装导入失败与全部辅助失败保持。旧609/13真实消费保留1769046时点，d806新消费NOT_RUN。后续[运行CPU配置](configs/sft-qwen-runtime-cpu.v1.json)fa9e52b4已按ADR-0029冻结，任务PLANNED待数据main；容量/正式训练无新授权。
 
 最多两个实现、独立R1、统一gpt-6-astra/max与单一共享GPU租约保持。D1/E1/Q1无新范围；无新费用、模型/数据上传、公网推理或正式P04授权。浏览器实显NOT_RUN单列，P00–P09持续目标未完成。
 
