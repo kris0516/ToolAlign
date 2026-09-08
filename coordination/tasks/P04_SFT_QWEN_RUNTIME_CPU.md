@@ -1,12 +1,12 @@
 # P04-SFT-QWEN-RUNTIME-CPU｜有限原生训练接口
 
-状态：PLANNED，未派发、未实现。等待 T1 的 v3 数据 CPU 包与 E1 的固定模型 CPU 包分别通过 R1、最终 CI 和 main 验证；code_base、精确 CPU 配置、模型接口版本和输入 manifest 届时由 S0 填入。本文件不允许读取变化中的两个实现工作区或提前执行编码/模型调用。
+状态：PLANNED，未派发、未实现。固定模型CPU已由PR17/main `f27951aea573d3e220b053563078d5e428564419`验收；数据CPU仍待精确d806的R1 R3、最终CI/main。S0已按ADR-0029冻结[CPU配置](../../configs/sft-qwen-runtime-cpu.v1.json)，24,039B、SHA `fa9e52b4f91be9e7d3a444df95229120204fdfb408521c42ef91e916ec605875`；仅为实现和原创模拟规则。code_base及输入manifest待数据主干验收后填写。本文件不允许读取变化中的实现工作区或提前执行编码/模型调用。
 
-拟由原 T1 独立 App 任务承接，gpt-6-astra/max、隔离 branch `codex/p04-sft-qwen-runtime-cpu-r1` 和新私有 scope；禁止 sub-agent。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026/0027、REVIEW_POLICY 与已接收的 [真实运行接口方案](../../reports/experiments/P04_SFT_RUNTIME_PROPOSAL.md)。最多两个实现，S0 在实际分发时重新检查名额和旧任务终态。
+拟由原 T1 独立 App 任务承接，gpt-6-astra/max、隔离 branch `codex/p04-sft-qwen-runtime-cpu-r1` 和新私有 scope；禁止 sub-agent。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026–0029、REVIEW_POLICY 与已接收的 [真实运行接口方案](../../reports/experiments/P04_SFT_RUNTIME_PROPOSAL.md)。最多两个实现，S0 在实际分发时重新检查名额和旧任务终态。
 
 目标是把已验收数据与模型接口接入固定原生 MLX-LM trainer，完成真实运行前可独立验证的 CPU 控制与状态记录。实际 MLX/Torch 导入、模型/LoRA 装配、tokenizer 构造/编码、forward、优化、checkpoint 数值、生成、GPU 和容量均为 NOT_RUN。CPU 模拟用例必须标为原创模拟，不作为真实 Qwen 数值证据。
 
-允许新增 `training/sft/qwen_batches.py`、`qwen_training.py`、`qwen_checkpoint.py`、`qwen_run.py`（均位于 `src/toolalign/` 下），对应 `tests/training/test_sft_qwen_*.py`、必要原创小 fixture、`reports/experiments/P04_SFT_QWEN_RUNTIME_CPU.md/.json` 和 `coordination/handoffs/P04-sft-qwen-runtime-cpu-r1.md`。S0 精确配置的复制例外在实际派发时固定。不得改原 data/config/CLI、collator/plan、data_v3、model_io/qwen_model、原生 toy、P01 budget、锁、P03、依赖/构建或 S0 协调文件；确有共享缺陷先向 S0 交证据，不复制修订另一个版本绕过。
+允许新增 `training/sft/qwen_batches.py`、`qwen_training.py`、`qwen_checkpoint.py`、`qwen_run.py`（均位于 `src/toolalign/` 下），对应 `tests/training/test_sft_qwen_*.py`、必要原创小 fixture、`reports/experiments/P04_SFT_QWEN_RUNTIME_CPU.md/.json` 和 `coordination/handoffs/P04-sft-qwen-runtime-cpu-r1.md`。S0精确CPU配置将在生产基线中，worker不修改它。不得改原 data/config/CLI、collator/plan、data_v3、model_io/qwen_model、原生 toy、P01 budget、锁、P03、依赖/构建或 S0 协调文件；确有共享缺陷先向 S0 交证据，不复制修订另一个版本绕过。
 
 接口要求：
 
@@ -23,10 +23,12 @@
 11. 复用已审 wired-limit 抑制层，实际 setter 调用为0。运行前验证固定源码、Metal和真实 device_info 类型/范围，记录每个上游请求；返回0仅为抑制层合成值，不写成实测旧limit。验证抑制层 API 身份、预期请求和finally恢复；不得用 setter 读取旧值或改系统设置。
 12. 本包不新增生成/P03 backend。原始baseline、正式SFT的真实validation与后续greedy配置/完整EOS身份分别在对应运行范围登记；不得以诊断结果重新选样或调参。DPO、最终test/ood/BFCL和服务部署均不在本包范围。
 
+授权实现规则：数组准备和数值运行分别接受后续S0精确grant及来自可信调用方的预期文件hash，不能以文件自报hash或修改旧false字段放行。数组grant只允许原固定23例cohort或smoke/formal完整已批准train/validation profile，绑定有序身份/审计、输入、输出owner、编码/导出调用次数及有限制品预算，无任意rank选择参数；数值grant另绑定验收代码、完整数组和运行预算。当前两类active grant均为空、真实调用均0。GPU child在无框架阶段验证额外上游源码，持租约后首先调用已审模型loader，再导入固定trainer/optimizer；不提前导入psutil或数值库破坏loader环境检查。只记录采样资源最大值，不声称掌握未观测的瞬时峰值。
+
 CPU 验证用原创小数组/模拟模型及必要少量自有CPU进程，覆盖配置/输入/预算错误在框架前拒绝、数组/审计错配与bool/float、部分导出/回读覆盖、分段丢尾/重复/越界、末次yield未完成、局部/全局step混淆、异常后的实际更新、状态被修改、未评分/旧/跨scope checkpoint、错误分母/非有限score、重载不等、wired guard异常以及监督/收尾失败。测试验证可观察结果，避免为凑数重复上游或机械镜像实现。
 
 后续实际派发还须保存S0的[固定容量诊断计划](../plans/P04_QWEN_CAPACITY_DIAGNOSTICS.v1.json)，SHA `a25ddc2e3a3df72cee145fb41778e837c4907062828ac421c5eb6242f487486c`。它将既有23例的诊断限定为60例次前向、79训练微步/10计划更新，固定padding对照和CE/状态判定阈值；目前所有真实调用授权仍0。CPU包仅以原创模拟验证这些规则，不运行真实清单，也不将60计为已完成或可自行启用的额外额度。见ADR-0028及[准备证据](../../reports/S0_P04_CAPACITY_READINESS.md)；未来运行配置必须同时绑定实际已验收CPU代码、23例数组和本计划，禁止看结果后换样本/阈值或自动追加调用。
 
-资源计划：现有默认CPU与既有离线构建工具，无新环境/下载；新增制品≤1GiB，真实编码/数据build/框架/模型/GPU全部0。实际固定数据prepare与13材料是否需要调用，待S0基于已验收的导出接口决定最小额度，不默认重跑。完成本次相关CPU/独立负例、ruff、契约/公开扫描、实际三归档与默认target，外部cwd验证纯导入/拒绝及CPU状态接口来源。原始argv/UTC/exit/输出/源码时点、全部失败与最终seal交付。
+资源计划：现有默认CPU与既有离线构建工具，无新环境/下载/依赖；新增制品≤1GiB，真实编码/数据build/固定609 prepare或verify/13材料转换导出回读/框架/模型/GPU全部0。仅原创fixture验证；一次离线归档组与一次新默认target安装，外部cwd验证纯导入/拒绝及CPU状态接口来源。相关CPU/独立负例、ruff、契约/公开扫描均须保存原始argv/UTC/exit/输出/源码时点、全部失败与最终seal。不为完整旧数据再消费增加额度。
 
 完整候选普通推送、原生交接并结束后，S0才按精确SHA接续独立R1。CPU PASS需最终CI/main才可作为后续0.6B容量前提；真实23例数组另经固定CPU编码范围，容量1次启动及数值预算也另行明确。本任务不提前关闭任何运行门槛。

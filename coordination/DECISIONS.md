@@ -304,3 +304,13 @@ R1按两包完整候选的实际交付和资源状态逐包接续；仅在各wor
 raw validation8、raw/零LoRA的padding两对共4、step2/10/reload各16，逐个绑定原rank/数据身份；padding对照取已选1536 bucket中最长且实际有padding的原例，不扩大23个唯一例。CE、同例重载、冻结底座/adapter身份和过拟合阈值按计划固定；未列4次不作为调试/重试额度。失败须保留并按具体原因调整后续独立范围，不能看到输出后改阈值或增步凑PASS。
 
 本计划与cohort都不是运行配置，实际编码/框架/模型/GPU/优化0。T1后续CPU实现保存并只用原创模拟验证规则；未来S0运行授权还须绑定已验收runtime源码、实际23例数组、单一物理GPU租约及准确wall/RSS/MLX/swap/制品预算。grad_checkpoint固定False、native compile保持，与原方案相同；旧toy/P01守卫不修改，完整smoke/formal不继承容量adapter。
+
+## ADR-0029｜固定CPU运行规则与后续实际授权分别绑定
+
+日期：2026-09-08；状态：CPU规则已冻结，任务PLANNED未派发。精确配置 `configs/sft-qwen-runtime-cpu.v1.json` 为24,039B，SHA `fa9e52b4f91be9e7d3a444df95229120204fdfb408521c42ef91e916ec605875`；见[准备证据](../reports/S0_P04_QWEN_RUNTIME_CPU_PREPARATION.md)。模型CPU主干已验收，数据CPU仍待d806独立R3及最终CI/main；满足后才给T1正式code_base和固定输入。
+
+采用已接收方案的1583/5938单遍rank、198/743更新及固定容量79微步/10更新/60诊断前向规则，保留原生compile及grad_checkpoint=False、Adam和分段连续状态。CPU包只实现接口和原创模拟，不将这些计划数写成真实完成。真实609输入、13材料、23例编码、模型/框架/GPU额度全部0。
+
+后续数组准备和数值运行使用分别冻结的S0 grant；预期grant hash必须从可信调用方提供，文件不能自我授权。数组只允许固定23例cohort或完整已批准profile；数值grant绑定已验收代码、数组、输出owner、启动与调用reservation及无默认值的资源预算。两类active grant目前都为空，所有旧training_authorized=false逐字保留。CPU worker不得靠改生产常量或跳过验证启用运行。
+
+GPU child先无框架验证固定来源及输入、持物理租约，经已审loader环境检查和实际加载后才导入trainer/optimizer，seed仅在LoRA初始化前一次。监督记录采样最大值及实际同步更新，未知进度保持unknown；不宣称覆盖瞬时峰值或把yield等同完成。全部真实调用、容量验收、正式SFT、评测与部署另按证据登记。

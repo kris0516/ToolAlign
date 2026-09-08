@@ -9,3 +9,5 @@ R1回报源码157项、原六项源码检查与独立4项FD检查通过，完整
 该`py.py`为既有pytest 9.0.2自带329B文件，SHA `b71675b5d9845ba0814e9e88767f88dac3b3cc0d3128da028bd45edbb523e871`已绑定pytest RECORD，并只转入已有`_pytest._py.error/path`。S0按[限定追加](../coordination/tasks/P04_SFT_DATA_V3_FD_CLOSE_REVIEW.md)授予同一target、新label及新输出根的一次安装版六项检查；只允许bootstrap放行既有`py`及新记录路由，保留原helper和失败。实际原失败result SHA `627813570b9df6f9ccb1b32110688cdee436282afd0b385dfc0fd78e7f37632f`、stderr SHA `d9070dcebf00124de33eb49a315b083e4cc6db962ce7fd7c5f3b3845739760ac`保持。
 
 本轮S0只读核验助手的两个前置错误分别为安装manifest相对路径未拼target、局部变量覆盖Git输出对象；原错误与修正后通过记录均保留，未触发任何测试/API补跑。新S0构建/安装/依赖/实际数据消费/模型/框架/GPU调用均0；追加检查尚待原生派发与结果。R1整包结论、F2关闭、最终CI/main及正式训练均未登记通过。
+
+75e03f6限定追加已实际原生发送。R1回报新label安装版六项一次PASS，原失败保持；正式review仍待交付。S0于2026-09-08 00:16:12 UTC完成本轮初始intake：96,075路径、1,739链接、17个仅lstat FIFO，624候选/621基线、14授权/7反例输入、原T1 27命令及三归档、R1旧23命令和7个本轮原生intake回执保持；20模型文件仅stat复核，未重新读取。证明 `dafd3ea8a3661f10931cc328b4e3db7562c8f510beeeb2016d37ca4679ce8891`。R1原初始preserve两失败和intake首失败保持；S0接收助手的摘要抄写、旧/当前公开路径映射与list字段处理错误也原样保留，未触发生产/API执行。旧30文件/1链接缺失例外未恢复冒充原件。
