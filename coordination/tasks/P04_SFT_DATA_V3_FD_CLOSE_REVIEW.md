@@ -30,3 +30,13 @@ T1完整seal `81b38f140e30ab4fc41165d238ecf26ddca0c1b5fd156bf03732b8f1da88e8f8`�
 可运行相关ruff、契约冻结、公开检查和git diff检查。每次pytest使用本任务本轮独占新basetemp，公开输出根无`.toolalign-local`祖先；链接/FIFO与普通文件分开封存。新增制品≤1GiB；框架/模型/GPU/优化/生成/业务API/浏览器/费用/上传全部0，正式训练未授权。
 
 先回报真实新branch/身份/授权/旧证据intake；保存原argv/UTC/exit/stdout/stderr、源码/安装时点、所有失败和终态seal。最终给出精确d80667e的PASS/FAIL/BLOCKED、P0/P1/P2及F2是否关闭。交完整review/tree/parents和封存后结束，普通回报省略model/thinking。独立PASS仍待S0保留原SHA集成、最终CI/main，不自行合并。
+
+## S0限定追加：安装版pytest启动器
+
+2026-09-08，S0核验原安装尝试的727路径及原生argv/完整回执，证明 `ebaeaa3c087e56c1b9bf3061e0467503ba7926e09f45e4010f080ae41e54949b`。原wrapper/child均exit1并回收；pytest导入时缺少本机既有pytest 9.0.2自带的329B `py.py`，原fixture runner保持sentinel97，尚未进入pytest.main，fixture child/fork均0。原失败及reservation已消费事实保持，不能改为未尝试或PASS。该shim SHA `b71675b5d9845ba0814e9e88767f88dac3b3cc0d3128da028bd45edbb523e871`与pytest RECORD精确一致；不需要新增依赖。
+
+在同一R3中，S0单独追加原未修改六项I/O的安装版检查**一次**。使用同一现存installed-default target；先保存新reservation，固定新label `original-installed-s0-py`及新独占外部cwd/basetemp，失败也消耗这次追加额度。原source157、source六项、4项新增FD组和安装动作均不重跑。
+
+仅允许新增私有bootstrap/runner副本：bootstrap的import允许集合只增加既有顶层`py`，其余修改只为新runner文件名、新label和该bootstrap的child路由。原bootstrap SHA `290af9c1715c5be33359362d578ffd3882d0e345decd6a9b5152f8fb76e1383c`和runner SHA `aec210792cee95503abcf5813fcfabf3b12af7f935993e53a333e471e8a3bef5`逐字保留；保存副本diff与新pins。生产/测试文件、断言、六项fixture和既有安装target不改，禁止把site-packages或源码根整体加入sys.path。仍须-I/-S、外部cwd、固定installed来源、无源码回退、网络/模型/框架守卫及所有child有界回收。可只读核对shim/RECORD/副本与新reservation；不得另跑导入预演增加尝试。
+
+新增构建/安装/环境/依赖/真实609或13数组/编码/模型/框架/GPU额度仍0。若追加尝试失败，保留并停止该项新增尝试，向S0交具体原因；其余只读审查和封存可继续。此追加只解决审查启动器，F2是否关闭仍由R1对精确候选独立判定，正式失败计数不因本追加改变。

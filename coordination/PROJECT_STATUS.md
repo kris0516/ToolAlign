@@ -280,3 +280,5 @@ T1固定复测已按完整8c8aff8300bfa564db7d47be79e6c3f764360a8b原生激活�
 2026-09-07 23:39:56 UTC，S0完整接收T1 d80667e，证明 `2bd9eac089ac0e1136ad7ea2a6c063a1bfce3decec4cdd62f9bc7a1ec71d213d`；13,825路径/27原命令和终态、三归档/65安装包通过，T1原生23:29:51 UTC completed/idle。R1-r3精确范围CLAIMED，实际派发待完成；旧失败和原消费时点保持，[接收](../reports/S0_P04_DATA_V3_FD_FIX_HANDOFF.md)。
 
 2026-09-07 23:49:10 UTC，S0核验R1原582轮completed/idle及干净HEAD后，按完整 `6ff0cf72ad309cd7be86a42eb80fee0913a35991` 原生接续精确d80667e的R3复审并核验ACTIVE，gpt-6-astra/max。派发前1,907路径/14授权/两公开树与核心封存通过，证明 `c0e77a1f69b46107af207edf246ad95f8b042bf956aaace4ec04df39cfd9e476`；新branch/intake待交付。Draft PR19已建立；旧F2首次1和真实消费时点保持。
+
+2026-09-08，PR19候选双Python CI各14步骤、1,116默认/48跳过与46独立检查通过，实际ef244e7/664文件绑定；R1 R3源码检查回报通过，安装版在pytest导入前因既有py shim未放行退出并完整保留。S0核验727路径/原生回执，限定同target、新label一次追加安装版六项，新增依赖/安装/数据/模型/GPU仍0；[证据](../reports/S0_P04_DATA_V3_R3_REVIEW_PROGRESS.md)。正式F2计数及最终验收待R1交付。
