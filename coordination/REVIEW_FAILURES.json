@@ -4569,8 +4569,8 @@
       "stable_requirement_key": "data_v3_fdopen_failure_closes_successfully_opened_descriptor",
       "requirement": "读取器成功os.open后若os.fdopen构造失败，必须关闭仍由其持有的同一FD，保留原异常与正常所有权转交、no-follow/nonblocking/hash/大小/预算边界",
       "summary": "预检查后普通文件换为目录；os.open成功而fdopen抛IsADirectoryError，调用方收到DataError后一个裸FD仍打开。一次残留已实测，长生命周期累积耗尽为源码推论。",
-      "status": "OPEN_CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 1,
+      "status": "CLOSED_TECHNICAL_PASS",
+      "consecutive_failed_revisions": 0,
       "events": [
         {
           "candidate": "1769046468eb2ebfdd9e982ba4938833760e3fe0",
@@ -4588,14 +4588,30 @@
           "new_failed_revision_increment": 1,
           "prior_intermediate_probe_increment": 0,
           "superseded_tentative_severity": "P3_IN_INTERMEDIATE_MESSAGE_ONLY; formal severity P2 based on actual lifetime"
+        },
+        {
+          "attempt": 2,
+          "event_kind": "FORMAL_TECHNICAL_REVISION_PASS",
+          "candidate": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1",
+          "review_commit": "f2f11e04a94cebb0ad658851d4e22a8452180556",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS",
+          "review_evidence_file_sha256": "cec6f591fa575796fffde0bd677d9e06dbdf2e69012425b2d71e2904f9042783",
+          "terminal_seal_sha256": "9ed0f6228650b58eb3fcab6ae7c44402326e21bf4ef14258dc6f7ce0bd59a586",
+          "s0_binding_sha256": "5ad348fdd040b1228077f842d0008e437c254cb59ac4aa683e8770c99ac2f764",
+          "adopted_at_utc": "2026-09-08T00:31:15.709742+00:00",
+          "prior_consecutive_failed_revisions": 1,
+          "new_consecutive_failed_revisions": 0,
+          "new_failed_revision_increment": 0,
+          "old_failure_and_helper_attempts_preserved": true
         }
       ],
-      "next_action": "T1已按df37a3c64bb114b70ab8221d167ea021e22524e7在同一FD修订范围ACTIVE；9e08a096为自测checkpoint，完整候选及精确R1复审待完成",
+      "next_action": "保持原582正式FAIL、首次安装启动失败及原helper，d806/f2f11e0技术PASS已由S0接收；待组合/最终CI/main验证，不新增真实数据或模型调用",
       "deduplication_basis": "与原F1及时拒绝要求不同；同一原6项检查失败和最小无包装确认、严重度修正及S0/T1重读均不增加正式失败次数"
     }
   ],
-  "prior_findings": "此前82项数据使用/技术问题及原FIFO F1均已关闭，83项关闭；新FD构造清理F2首次正式FAIL计1。所有原FAIL/UNKNOWN与事件保持，冻结v3 G-DATA批准保持。",
-  "updated_at_utc": "2026-09-07T23:23:35.709957+00:00",
+  "prior_findings": "84项已登记数据使用/技术问题全部关闭，原FIFO F1与FD构造清理F2均已有独立PASS。原FAIL/UNKNOWN及所有事件完整保留；冻结v3 G-DATA批准保持，正式训练仍未授权。",
+  "updated_at_utc": "2026-09-08T00:31:15.709742+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -4619,11 +4635,14 @@
     "s0_binding_sha256": "48aae102b248963b95537c688214c0871c4ed995315e059077cbc6be7869c496"
   },
   "last_technical_closure": {
-    "issue_id": "P04-SFT-DATA-V3-F1",
-    "review_commit": "58212d26bdb1c6a681a1ac34ccae854daefca8d3",
+    "issue_id": "P04-SFT-DATA-V3-F2",
+    "candidate": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1",
+    "review_commit": "f2f11e04a94cebb0ad658851d4e22a8452180556",
     "prior_failure_history_preserved": true,
-    "S0_receipt_sha256": "b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a",
-    "separate_new_F2_remains_open": true
+    "S0_receipt_sha256": "5ad348fdd040b1228077f842d0008e437c254cb59ac4aa683e8770c99ac2f764",
+    "closed_issue_count": 84,
+    "open_issue_count": 0,
+    "highest_consecutive_failed_revisions": 0
   },
   "adoption_history": [
     {
@@ -4657,6 +4676,13 @@
       "review_commit": "0cefe771c8d867d9e253b6603105ad31dc3a7787",
       "prior_failure_history_preserved": true,
       "frozen_d1_adjudication_inputs_unchanged": true
+    },
+    {
+      "issue_id": "P04-SFT-DATA-V3-F1",
+      "review_commit": "58212d26bdb1c6a681a1ac34ccae854daefca8d3",
+      "prior_failure_history_preserved": true,
+      "S0_receipt_sha256": "b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a",
+      "separate_new_F2_remains_open": true
     }
   ]
 }
