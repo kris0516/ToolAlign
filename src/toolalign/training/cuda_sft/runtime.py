@@ -213,7 +213,7 @@ def _signal_child(process, sig):
 
 
 def supervise(request, *, command="train"):
-    """Parent never imports Torch; a deadline kills its own process group only."""
+    """Deadlines and external SIGTERM reap the owned child before returning."""
     config = load_protocol(request["repository"])
     require(command in ("train", "prepare", "encode"), "unknown_command")
     if command == "train":
@@ -223,9 +223,23 @@ def supervise(request, *, command="train"):
     context = multiprocessing.get_context("spawn")
     receiver, sender = context.Pipe(duplex=False)
     process = context.Process(target=_child, args=(command, request, sender))
-    process.start()
-    sender.close()
+    started = False
+    terminate_requested = False
+
+    def terminate(signum, frame):
+        nonlocal terminate_requested
+        terminate_requested = True
+        # Do not interrupt spawn before Process has retained its child's PID.
+        if started:
+            raise SystemExit(128 + signum)
+
+    previous_handler = signal.signal(signal.SIGTERM, terminate)
     try:
+        process.start()
+        started = True
+        if terminate_requested:
+            raise SystemExit(128 + signal.SIGTERM)
+        sender.close()
         process.join(request["max_wall_seconds"])
         if process.is_alive():
             _signal_child(process, signal.SIGTERM)
@@ -239,8 +253,13 @@ def supervise(request, *, command="train"):
         require(result["status"] == "PASS", result.get("error", "CUDA_worker_failed"))
         return result
     finally:
-        if process.is_alive():
-            _signal_child(process, signal.SIGKILL)
-            process.join(3)
-        receiver.close()
-        process.close()
+        signal.signal(signal.SIGTERM, signal.SIG_IGN)
+        try:
+            if process.pid is not None and process.is_alive():
+                _signal_child(process, signal.SIGKILL)
+                process.join(3)
+            sender.close()
+            receiver.close()
+            process.close()
+        finally:
+            signal.signal(signal.SIGTERM, previous_handler)
