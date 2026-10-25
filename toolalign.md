@@ -26,7 +26,7 @@ ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模
 
 准备一个有边界的 P04 CUDA 适配包：
 
-- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；先用修复后的当前接口完成一次真实数据读取及 mask 数组核对，该实际消费仍未运行。保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
+- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；修复后当前接口的一次真实数据读取及13例mask数组核对已由S1完成，见[消费记录](reports/S1_P04_DATA_V3_CONSUMPTION.md)。新CUDA消费者仍待验证。保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
 - 用 PyTorch / Transformers / PEFT 实现 LoRA SFT；为 DPO 核验并锁定 TRL。单独生成 CUDA 依赖锁；Mac 的 `uv.lock` 和 MLX PASS 不代表 CUDA 兼容。
 - 保持 Q/V、28 层、rank 8、dropout 0、有效 scale 2；标准 PEFT LoRA 对应 `lora_alpha=16`、`use_rslora=False`。核对实际 trainable count、目标层、dtype、loss 分母、末批累积和恢复行为。优化器、注意力和 checkpointing 的新选择须显式登记并验证语义，不能照搬新框架默认值当作与旧方案等价。
 - 申请 GPU 前记录显存预算；按冻结 batch/长度做一轮短容量验证，覆盖 forward、backward、optimizer step、验证和保存/重载。通过后再完整 epoch。启动前明确 run ID、配置、步数/时限、已有账户资源、输出与退出条件。
