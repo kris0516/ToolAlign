@@ -22,7 +22,7 @@ R1 执行新增的四项判别检查，**4 passed**：
 
 R1 核对 E1 14 份原命令回执的 stdout/stderr。002 在未改基点上真实复现失败，003 的新增检查为 2 failed / 2 passed；004–007 的实现、测试、说明摘要及实际源码 diff 与 `93a837e` 一致。005 修后真实用例通过，并再次捕获 KILL 成功后的查询 EPERM；006 lint 通过；007 为 **30 项控制检查通过**。这些作者结果按精确源码沿用，原失败保留。
 
-与已验收的 [r2](P04_COLAB_ENVIRONMENT_R2.md) 相比，`control.py`、`common.py`、原 `test_revisions.py`、T1 CUDA 源码/测试/配置和两份依赖锁未变。`remote.py` 除本次清理函数外，其余顶层函数均未变，包括 `worker()`、`export()`、`stop_ready()`。因此沿用 r2 的 RECOVERY-001 关闭结论和实际 E1→T1 跨 session 组合 PASS；原 T1 14 项数值及 48/37 pins 证据也沿用。本轮未重跑不受影响的恢复、数据、数值或依赖检查。
+与已验收的 [r2](P04_COLAB_ENVIRONMENT_R2.md) 相比，`control.py`、`support.py`、原 `test_revisions.py`、T1 CUDA 源码/测试/配置和两份依赖锁未变。`remote.py` 除本次清理函数外，其余顶层函数均未变，包括 `worker()`、`export()`、`stop_ready()`。因此沿用 r2 的 RECOVERY-001 关闭结论和实际 E1→T1 跨 session 组合 PASS；原 T1 14 项数值及 48/37 pins 证据也沿用。本轮未重跑不受影响的恢复、数据、数值或依赖检查。
 
 ## 本轮实际命令
 
