@@ -1,0 +1,4 @@
+# Matching Mac arm64 fixture-test environment; CUDA acceptance requires Colab.
+-r cuda-common.in
+torch==2.8.0
+pytest==9.0.2
