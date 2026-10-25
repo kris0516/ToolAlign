@@ -314,3 +314,13 @@ raw validation8、raw/零LoRA的padding两对共4、step2/10/reload各16，逐�
 后续数组准备和数值运行使用分别冻结的S0 grant；预期grant hash必须从可信调用方提供，文件不能自我授权。数组只允许固定23例cohort或完整已批准profile；数值grant绑定已验收代码、数组、输出owner、启动与调用reservation及无默认值的资源预算。两类active grant目前都为空，所有旧training_authorized=false逐字保留。CPU worker不得靠改生产常量或跳过验证启用运行。
 
 GPU child先无框架验证固定来源及输入、持物理租约，经已审loader环境检查和实际加载后才导入trainer/optimizer，seed仅在LoRA初始化前一次。监督记录采样最大值及实际同步更新，未知进度保持unknown；不宣称覆盖瞬时峰值或把yield等同完成。全部真实调用、容量验收、正式SFT、评测与部署另按证据登记。
+
+## ADR-0030｜后续训练迁移 Colab，精简接续与验证
+
+日期：2026-10-26；状态：接受用户路线变更，CUDA 实验尚未运行。
+
+用户要求后续不再在 Mac 训练，全部使用 Colab GPU，优先 L4 24GB，必要时 A100 80GB。Mac 承担开发、CPU 检查和远程控制。已咨询另一项目并核对官方 CLI/ADC/SSH/tmux 现有配置，形成 [Colab 工作流](../docs/16_COLAB_WORKFLOW.md)；同实例工程恢复与其他模型诊断不等于 ToolAlign SFT/DPO 或跨实例恢复通过。
+
+PR19 已普通合并为 abdc53d468a270cc1bfecbe56980dd34918480e1，main 定点163项通过。数据、格式、模型身份和旧审核继续有效。ADR-0029 未派发的 Mac runtime 任务由新的 CUDA 适配范围取代，原冻结文件及 authorization=false 保留历史字节；新 CUDA 配置须明确优化器、dtype、注意力、checkpointing 和预算，验证损失、末批累积及恢复语义，不能沿用框架默认值当等价。
+
+每个对话先实际读 avoid-overkill；核验与变更风险成比例，复用适用的精确版本证据，不为交接重复全量测试或复制证据树。移除停用环境与可再生缓存，保留原始数据、正式证据和失败。当前入口为 [toolalign.md](../toolalign.md)，本次不创建下一 Supervisor 或启动 GPU。独立技术审查、Q1委托审核与同问题第五次升级规则不变。

@@ -1,5 +1,7 @@
 # P04-SFT-QWEN-RUNTIME-CPU｜有限原生训练接口
 
+> 2026-10-26：SUPERSEDED，原未派发的 MLX runtime 任务不再执行。新 Supervisor 按 [toolalign.md](../../toolalign.md) 准备 CUDA 适配；下文保留历史范围。
+
 状态：PLANNED，未派发、未实现。固定模型CPU已由PR17/main `f27951aea573d3e220b053563078d5e428564419`验收；数据CPU仍待精确d806的R1 R3、最终CI/main。S0已按ADR-0029冻结[CPU配置](../../configs/sft-qwen-runtime-cpu.v1.json)，24,039B、SHA `fa9e52b4f91be9e7d3a444df95229120204fdfb408521c42ef91e916ec605875`；仅为实现和原创模拟规则。code_base及输入manifest待数据主干验收后填写。本文件不允许读取变化中的实现工作区或提前执行编码/模型调用。
 
 拟由原 T1 独立 App 任务承接，gpt-6-astra/max、隔离 branch `codex/p04-sft-qwen-runtime-cpu-r1` 和新私有 scope；禁止 sub-agent。遵循 plan-v0.1、coordination.v1、toolalign.contracts.v1、ADR-0026–0029、REVIEW_POLICY 与已接收的 [真实运行接口方案](../../reports/experiments/P04_SFT_RUNTIME_PROPOSAL.md)。最多两个实现，S0 在实际分发时重新检查名额和旧任务终态。

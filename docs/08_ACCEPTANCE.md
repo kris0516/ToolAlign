@@ -1,5 +1,7 @@
 # 08｜验收、发布与证据等级
 
+> 2026-10-26：平台相关验收以 [Colab 工作流](16_COLAB_WORKFLOW.md) 为准，旧 Mac 运行指标保留为历史。用户已将后续原需人工参与的审核委托独立 Q1，见 [审核规则](../coordination/REVIEW_POLICY.md)。不把历史 CPU/MLX PASS 当作 CUDA 或正式模型结果。
+
 ## 1. 阶段门
 
 | Gate | 验收内容 | 必要证明 |
