@@ -9,8 +9,8 @@
 | P04 v3 数据接口 / PR19 | VERIFIED | 主干 abdc53d，定点 163 passed |
 | G1 交接与执行准备 | COMPLETE | S1 接班；基线/数据/工作区/接入定位闭合，见 GOAL |
 | P04 CUDA SFT 首包 / T1 | ACCEPTED（CPU） | 4342af8已进入待审组合ddc4aef；main尚未更新 |
-| P04 CUDA 依赖与 Colab / E1 | r2 REVIEW_IN_PROGRESS | 172a462；S1组合检查42通过/1项超时清理EPERM，根因调查中 |
-| P04 Colab 独立复核 / R1 | r2 DISPATCHED | 原2f44945 FAIL保留；复核172a462与ddc4aef组合及S1失败现场 |
+| P04 CUDA 依赖与 Colab / E1 | r3 DISPATCHED | 05810ee授权；定点修复signal-0查询短暂EPERM时的有界确认 |
+| P04 Colab 独立复核 / R1 | r2 FAIL（1项P1） | 65ffcc3；RECOVERY-001关闭，PROCESS-001累计2次未通过；跨session组合PASS |
 | P04 CUDA SFT 独立复核 / R1 | PASS | 7d460f2；14项核心、3项进程及独立数值通过 |
 | P04 CUDA mask 与说明 / Q1 | PASS（13例预审） | 82f1e88；423项检查及26条原证据绑定通过，20例容量数组后续增量核对 |
 | P04 L4 容量与短 SFT | PLANNED | 适配、复核和显存预算后，一轮短验证 |

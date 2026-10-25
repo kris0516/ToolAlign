@@ -17,7 +17,7 @@
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
-原 84 个问题全部关闭；本轮 Colab 控制新增两项 P1，各为首次正式未通过，正在自主修订。原 FAIL、隔离样本和原始证据保留。数据质量或 toy PASS 都不是正式模型效果。
+现有86项问题中85项关闭；Colab的RECOVERY-001经r2独立复审关闭，PROCESS-001累计2次正式未通过，正按r3自主修订。原 FAIL、隔离样本和原始证据保留。数据质量或 toy PASS 都不是正式模型效果。
 
 ## 本次交接
 
@@ -29,6 +29,6 @@
 
 S1 已实际读取入口并与 S0 核对交接：交接时主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。G1准备已完成；G2已完成上表真实数据消费，T1/E1已原生派发。模型缓存完整字节与CUDA尚未新验。
 
-按 [GOAL](GOAL.md)依次推进。[T1 CUDA SFT](tasks/P04_CUDA_SFT.md)已补外部 SIGTERM 清理并获得独立R1 PASS；[E1 首包](tasks/P04_COLAB_ENVIRONMENT.md)的两项已复现控制缺陷保留正式 [FAIL](../reports/reviews/P04_COLAB_ENVIRONMENT_R1.md)，[E1 r2](tasks/P04_COLAB_ENVIRONMENT_R2.md)已交付，R1复审中。S1组合CPU检查42通过/1失败，超时清理遇到EPERM；原现场保留并交R1/E1核对，未据此重复累计正式次数。Q1的13例mask预审已PASS，20例实际容量数组后续增量核对；R1/Q1通过才签发有界L4配置。实际派发以原生回执及BOARD为准；GPU尚未分配，正式SFT/DPO/模型评测仍NOT_RUN。旧未派发Mac runtime不恢复。
+按 [GOAL](GOAL.md)依次推进。[T1 CUDA SFT](tasks/P04_CUDA_SFT.md)已获得独立R1 PASS；Colab的[原r1 FAIL](../reports/reviews/P04_COLAB_ENVIRONMENT_R1.md)和[r2复审](../reports/reviews/P04_COLAB_ENVIRONMENT_R2.md)均保留。S1组合CPU检查42通过/1失败；R1定位到SIGKILL成功后的signal-0查询EPERM，已派[E1 r3](tasks/P04_COLAB_ENVIRONMENT_R3.md)定点修复。两项原问题分别裁定，不重复累计探针次数。Q1的13例mask预审已PASS，20例实际容量数组后续增量核对。[草稿PR21](https://github.com/kris0516/ToolAlign/pull/21)的首个Linux双Python CI全部通过，控制问题关闭后再合并。R1/Q1通过才签发有界L4配置；GPU尚未分配，正式SFT/DPO/模型评测仍NOT_RUN。旧未派发Mac runtime不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
