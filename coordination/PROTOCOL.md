@@ -2,6 +2,8 @@
 
 > 2026-10-26：每个对话先读取并应用 avoid-overkill；未来 GPU 任务使用 Colab，旧 Mac 任务不自动恢复。当前接续以 [toolalign.md](../toolalign.md) 为准。一次有边界的任务与现有必要验收足够时，不额外复制证据树或增加封存层。
 
+> 接班更新：用户已指定 Toolalign Supervisor S1。S0 已退出共享 checkout 公共文件写入；以下 S0 的协调、分发、合并与状态维护职责现在由 S1 承接。原执行者/审核者身份和历史授权记录保留。普通 worker 回报发当前 S1，省略 model/thinking。
+
 协议版本：coordination.v1。优先级：用户明确约束与 AGENTS.md → 冻结契约/ADR → 已发任务包 → 临时聊天。发现冲突先由 S0 记录解决，不让 worker 自行扩大范围。
 
 ## 1. 角色与权力

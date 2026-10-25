@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新：2026-10-26（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。生产代码基线 `abdc53d468a270cc1bfecbe56980dd34918480e1`；后续训练改用 Colab GPU。
+更新：2026-10-26（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。交接主干 `61c2176d556fd0e4cfc2af00b16242dddcfadfd3`，生产代码基线 `abdc53d468a270cc1bfecbe56980dd34918480e1`；当前唯一协调者 S1，后续训练使用 Colab GPU。
 
 | 阶段 | 已支持的结论 | 关键证据 |
 |---|---|---|
@@ -22,8 +22,10 @@
 
 本次无新模型下载、GPU 实例、训练、偏好生成或正式评测。ToolAlign CUDA 环境、checkpoint 恢复和跨实例续训待验证。
 
-## 下一步
+## 当前接续
 
-用户新开 Supervisor，按 [toolalign.md](../toolalign.md)准备 P04 CUDA 适配；先显存预算，后短容量验证，再 SFT。T1/D1/E1/R1 本次未重新派发；Q1 仅做本次交接材料的独立只读审核。长期目标未完成，此次交接不登记为 P00–P09 完成。
+S1 已实际读取入口并与 S0 核对交接：主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。以上是准备核对，尚未新验全部缓存字节、消费真实数据或验证 CUDA。
+
+按 [GOAL](GOAL.md)依次推进。首包为 [T1 CUDA SFT](tasks/P04_CUDA_SFT.md)与 [E1 Colab 环境](tasks/P04_COLAB_ENVIRONMENT.md)，先补真实冻结数据/mask消费，再 CPU 实现与 R1/Q1 审核，通过后签发有界 L4 运行配置。实际派发以原生回执及 BOARD 为准；正式 SFT/DPO/模型评测仍 NOT_RUN。旧未派发 Mac runtime 不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。

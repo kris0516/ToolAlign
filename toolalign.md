@@ -6,7 +6,7 @@
 
 ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模型的 CPU 接口，以及 MLX 小型数值验证。冻结 v3 数据通过独立质量审核。**正式 Qwen SFT、DPO、模型语义评测和服务结果均为 NOT_RUN。** 下一项工作是在 Colab 建立 CUDA 训练链路。
 
-代码交接基线为 `abdc53d468a270cc1bfecbe56980dd34918480e1`（PR19 合并）。原 R1-r3 PASS、两轮 FAIL 和修复历史保留。合并后数据接口定点检查 **163 passed**，生产代码与已审 PR19 一致。各阶段证据见[项目状态](coordination/PROJECT_STATUS.md)。
+当前交接主干为 `61c2176d556fd0e4cfc2af00b16242dddcfadfd3`（PR20 合并），生产代码保持 `abdc53d468a270cc1bfecbe56980dd34918480e1`（PR19）。原 R1-r3 PASS、两轮 FAIL 和修复历史保留。合并后数据接口定点检查 **163 passed**，PR20 双 Python CI 40232017823 成功。各阶段证据见[项目状态](coordination/PROJECT_STATUS.md)。
 
 ## 每个对话如何开始
 
@@ -32,11 +32,11 @@ ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模
 - 申请 GPU 前记录显存预算；按冻结 batch/长度做一轮短容量验证，覆盖 forward、backward、optimizer step、验证和保存/重载。通过后再完整 epoch。启动前明确 run ID、配置、步数/时限、已有账户资源、输出与退出条件。
 - R1 独立技术复核；Q1 独立审阅数据语义、偏好与交接说明。合并后按改动风险验证。
 
-本次没有启动 Colab 实例或训练。旧 `configs/sft-qwen-runtime-cpu.v1.json` 及未派发 MLX runtime 任务只是历史协议参考，不是 CUDA 运行许可；新建任务和版本化配置，不直接翻转旧冻结授权字段。
+交接准备没有启动 Colab 实例或训练。S1 首包见 [CUDA SFT](coordination/tasks/P04_CUDA_SFT.md)和 [Colab 环境](coordination/tasks/P04_COLAB_ENVIRONMENT.md)。旧 `configs/sft-qwen-runtime-cpu.v1.json` 及未派发 MLX runtime 任务保留为历史协议参考；新建任务和版本化配置，不直接翻转旧冻结授权字段。
 
 ## 长期约束
 
-S0 与全部独立 worker/reviewer 使用 `gpt-6-astra / max`；只用独立 Codex 对话与隔离 worktree，禁止 sub-agent。最多两个实现任务、一个重 GPU 作业。用户后续新开 Supervisor，本次不创建下一 Supervisor 或派发实现任务；Q1 按既有授权只读审核本次交接。
+当前 S1 与全部独立 worker/reviewer 使用 `gpt-6-astra / max`；只用独立 Codex 对话与隔离 worktree，禁止 sub-agent。最多两个实现任务、一个重 GPU 作业。用户已指定 S1 接班并继续推进；S0 只读答疑，S1 承接任务派发、协调文档与集成。阶段目标、产物和验收见 [GOAL](coordination/GOAL.md)。
 
 Q1 承接后续原需人工审核的事项，不等待用户填表、签字或答辩。同问题连续第 5 次正式修订未通过才整体暂停并通知用户，第 1–4 次自主整改，见[审核规则](coordination/REVIEW_POLICY.md)。
 

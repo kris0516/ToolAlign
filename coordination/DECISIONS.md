@@ -324,3 +324,14 @@ GPU child先无框架验证固定来源及输入、持物理租约，经已审lo
 PR19 已普通合并为 abdc53d468a270cc1bfecbe56980dd34918480e1，main 定点163项通过。数据、格式、模型身份和旧审核继续有效。ADR-0029 未派发的 Mac runtime 任务由新的 CUDA 适配范围取代，原冻结文件及 authorization=false 保留历史字节；新 CUDA 配置须明确优化器、dtype、注意力、checkpointing 和预算，验证损失、末批累积及恢复语义，不能沿用框架默认值当等价。
 
 每个对话先实际读 avoid-overkill；核验与变更风险成比例，复用适用的精确版本证据，不为交接重复全量测试或复制证据树。移除停用环境与可再生缓存，保留原始数据、正式证据和失败。当前入口为 [toolalign.md](../toolalign.md)，本次不创建下一 Supervisor 或启动 GPU。独立技术审查、Q1委托审核与同问题第五次升级规则不变。
+
+
+## ADR-0031｜S1 接班与有界 CUDA 首包
+
+日期：2026-10-26；状态：用户指定接班，准备完成后推进G2。
+
+Toolalign Supervisor S1 承接原 S0 的任务派发、共享状态、集成与验收；S0 已明确退出公共 checkout 写入并仅只读答疑。当前主干为 PR20 合并 61c2176d556fd0e4cfc2af00b16242dddcfadfd3，生产代码保持 PR19。按 GOAL 的 G1–G6 依次维护一个活动 goal，不以交接/代码准备代替正式实验完成。
+
+G2 先补修复后的真实 v3 prepare 与13例数组核对，再由 T1 实现 CUDA SFT、E1 锁定 CUDA 环境与 Colab 包装；两包允许路径独立，R1技术复核、Q1审核语义与说明。新协议在 configs/sft-cuda.v1.json，旧冻结配置/authorization=false 不改。CUDA 明确采用标准 torch AdamW bias correction、weight_decay0、固定LR、BF16底座/FP32 adapter、SDPA和non-reentrant checkpointing；不宣称与旧MLX uncorrected Adam逐步数值等价。
+
+GPU运行配置在代码、数据与独立复核完成后签发，明确run ID、步数/时限、资源和输出边界。先L4最重SFT容量与完整checkpoint恢复，再正式SFT；同实例与新实例恢复分开实测。授权使用既有账户资源，不购买/充值、不停止其他项目会话、不上传无关私有数据。旧S0自动跟进维持PAUSED。
