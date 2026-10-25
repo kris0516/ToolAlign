@@ -105,7 +105,7 @@ python3 scripts/colab/control.py --spec /ABS/PRIVATE/control.json stop
 /content/toolalign/.toolalign-local/cuda-env/bin/python -u -m toolalign.training.cuda_sft train --run-config /content/toolalign/runs/RUN_ID/run.json
 ```
 
-训练保持离线环境变量，由 T1 获取同一真实 Git 根的 GPULease。控制器记录启动请求、PID、即时日志、真实退出码。超时后先向自有进程组发送 SIGTERM，父进程退出后仍继续确认组内成员；10 秒宽限后向残留成员发送 SIGKILL，再有界确认并回收直接子进程。两个确认阶段各至多 10 秒。`timeout_cleanup_completed=true` 才表示该次超时清理已确认；未确认时保存错误并拒绝导出，保留实例。T1 另建 session 的子进程由 T1 清理，组合行为另验。控制器不接受任意远程 shell 命令；已有启动声明、tmux 作业或已回收的 run 均不能重新提交。
+训练保持离线环境变量，由 T1 获取同一真实 Git 根的 GPULease。控制器记录启动请求、PID、即时日志、真实退出码。超时后先向自有进程组发送 SIGTERM，父进程退出后仍继续确认组内成员；10 秒宽限后向残留成员发送 SIGKILL，再有界确认并回收直接子进程。两个确认阶段各至多 10 秒。存活查询短暂返回 EPERM 时，在原截止时间内继续确认；实际 SIGTERM/SIGKILL 发送错误仍导致失败。只有确认组已消失并回收直接子进程，才记录 `timeout_cleanup_completed=true`；查询 EPERM 本身不代表成功，持续未确认时保存错误并拒绝导出，保留实例。T1 另建 session 的子进程由 T1 清理，组合行为另验。控制器不接受任意远程 shell 命令；已有启动声明、tmux 作业或已回收的 run 均不能重新提交。
 
 断连或 SSH 超时后先 `status`。本地 `events/` 保留 SSH 输出和退出/超时记录，远端的 tmux 与退出文件决定作业状态。没有终态记录时不从“连接断了”推断运行完成，也不自动换实例或再启动训练。
 
