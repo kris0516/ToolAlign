@@ -8,9 +8,9 @@
 | P01 Mac 兼容、P04 CPU 与 MLX toy | VERIFIED（原范围） | 留存证据，不再启动 Mac 训练 |
 | P04 v3 数据接口 / PR19 | VERIFIED | 主干 abdc53d，定点 163 passed |
 | G1 交接与执行准备 | COMPLETE | S1 接班；基线/数据/工作区/接入定位闭合，见 GOAL |
-| P04 CUDA SFT 首包 / T1 | ACCEPTED（CPU） | 最终候选4342af8；独立R1 7d460f2 PASS，进入待集成分支 |
-| P04 CUDA 依赖与 Colab / E1 | r2 DISPATCHED | r1 两项 P1；按 P04_COLAB_ENVIRONMENT_R2 修进程与多 run 回收 |
-| P04 Colab 独立复核 / R1 | FAIL（r1） | 2f44945；两项首次正式未通过，待修订后复审 |
+| P04 CUDA SFT 首包 / T1 | ACCEPTED（CPU） | 4342af8已进入待审组合ddc4aef；main尚未更新 |
+| P04 CUDA 依赖与 Colab / E1 | r2 READY_FOR_REVIEW | 172a462；26项检查通过，两个issue待独立关闭 |
+| P04 Colab 独立复核 / R1 | r2 READY | 原2f44945 FAIL保留；复核172a462与ddc4aef组合 |
 | P04 CUDA SFT 独立复核 / R1 | PASS | 7d460f2；14项核心、3项进程及独立数值通过 |
 | P04 CUDA mask 与说明 / Q1 | DISPATCHED | 13例真实消费与4342af8预审；20例容量数组后续增量核对 |
 | P04 L4 容量与短 SFT | PLANNED | 适配、复核和显存预算后，一轮短验证 |
