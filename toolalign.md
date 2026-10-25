@@ -26,7 +26,7 @@ ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模
 
 准备一个有边界的 P04 CUDA 适配包：
 
-- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
+- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；先用修复后的当前接口完成一次真实数据读取及 mask 数组核对，该实际消费仍未运行。保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
 - 用 PyTorch / Transformers / PEFT 实现 LoRA SFT；为 DPO 核验并锁定 TRL。单独生成 CUDA 依赖锁；Mac 的 `uv.lock` 和 MLX PASS 不代表 CUDA 兼容。
 - 保持 Q/V、28 层、rank 8、dropout 0、有效 scale 2；标准 PEFT LoRA 对应 `lora_alpha=16`、`use_rslora=False`。核对实际 trainable count、目标层、dtype、loss 分母、末批累积和恢复行为。优化器、注意力和 checkpointing 的新选择须显式登记并验证语义，不能照搬新框架默认值当作与旧方案等价。
 - 申请 GPU 前记录显存预算；按冻结 batch/长度做一轮短容量验证，覆盖 forward、backward、optimizer step、验证和保存/重载。通过后再完整 epoch。启动前明确 run ID、配置、步数/时限、已有账户资源、输出与退出条件。
@@ -36,7 +36,7 @@ ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模
 
 ## 长期约束
 
-S0 与全部独立 worker/reviewer 使用 `gpt-6-astra / max`；只用独立 Codex 对话与隔离 worktree，禁止 sub-agent。最多两个实现任务、一个重 GPU 作业。用户后续新开 Supervisor，本次不创建或派发。
+S0 与全部独立 worker/reviewer 使用 `gpt-6-astra / max`；只用独立 Codex 对话与隔离 worktree，禁止 sub-agent。最多两个实现任务、一个重 GPU 作业。用户后续新开 Supervisor，本次不创建下一 Supervisor 或派发实现任务；Q1 按既有授权只读审核本次交接。
 
 Q1 承接后续原需人工审核的事项，不等待用户填表、签字或答辩。同问题连续第 5 次正式修订未通过才整体暂停并通知用户，第 1–4 次自主整改，见[审核规则](coordination/REVIEW_POLICY.md)。
 

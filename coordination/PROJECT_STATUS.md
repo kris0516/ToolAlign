@@ -24,6 +24,6 @@
 
 ## 下一步
 
-用户新开 Supervisor，按 [toolalign.md](../toolalign.md)准备 P04 CUDA 适配；先显存预算，后短容量验证，再 SFT。T1/D1/E1/R1/Q1 本次未重新派发。长期目标未完成，此次交接不登记为 P00–P09 完成。
+用户新开 Supervisor，按 [toolalign.md](../toolalign.md)准备 P04 CUDA 适配；先显存预算，后短容量验证，再 SFT。T1/D1/E1/R1 本次未重新派发；Q1 仅做本次交接材料的独立只读审核。长期目标未完成，此次交接不登记为 P00–P09 完成。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
