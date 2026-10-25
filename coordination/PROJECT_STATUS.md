@@ -11,6 +11,7 @@
 | P04 准备 | CPU collator、MLX 原创 toy 数值、固定 Qwen CPU 接口通过 | [CPU](../reports/S0_P04_SFT_CPU_MAIN_VERIFICATION.md)、[toy](../reports/S0_P04_SFT_NATIVE_TOY_MAIN_VERIFICATION.md)、[模型接口](../reports/S0_P04_QWEN_CPU_MAIN_VERIFICATION.md)，PR10/11/17 |
 | P04 v3 接口 | R1-r3 PASS；PR19 已合并，main 定点 163 passed | [main 验证](../reports/S0_P04_DATA_V3_MAIN_VERIFICATION.md) |
 | P04 真实 v3 消费 | 当前接口一次 prepare 与13例数组转换/导出/回读 PASS；0新编码/模型更新 | [S1消费记录](../reports/S1_P04_DATA_V3_CONSUMPTION.md) |
+| P04 CUDA CPU 实现 | 4342af8 经独立R1审查 PASS；17项定点检查及独立数值/恢复通过，真实CUDA待运行 | R1原审查提交 `7d460f2054201c00055a1f924c5c4984be8e6988` |
 | P04 正式 SFT | NOT_RUN；CUDA 适配、依赖锁和容量实测待完成 | [下一任务](BOARD.md) |
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
@@ -27,6 +28,6 @@
 
 S1 已实际读取入口并与 S0 核对交接：交接时主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。G1准备已完成；G2已完成上表真实数据消费，T1/E1已原生派发。模型缓存完整字节与CUDA尚未新验。
 
-按 [GOAL](GOAL.md)依次推进。[T1 CUDA SFT](tasks/P04_CUDA_SFT.md)正在补外部 SIGTERM 清理；[E1 首包](tasks/P04_COLAB_ENVIRONMENT.md)已交依赖锁和控制脚本，R1 的 19 项既有检查通过，但独立复现了超时后代残留与多 run 持久副本复核缺口，正式结论 [FAIL](../reports/reviews/P04_COLAB_ENVIRONMENT_R1.md)。按 [E1 r2](tasks/P04_COLAB_ENVIRONMENT_R2.md)修订后再复审；R1/Q1 通过才签发有界 L4 配置。实际派发以原生回执及 BOARD 为准；GPU 尚未分配，正式 SFT/DPO/模型评测仍 NOT_RUN。旧未派发 Mac runtime 不恢复。
+按 [GOAL](GOAL.md)依次推进。[T1 CUDA SFT](tasks/P04_CUDA_SFT.md)已补外部 SIGTERM 清理并获得独立R1 PASS；[E1 首包](tasks/P04_COLAB_ENVIRONMENT.md)的两项已复现控制缺陷保留正式 [FAIL](../reports/reviews/P04_COLAB_ENVIRONMENT_R1.md)，[E1 r2](tasks/P04_COLAB_ENVIRONMENT_R2.md)正在修订。Q1并行审真实13例mask与CUDA说明，20例实际容量数组后续增量核对；R1/Q1通过才签发有界L4配置。实际派发以原生回执及BOARD为准；GPU尚未分配，正式SFT/DPO/模型评测仍NOT_RUN。旧未派发Mac runtime不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。

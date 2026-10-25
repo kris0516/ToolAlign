@@ -8,11 +8,11 @@
 | P01 Mac 兼容、P04 CPU 与 MLX toy | VERIFIED（原范围） | 留存证据，不再启动 Mac 训练 |
 | P04 v3 数据接口 / PR19 | VERIFIED | 主干 abdc53d，定点 163 passed |
 | G1 交接与执行准备 | COMPLETE | S1 接班；基线/数据/工作区/接入定位闭合，见 GOAL |
-| P04 CUDA SFT 首包 / T1 | READY_FOR_REVIEW | 最终候选4342af8；17项CPU检查通过，待R1裁定 |
+| P04 CUDA SFT 首包 / T1 | ACCEPTED（CPU） | 最终候选4342af8；独立R1 7d460f2 PASS，进入待集成分支 |
 | P04 CUDA 依赖与 Colab / E1 | r2 DISPATCHED | r1 两项 P1；按 P04_COLAB_ENVIRONMENT_R2 修进程与多 run 回收 |
 | P04 Colab 独立复核 / R1 | FAIL（r1） | 2f44945；两项首次正式未通过，待修订后复审 |
-| P04 CUDA SFT 独立复核 / R1 | DISPATCHED | 审最终候选4342af8，包含外部SIGTERM清理与完整恢复 |
-| P04 CUDA mask 与说明 / Q1 | READY | 13例真实消费与4342af8预审；20例容量数组后续增量核对 |
+| P04 CUDA SFT 独立复核 / R1 | PASS | 7d460f2；14项核心、3项进程及独立数值通过 |
+| P04 CUDA mask 与说明 / Q1 | DISPATCHED | 13例真实消费与4342af8预审；20例容量数组后续增量核对 |
 | P04 L4 容量与短 SFT | PLANNED | 适配、复核和显存预算后，一轮短验证 |
 | P04 正式 SFT | NOT_RUN | 容量通过、明确配置与预算后运行 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
