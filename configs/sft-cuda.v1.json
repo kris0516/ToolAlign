@@ -1,0 +1,217 @@
+{
+  "schema": "toolalign.sft-cuda.v1",
+  "owner": "S1",
+  "is_run_authorization": false,
+  "purpose": "CUDA_SFT_PROTOCOL_REQUIRES_SEPARATE_BOUNDED_RUN_CONFIG",
+  "bindings": {
+    "configs/sft-data-v3.v1.json": "e27a7d4bcdd378944af56559833c3bcd10f601b689a75f1daec96b884bd780c1",
+    "configs/qwen-models.v1.json": "b8a5e48bc2b93064c511ba796dabf55024f65df97fe0db39c43366b7bc877145",
+    "coordination/approvals/P02_DATA_V3.json": "1edb1e889b91dbde5dc6208b8dff2afdaa4b4a20a0ba5c166e9b55750429ec44"
+  },
+  "format_id": "toolalign.action-json.qwen3-message-roles.v1",
+  "data_binding": {
+    "effective_files": {
+      "effective/train.jsonl": "294876d27b39f9991c274e8aa795b5c352ace5b073d20a19bc40d25fa10e9221",
+      "effective/validation.jsonl": "455eaa4afd773f436f2510ad5325cabeb0edf7852ae5bc8b14599c9b97c3570d"
+    },
+    "manifest_file_sha256": "f4569b8b16a6c42bd500cc7c977561b770435954e42ced177e36e857b9776437",
+    "parent_training_config_file_sha256": "579d3d9d9436f4374e7e808dc5b787213157d7ee477bfffd48dac02d35e70a4c",
+    "quality_config_file_sha256": "784aa699026ebb149d720745f461a9cfd493036cd0bf09a72702a81e2db45261",
+    "quality_revision_sha256": "919ee616fd11993f39bbab6d38146ea827f4bbc3d7bafc07aae0e2c7dd95e5c8",
+    "selection_manifest_file_sha256": "d765493c156d047cfaadce9c49e7edf25b973907d6a764f3272090786693efbc",
+    "training_binding_file_sha256": "588c94b6bed580f6ddf0e30eef4442915c24a0dc2ad40f33b2d8772cd4a29059"
+  },
+  "profiles": {
+    "formal": {
+      "context_tokens_including_eos_cap": 2048,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "padding_buckets": [
+        1024,
+        1536,
+        2048
+      ],
+      "train_limit": null,
+      "validation_limit": null
+    },
+    "smoke": {
+      "context_tokens_including_eos_cap": 1536,
+      "model_id": "Qwen/Qwen3-0.6B",
+      "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "padding_buckets": [
+        1024,
+        1536
+      ],
+      "train_limit": 1600,
+      "validation_limit": null
+    }
+  },
+  "view_summaries": {
+    "formal": {
+      "train": {
+        "effective_selected_count": 5938,
+        "parent_selected_count": 6013,
+        "quarantined_counts": {
+          "fail": 27,
+          "unknown": 48
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "93c41855d3b9fd14a33ec83b9515e6cf96d3791c674ad39bc7bfa55c2bc366bb"
+      },
+      "validation": {
+        "effective_selected_count": 213,
+        "parent_selected_count": 217,
+        "quarantined_counts": {
+          "fail": 1,
+          "unknown": 3
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "187b2e23a92d7638049ba1b7ef3572232563e8af52e6e5b6a75997ebe6f0a431"
+      }
+    },
+    "smoke": {
+      "train": {
+        "effective_selected_count": 1583,
+        "parent_selected_count": 1600,
+        "quarantined_counts": {
+          "fail": 5,
+          "unknown": 12
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "bb9e01d8da0e8a61bded075d2ddf530eb1c0a2a6baf0fd0560d0fa8092ca6f5d"
+      },
+      "validation": {
+        "effective_selected_count": 194,
+        "parent_selected_count": 197,
+        "quarantined_counts": {
+          "fail": 0,
+          "unknown": 3
+        },
+        "refill_count": 0,
+        "selected_identity_sha256": "870108febc3d3e8465d6a3a84086bfb2f3659c3b728196101669e620c67918ab"
+      }
+    }
+  },
+  "model": {
+    "base_dtype": "bfloat16",
+    "adapter_dtype": "float32",
+    "targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "layers": 28,
+    "module_count": 56,
+    "rank": 8,
+    "lora_alpha": 16,
+    "use_rslora": false,
+    "lora_dropout": 0.0,
+    "expected_trainable_parameters": {
+      "smoke": 1146880,
+      "formal": 1605632
+    },
+    "attention": "sdpa",
+    "gradient_checkpointing": true,
+    "gradient_checkpointing_use_reentrant": false,
+    "use_cache": false,
+    "trust_remote_code": false,
+    "quantization": null
+  },
+  "optimizer": {
+    "name": "torch.optim.AdamW",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "bias_correction": true,
+    "scheduler": "constant",
+    "warmup_steps": 0,
+    "max_grad_norm": null,
+    "foreach": false,
+    "fused": false
+  },
+  "training": {
+    "epochs": 1,
+    "seed": 42,
+    "microbatch": 1,
+    "gradient_accumulation": 8,
+    "shuffle": false,
+    "packing": false,
+    "truncate": false,
+    "pad_token_id": 151643,
+    "eos_token_id": 151645,
+    "loss": "mean_of_per_example_completion_and_EOS_token_mean_losses",
+    "tail_divisor": "actual_microsteps",
+    "expected_updates": {
+      "smoke": 198,
+      "formal": 743
+    },
+    "expected_tail_microsteps": {
+      "smoke": 7,
+      "formal": 2
+    }
+  },
+  "validation": {
+    "split": "validation",
+    "coverage": "all_selected_in_frozen_order",
+    "reduction": "total_completion_and_EOS_CE_sum_over_total_supervised_tokens",
+    "selection": [
+      "minimum_finite_validation_ce",
+      "earliest_optimizer_step",
+      "checkpoint_sha256"
+    ],
+    "cadence": "fixed_by_run_config_before_execution",
+    "include_final_tail_state": true
+  },
+  "checkpoint": {
+    "required_state": [
+      "adapter",
+      "optimizer",
+      "constant_lr_or_scheduler",
+      "optimizer_step",
+      "data_cursor",
+      "python_rng",
+      "numpy_rng",
+      "torch_cpu_rng",
+      "torch_cuda_rng",
+      "source_identity",
+      "data_identity",
+      "model_identity",
+      "config_identity",
+      "dependency_identity"
+    ],
+    "save": "atomic_local_then_verified_persistent_copy",
+    "retain": [
+      "best",
+      "last",
+      "most_recent_distinct_scored_rollback"
+    ]
+  },
+  "execution": {
+    "provider": "Colab",
+    "real_model_device": "cuda",
+    "preferred_gpu": "L4",
+    "memory_headroom_fraction": 0.2,
+    "shared_gpu_lease_required": true,
+    "prepare_separate_from_training": true,
+    "required_run_fields": [
+      "run_id",
+      "run_kind",
+      "profile",
+      "source_commit",
+      "config_sha256",
+      "array_manifest_sha256",
+      "dependency_lock_sha256",
+      "model_root",
+      "output_dir",
+      "lock_root",
+      "max_optimizer_steps",
+      "max_wall_seconds",
+      "max_output_bytes"
+    ],
+    "automatic_retry": false,
+    "fallback_to_cpu": false
+  }
+}
