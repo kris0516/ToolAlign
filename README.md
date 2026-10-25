@@ -1,10 +1,10 @@
 # ToolAlign
 
-**Reliable tool-use post-training and evaluation on Apple Silicon.**
+**Reliable small-model tool-use post-training and evaluation.**
 
-ToolAlign 是一个以 Apple Silicon 为主要实验环境的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
+ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态：P00、共享支持、P01 受限兼容校准与 P03 CPU 执行器已独立验收并完成主干验证。** [P01/G1 证据](reports/S0_P01_MAIN_VERIFICATION.md)分别记录 SFT 和唯一 DPO 备选的兼容结论；[P03 证据](reports/S0_P03_MAIN_VERIFICATION.md)覆盖本地工具、oracle 与 scripted 接口。P02 数据代码技术验证通过，人工语义审查、新共同格式和训练绑定仍待完成。阶段验收以[真实状态](coordination/PROJECT_STATUS.md)为准；正式训练、benchmark 和推理服务尚未验收，下面的正式结果栏保持 `NOT_RUN`。
+> **当前状态（2026-10-26）：数据治理、冻结 v3 质量审核、CPU 工具执行器与 P04 准备接口已验收。PR19 已合并，main 定点检查 163 passed。** 正式 SFT、DPO 和模型评测保持 `NOT_RUN`。后续使用 Colab L4/A100，CUDA 训练接口待适配。新 Supervisor 从 **[toolalign.md](toolalign.md)** 接续，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 
@@ -26,7 +26,7 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 ## 研究问题
 
-在固定数据、计算预算和评测协议下，`Qwen3-1.7B` 经量化 LoRA SFT，再经基于执行反馈的 DPO，能否提高工具调用的**语义任务成功率**？增加重试、量化和 prefix cache 后，准确性、延迟、内存的变化能否被分别归因？
+在固定数据、计算预算和评测协议下，`Qwen3-1.7B` 经 LoRA SFT，再经基于执行反馈的 DPO，能否提高工具调用的**语义任务成功率**？增加重试、量化和 prefix cache 后，准确性、延迟、内存的变化能否被分别归因？
 
 `Qwen3-0.6B` 用于兼容性冒烟和小容量对照。这里的 **baseline / 原始 checkpoint** 不是“未经指令训练的 pretrained base model”。准确的模型身份、revision 与模板必须记录。
 
@@ -35,16 +35,16 @@ uv run --locked python -m toolalign.training.compatibility --help
 | 阅读者 | 入口 |
 |---|---|
 | 项目负责人 kris | [总计划](docs/00_MASTER_PLAN.md)、[十天任务表](coordination/BOARD.md) |
-| Supervisor Codex 独立对话 | **[SUPERVISOR_START_HERE.md](SUPERVISOR_START_HERE.md)** |
+| Supervisor Codex 独立对话 | **[toolalign.md](toolalign.md)** |
 | 所有独立实现/审查对话 | [AGENTS.md](AGENTS.md)、[协作协议](coordination/PROTOCOL.md) |
-| 训练负责人 | [训练规格](docs/03_TRAINING_SPEC.md)、[Mac 资源方案](docs/05_APPLE_SILICON.md) |
+| 训练负责人 | [训练规格](docs/03_TRAINING_SPEC.md)、[Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md) |
 | 评测负责人 | [数据治理](docs/02_DATA_GOVERNANCE.md)、[评测规格](docs/04_EVALUATION_SPEC.md) |
 | 部署负责人 | [分阶段部署路线](docs/06_DEPLOYMENT_ROADMAP.md) |
 | 接收文档包后创建 GitHub 仓库 | [发布运行手册](docs/11_REPOSITORY_BOOTSTRAP.md) |
 
 ## 首版边界
 
-核心：数据审计与分组切分；可执行工具环境；原始模型/SFT/DPO 对照；可核验的错误分析；Mac 资源实测；受限本地推理接口；一次受控 prefix-cache 实验。
+核心：数据审计与分组切分；可执行工具环境；原始模型/SFT/DPO 对照；可核验的错误分析；Colab GPU 资源实测；受限推理接口；一次受控 prefix-cache 实验。
 
 不在十天核心范围：全量 BFCL V4 总榜复现、多机多卡、PPO/GRPO、无人监督自我改权重、五个自治 Agent、商业多租户服务、公开公网推理、完整前端。Speculative decoding 与高级 batching 是后续候选，不承诺提速。
 
@@ -64,7 +64,7 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 ## 开源与部署状态
 
-当前公开仓库为 `kris0516/ToolAlign`。Supervisor 已领取项目；[项目状态](coordination/PROJECT_STATUS.md)记录实际提交、独立审查、集成与尚未满足的验收门。
+当前公开仓库为 `kris0516/ToolAlign`。已有项目进度正在交接给用户后续新开的 Supervisor；[项目状态](coordination/PROJECT_STATUS.md)记录实际提交、独立审查、集成与尚未满足的验收门。
 
 原创代码和文档采用 [MIT](LICENSE)。模型、数据和第三方依赖各自保留原许可，见 [第三方来源与发布边界](THIRD_PARTY_NOTICES.md)。不复制 LiDARFoodAgent 私有源码、真实用户数据或任何云端凭据。
 
