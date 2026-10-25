@@ -255,11 +255,14 @@ def terminate_owned_group(process: subprocess.Popen) -> None:
             except ProcessLookupError:
                 process.wait(timeout=1)
                 return
+            except PermissionError:
+                # An exiting group can be temporarily unsignalable; it is not confirmed absent.
+                pass
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 break
             time.sleep(min(0.05, remaining))
-    raise RuntimeError("owned process group remains present after bounded SIGKILL cleanup")
+    raise RuntimeError("owned process group exit is unconfirmed after bounded SIGKILL cleanup")
 
 
 def worker(repository: Path, payload: dict) -> int:
