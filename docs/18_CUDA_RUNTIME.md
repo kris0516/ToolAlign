@@ -71,6 +71,18 @@ Mac 控制配置使用以下结构。所有占位符必须替换，`max_allocati
 }
 ```
 
+同一 endpoint 的不同 run 可以使用不同 `local_root`。停止时，当前 run 使用自己的目录，其余 run 默认查找当前 `local_root/RUN_ID/recovered.json`。若较早 run 存在其他位置，在执行 `stop` 的控制配置中加入显式映射；值是含 `recovered.json` 的本机 run 目录：
+
+```json
+{
+  "recovery_directories": {
+    "EARLIER_RUN_ID": "/ABS/OTHER_PRIVATE/.toolalign-local/colab/EARLIER_RUN_ID"
+  }
+}
+```
+
+该字段不改变训练 run JSON 或它的 SHA。任何已登记 run 缺少正确映射或完整副本都会阻止停止，不会被省略。
+
 复用已安装的官方 CLI 及 ADC/proxy 包装。当前检查版本为 `google-colab-cli 0.7.4`。控制器使用独立 SSH 参数和私有 `known_hosts`，不改已有其他项目的 SSH alias、认证或环境。官方 [SSH 说明](https://github.com/googlecolab/google-colab-cli/blob/main/docs/06_ssh_access.md)提示代理可自动创建缺失实例，因此每次连接前检查具名会话及 endpoint；CLI 的“not found”即使退出码为 0 也视为不存在。
 
 ## 五个操作
@@ -93,13 +105,13 @@ python3 scripts/colab/control.py --spec /ABS/PRIVATE/control.json stop
 /content/toolalign/.toolalign-local/cuda-env/bin/python -u -m toolalign.training.cuda_sft train --run-config /content/toolalign/runs/RUN_ID/run.json
 ```
 
-训练保持离线环境变量，由 T1 获取同一真实 Git 根的 GPULease。控制器记录启动请求、PID、即时日志、真实退出码；超时终止其自有进程组并回收子进程。它不接受任意远程 shell 命令。已存在启动声明、tmux 作业或已回收的 run 均不能重新提交。
+训练保持离线环境变量，由 T1 获取同一真实 Git 根的 GPULease。控制器记录启动请求、PID、即时日志、真实退出码。超时后先向自有进程组发送 SIGTERM，父进程退出后仍继续确认组内成员；10 秒宽限后向残留成员发送 SIGKILL，再有界确认并回收直接子进程。两个确认阶段各至多 10 秒。`timeout_cleanup_completed=true` 才表示该次超时清理已确认；未确认时保存错误并拒绝导出，保留实例。T1 另建 session 的子进程由 T1 清理，组合行为另验。控制器不接受任意远程 shell 命令；已有启动声明、tmux 作业或已回收的 run 均不能重新提交。
 
 断连或 SSH 超时后先 `status`。本地 `events/` 保留 SSH 输出和退出/超时记录，远端的 tmux 与退出文件决定作业状态。没有终态记录时不从“连接断了”推断运行完成，也不自动换实例或再启动训练。
 
 `recover` 只导出终态 run 的完整目录，包含失败记录和 T1 全部 checkpoint 文件。远端生成文件大小/SHA-256 清单；Mac 下载归档后检查归档、清单、全部文件及目录边界，再回执远端。失败的下载尝试仍留在私有目录。该步骤不解析或执行 checkpoint；训练恢复的语义验证由 T1 负责。
 
-`stop` 先重新读取 Mac 副本；远端确认所有登记 run 已回收、输出仍与已回收清单一致、tmux 不活跃且共享 GPU 锁空闲，然后停止登记的具名会话并读回“会话不存在”。同名 endpoint 变化会拒绝停止。`stopped.json` 记录从实际分配到停止的总时长，包含安装、空闲、失败和传输；它不是费用账单。
+`stop` 以远端该 endpoint 的全部登记 run 为完整清单。远端确认当前输出与各次回收快照一致、tmux 不活跃、共享 GPU 锁空闲，并禁止新 setup/launch。Mac 随后逐一匹配快照，校验每个 run 的归档 hash、清单 hash 和解包文件；较早 run 损坏或 tar 缺失也会阻止停止。对失败 run 使用其原控制配置再次 `recover`，再执行 `stop` 即可。确认全部副本后才停止具名会话，并读回“会话不存在”。本地 `stop-inventory.json` 保留完整远端清单，用于停止响应不确定而实例已消失时的再次核对。同名 endpoint 变化会拒绝停止。`stopped.json` 记录从实际分配到停止的总时长，包含安装、空闲、失败和传输；它不是费用账单。
 
 运行与 setup 会使用剩余分配预算，S1 须为回收留出时间。回收/停止在预算到期后仍可执行，以保存数据并释放资源；控制器没有离线自动停机服务。关闭本地终端也不会释放实例。
 

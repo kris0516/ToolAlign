@@ -21,6 +21,7 @@ from pathlib import Path, PurePosixPath
 from support import (
     atomic_json,
     digest,
+    json_bytes,
     name,
     read_json,
     time_remaining,
@@ -207,18 +208,64 @@ def recover(spec_path: Path, spec: dict, directory: Path, payload: dict) -> dict
             "directory": receipt["directory"], "files": len(manifest["files"])}
 
 
+def verify_recovery_receipt(receipt: dict, exported: dict) -> None:
+    if receipt["export"] != exported:
+        raise ValueError("Mac recovery receipt differs from the instance snapshot")
+    manifest = receipt["manifest"]
+    if hashlib.sha256(json_bytes(manifest)).hexdigest() != exported["manifest_sha256"]:
+        raise ValueError("Mac recovery manifest differs from the instance snapshot")
+    archive = Path(receipt["archive"])
+    if (not archive.is_file() or archive.stat().st_size != exported["archive_bytes"]
+            or digest(archive) != exported["archive_sha256"]):
+        raise ValueError("Mac recovery archive is missing or changed; recover this run again")
+    verify_manifest(Path(receipt["directory"]), receipt["manifest"])
+
+
 def stop(spec_path: Path, spec: dict, directory: Path, payload: dict) -> dict:
     receipt = read_json(directory / "recovered.json")
     if receipt["export"]["run_id"] != payload["run_id"] or receipt["export"]["endpoint"] != payload["endpoint"]:
         raise ValueError("recovery receipt does not own this endpoint")
-    # Recheck the durable copy immediately before the destructive action.
-    verify_manifest(Path(receipt["directory"]), receipt["manifest"])
+    verify_recovery_receipt(receipt, receipt["export"])
     current = session_status(spec["cli"], spec["session"])
     owner(spec, directory, current)
+    inventory_path = directory / "stop-inventory.json"
     if current:
         ready = remote_call(spec_path, spec, directory, payload, "stop-ready")
-        if ready != {"session": payload["session"], "endpoint": payload["endpoint"], "stop_ready": True}:
-            raise ValueError("remote stop ownership check failed")
+    else:
+        # An uncertain stop may already have removed the VM. Its previously
+        # fenced inventory is still required to verify every durable copy.
+        ready = read_json(inventory_path)
+    if any(ready.get(key) != value for key, value in {
+        "session": payload["session"], "endpoint": payload["endpoint"], "stop_ready": True,
+    }.items()):
+        raise ValueError("remote stop ownership check failed")
+    recovered = ready.get("recoveries")
+    if not isinstance(recovered, dict) or payload["run_id"] not in recovered:
+        raise ValueError("remote stop response is missing the complete run inventory")
+    atomic_json(inventory_path, ready)
+    locations = spec.get("recovery_directories", {})
+    if not isinstance(locations, dict):
+        raise ValueError("recovery_directories must map run IDs to private local run directories")
+    for run_id, exported in recovered.items():
+        name(run_id)
+        if exported["run_id"] != run_id or exported["endpoint"] != payload["endpoint"]:
+            raise ValueError("remote recovery inventory contains a different run or endpoint")
+        if run_id == payload["run_id"]:
+            if receipt["export"] != exported:
+                raise ValueError("current run recovery differs from the instance snapshot")
+            continue
+        location = Path(locations.get(run_id, str(directory.parent / run_id))).expanduser()
+        if not location.is_absolute() or ".toolalign-local" not in location.parts:
+            raise ValueError("recovery_directories entries must be absolute private run directories")
+        try:
+            other = read_json(location / "recovered.json")
+            verify_recovery_receipt(other, exported)
+        except (OSError, ValueError, KeyError) as error:
+            raise ValueError(
+                f"run {run_id} has no intact current Mac recovery: {error}; "
+                "set recovery_directories for its local_root and recover that run again"
+            ) from error
+    if current:
         owner(spec, directory, session_status(spec["cli"], spec["session"]))
         subprocess.run([spec["cli"], "stop", "-s", spec["session"]], check=True, timeout=60,
                        stdout=sys.stderr, stderr=sys.stderr)

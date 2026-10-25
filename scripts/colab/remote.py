@@ -19,6 +19,7 @@ import signal
 import subprocess
 import sys
 import tarfile
+import time
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -238,6 +239,29 @@ def launch(repository: Path, payload: dict) -> dict:
     return {"run_id": payload["run_id"], "status": "LAUNCH_REQUESTED", "tmux": tmux_name(payload)}
 
 
+def terminate_owned_group(process: subprocess.Popen) -> None:
+    """Popen(start_new_session=True) makes this child's PID its owned PGID."""
+    for signum in (signal.SIGTERM, signal.SIGKILL):
+        try:
+            os.killpg(process.pid, signum)
+        except ProcessLookupError:
+            process.wait(timeout=1)
+            return
+        deadline = time.monotonic() + 10
+        while True:
+            process.poll()  # Reap the leader; its exit does not end the group.
+            try:
+                os.killpg(process.pid, 0)
+            except ProcessLookupError:
+                process.wait(timeout=1)
+                return
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            time.sleep(min(0.05, remaining))
+    raise RuntimeError("owned process group remains present after bounded SIGKILL cleanup")
+
+
 def worker(repository: Path, payload: dict) -> int:
     run = validate_payload(payload, repository)
     directory = owned_run(repository, payload)
@@ -261,13 +285,10 @@ def worker(repository: Path, payload: dict) -> int:
                 result["exit_code"] = process.wait(timeout=budget)
             except subprocess.TimeoutExpired:
                 result["timed_out"] = True
-                os.killpg(process.pid, signal.SIGTERM)
-                try:
-                    process.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    os.killpg(process.pid, signal.SIGKILL)
-                    process.wait()
                 result["exit_code"] = 124
+                result["timeout_cleanup_completed"] = False
+                terminate_owned_group(process)
+                result["timeout_cleanup_completed"] = True
     except Exception as error:
         result["error"] = str(error)
     finally:
@@ -302,6 +323,10 @@ def export(repository: Path, payload: dict) -> dict:
     terminal = (directory / "exit.json").is_file() or (directory / "launch-error.json").is_file()
     if (submitted and not terminal) or (not submitted and not (directory / "setup-exit.json").is_file()):
         raise ValueError("no terminal job/setup record; do not infer completion from disconnection")
+    if (directory / "exit.json").is_file():
+        ended = read_json(directory / "exit.json")
+        if ended.get("timed_out") and not ended.get("timeout_cleanup_completed"):
+            raise ValueError("timed-out process group cleanup is unconfirmed; preserve the instance")
     # Transfer the actual full output tree. T1 validates the checkpoint semantics.
     manifest = output_manifest(directory, payload)
     files = manifest["files"]
@@ -347,6 +372,7 @@ def stop_ready(repository: Path, payload: dict) -> dict:
     sys.path.insert(0, str(repository / "src"))
     from toolalign.runtime.gpu_lock import inspect_gpu_lock
 
+    recoveries = {}
     with registry(repository, payload) as state:
         if inspect_gpu_lock(repository)["held"]:
             raise ValueError("a shared GPU lease is still held")
@@ -357,8 +383,10 @@ def stop_ready(repository: Path, payload: dict) -> dict:
             current = output_manifest(run_directory(repository, other), other)
             if hashlib.sha256(json_bytes(current)).hexdigest() != record["recovered"]["manifest_sha256"]:
                 raise ValueError(f"run {run_id} changed since recovery; recover the new snapshot")
+            recoveries[run_id] = record["recovered"]
         state["stopping"] = True
-    return {"session": payload["session"], "endpoint": payload["endpoint"], "stop_ready": True}
+    return {"session": payload["session"], "endpoint": payload["endpoint"], "stop_ready": True,
+            "recoveries": recoveries}
 
 
 def main() -> int:

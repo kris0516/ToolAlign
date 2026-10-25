@@ -282,7 +282,10 @@ def test_stop_refuses_missing_receipt_and_changed_durable_bytes(run, cli, tmp_pa
     receipt = remote.export(repository, payload)
     target = tmp_path / "recovered"
     manifest = control.extract_verified(Path(receipt["archive_path"]), target, receipt, payload)
-    atomic_json(local / "recovered.json", {"export": receipt, "directory": str(target), "manifest": manifest})
+    atomic_json(local / "recovered.json", {
+        "export": receipt, "directory": str(target), "manifest": manifest,
+        "archive": receipt["archive_path"],
+    })
     (target / "output/checkpoint-2/state.pt").write_bytes(b"changed")
     with pytest.raises(ValueError, match="complete file manifest"):
         control.stop(path, spec, local, payload)
