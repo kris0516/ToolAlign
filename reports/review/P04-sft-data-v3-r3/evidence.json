@@ -1,0 +1,534 @@
+{
+  "F1": {
+    "current_related_regression": "PASS",
+    "old_FAIL_retained": true,
+    "prior_S0_status": "CLOSED_BY_R2_PARTIAL_PASS"
+  },
+  "F2": {
+    "counter_update_owner": "S0",
+    "issue_id": "P04-SFT-DATA-V3-F2",
+    "new_failed_revision_increment_recommended": 0,
+    "prior_fail_unchanged": true,
+    "prior_formal_fail_candidate": "1769046468eb2ebfdd9e982ba4938833760e3fe0",
+    "prior_formal_fail_review": "58212d26bdb1c6a681a1ac34ccae854daefca8d3",
+    "reason": "The same owned descriptor closes on construction failure; successful transfer leaves closing to the stream, including later validation/read errors. Original directory replacement and FD reuse checks passed.",
+    "stable_requirement_key": "data_v3_fdopen_failure_closes_successfully_opened_descriptor",
+    "verdict": "PASS_RECOMMEND_CLOSE"
+  },
+  "actual_review_consumption": {
+    "business_API_browser_public_service_calls": 0,
+    "corpus_reencoding": 0,
+    "explicitly_authorized_supplement_attempts": 1,
+    "framework_model_GPU_optimization_generation_calls": 0,
+    "initial_installed_attempt_remains_consumed": true,
+    "initial_installed_attempts": 1,
+    "initial_installed_cases_started": 0,
+    "model_data_uploads_or_new_costs": 0,
+    "module_cases_passed": 157,
+    "module_test_attempts": 1,
+    "new_FD_fixture_groups": 1,
+    "new_FD_logical_cases": 4,
+    "new_archive_builds": 0,
+    "new_dependency_installs": 0,
+    "new_downloads": 0,
+    "new_environments": 0,
+    "offline_wheel_target_installs": 1,
+    "old_unwrapped_directory_observation_calls": 0,
+    "original_f44_FIFO_probe_calls": 0,
+    "owned_original_fixture_children": 8,
+    "real_13_rebind_export_readback_calls": 0,
+    "real_609_prepare_verify_calls": 0,
+    "source_original_cases_passed": 6,
+    "source_original_six_attempts": 1,
+    "supplement_installed_cases_passed": 6
+  },
+  "archives": {
+    "direct": {
+      "bytes": 204865,
+      "members": 70,
+      "sha256": "100ec324d73c8497a3ed76580eb64dad0860f18f027e64d7428d4b2f9fdecb10"
+    },
+    "rebuilt": {
+      "bytes": 204865,
+      "members": 70,
+      "sha256": "100ec324d73c8497a3ed76580eb64dad0860f18f027e64d7428d4b2f9fdecb10"
+    },
+    "sdist": {
+      "bytes": 357078,
+      "members": 143,
+      "sha256": "1ea38feab6f0fb9c02527b2534ad336477c31a0e1c60d97e7d1fa323ea8629e4"
+    }
+  },
+  "authorization_commit": "6ff0cf72ad309cd7be86a42eb80fee0913a35991",
+  "candidate": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1",
+  "candidate_parent": "9e08a0961ac2fbf9e993585289b4e82b7115f016",
+  "candidate_tree": "04001535b91fca46e9612f6130da1b1745eab9e4",
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1"
+  ],
+  "evidence_identities": {
+    "authorization-files.json": {
+      "bytes": 2709,
+      "sha256": "b4cf3f9b463a0d96e73dd402c6497945893e6ff6371ad96459644c3660debd90"
+    },
+    "auxiliary-read-failures.json": {
+      "bytes": 932,
+      "sha256": "abaf91f703b7fd87bf7f64dca2daf73f6cfd336f934e490ce1b76ae3543cb12b"
+    },
+    "commands/contract/receipt.json": {
+      "bytes": 1833,
+      "sha256": "9954104521a130f43387338fa269f351b8e27c1df12bf54476dc435459a970fa"
+    },
+    "commands/existing-unit/receipt.json": {
+      "bytes": 1880,
+      "sha256": "37dec12305dd693f432b863872663fc2232de67f1f7948e178658bdc7a1eac20"
+    },
+    "commands/independent-fd/receipt.json": {
+      "bytes": 1883,
+      "sha256": "783f498b7fd6ba255ede1733da425170d81a8465b3d7a2d2bf2e1207a39a32f2"
+    },
+    "commands/original-installed-s0-py/receipt.json": {
+      "bytes": 1912,
+      "sha256": "97b7d063b7c65a9a0f1f858af2534704738d8a686555357b3001a65e597afe41"
+    },
+    "commands/original-installed/receipt.json": {
+      "bytes": 1897,
+      "sha256": "464fb847dd142c4d49e531156793e432ef7987960c3a8b1b870a6086a7ac3770"
+    },
+    "commands/original-source/receipt.json": {
+      "bytes": 1886,
+      "sha256": "3ac09b75052def6ad1628e845e6a021cc9acdbf08c53257cfaacdabe4c25f314"
+    },
+    "commands/ruff-source/receipt.json": {
+      "bytes": 2110,
+      "sha256": "3fbf166058503d4b92c59b8254db14af40c42d0262d206513a0fc802f6c3fa19"
+    },
+    "existing-unit-processes.json": {
+      "bytes": 6909,
+      "sha256": "7ec31b4c5da708d1417bfee8bfd7382c1e114ce8aafc851d12d32338ffbe1314"
+    },
+    "existing-unit-result.json": {
+      "bytes": 1085,
+      "sha256": "a59aefca5c3303fe02e3899bf6231a45c99cdd698dc3b631c0b7393d1a2a9c01"
+    },
+    "existing-unit-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "existing-unit-stdout.log": {
+      "bytes": 260,
+      "sha256": "e9e6f502415848059eed22aa19df192307ec6ef7e3cd920592b0a91b21917d8a"
+    },
+    "final-run-audit.json": {
+      "bytes": 381421,
+      "sha256": "8afb909c04c6722ed5d8c276d779e9749bf9ab8969586618e814ee784e813853"
+    },
+    "independent-fd-processes.json": {
+      "bytes": 4757,
+      "sha256": "79fff615c5ce8e4829988dd68c2d5dadf70dd2e0c751cc475499f42150bad6c9"
+    },
+    "independent-fd-result.json": {
+      "bytes": 1349,
+      "sha256": "925b1bbba31f12580a8b26d4fd821126c0afd9b2cb25ca0d9fad58bb6d260e0a"
+    },
+    "independent-fd-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-fd-stdout.log": {
+      "bytes": 98,
+      "sha256": "4250d1f2029068ddc50a143f438d48c0e151e05c734fe713ffea94436ecf9381"
+    },
+    "install-result.json": {
+      "bytes": 1082,
+      "sha256": "a86b968adb5e0b460cbf9f1ef56c75d491daa5485526fd4ca0df6ad9aa26e201"
+    },
+    "installed-harness-failure.json": {
+      "bytes": 2580,
+      "sha256": "9d91c5aff67721171efbb4474c4d24d7b31319e4742c04809e0faf9086addf17"
+    },
+    "installed-preflight.json": {
+      "bytes": 29740,
+      "sha256": "b7077667ed20be41996776cc5bae97147c93909c99c88e5ef98e039670da734a"
+    },
+    "intake.json": {
+      "bytes": 4541600,
+      "sha256": "3b44ea8ba6812b996d9b0727b9adadf8cd6242dae632d714d2c51f87b8bdcd6a"
+    },
+    "original-installed-processes.json": {
+      "bytes": 6606,
+      "sha256": "861a52dcb2097204fc0c1d90410dd45d6398f10f8c966bcd298ddfd828a372b1"
+    },
+    "original-installed-result.json": {
+      "bytes": 1470,
+      "sha256": "627813570b9df6f9ccb1b32110688cdee436282afd0b385dfc0fd78e7f37632f"
+    },
+    "original-installed-s0-py-processes.json": {
+      "bytes": 10658,
+      "sha256": "95a81d084f17107136f663a260f9a9a72c364d63b3917033dfc998a9b57bfd96"
+    },
+    "original-installed-s0-py-result.json": {
+      "bytes": 1495,
+      "sha256": "fce345cab295b2de955199f00a0513d6668f8ff861edbd03d279f68ab37b8320"
+    },
+    "original-installed-s0-py-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original-installed-s0-py-stdout.log": {
+      "bytes": 98,
+      "sha256": "2c74781560d9b77662946a06816fc3615b8619d49214a4ad88a2bab70a7ff2ce"
+    },
+    "original-installed-stderr.log": {
+      "bytes": 1637,
+      "sha256": "d9070dcebf00124de33eb49a315b083e4cc6db962ce7fd7c5f3b3845739760ac"
+    },
+    "original-installed-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original-source-processes.json": {
+      "bytes": 8114,
+      "sha256": "64470e6d44408b14fed0c4dd3c7106e89788288b76a2fd613b70e3028d1979c7"
+    },
+    "original-source-result.json": {
+      "bytes": 1361,
+      "sha256": "d0f3a47a3844063e90b0777b8bdf7f59bbc6b0dcf629e858ba363a1cc9946347"
+    },
+    "original-source-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original-source-stdout.log": {
+      "bytes": 98,
+      "sha256": "e3184752be711e1a9894f4e87ac586c9888a5cebd407de809432fd27354b8bcc"
+    },
+    "preservation-proof.json": {
+      "bytes": 29837756,
+      "sha256": "196c8b81e501726892af3f5991341f45829c47b070811821ab2d8401922dabcb"
+    },
+    "reservations/existing-unit.json": {
+      "bytes": 2565,
+      "sha256": "fb3155f67fe4afa276448d0da76941dbab3703faa12cf67b6eec4ff3f2464d82"
+    },
+    "reservations/independent-fd.json": {
+      "bytes": 3148,
+      "sha256": "5646d051d4bd185eb8075909f617187cf0c53f6ba3adddd1eb1a8ed605a1ec0d"
+    },
+    "reservations/original-installed-s0-py.json": {
+      "bytes": 22891,
+      "sha256": "b0fbb46b7b5d3502850ba41e3f008027bf06efbb74d963cf767b9b3326efed27"
+    },
+    "reservations/original-installed.json": {
+      "bytes": 20647,
+      "sha256": "074c342f3711bbf57058a8fe9435ad3e22d0a04d81edcb1ca91f6a7281da68b1"
+    },
+    "reservations/original-source.json": {
+      "bytes": 2878,
+      "sha256": "2cbfedfa545cd8905d4cefdb33ec5fd0e4f913531120ac4a04c69220095b65bd"
+    },
+    "source-run-audit.json": {
+      "bytes": 356513,
+      "sha256": "fd23fa6a3d35504550f02f6d7f0082cd6da77571be297e0be12290e9b0f32545"
+    },
+    "static-diff-audit.json": {
+      "bytes": 494,
+      "sha256": "f7b13de70c96a930fb968288cb292f1a57c2c6e9da20d7fd0973ba8627dae530"
+    },
+    "supplement-S0-proof.json": {
+      "bytes": 159801,
+      "sha256": "ebaeaa3c087e56c1b9bf3061e0467503ba7926e09f45e4010f080ae41e54949b"
+    },
+    "supplement-authorization.json": {
+      "bytes": 1179,
+      "sha256": "b9f10830c7712a1c8847e7f877bb05557d6193d51074f81cca84758a507a95fb"
+    },
+    "supplement-preparation.json": {
+      "bytes": 159222,
+      "sha256": "35751540906938a00fd6d4252b417ff79e21868f42e95ad76f6f4df59cfb9cf5"
+    },
+    "test_fd_ownership.py": {
+      "bytes": 5523,
+      "sha256": "3e7c18c47cf1212c297f0dc99057323fb3fd2e3f5ea33a83fd17960a4f1726f3"
+    }
+  },
+  "finding_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "findings": [],
+  "formal_training_authorized": false,
+  "independent_FD_fixture_source": {
+    "bytes": 5523,
+    "distinction": "SystemExit with an unrelated live descriptor, plus actual FD-number reuse after stream exit for success, digest rejection and partial-read failure.",
+    "filename": "test_fd_ownership.py",
+    "group_attempts": 1,
+    "logical_cases": 4,
+    "sha256": "3e7c18c47cf1212c297f0dc99057323fb3fd2e3f5ea33a83fd17960a4f1726f3",
+    "source_utf8": "\"\"\"Four original R3 ownership checks; no corpus, model or resource-exhaustion loop.\"\"\"\n\nimport errno\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\n\nimport pytest\n\nfrom toolalign.data.common import DataError\nfrom toolalign.training.sft import data_v3 as v\n\n\ndef assert_closed(fd):\n    with pytest.raises(OSError) as raised:\n        os.fstat(fd)\n    assert raised.value.errno == errno.EBADF\n\n\ndef test_system_exit_during_construction_closes_only_owned_descriptor(tmp_path, monkeypatch):\n    source = tmp_path / \"owned-constructor-input\"\n    source.write_bytes(b\"R1 original constructor fixture\")\n    unrelated = tmp_path / \"unrelated-open-file\"\n    unrelated.write_bytes(b\"R1 unrelated descriptor must remain usable\")\n    open_fd, close_fd = os.open, os.close\n    sentinel = open_fd(unrelated, os.O_RDONLY)\n    opened, closed = [], []\n    original = SystemExit(\"R1 original constructor exit\")\n\n    def failed_constructor(fd, mode):\n        assert mode == \"rb\" and fd != sentinel\n        opened.append(fd)\n        raise original\n\n    def observe_close(fd):\n        closed.append(fd)\n        close_fd(fd)\n\n    try:\n        with monkeypatch.context() as patch:\n            patch.setattr(v.os, \"fdopen\", failed_constructor)\n            patch.setattr(v.os, \"close\", observe_close)\n            with pytest.raises(SystemExit) as raised:\n                v._read(source, content=False)\n        assert raised.value is original and len(opened) == 1 and closed == opened\n        assert_closed(opened[0])\n        assert os.fstat(sentinel).st_ino == unrelated.stat().st_ino\n        assert os.read(sentinel, 100) == unrelated.read_bytes()\n        (tmp_path / \"result.json\").write_text(json.dumps({\n            \"case\": \"system_exit_constructor\", \"original_exception_identity_preserved\": True,\n            \"owned_descriptor_closed\": True, \"unrelated_descriptor_open\": True,\n        }, sort_keys=True) + \"\\n\")\n    finally:\n        close_fd(sentinel)\n        for fd in opened:\n            try:\n                close_fd(fd)\n            except OSError as error:\n                assert error.errno == errno.EBADF\n\n\n@pytest.mark.parametrize(\"outcome\", [\"success\", \"digest_error\", \"partial_read_error\"])\ndef test_stream_exit_does_not_close_reused_descriptor(tmp_path, monkeypatch, outcome):\n    source = tmp_path / \"owned-stream-input\"\n    payload = b\"R1 original stream fixture\\x00\\xff\\n\"\n    if outcome == \"partial_read_error\":\n        payload = b\"R\" * (1024 * 1024) + b\"1\"\n    source.write_bytes(payload)\n    sentinel_path = tmp_path / \"new-owner-after-stream-exit\"\n    sentinel_path.write_bytes(b\"R1 new owner retains the reused descriptor\")\n    original_fdopen, original_open, original_close = os.fdopen, os.open, os.close\n    original = OSError(errno.EIO, \"R1 error after one actual read\")\n    streams, reused, reads, closes, exits = [], [], [], [], []\n\n    class StreamWithNewOwnerOnExit:\n        def __init__(self, fd, mode):\n            self.fd = fd\n            self.raw = original_fdopen(fd, mode)\n            streams.append(self)\n\n        def __enter__(self):\n            self.raw.__enter__()\n            return self\n\n        def __exit__(self, *args):\n            exits.append(args[0])\n            result = self.raw.__exit__(*args)\n            assert self.raw.closed\n            assert_closed(self.fd)\n            new_fd = original_open(sentinel_path, os.O_RDONLY)\n            if new_fd != self.fd:\n                os.dup2(new_fd, self.fd)\n                original_close(new_fd)\n            reused.append(self.fd)\n            return result\n\n        def fileno(self):\n            return self.raw.fileno()\n\n        def read(self, size):\n            if outcome == \"partial_read_error\" and reads:\n                raise original\n            block = self.raw.read(size)\n            reads.append(len(block))\n            return block\n\n    def observe_close(fd):\n        closes.append(fd)\n        original_close(fd)\n\n    try:\n        with monkeypatch.context() as patch:\n            patch.setattr(v.os, \"fdopen\", StreamWithNewOwnerOnExit)\n            patch.setattr(v.os, \"close\", observe_close)\n            if outcome == \"success\":\n                assert v._read(source, digest=hashlib.sha256(payload).hexdigest()) == payload\n            elif outcome == \"digest_error\":\n                with pytest.raises(DataError, match=\"^v3_input_hash_mismatch$\"):\n                    v._read(source, digest=\"0\" * 64)\n            else:\n                with pytest.raises(DataError, match=\"^v3_input_io_failure$\") as raised:\n                    v._read(source)\n                assert raised.value.__cause__ is original and reads == [1024 * 1024]\n        assert len(streams) == len(reused) == len(exits) == 1 and closes == []\n        assert streams[0].raw.closed and reused[0] == streams[0].fd\n        assert os.fstat(reused[0]).st_ino == sentinel_path.stat().st_ino\n        assert os.read(reused[0], 100) == sentinel_path.read_bytes()\n        (tmp_path / \"result.json\").write_text(json.dumps({\n            \"case\": outcome, \"original_stream_closed\": True,\n            \"same_descriptor_reassigned_to_new_owner\": True, \"new_owner_still_open\": True,\n            \"raw_close_calls_after_transfer\": closes, \"actual_read_sizes\": reads,\n        }, sort_keys=True) + \"\\n\")\n    finally:\n        for stream in streams:\n            if not stream.raw.closed:\n                stream.raw.close()\n        for fd in reused:\n            try:\n                original_close(fd)\n            except OSError as error:\n                assert error.errno == errno.EBADF\n"
+  },
+  "independent_runs": {
+    "existing-unit": {
+      "actual_argv_retained_in_private_receipt": true,
+      "actual_attempts": 1,
+      "all_owned_children_reaped": true,
+      "executed_cases": 157,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T23:59:42.725962+00:00",
+      "receipt": {
+        "bytes": 1880,
+        "sha256": "37dec12305dd693f432b863872663fc2232de67f1f7948e178658bdc7a1eac20"
+      },
+      "source_after": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "source_before": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "started_at_utc": "2026-09-07T23:59:40.591856+00:00",
+      "status": "PASS",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 260,
+        "sha256": "e9e6f502415848059eed22aa19df192307ec6ef7e3cd920592b0a91b21917d8a"
+      }
+    },
+    "independent-fd": {
+      "actual_argv_retained_in_private_receipt": true,
+      "actual_attempts": 1,
+      "all_owned_children_reaped": true,
+      "executed_cases": 4,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-08T00:02:11.513843+00:00",
+      "receipt": {
+        "bytes": 1883,
+        "sha256": "783f498b7fd6ba255ede1733da425170d81a8465b3d7a2d2bf2e1207a39a32f2"
+      },
+      "source_after": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "source_before": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "started_at_utc": "2026-09-08T00:02:11.309344+00:00",
+      "status": "PASS",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 98,
+        "sha256": "4250d1f2029068ddc50a143f438d48c0e151e05c734fe713ffea94436ecf9381"
+      }
+    },
+    "original-installed": {
+      "actual_argv_retained_in_private_receipt": true,
+      "actual_attempts": 1,
+      "all_owned_children_reaped": true,
+      "executed_cases": 0,
+      "exit_code": 1,
+      "finished_at_utc": "2026-09-08T00:00:52.267204+00:00",
+      "receipt": {
+        "bytes": 1897,
+        "sha256": "464fb847dd142c4d49e531156793e432ef7987960c3a8b1b870a6086a7ac3770"
+      },
+      "source_after": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "source_before": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "started_at_utc": "2026-09-08T00:00:52.134850+00:00",
+      "status": "PRE_PYTEST_HARNESS_FAILURE_RETAINED",
+      "stderr": {
+        "bytes": 1637,
+        "sha256": "d9070dcebf00124de33eb49a315b083e4cc6db962ce7fd7c5f3b3845739760ac"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "original-installed-s0-py": {
+      "actual_argv_retained_in_private_receipt": true,
+      "actual_attempts": 1,
+      "all_owned_children_reaped": true,
+      "executed_cases": 6,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-08T00:11:53.602512+00:00",
+      "receipt": {
+        "bytes": 1912,
+        "sha256": "97b7d063b7c65a9a0f1f858af2534704738d8a686555357b3001a65e597afe41"
+      },
+      "source_after": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "source_before": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "started_at_utc": "2026-09-08T00:11:53.037727+00:00",
+      "status": "PASS",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 98,
+        "sha256": "2c74781560d9b77662946a06816fc3615b8619d49214a4ad88a2bab70a7ff2ce"
+      }
+    },
+    "original-source": {
+      "actual_argv_retained_in_private_receipt": true,
+      "actual_attempts": 1,
+      "all_owned_children_reaped": true,
+      "executed_cases": 6,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T23:59:48.434265+00:00",
+      "receipt": {
+        "bytes": 1886,
+        "sha256": "3ac09b75052def6ad1628e845e6a021cc9acdbf08c53257cfaacdabe4c25f314"
+      },
+      "source_after": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "source_before": {
+        "file_count": 624,
+        "files_sha256": "51f35ce9372e3d01ec2248fab5f88122f4930716375510bccc0daec4304da45d",
+        "head": "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+      },
+      "started_at_utc": "2026-09-07T23:59:47.926001+00:00",
+      "status": "PASS",
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 98,
+        "sha256": "e3184752be711e1a9894f4e87ac586c9888a5cebd407de809432fd27354b8bcc"
+      }
+    }
+  },
+  "installed_harness_failure": {
+    "S0_original_failure_binding_sha256": "ebaeaa3c087e56c1b9bf3061e0467503ba7926e09f45e4010f080ae41e54949b",
+    "existing_py_shim_sha256": "b71675b5d9845ba0814e9e88767f88dac3b3cc0d3128da028bd45edbb523e871",
+    "failed_bootstrap_sha256": "290af9c1715c5be33359362d578ffd3882d0e345decd6a9b5152f8fb76e1383c",
+    "failed_runner_sha256": "aec210792cee95503abcf5813fcfabf3b12af7f935993e53a333e471e8a3bef5",
+    "first_attempt_exit_code": 1,
+    "fixture_children_started": 0,
+    "fixture_runner_sentinel": 97,
+    "functional_change": "Only permit existing top-level py; remaining changes route new helper names/label.",
+    "new_install_or_import_preview_calls": 0,
+    "original_helpers_and_failure_unchanged": true,
+    "pytest_main_entered": false,
+    "reason": "Explicit import routing omitted the existing pytest py.py shim.",
+    "supplement_label": "original-installed-s0-py",
+    "supplement_result": "6 PASS"
+  },
+  "installed_target": {
+    "RECORD_rows": 75,
+    "actual_module_origins": 32,
+    "default_runtime_files_bound": 145,
+    "installed_files": 76,
+    "parent_and_original_child_isolation": "-B -I -S; explicit module roots; no site-packages/source root fallback",
+    "production_package_files": 65,
+    "reused_default_distributions": 5,
+    "source_package_bytes_match": true
+  },
+  "intake": {
+    "FIFO_lstat_only": 8,
+    "T1_module_test_epoch": "1769046 plus exactly the two authorized dirty files",
+    "T1_original_six_and_build_epoch": "9e08a0961ac2fbf9e993585289b4e82b7115f016",
+    "authorization_copies": 14,
+    "bound_paths": 14480,
+    "links_not_followed": 421,
+    "original_commands": 27,
+    "original_input_copies": 7,
+    "original_source_snapshots": 81,
+    "supplement_authorization_copies": 2
+  },
+  "model": "gpt-6-astra",
+  "original_six_source_identity": {
+    "bytes": 7106,
+    "sha256": "24d475c6f762b00bd218d609a81a4e019e7996a6eee946f671431c3916eb7a13"
+  },
+  "previous_fixed_consumption_epoch": "1769046468eb2ebfdd9e982ba4938833760e3fe0",
+  "prior_preservation": {
+    "FIFO_lstat_only": 13,
+    "all_historical_PASS_FAIL_preserved": true,
+    "checked_paths": 94244,
+    "links_not_followed": 1707,
+    "missing_original_files_retained_as_exceptions": 30,
+    "missing_original_links_retained_as_exceptions": 1,
+    "missing_original_paths_restored": 0,
+    "model_files_stat_only": 20,
+    "old_public_files": 626,
+    "old_review": "58212d26bdb1c6a681a1ac34ccae854daefca8d3",
+    "old_root_identity_unchanged": true,
+    "original_completed_commands": 23
+  },
+  "publication_probes": {
+    "test_independent_io.py": {
+      "bytes": 7106,
+      "sha256": "24d475c6f762b00bd218d609a81a4e019e7996a6eee946f671431c3916eb7a13"
+    }
+  },
+  "remaining_acceptance": [
+    "S0 preserve original review commit and integrate",
+    "final integration CI and main verification"
+  ],
+  "retained_review_helper_failures": {
+    "candidate_failure_count_from_these": 0,
+    "corrected_helpers_preserve_original_source_and_outputs": true,
+    "logged_readonly_failures": [
+      "preserve-prior: wrong assumption of no special nodes",
+      "preserve-prior-r2: wrong inventory field name",
+      "intake: exact dictionary comparison ignored two supplemental native fields"
+    ],
+    "separate_readonly_inspection_errors": 4
+  },
+  "review_parent_must_be": [
+    "d80667e4f6e3a63d5c49d4293e99271ca3c2aca1"
+  ],
+  "reviewer": "Codex AI R1, independent task",
+  "schema": "toolalign.review.p04-sft-data-v3-r3.v1",
+  "source_scope": {
+    "candidate_files": 624,
+    "changed_from_previous_candidate_files": 5,
+    "changed_production_files": 1,
+    "changed_test_files": 1,
+    "fixed_configuration_sha256": "e27a7d4bcdd378944af56559833c3bcd10f601b689a75f1daec96b884bd780c1",
+    "module_sha256": "3f7cb19fd9435076a35c20b85cf1636c68b85fda43df8e95dece7b409cbff910",
+    "new_T1_document_files": 3,
+    "other_existing_files_unchanged": 619,
+    "test_module_sha256": "145f9ac4f67b6c98ea9b4e1e2c108843e60b253b32d4757ddb8103753a0e30f0",
+    "unchanged_non_read_top_level_AST_nodes": 61
+  },
+  "supplement_authorization_commit": "75e03f6287da34ce5fe825078defa2fef1abd627",
+  "thinking": "max",
+  "this_revision_real_data_consumption": "NOT_RUN",
+  "verdict": "PASS"
+}

@@ -1,0 +1,668 @@
+{
+  "authorization_commit": "90ded89286d130b2e36dd7e18d334ed603ced9f6",
+  "authorization_copy_count": 13,
+  "base_tree": "1cd40f093c17da1c5a1f1399117c29eb3c1d9547",
+  "branch": "codex/p04-sft-data-v3-nonregular-fix-r1",
+  "change": {
+    "byte_loop_and_hash_only_result_unchanged": true,
+    "descriptor_flags": [
+      "O_RDONLY",
+      "O_NOFOLLOW",
+      "O_NONBLOCK"
+    ],
+    "other_modules_configuration_dependencies_or_CLI_modified": false,
+    "pre_open_check": "lstat must report a regular file before os.open",
+    "same_descriptor_regular_type_size_budget_and_hash": true
+  },
+  "code_base": "f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa",
+  "code_config_and_test_pins": {
+    "configs/sft-data-v3.v1.json": {
+      "bytes": 6462,
+      "sha256": "e27a7d4bcdd378944af56559833c3bcd10f601b689a75f1daec96b884bd780c1"
+    },
+    "src/toolalign/training/sft/data_v3.py": {
+      "bytes": 41169,
+      "sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4"
+    },
+    "tests/training/test_sft_data_v3.py": {
+      "bytes": 44442,
+      "sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    }
+  },
+  "commands": [
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/intake.py"
+      ],
+      "elapsed_seconds": 5.840241000056267,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:15:16.344197+00:00",
+      "label": "intake-before-switch-r2",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 1427,
+          "sha256": "1925adcedaeeddf551242a1a654eaa91d987ae1b1285e94f51579703d80d0962"
+        }
+      },
+      "receipt_sha256": "9f252b9c9b847e6ecc9438206148399f8f1555f349a20448c1cb1a68677d989e",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T20:15:10.475553+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "git",
+        "switch",
+        "-c",
+        "codex/p04-sft-data-v3-nonregular-fix-r1",
+        "f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa"
+      ],
+      "elapsed_seconds": 0.010672917123883963,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:17:51.679713+00:00",
+      "label": "branch-switch-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 67,
+          "sha256": "052c5b82259b4a09e0b21a567a0b572628834d16c0500657defd1d3682e74b05"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "a2450ce601182b79fbbba3ee967eacfc648b5e3e5abc386d1cf548c8c924e8d1",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T20:17:51.644685+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/activate.py"
+      ],
+      "elapsed_seconds": 0.08436708291992545,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:17:51.852888+00:00",
+      "label": "activate-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 1014,
+          "sha256": "5effaf233b8dbb0b10a4667ecbccac355193ac9f8121e883fb9b6de07b41f097"
+        }
+      },
+      "receipt_sha256": "dfa6342cc988598e6c5c7610688d960dc22467fe9fbdb9b2b9111d40dfde4600",
+      "source_module_sha256": "7ed5d26dfe2658abc6a1681fedc6f9858fdbedda3446de554ea924879ebc7671",
+      "started_at_utc": "2026-09-07T20:17:51.746751+00:00",
+      "test_file_sha256": "0ac26360ef75ac0061a77157895d12063b8e5089e2d47acf3ec77c78ea6a448a"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/training/test_sft_data_v3.py",
+        "-q",
+        "--basetemp=<owned-pytest-root>"
+      ],
+      "elapsed_seconds": 2.0357862499076873,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:20:25.334312+00:00",
+      "label": "unit-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 260,
+          "sha256": "3c12bbf89edf2e35da154882eddb62da02ed2bd0e456fd915b8967351212d29b"
+        }
+      },
+      "receipt_sha256": "5155f88eb5949434fb21ab1caae18a4b1a9a39cdc188134980e8c97a3c81e776",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:20:23.272644+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/toolalign/training/sft/data_v3.py",
+        "tests/training/test_sft_data_v3.py"
+      ],
+      "elapsed_seconds": 0.05729475012049079,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:21:24.894306+00:00",
+      "label": "lint-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 19,
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        }
+      },
+      "receipt_sha256": "d1f66fe835dc9a4596ba3e13776c1553bcd0bbf108cb382719bd3db4d39f9224",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:21:24.813772+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/run_original_probe.py",
+        "source"
+      ],
+      "elapsed_seconds": 0.17761708400212228,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:25:15.467198+00:00",
+      "label": "original-probe-source-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 657,
+          "sha256": "8ea9b240f05f6532225d18449601b82ee26565ee0322281efe44e5a2ac5f530a"
+        }
+      },
+      "receipt_sha256": "54ac003057c93b092aebead47756e3c1e4b924108f83611a9fb8d69bd2f86ad4",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:25:15.264948+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--sdist",
+        "--out-dir",
+        "<scope>/packages/sdist"
+      ],
+      "elapsed_seconds": 0.15941862505860627,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:27:48.730693+00:00",
+      "label": "build-sdist-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 140,
+          "sha256": "909f6d323af66775ff91d7cda13aa166abcea3b8b9af8f04693fe849ada41521"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "5bb95bb8a08f2e520b8765c37404a684532fcdd82ee6434e11b0ee8076889867",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:27:48.547535+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "--out-dir",
+        "<scope>/packages/direct"
+      ],
+      "elapsed_seconds": 0.09398616594262421,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:27:48.891648+00:00",
+      "label": "build-direct-wheel-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 137,
+          "sha256": "a09462193dc7a042a50a78eaef269a57524a0450deae36968c9745b62d402ca4"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "76bdf528a44976ae8294278c6ccd4f76ea9b9889fe926e626063cc496769fb01",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:27:48.776149+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "uv",
+        "build",
+        "--offline",
+        "--no-python-downloads",
+        "--no-build-isolation",
+        "--python",
+        ".venv/bin/python",
+        "--wheel",
+        "<scope>/packages/sdist/toolalign-0.0.1.tar.gz",
+        "--out-dir",
+        "<scope>/packages/rebuilt"
+      ],
+      "elapsed_seconds": 0.12213412509299815,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:27:49.101624+00:00",
+      "label": "build-rebuilt-wheel-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 163,
+          "sha256": "5dfc74bef6f3132978b46d1e7fb64e91162034fe08514ea37b6fb4415c84abfe"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "ac2fda178b5ed4edc88f9d979bfdb9a58d8753f6f75e6facabc4bc4f87b2d7cd",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:27:48.957819+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "uv",
+        "pip",
+        "install",
+        "--offline",
+        "--no-python-downloads",
+        "--no-deps",
+        "--python",
+        ".venv/bin/python",
+        "--target",
+        "<scope>/installed/default",
+        "<scope>/packages/direct/toolalign-0.0.1-py3-none-any.whl"
+      ],
+      "elapsed_seconds": 0.020668083103373647,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:27:49.187361+00:00",
+      "label": "install-target-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 314,
+          "sha256": "d4601469dd44e160398b2244e89c4c97b51b1e11d580a356d425d2e73fcbe0ad"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "receipt_sha256": "3c41c0123787fb8032d40cc93fe63b9c1972758fa8e876b90ad6329a3142f740",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:27:49.145100+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/verify_packages.py"
+      ],
+      "elapsed_seconds": 0.05066308309324086,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:31:39.881830+00:00",
+      "label": "packages-verify-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 1118,
+          "sha256": "781a8ec871eee05f83af8b779ab57b1deea2b19bdb8b7f9e3135a720e700e7f0"
+        }
+      },
+      "receipt_sha256": "b4ca066563952ad046b5da7b1163744011bd564bfb29de7ce8593154b19af6ef",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:31:39.803659+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        "<worker>/.venv/bin/python",
+        "-B",
+        "-I",
+        "-S",
+        "<scope>/installed_io.py"
+      ],
+      "elapsed_seconds": 0.10741829103790224,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:31:40.157401+00:00",
+      "label": "installed-io-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 1494,
+          "sha256": "ef704cb2c5c99ef8d389a2f742a67732f3935ff4a6fe7d402a5d763c44b884f3"
+        }
+      },
+      "receipt_sha256": "71973803a4197a999764b2ad5b3ab6276dc4aa5e3242ec0db3f8c7e7c6d48d7d",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:31:40.025746+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/run_original_probe.py",
+        "installed"
+      ],
+      "elapsed_seconds": 0.18443112494423985,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:31:50.467102+00:00",
+      "label": "original-probe-installed-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 728,
+          "sha256": "b9af157fb1a880c0c127f667f983116aae9fa0b65fb02a76cd2d7f434be6c3a4"
+        }
+      },
+      "receipt_sha256": "11ea063a1fa0ba9ab92cc6e39c406ddb4baccd98488e3386ca902c2929eee625",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:31:50.257045+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    },
+    {
+      "argv_private_locations_replaced": [
+        ".venv/bin/python",
+        "-B",
+        "<scope>/verify_delivery.py"
+      ],
+      "elapsed_seconds": 5.239932833937928,
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-07T20:35:19.333321+00:00",
+      "label": "delivery-verify-r1",
+      "output_files": {
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 5711,
+          "sha256": "f82f1c9c9e2c820c5a42c740e4bcc2b00c91405dc0afa9820c64b804dd083a4d"
+        }
+      },
+      "receipt_sha256": "83dfbd7187a45cec02f4e4bdd25fefad0f7471d0fb2e7fc6651bdd06d02c2a82",
+      "source_module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "started_at_utc": "2026-09-07T20:35:14.069046+00:00",
+      "test_file_sha256": "2706c6ab860a5fe5621a3d6d5fc62d902d662c407086476d87a6c44a22acc4a1"
+    }
+  ],
+  "contracts": [
+    "plan-v0.1",
+    "coordination.v1",
+    "toolalign.contracts.v1",
+    "ADR-0026"
+  ],
+  "current_revision_real_data_consumption": "NOT_RUN",
+  "failures": [
+    {
+      "cause": "New commands parent directory did not exist; recorder could not create the first label directory.",
+      "intake_or_probe_started": false,
+      "kind": "recorder_bootstrap_before_intake",
+      "observed_exit_code": 1,
+      "precise_start_UTC_recorded": false,
+      "resolution": "Create only the missing new parent and use a distinct r2 intake label; recorder bytes unchanged.",
+      "retained_failure_observation_sha256": "9f9a7bfa3656ff0528aecbaa7e530d645645258c12c3e3d8ad62678eb7160d60"
+    }
+  ],
+  "finalization": "The final private seal binds the complete candidate, document scan, five-file scope, ordinary push and exact remote match. The final candidate commit is provided after these documents are committed.",
+  "finding": "P04-SFT-DATA-V3-F1",
+  "implementation_checkpoint": "53d86109f18e4131cff1ddcb905086892580d136",
+  "independent_R1_for_this_revision": "NOT_RUN",
+  "input_exact_copy_count": 7,
+  "input_manifest_sha256": "cd401df1e59e791db5ef0bb9e13989ca23a664d2fa7b84ce32372d80dd2a190c",
+  "installed_ordinary_IO": {
+    "actual_new_target_module_origin_verified": true,
+    "external_cwd": true,
+    "isolated": true,
+    "local_original_fixture_read_calls": 5,
+    "negative_error_codes": [
+      "v3_input_size_mismatch",
+      "v3_input_hash_mismatch",
+      "v3_regular_file_budget"
+    ],
+    "no_site": true,
+    "proof_sha256": "255ec54e03f02ead24f3bb12349b89acce53062d6b45b914268a80f2f4311515",
+    "regular_content_and_hash_only_passed": true,
+    "status": "PASS"
+  },
+  "new_unit_probe_build_install_failures": 0,
+  "old_complete_array_consumption_epoch": "bfdf2a256065d5396e6f7a4860fd7c7506f5c278",
+  "optimization_authorized": false,
+  "original_R1_finding": {
+    "S0_finding_proof_sha256": "cf6826fa347277151d01886acb97ad8b25bab5dc5bf88ddfe0ef92e5c66c1603",
+    "candidate": "f3b7f1a1abb23cce3bdccb74ddc6d2e0477bb2aa",
+    "formal_failure_count_modified_by_T1": false,
+    "formal_original_review_commit": null,
+    "original_probe_result": "FAIL_NONREGULAR_OPEN_BLOCKS_BEFORE_TYPE_CHECK",
+    "original_probe_sha256": "f44cc02cc066ad9f2befe1b11c27c92981ff77ae87cf83672c422e3118ff1c7d",
+    "original_result_sha256": "fa03a9689cbda1117aac63766dc55eaea49184a6473101f2322291a727bf7744",
+    "priority_proposed": "P2",
+    "status_when_dispatched": "INTERMEDIATE_NOT_FORMAL_VERDICT"
+  },
+  "original_probes": {
+    "installed": {
+      "actual_child_module_origin_verified": true,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "empty_writer_needed_to_release_open": false,
+      "external_source_free_cwd": true,
+      "finished_at_utc": "2026-09-07T20:31:50.459156+00:00",
+      "framework_import_attempts": 0,
+      "module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "observed_seconds_after_ready": 0.010858875000849366,
+      "original_fixture_local_reader_calls": 1,
+      "original_result_sha256": "e1d7df0b32f0eab6dc53e03f287f3421e8d0f873f71491accfcde753438725ee",
+      "probe_attempts_used": 1,
+      "probe_source_sha256": "f44cc02cc066ad9f2befe1b11c27c92981ff77ae87cf83672c422e3118ff1c7d",
+      "proof_sha256": "f5d56f829b042131e95980d40018d297ff816cd2f80ade3a9190d560ca3c629a",
+      "real_data_prepare_verify_rebind_export_readback_calls": 0,
+      "rejected_before_writer": true,
+      "started_at_utc": "2026-09-07T20:31:50.347159+00:00",
+      "status": "PASS"
+    },
+    "source": {
+      "actual_child_module_origin_verified": true,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "empty_writer_needed_to_release_open": false,
+      "external_source_free_cwd": true,
+      "finished_at_utc": "2026-09-07T20:25:15.459145+00:00",
+      "framework_import_attempts": 0,
+      "module_sha256": "212c688c1a38e4c2ce7863e34efc7635d75878729e4e141333caeb08a6fd16a4",
+      "observed_seconds_after_ready": 0.010813457891345024,
+      "original_fixture_local_reader_calls": 1,
+      "original_result_sha256": "06cf1bc539c52b25425a28e2c59c88fc8f2c837604bf4b7f17853668092e82c9",
+      "probe_attempts_used": 1,
+      "probe_source_sha256": "f44cc02cc066ad9f2befe1b11c27c92981ff77ae87cf83672c422e3118ff1c7d",
+      "proof_sha256": "2e6664742bfe563be096e179b6d89ccaba53819939772d9a4286e072c3630b53",
+      "real_data_prepare_verify_rebind_export_readback_calls": 0,
+      "rejected_before_writer": true,
+      "started_at_utc": "2026-09-07T20:25:15.350744+00:00",
+      "status": "PASS"
+    }
+  },
+  "packages": {
+    "METADATA_entry_points_LICENSE_RECORD_verified": true,
+    "archive_group_used": 1,
+    "archives": {
+      "direct": {
+        "bytes": 204680,
+        "regular_members": 70,
+        "sha256": "101eccd619e16805230cfdb8b440d4f19858020ae5d6c1d3d4068b0d31fa1ecf"
+      },
+      "rebuilt": {
+        "bytes": 204680,
+        "regular_members": 70,
+        "sha256": "101eccd619e16805230cfdb8b440d4f19858020ae5d6c1d3d4068b0d31fa1ecf"
+      },
+      "sdist": {
+        "bytes": 355610,
+        "regular_members": 143,
+        "sha256": "cabbc8a37151f767925d9f83fd05b9adab93c88798db11fb298135b84b55d3de"
+      }
+    },
+    "downloads": 0,
+    "installed_toolalign_files": 65,
+    "new_dependency_installations": 0,
+    "new_environments": 0,
+    "new_target_distributions": {
+      "toolalign": "0.0.1"
+    },
+    "record_rows_verified": {
+      "direct": 70,
+      "installed": 75,
+      "rebuilt": 70
+    },
+    "remaining_build_install_calls": 0,
+    "reused_default_dependencies": {
+      "attrs": {
+        "metadata_sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+        "newly_installed": false,
+        "version": "26.1.0"
+      },
+      "jsonschema": {
+        "metadata_sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2",
+        "newly_installed": false,
+        "version": "4.26.0"
+      },
+      "jsonschema-specifications": {
+        "metadata_sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d",
+        "newly_installed": false,
+        "version": "2025.9.1"
+      },
+      "referencing": {
+        "metadata_sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a",
+        "newly_installed": false,
+        "version": "0.37.0"
+      },
+      "rpds-py": {
+        "metadata_sha256": "f8be7b17da3980b2c48596941411a43c70ac41b1e2d530aa531f2c15eab2eb1c",
+        "newly_installed": false,
+        "version": "2026.6.3"
+      }
+    },
+    "source_sdist_direct_rebuilt_target_package_bytes_equal": true,
+    "target_install_used": 1,
+    "unrecorded_installer_lock": {
+      "empty": true,
+      "name": ".lock",
+      "separately_hashed": true
+    }
+  },
+  "preservation": {
+    "bytes_observed_before_final_docs_and_seal": 29025009,
+    "old_609_inputs_unchanged": true,
+    "old_branch_refs": 5,
+    "old_private_and_other_current_paths_unchanged": 10933,
+    "old_public_Git_and_frozen_snapshots": 618,
+    "old_public_paths_with_authorized_new_code": 2,
+    "old_scope_seals_failures_archives_targets_reports_handoff_unchanged": true,
+    "old_symlink_text_and_observed_target_states": 370,
+    "root_identity_unchanged": true,
+    "unchanged_current_baseline_files": 616,
+    "whole_task_original_private_artifact_limit_bytes": 1073741824
+  },
+  "proof_sha256": {
+    "delivery_validation": "c44809b0140a5a21d54cc160fad8fc69562100dcf2953bda3b9fc4b7f3914588",
+    "installed_ordinary_IO": "255ec54e03f02ead24f3bb12349b89acce53062d6b45b914268a80f2f4311515",
+    "intake": "2516ea64a0df97c263ddbd29bebc5d6b2c41b7ee0965567473b1718371a13465",
+    "launcher_bootstrap_failure": "9f9a7bfa3656ff0528aecbaa7e530d645645258c12c3e3d8ad62678eb7160d60",
+    "package_verification": "4531b68295b239c86c4614342a49391234a793eb96712c36787d3f9efd02faaa"
+  },
+  "real_trainer_capacity_training_evaluation_service": "NOT_RUN",
+  "resource_counts": {
+    "GPU_jobs": 0,
+    "browser": 0,
+    "business_APIs": 0,
+    "framework_imports": 0,
+    "full_data_build": 0,
+    "generations": 0,
+    "model_data_uploads": 0,
+    "model_loads": 0,
+    "new_fees": 0,
+    "new_sequence_calls": 0,
+    "optimizer_updates": 0,
+    "original_probe_attempts": {
+      "installed": 1,
+      "source": 1
+    },
+    "real_13_case_conversion_export_readback": 0,
+    "real_609_data_prepare_or_verify": 0,
+    "remaining_original_probe_attempts": {
+      "installed": 0,
+      "source": 0
+    }
+  },
+  "schema": "toolalign.p04.sft-data-v3-nonregular-fix-report.v1",
+  "special_file_preservation": {
+    "FIFO_nodes": 4,
+    "FIFO_nodes_in_regular_file_hash_lists": 0,
+    "FIFO_payload_hashes": 0,
+    "FIFO_permissions_octal": "0600",
+    "inventory_uses_lstat_only": true,
+    "nodes_retained": true,
+    "replacement_fixture_nonblocking_open_was_exercised": true,
+    "scope_of_delivery_inventory_opened_or_hashed_field": "Only the inventory routine; the race fixture deliberately performed a nonblocking open before the same-FD rejection."
+  },
+  "status": "READY_FOR_REVIEW_CPU",
+  "task": "P04-SFT-DATA-V3-NONREGULAR-FIX",
+  "tests": {
+    "dedicated_fresh_pytest_root": true,
+    "failed": 0,
+    "new_case_categories": [
+      "known FIFO/directory/symlink rejected before opening",
+      "controlled regular-to-FIFO and regular-to-symlink replacement at open",
+      "empty/binary regular bytes and hash-only controls",
+      "regular size/hash/byte-budget errors"
+    ],
+    "new_original_IO_cases": 12,
+    "prior_module_cases_included": 135,
+    "pytest_root_has_private_output_ancestor": false,
+    "relevant_module_passed": 147,
+    "replacement_child_timeouts": 0,
+    "replacement_children": 2,
+    "replacement_children_reaped": 2,
+    "ruff": "PASS",
+    "unrelated_old_corpus_model_HF_toy_suites": "NOT_RUN"
+  },
+  "training_authorized": false,
+  "worker": "T1",
+  "worker_validation": "PASS"
+}
