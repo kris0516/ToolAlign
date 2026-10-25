@@ -1,6 +1,6 @@
 # P04 CUDA / Colab：S1 集成记录
 
-2026-10-26。当前为待审组合，**尚未通过全部集成检查，GPU 未分配**。T1 的 CUDA SFT CPU 实现及 Q1 的13例语义预审已通过；E1 r2 复审保留一项P1，r3定点修订中。主干仍为 `61c2176d556fd0e4cfc2af00b16242dddcfadfd3`。
+2026-10-26。**CUDA/Colab CPU 实现已通过独立审查及S1定点集成，GPU未分配。** Q1的13例语义预审通过；E1 r3关闭最后一个控制问题，原失败保留。PR21合并仍须对应最终head的Linux CI通过；交接基线为 `61c2176d556fd0e4cfc2af00b16242dddcfadfd3`。
 
 ## 候选与独立证据
 
@@ -8,8 +8,9 @@
 |---|---|---|
 | CUDA SFT | `4342af87615197c7947d001f462d3d31500cd501` / `7d460f2054201c00055a1f924c5c4984be8e6988` | [R1 CPU PASS](reviews/P04_CUDA_SFT_R1.md) |
 | Colab 控制 r2 | `172a462fc5f39283a3aea8b7d11062a3f8e7fcc6` / `65ffcc31dd51d2b54475a446c74015265e719b61` | [r2 FAIL](reviews/P04_COLAB_ENVIRONMENT_R2.md)：PROCESS-001未关闭，RECOVERY-001与跨session组合PASS |
+| Colab 控制 r3 | `6183870587f349bf56945e0709ab1488737a2556` / `7825216a081f711e6da06ae440626193b7820ea2` | [r3 PASS](reviews/P04_COLAB_ENVIRONMENT_R3.md)：PROCESS-001关闭，计数归零，前两次FAIL保留 |
 | 13例 mask 与说明 | `4342af87615197c7947d001f462d3d31500cd501` / `82f1e88e168b80298c47455c26084cc9a4b54b92` | [Q1预审 PASS](reviews/P04_CUDA_MASK_Q1_R1.md)，423项检查、26条原证据绑定 |
-| T1/E1组合 | `ddc4aef8b332c5f30db84e84c29bd571a8439a0e` | 待完成复审与集成 |
+| T1/E1 r3组合 | `0eaad46e115d1296ce83cf22d5cc1f5aea86011c` | 独立复核与S1定点集成通过 |
 
 ## S1 实际检查
 
@@ -29,4 +30,10 @@ R1随后独立诊断记录到 SIGKILL 发送成功，紧接着signal-0查询EPER
 
 [草稿PR21](https://github.com/kris0516/ToolAlign/pull/21)首个head `f50216b45e446a045dced53cfe1d15b56ee7e124` 的 [Linux CI](https://github.com/kris0516/ToolAlign/actions/runs/40244485319)通过：Python 3.11与3.14的ruff、pytest、独立契约、冻结、公开扫描和分发检查均成功。该平台检查不抵销Mac的已观察失败，后续源码修订另验。
 
-20条容量数组尚未生成；实际 Linux安装、CUDA forward/backward/optimizer/validation、完整 checkpoint 新进程及新实例恢复、正式 SFT 和模型效果均 **NOT_RUN**。下一步完成r3修复复审，冻结精确源码，再生成与审核有界容量数组。
+## r3 定点集成
+
+E1修订实现为 `93a837e345856b1067d221f411b537b933fe7f89`，最终候选 `6183870587f349bf56945e0709ab1488737a2556`；后者仅新增报告与交接。生产改动为signal-0查询EPERM时继续使用既有有界确认，未修改实际终止信号发送路径；作者实际控制检查30项通过。R1在精确组合 `0eaad46e115d1296ce83cf22d5cc1f5aea86011c` 再次捕获同样的真实EPERM并通过原用例，新四项判别检查也通过；最终独立PASS为 `7825216a081f711e6da06ae440626193b7820ea2`。
+
+S1在 `173f7b1082c5edd0329786cd8a834ce24b8cd6da`（生产与该组合一致）先导入共享CPU Torch，再运行新增四项边界检查和原真实同组后代用例：**5 passed / 13.69秒**。记录器exit 0、wall 15.51秒、源码前后不变；receipt SHA256为 `17c0e16ca505a610d0b65c9102311d1906952f8e188bc9e404e0d0ccf7743be4`。原42通过/1失败记录保留，未变的数值、依赖及恢复证据沿用。
+
+20条容量数组尚未生成；实际 Linux安装、CUDA forward/backward/optimizer/validation、完整 checkpoint 新进程及新实例恢复、正式 SFT 和模型效果均 **NOT_RUN**。下一步按PR21最终CI与合并回执冻结源码，再生成与审核有界容量数组。

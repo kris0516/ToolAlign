@@ -4614,8 +4614,8 @@
       "stable_requirement_key": "colab_timeout_cleans_owned_process_group_after_leader_exits",
       "requirement": "超时后不能以父进程退出替代整个自有进程组结束；清理后才能记录完成。",
       "summary": "r2已发送SIGKILL并结束后代，但signal-0探测EPERM导致清理完成确认提前失败，阻断导出。",
-      "status": "CHANGES_REQUESTED",
-      "consecutive_failed_revisions": 2,
+      "status": "CLOSED",
+      "consecutive_failed_revisions": 0,
       "events": [
         {
           "attempt": 1,
@@ -4648,9 +4648,28 @@
           "finding_record_sha256": "fa3c9efac3ae4a12ce9c0e4a906f8f8a2e68816c1939557551efaaf5e3475270",
           "signal_trace_sha256": "d62f3baec16b9d8ef6ff3fbdc87b87485f2b6505fed4014130a184290b6abdbd",
           "new_failed_revision_increment": 1
+        },
+        {
+          "attempt": 3,
+          "event_kind": "FORMAL_TECHNICAL_REVISION_PASS",
+          "candidate": "6183870587f349bf56945e0709ab1488737a2556",
+          "combination": "0eaad46e115d1296ce83cf22d5cc1f5aea86011c",
+          "review_commit": "7825216a081f711e6da06ae440626193b7820ea2",
+          "original_pass_commit": "1d277b516af159486271e3c59ecd552936a9b179",
+          "integrated_review_commit": "962a4f49cd8e1a727cffe6e90991e7725bec9cd7",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS",
+          "review_evidence_file_sha256": "5dc16ff7291692d6a1cbbbfec9b195000c2052dac149b441660c8e13ba69cf03",
+          "finding_record_sha256": "49ba82d41a20c4f32a25cb49361f13abdb037b1e148d779a5a9374168bc6cb3b",
+          "signal_trace_sha256": "da92523999e3f1bbfad2916a111cbb052ecc9ad19119a6e9f85bd37468f40c50",
+          "adopted_at_utc": "2026-10-25T23:48:53.882615+00:00",
+          "new_failed_revision_increment": 0,
+          "counter_reset_from": 2,
+          "counter_reset_to": 0,
+          "prior_intermediate_probe_increment": 0
         }
       ],
-      "next_action": "E1按P04_COLAB_ENVIRONMENT_R3定点修订；R1增量复审后由S1关闭。",
+      "next_action": "复用r3独立PASS和S1定点集成；原r1/r2 FAIL及全部历史保留，继续真实Colab验收。",
       "deduplication_basis": "同一候选的R1复跑、首次未就绪探针、辅助审计错误与S1接口探针均不重复计数。"
     },
     {
@@ -4698,8 +4717,8 @@
       "deduplication_basis": "同一候选的R1复跑、首次未就绪探针、辅助审计错误与S1接口探针均不重复计数。"
     }
   ],
-  "prior_findings": "原84项保持关闭；Colab RECOVERY-001经r2独立PASS关闭，PROCESS-001累计2次正式未通过并进入r3定点修订。全部原始失败与审核历史保留；冻结v3 G-DATA批准不变。",
-  "updated_at_utc": "2026-10-25T23:34:27.052964+00:00",
+  "prior_findings": "现有86项问题全部关闭；Colab RECOVERY-001经r2独立PASS关闭，PROCESS-001经r3独立PASS关闭。原r1/r2 FAIL、全部原始失败与审核历史保留；冻结v3 G-DATA批准不变。",
+  "updated_at_utc": "2026-10-25T23:48:53.882615+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -4774,16 +4793,15 @@
     }
   ],
   "last_technical_adoption": {
-    "review_commit": "65ffcc31dd51d2b54475a446c74015265e719b61",
-    "candidate": "172a462fc5f39283a3aea8b7d11062a3f8e7fcc6",
-    "combination": "ddc4aef8b332c5f30db84e84c29bd571a8439a0e",
-    "failed_issue": "P04-COLAB-PROCESS-001",
-    "closed_issue": "P04-COLAB-RECOVERY-001",
-    "new_formal_failure_events": 1,
+    "review_commit": "7825216a081f711e6da06ae440626193b7820ea2",
+    "candidate": "6183870587f349bf56945e0709ab1488737a2556",
+    "combination": "0eaad46e115d1296ce83cf22d5cc1f5aea86011c",
+    "closed_issue": "P04-COLAB-PROCESS-001",
+    "new_formal_failure_events": 0,
     "new_formal_pass_events": 1,
-    "closed_issue_count": 85,
-    "open_issue_count": 1,
-    "highest_consecutive_failed_revisions": 2,
+    "closed_issue_count": 86,
+    "open_issue_count": 0,
+    "highest_consecutive_failed_revisions": 0,
     "whole_goal_paused": false
   },
   "technical_adoption_history": [
@@ -4798,6 +4816,19 @@
       "closed_issue_count": 84,
       "open_issue_count": 2,
       "highest_consecutive_failed_revisions": 1,
+      "whole_goal_paused": false
+    },
+    {
+      "review_commit": "65ffcc31dd51d2b54475a446c74015265e719b61",
+      "candidate": "172a462fc5f39283a3aea8b7d11062a3f8e7fcc6",
+      "combination": "ddc4aef8b332c5f30db84e84c29bd571a8439a0e",
+      "failed_issue": "P04-COLAB-PROCESS-001",
+      "closed_issue": "P04-COLAB-RECOVERY-001",
+      "new_formal_failure_events": 1,
+      "new_formal_pass_events": 1,
+      "closed_issue_count": 85,
+      "open_issue_count": 1,
+      "highest_consecutive_failed_revisions": 2,
       "whole_goal_paused": false
     }
   ]
