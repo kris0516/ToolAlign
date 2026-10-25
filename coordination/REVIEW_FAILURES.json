@@ -1,6 +1,6 @@
 {
   "schema": "toolalign.review-failure-ledger.v1",
-  "owner": "S0",
+  "owner": "S1",
   "policy": "ADR-0023",
   "same_issue_threshold": 5,
   "whole_goal_paused": false,
@@ -4608,10 +4608,64 @@
       ],
       "next_action": "保持原582正式FAIL、首次安装启动失败及原helper，d806/f2f11e0技术PASS已由S0接收；待组合/最终CI/main验证，不新增真实数据或模型调用",
       "deduplication_basis": "与原F1及时拒绝要求不同；同一原6项检查失败和最小无包装确认、严重度修正及S0/T1重读均不增加正式失败次数"
+    },
+    {
+      "issue_id": "P04-COLAB-PROCESS-001",
+      "stable_requirement_key": "colab_timeout_cleans_owned_process_group_after_leader_exits",
+      "requirement": "超时后不能以父进程退出替代整个自有进程组结束；清理后才能记录完成。",
+      "summary": "父进程收到SIGTERM先退出，忽略SIGTERM的同组后代在exit124后继续写心跳。",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FIRST_FORMAL_TECHNICAL_REVIEW_FAIL",
+          "candidate": "8faa75e7010290a11f13a8006fba5d4b16ac44f9",
+          "review_commit": "2f449452636712f2622d40a3040a45034e56228f",
+          "integrated_review_commit": "81cb0be1f12cd9312035f00a378ea63dce52dbf6",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "FAIL",
+          "severity": "P1",
+          "review_evidence_file_sha256": "afdb7d418aee3ec9ee5de973a07023277ff44f209b7977815813e2096107e1b4",
+          "finding_record_sha256": "983f8745b91d94f7dcec2348053315f93093d027b4f8b152e2c4ff8a083d2c90",
+          "adopted_at_utc": "2026-10-25T22:50:56.812687+00:00",
+          "new_failed_revision_increment": 1,
+          "prior_intermediate_probe_increment": 0
+        }
+      ],
+      "next_action": "E1按P04_COLAB_ENVIRONMENT_R2最小修订；R1独立复审后由S1关闭问题。",
+      "deduplication_basis": "同一候选的R1复跑、首次未就绪探针、辅助审计错误与S1接口探针均不重复计数。"
+    },
+    {
+      "issue_id": "P04-COLAB-RECOVERY-001",
+      "stable_requirement_key": "colab_stop_revalidates_current_durable_copy_of_every_registered_run",
+      "requirement": "停止实例前核对该endpoint全部需保留run的当前完整持久副本，并绑定远端当前快照。",
+      "summary": "较早run的Mac文件损坏且tar删除后，从较新run仍可停止同一实例。",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FIRST_FORMAL_TECHNICAL_REVIEW_FAIL",
+          "candidate": "8faa75e7010290a11f13a8006fba5d4b16ac44f9",
+          "review_commit": "2f449452636712f2622d40a3040a45034e56228f",
+          "integrated_review_commit": "81cb0be1f12cd9312035f00a378ea63dce52dbf6",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "FAIL",
+          "severity": "P1",
+          "review_evidence_file_sha256": "afdb7d418aee3ec9ee5de973a07023277ff44f209b7977815813e2096107e1b4",
+          "finding_record_sha256": "6e245cd851bf5e391e10e5a3768172c8693a941cd35b965a8b6b1f1f50aaa4f1",
+          "adopted_at_utc": "2026-10-25T22:50:56.812687+00:00",
+          "new_failed_revision_increment": 1,
+          "prior_intermediate_probe_increment": 0
+        }
+      ],
+      "next_action": "E1按P04_COLAB_ENVIRONMENT_R2最小修订；R1独立复审后由S1关闭问题。",
+      "deduplication_basis": "同一候选的R1复跑、首次未就绪探针、辅助审计错误与S1接口探针均不重复计数。"
     }
   ],
-  "prior_findings": "84项已登记数据使用/技术问题全部关闭，原FIFO F1与FD构造清理F2均已有独立PASS。原FAIL/UNKNOWN及所有事件完整保留；冻结v3 G-DATA批准保持，正式训练仍未授权。",
-  "updated_at_utc": "2026-09-08T00:31:15.709742+00:00",
+  "prior_findings": "原84项已登记问题保持关闭；本轮Colab控制新增PROCESS-001与RECOVERY-001两项P1，均为首次正式未通过。全部原始失败与审核历史保留；冻结v3 G-DATA批准不变。",
+  "updated_at_utc": "2026-10-25T22:50:56.812687+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -4684,5 +4738,18 @@
       "S0_receipt_sha256": "b5332709432e9361bc7339ab870398c64c6a623a0164bf505f54ddf4bebad92a",
       "separate_new_F2_remains_open": true
     }
-  ]
+  ],
+  "last_technical_adoption": {
+    "review_commit": "2f449452636712f2622d40a3040a45034e56228f",
+    "candidate": "8faa75e7010290a11f13a8006fba5d4b16ac44f9",
+    "issues": [
+      "P04-COLAB-PROCESS-001",
+      "P04-COLAB-RECOVERY-001"
+    ],
+    "new_formal_failure_events": 2,
+    "closed_issue_count": 84,
+    "open_issue_count": 2,
+    "highest_consecutive_failed_revisions": 1,
+    "whole_goal_paused": false
+  }
 }

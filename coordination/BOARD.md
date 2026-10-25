@@ -9,8 +9,8 @@
 | P04 v3 数据接口 / PR19 | VERIFIED | 主干 abdc53d，定点 163 passed |
 | G1 交接与执行准备 | COMPLETE | S1 接班；基线/数据/工作区/接入定位闭合，见 GOAL |
 | P04 CUDA SFT 首包 / T1 | DISPATCHED | 按 P04_CUDA_SFT 实现数据接口、损失与完整 checkpoint |
-| P04 CUDA 依赖与 Colab / E1 | READY_FOR_REVIEW | 代码 b6970f6；19 项定点检查通过，等待独立复核 |
-| P04 Colab 独立复核 / R1 | READY | 按 P04_COLAB_REVIEW 审精确代码和最终证据 |
+| P04 CUDA 依赖与 Colab / E1 | CHANGES_REQUESTED | r1 两项 P1；按 P04_COLAB_ENVIRONMENT_R2 修进程与多 run 回收 |
+| P04 Colab 独立复核 / R1 | FAIL（r1） | 2f44945；两项首次正式未通过，待修订后复审 |
 | P04 L4 容量与短 SFT | PLANNED | 适配、复核和显存预算后，一轮短验证 |
 | P04 正式 SFT | NOT_RUN | 容量通过、明确配置与预算后运行 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
