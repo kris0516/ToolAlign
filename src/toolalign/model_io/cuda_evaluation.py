@@ -32,6 +32,8 @@ def evaluation_model_identity(repository, model):
 
 class CUDAEvaluationBackend(CUDAGenerationBackend):
     backend_label = "cuda-evaluation.v1"
+    lease_task_id = "P06-G5-EVALUATION"
+    lease_job = "evaluation"
 
     def __init__(self, *, model, cache_enabled=False, tenant_id="evaluation", **kwargs):
         super().__init__(**kwargs)
@@ -46,8 +48,8 @@ class CUDAEvaluationBackend(CUDAGenerationBackend):
 
     def _load(self):
         config = load_protocol(self.repository)
-        self._lease = GPULease(task_id="P06-G5-EVALUATION", worker_alias="S1",
-                               run_id=self.run_id, expected_job="evaluation",
+        self._lease = GPULease(task_id=self.lease_task_id, worker_alias="S1",
+                               run_id=self.run_id, expected_job=self.lease_job,
                                memory_strategy="BF16_base_optional_FP32_QV_LoRA_no_grad_KV_cache",
                                repository=self.repository, timeout_seconds=0)
         self._lease.__enter__()
@@ -57,7 +59,7 @@ class CUDAEvaluationBackend(CUDAGenerationBackend):
         require(torch.cuda.is_available(), "CUDA_unavailable_no_fallback")
         require(torch.cuda.is_bf16_supported(), "CUDA_BF16_unavailable")
         torch.use_deterministic_algorithms(True, warn_only=False)
-        self._report("model_loading", backend="cuda-evaluation.v1", model=self.condition_model)
+        self._report("model_loading", backend=self.backend_label, model=self.condition_model)
         adapter = read_selected_adapter(self.checkpoint_dir) if self.condition_model == "M1" else None
         torch.cuda.reset_peak_memory_stats(0)
         self._model = load_model({"repository": self.repository, "model_root": self.model_root,

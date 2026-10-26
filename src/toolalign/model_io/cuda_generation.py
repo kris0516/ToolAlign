@@ -181,7 +181,7 @@ class CUDAGenerationBackend:
         self._metrics.update(stage=stage, **updates)
         write_packet(Path("backend-metrics.json"), self._metrics)
 
-    def _tokenize(self, request):
+    def _ensure_tokenizer(self):
         if self._tokenizer is None:
             self._metrics = {"backend": self.backend_label, "cold_load_seconds": None,
                              "cold_load_started_monotonic": time.monotonic(),
@@ -195,7 +195,23 @@ class CUDAGenerationBackend:
             # This verified engine must be constructed before importing torch.
             self._tokenizer = OfflineQwenTokenizer(self.model_root, repo_id=MODEL_ID,
                                                    revision=MODEL_REVISION)
+
+    def _tokenize(self, request):
+        self._ensure_tokenizer()
         return prompt_ids(self._tokenizer, request)
+
+    def _require_owned_child(self):
+        require(os.getpid() != self._creator_pid
+                and multiprocessing.current_process().name.startswith("toolalign-model-"),
+                "owned_model_child_required")
+
+    def prepare(self):
+        """Load in the owned child without tokenizing a fake request or decoding."""
+        self._require_owned_child()
+        self._ensure_tokenizer()
+        if self._model is None:
+            self._load()
+        return {"model_identity": dict(self.identity), "metrics": dict(self._metrics)}
 
     def _load(self):
         config = load_protocol(self.repository)
@@ -235,9 +251,7 @@ class CUDAGenerationBackend:
                            identity=self.identity)
 
     def generate(self, request, generation_config):
-        require(os.getpid() != self._creator_pid
-                and multiprocessing.current_process().name.startswith("toolalign-model-"),
-                "owned_model_child_required")
+        self._require_owned_child()
         require(type(generation_config) is GenerationConfig, "generation_config_required")
         config = generation_config
         SamplingParameters(config.seed, config.temperature, config.top_p)
