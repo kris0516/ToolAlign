@@ -4,7 +4,7 @@
 
 ## 当前结论
 
-冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3通过R1 `300af3f`、Q1 `34331c2`终验，随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，App goal已complete。当前[G4](coordination/tasks/P05_G4_PROTOCOL.md)的生成/偏好CPU包与生成前语料已独立接纳；PR28主干6e2f1d2已完成80条真实候选，0成功/0有效偏好，产物已回收、L4已停止，见[实测](reports/S1_P05_G4_GENERATION_R1.md)。79条完整首动作均为tool_calls；原1.7B SFT的5,938 train/213 validation目标也全为tool_calls。现推进Q1处置审核、文件验证复用及DPO终态预算的CPU修订。
+冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3通过R1 `300af3f`、Q1 `34331c2`终验，随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，App goal已complete。当前[G4](coordination/tasks/P05_G4_PROTOCOL.md)的生成/偏好CPU包与生成前语料已独立接纳；PR28主干6e2f1d2已完成80条真实候选，0成功/0有效偏好，产物已回收、L4已停止，见[实测](reports/S1_P05_G4_GENERATION_R1.md)。79条完整首动作均为tool_calls；原1.7B SFT的5,938 train/213 validation目标也全为tool_calls。Q1 `5321842` 的零对处置、R1 `8ce08bf` 的DPO终态预算修订及R1 `7d36b49` 的文件验证复用均已接纳；PR29最终主干验证后，用ordinal 8/seed50做一次独立运行时诊断，原80条保持。
 
 G3实际执行主干为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`（PR26），双Python CI 40271208505成功。原始验证CE实现经R1 `fd4ad07` 审核，完整数组经Q1 `98cf0e1` 逐行核对后才分配GPU。**正式DPO、G5独立评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[G2实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
 
