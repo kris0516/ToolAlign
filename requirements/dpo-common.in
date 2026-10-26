@@ -1,0 +1,6 @@
+# Independent native TRL environment; never install over the SFT environment.
+-r cuda-common.in
+trl==0.26.2
+datasets==4.4.1
+# datasets 4.4.1 requires fsspec<=2025.10.0; SFT's 2026.9.0 pin is incompatible.
+fsspec==2025.10.0

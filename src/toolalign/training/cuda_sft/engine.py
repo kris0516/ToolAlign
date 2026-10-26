@@ -110,20 +110,27 @@ def attach_adapter(base, config):
     return model
 
 
-def load_model(request, config, lease):
+def load_model(request, config, lease, *, verified_files=None):
     """The sole real model loader, called inside the bounded leased process."""
     import torch
     from transformers import AutoModelForCausalLM
 
-    from toolalign.model_io.qwen_model import require_current_lease, validate_model_files
+    from toolalign.model_io.qwen_model import (
+        recheck_model_files,
+        require_current_lease,
+        validate_model_files,
+    )
 
     require_current_lease(lease, request["repository"])
     require(torch.cuda.is_available(), "CUDA_unavailable_no_fallback")
     require(torch.cuda.is_bf16_supported(), "CUDA_BF16_unavailable")
     spec = config["profiles"][request["profile"]]
-    files = validate_model_files(request["model_root"], model_id=spec["model_id"],
-                                 revision=spec["model_revision"],
-                                 config_path=request["repository"] + "/configs/qwen-models.v1.json")
+    file_options = {"model_id": spec["model_id"], "revision": spec["model_revision"],
+                    "config_path": request["repository"] + "/configs/qwen-models.v1.json"}
+    if verified_files is None:
+        files = validate_model_files(request["model_root"], **file_options)
+    else:
+        files = recheck_model_files(verified_files, request["model_root"], **file_options)
     base = AutoModelForCausalLM.from_pretrained(
         str(files.root), local_files_only=True, trust_remote_code=False,
         torch_dtype=torch.bfloat16, attn_implementation="sdpa", use_cache=False,
@@ -141,4 +148,7 @@ def load_model(request, config, lease):
     require(all(".lora_A." in name or ".lora_B." in name for name, _ in trainable), "unintended_trainable_weight")
     require(all(p.dtype == (torch.float32 if p.requires_grad else torch.bfloat16)
                 for p in model.parameters()), "model_dtype_mismatch")
-    return model.to(device="cuda:0")
+    model = model.to(device="cuda:0")
+    if verified_files is not None:
+        recheck_model_files(files, request["model_root"], **file_options)
+    return model

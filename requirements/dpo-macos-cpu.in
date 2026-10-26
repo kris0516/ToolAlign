@@ -1,0 +1,4 @@
+# Mac arm64 / CPython 3.12; synthetic CPU fixtures only.
+-r dpo-common.in
+torch==2.8.0
+pytest==9.0.2

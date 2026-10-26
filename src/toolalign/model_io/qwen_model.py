@@ -311,14 +311,16 @@ class ModelFiles:
     generation_config_json: bytes
     metadata_sha256: str = CONFIG_SHA256
     runtime_status: str = "NOT_RUN"
+    directory_token: tuple[int, ...] = ()
 
 
-def _files_result(root, spec, files):
+def _files_result(root, spec, files, directory_token=()):
     return ModelFiles(spec["model_id"], spec["revision"], root, tuple(files.values()),
                       spec["serialized_tensor_count"], spec["serialized_parameter_count"],
                       spec["expected_frozen_leaf_tensors"], spec["expected_frozen_parameter_count"],
                       tuple(spec["generation_eos_ids"]), spec["training_eos_id"], spec["padding_id"],
-                      _canonical(spec["generation_config_original"]))
+                      _canonical(spec["generation_config_original"]),
+                      directory_token=directory_token)
 
 
 def validate_model_files(model_root, *, model_id, revision, config_path):
@@ -326,8 +328,35 @@ def validate_model_files(model_root, *, model_id, revision, config_path):
     config = _config(config_path)
     spec = _model_spec(config, model_id, revision)
     root = _absolute(model_root)
-    files, _ = _directory_files(root, spec)
-    return _files_result(root, spec, files)
+    files, directory_token = _directory_files(root, spec)
+    return _files_result(root, spec, files, directory_token)
+
+
+def recheck_model_files(files, model_root, *, model_id, revision, config_path):
+    """Recheck trusted in-memory validation before/after loading in this batch.
+
+    Only pass the result of this process's ``validate_model_files`` (including
+    transport to its owned child), never metadata read from an external cache.
+    The small pinned config is still read; model contents are not rehashed.
+    Directory and file tokens include ctime, so restoring mtime is insufficient.
+    """
+    _require(type(files) is ModelFiles, "verified_model_files_required")
+    root = _absolute(model_root)
+    _require(files.root == root and files.model_id == model_id and files.revision == revision,
+             "verified_model_binding_mismatch")
+    spec = _model_spec(_config(config_path), model_id, revision)
+    by_name = {item.name: item for item in files.files}
+    _require(len(by_name) == len(files.files) and set(by_name) == set(spec["files"]),
+             "verified_model_file_set")
+    _require(all(item.bytes == spec["files"][name]["bytes"]
+                 and item.sha256 == spec["files"][name]["sha256"]
+                 for name, item in by_name.items())
+             and files == _files_result(root, spec, by_name, files.directory_token),
+             "verified_model_identity_mismatch")
+    # Pin the directory as well as named files: additions/removals/replacements
+    # invalidate the evidence even when the original bytes are put back.
+    _unchanged(root, by_name, files.directory_token)
+    return files
 
 
 def require_current_lease(lease, repository):
