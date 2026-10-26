@@ -4,7 +4,7 @@
 
 ## 当前结论
 
-冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3已通过R1 `300af3f` 技术终验、Q1 `34331c2` 数据与说明终验，S1回读接纳；主干发布后进入G4。
+冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3通过R1 `300af3f`、Q1 `34331c2`终验，随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，App goal已complete。当前[G4](coordination/tasks/P05_G4_PROTOCOL.md)的CUDA生成与train偏好CPU包已交付R1/Q1审查，E1开始原生TRL DPO的CPU实现。
 
 G3实际执行主干为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`（PR26），双Python CI 40271208505成功。原始验证CE实现经R1 `fd4ad07` 审核，完整数组经Q1 `98cf0e1` 逐行核对后才分配GPU。**DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[G2实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
 

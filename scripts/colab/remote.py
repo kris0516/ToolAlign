@@ -29,6 +29,7 @@ from support import (
     file_manifest,
     json_bytes,
     read_json,
+    run_command,
     time_remaining,
     utc_now,
     validate_payload,
@@ -268,8 +269,9 @@ def terminate_owned_group(process: subprocess.Popen) -> None:
 def worker(repository: Path, payload: dict) -> int:
     run = validate_payload(payload, repository)
     directory = owned_run(repository, payload)
+    module, command = run_command(run)
     argv = [str(repository / ".toolalign-local/cuda-env/bin/python"), "-u", "-m",
-            "toolalign.training.cuda_sft", "train", "--run-config", str(directory / "run.json")]
+            module, command, "--run-config", str(directory / "run.json")]
     started = utc_now()
     result = {"argv": argv, "started_at_utc": started, "exit_code": 126, "timed_out": False}
     environment = dict(os.environ)
