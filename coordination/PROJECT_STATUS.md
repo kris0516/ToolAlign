@@ -14,7 +14,8 @@
 | P04 CUDA CPU 实现 | 4342af8 经独立R1审查 PASS；17项定点检查及独立数值/恢复通过，真实CUDA待运行 | R1原审查提交 `7d460f2054201c00055a1f924c5c4984be8e6988` |
 | P04 CUDA mask 预审 | 13例真实材料与CUDA消费者对应PASS；423项检查、26条原证据绑定通过 | [Q1预审](../reports/reviews/P04_CUDA_MASK_Q1_R1.md)，`82f1e88` |
 | P04 Colab CPU 控制 | r3独立PASS；两项控制问题均关闭，S1原失败上下文5项定点检查通过 | [R1-r3](../reports/reviews/P04_COLAB_ENVIRONMENT_R3.md)、[S1集成](../reports/S1_P04_CUDA_INTEGRATION.md) |
-| P04 CUDA 容量输入 | 主干920c415的新入口prepare、20条编码/回读PASS；13例review数组保持原身份，待Q1增量 | [实际输入](../reports/S1_P04_CUDA_CAPACITY_INPUT.md) |
+| P04 CUDA 容量输入 | 主干920c415的20条编码/回读PASS；独立Q1 531项检查通过，13例身份不变 | [Q1增量](../reports/reviews/P04_CUDA_CAPACITY_ARRAY_Q1_R1.md)，`ed022da` |
+| P04 Colab 真实安装 | 实际L4为23034MiB；缺venv包已修，pip索引覆盖导致第二次setup失败，模型/训练0 | [索引修复任务](tasks/P04_COLAB_ENVIRONMENT_R4.md)，原日志保留 |
 | P04 正式 SFT | NOT_RUN；CUDA 适配、依赖锁和容量实测待完成 | [下一任务](BOARD.md) |
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
@@ -31,6 +32,6 @@
 
 S1 已实际读取入口并与 S0 核对交接：交接时主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。G1准备已完成；G2已完成上表真实数据消费，T1/E1已原生派发。模型缓存完整字节与CUDA尚未新验。
 
-按 [GOAL](GOAL.md)依次推进。T1 CUDA和E1 Colab控制均已获得独立R1 PASS；Q1的13例mask预审通过。原42通过/1失败现场保留，r3修后5项定点检查通过。[PR21](https://github.com/kris0516/ToolAlign/pull/21)最终双Python CI通过并已合并；固定20例容量数组已实际生成和回读。接续为[Q1增量核对](tasks/P04_CUDA_CAPACITY_ARRAY_Q1.md)，通过后签发有界L4配置。后续真实运行始终使用数组绑定的920c415源码。GPU尚未分配，正式SFT/DPO/模型评测仍NOT_RUN。旧未派发Mac runtime不恢复。
+按 [GOAL](GOAL.md)依次推进。T1 CUDA和E1 Colab控制均已获得独立R1 CPU PASS；Q1的13例预审及20例增量均通过。[PR21](https://github.com/kris0516/ToolAlign/pull/21)双Python CI通过并已合并。有界L4实际setup发现系统venv缺包及pip索引覆盖；前者已修，后者进入[E1-r4](tasks/P04_COLAB_ENVIRONMENT_R4.md)。两次失败保留，当前实例先回收停止；修后重新冻结源码/锁/数组身份再运行。真实CUDA训练、正式SFT/DPO/模型评测仍NOT_RUN，旧Mac runtime不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
