@@ -4942,9 +4942,18 @@
           "s1_evidence_audit_sha256": "47b0a8b879a9d11328d5f5a92965945fd7bcc191123ba6ff046bac26c5028006",
           "new_failed_revision_increment": 1,
           "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_TECHNICAL_CORROBORATION_SAME_CANDIDATE",
+          "candidate": "d4c4251a0e676d39f30c62c6c767f274987501ca",
+          "review_commit": "2b47acf02e22b9fdd1b5dfeae31292f12c4848e9",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "REQUEST_CHANGES_PREVIOUS_FINDING",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
         }
       ],
-      "next_action": "冻结有版本的定点评分修订或隔离处置，复验两条反例与原正向；保留v1历史语义。",
+      "next_action": "独立复验版本化观察oracle与完整历史隔离参考；新候选经逐题Q1审阅后裁定关闭，原48保持整组隔离。",
       "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
     },
     {
@@ -4968,14 +4977,23 @@
           "s1_evidence_audit_sha256": "47b0a8b879a9d11328d5f5a92965945fd7bcc191123ba6ff046bac26c5028006",
           "new_failed_revision_increment": 1,
           "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_TECHNICAL_CORROBORATION_SAME_CANDIDATE",
+          "candidate": "d4c4251a0e676d39f30c62c6c767f274987501ca",
+          "review_commit": "2b47acf02e22b9fdd1b5dfeae31292f12c4848e9",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "REQUEST_CHANGES_PREVIOUS_FINDING",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
         }
       ],
-      "next_action": "落实原48题整体隔离并保留ID/原材料/失败史；不得删掉连接题或改组恢复其余题的独立身份。",
+      "next_action": "独立复验版本化观察oracle与完整历史隔离参考；新候选经逐题Q1审阅后裁定关闭，原48保持整组隔离。",
       "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
     }
   ],
   "prior_findings": "90项既有问题全部关闭。P05-DPO-OUTPUT-001经独立r2原反例PASS关闭、计数1→0；Q1-G4-CORPUS-001原失败与其后PASS保持。真实80条候选经Q1确认0对，偏好质量门BLOCKED，不新增或伪造质量PASS。",
-  "updated_at_utc": "2026-10-26T16:38:28.496262+00:00",
+  "updated_at_utc": "2026-10-26T17:35:57.826487+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -5080,15 +5098,15 @@
     }
   ],
   "last_technical_adoption": {
-    "issue_id": "P05-DPO-OUTPUT-001",
-    "candidate": "982cc1917d23b4004dbf9f683c685515eb390ea7",
-    "review_commit": "32a031b76a68a57945c6decce796ba6a9dd1836d",
-    "new_formal_failure_events": 1,
-    "closed_issue_count": 89,
-    "open_issue_count": 1,
-    "highest_consecutive_failed_revisions": 1,
-    "whole_goal_paused": false,
-    "adopted_at_utc": "2026-10-26T12:30:20.864476+00:00"
+    "candidate": "7e56244c0d0cb5b07da48ee6585f31a3f04acc71",
+    "review_commit": "2b47acf02e22b9fdd1b5dfeae31292f12c4848e9",
+    "scope": "G5 E1 BFCL and paired analysis CPU; D1 original corpus remains excluded",
+    "verdict": "E1_PASS_JOINT_REQUEST_CHANGES",
+    "review_evidence_index_sha256": "26173560847b923b2b976b7073d48945f0647d9684015a51e5bf90fba1646f20",
+    "s1_evidence_audit_sha256": "8806b721f99d352e3f4bb03559b6f795e3cbf4033eade5093f4c7a45db32dfeb",
+    "new_issue_count": 0,
+    "new_formal_failure_events": 0,
+    "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
   },
   "technical_adoption_history": [
     {
@@ -5144,21 +5162,33 @@
       "highest_consecutive_failed_revisions": 0,
       "whole_goal_paused": false,
       "adopted_at_utc": "2026-10-26T03:59:30.773003+00:00"
+    },
+    {
+      "issue_id": "P05-DPO-OUTPUT-001",
+      "candidate": "982cc1917d23b4004dbf9f683c685515eb390ea7",
+      "review_commit": "32a031b76a68a57945c6decce796ba6a9dd1836d",
+      "new_formal_failure_events": 1,
+      "closed_issue_count": 89,
+      "open_issue_count": 1,
+      "highest_consecutive_failed_revisions": 1,
+      "whole_goal_paused": false,
+      "adopted_at_utc": "2026-10-26T12:30:20.864476+00:00"
     }
   ],
   "last_semantic_adoption": {
-    "issue_ids": [
-      "Q1-G5-CORPUS-001",
-      "Q1-G5-CORPUS-002"
-    ],
-    "review_commit": "08d4c5a33cb77cf06dfafa373d3b693873f4abcf",
-    "new_formal_failure_events": 2,
+    "scope": "BFCL fixed 150 zero-eligible disposition only",
+    "review_commit": "d31a6a64dad0db474f60ce967c5d773213ee1c1d",
+    "verdict": "PASS_NO_ELIGIBLE_INPUTS",
+    "review_evidence_index_sha256": "b2f06526fce5f54aed7a6af15f969cc622ddc74bbf4994654bccbba38e4715bf",
+    "s1_evidence_audit_sha256": "a656c809b5d70e86b6614fb25bb9136112a601e4e6178e7b7cc17e7bf1c3c220",
+    "issue_ids": [],
+    "new_formal_failure_events": 0,
     "new_formal_pass_events": 0,
     "closed_issue_count": 90,
     "open_issue_count": 2,
     "highest_consecutive_failed_revisions": 1,
     "whole_goal_paused": false,
-    "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
+    "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
   },
   "semantic_adoption_history": [
     {
@@ -5181,6 +5211,20 @@
       "highest_consecutive_failed_revisions": 0,
       "whole_goal_paused": false,
       "adopted_at_utc": "2026-10-26T11:00:37.904422+00:00"
+    },
+    {
+      "issue_ids": [
+        "Q1-G5-CORPUS-001",
+        "Q1-G5-CORPUS-002"
+      ],
+      "review_commit": "08d4c5a33cb77cf06dfafa373d3b693873f4abcf",
+      "new_formal_failure_events": 2,
+      "new_formal_pass_events": 0,
+      "closed_issue_count": 90,
+      "open_issue_count": 2,
+      "highest_consecutive_failed_revisions": 1,
+      "whole_goal_paused": false,
+      "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
     }
   ]
 }
