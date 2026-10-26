@@ -4,6 +4,8 @@
 
 当前状态为 **独立终验 PASS，S1 已接纳**。[R1 技术终验](reviews/P04_CUDA_G3_FINAL_R1.md)与[Q1 数据及说明终验](reviews/P04_CUDA_G3_FINAL_Q1_R1.md)均通过，两份所选完整状态可作为 G4 的 SFT 起点。这里报告冻结 validation 上的拟合结果；工具语义、无需工具判断、故障恢复和独立测试效果属于 G5，DPO 属于 G4。
 
+G4后续只读核对进一步明确了1.7B的监督范围：原5,938条train及213条validation目标全部为`tool_calls`，没有最终回答、无需工具或澄清类目标。因此本报告的CE下降支持该工具调用目标集合的拟合；[G4实际轨迹与覆盖分析](S1_P05_G4_GENERATION_R1.md)另记整条任务表现，原G3数据、checkpoint和验收身份不变。
+
 ## 实际结果与选模
 
 | 模型 | train / validation | 更新数 / 末批条数 | 原始 CE | 选定 SFT CE | SFT − 原始 CE | 所选 step |

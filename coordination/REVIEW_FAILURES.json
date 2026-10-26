@@ -4880,10 +4880,35 @@
       ],
       "next_action": "按Q1已接纳r2身份进行有界真实候选生成；后续正式偏好池仍须独立Q1审核，原r1失败及20项分母保留。",
       "deduplication_basis": "两个任务共享同一答案类型约束问题，属于一次正式语料审阅；不作为两次失败，不计算真实偏好误标率。"
+    },
+    {
+      "issue_id": "P05-DPO-OUTPUT-001",
+      "stable_requirement_key": "dpo_final_summary_in_complete_output_budget_before_pass",
+      "requirement": "DPO返回PASS前，完整输出目录必须包括最终summary并满足max_output_bytes；超限明确失败并保留证据。",
+      "summary": "最终summary写入前检查预算；独立反例65,536字节上限、最终69,542字节仍返回PASS。",
+      "status": "OPEN_TECHNICAL_REQUEST_CHANGES",
+      "priority": "P2",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FORMAL_TECHNICAL_REVISION_FAIL",
+          "candidate": "982cc1917d23b4004dbf9f683c685515eb390ea7",
+          "review_commit": "32a031b76a68a57945c6decce796ba6a9dd1836d",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "REQUEST_CHANGES",
+          "review_evidence_index_sha256": "97aeb1e34e246a8f9006b99bc429a6a387263046815eea6e8fd2de5d96129519",
+          "s1_evidence_audit_sha256": "1e864c2c32f3d10e1f013c35794d608a900a11e7480e6a1fd9ff6422c4ad992f",
+          "new_failed_revision_increment": 1,
+          "adopted_at_utc": "2026-10-26T12:30:20.864476+00:00"
+        }
+      ],
+      "next_action": "E1按P05_G4_DPO_FIX_R2.md修订终态预算，由R1定点复审；复用未受影响的数值与恢复证据。",
+      "deduplication_basis": "一次独立正式审阅的一项输出边界问题；R1辅助数值探针自身失败不登记为候选缺陷。"
     }
   ],
   "prior_findings": "89项问题全部关闭；Q1-G4-CORPUS-001经独立r2定点PASS关闭、计数由1归零，原首次FAIL及全部历史保留。正式偏好审核仍待真实候选。",
-  "updated_at_utc": "2026-10-26T11:00:37.904422+00:00",
+  "updated_at_utc": "2026-10-26T12:30:20.864476+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -4974,20 +4999,15 @@
     }
   ],
   "last_technical_adoption": {
-    "issue_id": "P04-CUDA-RESUME-001",
-    "candidate": "f6f66545c17827fa442c38d4d3af52d6cb7231e3",
-    "executed_source": "eb73fbcdb5f053509a396c59092e28d7c317cdd9",
-    "review_commit": "be756a152b13eb01d7586d961aee39a8298f1608",
-    "reviewer": "Codex-AI(R1)",
-    "s1_receipt_sha256": "918fb48d7dc20b5d565f8059bcba25688591f2d81e3255a0567a97b4f6e4f622",
-    "prior_failure_history_preserved": true,
-    "new_formal_failure_events": 0,
-    "new_formal_pass_events": 1,
-    "closed_issue_count": 88,
-    "open_issue_count": 0,
-    "highest_consecutive_failed_revisions": 0,
+    "issue_id": "P05-DPO-OUTPUT-001",
+    "candidate": "982cc1917d23b4004dbf9f683c685515eb390ea7",
+    "review_commit": "32a031b76a68a57945c6decce796ba6a9dd1836d",
+    "new_formal_failure_events": 1,
+    "closed_issue_count": 89,
+    "open_issue_count": 1,
+    "highest_consecutive_failed_revisions": 1,
     "whole_goal_paused": false,
-    "adopted_at_utc": "2026-10-26T03:59:30.773003+00:00"
+    "adopted_at_utc": "2026-10-26T12:30:20.864476+00:00"
   },
   "technical_adoption_history": [
     {
@@ -5027,6 +5047,22 @@
       "open_issue_count": 0,
       "highest_consecutive_failed_revisions": 0,
       "whole_goal_paused": false
+    },
+    {
+      "issue_id": "P04-CUDA-RESUME-001",
+      "candidate": "f6f66545c17827fa442c38d4d3af52d6cb7231e3",
+      "executed_source": "eb73fbcdb5f053509a396c59092e28d7c317cdd9",
+      "review_commit": "be756a152b13eb01d7586d961aee39a8298f1608",
+      "reviewer": "Codex-AI(R1)",
+      "s1_receipt_sha256": "918fb48d7dc20b5d565f8059bcba25688591f2d81e3255a0567a97b4f6e4f622",
+      "prior_failure_history_preserved": true,
+      "new_formal_failure_events": 0,
+      "new_formal_pass_events": 1,
+      "closed_issue_count": 88,
+      "open_issue_count": 0,
+      "highest_consecutive_failed_revisions": 0,
+      "whole_goal_paused": false,
+      "adopted_at_utc": "2026-10-26T03:59:30.773003+00:00"
     }
   ],
   "last_semantic_adoption": {
