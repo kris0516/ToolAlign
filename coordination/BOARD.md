@@ -28,8 +28,8 @@
 | G4 原生TRL DPO / E1 | CPU独立审核已接纳 | [R1 r2](../reports/reviews/P05_G4_DPO_R2.md)8ce08bf复验原反例PASS，输出预算问题关闭、计数1→0；原FAIL保留 |
 | G4 偏好处置 / Q1 | NO_ELIGIBLE_PAIRS已接纳 | [审核](../reports/reviews/P05_G4_PREFERENCE_Q1_R1.md)5321842：80条分母、0对及监督范围核对一致；ordinal 8诊断第三次为额外工具，DPO保持BLOCKED |
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
-| G5 评测后端 / T1 | CPU任务已冻结，待派发 | [后端任务](tasks/P06_G5_EVALUATION_CPU.md)：M0/M1、恢复开关、cache与有界执行 |
-| G5 独立工具 / E1 | CPU任务已冻结，待派发 | [工具任务](tasks/P06_G5_TOOLS_CPU.md)：四域静态只读工具，旧身份保持 |
+| G5 评测后端 / T1 | CPU实现进行中 | [后端任务](tasks/P06_G5_EVALUATION_CPU.md)：M0/M1、恢复开关、cache与有界执行 |
+| G5 独立工具 / E1 | CPU实现进行中 | [工具任务](tasks/P06_G5_TOOLS_CPU.md)：四域静态只读工具，旧身份保持 |
 | P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 

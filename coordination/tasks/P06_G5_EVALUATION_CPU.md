@@ -4,9 +4,9 @@ owner T1；在既有独立worktree从S1派发的精确提交建立 `codex/t1-p06
 
 交付M0/M1真正分离的懒加载评测后端。M0不挂载或恢复adapter；M1复用已选SFT验证及实际权重hash。复用固定decode kernel与owned model child，父进程不加载Torch或模型。只为共享真实底座加载所需最小调整 `cuda_sft.engine.load_model`，保持原SFT/DPO默认行为与原G4入口不变；不要复制两套固定文件验证或改变training config。延续一次父预检、child加载前后stat核对与全部成本计入。
 
-新增 `model_io/cuda_evaluation.py`、必要的 `model_io/prefix_cache.py` 与 `evaluation/cuda_eval/` 有界执行入口。支持三种明确模式：L1走现有LocalHarness和host oracle；action-only对固定ModelInput做一次生成并保存原始Action JSON，供后续BFCL官方scorer；replay对同一owned child中的固定最多3个ModelInput做前缀缓存对照。输入/输出格式与可复用的one-decision调用在报告中完整说明，便于后续E1 adapter直接产出和消费，不引入可执行模块名、任意handler或通用RPC框架。
+新增 `model_io/cuda_evaluation.py`、必要的 `model_io/prefix_cache.py` 与 `evaluation/cuda_eval/` 有界执行入口。支持三种明确模式：L1走现有LocalHarness和host oracle；action-only对固定ModelInput做一次生成并保存原始文本、finish reason、运行状态及独立raw Action解析合法性，供后续BFCL官方scorer；坏输出或空输出不能转写成合法无需工具动作；replay对同一owned child中的固定最多3个ModelInput做前缀缓存对照。输入/输出格式与可复用的one-decision调用在报告中完整说明，便于后续E1 adapter直接产出和消费，不引入可执行模块名、任意handler或通用RPC框架。
 
-L1任务包采用新schema `toolalign.evaluation-tasks.v1`、purpose=`heldout-model-evaluation`、catalog=`heldout-devops.v1`。每项保持G4 entry中的task_id/family_id/group_id/category/example/oracle_task/faults，新增tool_names；example与OracleTask split必须test或ood_test且一致。每项构造对应subset registry，核对example工具与其真实spec一致。E1同时为LocalToolRegistry新增固定catalog选择；在该包未集成时用原创CPU fixture验证接口，不伪造新工具实际PASS。不能放松旧train-only reader或复用G4任务当heldout。
+L1任务包采用新schema `toolalign.evaluation-tasks.v1`、purpose=`heldout-model-evaluation`、catalog=`heldout-devops.v1`。每项保持G4 entry中的task_id/family_id/group_id/category/example/oracle_task/faults，新增tool_names；example与OracleTask split必须test或ood_test且一致。每项构造对应subset registry，核对example工具与其真实spec一致。共享接口固定为 `LocalToolRegistry(names=None, *, catalog_id="local-devops.v1")` 与只读 `registry.catalog_id`，新值为 `heldout-devops.v1`；E1同时实现该选择；在该包未集成时用原创CPU fixture验证接口，不伪造新工具实际PASS。不能放松旧train-only reader或复用G4任务当heldout。
 
 执行run新schema `toolalign.cuda-evaluation-run.v1`、run_kind=`evaluation`，保留S1单独授权、精确source/input/model/lock、max_wall_seconds和max_output_bytes；条件、mode、固定plan及seed形成稳定batch身份。复用原子started/terminal和owned进程回收行为；任何started的模型调用不能自动重试，未启动项才可接续。summary包括完整计划分母、终态原因、未启动项、实际身份/资源、prefill/首token/decode和加载指标。必要时只抽出已有公共小函数，不复制整套控制器。Colab support新增固定白名单入口并验证G5上限14,400秒、最大正式plan224条，replay与容量探针独立mode/计数；所有final summary计入输出预算。
 
