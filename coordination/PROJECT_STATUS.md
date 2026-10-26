@@ -17,11 +17,12 @@
 | P04 CUDA 容量输入 | 主干920c415的20条编码/回读PASS；独立Q1 531项检查通过，13例身份不变 | [Q1增量](../reports/reviews/P04_CUDA_CAPACITY_ARRAY_Q1_R1.md)，`ed022da` |
 | P04 Colab 真实安装 | PR22锁在L4真实安装PASS；48包/pip check通过 | [实测](../reports/S1_P04_CUDA_CAPACITY_R1.md)，原安装失败保留 |
 | P04 CUDA容量/恢复 | 最长2048 token三步容量PASS、采样峰值5180MiB；新进程恢复后更新超容差，跨实例未运行 | [实测与数值FAIL](../reports/S1_P04_CUDA_CAPACITY_R1.md)；两份输出已回收，实例已停止 |
+| P04 CUDA恢复诊断 | 原差异收窄到梯度形成/累积；零更新探针DIAGNOSTIC_READY，实际CUDA诊断待运行 | [R1独立复核](../reports/reviews/P04_CUDA_RESUME_R2.md)，`0947a91`；不构成恢复PASS |
 | P04 正式 SFT | NOT_RUN；先关闭CUDA恢复数值差异并完成G2 | [下一任务](BOARD.md) |
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
-既有86项问题全部关闭；Colab的RECOVERY-001经r2、PROCESS-001经r3独立复审关闭。INDEX-001经独立R1-r4关闭；87项已关闭，新增CUDA-RESUME-001为S1实测发现、待独立复核，当前正式失败计数0；原FAIL和全部失败历史保留。数据质量、CPU或toy PASS都不是正式模型效果。
+既有86项问题全部关闭；Colab的RECOVERY-001经r2、PROCESS-001经r3独立复审关闭。INDEX-001经独立R1-r4关闭；87项已关闭，新增CUDA-RESUME-001的实测差异已由R1独立确认，问题仍OPEN、正式失败计数0；本次只审查诊断方案，不计修复失败。原FAIL和全部失败历史保留。数据质量、CPU或toy PASS都不是正式模型效果。
 
 ## 本次交接
 
@@ -33,6 +34,6 @@
 
 S1 已实际读取入口并与 S0 核对交接：交接时主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。G1准备已完成；G2已完成上表真实数据消费，T1/E1已原生派发。模型缓存完整字节与CUDA尚未新验。
 
-按 [GOAL](GOAL.md)依次推进。T1/E1均已有独立R1 CPU PASS，Q1的13例预审和20例增量通过；[PR22](https://github.com/kris0516/ToolAlign/pull/22)双Python CI通过并已合并。新的实际Linux安装和三步L4容量通过，但第2步checkpoint的新进程恢复在更新后超预设数值容差，见[实际证据](../reports/S1_P04_CUDA_CAPACITY_R1.md)。全部输出已回收到Mac，实例已停止，当前GPU活动数0。由[T1](tasks/P04_CUDA_RESUME_R2.md)先定位、R1独立复核后再冻结必要的GPU验证；跨实例恢复与正式SFT/DPO/模型评测仍NOT_RUN，旧Mac runtime不恢复。
+按 [GOAL](GOAL.md)依次推进。T1/E1均已有独立R1 CPU PASS，Q1的13例预审和20例增量通过；[PR22](https://github.com/kris0516/ToolAlign/pull/22)双Python CI通过并已合并。新的实际Linux安装和三步L4容量通过，但第2步checkpoint的新进程恢复在更新后超预设数值容差，见[实际证据](../reports/S1_P04_CUDA_CAPACITY_R1.md)。全部输出已回收到Mac，实例已停止。T1探针`739c9b3`经R1`0947a91`独立复核为DIAGNOSTIC_READY：同一状态、最后两条样本、checkpointing开/关各重复两次，四组backward且零更新。S1合并后冻结300秒/128MiB诊断及20分钟实例预算，保持原输入、配置和恢复容差；只复用Colab控制器的setup/recover/stop，专用tmux入口单独记录。跨实例恢复与正式SFT/DPO/模型评测仍NOT_RUN，旧Mac runtime不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。

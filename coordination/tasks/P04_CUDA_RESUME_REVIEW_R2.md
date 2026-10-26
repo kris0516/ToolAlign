@@ -1,6 +1,6 @@
 # R1｜P04 CUDA恢复差异独立复核
 
-状态：READY。owner R1，协调者 S1。运行基线 `97637f336df4299a4bfd59b06f9716bb3c104796`；T1任务见 [定位任务](P04_CUDA_RESUME_R2.md)，S1事实见 [容量与恢复实测](../../reports/S1_P04_CUDA_CAPACITY_R1.md)。
+状态：DIAGNOSTIC_READY，独立报告`0947a91`。本轮审查T1零更新诊断候选`739c9b3`，不构成恢复修复PASS，正式失败计数不增加。owner R1，协调者 S1。运行基线 `97637f336df4299a4bfd59b06f9716bb3c104796`；T1任务见 [定位任务](P04_CUDA_RESUME_R2.md)，S1事实见 [容量与恢复实测](../../reports/S1_P04_CUDA_CAPACITY_R1.md)。
 
 在既有R1隔离worktree从基线建立 `codex/review-p04-cuda-resume-r2`。先独立核验真实回收state及预注册容差，区分状态恢复、参数/优化器对应、实际更新与CUDA数值因素；T1精确候选尚未交付，不对未交付修改出最终结论。任何GPU诊断需求先由S1冻结，R1不连接/分配GPU。
 

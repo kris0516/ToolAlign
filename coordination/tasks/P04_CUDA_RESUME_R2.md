@@ -1,6 +1,6 @@
 # T1｜P04 CUDA 恢复数值差异定位
 
-状态：READY。owner T1，协调者 S1。精确运行基线 `97637f336df4299a4bfd59b06f9716bb3c104796`，建立隔离分支 `codex/p04-cuda-resume-r2`，保留原分支和证据。
+状态：DIAGNOSTIC_READY。T1候选`739c9b3`经R1`0947a91`独立复核，实际CUDA诊断由S1另行冻结执行，恢复问题仍OPEN。owner T1，协调者 S1。精确运行基线 `97637f336df4299a4bfd59b06f9716bb3c104796`，隔离分支 `codex/p04-cuda-resume-r2`，保留原分支和证据。
 
 真实 L4 的三步容量作业已正常完成，最长2048 token、18条训练/2条验证、8+8+2更新；设备采样峰值5180MiB，底座字节不变。独立新进程从第2步的完整 checkpoint 恢复，初始 adapter hash、更新前两条样本损失、RNG和游标一致；第3步后验证 CE 从连续运行的0.8660437740496735变为0.8690712544455457。99个adapter张量及92项optimizer张量比较超出已冻结容差，不能将正常退出视为恢复PASS。详见 [S1实测](../../reports/S1_P04_CUDA_CAPACITY_R1.md)。两次完整输出已持久回收，实例已停止。
 

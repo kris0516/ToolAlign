@@ -16,7 +16,7 @@
 | P04 容量数组 / Q1增量 | PASS | ed022da；20条、531项检查通过，验证分母335 |
 | P04 Linux 实装索引 / E1、R1 | ACCEPTED（CPU） | 99b8116经c4b5c1c独立PASS；48 pins/894 hashes未变，S1两项集成通过 |
 | P04 L4 容量与恢复 | 容量PASS，恢复数值FAIL | PR22主干实装/3步通过；第2步恢复后更新超容差，完整输出已回收、实例已停止 |
-| P04 CUDA恢复定位 / T1 | READY | [新任务](tasks/P04_CUDA_RESUME_R2.md)；先定位原因，R1独立复核，跨实例恢复暂未运行 |
+| P04 CUDA恢复定位 / T1、R1 | DIAGNOSTIC_READY | 739c9b3经0947a91独立复核；先运行四组backward、零更新诊断，原恢复FAIL保留 |
 | P04 正式 SFT | NOT_RUN | 恢复差异关闭、G2独立审核通过后进入G3 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
