@@ -1,1 +1,1 @@
-"""Reserved for the inference task owner; implementation has not started."""
+"""Owned inference lifetimes and shared raw-output validation."""

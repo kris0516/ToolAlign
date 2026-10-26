@@ -1,1 +1,1 @@
-"""Reserved for the service task owner; implementation has not started."""
+"""Restricted authenticated loopback service; tools remain on the client."""

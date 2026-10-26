@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 RUN_COMMANDS = {
+    "toolalign.service-run.v1": ("toolalign.service", "serve"),
     "toolalign.cuda-evaluation-run.v1": ("toolalign.evaluation.cuda_eval", "evaluate"),
     "toolalign.cuda-sft-run.v1": ("toolalign.training.cuda_sft", "train"),
     "toolalign.cuda-generation-run.v1": ("toolalign.training.cuda_generate", "generate"),
@@ -27,6 +28,8 @@ def run_command(run: dict) -> tuple[str, str]:
         raise ValueError("DPO schema requires dpo or dpo_capacity run_kind")
     if run["schema"] == "toolalign.cuda-evaluation-run.v1" and run.get("run_kind") != "evaluation":
         raise ValueError("evaluation schema requires evaluation run_kind")
+    if run["schema"] == "toolalign.service-run.v1" and run.get("run_kind") != "serving":
+        raise ValueError("service schema requires serving run_kind")
     return RUN_COMMANDS[run["schema"]]
 
 
@@ -108,7 +111,19 @@ def validate_payload(payload: dict, repository: Path) -> dict:
         raise ValueError("all runs must use the same actual Git repository for GPULease")
     positive_integer(run["max_wall_seconds"], "max_wall_seconds")
     positive_integer(run["max_output_bytes"], "max_output_bytes")
-    if run["schema"] == "toolalign.cuda-generation-run.v1":
+    if run["schema"] == "toolalign.service-run.v1":
+        if "max_optimizer_steps" in run or "persistent_dir" in run:
+            raise ValueError("service uses a bounded generation count")
+        if positive_integer(run["max_generations"], "max_generations") > 12:
+            raise ValueError("service exceeds 12 generation attempts")
+        if not 5 < run["max_wall_seconds"] <= 900 or payload["max_allocation_seconds"] > 7200:
+            raise ValueError("service exceeds the G6 time ceiling")
+        if run["max_output_bytes"] > 256 * 1024**2:
+            raise ValueError("service exceeds the output ceiling")
+        if (run.get("listen_host") != "127.0.0.1" or type(run.get("listen_port")) is not int
+                or not 0 <= run["listen_port"] <= 65535 or type(run.get("cache_enabled")) is not bool):
+            raise ValueError("service requires fixed loopback binding and a boolean cache switch")
+    elif run["schema"] == "toolalign.cuda-generation-run.v1":
         if "max_optimizer_steps" in run:
             raise ValueError("generation must use max_trajectories, not optimizer steps")
         if positive_integer(run["max_trajectories"], "max_trajectories") > 512:
