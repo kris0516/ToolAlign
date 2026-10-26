@@ -38,6 +38,8 @@ def _actor(root, mode):
     # Only the work body is replaced; spawn, session, deadline and cleanup are real.
     runtime._child = _original_cpu_child
     previous = signal.getsignal(signal.SIGTERM)
+    workspace_before = os.environ.get("CUBLAS_WORKSPACE_CONFIG")
+    assert "torch" not in sys.modules
     request = {"schema": "toolalign.cuda-sft-prepare.v1", "authorized_by": "S1",
         "run_kind": "capacity", "profile": "formal", "source_commit": "1" * 40,
         "config_sha256": CONFIG_SHA256, "repository": str(Path(__file__).resolve().parents[2]),
@@ -48,6 +50,8 @@ def _actor(root, mode):
     except BaseException as exc:
         result = {"error": type(exc).__name__, "exit_code": getattr(exc, "code", None)}
     result["handler_restored"] = signal.getsignal(signal.SIGTERM) == previous
+    result["parent_policy_unchanged"] = ("torch" not in sys.modules
+        and os.environ.get("CUBLAS_WORKSPACE_CONFIG") == workspace_before)
     (root / "result.json").write_text(json.dumps(result))
 
 
@@ -84,6 +88,7 @@ def test_supervisor_reaps_owned_child_and_restores_handler(tmp_path, mode):
             assert actor.returncode == 0, (tmp_path / "actor.log").read_text()
             result = json.loads((tmp_path / "result.json").read_text())
             assert result["handler_restored"]
+            assert result["parent_policy_unchanged"]
             if mode == "external_sigterm":
                 assert result["error"] == "SystemExit" and result["exit_code"] == 143
             elif mode == "deadline":

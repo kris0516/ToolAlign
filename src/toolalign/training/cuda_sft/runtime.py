@@ -65,6 +65,8 @@ def runtime_identity(request, config, bundle, source, dependencies):
                     "capability": [properties.major, properties.minor],
                     "total_memory": properties.total_memory,
                     "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(),
+                    "deterministic_warn_only": torch.is_deterministic_algorithms_warn_only_enabled(),
+                    "cublas_workspace_config": os.environ.get("CUBLAS_WORKSPACE_CONFIG"),
                     "matmul_allow_tf32": torch.backends.cuda.matmul.allow_tf32,
                     "cudnn_allow_tf32": torch.backends.cudnn.allow_tf32}}
 
@@ -103,10 +105,13 @@ def execute(request):
     with GPULease(task_id="P04-CUDA-SFT", worker_alias="S1", run_id=request["run_id"],
                   expected_job=request["run_kind"], memory_strategy="BF16_base_FP32_LoRA_20pct_headroom",
                   repository=request["lock_root"], timeout_seconds=0) as lease:
-        require_cuda()
+        os.environ["CUBLAS_WORKSPACE_CONFIG"] = config["numerics"]["cublas_workspace_config"]
         import numpy as np
         import torch
 
+        torch.use_deterministic_algorithms(config["numerics"]["deterministic_algorithms"],
+                                           warn_only=config["numerics"]["deterministic_warn_only"])
+        require_cuda()
         identity = runtime_identity(request, config, bundle, source, dependencies)
         resume = None
         if "resume_from" in request:
