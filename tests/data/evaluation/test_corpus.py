@@ -123,6 +123,84 @@ def test_authored_semantic_edge_excludes_entire_new_component():
     assert not retained["tasks"] and audit["semantic_links"] == links
 
 
+def test_historical_g5_keeps_old_only_edges_and_complete_components():
+    historical, _ = prepare_tasks([
+        fixture_case("releases", "cpu-archived-quartz", "Archived CPU marker quartz."),
+        fixture_case("packages", "cpu-archived-copper", "Past CPU label copper."),
+        fixture_case("incidents", "cpu-archived-tundra", "Historical CPU flag tundra."),
+    ])
+    for task in historical["tasks"]:
+        group = "historical-" + task["task_id"]
+        task["group_id"] = task["example"]["group_id"] = task["oracle_task"]["group_id"] = group
+    first, second, unrelated = ["g5:" + t["task_id"] for t in historical["tasks"]]
+    old = {"task_id": "old-cpu-gate", "family_id": "cpu-legacy-gate", "group_id": "legacy-gate",
+           "example": {"source_record_hash": "a" * 64, "tools": [],
+                       "messages": [{"role": "user", "content": "Legacy CPU gate."}]}}
+    edges = [{"left": first, "right": second, "key": "near-trigram", "jaccard": .9},
+             {"left": second, "right": "g4:old-cpu-gate", "key": "authored-semantic-link",
+              "reason": "Original CPU fixture records the archived gate-equivalence edge."}]
+    reference = {"tasks": historical["tasks"], "edges": edges}
+    bundle, _ = prepare_tasks([
+        fixture_case("releases", "cpu-current-pair", "Candidate CPU result lilac."),
+        fixture_case("storage", "cpu-current-pair", "Candidate CPU result amber."),
+    ])
+    p02 = [{"group_id": "disconnected-old", "split": "test", "group_keys": ["family:old-only"]}]
+    inputs = copy.deepcopy((bundle, reference, p02, old))
+    before, original_audit = audit_groups(bundle, p02, [], {"tasks": [old]})
+    assert len(before["tasks"]) == 2 and "reference_graph" not in original_audit
+    assert (before, original_audit) == audit_groups(
+        bundle, p02, [], {"tasks": [old]}, historical_g5_reference=None)
+    retained, audit = audit_groups(bundle, p02, [], {"tasks": [old]},
+                                  historical_g5_reference=reference)
+    assert not retained["tasks"] and audit["old_g5_tasks"] == 3
+    component = audit["components"][0]
+    assert len(component["task_ids"]) == 2
+    assert {n["id"] for n in component["old_nodes"]} == {first, second, "g4:old-cpu-gate"}
+    assert [e for e in component["edges"] if e.get("origin")] == [
+        {**edge, "origin": "historical_g5_reference"} for edge in edges]
+    graph = audit["reference_graph"]
+    assert len(graph["nodes"]) == 7 and len(graph["components"]) == 3
+    assert {tuple(c["node_ids"]) for c in graph["components"] if len(c["node_ids"]) == 1} == {
+        (unrelated,), ("p02:disconnected-old",)}
+    assert (bundle, reference, p02, old) == inputs
+
+
+@pytest.mark.parametrize("bridge", ["schema", "normalized-schema"])
+def test_historical_function_and_catalog_rename_does_not_reset_isolation(bridge):
+    historical, _ = prepare_tasks([fixture_case(family="cpu-archived-layout", prompt="Old CPU oval.")])
+    for tool in historical["tasks"][0]["example"]["tools"]:
+        tool["name"] = "archived_" + tool["name"]
+        tool["tool_version"] = "cpu-renamed-catalog.v9"
+        if bridge == "normalized-schema":
+            schema = tool["parameters_json_schema"]
+            schema["required"].reverse()
+            for field in schema["properties"].values():
+                field["enum"].reverse()
+                field["minLength"] = 0
+    bundle, _ = prepare_tasks([fixture_case(family="cpu-current-layout", prompt="New CPU triangle.")])
+    common = task_keys(bundle["tasks"][0]) & task_keys(historical["tasks"][0])
+    assert not any(k.startswith("tool:") for k in common)
+    assert any(k.startswith(bridge + ":") for k in common)
+    if bridge == "normalized-schema":
+        assert not any(k.startswith("schema:") for k in common)
+    assert len(audit_groups(bundle, [], [], {"tasks": []})[0]["tasks"]) == 1
+    retained, audit = audit_groups(bundle, [], [], {"tasks": []},
+                                  historical_g5_reference={"tasks": historical["tasks"], "edges": []})
+    assert not retained["tasks"]
+    assert any(e["key"].startswith(bridge + ":") for e in audit["components"][0]["edges"])
+
+
+@pytest.mark.parametrize("endpoint", ["g5:missing-history-node", "new"])
+def test_historical_edge_requires_present_old_endpoints(endpoint):
+    bundle, _ = prepare_tasks([fixture_case()])
+    task_id = bundle["tasks"][0]["task_id"]
+    reference = {"tasks": bundle["tasks"], "edges": [{"left": "g5:" + task_id,
+                 "right": "new:" + task_id if endpoint == "new" else endpoint,
+                 "key": "authored-semantic-link", "reason": "CPU malformed historical edge."}]}
+    with pytest.raises(DataError, match="historical_g5_edge_evidence"):
+        audit_groups(bundle, [], [], {"tasks": []}, historical_g5_reference=reference)
+
+
 def tool_case(fault=None):
     args = {"deployment_id": "comet-green", "snapshot_day": "2026-10-12"}
     output = {**args, "application": "comet-gateway", "running_release": "4.2.0",
