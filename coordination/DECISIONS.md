@@ -335,3 +335,15 @@ Toolalign Supervisor S1 承接原 S0 的任务派发、共享状态、集成与�
 G2 先补修复后的真实 v3 prepare 与13例数组核对，再由 T1 实现 CUDA SFT、E1 锁定 CUDA 环境与 Colab 包装；两包允许路径独立，R1技术复核、Q1审核语义与说明。新协议在 configs/sft-cuda.v1.json，旧冻结配置/authorization=false 不改。CUDA 明确采用标准 torch AdamW bias correction、weight_decay0、固定LR、BF16底座/FP32 adapter、SDPA和non-reentrant checkpointing；不宣称与旧MLX uncorrected Adam逐步数值等价。
 
 GPU运行配置在代码、数据与独立复核完成后签发，明确run ID、步数/时限、资源和输出边界。先L4最重SFT容量与完整checkpoint恢复，再正式SFT；同实例与新实例恢复分开实测。授权使用既有账户资源，不购买/充值、不停止其他项目会话、不上传无关私有数据。旧S0自动跟进维持PAUSED。
+
+## ADR-0032｜固定 CUDA 严格确定性数值策略
+
+日期：2026-10-26；状态：S1采纳，CPU实现及真实恢复验收待完成。
+
+[实际零更新诊断](../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)已证明：同进程、相同参数和RNG的重复backward存在约0.86%的梯度差异，关闭checkpointing仍存在；恢复初始状态严格一致。实际调用包含FlashAttention反向。[PyTorch v2.8.0源码](https://github.com/pytorch/pytorch/blob/v2.8.0/aten/src/ATen/native/transformers/cuda/attention_backward.cu#L97-L107)明确在严格确定性且warn_only=False时启用其确定性反向分支；[同版文档](https://docs.pytorch.org/docs/2.8/generated/torch.use_deterministic_algorithms.html)要求相关cuBLAS运算配套workspace设置。此证据支持下一项最小修复，是否满足原恢复容差仍须实测。
+
+新增只读共享协议 [sft-cuda.v2.json](../configs/sft-cuda.v2.json)，SHA-256 `ee235d612b2552be5927b4ff790887a34b088ab842f78a15fcb8212323b60045`。与v1仅schema和numerics不同：`deterministic_algorithms=true`、`deterministic_warn_only=false`、`cublas_workspace_config=:4096:8`。保持SDPA、非重入checkpointing、LoRA、损失、数据、优化器、依赖和原恢复容差；v1字节及失败历史保留。
+
+T1在实际训练子进程、GPU lease内、首次CUDA检查前应用策略；import、父进程和prepare不改变全局数值状态。活动协议直接切到v2，不增加版本选择、后端回退或自动重试。runtime identity记录真实strict/warn_only/workspace值，旧v1 checkpoint不改写为v2。新v2连续运行生成自己的step2，再分别恢复到step3；完整state、loss、adapter和Adam按原预注册规则比较。
+
+S1在精确候选和R1 CPU审查后，沿用固定20例cohort绑定新源码/配置；旧数组行和13例材料相同则复用原Q1语义结论。真实验证仍是有限三步容量、新进程和新实例恢复，预算来自原G2剩余额度；本ADR不直接启动GPU，也不放行正式SFT。
