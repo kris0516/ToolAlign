@@ -7,7 +7,14 @@ from collections import Counter
 from pathlib import Path
 
 from toolalign.contracts import canonical_hash
-from toolalign.data.common import DataError, file_hash, private_directory, read_json, write_json
+from toolalign.data.common import (
+    DataError,
+    file_hash,
+    private_directory,
+    read_json,
+    verified_build_manifest,
+    write_json,
+)
 from toolalign.data.preferences.audit import p02_metadata
 from toolalign.data.preferences.tasks import validate_tasks as validate_g4_tasks
 from toolalign.model_io.offline import OfflineQwenTokenizer, model_modules_loaded
@@ -15,7 +22,7 @@ from toolalign.model_io.offline import OfflineQwenTokenizer, model_modules_loade
 from .audit import audit_groups
 from .checks import check_scripts, measure_lengths
 from .replay import build_replay
-from .tasks import REVISION, prepare_tasks, retain_tasks, validate_tasks
+from .tasks import CONSTRAINT_CATALOG, catalog_profile, prepare_tasks, retain_tasks, validate_tasks
 
 
 def coverage(bundle, authoring):
@@ -35,7 +42,8 @@ def save_package(root, files, inputs):
     for name, value in files.items():
         write_json(root / name, value)
     write_json(root / "manifest.json", {
-        "schema_version": "toolalign.evaluation-package.v1", "revision": REVISION,
+        "schema_version": "toolalign.evaluation-package.v1",
+        "revision": catalog_profile(files["tasks.json"]["catalog"])[1],
         "inputs": inputs, "artifacts": {name: file_hash(root / name) for name in files},
     })
 
@@ -79,6 +87,38 @@ def build_package(authoring_path, p02_manifest, development_path, g4_path, seman
     return summary
 
 
+def build_relations_package(authoring_path, reference_manifest, semantic_path, output):
+    """The r2 profile always consumes the complete, bound historical reference."""
+    root = private_directory(output, empty=True)
+    authored = read_json(authoring_path)
+    if (authored.get("schema_version") != "toolalign.evaluation-authoring.v1"
+            or authored.get("purpose") != "heldout-cpu-authoring"
+            or authored.get("catalog") != CONSTRAINT_CATALOG):
+        raise DataError("evaluation_authoring_identity")
+    reference_manifest = Path(reference_manifest)
+    manifest = verified_build_manifest(reference_manifest)
+    if (manifest.get("schema_version") != "toolalign.evaluation-exclusion-reference-manifest.v1"
+            or "reference.json" not in manifest["artifacts"]):
+        raise DataError("evaluation_exclusion_reference")
+    reference_path = reference_manifest.parent / "reference.json"
+    reference = read_json(reference_path)
+    bundle, authoring = prepare_tasks(authored["cases"], catalog=CONSTRAINT_CATALOG)
+    semantic = read_json(semantic_path)
+    bundle, audit = audit_groups(
+        bundle, reference["p02_rows"], reference["development_cases"], reference["g4_bundle"],
+        historical_g5_reference=reference["historical_g5_reference"], semantic_links=semantic["links"])
+    summary = coverage(bundle, authoring)
+    save_package(root, {"tasks.json": bundle, "authoring.json": authoring,
+                       "group-audit.json": audit, "semantic-review.json": semantic,
+                       "summary.json": summary}, {
+                           "authoring_sha256": file_hash(authoring_path),
+                           "exclusion_reference_manifest_sha256": file_hash(reference_manifest),
+                           "exclusion_reference_sha256": file_hash(reference_path),
+                           "semantic_review_sha256": file_hash(semantic_path),
+                       })
+    return summary
+
+
 def finalize_package(package, checks_root, tokenizer, output):
     root = private_directory(output, empty=True)
     files = load_package(package)
@@ -101,6 +141,9 @@ def main(argv=None):
     build = commands.add_parser("build")
     for name in ("authoring", "p02-manifest", "development", "g4-tasks", "semantic-review", "output"):
         build.add_argument("--" + name, type=Path, required=True)
+    relations = commands.add_parser("build-relations")
+    for name in ("authoring", "reference-manifest", "semantic-review", "output"):
+        relations.add_argument("--" + name, type=Path, required=True)
     check = commands.add_parser("validate-cpu")
     for name in ("package", "output"):
         check.add_argument("--" + name, type=Path, required=True)
@@ -114,6 +157,9 @@ def main(argv=None):
     if args.command == "build":
         summary = build_package(args.authoring, args.p02_manifest, args.development,
                                 args.g4_tasks, args.semantic_review, args.output)
+    elif args.command == "build-relations":
+        summary = build_relations_package(args.authoring, args.reference_manifest,
+                                         args.semantic_review, args.output)
     elif args.command == "validate-cpu":
         files = load_package(args.package)
         root = private_directory(args.output, empty=True)
