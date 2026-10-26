@@ -48,7 +48,7 @@ uv run --locked python -m toolalign.client demo --cases examples/service/scripte
 | 训练负责人 | [训练规格](docs/03_TRAINING_SPEC.md)、[Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md) |
 | 评测负责人 | [数据治理](docs/02_DATA_GOVERNANCE.md)、[评测规格](docs/04_EVALUATION_SPEC.md) |
 | 部署/复现负责人 | [客户端复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)、[部署路线](docs/06_DEPLOYMENT_ROADMAP.md) |
-| 接收文档包后创建 GitHub 仓库 | [发布运行手册](docs/11_REPOSITORY_BOOTSTRAP.md) |
+| GitHub版本读回与后续接手 | [仓库运行手册](docs/11_REPOSITORY_BOOTSTRAP.md) |
 
 ## 首版边界
 

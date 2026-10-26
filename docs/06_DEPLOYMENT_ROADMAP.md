@@ -1,6 +1,6 @@
 # 06｜受限部署路线：Colab 服务与 Mac 客户端
 
-2026-10-27。当前 G6 交付采用标准库 HTTP 控制面、Colab CUDA worker 和 Mac 固定只读工具。客户端 CPU 路径见 [复现说明](19_REPRODUCTION_AND_DELIVERY.md)；真实服务与独立终验仍待 S1 集成运行，不能由 CPU 示例推定完成。
+2026-10-27。G6采用标准库HTTP控制面、Colab CUDA worker和Mac固定只读工具。真实链路已完成11次冻结尝试，缓存/隔离/取消与重载有据，产物回收、实例停止；实际CLI尚未生成最终答案，见[服务实测](../reports/S1_P07_G6_SERVICE_R1.md)。[复现说明](19_REPRODUCTION_AND_DELIVERY.md)提供CPU及远端入口，最终R1/Q1独立审核待接纳。
 
 ## 1. 当前分层
 
@@ -33,7 +33,7 @@ Mac最多3决策、2工具轮、30秒决策预算。响应丢失先按原key查�
 
 制品身份包括模型revision/hash、tokenizer/template、adapter、量化、训练输入与配置、代码、依赖锁及评测结果。M1固定为G3 step743；模型切换须完整停服，保留旧文件，以新run ID及新输出目录重启，进程cache随之销毁。
 
-[19号文档](19_REPRODUCTION_AND_DELIVERY.md)提供客户端命令、私有配置格式、SSH前置和回滚步骤。实际端口/完整SSH命令与服务启停成功由S1实测后登记；当前没有已验收的G6服务回滚记录。停止前回收日志/状态与worker证据，随后停止Colab实例并确认无活动分配。断SSH不释放资源。
+[19号文档](19_REPRODUCTION_AND_DELIVERY.md)提供客户端命令、私有配置格式、SSH前置和回滚步骤。本轮两端loopback端口为18761，完整SSH命令与身份留私有回执；先后台启动、退出启动连接，再建立转发，关闭隧道后才使用另一条SSH控制/回收连接。服务回滚未实测。停止前回收日志/状态与worker证据，随后停止Colab实例并确认无活动分配；本轮已有完整停止回执。断SSH不释放资源。
 
 ## 4. 质量与服务验收
 
