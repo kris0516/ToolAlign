@@ -27,7 +27,7 @@
 | G4 批次文件验证复用 | CPU审核接纳；一次诊断已回收 | [实测](../reports/S1_P05_G4_GENERATION_R1.md)：预检12.307秒/child冷加载7.219秒，第三动作返回额外工具，20.883秒tool_round_limit |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
-既有90项问题全部关闭。P05-DPO-OUTPUT-001经E1修订及R1 `8ce08bf` 独立复验原反例PASS关闭，连续计数1→0，首次REQUEST_CHANGES保留。Q1-G4-CORPUS-001经两条提示的JSON字符串约束修订及Q1独立r2 PASS关闭，连续未通过计数1→0，首次REQUEST_CHANGES保留。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
+既有90项问题全部关闭；新增Q1-G5-CORPUS-001/002各首次未通过，当前连续计数均为1，继续自主整改，未触发整体暂停。P05-DPO-OUTPUT-001经E1修订及R1 `8ce08bf` 独立复验原反例PASS关闭，连续计数1→0，首次REQUEST_CHANGES保留。Q1-G4-CORPUS-001经两条提示的JSON字符串约束修订及Q1独立r2 PASS关闭，连续未通过计数1→0，首次REQUEST_CHANGES保留。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
 
 ## 原 S0 交接记录
 
@@ -51,6 +51,6 @@ R1提交 `fac9ec5` 对生成与偏好CPU实现均PASS，新增实质问题0；4�
 
 G5 App goal现为active。按[评测协议](tasks/P06_G5_PROTOCOL.md)实现M0/M1后端、真实prefix cache与恢复开关，并构造、独立审核L1隐藏oracle任务及官方BFCL固定子集。E1新工具候选6027096已通过独立R1 c6c81db：复用109项通过记录和四域8个已回收child，新增3项独立检查与4个child全部通过/回收；S1回读69份审核证据后接纳，旧工具身份保持。T1执行器60c52f8经[R1 37eb027](../reports/reviews/P06_G5_EVALUATION_R1.md)独立PASS：复用231项通过、1项既有pip缺失跳过，以及1项真实工具组合和8个回收进程；新增6项独立检查通过、8个child回收。S1回读96份审核证据并核对17份候选文件后接纳CPU实现。原创小模型的真实扩展前缀命中将20-token输入的首轮计算降至4 tokens，输出一致；CUDA延迟及模型效果仍待实测。D1语料已交付待独立审核，E1官方BFCL/分析CPU实现继续；四域不预先视为四个独立group。G5上限14,400秒/8 CU，当前GPU及正式评测仍NOT_RUN，G6随后继续。
 
-PR31已合并为 `25eb63be4710d015d235af08e31088751c46f525`，最终头双Python CI 40356242133全部成功，main文件树与受检头一致。D1候选d4c4251已交付48题、23 family、1个连通组；51正向/48反例符合预期，199 child全部回收。S1回读177份证据，并用已接纳的当前reader实际读取L1/A2输入，得到104个L1/A1单元与8个A2序列单元。当前R1审核接口/隔离，Q1逐题独立语义审核；1个组不支持预定bootstrap区间或leave-one-group-out。E1 BFCL/分析候选尚未交付，G5 GPU及模型评测保持NOT_RUN。
+PR31已合并为 `25eb63be4710d015d235af08e31088751c46f525`，最终头双Python CI 40356242133全部成功，main文件树与受检头一致。D1候选d4c4251已交付48题、23 family、1个连通组；51正向/48反例符合预期，199 child全部回收。S1回读177份证据，并用已接纳的当前reader实际读取L1/A2输入，得到104个L1/A1单元与8个A2序列单元。Q1 `08d4c5a` 对全部48题审阅为REQUEST_CHANGES，S1回读203份证据后接纳：001为16题未编码观察/决策轮次要求，两条真实预提交反例误判；002为遗漏具体missing-field语义连接，加入后原48题均连接到旧P03/G4组件，按冻结规则应保留0、隔离48。原包与99条作者CPU记录保持；当前题集不进入正式模型评测。两项各计首次未通过，不重复计算R1复读或多条反例。A2的4组12个开发请求独立审核PASS，仅接纳输入，性能未测。D1正在只读准备有据整改方案，E1 BFCL/分析候选尚未交付；G5保持active，GPU及模型评测NOT_RUN。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。

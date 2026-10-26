@@ -30,7 +30,8 @@
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
 | G5 评测后端 / T1 | R1 PASS已接纳 | 候选60c52f8，独立审核37eb027；复用231项通过/1项既有pip检查跳过与1项工具组合，新增6项独立检查通过，8+8个child回收；[审核](../reports/reviews/P06_G5_EVALUATION_R1.md) |
 | G5 独立工具 / E1 | R1 PASS已接纳 | 候选6027096，独立审核c6c81db；109项既有/新增检查与3项独立检查通过，8+4个child回收 |
-| G5 L1语料 / D1 | 已交付，R1/Q1独立审核中 | d4c4251：48题/23 family/1连通组，51正向与48反例符合预期，199 child回收；当前reader实际消费104个L1/A1及8个A2序列单元 |
+| G5 L1语料 / D1 | Q1 REQUEST_CHANGES已接纳 | d4c4251原48题：两条预提交反例误判；补入具体新旧语义连接后须整组隔离，独立L1为0。001/002各首次未通过；[Q1审核](../reports/reviews/P06_G5_CORPUS_Q1_R1.md) |
+| G5 A2开发回放 / D1、Q1 | 输入PASS已接纳，性能NOT_RUN | Q1 08d4c5a核对4组×3请求、tenant/seed/来源及长度；S1回读203份审核证据，模型回放尚未运行 |
 | G5 BFCL与分析 / E1 | CPU实现进行中 | [任务](tasks/P06_G5_BFCL_ANALYSIS_CPU.md)：官方原始分与严格成功率分列，固定分母和配对分析 |
 | P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |

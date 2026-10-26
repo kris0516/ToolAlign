@@ -4920,10 +4920,62 @@
       ],
       "next_action": "R1已独立复验原反例并给出r2 PASS；完整summary计入预算，原始超限产物保留。原首次失败历史保持，真实0对偏好不放行DPO。",
       "deduplication_basis": "一次独立正式审阅的一项输出边界问题；R1辅助数值探针自身失败不登记为候选缺陷。"
+    },
+    {
+      "issue_id": "Q1-G5-CORPUS-001",
+      "stable_requirement_key": "g5_task_required_observation_before_successor_model_decision",
+      "requirement": "多步/恢复题要求后继调用来自首次观察之后的新模型决策；合法同轮独立调用不受全局禁止。",
+      "summary": "16题缺少观察/决策轮边界评分；两个真实同Action预提交反例仍判success。",
+      "status": "OPEN",
+      "priority": "P1",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FORMAL_SEMANTIC_REVISION_FAIL",
+          "candidate": "d4c4251a0e676d39f30c62c6c767f274987501ca",
+          "tasks_file_sha256": "10a842b4a0c2d15470ba9d61e010621a8dc0807ce5a9e4c0cc552b994b67d70e",
+          "review_commit": "08d4c5a33cb77cf06dfafa373d3b693873f4abcf",
+          "reviewer": "Codex-AI(Q1)",
+          "verdict": "REQUEST_CHANGES",
+          "review_evidence_index_sha256": "f53c050cd6847654836c943a6f74a82287817d81232960354f712b87fbe1aa6d",
+          "s1_evidence_audit_sha256": "47b0a8b879a9d11328d5f5a92965945fd7bcc191123ba6ff046bac26c5028006",
+          "new_failed_revision_increment": 1,
+          "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
+        }
+      ],
+      "next_action": "冻结有版本的定点评分修订或隔离处置，复验两条反例与原正向；保留v1历史语义。",
+      "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
+    },
+    {
+      "issue_id": "Q1-G5-CORPUS-002",
+      "stable_requirement_key": "g5_concrete_semantic_family_bridge_full_component_quarantine",
+      "requirement": "具体新旧语义family连接必须进入闭包，任何旧组件桥接导致整个新连通组件隔离。",
+      "summary": "遗漏一条missing-field作答程序重命名等价的连接；补入后原48题与30个P03/G4旧节点连通，独立L1保留数为0。",
+      "status": "OPEN",
+      "priority": "P1",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FORMAL_SEMANTIC_REVISION_FAIL",
+          "candidate": "d4c4251a0e676d39f30c62c6c767f274987501ca",
+          "tasks_file_sha256": "10a842b4a0c2d15470ba9d61e010621a8dc0807ce5a9e4c0cc552b994b67d70e",
+          "review_commit": "08d4c5a33cb77cf06dfafa373d3b693873f4abcf",
+          "reviewer": "Codex-AI(Q1)",
+          "verdict": "REQUEST_CHANGES",
+          "review_evidence_index_sha256": "f53c050cd6847654836c943a6f74a82287817d81232960354f712b87fbe1aa6d",
+          "s1_evidence_audit_sha256": "47b0a8b879a9d11328d5f5a92965945fd7bcc191123ba6ff046bac26c5028006",
+          "new_failed_revision_increment": 1,
+          "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
+        }
+      ],
+      "next_action": "落实原48题整体隔离并保留ID/原材料/失败史；不得删掉连接题或改组恢复其余题的独立身份。",
+      "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
     }
   ],
   "prior_findings": "90项既有问题全部关闭。P05-DPO-OUTPUT-001经独立r2原反例PASS关闭、计数1→0；Q1-G4-CORPUS-001原失败与其后PASS保持。真实80条候选经Q1确认0对，偏好质量门BLOCKED，不新增或伪造质量PASS。",
-  "updated_at_utc": "2026-10-26T13:15:26.947858+00:00",
+  "updated_at_utc": "2026-10-26T16:38:28.496262+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -5095,15 +5147,18 @@
     }
   ],
   "last_semantic_adoption": {
-    "issue_id": "Q1-G4-CORPUS-001",
-    "review_commit": "50440298a909a509d4cf86185e58c1daa11c1c5d",
-    "new_formal_failure_events": 0,
-    "new_formal_pass_events": 1,
-    "closed_issue_count": 89,
-    "open_issue_count": 0,
-    "highest_consecutive_failed_revisions": 0,
+    "issue_ids": [
+      "Q1-G5-CORPUS-001",
+      "Q1-G5-CORPUS-002"
+    ],
+    "review_commit": "08d4c5a33cb77cf06dfafa373d3b693873f4abcf",
+    "new_formal_failure_events": 2,
+    "new_formal_pass_events": 0,
+    "closed_issue_count": 90,
+    "open_issue_count": 2,
+    "highest_consecutive_failed_revisions": 1,
     "whole_goal_paused": false,
-    "adopted_at_utc": "2026-10-26T11:00:37.904422+00:00"
+    "adopted_at_utc": "2026-10-26T16:38:28.496262+00:00"
   },
   "semantic_adoption_history": [
     {
@@ -5115,6 +5170,17 @@
       "highest_consecutive_failed_revisions": 1,
       "whole_goal_paused": false,
       "adopted_at_utc": "2026-10-26T10:38:17.660712+00:00"
+    },
+    {
+      "issue_id": "Q1-G4-CORPUS-001",
+      "review_commit": "50440298a909a509d4cf86185e58c1daa11c1c5d",
+      "new_formal_failure_events": 0,
+      "new_formal_pass_events": 1,
+      "closed_issue_count": 89,
+      "open_issue_count": 0,
+      "highest_consecutive_failed_revisions": 0,
+      "whole_goal_paused": false,
+      "adopted_at_utc": "2026-10-26T11:00:37.904422+00:00"
     }
   ]
 }
