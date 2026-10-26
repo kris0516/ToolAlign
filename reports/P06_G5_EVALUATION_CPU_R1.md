@@ -1,6 +1,6 @@
 # P06 G5 CUDA 评测 CPU 首包
 
-2026-10-26，T1。基于 S1 授权提交 `b39d20d2d4f7ea87ff1f60bf7f4c9e10976d6d00`，并落实补充协议 `34f841d72cf3f570486779590dfe542ee09a53d4` 的交错顺序和 raw Action 门控。原样接入 E1 工具候选 `6027096baf382bb0e50bf3f7463dd11fca0e19d1`（本分支 cherry 为 `5e6459e`），其 R1 独立审核仍在进行。本包交付可供 R1 审查的 CPU 实现；真实 CUDA、模型容量、正式评测和官方 BFCL scorer 均为 **NOT_RUN**。
+2026-10-26，T1。基于 S1 授权提交 `b39d20d2d4f7ea87ff1f60bf7f4c9e10976d6d00`，并落实补充协议 `34f841d72cf3f570486779590dfe542ee09a53d4` 的交错顺序和 raw Action 门控。原样接入 E1 工具候选 `6027096baf382bb0e50bf3f7463dd11fca0e19d1`（本分支 cherry 为 `5e6459e`），该工具依赖已获独立 R1 `c6c81db24feda5986436facd66cc0757bb44e269` PASS，S1已接纳。本包交付可供 R1 审查的 CPU 实现；真实 CUDA、模型容量、正式评测和官方 BFCL scorer 均为 **NOT_RUN**。
 
 ## 已支持的结果
 
@@ -43,7 +43,7 @@ action-only 的空字符串、坏 JSON、合法无需工具动作保持不同结
 
 `tasks` 最多48项、task_id唯一；family/group/category 为非空字符串。恢复题列表必须是这份 tasks 的不重复子集，其语义和分组隔离由 D1/Q1 冻结。本包不修改旧 train-only reader。
 
-**已完成一项真实 catalog 组合检查。** 按 S1 指定原样 cherry-pick E1 候选后，原创组件任务经新 reader、M0/M1 plan、owned model child 和真实 bound tool child 执行：两条 recovery-on 轨迹成功，recovery-off 在首次 transient 后失败，全部8个owned进程回收；新catalog manifest绑定和改写spec反例均通过。它验证接口衔接，不替代 E1 的独立审核，也不是最终L1题目或模型效果。早先旧catalog接口fixture证据保留。
+**已完成一项真实 catalog 组合检查。** 按 S1 指定原样 cherry-pick E1 候选后，原创组件任务经新 reader、M0/M1 plan、owned model child 和真实 bound tool child 执行：两条 recovery-on 轨迹成功，recovery-off 在首次 transient 后失败，全部8个owned进程回收；新catalog manifest绑定和改写spec反例均通过。它验证接口衔接，不替代独立审核，也不是最终L1题目或模型效果；随后E1依赖获R1 PASS并由S1接纳，生产字节未变。早先旧catalog接口fixture证据保留。
 
 ### action-only / capacity
 
@@ -129,7 +129,7 @@ child generation包含tokenizer/懒加载和生成；queue从父提交到child�
 
 定点检查 **231 passed, 1 skipped，退出码0**。跳过的是既有 `tests/colab/test_dpo_control.py` 中需要 `pip` 的安装参数检查，环境未装pip。命令范围为新增3个测试文件、原G4后端与batch、默认loader的3个文件核对检查、完整harness目录、已有SFT/G4/DPO Colab控制及cleanup检查。新增50项覆盖了真实小模型cache、M0加载分支、Action门控、recovery on/off、plan/预算、started接续、replay请求journal、实际owned进程和本地控制器回收。随后接入 E1 候选，新增1项真实heldout组合检查通过、退出码0；未重跑未受影响矩阵。231项记录绑定接入前源码，组合记录绑定候选与最终评测源码。
 
-Torch/CUDA loader分支的文件/lease/HF加载/设备转移边界使用明确标记的MOCK_ONLY；小型随机Qwen和PEFT cache数值检查使用真实库和真实CPU张量。默认文件复核回归使用已有原创文件fixture，不以mock证明固定模型真实加载。heldout catalog的一项组合验证已通过，E1候选与本包的R1独立审核状态仍待接纳；Q1任务质量审核与S1真实GPU验证均由后续阶段完成。
+Torch/CUDA loader分支的文件/lease/HF加载/设备转移边界使用明确标记的MOCK_ONLY；小型随机Qwen和PEFT cache数值检查使用真实库和真实CPU张量。默认文件复核回归使用已有原创文件fixture，不以mock证明固定模型真实加载。heldout catalog的一项组合验证已通过，E1工具依赖的R1 PASS已由S1接纳，本评测执行器仍待独立R1审核；Q1任务质量审核与S1真实GPU验证均由后续阶段完成。
 
 全仓ruff、冻结契约检查与公开内容扫描均通过，退出码0。
 
