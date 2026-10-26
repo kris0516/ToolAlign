@@ -110,4 +110,6 @@ S1对原G3已绑定stage只读计数：5,938条train和213条validation的expect
 
 DPO CPU候选`982cc191`经R1 `32a031b`审核为REQUEST_CHANGES：原生SUM/mask/reference与CPU恢复获得支持，新增P2 `P05-DPO-OUTPUT-001`要求将最终summary计入完整输出上限。S1回读31份审核证据，登记首次未通过计1。E1[修订](P05_G4_DPO_FIX_R2.md) `61f84f5` 的8项定点检查通过，原反例现在返回并保存FAIL且保留原产物；R1 `8ce08bf` 独立复验原反例得到完整输出61,595≤65,536字节、原产物保留且worker回收，1项独立检查通过；S1核对10份审核证据后关闭问题，连续计数1→0，原首次FAIL保留。正式DPO、DPO CUDA容量/恢复及G5独立评测仍未运行；当前0对偏好不放行训练。
 
-S1提交的最终处置建议：按已验证的空偏好池将G4记为数据不足的有据降级，保留DPO CUDA容量、恢复、正式训练及M2 checkpoint均NOT_RUN。已有DPO CPU数学与工程证据继续有效，但不代表实际训练通过。后续G5以M0原始模型与M1已选SFT做同协议评测，M2明确缺失，检验next-tool-call目标拟合与完整任务成功是否一致；不推断SFT造成退化。该建议等待R1技术和Q1语义/说明独立审核，G4 App goal此时仍active。
+S1接纳最终处置：**DATA_INSUFFICIENT_WITH_NO_DPO**。[R1技术终验](reviews/P05_G4_FINAL_R1.md) `fe26311` 与[Q1语义/说明终验](reviews/P05_G4_FINAL_Q1_R1.md) `d5c55fb` 均PASS；S1分别回读7份审核文件及111份原始输入、126份Q1证据，确认独立结论和实际产物一致，新增实质问题0。原80条正式候选仍为0成功/0偏好，两条诊断单列，空样本误标率不定义，DPO质量门BLOCKED。
+
+原计划的DPO checkpoint交付条件**未满足**；DPO CUDA容量、恢复、正式训练及M2 checkpoint均为NOT_RUN。此处PASS指独立审核及有据降级处置，已有DPO CPU数学与工程证据不代表真实训练通过。预算未耗尽，结束本轮的依据是缺少合格chosen及固定样本的额外动作失败。后续G5冻结M0原始模型与M1已选SFT的同协议独立评测，M2明确缺失；不推断SFT造成退化或DPO负效果。G4 App goal在PR30主干发布和文件树核对前保持active，发布后按已授权的数据不足边界结束本阶段。

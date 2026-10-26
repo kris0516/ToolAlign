@@ -4,7 +4,7 @@
 
 大目标：在固定模型、冻结数据与评测预算下，比较 Qwen3 原始 checkpoint、LoRA SFT、SFT 后 DPO 的工具语义成功率、无需工具判断、故障恢复和资源成本，交付可复现代码、checkpoint、评测与受限推理接口。0.6B 用于冒烟，1.7B 为主实验。效果方向由观测决定，不预承诺提升比例。
 
-当前：G1–G3已complete；G3验收PR27主干 `1267d1a33dfb08bfd9800b80ea97315730748952`。G4为唯一active goal，已完成80条真实候选、0成功/0偏好，产物已回收且L4已停止。Q1 `5321842` 的零对处置已接纳；[实际诊断](../reports/S1_P05_G4_GENERATION_R1.md)已完成，原输入和前两动作相同，第三次额外工具导致tool_round_limit；S1提出零对有据降级、M2 NOT_RUN，交R1/Q1终验；文件验证复用已获R1 `7d36b49` PASS，DPO输出预算问题已由R1 r2 PASS关闭；正式DPO仍NOT_RUN。
+当前：G1–G3已complete；G3验收PR27主干 `1267d1a33dfb08bfd9800b80ea97315730748952`。G4为唯一active goal，已完成80条真实候选、0成功/0偏好，产物已回收且L4已停止。Q1 `5321842` 的零对处置已接纳；[实际诊断](../reports/S1_P05_G4_GENERATION_R1.md)已完成，原输入和前两动作相同，第三次额外工具导致tool_round_limit；R1 `fe26311` 与Q1 `d5c55fb` 终验均PASS，S1已接纳DATA_INSUFFICIENT_WITH_NO_DPO，原DPO checkpoint条件未满足、M2 NOT_RUN，待PR30主干发布核对后结束G4；文件验证复用已获R1 `7d36b49` PASS，DPO输出预算问题已由R1 r2 PASS关闭；正式DPO仍NOT_RUN。
 
 | Goal | 阶段任务 | 验收产物与结束条件 |
 |---|---|---|

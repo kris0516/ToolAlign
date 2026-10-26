@@ -31,4 +31,4 @@
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。S1空池有据降级建议交R1/Q1终验，G4仍active。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。待PR30主干发布核对后结束G4，App goal此时仍active。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
