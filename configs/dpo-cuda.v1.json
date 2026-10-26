@@ -1,0 +1,81 @@
+{
+  "schema": "toolalign.dpo-cuda.v1",
+  "owner": "S1",
+  "is_run_authorization": false,
+  "bindings": {
+    "configs/sft-cuda.v2.json": "ee235d612b2552be5927b4ff790887a34b088ab842f78a15fcb8212323b60045",
+    "configs/qwen-models.v1.json": "b8a5e48bc2b93064c511ba796dabf55024f65df97fe0db39c43366b7bc877145"
+  },
+  "initialization": {
+    "model_id": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "sft_step": 743,
+    "sft_cursor": 5938,
+    "checkpoint_sha256": "cfb02aec2279138c01f8b336abc08a588d0ab11efa8db68fd61ba0b6150b5d14",
+    "adapter_sha256": "973c440e29090892ad11d6d56b94bad4c98a5398c223e2b4302d7dba7c4640ed",
+    "independent_reference": true,
+    "reference_adapter_enabled": true,
+    "reuse_sft_optimizer": false
+  },
+  "objective": {
+    "loss_type": "sigmoid",
+    "beta": 0.1,
+    "label_smoothing": 0.0,
+    "f_divergence_type": "reverse_kl",
+    "reference_free": false,
+    "rpo_alpha": null,
+    "ld_alpha": null,
+    "use_weighting": false,
+    "sync_ref_model": false,
+    "precompute_ref_log_probs": false,
+    "use_liger_kernel": false,
+    "loss_weights": null,
+    "use_logits_to_keep": true,
+    "completion_reduction": "sum_including_EOS"
+  },
+  "optimizer": {
+    "name": "torch.optim.AdamW",
+    "learning_rate": 0.000005,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "weight_decay": 0.0,
+    "foreach": false,
+    "fused": false,
+    "scheduler": "constant",
+    "warmup_steps": 0,
+    "max_grad_norm": 0.0
+  },
+  "training": {
+    "seed": 42,
+    "epochs": 1,
+    "microbatch": 1,
+    "gradient_accumulation": 8,
+    "sampler": "SequentialSampler",
+    "tail_divisor": "actual_microsteps",
+    "bf16": true,
+    "fp16": false,
+    "max_length": null,
+    "max_prompt_length": null,
+    "max_completion_length": null,
+    "context_tokens_including_eos_cap": 2048,
+    "save_only_model": false,
+    "ignore_data_skip": false,
+    "gradient_checkpointing": true,
+    "gradient_checkpointing_use_reentrant": false
+  },
+  "numerics": {
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "attention": "sdpa"
+  },
+  "execution": {
+    "real_model_device": "cuda",
+    "max_pairs": 128,
+    "max_wall_seconds": 21600,
+    "max_output_bytes": 1073741824,
+    "memory_headroom_fraction": 0.2,
+    "automatic_retry": false,
+    "fallback_to_cpu": false
+  }
+}

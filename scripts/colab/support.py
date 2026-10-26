@@ -13,6 +13,7 @@ from pathlib import Path
 RUN_COMMANDS = {
     "toolalign.cuda-sft-run.v1": ("toolalign.training.cuda_sft", "train"),
     "toolalign.cuda-generation-run.v1": ("toolalign.training.cuda_generate", "generate"),
+    "toolalign.cuda-dpo-run.v1": ("toolalign.training.cuda_dpo", "train"),
 }
 
 
@@ -21,6 +22,8 @@ def run_command(run: dict) -> tuple[str, str]:
         raise ValueError("expected S1's whitelisted CUDA run configuration")
     if run["schema"] == "toolalign.cuda-generation-run.v1" and run.get("run_kind") != "generation":
         raise ValueError("generation schema requires generation run_kind")
+    if run["schema"] == "toolalign.cuda-dpo-run.v1" and run.get("run_kind") not in ("dpo", "dpo_capacity"):
+        raise ValueError("DPO schema requires dpo or dpo_capacity run_kind")
     return RUN_COMMANDS[run["schema"]]
 
 
@@ -111,6 +114,22 @@ def validate_payload(payload: dict, repository: Path) -> dict:
             raise ValueError("generation exceeds the G4 time ceiling")
         if run["max_output_bytes"] > 1024**3:
             raise ValueError("generation exceeds the output ceiling")
+    elif run["schema"] == "toolalign.cuda-dpo-run.v1":
+        if "max_optimizer_steps" in run or "persistent_dir" in run:
+            raise ValueError("DPO uses a complete epoch total and an optimizer-boundary segment stop")
+        count = positive_integer(run["pair_count"], "pair_count")
+        total = positive_integer(run["total_optimizer_steps"], "total_optimizer_steps")
+        stop = positive_integer(run["stop_after_optimizer_step"], "stop_after_optimizer_step")
+        if count > 128 or total != (count + 7) // 8 or stop > total:
+            raise ValueError("DPO step bounds must preserve the complete one-epoch total")
+        if run["run_kind"] == "dpo_capacity" and count > 24:
+            raise ValueError("DPO capacity is at most three optimizer steps")
+        if run["max_wall_seconds"] > 21600 or payload["max_allocation_seconds"] > 21600:
+            raise ValueError("DPO exceeds the G4 time ceiling")
+        if run["max_output_bytes"] > 1024**3:
+            raise ValueError("DPO exceeds the output ceiling")
+        if Path(run["dependency_lock"]) != repository / "requirements/dpo-linux-py312.lock.txt":
+            raise ValueError("DPO requires its dedicated dependency lock")
     else:
         positive_integer(run["max_optimizer_steps"], "max_optimizer_steps")
         staging = repository.parent / "toolalign-staging" / run_id

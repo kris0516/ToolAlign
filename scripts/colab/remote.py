@@ -41,6 +41,18 @@ CUDA_INDEX = "https://download.pytorch.org/whl/cu128"
 CONTROL_ALLOWANCE = 1024 * 1024  # Control JSON/logs in addition to trainer output.
 
 
+def environment_paths(repository: Path, run: dict | None = None) -> tuple[Path, Path, Path]:
+    """Only the whitelisted DPO schema selects a separate immutable environment."""
+    if run is not None:
+        run_command(run)
+    if run is not None and run["schema"] == "toolalign.cuda-dpo-run.v1":
+        return (repository / "requirements/dpo-linux-py312.lock.txt",
+                repository / ".toolalign-local/dpo-env",
+                repository / ".toolalign-local/colab/dpo-environment.json")
+    return (repository / LOCK_FILE, repository / ".toolalign-local/cuda-env",
+            repository / ".toolalign-local/colab/environment.json")
+
+
 def run_directory(repository: Path, payload: dict) -> Path:
     return repository / "runs" / payload["run_id"]
 
@@ -81,31 +93,36 @@ def verify_source(repository: Path, payload: dict) -> None:
     if current != payload["source_commit"]:
         raise ValueError("source commit mismatch")
     subprocess.run(["git", "-C", str(repository), "diff", "--quiet", "HEAD"], check=True)
-    if digest(repository / LOCK_FILE) != payload["dependency_lock_sha256"]:
+    lock, _, _ = environment_paths(repository, json.loads(payload["run_config_text"]))
+    if digest(lock) != payload["dependency_lock_sha256"]:
         raise ValueError("dependency lock hash mismatch")
 
 
-def setup_commands(repository: Path, python: str) -> list[list[str]]:
+def setup_commands(repository: Path, python: str, run: dict | None = None) -> list[list[str]]:
     """No framework/model invocation belongs in this installation plan."""
-    environment = repository / ".toolalign-local/cuda-env"
+    lock, environment, _ = environment_paths(repository, run)
     target_python = str(environment / "bin/python")
+    dpo = run is not None and run["schema"] == "toolalign.cuda-dpo-run.v1"
     return [
         [python, "-m", "venv", str(environment)],
-        [target_python, "-m", "pip", "install", "--disable-pip-version-check",
+        [target_python, "-m", "pip", *(["--isolated"] if dpo else []),
+         "install", "--disable-pip-version-check",
+         *(["--index-url", "https://pypi.org/simple"] if dpo else []),
          "--require-hashes", "--only-binary=:all:", "--extra-index-url", CUDA_INDEX,
-         "-r", str(repository / LOCK_FILE)],
+         "-r", str(lock)],
         [target_python, "-m", "pip", "check"],
     ]
 
 
-def environment_identity(repository: Path) -> dict:
+def environment_identity(repository: Path, run: dict | None = None) -> dict:
+    lock, environment, _ = environment_paths(repository, run)
     code = (
         "import importlib.metadata as m,json,platform,sys; "
         "print(json.dumps({'python':list(sys.version_info[:3]),'platform':platform.platform(),"
         "'packages':{d.metadata['Name']:d.version for d in m.distributions()}}))"
     )
     actual = json.loads(subprocess.check_output(
-        [str(repository / ".toolalign-local/cuda-env/bin/python"), "-c", code], text=True
+        [str(environment / "bin/python"), "-c", code], text=True
     ))
     if actual["python"][:2] != [3, 12]:
         raise ValueError("CUDA environment requires Python 3.12")
@@ -113,19 +130,19 @@ def environment_identity(repository: Path) -> dict:
         return re.sub(r"[-_.]+", "-", value).lower()
     packages = {normalize(key): value for key, value in actual["packages"].items()}
     expected = dict(re.findall(
-        r"^([A-Za-z0-9_.-]+)==([^\s\\]+)", (repository / LOCK_FILE).read_text(), re.M
+        r"^([A-Za-z0-9_.-]+)==([^\s\\]+)", lock.read_text(), re.M
     ))
     if not expected or any(packages.get(normalize(key)) != value for key, value in expected.items()):
         raise ValueError("installed versions differ from the CUDA lock")
     extra = set(packages) - {normalize(key) for key in expected} - {"pip", "setuptools"}
     if extra:
         raise ValueError(f"unexpected packages in the dedicated environment: {sorted(extra)}")
-    actual["dependency_lock_sha256"] = digest(repository / LOCK_FILE)
+    actual["dependency_lock_sha256"] = digest(lock)
     return actual
 
 
 def _setup(repository: Path, payload: dict) -> dict:
-    validate_payload(payload, repository)
+    run = validate_payload(payload, repository)
     directory = run_directory(repository, payload)
     with registry(repository, payload) as state:
         if state["stopping"]:
@@ -144,32 +161,31 @@ def _setup(repository: Path, payload: dict) -> dict:
         raise ValueError("setup requires Linux x86_64; do not install CUDA wheels on this Mac")
     if time_remaining(payload) <= 0:
         raise ValueError("allocation time budget is exhausted before setup")
-    environment = repository / ".toolalign-local/cuda-env"
-    ready = repository / ".toolalign-local/colab/environment.json"
+    _, environment, ready = environment_paths(repository, run)
     if environment.exists() and not ready.exists():
         raise ValueError("partial/unowned environment exists; preserve it and resolve explicitly")
     if ready.exists() and read_json(ready)["dependency_lock_sha256"] != payload["dependency_lock_sha256"]:
         raise ValueError("existing environment uses another lock; no in-place replacement")
     if not environment.exists():
-        with (ready.parent / "environment-install.json").open("x") as claim:
+        with ready.with_name(ready.stem + "-install.json").open("x") as claim:
             json.dump({"run_id": payload["run_id"], "started_at_utc": utc_now()}, claim)
         python = shutil.which("python3.12")
         if not python:
             raise ValueError("Python 3.12 must be provisioned before setup")
         with (directory / "setup.log").open("x") as log:
-            for argv in setup_commands(repository, python):
+            for argv in setup_commands(repository, python, run):
                 remaining = time_remaining(payload)
                 if remaining <= 0:
                     raise ValueError("allocation budget exhausted during setup")
                 subprocess.run(argv, stdout=log, stderr=log, check=True, timeout=remaining)
-        actual = environment_identity(repository)
+        actual = environment_identity(repository, run)
         actual["setup_completed_at_utc"] = utc_now()
         atomic_json(ready, actual)
     else:
         with (directory / "setup-recheck.log").open("a") as log:
             subprocess.run([str(environment / "bin/python"), "-m", "pip", "check"],
                            stdout=log, stderr=log, check=True)
-        actual = environment_identity(repository)
+        actual = environment_identity(repository, run)
     atomic_json(directory / "environment.json", actual)
     return {"run_id": payload["run_id"], "status": "DEPENDENCIES_INSTALLED", "training_started": False}
 
@@ -270,13 +286,16 @@ def worker(repository: Path, payload: dict) -> int:
     run = validate_payload(payload, repository)
     directory = owned_run(repository, payload)
     module, command = run_command(run)
-    argv = [str(repository / ".toolalign-local/cuda-env/bin/python"), "-u", "-m",
+    _, selected_environment, _ = environment_paths(repository, run)
+    argv = [str(selected_environment / "bin/python"), "-u", "-m",
             module, command, "--run-config", str(directory / "run.json")]
     started = utc_now()
     result = {"argv": argv, "started_at_utc": started, "exit_code": 126, "timed_out": False}
     environment = dict(os.environ)
     environment.update(PYTHONPATH=str(repository / "src"), PYTHONNOUSERSITE="1",
                        HF_HUB_OFFLINE="1", TRANSFORMERS_OFFLINE="1", TOKENIZERS_PARALLELISM="false")
+    if run["schema"] == "toolalign.cuda-dpo-run.v1":
+        environment["HF_DATASETS_OFFLINE"] = "1"
     try:
         verify_source(repository, payload)
         budget = min(run["max_wall_seconds"], time_remaining(payload))
