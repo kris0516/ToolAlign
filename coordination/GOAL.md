@@ -4,7 +4,9 @@
 
 大目标：在固定模型、冻结数据与评测预算下，比较 Qwen3 原始 checkpoint、LoRA SFT、SFT 后 DPO 的工具语义成功率、无需工具判断、故障恢复和资源成本，交付可复现代码、checkpoint、评测与受限推理接口。0.6B 用于冒烟，1.7B 为主实验。效果方向由观测决定，不预承诺提升比例。
 
-当前：G1–G4已complete。G4按R1/Q1通过的DATA_INSUFFICIENT_WITH_NO_DPO处置结束，PR30已合并 `d0a266d9fa9abd102fc8b7ceef69e4969fb6702d`，最终头双Python CI 40338862773成功且文件树一致；原DPO checkpoint条件未满足，M2仍NOT_RUN。G5为唯一active goal，按[冻结协议](tasks/P06_G5_PROTOCOL.md)推进M0/M1独立评测，CPU实现、新语料28题/4组及正式R1/Q1审查已接纳；PR33已合并19f6f9b，最终双Python CI 40388206384成功、主干文件树一致。冻结执行已完成：[实测](../reports/S1_P06_G5_EVALUATION_R1.md)M0/M1均0/28，M1首动作格式合法28/28但没有合法最终/澄清动作；A1开启/关闭均0/8，A2的12对原始输出相同、4次实际缓存命中。245份产物及124个进程已回收，L4已停止，累计2,358.235秒/0.89 CU。R1 `b52c711` 与Q1 `c4ef464` 独立终验均PASS，S1已回读接纳；新增实质问题0。G5保持active，待PR34最后CI及主干核对后complete，随后继续G6。
+当前：G1–G5已complete。G4按R1/Q1通过的DATA_INSUFFICIENT_WITH_NO_DPO处置结束，原DPO checkpoint条件未满足。G5的M0/M1均0/28、恢复on/off均0/8，A2的12对原始输出相同、4次实际命中；R1 `b52c711` / Q1 `c4ef464`终验已接纳。PR34已合并主干`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最终头双Python CI 40400234474全部成功且完整文件树一致。245份产物、124进程已回收，L4已停止，G5 App goal实际complete。
+
+G6现为唯一active goal，按[正式协议](tasks/P07_G6_PROTOCOL.md)推进受限CUDA服务、Mac客户端、独立复现与GitHub交付。[HTTP字段](../docs/18_RESTRICTED_CUDA_SERVICE.md)已冻结，先派发T1/E1两包CPU工作；具体GPU smoke待CPU、R1和主干通过，最多12次generate尝试、累计7,200秒/4CU，初次3,600秒。
 
 | Goal | 阶段任务 | 验收产物与结束条件 |
 |---|---|---|

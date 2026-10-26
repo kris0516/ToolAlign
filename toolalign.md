@@ -1,12 +1,14 @@
 # ToolAlign：新 Supervisor 出发点
 
-更新：2026-10-26（Asia/Shanghai）。本文件取代旧 Mac 训练出发词。先读本文件和 AGENTS，按需打开证据，不必重读全部历史。
+更新：2026-10-27（Asia/Shanghai）。本文件取代旧 Mac 训练出发词。先读本文件和 AGENTS，按需打开证据，不必重读全部历史。
 
 ## 当前结论
 
-冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3通过R1 `300af3f`、Q1 `34331c2`终验，随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，App goal已complete。当前[G4](coordination/tasks/P05_G4_PROTOCOL.md)的生成/偏好CPU包与生成前语料已独立接纳；PR28主干6e2f1d2已完成80条真实候选，0成功/0有效偏好，产物已回收、L4已停止，见[实测](reports/S1_P05_G4_GENERATION_R1.md)。79条完整首动作均为tool_calls；原1.7B SFT的5,938 train/213 validation目标也全为tool_calls。Q1 `5321842` 的零对处置、R1 `8ce08bf` 的DPO终态预算修订及R1 `7d36b49` 的文件验证复用均已接纳；PR29已合并3250f1b；ordinal 8/seed50单列诊断第三次返回额外工具，20.883秒tool_round_limit，原80条保持。两实例已停止，累计4,477.560秒/1.75 CU；R1 `fe26311` 与Q1 `d5c55fb` 终验PASS已接纳，G4处置为DATA_INSUFFICIENT_WITH_NO_DPO，原DPO checkpoint条件未满足、M2保持NOT_RUN；PR30已合并d0a266d，最终头双Python CI 40338862773成功且文件树一致，G4 App goal按该有据降级已complete。G5现为唯一active goal，评测后端、新关系工具及28题/4组语料已获R1/Q1独立接纳；001/002关闭，原48题永久隔离。PR33已合并19f6f9b，最终双Python CI 40388206384成功且文件树一致。按[协议](coordination/tasks/P06_G5_PROTOCOL.md)完成实际CUDA评测：M0/M1均0/28，M1首动作格式合法28/28但未完成任务；恢复开启/关闭均0/8，A2的12对原始输出相同、4次实际缓存命中。245份产物及124个进程已回收，L4已停止，累计2,358.235秒/0.89 CU。见[实测与失败案例](reports/S1_P06_G5_EVALUATION_R1.md)，R1 `b52c711` 与Q1 `c4ef464` 终验PASS，S1已回读接纳；待PR34最后CI及主干核对。
+G1–G5已完成，当前唯一active goal为G6受限推理、复现与交付。G2 CUDA容量与完整恢复、G3正式SFT、G5实际评测均经R1/Q1独立验收。G3两模型验证CE降至0.041494/0.024438，见[训练结果](reports/S1_P04_CUDA_G3_SFT.md)。G4的80条候选无成功/有效偏好，按DATA_INSUFFICIENT_WITH_NO_DPO结束，正式DPO与M2保持NOT_RUN，见[处置证据](reports/S1_P05_G4_GENERATION_R1.md)。
 
-G3实际执行主干为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`（PR26），双Python CI 40271208505成功。原始验证CE实现经R1 `fd4ad07` 审核，完整数组经Q1 `98cf0e1` 逐行核对后才分配GPU。**G5实际评测与独立终验已接纳，待PR34主干核对；正式DPO和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[G2实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
+G5冻结28题/4组的M0/M1完整成功均0/28；M1首动作格式合法28/28，但66个合法动作全为tool_calls。恢复on/off均0/8；A2的12对原始输出相同、4次真实缓存命中，支持局部prefill收益。L2固定筛选0合格，没有官方模型分数。245份产物与124个进程已回收，唯一L4已停止，累计2,358.235秒/0.89CU。见[实测与21例失败](reports/S1_P06_G5_EVALUATION_R1.md)、[R1终验](reports/reviews/P06_G5_FINAL_R1.md)和[Q1终验](reports/reviews/P06_G5_FINAL_Q1_R1.md)。
+
+PR34已合并主干`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，双Python CI 40400234474成功、主干与受检头完整文件树一致，G5 App goal实际complete。[G6协议](coordination/tasks/P07_G6_PROTOCOL.md)及[共享HTTP字段](docs/18_RESTRICTED_CUDA_SERVICE.md)现已冻结：先完成T1服务/控制器与E1客户端/示例/说明CPU包，再经R1及主干接纳进行有界真实smoke。**实际G6服务与新GPU分配仍NOT_RUN/0。** 原FAIL、48题永久隔离及所有失败历史保留。
 
 ## 每个对话如何开始
 

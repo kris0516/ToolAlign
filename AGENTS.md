@@ -1,6 +1,6 @@
 # ToolAlign — 工作指令
 
-当前路线：2026-10-26 Colab 交接版。默认解释语言中文，代码/接口名英文。接续入口：[toolalign.md](toolalign.md)。
+当前路线：2026-10-27 Colab CUDA与受限服务版。默认解释语言中文，代码/接口名英文。接续入口：[toolalign.md](toolalign.md)。
 
 ## 每次开始
 
@@ -19,6 +19,8 @@
 
 ## 当前完成与接续
 
-P00–P03 与 P04 原CPU/MLX证据保留。G2 CUDA容量与完整恢复已独立验收。G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`，完成0.6B冒烟198次更新和1.7B正式SFT 743次更新，验证CE为0.041494/0.024438；196文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3已通过R1 `300af3f` 和Q1 `34331c2` 独立终验并由S1接纳；DPO、模型语义评测和服务仍NOT_RUN，不恢复旧Mac runtime任务。
+P00–P03与P04原CPU/MLX证据保留。G1–G5已完成；G2真实CUDA容量/完整恢复、G3正式SFT和G5独立评测均经R1/Q1验收。G5的M0/M1完整成功均0/28，M1首动作格式合法28/28；恢复开启/关闭均0/8，A2有4次真实命中。G4无合格偏好，正式DPO保持NOT_RUN；L2零合格输入，无官方模型分数。见[G5结果](reports/S1_P06_G5_EVALUATION_R1.md)。
 
-2026-10-26 用户指定 Toolalign Supervisor S1 接班并继续推进；按 [分组目标](coordination/GOAL.md)依次推进，每次只有一个活动goal。G1、G2已完成，G3独立验收通过，下一阶段G4，见[执行记录](coordination/tasks/P04_CUDA_G3_SFT.md)。原逐轮完成表保留在 [迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。
+PR34已合并主干`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，双Python CI 40400234474成功且文件树一致，G5 App goal实际complete。当前唯一active goal为G6受限推理、复现与交付，按[G6协议](coordination/tasks/P07_G6_PROTOCOL.md)和[共享HTTP字段](docs/18_RESTRICTED_CUDA_SERVICE.md)推进；CPU/R1/主干通过后才冻结具体GPU smoke。旧Mac runtime任务不恢复，模型/数据不自动公开。
+
+2026-10-26用户指定Toolalign Supervisor S1接班并继续推进；按[分组目标](coordination/GOAL.md)依次验收，每次只有一个活动goal。原逐轮完成表保留在[迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。

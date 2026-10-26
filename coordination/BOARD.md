@@ -38,8 +38,8 @@
 | G5新关系工具 / E1 | R1 r2 PASS已接纳 | 6f6a497经8e2b657独立PASS；复用60项检查及8个child，新增3项独立检查、3个child通过/回收；完整16,940份声明三类键交集0；[审核](../reports/reviews/P06_G5_CONSTRAINT_TOOLS_R2.md) |
 | G5新语料 / D1 | R1与Q1正式r2 PASS已接纳 | 28题/4组/8恢复题；[R1 bb4fc27](../reports/reviews/P06_G5_CORPUS_R2.md)、[Q1 cb4c72d](../reports/reviews/P06_G5_CORPUS_Q1_R2.md)。001/002关闭、计数各1→0；原48隔离、A2不变 |
 | G5 L4容量 | 冻结条件PASS，23份产物已回收 | 两模型各1,792输入tokens，实际输出27/33；31.646秒，采样峰值3,926/23,034MiB，两个child已回收；Action格式失败单列，实测最长序列1,825 tokens |
-| P06 固定协议对照 | G5 ACTIVE，R1/Q1终验已接纳、待PR34主干核对 | [实测](../reports/S1_P06_G5_EVALUATION_R1.md)：M0/M1均0/28；A1均0/8，开启后8/8重试成功但未完成答案；245文件/124进程已回收，L4已停止，2,358.235秒/0.89 CU |
-| G5实际终验 / R1、Q1 | PASS已接纳 | R1 b52c711五项独立核验、Q1 c4ef464逐例说明通过；S1回读540/523份私有证据，新增问题0；PR34等待最终CI及主干核对 |
-| P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
+| P06 固定协议对照 | G5 COMPLETE，PR34主干核对通过 | [实测](../reports/S1_P06_G5_EVALUATION_R1.md)：M0/M1均0/28；A1均0/8，开启后8/8重试成功但未完成答案；245文件/124进程已回收，L4已停止，2,358.235秒/0.89 CU |
+| G5实际终验 / R1、Q1 | PASS已接纳 | R1 b52c711五项独立核验、Q1 c4ef464逐例说明通过；S1回读540/523份私有证据，新增问题0；PR34主干98d642a、双Python CI全部成功 |
+| P07–P09 服务、复现、交付 | G6 ACTIVE，CPU协议已冻结 | [共享HTTP](../docs/18_RESTRICTED_CUDA_SERVICE.md)；T1服务/E1客户端两包CPU待派发，具体GPU smoke未启动 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。PR30已合并d0a266d，双Python CI 40338862773全部成功且文件树一致，G4已按有据降级complete；G5为唯一active goal。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。PR30已合并d0a266d，双Python CI 40338862773全部成功且文件树一致，G4已按有据降级complete；G5也已随PR34主干核对后complete，G6为唯一active goal。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
