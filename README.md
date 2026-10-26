@@ -4,7 +4,7 @@
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态（2026-10-26）：CUDA 容量与完整恢复已验收；0.6B 冒烟和 1.7B 一轮正式 SFT 已完成，并通过 R1/Q1 独立终验。** 各自完整验证 CE 从 0.739884/1.145230 降至 0.041494/0.024438，全部产物已回收，Colab 已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。DPO 和模型语义评测保持 `NOT_RUN`。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+> **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。产物已回收、Colab已停止，受限服务随后继续。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 
@@ -54,13 +54,15 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 ## 结果登记
 
-| 对照项 | 语义任务成功率 | 原始格式正确率 | 恢复成功率 | P95 端到端延迟 | 内存 |
-|---|---|---|---|---|---|
-| 1.7B 原始 checkpoint | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN |
-| 1.7B + SFT | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN |
-| 1.7B + SFT + DPO | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN |
+| 对照项 | 完整任务成功 | 首动作格式合法 | 恢复题完整成功 | 平均单条轨迹耗时 |
+|---|---|---|---|---|
+| 1.7B 原始 checkpoint | 0/28 | 1/28 | 0/8 | 13.567秒 |
+| 1.7B + SFT | 0/28 | 28/28 | 0/8 | 16.499秒 |
+| 1.7B + SFT + DPO | NOT_RUN | NOT_RUN | NOT_RUN | NOT_RUN |
 
-官方 BFCL 分类成绩与自建执行环境结果必须分表；AST 匹配不能冒充真实外部 API 执行。完整 benchmark 与子集不能同名报告。
+结果来自四个各7题的连通组；轨迹耗时包含全部失败，不能把轨迹长度差异全归为adapter开销。SFT的66个合法动作均为工具调用，没有合法最终回答或澄清。A1关闭恢复另有8条，开启/关闭均0/8；A2的12对开发请求总耗时91.175→91.006秒，支持局部prefill复用收益。L1/A1分段设备采样峰值3,876 MiB，完整分配2,358.235秒、余额观测差0.89 CU。详细计时、缺失口径和分组不确定性见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。
+
+官方BFCL固定筛选150条在严格无损schema契约下0合格，L2分数不定义，正式模型评测与官方评分`NOT_RUN`，见[独立处置](reports/reviews/P06_G5_BFCL_DISPOSITION_Q1_R1.md)。原创CPU checker案例与自建执行环境结果不替代官方模型成绩。
 
 ## 开源与部署状态
 
