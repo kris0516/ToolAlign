@@ -10,6 +10,19 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+RUN_COMMANDS = {
+    "toolalign.cuda-sft-run.v1": ("toolalign.training.cuda_sft", "train"),
+    "toolalign.cuda-generation-run.v1": ("toolalign.training.cuda_generate", "generate"),
+}
+
+
+def run_command(run: dict) -> tuple[str, str]:
+    if run.get("schema") not in RUN_COMMANDS or run.get("authorized_by") != "S1":
+        raise ValueError("expected S1's whitelisted CUDA run configuration")
+    if run["schema"] == "toolalign.cuda-generation-run.v1" and run.get("run_kind") != "generation":
+        raise ValueError("generation schema requires generation run_kind")
+    return RUN_COMMANDS[run["schema"]]
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -65,8 +78,9 @@ def time_remaining(payload: dict) -> float:
 
 
 def validate_payload(payload: dict, repository: Path) -> dict:
-    """Check the control fields; the trainer owns training/data validation."""
+    """Check bounded control fields; each whitelisted module validates its data."""
     run = json.loads(payload["run_config_text"])
+    run_command(run)
     expected_hash = hashlib.sha256(payload["run_config_text"].encode()).hexdigest()
     if expected_hash != payload["run_config_sha256"]:
         raise ValueError("run configuration hash mismatch")
@@ -88,10 +102,20 @@ def validate_payload(payload: dict, repository: Path) -> dict:
         raise ValueError("all runs must use the same actual Git repository for GPULease")
     positive_integer(run["max_wall_seconds"], "max_wall_seconds")
     positive_integer(run["max_output_bytes"], "max_output_bytes")
-    positive_integer(run["max_optimizer_steps"], "max_optimizer_steps")
-    staging = repository.parent / "toolalign-staging" / run_id
-    if Path(run["persistent_dir"]) != staging:
-        raise ValueError("persistent_dir must be the run's ToolAlign staging directory")
+    if run["schema"] == "toolalign.cuda-generation-run.v1":
+        if "max_optimizer_steps" in run:
+            raise ValueError("generation must use max_trajectories, not optimizer steps")
+        if positive_integer(run["max_trajectories"], "max_trajectories") > 512:
+            raise ValueError("generation exceeds 512 trajectories")
+        if run["max_wall_seconds"] > 21600 or payload["max_allocation_seconds"] > 21600:
+            raise ValueError("generation exceeds the G4 time ceiling")
+        if run["max_output_bytes"] > 1024**3:
+            raise ValueError("generation exceeds the output ceiling")
+    else:
+        positive_integer(run["max_optimizer_steps"], "max_optimizer_steps")
+        staging = repository.parent / "toolalign-staging" / run_id
+        if Path(run["persistent_dir"]) != staging:
+            raise ValueError("persistent_dir must be the run's ToolAlign staging directory")
     if Path(run["repository"]) != repository:
         raise ValueError("repository must be the shared /content/toolalign checkout")
     time_remaining(payload)
