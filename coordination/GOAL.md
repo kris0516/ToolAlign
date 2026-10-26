@@ -4,7 +4,7 @@
 
 大目标：在固定模型、冻结数据与评测预算下，比较 Qwen3 原始 checkpoint、LoRA SFT、SFT 后 DPO 的工具语义成功率、无需工具判断、故障恢复和资源成本，交付可复现代码、checkpoint、评测与受限推理接口。0.6B 用于冒烟，1.7B 为主实验。效果方向由观测决定，不预承诺提升比例。
 
-当前：G1–G4已complete。G4按R1/Q1通过的DATA_INSUFFICIENT_WITH_NO_DPO处置结束，PR30已合并 `d0a266d9fa9abd102fc8b7ceef69e4969fb6702d`，最终头双Python CI 40338862773成功且文件树一致；原DPO checkpoint条件未满足，M2仍NOT_RUN。G5为唯一active goal，按[冻结协议](tasks/P06_G5_PROTOCOL.md)推进M0/M1独立评测，当前先做CPU实现和新工具集，尚无G5 GPU运行。
+当前：G1–G4已complete。G4按R1/Q1通过的DATA_INSUFFICIENT_WITH_NO_DPO处置结束，PR30已合并 `d0a266d9fa9abd102fc8b7ceef69e4969fb6702d`，最终头双Python CI 40338862773成功且文件树一致；原DPO checkpoint条件未满足，M2仍NOT_RUN。G5为唯一active goal，按[冻结协议](tasks/P06_G5_PROTOCOL.md)推进M0/M1独立评测，CPU实现、新语料28题/4组及正式R1/Q1审查已接纳，待PR33最终CI与主干合并后冻结执行配置；尚无G5 GPU运行。
 
 | Goal | 阶段任务 | 验收产物与结束条件 |
 |---|---|---|
