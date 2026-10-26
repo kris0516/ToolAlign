@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import hashlib
 import math
+import resource
+import sys
 import time
 import uuid
 from dataclasses import asdict, dataclass, field
@@ -101,11 +103,17 @@ def _model_child(directory, backend):
         try:
             packet = read_packet(request_path)
             write_packet(directory / f"generating-{index}.json", {"started": True})
+            generation_started = time.monotonic()
             output = backend.generate(packet["input"], GenerationConfig(**packet["config"]))
             if type(output) is not ModelOutput:
                 raise ValueError("Backend must return ModelOutput")
             # The backend's parsed/repaired view is recorded, never substituted for raw text.
             result = _output_packet(output)
+            result["timing"] = {"child_generation_seconds": time.monotonic() - generation_started,
+                                "queue_seconds": max(0, generation_started - packet.get(
+                                    "submitted_monotonic", generation_started)),
+                                "child_host_peak_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+                                    * (1 if sys.platform == "darwin" else 1024)}
         except Exception:
             result = {
                 "output": None,
@@ -166,7 +174,10 @@ class LocalHarness:
         self.executor = executor
         self.oracle = oracle or SemanticOracle()
 
-    def run(self, example, task, backend, sandbox_context, *, model_identity, sampling=None):
+    def run(self, example, task, backend, sandbox_context, *, model_identity, sampling=None,
+            recovery_enabled=True):
+        if type(recovery_enabled) is not bool:
+            raise ValueError("recovery_enabled_boolean")
         started = time.monotonic()
         sampling = SamplingParameters() if sampling is None else sampling
         if type(sampling) is not SamplingParameters:
@@ -192,6 +203,7 @@ class LocalHarness:
                                   MAX_NEW_TOKENS, deadline_utc)
         provenance = {
             "protocol_version": "toolalign.protocol.v1",
+            "recovery_enabled": recovery_enabled,
             "model_input_hash": None,
             "oracle_payload_hash": None,
             "generation_config": asdict(config),
@@ -345,7 +357,7 @@ class LocalHarness:
                 input_hash = canonical_hash(prefix)
                 write_packet(
                     session.directory / f"request-{index}.json",
-                    {"input": prefix, "config": asdict(config)},
+                    {"input": prefix, "config": asdict(config), "submitted_monotonic": time.monotonic()},
                 )
                 decision_inputs.append(clone(prefix, INPUT_BYTES))
                 status, packet = session.wait(f"result-{index}.json", expiry, cancellation)
@@ -396,6 +408,7 @@ class LocalHarness:
                     "input_tokens": output["input_tokens"],
                     "output_tokens": output["output_tokens"],
                     "finish_reason": output["finish_reason"],
+                    "timing": packet.get("timing"),
                 }
                 decisions.append(decision)
                 emit("parsing")
@@ -450,6 +463,8 @@ class LocalHarness:
                     )
                     if reason := interrupted():
                         return finish(reason, reason)
+                    if result.status != "completed" and result.retryable and not recovery_enabled:
+                        return finish("rejected", "recovery_disabled:" + (result.error_code or result.status))
                     if result.status != "completed" and not result.retryable:
                         event = (
                             result.status
