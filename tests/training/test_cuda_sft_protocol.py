@@ -31,10 +31,12 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def test_import_and_help_have_no_framework_side_effects():
     script = """
-import sys
+import os, sys
+os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':16:8'
 import toolalign.training.cuda_sft.arrays
 import toolalign.training.cuda_sft.runtime
 assert not {'torch','transformers','tokenizers','peft','mlx','tensorflow','jax'} & set(sys.modules)
+assert os.environ['CUBLAS_WORKSPACE_CONFIG'] == ':16:8'
 """
     subprocess.run([sys.executable, "-B", "-c", script], check=True, timeout=30)
     result = subprocess.run([sys.executable, "-B", "-m", "toolalign.training.cuda_sft", "train", "--help"],
@@ -44,6 +46,10 @@ assert not {'torch','transformers','tokenizers','peft','mlx','tensorflow','jax'}
 
 def test_frozen_config_and_run_bounds():
     config = load_protocol(ROOT)
+    assert config["schema"] == "toolalign.sft-cuda.v2"
+    assert config["numerics"] == {"deterministic_algorithms": True,
+                                  "deterministic_warn_only": False,
+                                  "cublas_workspace_config": ":4096:8"}
     request = {"schema": "toolalign.cuda-sft-run.v1", "authorized_by": "S1", "run_id": "original-test",
         "run_kind": "capacity", "profile": "formal", "source_commit": "1" * 40,
         "config_sha256": CONFIG_SHA256, "array_manifest_sha256": "2" * 64,
@@ -54,6 +60,8 @@ def test_frozen_config_and_run_bounds():
         "max_wall_seconds": 300, "max_output_bytes": 4 * 1024**2}
     assert validate_run(request, config) == request
     for patch, reason in [({"config_sha256": "0" * 64}, "config_identity"),
+                          ({"config_sha256": sha(read_bytes(ROOT / "configs/sft-cuda.v1.json"))},
+                           "config_identity"),
                           ({"max_optimizer_steps": 4}, "step_budget"),
                           ({"max_wall_seconds": True}, "max_wall"),
                           ({"profile": "smoke"}, "capacity_profile"),
