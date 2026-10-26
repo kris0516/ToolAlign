@@ -36,7 +36,7 @@
 | G5 L1观察依赖 / T1 | R1 r2 PASS已接纳 | ecbb520经eba411b复验：两原反例改判failure，合法分轮/独立batch保持；新增非相邻依赖真实轨迹及4个child回收；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
 | G5完整隔离参考 / D1 | R1 r2 PASS已接纳 | f159b52经eba411b复验：0保留/48隔离，独立重建3,595节点/3,506组件；改名和schema等价变形仍传递隔离全部78旧节点；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
 | G5新关系工具 / E1 | R1 r2 PASS已接纳 | 6f6a497经8e2b657独立PASS；复用60项检查及8个child，新增3项独立检查、3个child通过/回收；完整16,940份声明三类键交集0；[审核](../reports/reviews/P06_G5_CONSTRAINT_TOOLS_R2.md) |
-| G5新语料 / D1 | CPU r2构造中 | [r2任务](tasks/P06_G5_CORPUS_CPU_R2.md)：采用新关系工具及已接纳观察oracle/完整历史参考；至多28题、四域七题，旧48隔离，A2不变 |
+| G5新语料 / D1 | r2已交付，R1/Q1最终审查中 | 3206fbc实现、32bc19c交付；28题/4组，36正向与56反例符合预期、216 child回收；34项测试及R1代码预审3项独立检查通过；[报告](../reports/P06_G5_CORPUS_CPU_R2.md)。001/002待Q1正式裁决 |
 | P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
