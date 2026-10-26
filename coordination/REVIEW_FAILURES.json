@@ -4801,14 +4801,28 @@
           "independent_checks_passed": 9,
           "new_failed_revision_increment": 0,
           "adopted_at_utc": "2026-10-26T02:58:02.986075+00:00"
+        },
+        {
+          "event_kind": "BOUNDED_V2_CUDA_RECOVERY_COMPLETED",
+          "candidate": "f6f66545c17827fa442c38d4d3af52d6cb7231e3",
+          "executed_source": "eb73fbcdb5f053509a396c59092e28d7c317cdd9",
+          "observer": "Codex-AI(S1)",
+          "verdict": "PASS_RUNTIME_PENDING_INDEPENDENT_ACCEPTANCE",
+          "checks": 1883,
+          "tensor_comparisons": 672,
+          "max_tensor_absolute_difference": 0.0,
+          "comparison_result_sha256": "bf5b44b434fd03970c738389fb467c052bb3a8d6ba39d8e84e7d89bcc9e2a7dd",
+          "result_index_sha256": "2918cac2801ed992695fcfe1c2169091e7db1f9887249338e30062aab05638bb",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T03:36:02.946543+00:00"
         }
       ],
-      "next_action": "S1合入已审v2实现，冻结同源三步连续、新进程及新实例恢复；按原容差实测后由R1独立验收同一候选。",
+      "next_action": "R1独立验收同一v2候选的新进程/新实例实际完整恢复结果；Q1核对数据身份与结论范围。",
       "deduplication_basis": "一次连续/恢复对照的多项差异是同一S1运行发现，非多次独立正式修订。"
     }
   ],
   "prior_findings": "既有87项问题均关闭，全部失败历史保留；CUDA-RESUME-001的原差异经R1确认，同进程同状态重复backward已实测复现，正式修订失败计数仍0。",
-  "updated_at_utc": "2026-10-26T02:58:02.986075+00:00",
+  "updated_at_utc": "2026-10-26T03:36:02.946543+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",

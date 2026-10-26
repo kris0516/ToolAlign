@@ -15,9 +15,10 @@
 | P04 CUDA mask 与说明 / Q1 | PASS（13例预审） | 82f1e88；423项检查及26条原证据绑定通过，20例容量数组后续增量核对 |
 | P04 容量数组 / Q1增量 | PASS | ed022da；20条、531项检查通过，验证分母335 |
 | P04 Linux 实装索引 / E1、R1 | ACCEPTED（CPU） | 99b8116经c4b5c1c独立PASS；48 pins/894 hashes未变，S1两项集成通过 |
-| P04 L4 容量与恢复 | 容量PASS，恢复数值FAIL | PR22主干实装/3步通过；第2步恢复后更新超容差，完整输出已回收、实例已停止 |
+| P04 L4 容量与恢复 v1 | 原FAIL保留 | PR22主干实装/3步通过；第2步恢复后更新超容差，见原实测报告 |
 | P04 CUDA恢复定位 / T1、R1 | 重复backward差异已实测 | [同状态诊断](../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)：开/关checkpointing均约0.86%梯度差；下一步核查确定性路径，原恢复FAIL保留 |
-| P04 CUDA严格确定性 / T1、R1 | ACCEPTED（CPU） | f6f6654经9212903独立9项PASS；[v2策略](../reports/reviews/P04_CUDA_DETERMINISM_R3.md)已接入，真实三步及两种恢复待复验 |
+| P04 CUDA严格确定性 / T1、R1 | CPU PASS，实际比较PASS | [v2实测](../reports/S1_P04_CUDA_V2_RECOVERY.md)：两种恢复均逐值一致，1,883项通过；待R1/Q1终验 |
+| G2 实际结果终验 / R1、Q1 | READY | 65文件已回收校验、两实例已停止；核对技术结果与说明范围 |
 | P04 正式 SFT | NOT_RUN | 恢复差异关闭、G2独立审核通过后进入G3 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |

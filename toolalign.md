@@ -4,9 +4,9 @@
 
 ## 当前结论
 
-ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模型的 CPU 接口，以及 MLX 小型数值验证。冻结 v3 数据通过独立质量审核。**正式 Qwen SFT、DPO、模型语义评测和服务结果均为 NOT_RUN。** 下一项工作是在 Colab 建立 CUDA 训练链路。
+冻结v3数据、CPU工具执行器和CUDA SFT实现均有独立审核。PR24主干的Qwen3-1.7B在同规格L4完成三步容量、新进程与新实例完整恢复；S1实际比较1,883项通过，672个adapter/Adam张量比较最大绝对差0，全部产物已回收且实例已停止。当前等待R1技术终验与Q1数据/说明终验，完成G2后进入G3正式SFT。
 
-当前交接主干为 `61c2176d556fd0e4cfc2af00b16242dddcfadfd3`（PR20 合并），生产代码保持 `abdc53d468a270cc1bfecbe56980dd34918480e1`（PR19）。原 R1-r3 PASS、两轮 FAIL 和修复历史保留。合并后数据接口定点检查 **163 passed**，PR20 双 Python CI 40232017823 成功。各阶段证据见[项目状态](coordination/PROJECT_STATUS.md)。
+实际执行主干为 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`（PR24），双Python CI 40261767879成功。**正式Qwen SFT、DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[当前实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
 
 ## 每个对话如何开始
 
@@ -20,19 +20,19 @@ ToolAlign 已完成数据治理、CPU 工具执行器、训练数据与固定模
 
 用户已切换到 **Colab GPU**：Mac 用于编辑、CPU 测试、SSH 控制和结果分析，后续不在 Mac 上训练、做模型容量检查或批量模型任务。优先 L4 24GB，不适配时使用 A100 80GB；实际型号和显存以远端 `nvidia-smi` 为准。
 
-已向另一研究项目 Supervisor 咨询，找到现成 Colab CLI、ADC、OpenSSH、tmux 配置和 A100 同实例断线/续训工程证据；该项目也有 L4 真实模型诊断记录。接入方法可复用；**ToolAlign CUDA SFT/DPO 和实例回收后的重建续训仍待验证**。流程见 [Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md)，本机索引为 `.toolalign-local/handoff-2026-10-26/LOCAL_HANDOFF.md`。
+已向另一研究项目 Supervisor 咨询，找到现成 Colab CLI、ADC、OpenSSH、tmux 配置和 A100 同实例断线/续训工程证据；该项目也有 L4 真实模型诊断记录。接入方法可复用；**ToolAlign CUDA SFT容量及新实例恢复已实测通过，正式SFT与DPO仍待后续阶段**。流程见 [Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md)，本机索引为 `.toolalign-local/handoff-2026-10-26/LOCAL_HANDOFF.md`。
 
-## 新 Supervisor 的第一项交付
+## G2实现与后续约束
 
-准备一个有边界的 P04 CUDA 适配包：
+已建立有边界的P04 CUDA链路，后续沿用以下契约：
 
-- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；修复后当前接口的一次真实数据读取及13例mask数组核对已由S1完成，见[消费记录](reports/S1_P04_DATA_V3_CONSUMPTION.md)。新CUDA消费者仍待验证。保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
+- 复用冻结 v3 数据、角色保留 Action JSON、token/mask 规则和模型 revision；修复后当前接口的一次真实数据读取及13例mask数组核对已由S1完成，见[消费记录](reports/S1_P04_DATA_V3_CONSUMPTION.md)。新CUDA消费者的独立审核与实际运行已通过。保留完整工具 schema，不为显存静默截断、换样本或改变有效 batch。
 - 用 PyTorch / Transformers / PEFT 实现 LoRA SFT；为 DPO 核验并锁定 TRL。单独生成 CUDA 依赖锁；Mac 的 `uv.lock` 和 MLX PASS 不代表 CUDA 兼容。
 - 保持 Q/V、28 层、rank 8、dropout 0、有效 scale 2；标准 PEFT LoRA 对应 `lora_alpha=16`、`use_rslora=False`。核对实际 trainable count、目标层、dtype、loss 分母、末批累积和恢复行为。优化器、注意力和 checkpointing 的新选择须显式登记并验证语义，不能照搬新框架默认值当作与旧方案等价。
 - 申请 GPU 前记录显存预算；按冻结 batch/长度做一轮短容量验证，覆盖 forward、backward、optimizer step、验证和保存/重载。通过后再完整 epoch。启动前明确 run ID、配置、步数/时限、已有账户资源、输出与退出条件。
 - R1 独立技术复核；Q1 独立审阅数据语义、偏好与交接说明。合并后按改动风险验证。
 
-交接准备没有启动 Colab 实例或训练。S1 首包见 [CUDA SFT](coordination/tasks/P04_CUDA_SFT.md)和 [Colab 环境](coordination/tasks/P04_COLAB_ENVIRONMENT.md)。旧 `configs/sft-qwen-runtime-cpu.v1.json` 及未派发 MLX runtime 任务保留为历史协议参考；新建任务和版本化配置，不直接翻转旧冻结授权字段。
+初始交接准备没有启动Colab实例或训练，后续G2实际运行见本页当前结论。S1 首包见 [CUDA SFT](coordination/tasks/P04_CUDA_SFT.md)和 [Colab 环境](coordination/tasks/P04_COLAB_ENVIRONMENT.md)。旧 `configs/sft-qwen-runtime-cpu.v1.json` 及未派发 MLX runtime 任务保留为历史协议参考；新建任务和版本化配置，不直接翻转旧冻结授权字段。
 
 ## 长期约束
 
