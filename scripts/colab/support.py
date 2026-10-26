@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 RUN_COMMANDS = {
+    "toolalign.cuda-evaluation-run.v1": ("toolalign.evaluation.cuda_eval", "evaluate"),
     "toolalign.cuda-sft-run.v1": ("toolalign.training.cuda_sft", "train"),
     "toolalign.cuda-generation-run.v1": ("toolalign.training.cuda_generate", "generate"),
     "toolalign.cuda-dpo-run.v1": ("toolalign.training.cuda_dpo", "train"),
@@ -24,6 +25,8 @@ def run_command(run: dict) -> tuple[str, str]:
         raise ValueError("generation schema requires generation run_kind")
     if run["schema"] == "toolalign.cuda-dpo-run.v1" and run.get("run_kind") not in ("dpo", "dpo_capacity"):
         raise ValueError("DPO schema requires dpo or dpo_capacity run_kind")
+    if run["schema"] == "toolalign.cuda-evaluation-run.v1" and run.get("run_kind") != "evaluation":
+        raise ValueError("evaluation schema requires evaluation run_kind")
     return RUN_COMMANDS[run["schema"]]
 
 
@@ -114,6 +117,22 @@ def validate_payload(payload: dict, repository: Path) -> dict:
             raise ValueError("generation exceeds the G4 time ceiling")
         if run["max_output_bytes"] > 1024**3:
             raise ValueError("generation exceeds the output ceiling")
+    elif run["schema"] == "toolalign.cuda-evaluation-run.v1":
+        if "max_optimizer_steps" in run or "persistent_dir" in run:
+            raise ValueError("evaluation uses a fixed unit plan")
+        limits = {"l1": 104, "action-only": 120, "replay": 8, "capacity": 2}
+        if run.get("mode") not in limits:
+            raise ValueError("unknown evaluation mode")
+        plan = run.get("plan")
+        if type(plan) is not list or not 0 < len(plan) <= limits[run["mode"]]:
+            raise ValueError("evaluation plan exceeds its mode ceiling")
+        if positive_integer(run["stop_after_unit"], "stop_after_unit") > len(plan):
+            raise ValueError("evaluation stop exceeds its frozen plan")
+        ceiling = 60 if run["mode"] == "capacity" else 14400
+        if run["max_wall_seconds"] > ceiling or payload["max_allocation_seconds"] > 14400:
+            raise ValueError("evaluation exceeds the G5 time ceiling")
+        if run["max_output_bytes"] > 1024**3:
+            raise ValueError("evaluation exceeds the output ceiling")
     elif run["schema"] == "toolalign.cuda-dpo-run.v1":
         if "max_optimizer_steps" in run or "persistent_dir" in run:
             raise ValueError("DPO uses a complete epoch total and an optimizer-boundary segment stop")
