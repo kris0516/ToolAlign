@@ -1,0 +1,2464 @@
+{
+  "schema_version": "toolalign.g5-analysis.v1",
+  "execution_kind": "REAL_CUDA_EVALUATION",
+  "mode": "l1",
+  "M2": "NOT_RUN",
+  "primary": {
+    "bootstrap": {
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "replicates": 10000,
+      "resampling_unit": "complete_connected_group",
+      "seed": 42,
+      "status": "CALCULATED"
+    },
+    "contrast": "M1_minus_M0",
+    "delta": 0.0,
+    "group_effects": [
+      {
+        "delta": 0.0,
+        "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+        "left_successes": 0,
+        "n": 7,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+        "left_successes": 0,
+        "n": 7,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+        "left_successes": 0,
+        "n": 7,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+        "left_successes": 0,
+        "n": 7,
+        "right_successes": 0
+      }
+    ],
+    "groups": 4,
+    "leave_one_group_out": {
+      "status": "CALCULATED",
+      "values": [
+        {
+          "delta": 0.0,
+          "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "remaining_n": 21
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "remaining_n": 21
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "remaining_n": 21
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "remaining_n": 21
+        }
+      ]
+    },
+    "left": {
+      "known_successes": 0,
+      "planned": 28,
+      "rate": 0.0,
+      "successes": 0,
+      "unknown": 0
+    },
+    "right": {
+      "known_successes": 0,
+      "planned": 28,
+      "rate": 0.0,
+      "successes": 0,
+      "unknown": 0
+    },
+    "status": "CALCULATED"
+  },
+  "categories": {
+    "clarify_or_refuse": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 3
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    },
+    "fault_recovery": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 2,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 2,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 2,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 2,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 6
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 6
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 6
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 6
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 8,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 8,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    },
+    "multi_step": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 3
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    },
+    "no_tool": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 3
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    },
+    "single_tool": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 3
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    },
+    "tool_confusion": {
+      "bootstrap": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "replicates": 10000,
+        "resampling_unit": "complete_connected_group",
+        "seed": 42,
+        "status": "CALCULATED"
+      },
+      "delta": 0.0,
+      "group_effects": [
+        {
+          "delta": 0.0,
+          "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        },
+        {
+          "delta": 0.0,
+          "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "left_successes": 0,
+          "n": 1,
+          "right_successes": 0
+        }
+      ],
+      "groups": 4,
+      "leave_one_group_out": {
+        "status": "CALCULATED",
+        "values": [
+          {
+            "delta": 0.0,
+            "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+            "remaining_n": 3
+          },
+          {
+            "delta": 0.0,
+            "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+            "remaining_n": 3
+          }
+        ]
+      },
+      "left": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "right": {
+        "known_successes": 0,
+        "planned": 4,
+        "rate": 0.0,
+        "successes": 0,
+        "unknown": 0
+      },
+      "status": "CALCULATED"
+    }
+  },
+  "A1": {
+    "bootstrap": {
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "replicates": 10000,
+      "resampling_unit": "complete_connected_group",
+      "seed": 42,
+      "status": "CALCULATED"
+    },
+    "contrast": "M1_recovery_on_minus_off",
+    "delta": 0.0,
+    "group_effects": [
+      {
+        "delta": 0.0,
+        "group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+        "left_successes": 0,
+        "n": 2,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+        "left_successes": 0,
+        "n": 2,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+        "left_successes": 0,
+        "n": 2,
+        "right_successes": 0
+      },
+      {
+        "delta": 0.0,
+        "group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+        "left_successes": 0,
+        "n": 2,
+        "right_successes": 0
+      }
+    ],
+    "groups": 4,
+    "leave_one_group_out": {
+      "status": "CALCULATED",
+      "values": [
+        {
+          "delta": 0.0,
+          "omitted_group_id": "1814e04fff56ee4276cc85b09a588e14a0f35edab8ff2477aaf5ae4b21bdbd74",
+          "remaining_n": 6
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "5ddfa9e874dc58d3cb34308b7eee7ff2f098f87a1490ab763e8252e3bbf4eff0",
+          "remaining_n": 6
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "818e7c179de1f9f0736f01d9766edef64bf23ceab77bb02adedc4cc6d7b4cdcf",
+          "remaining_n": 6
+        },
+        {
+          "delta": 0.0,
+          "omitted_group_id": "856a8d1b1c71a05f076b5a8b64649b14562997db3592349082d403fff73c263c",
+          "remaining_n": 6
+        }
+      ]
+    },
+    "left": {
+      "known_successes": 0,
+      "planned": 8,
+      "rate": 0.0,
+      "successes": 0,
+      "unknown": 0
+    },
+    "right": {
+      "known_successes": 0,
+      "planned": 8,
+      "rate": 0.0,
+      "successes": 0,
+      "unknown": 0
+    },
+    "status": "CALCULATED"
+  },
+  "cost": {
+    "conditions": {
+      "M0": {
+        "planned_units": 28,
+        "request_rows": 28,
+        "request_status_counts": {
+          "stop": 28
+        },
+        "requests": {
+          "cache_hit_tokens": {
+            "known": 28,
+            "known_sum": 0,
+            "maximum": 0,
+            "mean_known": 0.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_generation_seconds": {
+            "known": 28,
+            "known_sum": 369.03158685700237,
+            "maximum": 21.57693259000007,
+            "mean_known": 13.179699530607227,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 13.679408500499903,
+            "p95": 18.49777714610011,
+            "p99": 20.826689829700058,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_host_peak_rss_bytes": {
+            "known": 28,
+            "known_sum": 120205357056,
+            "maximum": 4293488640,
+            "mean_known": 4293048466.285714,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4293154816.0,
+            "p95": 4293474918.4,
+            "p99": 4293485322.24,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "decode_seconds": {
+            "known": 28,
+            "known_sum": 182.56709702599937,
+            "maximum": 14.875809851000213,
+            "mean_known": 6.520253465214263,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 7.033253921500091,
+            "p95": 11.840163009149887,
+            "p99": 14.138954681600127,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "generation_seconds": {
+            "known": 28,
+            "known_sum": 199.99452899600283,
+            "maximum": 15.512489255999753,
+            "mean_known": 7.142661749857244,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 7.6486041960001785,
+            "p95": 12.45812005830014,
+            "p99": 14.770632814499782,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "input_tokens": {
+            "known": 28,
+            "known_sum": 24162,
+            "maximum": 970,
+            "mean_known": 862.9285714285714,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 869.0,
+            "p95": 924.55,
+            "p99": 960.28,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "output_tokens": {
+            "known": 28,
+            "known_sum": 3104,
+            "maximum": 250,
+            "mean_known": 110.85714285714286,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 119.5,
+            "p95": 201.09999999999997,
+            "p99": 238.12,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_seconds": {
+            "known": 28,
+            "known_sum": 11.204239627000334,
+            "maximum": 0.4047906470000271,
+            "mean_known": 0.4001514152500119,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.3998109704998569,
+            "p95": 0.40373980849990404,
+            "p99": 0.40451995498992344,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_tokens": {
+            "known": 28,
+            "known_sum": 24162,
+            "maximum": 970,
+            "mean_known": 862.9285714285714,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 869.0,
+            "p95": 924.55,
+            "p99": 960.28,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "queue_seconds": {
+            "known": 28,
+            "known_sum": 4.776065846997881,
+            "maximum": 0.17321449300015956,
+            "mean_known": 0.1705737802499243,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.1707251064999582,
+            "p95": 0.17273698889985098,
+            "p99": 0.17315829277011288,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "request_wall_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 28,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "ttft_seconds": {
+            "known": 28,
+            "known_sum": 17.427335478999794,
+            "maximum": 0.6366753909996987,
+            "mean_known": 0.6224048385357069,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.6206120205001753,
+            "p95": 0.6326636285005407,
+            "p99": 0.6357609042399781,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "unit_status_counts": {
+          "failure": 28
+        },
+        "units": {
+          "cold_load_seconds": {
+            "known": 28,
+            "known_sum": 168.88502915000026,
+            "maximum": 6.106742173000384,
+            "mean_known": 6.031608183928581,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 6.0339850975001355,
+            "p95": 6.097689921449819,
+            "p99": 6.104604858670318,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "incomplete_cold_load_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 28,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_allocated_bytes": {
+            "known": 28,
+            "known_sum": 101444999168,
+            "maximum": 3645095424,
+            "mean_known": 3623035684.571429,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3622412800.0,
+            "p95": 3633569664.0,
+            "p99": 3642015160.32,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_reserved_bytes": {
+            "known": 28,
+            "known_sum": 102374572032,
+            "maximum": 3682598912,
+            "mean_known": 3656234715.428571,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3670016000.0,
+            "p95": 3682598912.0,
+            "p99": 3682598912.0,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "unit_wall_seconds": {
+            "known": 28,
+            "known_sum": 379.8830625790006,
+            "maximum": 21.96414995799978,
+            "mean_known": 13.567252234964306,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 14.098730160499827,
+            "p95": 18.88469309105028,
+            "p99": 21.21336356511989,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "units_without_request_evidence": 0
+      },
+      "M1": {
+        "planned_units": 28,
+        "request_rows": 68,
+        "request_status_counts": {
+          "error": 1,
+          "stop": 67
+        },
+        "requests": {
+          "cache_hit_tokens": {
+            "known": 67,
+            "known_sum": 0,
+            "maximum": 0,
+            "mean_known": 0.0,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_generation_seconds": {
+            "known": 68,
+            "known_sum": 436.7472026239989,
+            "maximum": 13.659397671000079,
+            "mean_known": 6.422752979764689,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4.6112960820005355,
+            "p95": 10.645523770600358,
+            "p99": 12.136128622689826,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_host_peak_rss_bytes": {
+            "known": 68,
+            "known_sum": 293231972352,
+            "maximum": 4312961024,
+            "mean_known": 4312234887.529411,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4312264704.0,
+            "p95": 4312666112.0,
+            "p99": 4312961024.0,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "decode_seconds": {
+            "known": 67,
+            "known_sum": 230.09493963200157,
+            "maximum": 8.426388665000104,
+            "mean_known": 3.4342528303283815,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3.1104764259998774,
+            "p95": 4.790962742899954,
+            "p99": 7.124329080680161,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "generation_seconds": {
+            "known": 67,
+            "known_sum": 252.30508635600063,
+            "maximum": 8.549912630999643,
+            "mean_known": 3.765747557552248,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3.4352126849998967,
+            "p95": 4.904780310199839,
+            "p99": 7.5963893572198185,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "input_tokens": {
+            "known": 68,
+            "known_sum": 69299,
+            "maximum": 1991,
+            "mean_known": 1019.1029411764706,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 983.5,
+            "p95": 1292.15,
+            "p99": 1571.579999999999,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "output_tokens": {
+            "known": 68,
+            "known_sum": 3021,
+            "maximum": 109,
+            "mean_known": 44.4264705882353,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 40.0,
+            "p95": 62.949999999999996,
+            "p99": 92.24999999999996,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_seconds": {
+            "known": 67,
+            "known_sum": 15.898972890995083,
+            "maximum": 0.44854953999993086,
+            "mean_known": 0.23729810285067288,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.10788027000035072,
+            "p95": 0.4382461136996426,
+            "p99": 0.44522841207969577,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_tokens": {
+            "known": 67,
+            "known_sum": 67308,
+            "maximum": 1365,
+            "mean_known": 1004.5970149253732,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 973.0,
+            "p95": 1282.6,
+            "p99": 1339.92,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "queue_seconds": {
+            "known": 68,
+            "known_sum": 4.99758466899857,
+            "maximum": 0.17575368200050434,
+            "mean_known": 0.07349389219115544,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.00780169300014677,
+            "p95": 0.17308469715048885,
+            "p99": 0.17477155847998346,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "request_wall_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 68,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "ttft_seconds": {
+            "known": 67,
+            "known_sum": 22.20993480900006,
+            "maximum": 0.6839777420000246,
+            "mean_known": 0.33149156431343374,
+            "missing": 1,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.11137804900045012,
+            "p95": 0.6648656232002395,
+            "p99": 0.6729523258400514,
+            "planned": 68,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "unit_status_counts": {
+          "failure": 28
+        },
+        "units": {
+          "cold_load_seconds": {
+            "known": 28,
+            "known_sum": 183.60569000499981,
+            "maximum": 6.642741275999924,
+            "mean_known": 6.557346071607136,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 6.564556823999965,
+            "p95": 6.633727403400121,
+            "p99": 6.6404765262600085,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "incomplete_cold_load_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 28,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_allocated_bytes": {
+            "known": 28,
+            "known_sum": 102942207488,
+            "maximum": 3711670784,
+            "mean_known": 3676507410.285714,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3680175616.0,
+            "p95": 3705549184.0,
+            "p99": 3710385428.48,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_reserved_bytes": {
+            "known": 28,
+            "known_sum": 104589164544,
+            "maximum": 3787456512,
+            "mean_known": 3735327305.142857,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3730833408.0,
+            "p95": 3778858188.8,
+            "p99": 3786324049.92,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "unit_wall_seconds": {
+            "known": 28,
+            "known_sum": 461.9661242470015,
+            "maximum": 23.671132882000165,
+            "mean_known": 16.498790151678627,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 15.633037400500143,
+            "p95": 20.61580119920022,
+            "p99": 22.931323564570167,
+            "planned": 28,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "units_without_request_evidence": 0
+      },
+      "M1-recovery-off": {
+        "planned_units": 8,
+        "request_rows": 8,
+        "request_status_counts": {
+          "stop": 8
+        },
+        "requests": {
+          "cache_hit_tokens": {
+            "known": 8,
+            "known_sum": 0,
+            "maximum": 0,
+            "mean_known": 0.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_generation_seconds": {
+            "known": 8,
+            "known_sum": 79.15709270299885,
+            "maximum": 10.104268109999794,
+            "mean_known": 9.894636587874857,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 9.88022459800004,
+            "p95": 10.074297896649615,
+            "p99": 10.098274067329758,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_host_peak_rss_bytes": {
+            "known": 8,
+            "known_sum": 34497552384,
+            "maximum": 4312715264,
+            "mean_known": 4312194048.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4312193024.0,
+            "p95": 4312580505.6,
+            "p99": 4312688312.32,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "decode_seconds": {
+            "known": 8,
+            "known_sum": 21.939466607000213,
+            "maximum": 2.8843004490008752,
+            "mean_known": 2.7424333258750266,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 2.732174157999907,
+            "p95": 2.86672375735061,
+            "p99": 2.880785110670822,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "generation_seconds": {
+            "known": 8,
+            "known_sum": 27.16985707100139,
+            "maximum": 3.53367459600031,
+            "mean_known": 3.3962321338751735,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3.392644932499934,
+            "p95": 3.5212616986501417,
+            "p99": 3.531192016530276,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "input_tokens": {
+            "known": 8,
+            "known_sum": 6741,
+            "maximum": 875,
+            "mean_known": 842.625,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 839.0,
+            "p95": 873.95,
+            "p99": 874.79,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "output_tokens": {
+            "known": 8,
+            "known_sum": 288,
+            "maximum": 37,
+            "mean_known": 36.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 36.0,
+            "p95": 37.0,
+            "p99": 37.0,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_seconds": {
+            "known": 8,
+            "known_sum": 3.475021159998505,
+            "maximum": 0.43885327899988624,
+            "mean_known": 0.43437764499981313,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.434189547999722,
+            "p95": 0.437661859049922,
+            "p99": 0.43861499500989337,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_tokens": {
+            "known": 8,
+            "known_sum": 6741,
+            "maximum": 875,
+            "mean_known": 842.625,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 839.0,
+            "p95": 873.95,
+            "p99": 874.79,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "queue_seconds": {
+            "known": 8,
+            "known_sum": 1.3544126250008048,
+            "maximum": 0.17371306299992284,
+            "mean_known": 0.1693015781251006,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.1690472100003717,
+            "p95": 0.1724768468998718,
+            "p99": 0.17346581977991263,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "request_wall_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 8,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "ttft_seconds": {
+            "known": 8,
+            "known_sum": 5.2303606330006005,
+            "maximum": 0.6732978159998311,
+            "mean_known": 0.6537950791250751,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.649413747500148,
+            "p95": 0.6700868967499446,
+            "p99": 0.6726556321498538,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "unit_status_counts": {
+          "failure": 8
+        },
+        "units": {
+          "cold_load_seconds": {
+            "known": 8,
+            "known_sum": 51.92138009599876,
+            "maximum": 6.562146966,
+            "mean_known": 6.490172511999845,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 6.476176906499859,
+            "p95": 6.556663733700043,
+            "p99": 6.5610503195400085,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "incomplete_cold_load_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 8,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_allocated_bytes": {
+            "known": 8,
+            "known_sum": 29008470016,
+            "maximum": 3629329920,
+            "mean_known": 3626058752.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3625144064.0,
+            "p95": 3629243187.2,
+            "p99": 3629312573.44,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_reserved_bytes": {
+            "known": 8,
+            "known_sum": 29209133056,
+            "maximum": 3676307456,
+            "mean_known": 3651141632.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3642753024.0,
+            "p95": 3676307456.0,
+            "p99": 3676307456.0,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "unit_wall_seconds": {
+            "known": 8,
+            "known_sum": 87.44525693500054,
+            "maximum": 11.544844387999547,
+            "mean_known": 10.930657116875068,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 10.931218955500299,
+            "p95": 11.469391886399672,
+            "p99": 11.529753887679572,
+            "planned": 8,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "units_without_request_evidence": 0
+      }
+    },
+    "memory_units": "bytes; host RSS separate from CUDA allocated/reserved",
+    "scope": "unit times include failures; segment includes preflight; allocation/CU requires S1 controller ledger; resumed rows may precede this segment",
+    "segment": {
+      "allocation_seconds_and_CU": "recorded_by_S1_controller_across_segments",
+      "child_host_peak_rss_bytes": 4312961024,
+      "host_peak_rss_bytes": 130580480,
+      "model_file_preflight_seconds": 12.012215005000144,
+      "run_id": "p06-g5-l1-l4-r1",
+      "segment_wall_seconds": 944.0009466219994,
+      "tool_execution_seconds": [
+        0.2514474939998763,
+        0.2510862789999919,
+        0.2582167840000693,
+        0.2484575280000172,
+        0.2497198619998926,
+        0.2598516939997353,
+        0.25114161400006196,
+        0.2507188539998424,
+        0.254750778000016,
+        0.250531208999746,
+        0.25115602200003195,
+        1.0539536219998809,
+        0.24996316299984755,
+        0.25134686599994893,
+        0.24902999400001136,
+        0.25389015000018844,
+        0.2529206279996288,
+        0.2472644660001606,
+        0.2539753999999448,
+        0.2481998580005893,
+        1.0538512379998792,
+        0.24892596599966055,
+        0.2460636979994888,
+        0.2552716589998454,
+        0.248601098999643,
+        0.2521074240003145,
+        0.2539581889996043,
+        0.24953547499990236,
+        0.2504416190004122,
+        0.25118249200022547,
+        1.054244476000349,
+        0.2521485049992407,
+        0.2504169689991613,
+        0.24812803300028463,
+        0.24776201100030448,
+        0.24709397599963268,
+        0.24485466700025427,
+        0.25156154000069364,
+        0.24572016500042082,
+        0.24669414599975426,
+        1.0537698389998695,
+        0.24585200700039422,
+        0.24680138399980933,
+        1.0539262980000785,
+        0.2489009270002498,
+        1.0540159490001315,
+        0.24924552599986782,
+        1.053904672000499,
+        0.24867007099965122,
+        1.053818272999706
+      ],
+      "tool_timing_scope": "tool_execution_event_to_observing_event"
+    }
+  },
+  "provenance": {
+    "batch_sha256": "64e1b91194abdcbe2286aa9026a4058bf2e69da4b9f7a05dc11d491693b5eee9",
+    "input_sha256": "a645b445d37a66522c39d83d110b6384abe8e0e93b15ad4ff8b208eb7eb2b54f",
+    "results_sha256": "001709eac0905a9bf279396ad1d3c1b288ca9a6af3d1c47c51e65ce1f2cf0a89",
+    "summary_sha256": "ba5f4aacaea1125f54eae4d2ea9cf6c8c2a31d79626e804393ad0c40ce8fd475"
+  },
+  "uncertainty_scope": "Current connected-group empirical stability; few groups give coarse intervals; no population coverage or training-seed variance claim.",
+  "diagnostics_aggregate": {
+    "M0": {
+      "argument_semantic": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "attempted call prefixes matching permitted names and semantic arguments",
+        "status": "N/A"
+      },
+      "budget_exhaustion": {
+        "true": 0,
+        "false": 28,
+        "unknown": 0,
+        "n": 28,
+        "denominator": "planned trajectories; missing traces unknown",
+        "status": "COUNTED"
+      },
+      "execution_completed": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "attempted tool calls",
+        "status": "N/A"
+      },
+      "invalid_tool": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "attempted tool calls",
+        "status": "N/A"
+      },
+      "raw_format": {
+        "true": 1,
+        "false": 27,
+        "unknown": 0,
+        "n": 28,
+        "denominator": "attempted model decisions; no raw output fails format",
+        "status": "COUNTED"
+      },
+      "recovery": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "observed retryable errors followed by a completed same-tool/same-arguments call",
+        "status": "N/A"
+      },
+      "task_success": {
+        "true": 0,
+        "false": 28,
+        "unknown": 0,
+        "n": 28,
+        "denominator": "all planned trajectories",
+        "status": "COUNTED"
+      },
+      "tool_selection": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "attempted call prefixes matching a permitted strategy's names",
+        "status": "N/A"
+      },
+      "unnecessary_call": {
+        "true": 0,
+        "false": 0,
+        "unknown": 0,
+        "n": 0,
+        "denominator": "attempted calls; excess length true, permitted semantic prefix false, otherwise unknown",
+        "status": "N/A"
+      }
+    },
+    "M1": {
+      "argument_semantic": {
+        "true": 29,
+        "false": 27,
+        "unknown": 0,
+        "n": 56,
+        "denominator": "attempted call prefixes matching permitted names and semantic arguments",
+        "status": "COUNTED"
+      },
+      "budget_exhaustion": {
+        "true": 12,
+        "false": 16,
+        "unknown": 0,
+        "n": 28,
+        "denominator": "planned trajectories; missing traces unknown",
+        "status": "COUNTED"
+      },
+      "execution_completed": {
+        "true": 34,
+        "false": 22,
+        "unknown": 0,
+        "n": 56,
+        "denominator": "attempted tool calls",
+        "status": "COUNTED"
+      },
+      "invalid_tool": {
+        "true": 0,
+        "false": 56,
+        "unknown": 0,
+        "n": 56,
+        "denominator": "attempted tool calls",
+        "status": "COUNTED"
+      },
+      "raw_format": {
+        "true": 66,
+        "false": 2,
+        "unknown": 0,
+        "n": 68,
+        "denominator": "attempted model decisions; no raw output fails format",
+        "status": "COUNTED"
+      },
+      "recovery": {
+        "true": 8,
+        "false": 0,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "observed retryable errors followed by a completed same-tool/same-arguments call",
+        "status": "COUNTED"
+      },
+      "task_success": {
+        "true": 0,
+        "false": 28,
+        "unknown": 0,
+        "n": 28,
+        "denominator": "all planned trajectories",
+        "status": "COUNTED"
+      },
+      "tool_selection": {
+        "true": 34,
+        "false": 22,
+        "unknown": 0,
+        "n": 56,
+        "denominator": "attempted call prefixes matching a permitted strategy's names",
+        "status": "COUNTED"
+      },
+      "unnecessary_call": {
+        "true": 20,
+        "false": 29,
+        "unknown": 7,
+        "n": 56,
+        "denominator": "attempted calls; excess length true, permitted semantic prefix false, otherwise unknown",
+        "status": "COUNTED"
+      }
+    },
+    "M1-recovery-off": {
+      "argument_semantic": {
+        "true": 8,
+        "false": 0,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted call prefixes matching permitted names and semantic arguments",
+        "status": "COUNTED"
+      },
+      "budget_exhaustion": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "planned trajectories; missing traces unknown",
+        "status": "COUNTED"
+      },
+      "execution_completed": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted tool calls",
+        "status": "COUNTED"
+      },
+      "invalid_tool": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted tool calls",
+        "status": "COUNTED"
+      },
+      "raw_format": {
+        "true": 8,
+        "false": 0,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted model decisions; no raw output fails format",
+        "status": "COUNTED"
+      },
+      "recovery": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "observed retryable errors followed by a completed same-tool/same-arguments call",
+        "status": "COUNTED"
+      },
+      "task_success": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "all planned trajectories",
+        "status": "COUNTED"
+      },
+      "tool_selection": {
+        "true": 8,
+        "false": 0,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted call prefixes matching a permitted strategy's names",
+        "status": "COUNTED"
+      },
+      "unnecessary_call": {
+        "true": 0,
+        "false": 8,
+        "unknown": 0,
+        "n": 8,
+        "denominator": "attempted calls; excess length true, permitted semantic prefix false, otherwise unknown",
+        "status": "COUNTED"
+      }
+    }
+  },
+  "all_decision_kinds": {
+    "M0": {
+      "unparsed_or_empty": 27,
+      "final": 1
+    },
+    "M1": {
+      "tool_calls": 66,
+      "unparsed_or_empty": 2
+    },
+    "M1-recovery-off": {
+      "tool_calls": 8
+    }
+  },
+  "A1_cost": {
+    "on": {
+      "units": 8,
+      "total_seconds": 145.24116916600087,
+      "cold_load_seconds": 52.302441588999045,
+      "input_tokens": 23881,
+      "output_tokens": 991,
+      "decisions": 24,
+      "mean_seconds": 18.15514614575011
+    },
+    "off": {
+      "units": 8,
+      "total_seconds": 87.44525693500054,
+      "cold_load_seconds": 51.92138009599876,
+      "input_tokens": 6741,
+      "output_tokens": 288,
+      "decisions": 8,
+      "mean_seconds": 10.930657116875068
+    }
+  },
+  "A2": {
+    "pairs": [
+      {
+        "decode_seconds_on_minus_off": -0.004881535001004522,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 1,
+        "prefill_seconds_on_minus_off": 0.0012316929996813997,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.06634285500058468,
+        "sequence_id": "a2-development-1",
+        "ttft_seconds_on_minus_off": -0.006647684999734338
+      },
+      {
+        "decode_seconds_on_minus_off": 0.08187119900048856,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 1295,
+        "on_status": "completed",
+        "position": 2,
+        "prefill_seconds_on_minus_off": -0.03636794100020779,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": 0.03901059100007842,
+        "sequence_id": "a2-development-1",
+        "ttft_seconds_on_minus_off": -0.036484973001279286
+      },
+      {
+        "decode_seconds_on_minus_off": 0.001417206000041915,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 3,
+        "prefill_seconds_on_minus_off": -0.0024570679997850675,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.00032793800073704915,
+        "sequence_id": "a2-development-1",
+        "ttft_seconds_on_minus_off": -0.00233446600032039
+      },
+      {
+        "decode_seconds_on_minus_off": 0.03181307800059585,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 1,
+        "prefill_seconds_on_minus_off": -0.003147336000438372,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": 0.017075611001018842,
+        "sequence_id": "a2-development-2",
+        "ttft_seconds_on_minus_off": -0.00772887799939781
+      },
+      {
+        "decode_seconds_on_minus_off": 0.030156695000187028,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 1298,
+        "on_status": "completed",
+        "position": 2,
+        "prefill_seconds_on_minus_off": -0.03644831099973089,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.005548697000449465,
+        "sequence_id": "a2-development-2",
+        "ttft_seconds_on_minus_off": -0.03649477300041326
+      },
+      {
+        "decode_seconds_on_minus_off": 0.07423396199919807,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 3,
+        "prefill_seconds_on_minus_off": 6.164000296848826e-06,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": 0.07551395500013314,
+        "sequence_id": "a2-development-2",
+        "ttft_seconds_on_minus_off": 0.0003063550002480042
+      },
+      {
+        "decode_seconds_on_minus_off": -0.041005734000464145,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 1,
+        "prefill_seconds_on_minus_off": 0.0003389809999134741,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.07349732800048514,
+        "sequence_id": "a2-development-3",
+        "ttft_seconds_on_minus_off": -0.008425511999121227
+      },
+      {
+        "decode_seconds_on_minus_off": -0.004999419999876409,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 1294,
+        "on_status": "completed",
+        "position": 2,
+        "prefill_seconds_on_minus_off": -0.039493437999226444,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.0396072669991554,
+        "sequence_id": "a2-development-3",
+        "ttft_seconds_on_minus_off": -0.03999442900021677
+      },
+      {
+        "decode_seconds_on_minus_off": -0.007476069000404095,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 3,
+        "prefill_seconds_on_minus_off": 0.0010933470002782997,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.009075705999748607,
+        "sequence_id": "a2-development-3",
+        "ttft_seconds_on_minus_off": 0.0014375000000654836
+      },
+      {
+        "decode_seconds_on_minus_off": -0.011588709999159619,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 1,
+        "prefill_seconds_on_minus_off": -0.0028604189992620377,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.02256138600023405,
+        "sequence_id": "a2-development-4",
+        "ttft_seconds_on_minus_off": -0.007123048999346793
+      },
+      {
+        "decode_seconds_on_minus_off": -0.018675293000342208,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 1289,
+        "on_status": "completed",
+        "position": 2,
+        "prefill_seconds_on_minus_off": -0.03470033799931116,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.052581479000764375,
+        "sequence_id": "a2-development-4",
+        "ttft_seconds_on_minus_off": -0.034727180999652774
+      },
+      {
+        "decode_seconds_on_minus_off": -0.02736795200053166,
+        "off_cache_hit_tokens": 0,
+        "off_status": "completed",
+        "on_cache_hit_tokens": 0,
+        "on_status": "completed",
+        "position": 3,
+        "prefill_seconds_on_minus_off": -0.001931282999976247,
+        "raw_equal": true,
+        "request_wall_seconds_on_minus_off": -0.030655598999146605,
+        "sequence_id": "a2-development-4",
+        "ttft_seconds_on_minus_off": -0.001475316999858478
+      }
+    ],
+    "raw_equality": {
+      "denominator": "all fixed request pairs",
+      "false": 0,
+      "n": 12,
+      "status": "COUNTED",
+      "true": 12,
+      "unknown": 0
+    },
+    "scope": "development request replay performance; no task quality score"
+  },
+  "A2_cost": {
+    "conditions": {
+      "M1-cache-off": {
+        "planned_units": 4,
+        "request_rows": 12,
+        "request_status_counts": {
+          "completed": 12
+        },
+        "requests": {
+          "cache_hit_tokens": {
+            "known": 12,
+            "known_sum": 0,
+            "maximum": 0,
+            "mean_known": 0.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_generation_seconds": {
+            "known": 12,
+            "known_sum": 90.35277506900093,
+            "maximum": 14.449101270999563,
+            "mean_known": 7.529397922416744,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 5.482906624500174,
+            "p95": 12.880904438050127,
+            "p99": 14.135461904409677,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_host_peak_rss_bytes": {
+            "known": 12,
+            "known_sum": 51745947648,
+            "maximum": 4312412160,
+            "mean_known": 4312162304.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4312137728.0,
+            "p95": 4312412160.0,
+            "p99": 4312412160.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "decode_seconds": {
+            "known": 12,
+            "known_sum": 60.039064461000635,
+            "maximum": 11.160008789999665,
+            "mean_known": 5.003255371750053,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4.16720586349993,
+            "p95": 8.973015578849978,
+            "p99": 10.72261014776973,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "generation_seconds": {
+            "known": 12,
+            "known_sum": 63.720558072999665,
+            "maximum": 11.276059061000524,
+            "mean_known": 5.310046506083306,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4.523086708499704,
+            "p95": 9.398721770050313,
+            "p99": 10.900591602810485,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "input_tokens": {
+            "known": 12,
+            "known_sum": 15529,
+            "maximum": 1299,
+            "mean_known": 1294.0833333333333,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 1295.5,
+            "p95": 1299.0,
+            "p99": 1299.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "output_tokens": {
+            "known": 12,
+            "known_sum": 782,
+            "maximum": 145,
+            "mean_known": 65.16666666666667,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 54.5,
+            "p95": 116.39999999999996,
+            "p99": 139.28000000000003,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_seconds": {
+            "known": 12,
+            "known_sum": 2.7491374799974437,
+            "maximum": 0.46062216899917985,
+            "mean_known": 0.22909478999978697,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.11494161249947865,
+            "p95": 0.46048269174980305,
+            "p99": 0.4605942735493045,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_tokens": {
+            "known": 12,
+            "known_sum": 15529,
+            "maximum": 1299,
+            "mean_known": 1294.0833333333333,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 1295.5,
+            "p95": 1299.0,
+            "p99": 1299.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "queue_seconds": {
+            "known": 12,
+            "known_sum": 0.7355876729980082,
+            "maximum": 0.17318671999964863,
+            "mean_known": 0.061298972749834015,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.00821542399989994,
+            "p95": 0.1724394998997923,
+            "p99": 0.17303727597967736,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "request_wall_seconds": {
+            "known": 12,
+            "known_sum": 91.17486709999957,
+            "maximum": 14.634213587000886,
+            "mean_known": 7.597905591666631,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 5.49324790449964,
+            "p95": 13.059182311600077,
+            "p99": 14.319207331920726,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "ttft_seconds": {
+            "known": 12,
+            "known_sum": 3.6814569540001685,
+            "maximum": 0.6990668919997916,
+            "mean_known": 0.306788079500014,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.11890352050022557,
+            "p95": 0.6905606722995344,
+            "p99": 0.6973656480597401,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "unit_status_counts": {
+          "completed": 4
+        },
+        "units": {
+          "cold_load_seconds": {
+            "known": 4,
+            "known_sum": 26.420670391001295,
+            "maximum": 6.626025835999826,
+            "mean_known": 6.605167597750324,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 6.608305860500423,
+            "p95": 6.625026199399872,
+            "p99": 6.625825908679835,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "incomplete_cold_load_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 4,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_allocated_bytes": {
+            "known": 4,
+            "known_sum": 14835808256,
+            "maximum": 3709105664,
+            "mean_known": 3708952064.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3708981504.0,
+            "p95": 3709087846.4,
+            "p99": 3709102100.48,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_reserved_bytes": {
+            "known": 4,
+            "known_sum": 14990442496,
+            "maximum": 3747610624,
+            "mean_known": 3747610624.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3747610624.0,
+            "p95": 3747610624.0,
+            "p99": 3747610624.0,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "unit_wall_seconds": {
+            "known": 4,
+            "known_sum": 92.29145811099988,
+            "maximum": 29.4256880009998,
+            "mean_known": 23.07286452774997,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 21.600690214000224,
+            "p95": 28.307739134699883,
+            "p99": 29.202098227739814,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "units_without_request_evidence": 0
+      },
+      "M1-cache-on": {
+        "planned_units": 4,
+        "request_rows": 12,
+        "request_status_counts": {
+          "completed": 12
+        },
+        "requests": {
+          "cache_hit_tokens": {
+            "known": 12,
+            "known_sum": 5176,
+            "maximum": 1298,
+            "mean_known": 431.3333333333333,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.0,
+            "p95": 1296.35,
+            "p99": 1297.67,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_generation_seconds": {
+            "known": 12,
+            "known_sum": 90.20249699099895,
+            "maximum": 14.388669056000253,
+            "mean_known": 7.516874749249912,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 5.5061248919996615,
+            "p95": 12.860620692399923,
+            "p99": 14.08305938328019,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "child_host_peak_rss_bytes": {
+            "known": 12,
+            "known_sum": 51746095104,
+            "maximum": 4312506368,
+            "mean_known": 4312174592.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4312186880.0,
+            "p95": 4312506368.0,
+            "p99": 4312506368.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "decode_seconds": {
+            "known": 12,
+            "known_sum": 60.14256188799936,
+            "maximum": 11.241879989000154,
+            "mean_known": 5.01188015733328,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4.178546176499822,
+            "p95": 9.007172774149646,
+            "p99": 10.794938546030055,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "generation_seconds": {
+            "known": 12,
+            "known_sum": 63.65092688700042,
+            "maximum": 11.322052384000017,
+            "mean_known": 5.304243907250036,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 4.489588398500473,
+            "p95": 9.413384354599563,
+            "p99": 10.940318778119929,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "input_tokens": {
+            "known": 12,
+            "known_sum": 15529,
+            "maximum": 1299,
+            "mean_known": 1294.0833333333333,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 1295.5,
+            "p95": 1299.0,
+            "p99": 1299.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "output_tokens": {
+            "known": 12,
+            "known_sum": 782,
+            "maximum": 145,
+            "mean_known": 65.16666666666667,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 54.5,
+            "p95": 116.39999999999996,
+            "p99": 139.28000000000003,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_seconds": {
+            "known": 12,
+            "known_sum": 2.5944015309996757,
+            "maximum": 0.4599141319995397,
+            "mean_known": 0.2162001275833063,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.11441291999972236,
+            "p95": 0.45873032189974766,
+            "p99": 0.45967736997958125,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "prefill_tokens": {
+            "known": 12,
+            "known_sum": 10353,
+            "maximum": 1299,
+            "mean_known": 862.75,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 1289.0,
+            "p95": 1299.0,
+            "p99": 1299.0,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "queue_seconds": {
+            "known": 12,
+            "known_sum": 0.7246921240021038,
+            "maximum": 0.17323401999965427,
+            "mean_known": 0.06039101033350865,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.006473513500623085,
+            "p95": 0.17284415689978233,
+            "p99": 0.17315604737967988,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "request_wall_seconds": {
+            "known": 12,
+            "known_sum": 91.0062690019995,
+            "maximum": 14.567870732000301,
+            "mean_known": 7.583855750166625,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 5.515677082500133,
+            "p95": 13.038719612900374,
+            "p99": 14.262040508180318,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "ttft_seconds": {
+            "known": 12,
+            "known_sum": 3.501764546001141,
+            "maximum": 0.6913380140003937,
+            "mean_known": 0.2918137121667617,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 0.1185105085005489,
+            "p95": 0.6824486456002887,
+            "p99": 0.6895601403203727,
+            "planned": 12,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "unit_status_counts": {
+          "completed": 4
+        },
+        "units": {
+          "cold_load_seconds": {
+            "known": 4,
+            "known_sum": 26.343359012999827,
+            "maximum": 6.6190525609999895,
+            "mean_known": 6.585839753249957,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 6.597774875999676,
+            "p95": 6.617705003299943,
+            "p99": 6.618783049459981,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "incomplete_cold_load_seconds": {
+            "known": 0,
+            "known_sum": null,
+            "maximum": null,
+            "mean_known": null,
+            "missing": 4,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_allocated_bytes": {
+            "known": 4,
+            "known_sum": 14835356672,
+            "maximum": 3709105664,
+            "mean_known": 3708839168.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3708829184.0,
+            "p95": 3709087846.4,
+            "p99": 3709102100.48,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "peak_reserved_bytes": {
+            "known": 4,
+            "known_sum": 14990442496,
+            "maximum": 3747610624,
+            "mean_known": 3747610624.0,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 3747610624.0,
+            "p95": 3747610624.0,
+            "p99": 3747610624.0,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          },
+          "unit_wall_seconds": {
+            "known": 4,
+            "known_sum": 92.11728460300037,
+            "maximum": 29.400534198999594,
+            "mean_known": 23.029321150750093,
+            "missing": 0,
+            "missing_policy": "unknown; all statuses retained; statistics use available measurements",
+            "p50": 21.590365598000062,
+            "p95": 28.27064224554965,
+            "p99": 29.174555808309606,
+            "planned": 4,
+            "tail_scope": "EXPLORATORY_LT_100"
+          }
+        },
+        "units_without_request_evidence": 0
+      }
+    },
+    "memory_units": "bytes; host RSS separate from CUDA allocated/reserved",
+    "scope": "unit times include failures; segment includes preflight; allocation/CU requires S1 controller ledger; resumed rows may precede this segment",
+    "segment": {
+      "allocation_seconds_and_CU": "recorded_by_S1_controller_across_segments",
+      "child_host_peak_rss_bytes": 4312506368,
+      "host_peak_rss_bytes": 128716800,
+      "model_file_preflight_seconds": 11.98420080699998,
+      "run_id": "p06-g5-replay-l4-r1",
+      "segment_wall_seconds": 197.0645898390003,
+      "tool_execution_seconds": [],
+      "tool_timing_scope": "tool_execution_event_to_observing_event"
+    }
+  },
+  "A2_provenance": {
+    "batch_sha256": "6f18d88fce9f5f83743356e9b3b6b5c5fd7e0f395566991f2860abc5d771c919",
+    "input_sha256": "ec282f4779deca1815af39e2c68c846e831c184965318f3550eeaff973d03166",
+    "results_sha256": "5fb5526bd012c7995b555409c1c13aa92d72c9387dd778e228aec1fb0c74c134",
+    "summary_sha256": "f5a42a50e0cf3ac72b1927bbf6d9d0f30413efae480dc02fdd08ae784c3a8d48"
+  },
+  "allocation_ledger": {
+    "allocations": 1,
+    "allocation_started_at_utc": "2026-10-26T19:45:09.018290+00:00",
+    "stopped_and_absence_verified_at_utc": "2026-10-26T20:24:27.253494+00:00",
+    "allocation_seconds": 2358.2353000000003,
+    "timestamp_interval_seconds": 2358.235204,
+    "clock_read_difference_seconds": 9.600000021237065e-05,
+    "balance_before_CU": 167.21,
+    "balance_after_CU": 166.32,
+    "observed_balance_difference_CU": 0.89,
+    "hard_caps": {
+      "allocation_seconds": 14400,
+      "observed_balance_difference_CU": 8
+    },
+    "scope": "all setup, failed connection attempts, idle time, transfers, runs and recovery in the sole allocation",
+    "segments": [
+      {
+        "name": "capacity",
+        "recovered_files": 23,
+        "segment_wall_seconds": 31.646154319999823,
+        "model_file_preflight_seconds": 12.087661106999803,
+        "resource": {
+          "sample_count": 32,
+          "sampling_interval_seconds": 1,
+          "elapsed_seconds": 32.53481551100003,
+          "peak_sampled_device_used_mib": 3926,
+          "peak_observed_process_hwm_kib": 4211232,
+          "minimum_sampled_host_available_kib": 52363680,
+          "terminal_record_present": true
+        }
+      },
+      {
+        "name": "l1",
+        "recovered_files": 143,
+        "segment_wall_seconds": 944.0009466219994,
+        "model_file_preflight_seconds": 12.012215005000144,
+        "resource": {
+          "sample_count": 907,
+          "sampling_interval_seconds": 1,
+          "elapsed_seconds": 944.6038566920006,
+          "peak_sampled_device_used_mib": 3876,
+          "peak_observed_process_hwm_kib": 4211876,
+          "minimum_sampled_host_available_kib": 52330088,
+          "terminal_record_present": true
+        }
+      },
+      {
+        "name": "replay",
+        "recovered_files": 79,
+        "segment_wall_seconds": 197.0645898390003,
+        "model_file_preflight_seconds": 11.98420080699998,
+        "resource": {
+          "sample_count": 191,
+          "sampling_interval_seconds": 1,
+          "elapsed_seconds": 198.33361501799936,
+          "peak_sampled_device_used_mib": 3838,
+          "peak_observed_process_hwm_kib": 4211432,
+          "minimum_sampled_host_available_kib": 52300608,
+          "terminal_record_present": true
+        }
+      }
+    ],
+    "recovered_files": 245,
+    "owned_children": {
+      "capacity": 2,
+      "l1": 114,
+      "replay": 8
+    },
+    "measured_segments_seconds": 1172.7116907809996,
+    "other_allocation_seconds": 1185.5236092190007
+  },
+  "L2": {
+    "input_disposition": "NO_ELIGIBLE_INPUTS",
+    "screened": 150,
+    "eligible": 0,
+    "model_evaluation": "NOT_RUN",
+    "official_scoring": "NOT_RUN",
+    "score": null
+  }
+}

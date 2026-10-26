@@ -31,13 +31,14 @@
 | G5 评测后端 / T1 | R1 PASS已接纳 | 候选60c52f8，独立审核37eb027；复用231项通过/1项既有pip检查跳过与1项工具组合，新增6项独立检查通过，8+8个child回收；[审核](../reports/reviews/P06_G5_EVALUATION_R1.md) |
 | G5 独立工具 / E1 | R1 PASS已接纳 | 候选6027096，独立审核c6c81db；109项既有/新增检查与3项独立检查通过，8+4个child回收 |
 | G5 原L1语料 / D1 | 原48题永久隔离 | d4c4251原反例和REQUEST_CHANGES保留，独立L1为0；001/002后续经新题r2复验关闭，不恢复原题；[原Q1审核](../reports/reviews/P06_G5_CORPUS_Q1_R1.md) |
-| G5 A2开发回放 / D1、Q1 | 输入PASS已接纳，性能NOT_RUN | Q1 08d4c5a核对4组×3请求、tenant/seed/来源及长度；S1回读203份审核证据，模型回放尚未运行 |
+| G5 A2开发回放 / S1 | 24请求完成，待独立终验 | 12/12原始输出配对相同，4次实际命中共5,176 tokens；完整请求总耗时91.175→91.006秒，见[实测](../reports/S1_P06_G5_EVALUATION_R1.md) |
 | G5 BFCL与分析 / E1 | R1技术与Q1零题处置PASS已接纳 | 7e56244经R1 2b47acf、Q1 d31a6a6；固定150条0合格，L2分数NOT_RUN；[技术审核](../reports/reviews/P06_G5_DATA_ANALYSIS_R1.md)、[处置](../reports/reviews/P06_G5_BFCL_DISPOSITION_Q1_R1.md) |
 | G5 L1观察依赖 / T1 | R1 r2 PASS已接纳 | ecbb520经eba411b复验：两原反例改判failure，合法分轮/独立batch保持；新增非相邻依赖真实轨迹及4个child回收；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
 | G5完整隔离参考 / D1 | R1 r2 PASS已接纳 | f159b52经eba411b复验：0保留/48隔离，独立重建3,595节点/3,506组件；改名和schema等价变形仍传递隔离全部78旧节点；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
 | G5新关系工具 / E1 | R1 r2 PASS已接纳 | 6f6a497经8e2b657独立PASS；复用60项检查及8个child，新增3项独立检查、3个child通过/回收；完整16,940份声明三类键交集0；[审核](../reports/reviews/P06_G5_CONSTRAINT_TOOLS_R2.md) |
 | G5新语料 / D1 | R1与Q1正式r2 PASS已接纳 | 28题/4组/8恢复题；[R1 bb4fc27](../reports/reviews/P06_G5_CORPUS_R2.md)、[Q1 cb4c72d](../reports/reviews/P06_G5_CORPUS_Q1_R2.md)。001/002关闭、计数各1→0；原48隔离、A2不变 |
-| P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
+| G5 L4容量 | 冻结条件PASS，23份产物已回收 | 两模型各1,792输入tokens，实际输出27/33；31.646秒，采样峰值3,926/23,034MiB，两个child已回收；Action格式失败单列，实测最长序列1,825 tokens |
+| P06 固定协议对照 | G5 ACTIVE，实际运行完成待R1/Q1终验 | [实测](../reports/S1_P06_G5_EVALUATION_R1.md)：M0/M1均0/28；A1均0/8，开启后8/8重试成功但未完成答案；245文件/124进程已回收，L4已停止，2,358.235秒/0.89 CU |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
 S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。PR30已合并d0a266d，双Python CI 40338862773全部成功且文件树一致，G4已按有据降级complete；G5为唯一active goal。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
