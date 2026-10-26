@@ -72,6 +72,6 @@ PR33已合并为 `19f6f9bbc3710487634765854f74f9af3fc80eef`，最终头5698f18�
 
 R1技术终验 `b52c7115dba09c5f83faab24f0a95baf04694280` 与Q1结果说明终验 `c4ef4645eb032d4884dc2f6ec8a414cb6f2383a6` 均PASS，S1分别回读540份、523份私有证据、各两份公开文档及完整审核脚本后接纳。R1五项独立检查通过，130次实际输入计数、完整分母、统计、成本及回收账目一致；Q1重建104次L1请求并独立审阅21例失败。新增问题0，原FAIL、48题永久隔离、M2 NOT_RUN及L2零合格处置保持。结果与审核已纳入PR34，当前等待最后提交CI及主干核对；G5仍为唯一active goal，随后进入G6。见[技术终验](../reports/reviews/P06_G5_FINAL_R1.md)与[Q1终验](../reports/reviews/P06_G5_FINAL_Q1_R1.md)。
 
-PR34已合并为`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最后提交`3730b048119d448da013aca6e9079661a587c936`的双Python CI 40400234474全部成功；S1核对主干完整文件树一致、工作树干净，G5 App goal实际complete。G6 App goal已创建并成为唯一active：共享HTTP与两包CPU任务已冻结，待派发T1服务/控制器与E1客户端/示例/说明。当前G6新模型推理及GPU分配为0；CPU/R1/主干通过后才冻结具体有界smoke。
+PR34已合并为`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最后提交`3730b048119d448da013aca6e9079661a587c936`的双Python CI 40400234474全部成功；S1核对主干完整文件树一致、工作树干净，G5 App goal实际complete。G6 App goal已创建并成为唯一active：共享HTTP与两包CPU任务已冻结，T1服务/控制器与E1客户端/示例/说明已实际从ef885c0派发并确认运行中。当前G6新模型推理及GPU分配为0；CPU/R1/主干通过后才冻结具体有界smoke。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
