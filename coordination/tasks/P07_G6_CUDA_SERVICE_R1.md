@@ -20,6 +20,8 @@
 
 30秒是接受后含排队/重载/生成的决策截止；清理尾段另计。服务总截止前5秒停止接受/生成并开始清理，外层900秒硬限收尾。queued取消/过期不启动模型或杀其他请求；active先stopping，回收确认后终态；未确认停止接受并保留真实状态。输出预算覆盖最终summary/状态/原始请求，不能补写后越界。保留所有accepted/started/terminal和worker回收记录，缺失token/phase为null。服务崩溃不自动续跑旧run。
 
+服务CLI收到SIGINT/SIGTERM须走同一有界停止/回收路径，停止接受、处理未完成请求并保留退出summary。现有Colab外层仅在超时时主动回收owned group；正常leader退出依赖服务自身清理，不能留下常驻child。用一个真实CPU服务进程的信号退出检查支持该边界；无须增加HTTP管理端点或重写控制器。
+
 ## 必要验证与交付
 
 CPU用真实loopback和真实owned child核对：loaded-ready顺序；未经认证/越权拒绝；同key重读与冲突；队列/累计容量；排队截止与取消不误杀active；active取消/超时回收后才终态；重载/cache/principal身份；GPU锁冲突；输出预算；service controller合法/非法run。以原创CPU工作负载验证边界，不装载固定Qwen；保持旧评测受影响检查通过。
