@@ -1,0 +1,11 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is 2 + 3? Return the JSON number. No tool is needed.",
+      "tool_calls": [],
+      "tool_call_id": null
+    }
+  ],
+  "tools": []
+}

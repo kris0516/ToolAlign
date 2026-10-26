@@ -4,7 +4,7 @@
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。产物已回收、Colab已停止，受限服务随后继续。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+> **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。产物已回收、Colab已停止。G6客户端CPU入口已实现；真实受限服务与独立终验待完成，见[复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 
@@ -24,6 +24,14 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 数据流程的固定来源、转换政策、复现命令和真实 tokenizer 依赖见 [P02 使用说明](reports/data/README.md)。数据与人审制品仅保留本地；历史工具调用是监督数据，未绑定可执行工具。技术审查通过不表示数据语义或模型训练已验收。
 
+## 客户端 CPU 示例
+
+```sh
+uv run --locked python -m toolalign.client demo --cases examples/service/scripted.json --output .toolalign-local/g6-demo
+```
+
+输出目录须全新。五类原创脚本覆盖正常调用、无需工具、错误参数、故障恢复和预算终止；它们不加载模型。行为检查通过包含预期失败，不代表模型成功率。逐类命令见 [示例说明](examples/service/README.md)，固定远端配置、取消、模型身份/许可与实际失败解释见 [复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)。
+
 ## 研究问题
 
 在固定数据、计算预算和评测协议下，`Qwen3-1.7B` 经 LoRA SFT，再经基于执行反馈的 DPO，能否提高工具调用的**语义任务成功率**？增加重试、量化和 prefix cache 后，准确性、延迟、内存的变化能否被分别归因？
@@ -39,7 +47,7 @@ uv run --locked python -m toolalign.training.compatibility --help
 | 所有独立实现/审查对话 | [AGENTS.md](AGENTS.md)、[协作协议](coordination/PROTOCOL.md) |
 | 训练负责人 | [训练规格](docs/03_TRAINING_SPEC.md)、[Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md) |
 | 评测负责人 | [数据治理](docs/02_DATA_GOVERNANCE.md)、[评测规格](docs/04_EVALUATION_SPEC.md) |
-| 部署负责人 | [分阶段部署路线](docs/06_DEPLOYMENT_ROADMAP.md) |
+| 部署/复现负责人 | [客户端复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)、[部署路线](docs/06_DEPLOYMENT_ROADMAP.md) |
 | 接收文档包后创建 GitHub 仓库 | [发布运行手册](docs/11_REPOSITORY_BOOTSTRAP.md) |
 
 ## 首版边界
@@ -70,4 +78,4 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 原创代码和文档采用 [MIT](LICENSE)。模型、数据和第三方依赖各自保留原许可，见 [第三方来源与发布边界](THIRD_PARTY_NOTICES.md)。不复制 LiDARFoodAgent 私有源码、真实用户数据或任何云端凭据。
 
-[参考来源](docs/09_SOURCES.md) · [风险登记](docs/07_RISKS.md) · [发布验收](docs/08_ACCEPTANCE.md) · [个人学习与答辩](docs/10_LEARNING_DEFENSE.md)
+[参考来源](docs/09_SOURCES.md) · [风险登记](docs/07_RISKS.md) · [发布验收](docs/08_ACCEPTANCE.md) · [最终说明与独立审核](docs/10_LEARNING_DEFENSE.md)

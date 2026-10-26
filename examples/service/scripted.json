@@ -1,0 +1,71 @@
+{
+  "schema": "toolalign.service-examples.v1",
+  "purpose": "public-original-scripted-development",
+  "cases": [
+    {
+      "id": "normal",
+      "input_file": "normal-input.json",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"convert-1\",\"name\":\"convert_numeric_units\",\"arguments\":{\"value\":1536,\"from_unit\":\"KiB\",\"to_unit\":\"MiB\"}}]}",
+        "{\"kind\":\"final\",\"content\":\"1.5\",\"tool_calls\":[]}"
+      ],
+      "faults": {},
+      "expected_status": "finalized",
+      "expected_reason": "final",
+      "expected_final": 1.5
+    },
+    {
+      "id": "no-tool",
+      "input_file": "no-tool-input.json",
+      "scripted_responses": [
+        "{\"kind\":\"final\",\"content\":\"5\",\"tool_calls\":[]}"
+      ],
+      "faults": {},
+      "expected_status": "finalized",
+      "expected_reason": "final",
+      "expected_final": 5
+    },
+    {
+      "id": "invalid-arguments",
+      "input_file": "invalid-arguments-input.json",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"bad-report\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-999\"}}]}"
+      ],
+      "faults": {},
+      "expected_status": "rejected",
+      "expected_reason": "invalid_arguments",
+      "expected_final": 2
+    },
+    {
+      "id": "recovery",
+      "input_file": "recovery-input.json",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"report-first\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-100\"}}]}",
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"report-retry\",\"name\":\"query_build_report\",\"arguments\":{\"report_id\":\"atlas-100\"}}]}",
+        "{\"kind\":\"final\",\"content\":\"2\",\"tool_calls\":[]}"
+      ],
+      "faults": {
+        "query_build_report": [
+          "transient",
+          null
+        ]
+      },
+      "expected_status": "finalized",
+      "expected_reason": "final",
+      "expected_final": 2
+    },
+    {
+      "id": "budget",
+      "input_file": "budget-input.json",
+      "scripted_responses": [
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"repeated-1\",\"name\":\"convert_numeric_units\",\"arguments\":{\"value\":1024,\"from_unit\":\"B\",\"to_unit\":\"KiB\"}}]}",
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"repeated-2\",\"name\":\"convert_numeric_units\",\"arguments\":{\"value\":1024,\"from_unit\":\"B\",\"to_unit\":\"KiB\"}}]}",
+        "{\"kind\":\"tool_calls\",\"content\":\"\",\"tool_calls\":[{\"call_id\":\"repeated-3\",\"name\":\"convert_numeric_units\",\"arguments\":{\"value\":1024,\"from_unit\":\"B\",\"to_unit\":\"KiB\"}}]}"
+      ],
+      "faults": {},
+      "expected_status": "budget_exhausted",
+      "expected_reason": "tool_round_limit",
+      "expected_final": 1
+    }
+  ]
+}
