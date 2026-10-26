@@ -16,7 +16,7 @@ import struct
 import subprocess
 import sys
 import types
-from dataclasses import make_dataclass
+from dataclasses import make_dataclass, replace
 from pathlib import Path
 
 import pytest
@@ -140,6 +140,154 @@ def test_private_original_directory_is_structurally_valid(miniature):
     files, token = qm._directory_files(root, spec)
     assert len(files) == 4 and files["model.safetensors"].sha256 == spec["files"]["model.safetensors"]["sha256"]
     qm._unchanged(root, files, token)
+
+
+@pytest.fixture
+def batch_model_files(miniature, monkeypatch):
+    """Mock only the pinned metadata gate; hash the original fixture bytes for real."""
+    root, spec, _ = miniature
+    spec.update(generation_eos_ids=[4, 3], training_eos_id=4, padding_id=3)
+    original_config = qm._config
+    monkeypatch.setattr(qm, "_config", lambda path: {"models": {"MOCK_ONLY": spec}}
+                        if Path(path) == CONFIG else original_config(path))
+    options = {"model_id": "MOCK_ONLY", "revision": "MOCK_ONLY", "config_path": CONFIG}
+    return root, spec, options
+
+
+def test_batch_full_hash_then_unchanged_reuse_does_not_read_weights(batch_model_files, monkeypatch):
+    root, spec, options = batch_model_files
+    hashed = []
+    original_hash = qm._hash_file
+
+    def record(path, **kwargs):
+        hashed.append(Path(path).name)
+        return original_hash(path, **kwargs)
+
+    monkeypatch.setattr(qm, "_hash_file", record)
+    files = qm.validate_model_files(root, **options)
+    assert sorted(hashed) == sorted(spec["files"])
+    for _ in range(3):
+        assert qm.recheck_model_files(files, root, **options) is files
+    assert sorted(hashed) == sorted(spec["files"])
+    path = root / "model.safetensors"
+    raw = path.read_bytes()
+    path.write_bytes(raw[:-1] + bytes([raw[-1] ^ 1]))
+    with pytest.raises(qm.QwenModelError, match="file_sha256_mismatch"):
+        qm.validate_model_files(root, **options)
+
+
+@pytest.mark.parametrize("change", ["content_restore_mtime", "replacement", "symlink", "parent_link", "extra"])
+def test_batch_reuse_rejects_changed_files(batch_model_files, change):
+    root, _, options = batch_model_files
+    files = qm.validate_model_files(root, **options)
+    path = root / "model.safetensors"
+    before = path.stat()
+    raw = path.read_bytes()
+    if change == "content_restore_mtime":
+        with path.open("r+b") as handle:
+            handle.seek(-1, os.SEEK_END)
+            handle.write(bytes([raw[-1] ^ 1]))
+        os.utime(path, ns=(before.st_atime_ns, before.st_mtime_ns))
+        assert path.stat().st_size == before.st_size
+        assert path.stat().st_mtime_ns == before.st_mtime_ns
+        assert path.stat().st_ctime_ns != before.st_ctime_ns
+    elif change == "replacement":
+        replacement = root.parent / "replacement"
+        replacement.write_bytes(raw)
+        os.utime(replacement, ns=(before.st_atime_ns, before.st_mtime_ns))
+        replacement.replace(path)
+        assert path.stat().st_ino != before.st_ino
+    elif change == "symlink":
+        target = root.parent / "original-weights"
+        path.replace(target)
+        path.symlink_to(target)
+    elif change == "parent_link":
+        moved = root.parent / "moved"
+        root.rename(moved)
+        root.symlink_to(moved, target_is_directory=True)
+    else:
+        (root / "model-extra.safetensors").write_bytes(b"original extra file")
+    with pytest.raises(qm.QwenModelError):
+        qm.recheck_model_files(files, root, **options)
+
+
+@pytest.mark.parametrize("change", ["model_id", "revision", "root", "config", "metadata"])
+def test_batch_reuse_rejects_wrong_binding(batch_model_files, change):
+    root, _, options = batch_model_files
+    files = qm.validate_model_files(root, **options)
+    if change in ("model_id", "revision"):
+        options = options | {change: "unbound"}
+    elif change == "root":
+        root = root.parent
+    elif change == "config":
+        options = options | {"config_path": root / "config.json"}
+    else:
+        files = replace(files, metadata_sha256="0" * 64)
+    with pytest.raises(qm.QwenModelError):
+        qm.recheck_model_files(files, root, **options)
+
+
+@pytest.mark.parametrize("mode", ["default_full_hash", "batch_reuse", "changed_during_load"])
+def test_cuda_loader_rechecks_after_load_and_retains_default_validation(batch_model_files, monkeypatch, mode):
+    """Real file checks and tiny CPU tensors; framework loading/device transfer are MOCK_ONLY."""
+    torch = pytest.importorskip("torch")
+    transformers = pytest.importorskip("transformers")
+    from toolalign.training.cuda_sft import engine
+
+    assert not torch.cuda.is_available()
+    root, spec, options = batch_model_files
+    files = qm.validate_model_files(root, **options)
+    hashed = []
+    original_hash = qm._hash_file
+
+    def record(path, **kwargs):
+        hashed.append(Path(path).name)
+        return original_hash(path, **kwargs)
+
+    monkeypatch.setattr(qm, "_hash_file", record)
+    monkeypatch.setattr(qm, "require_current_lease", lambda *_: None)
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: True)
+    monkeypatch.setattr(torch.cuda, "is_bf16_supported", lambda: True)
+    frozen = torch.nn.Parameter(torch.zeros(8, dtype=torch.bfloat16), requires_grad=False)
+    adapters = [torch.nn.Parameter(torch.zeros(16, dtype=torch.float32)) for _ in range(2)]
+    target = "base_model.model.model.layers.0.self_attn.q_proj"
+    model = types.SimpleNamespace(
+        parameters=lambda: [frozen, *adapters],
+        named_parameters=lambda: [(target + ".base_layer.weight", frozen),
+            (target + ".lora_A.default.weight", adapters[0]),
+            (target + ".lora_B.default.weight", adapters[1])],
+        named_modules=lambda: [(target, types.SimpleNamespace(lora_A=True))])
+
+    def transfer(*, device):
+        assert device == "cuda:0"  # No actual CUDA operation in this fixture.
+        if mode == "changed_during_load":
+            path = root / "model.safetensors"
+            before = path.stat()
+            raw = path.read_bytes()
+            path.write_bytes(raw[:-1] + bytes([raw[-1] ^ 1]))
+            os.utime(path, ns=(before.st_atime_ns, before.st_mtime_ns))
+        return model
+
+    def load(path, **kwargs):
+        assert path == str(root)
+        assert kwargs == {"local_files_only": True, "trust_remote_code": False,
+                          "torch_dtype": torch.bfloat16, "attn_implementation": "sdpa", "use_cache": False}
+        return types.SimpleNamespace(parameters=lambda: [frozen])
+
+    model.to = transfer
+    monkeypatch.setattr(transformers.AutoModelForCausalLM, "from_pretrained", load)
+    monkeypatch.setattr(engine, "attach_adapter", lambda *_: model)
+    config = {"profiles": {"formal": {"model_id": "MOCK_ONLY", "model_revision": "MOCK_ONLY"}},
+              "model": {"layers": 1, "targets": ["q_proj"], "module_count": 1,
+                        "expected_trainable_parameters": {"formal": 32}}}
+    request = {"model_root": str(root), "repository": str(REPO), "profile": "formal"}
+    kwargs = {} if mode == "default_full_hash" else {"verified_files": files}
+    if mode == "changed_during_load":
+        with pytest.raises(qm.QwenModelError, match="file_changed"):
+            engine.load_model(request, config, object(), **kwargs)
+    else:
+        assert engine.load_model(request, config, object(), **kwargs) is model
+    assert sorted(hashed) == (sorted(spec["files"]) if mode == "default_full_hash" else [])
 
 
 @pytest.mark.parametrize("change", ["missing", "extra", "payload", "size", "directory", "symlink", "parent_link", "index"])
