@@ -1,6 +1,6 @@
 # 原创客户端开发示例
 
-全部材料为公开原创 CPU scripted fixture，使用 `local-devops.v1` 固定只读工具；没有训练数据、隐藏评测题或真实模型输出。HTTP fixture 提供声明的 Action 原文，本地工具进程实际运行并回收。真实 Colab/M1 对这些输入的表现为 **NOT_RUN**。
+全部材料为公开原创CPU scripted fixture，使用`local-devops.v1`固定只读工具；没有训练数据、隐藏评测题或真实模型输出。HTTP fixture提供声明的Action原文，本地工具进程实际运行并回收。`normal-input.json`另已用于真实Colab/M1三决策轨迹：两次工具换算得到1.5 MiB，第三次仍请求工具，以`tool_round_limit`结束、没有最终答案，见[G6实测](../../reports/S1_P07_G6_SERVICE_R1.md)。其余四个示例输入的完整真实模型案例为NOT_RUN；下表五类结果均属于scripted示例，真实smoke中的独立无需工具请求与这里的`no-tool-input.json`不同。
 
 从仓库根目录运行；每次输出使用尚不存在的私有目录：
 
