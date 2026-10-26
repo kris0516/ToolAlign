@@ -26,7 +26,7 @@
 | G4 DPO CPU实现 | 独立CPU审核已接纳；输出预算问题r2 PASS关闭，原数学/恢复证据保持 | [R1 r2](../reports/reviews/P05_G4_DPO_R2.md)、[E1修订](../reports/P05_G4_DPO_FIX_R2.md) |
 | G4 批次文件验证复用 | CPU审核接纳；一次诊断已回收 | [实测](../reports/S1_P05_G4_GENERATION_R1.md)：预检12.307秒/child冷加载7.219秒，第三动作返回额外工具，20.883秒tool_round_limit |
 | P06 / G5实际评测 | M0/M1均0/28；恢复均0/8；A2的12对输出相同、4次实际缓存命中；独立终验已接纳 | [实测与21例失败](../reports/S1_P06_G5_EVALUATION_R1.md)，245文件及124进程已回收，L4已停止 |
-| P07–P09 / G6 | ACTIVE；受限服务与客户端CPU协议已冻结，实际服务未运行 | [G6协议](tasks/P07_G6_PROTOCOL.md)、[共享HTTP](../docs/18_RESTRICTED_CUDA_SERVICE.md) |
+| P07–P09 / G6 | ACTIVE；两包CPU经R1独立PASS已接纳，实际服务未运行 | [G6协议](tasks/P07_G6_PROTOCOL.md)、[共享HTTP](../docs/18_RESTRICTED_CUDA_SERVICE.md) |
 
 已登记92项问题全部关闭；Q1-G5-CORPUS-001/002经Q1正式r2 `cb4c72d` 复验及S1接纳，连续计数各1→0，原首次失败及48题永久隔离保持。P05-DPO-OUTPUT-001经E1修订及R1 `8ce08bf` 独立复验原反例PASS关闭，连续计数1→0，首次REQUEST_CHANGES保留。Q1-G4-CORPUS-001经两条提示的JSON字符串约束修订及Q1独立r2 PASS关闭，连续未通过计数1→0，首次REQUEST_CHANGES保留。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
 
@@ -75,5 +75,7 @@ R1技术终验 `b52c7115dba09c5f83faab24f0a95baf04694280` 与Q1结果说明终�
 PR34已合并为`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最后提交`3730b048119d448da013aca6e9079661a587c936`的双Python CI 40400234474全部成功；S1核对主干完整文件树一致、工作树干净，G5 App goal实际complete。G6 App goal已创建并成为唯一active：共享HTTP与两包CPU任务已冻结，T1服务/控制器与E1客户端/示例/说明已实际从ef885c0派发并确认运行中。当前G6新模型推理及GPU分配为0；CPU/R1/主干通过后才冻结具体有界smoke。
 
 G6两包CPU交付已接入候选`fa908839859b758ab2444845f9a2ad2c1eae6c57`：T1 `185d857`的149项不同检查通过、3项既有pip检查跳过，35个服务child及1个原创tiny-cache child回收；E1 `59b9c48`的30项检查通过，五类原创示例15个child回收。S1分别回读4,586/355份私有文件、20/24份公开文件并匹配最终源码，原自测失败保留。R1即将按[集成审核任务](tasks/P07_G6_INTEGRATION_REVIEW_R1.md)独立复核生产服务与Mac客户端组合及干净CPU环境；当前仅接纳作者交付，独立结论待定。G6实际CUDA/SSH服务及GPU分配仍0。
+
+R1 `00409b628af9fc2118cb547fd193d43752f77b44`对G6 CPU集成独立PASS，新增问题0。S1回读5,444份私有文件、两份公开报告、173份当前源码/配置和八个私有脚本后接纳。复用179项通过记录及3项既有跳过；新增七项真实loopback/负向/取消/重载截止/父进程退出/干净CPU入口场景通过，28个owned child全部回收。原两处审查脚本错误及定点修复记录保留，不计候选正式修订失败。PR35初始实现头d259d85的双Python CI 40409934828全部成功；当前纳入独立报告后，等待最后提交CI和主干核对。G6新GPU分配与真实服务仍0；静态审查通过的私有smoke清单最多11次生成，尚未冻结或执行。见[独立审核](../reports/reviews/P07_G6_INTEGRATION_CPU_R1.md)。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
