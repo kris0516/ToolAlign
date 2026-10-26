@@ -13,6 +13,7 @@ from pathlib import Path
 from toolalign.contracts import canonical_hash
 from toolalign.contracts.interfaces import OracleTask, SandboxContext
 from toolalign.evaluation.harness import LocalHarness, SamplingParameters
+from toolalign.evaluation.oracles import select_oracle
 from toolalign.model_io.cuda_evaluation import CUDAEvaluationBackend, evaluation_model_identity
 from toolalign.model_io.cuda_generation import BATCH_FILE_VALIDATION, MODEL_ID, MODEL_REVISION
 from toolalign.model_io.qwen_model import validate_model_files
@@ -224,7 +225,8 @@ def run_batch(request, inputs, registries, *, identity, backend_factory, cancell
                 executor = LocalToolExecutor(registry, faults=entry["faults"])
                 deadline = datetime.now(timezone.utc) + timedelta(seconds=max(0, min(expiry, unit_start + 30) - time.monotonic()))
                 context = SandboxContext(sandbox.resolve(), f"evaluation-{ordinal}", deadline.isoformat(), cancellation)
-                result = LocalHarness(registry, executor).run(entry["example"], OracleTask(**entry["oracle_task"]),
+                task = OracleTask(**entry["oracle_task"])
+                result = LocalHarness(registry, executor, oracle=select_oracle(task)).run(entry["example"], task,
                     backend, context, model_identity=model_identity,
                     sampling=SamplingParameters(unit["seed"], 0.7, 0.9), recovery_enabled=unit["recovery_enabled"])
                 row.update(status=result.score.outcome, reason=result.score.reason, result=asdict(result))

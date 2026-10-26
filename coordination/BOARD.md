@@ -1,6 +1,6 @@
 # ToolAlign 当前看板
 
-更新：2026-10-26。证据见 [PROJECT_STATUS](PROJECT_STATUS.md)，接续见 [toolalign.md](../toolalign.md)。原十天安排保留为历史计划。
+更新：2026-10-27。证据见 [PROJECT_STATUS](PROJECT_STATUS.md)，接续见 [toolalign.md](../toolalign.md)。原十天安排保留为历史计划。
 
 | 工作 | 状态 | 下一动作 |
 |---|---|---|
@@ -30,8 +30,13 @@
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
 | G5 评测后端 / T1 | R1 PASS已接纳 | 候选60c52f8，独立审核37eb027；复用231项通过/1项既有pip检查跳过与1项工具组合，新增6项独立检查通过，8+8个child回收；[审核](../reports/reviews/P06_G5_EVALUATION_R1.md) |
 | G5 独立工具 / E1 | R1 PASS已接纳 | 候选6027096，独立审核c6c81db；109项既有/新增检查与3项独立检查通过，8+4个child回收 |
-| G5 L1语料 / D1 | CPU构造进行中 | [语料任务](tasks/P06_G5_CORPUS_CPU.md)：最多48题、真实连通group、隐藏oracle与tokenizer预检 |
-| G5 BFCL与分析 / E1 | CPU实现进行中 | [任务](tasks/P06_G5_BFCL_ANALYSIS_CPU.md)：官方原始分与严格成功率分列，固定分母和配对分析 |
+| G5 L1语料 / D1 | Q1 REQUEST_CHANGES已接纳 | d4c4251原48题：两条预提交反例误判；补入具体新旧语义连接后须整组隔离，独立L1为0。001/002各首次未通过；[Q1审核](../reports/reviews/P06_G5_CORPUS_Q1_R1.md) |
+| G5 A2开发回放 / D1、Q1 | 输入PASS已接纳，性能NOT_RUN | Q1 08d4c5a核对4组×3请求、tenant/seed/来源及长度；S1回读203份审核证据，模型回放尚未运行 |
+| G5 BFCL与分析 / E1 | R1技术与Q1零题处置PASS已接纳 | 7e56244经R1 2b47acf、Q1 d31a6a6；固定150条0合格，L2分数NOT_RUN；[技术审核](../reports/reviews/P06_G5_DATA_ANALYSIS_R1.md)、[处置](../reports/reviews/P06_G5_BFCL_DISPOSITION_Q1_R1.md) |
+| G5 L1观察依赖 / T1 | R1 r2 PASS已接纳 | ecbb520经eba411b复验：两原反例改判failure，合法分轮/独立batch保持；新增非相邻依赖真实轨迹及4个child回收；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
+| G5完整隔离参考 / D1 | R1 r2 PASS已接纳 | f159b52经eba411b复验：0保留/48隔离，独立重建3,595节点/3,506组件；改名和schema等价变形仍传递隔离全部78旧节点；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
+| G5新关系工具 / E1 | CPU r2实现中 | [任务](tasks/P06_G5_CONSTRAINT_TOOLS_CPU_R2.md)：累计quorum、区间并集、依赖图、故障域碎片恢复；按完整参考检查交集 |
+| G5新语料 / D1 | 待新工具交付，尚未构造 | [r2任务](tasks/P06_G5_CORPUS_CPU_R2.md)：至多28题，四域七题；旧48保持隔离，A2不变 |
 | P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
