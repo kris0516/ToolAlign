@@ -44,6 +44,10 @@ T1读取该清单，用registry/executor/oracle运行真实轨迹。输出 `cand
 
 TRL版本与CUDA依赖锁由S1另行分包核验；本首包不添加训练框架或修改依赖。正式DPO采用标准sigmoid、completion token logprob之和、beta0.1、lr5e-6、seed42、一轮；policy与冻结reference均由同一已选SFT初始化，不能停用adapter代替reference。有效batch8、末批按实际对数；具体步数由Q1已接纳的实际对数确定。
 
+R1只读核对了[TRL 0.26.2](https://github.com/huggingface/trl/blob/v0.26.2/trl/trainer/dpo_trainer.py)与[Transformers 4.57.6](https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/trainer.py)接口，后续CPU包沿用原生DPOTrainer循环。传两个已加载SFT的PEFT模型且peft_config=None；reference全冻结/eval，不混入ref logprob缓存。显式关闭label smoothing、RPO、IPO、length desensitization、weighting、reference同步和Liger等变体。普通字符串prompt不会再次套模板，但上游会分别编码并给两条completion追加EOS；因此输入completion不预加EOS，关闭三个长度截断参数，实际prepared token IDs须与冻结输入逐项对应。
+
+优化器显式AdamW，betas=(0.9,0.999)、eps=1e-8、weight_decay=0、foreach=False、fused=False、常数lr5e-6、零warmup、max_grad_norm=0。使用SequentialSampler保持冻结顺序，microbatch1/累积8，尾组按实际微步数。保存完整optimizer/scheduler/RNG/Trainer state；分段通过on_step_end在完整optimizer步后保存并停止，保留原一轮总步数，ignore_data_skip=False。reference每次从原选中SFT重建。必要CPU验收包含不等长响应的mask/EOS/SUM数值与梯度、ln2和reference不变，以及10对样本完整两步对比第一步保存后新进程恢复第二步（尾组2）。上述均为接口方案，实际兼容和恢复仍NOT_RUN。
+
 R1先验收ln2、梯度、prompt/pad/EOS mask、长度求和、SFT加载前向一致、reference不变与仅adapter更新；随后在Colab覆盖最长对、首次optimizer state、保存及新进程/新实例完整恢复。参考方案优先两份同SFT BF16底座与FP32 adapter，容量不足再评估有身份绑定的reference logprob cache，不静默切换。
 
 G4完成条件是偏好处置、实际DPO checkpoint/曲线、资源和失败证据、R1/Q1独立终验与主干合并。效果方向由G5同协议结果决定。
