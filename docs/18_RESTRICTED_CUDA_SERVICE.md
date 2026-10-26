@@ -49,6 +49,8 @@ status 是该请求当前状态，不保证 handler 返回前仍未开始。`req
 
 ### 查询与取消
 
+`GET /v1/tool-decisions`使用同一`Idempotency-Key` header只读查询当前认证principal的已有请求，返回200及下述RequestState；不存在或越权均为404 `request_not_found`。该接口不创建记录、不刷新deadline、不触发生成，客户端还须核对返回的service_run_id和payload_hash。客户端丢失POST响应时可在原截止内按原key重读；本地截止后只允许此只读查询和cancel，不能重POST以避免原请求未到达时意外新建。
+
 `GET /v1/runs/{request_id}` 返回 200；`POST /v1/runs/{request_id}/cancel` body 必须为 `{}`。取消 queued 请求立即返回 200/cancelled；取消 active 请求先返回 202/stopping；取消已终态请求返回 200 原记录，不能再杀已用于另一请求的 worker。
 
 两者共用下表的 **RequestState** 精确字段。非本人 request_id 与不存在 ID 都返回 404，不能先泄露是否存在。

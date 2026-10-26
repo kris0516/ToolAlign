@@ -12,7 +12,7 @@
 
 ## 客户端与示例
 
-提供`python -m toolalign.client`的清楚CLI；URL仅Mac loopback，核对S1固定service_run_id和ModelIdentity。token从私有文件读入header，不进入argv或日志。重发丢失POST响应只用原key/同payload，所有轮询/重试共用单调截止。保存request_id；超时/中断时显式cancel并等待回收状态，网络不可达时写unknown，不能把本地退出写成远端已回收。不得自动换key、换run或启动Colab实例。
+提供`python -m toolalign.client`的清楚CLI；URL仅Mac loopback，核对S1固定service_run_id和ModelIdentity。token从私有文件读入header，不进入argv或日志。重发丢失POST响应只用原key/同payload且仍在原截止内，所有轮询/重试共用单调截止。保存request_id；超时/中断时若尚无ID，只用`GET /v1/tool-decisions`携带原Idempotency-Key只读查回，再显式cancel并等待回收状态；本地截止后不能重POST意外新建。网络不可达时写unknown，不能把本地退出写成远端已回收。不得自动换key、换run或启动Colab实例。
 
 原文独立parse后与返回字段交叉核对，只允许本次advertised原样schema子集、合法参数、未重复call_id，通过原registry取得一次性ValidatedCall再交LocalToolExecutor。不接受服务返回的路径、模块、可执行代码或自称ValidatedCall。Action建议和本地工具观察构成下一步ModelInput，保持完整schema/history，不静默截断。
 

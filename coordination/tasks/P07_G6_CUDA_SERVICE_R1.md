@@ -16,7 +16,7 @@
 
 启动配置`toolalign.service-run.v1`、`authorized_by=S1`、`run_kind=serving`，固定CLI为`python -m toolalign.service serve --run-config ...`。复用当前批次文件验证模式和精确模型/adapter身份；启动配置由S1决定路径、token映射、loopback端口、cache开关和有限预算，客户端无路径/采样覆盖。配置必须支持S1冻结的900秒、256MiB及至多12次实际生成smoke上限；64条记录是软件硬上限。
 
-请求遵循共享HTTP精确字段，principal由auth映射经IPC进入cache key；同key回读先于容量拒绝，不刷新deadline。仅一个cache entry，失败/active取消/超时清理；入队前拒绝不破坏当前健康请求。输入tools只接受`local-devops.v1`原样子集，允许空集；不执行任何工具。
+请求遵循共享HTTP精确字段，principal由auth映射经IPC进入cache key；同key回读先于容量拒绝，不刷新deadline。`GET /v1/tool-decisions`按Idempotency-Key只读查询，不存在时不创建，供客户端在丢失响应和已超时后安全查回/取消。仅一个cache entry，失败/active取消/超时清理；入队前拒绝不破坏当前健康请求。输入tools只接受`local-devops.v1`原样子集，允许空集；不执行任何工具。
 
 30秒是接受后含排队/重载/生成的决策截止；清理尾段另计。服务总截止前5秒停止接受/生成并开始清理，外层900秒硬限收尾。queued取消/过期不启动模型或杀其他请求；active先stopping，回收确认后终态；未确认停止接受并保留真实状态。输出预算覆盖最终summary/状态/原始请求，不能补写后越界。保留所有accepted/started/terminal和worker回收记录，缺失token/phase为null。服务崩溃不自动续跑旧run。
 
