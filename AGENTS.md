@@ -19,6 +19,6 @@
 
 ## 当前完成与接续
 
-P00–P03 与 P04 原CPU/MLX证据保留。G2 CUDA容量与完整恢复已独立验收。G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`，完成0.6B冒烟198次更新和1.7B正式SFT 743次更新，验证CE为0.041494/0.024438；196文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3等待R1/Q1独立终验；DPO、模型语义评测和服务仍NOT_RUN，不恢复旧Mac runtime任务。
+P00–P03 与 P04 原CPU/MLX证据保留。G2 CUDA容量与完整恢复已独立验收。G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`，完成0.6B冒烟198次更新和1.7B正式SFT 743次更新，验证CE为0.041494/0.024438；196文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。G3已通过R1 `300af3f` 和Q1 `34331c2` 独立终验并由S1接纳；DPO、模型语义评测和服务仍NOT_RUN，不恢复旧Mac runtime任务。
 
-2026-10-26 用户指定 Toolalign Supervisor S1 接班并继续推进；按 [分组目标](coordination/GOAL.md)依次推进，每次只有一个活动goal。G1、G2已完成，当前G3进入终验，见[执行记录](coordination/tasks/P04_CUDA_G3_SFT.md)。原逐轮完成表保留在 [迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。
+2026-10-26 用户指定 Toolalign Supervisor S1 接班并继续推进；按 [分组目标](coordination/GOAL.md)依次推进，每次只有一个活动goal。G1、G2已完成，G3独立验收通过，下一阶段G4，见[执行记录](coordination/tasks/P04_CUDA_G3_SFT.md)。原逐轮完成表保留在 [迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。

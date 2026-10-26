@@ -1,6 +1,6 @@
 # S1｜G3 完整 SFT 与原始模型初步对照
 
-状态：EXECUTION_PASS_AWAITING_INDEPENDENT_REVIEW。0.6B完成198次更新、1.7B完成743次更新，全部941个训练事件连续；196个产物文件已回收，唯一L4实例已停止并确认不存在。实际结果、曲线和证据见 [S1 G3报告](../../reports/S1_P04_CUDA_G3_SFT.md)。当前活动goal仍为G3。
+状态：ACCEPTED_R1_Q1。0.6B完成198次更新、1.7B完成743次更新，全部941个训练事件连续；196个产物文件已回收，唯一L4实例已停止并确认不存在。R1 `300af3f`、Q1 `34331c2` 独立终验通过，S1已回读接纳。实际结果、曲线和证据见 [S1 G3报告](../../reports/S1_P04_CUDA_G3_SFT.md)。
 
 实际执行源码为PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`，双Python CI 40271208505成功。原始验证CE候选 `c633bd7` 经R1 `fd4ad07` 独立CPU审查通过；完整数组经Q1 `98cf0e1` 逐行审核后才分配GPU。两profile的13例语义材料身份未变。
 
@@ -10,4 +10,4 @@
 
 累计GPU占用9124.538896/14400秒，包含安装、空闲、失败和回收；账户余额观测差3.85/8 CU。原安装SSH Broken pipe及同一进程随后exit0的证据保留，未重复提交训练。没有改变原4小时、8 CU、一个重GPU作业和4GiB新增私有产物上限。
 
-下一动作：[R1技术终验](P04_CUDA_G3_FINAL_R1.md)核对数值、恢复和选模，[Q1数据与说明终验](P04_CUDA_G3_FINAL_Q1_R1.md)核对实际消费和解释。S1接纳独立结论并合入主干后完成G3，再进入G4。validation CE不替代G5工具语义测试；DPO和正式模型评测保持NOT_RUN。
+[R1技术终验](P04_CUDA_G3_FINAL_R1.md)已核对数值、完整状态、恢复和选模；[Q1数据与说明终验](P04_CUDA_G3_FINAL_Q1_R1.md)已核对实际消费和解释。主干发布后完成G3 App goal，再进入G4；不重复完整SFT。validation CE不替代G5工具语义测试，DPO和正式模型评测保持NOT_RUN。

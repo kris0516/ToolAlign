@@ -4,7 +4,7 @@
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态（2026-10-26）：CUDA 容量与完整恢复已验收；0.6B 冒烟和 1.7B 一轮正式 SFT 已运行完成，等待 R1/Q1 独立终验。** 各自完整验证 CE 从 0.739884/1.145230 降至 0.041494/0.024438，全部产物已回收，Colab 已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。DPO 和模型语义评测保持 `NOT_RUN`。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+> **当前状态（2026-10-26）：CUDA 容量与完整恢复已验收；0.6B 冒烟和 1.7B 一轮正式 SFT 已完成，并通过 R1/Q1 独立终验。** 各自完整验证 CE 从 0.739884/1.145230 降至 0.041494/0.024438，全部产物已回收，Colab 已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。DPO 和模型语义评测保持 `NOT_RUN`。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 

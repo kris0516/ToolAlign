@@ -1,6 +1,6 @@
 # R1｜G3 实际 SFT 与选模独立终验
 
-状态：READY_FOR_REVIEW。实际执行源码固定为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`，生产实现等同已审候选 `c633bd7`。S1已完成两个profile、外部回收和实例停止；提供授权提交、实测报告及私有完整证据索引，再从该提交建立隔离分支 `codex/review-p04-cuda-g3-final-r1`。
+状态：ACCEPTED。R1提交 `300af3f4137ecea481fe188c5994822d84221d74`，独立PASS，P0/P1/P2均为0；S1已回读实际证据并接纳，见[终验报告](../../reports/reviews/P04_CUDA_G3_FINAL_R1.md)。原授权为 `c658541bbf966c324353404ed3d964329e7c1670`，实际执行源码固定为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`；以下保留原审查范围。
 
 仅新增 `reports/reviews/P04_CUDA_G3_FINAL_R1.md`、`coordination/handoffs/P04-cuda-g3-final-r1.md` 及必要私有核对结果。独立读取实际10段运行和最后/最佳完整checkpoint，复算198+743个更新的连续step、cursor、有效batch及7/2条尾批；核对固定配置、模型、数组、依赖、strict数值策略及各段身份。
 

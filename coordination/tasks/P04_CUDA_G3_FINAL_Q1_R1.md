@@ -1,6 +1,6 @@
 # Q1｜G3 实际 SFT 数据与说明终验
 
-状态：READY_FOR_REVIEW。S1已完成两个profile、外部回收和实例停止；原生派发精确授权提交、实际报告、曲线/CSV及私有证据索引。实际执行源码为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。从授权提交建立隔离分支 `codex/q1-p04-cuda-g3-final-r1`。
+状态：ACCEPTED。Q1提交 `34331c2e01bac93767c12a45d48704c2ef3d8fce`，数据与说明终验PASS；S1已回读实际证据并接纳，见[终验报告](../../reports/reviews/P04_CUDA_G3_FINAL_Q1_R1.md)。原授权为 `c658541bbf966c324353404ed3d964329e7c1670`，实际执行源码为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`；以下保留原审查范围。
 
 仅新增 `reports/reviews/P04_CUDA_G3_FINAL_Q1_R1.md`、`coordination/handoffs/P04-cuda-g3-final-q1-r1.md` 和必要私有核对结果。完整数组复用本人的 `98cf0e1` 审核，先核对实际消费manifest和配置身份；13例语义材料保持原版本，不重跑全数组/旧质量矩阵或重新标注。
 

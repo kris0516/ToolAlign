@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新：2026-10-26（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。G2验收已随PR25合入主干 `75209551c8520e5c97ed5cb424a686657a6d9da4`；实际G2执行源码为PR24 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`。当前唯一协调者S1，活动goal为G3，后续训练使用Colab GPU。
+更新：2026-10-26（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。G2验收已随PR25合入主干 `75209551c8520e5c97ed5cb424a686657a6d9da4`；实际G2执行源码为PR24 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`。当前唯一协调者S1，G3实际SFT与独立终验已通过，下一阶段G4；后续训练使用Colab GPU。
 
 | 阶段 | 已支持的结论 | 关键证据 |
 |---|---|---|
@@ -21,7 +21,7 @@
 | P04 CUDA确定性v2 / G2 | 验收PASS；实际三步、新进程及新实例恢复1,883项通过，672个张量比较差为0；R1/Q1独立终验通过 | [实测及接纳](../reports/S1_P04_CUDA_V2_RECOVERY.md)；65文件已回收、实例已停止 |
 | G3 原始验证 CE | CPU实现及独立技术审核PASS；8项实现检查、4项独立检查通过，未改变SFT选模 | [R1审核](../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)，候选c633bd7、审核fd4ad07 |
 | G3 完整输入数组 / Q1 | ACCEPTED；两个profile共7,928行逐行核对通过，原13例材料身份不变 | [Q1完整数组审核](../reports/reviews/P04_CUDA_SFT_FULL_ARRAY_Q1_R1.md)，`98cf0e1` |
-| P04 正式 SFT / G3 | EXECUTION_PASS，待独立终验；198/743次更新完成，验证CE为0.041494/0.024438 | [实测与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；196文件已回收，实例已停止 |
+| P04 正式 SFT / G3 | 独立验收PASS；198/743次更新完成，验证CE为0.041494/0.024438；R1 300af3f、Q1 34331c2已接纳 | [实测与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；196文件已回收，实例已停止 |
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
@@ -39,6 +39,6 @@ S1 已与 S0 完成协调权和证据交接，冻结数据、来源根及模型�
 
 按 [GOAL](GOAL.md)依次推进。G2的v2三步容量、新进程和新实例恢复已通过R1/Q1终验；1,883项S1检查通过，672个adapter/Adam张量比较差为0，原v1 FAIL及诊断保留，详见[G2报告](../reports/S1_P04_CUDA_V2_RECOVERY.md)。
 
-G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。0.6B/1.7B均完成冻结一轮SFT，完整验证CE从0.739884/1.145230降至0.041494/0.024438，选中step198/743。10段恢复链、941次更新、游标及选模已由S1核对；196文件已回收，唯一L4实例已停止，累计占用9,124.538896秒、余额观测差3.85 CU。下一动作是[R1技术终验](tasks/P04_CUDA_G3_FINAL_R1.md)和[Q1数据与说明终验](tasks/P04_CUDA_G3_FINAL_Q1_R1.md)，通过并合入主干后完成G3，再进入G4。DPO、模型语义评测和服务仍NOT_RUN。
+G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。0.6B/1.7B均完成冻结一轮SFT，完整验证CE从0.739884/1.145230降至0.041494/0.024438，选中step198/743。10段恢复链、941次更新、游标及选模已由S1核对；196文件已回收，唯一L4实例已停止，累计占用9,124.538896秒、余额观测差3.85 CU。[R1技术终验](../reports/reviews/P04_CUDA_G3_FINAL_R1.md) `300af3f` 与[Q1数据及说明终验](../reports/reviews/P04_CUDA_G3_FINAL_Q1_R1.md) `34331c2` 均PASS，S1已回读接纳；主干发布后完成G3并进入G4。DPO、模型语义评测和服务仍NOT_RUN。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
