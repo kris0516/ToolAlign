@@ -26,6 +26,7 @@
 复用原生 DPOTrainer 的 loss、训练、累积和保存/恢复循环；只为冻结顺序、边界控制、输入身份增加薄层适配。
 
 - 标准 sigmoid，beta=0.1，label_smoothing=0，reverse KL，reference_free=False，completion logprob 含 EOS 求和。RPO/IPO/length desensitization/weighting/reference 同步/Liger 均关闭，不注入缓存 ref logprob 列。实际数值 dtype 和 attention 路径明确记录。
+- 使用原生 `use_logits_to_keep=True`，仅计算 completion 所需的 LM-head 输出；固定 Qwen3 forward 支持此参数。将开关前后的 mask、logprob、loss 和梯度等价核对纳入下述数值 fixture，保留完整输入注意力，不截上下文。BF16 mixed precision 显式配置，核对 Accelerate 包装后实际 logits/logprob 的 dtype；不因底座是 BF16 就推定归约精度。
 - BF16 底座、FP32 Q/V LoRA、28 层、rank8、alpha16、dropout0；沿用已验收 CUDA 确定性设置，不静默降精度或换模型。只有 policy adapter 可训练。
 - AdamW 显式 betas=(0.9,0.999)、eps=1e-8、weight_decay=0、foreach=False、fused=False，常数 lr=5e-6、零 warmup、max_grad_norm=0。seed42、一轮、microbatch1、累积8。SequentialSampler 保持冻结输入顺序，尾组使用真实对数。
 - 全局训练步数始终为完整一轮的 ceil(N/8)。分段边界只在 on_step_end 完成 optimizer update 后保存并停止，不能重定义分段 max_steps 或重复消费样本。原生完整保存 optimizer/scheduler/RNG/Trainer state，save_only_model=False、ignore_data_skip=False。恢复 reference 仍从原 G3 SFT 加载。
