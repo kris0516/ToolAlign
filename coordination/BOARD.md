@@ -22,13 +22,13 @@
 | G3 原始验证 CE / T1、R1 | ACCEPTED（CPU） | c633bd7经fd4ad07独立PASS；8项实现检查、4项独立检查通过 |
 | G3 完整数组 / Q1 | ACCEPTED | 98cf0e1；两个profile共7,928行逐行核对通过，13例身份不变 |
 | P04 正式 SFT / G3 | COMPLETE | [结果与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；PR27主干1267d1a、双Python CI成功；R1/Q1通过，实例已停止 |
-| G4 CUDA候选生成 / T1 | r1实际完成，r2 CPU待派发 | d1aa1c8经R1接纳；[实测后的文件验证复用](tasks/P05_G4_MODEL_VALIDATION_CPU_R2.md)保持模型身份与deadline |
+| G4 CUDA候选生成 / T1 | r1实际完成，r2 CPU进行中 | d1aa1c8经R1接纳；[实测后的文件验证复用](tasks/P05_G4_MODEL_VALIDATION_CPU_R2.md)保持模型身份与deadline |
 | G4 train任务与偏好 / D1 | CPU与生成前语料已接纳 | [R1](../reports/reviews/P05_G4_PREFERENCE_R1.md) PASS；[Q1语料r2](../reports/reviews/P05_G4_CORPUS_Q1_R2.md) PASS，类型问题关闭、原FAIL保留 |
 | G4 真实生成 / S1 | 80/80完成，0成功/0偏好；L4已停止 | [实测](../reports/S1_P05_G4_GENERATION_R1.md)：61超时、19其他失败；已回收并保持原分母，分配3,758.929秒/1.58 CU |
-| G4 原生TRL DPO / E1 | R1 REQUEST_CHANGES，r2待派发 | [R1](../reports/reviews/P05_G4_DPO_R1.md)支持数值/恢复；[修订任务](tasks/P05_G4_DPO_FIX_R2.md)修复最终summary漏计输出预算，首次未通过计1 |
-| G4 偏好处置 / Q1 | 待独立审核 | [任务](tasks/P05_G4_PREFERENCE_Q1_R1.md)：核对0对、80条分母、监督覆盖及下一项有区分力的诊断 |
+| G4 原生TRL DPO / E1 | r2交付，R1定点复审中 | [修订](../reports/P05_G4_DPO_FIX_R2.md)61f84f5，8项定点检查通过；首次REQUEST_CHANGES计1保留，未关闭问题 |
+| G4 偏好处置 / Q1 | NO_ELIGIBLE_PAIRS已接纳 | [审核](../reports/reviews/P05_G4_PREFERENCE_Q1_R1.md)5321842：80条分母、0对及监督范围核对一致；ordinal 8可供独立诊断，DPO保持BLOCKED |
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。当前0对偏好，Q1审核处置；T1/E1两项CPU修订准备派发。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置已接纳；T1继续CPU修订，E1 r2交R1定点复审。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
