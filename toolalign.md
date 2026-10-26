@@ -4,9 +4,9 @@
 
 ## 当前结论
 
-冻结v3数据、CPU工具执行器和CUDA SFT实现均有独立审核。PR24主干的Qwen3-1.7B在同规格L4完成三步容量、新进程与新实例完整恢复；S1实际比较1,883项通过，672个adapter/Adam张量比较最大绝对差0，全部产物已回收且实例已停止。R1技术终验与Q1数据/说明终验已随PR25合入 `75209551c8520e5c97ed5cb424a686657a6d9da4`，G2完成；当前G3准备原始验证CE与完整SFT，见[固定计划](coordination/tasks/P04_CUDA_G3_SFT.md)。
+冻结v3数据、CPU工具执行器和CUDA容量/完整恢复均已独立验收，G2完成。G3已在同规格L4完成0.6B冒烟198次更新和1.7B正式SFT 743次更新；各自完整验证CE从0.739884/1.145230降至0.041494/0.024438。196个产物文件已回收，实例已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。当前G3等待R1技术终验、Q1数据与说明终验，goal保持活动。
 
-G2实际执行主干为 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`（PR24），双Python CI 40261767879成功。G3原始验证CE已由T1实现、R1独立CPU审查通过，见[审核](reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)；主干发布后准备完整数组并交Q1核对。**正式Qwen SFT、DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[当前实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
+G3实际执行主干为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`（PR26），双Python CI 40271208505成功。原始验证CE实现经R1 `fd4ad07` 审核，完整数组经Q1 `98cf0e1` 逐行核对后才分配GPU。**DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[G2实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
 
 ## 每个对话如何开始
 
@@ -20,7 +20,7 @@ G2实际执行主干为 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`（PR24），�
 
 用户已切换到 **Colab GPU**：Mac 用于编辑、CPU 测试、SSH 控制和结果分析，后续不在 Mac 上训练、做模型容量检查或批量模型任务。优先 L4 24GB，不适配时使用 A100 80GB；实际型号和显存以远端 `nvidia-smi` 为准。
 
-已向另一研究项目 Supervisor 咨询，找到现成 Colab CLI、ADC、OpenSSH、tmux 配置和 A100 同实例断线/续训工程证据；该项目也有 L4 真实模型诊断记录。接入方法可复用；**ToolAlign CUDA SFT容量及新实例恢复已实测通过，正式SFT与DPO仍待后续阶段**。流程见 [Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md)，本机索引为 `.toolalign-local/handoff-2026-10-26/LOCAL_HANDOFF.md`。
+已向另一研究项目 Supervisor 咨询，找到现成 Colab CLI、ADC、OpenSSH、tmux 配置和 A100 同实例断线/续训工程证据；该项目也有 L4 真实模型诊断记录。接入方法可复用；**ToolAlign CUDA SFT容量及新实例恢复已验收，正式SFT已执行完成并进入终验，DPO尚未运行**。流程见 [Colab 工作流与显存预算](docs/16_COLAB_WORKFLOW.md)，本机索引为 `.toolalign-local/handoff-2026-10-26/LOCAL_HANDOFF.md`。
 
 ## G2实现与后续约束
 

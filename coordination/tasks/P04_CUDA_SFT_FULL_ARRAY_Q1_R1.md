@@ -1,6 +1,6 @@
 # Q1｜G3 完整 SFT 数组增量审核
 
-状态：WAITING_FOR_ARRAYS。S1在已审核代码合入主干后准备完整smoke/formal数组，再原生派发精确源码、manifest及证据位置。Q1从该执行提交建立隔离分支 `codex/q1-p04-cuda-sft-full-array-r1`。本包不启动GPU或模型任务。
+状态：ACCEPTED。Q1独立提交 `98cf0e1370ff68ca3306e157be1f7c95ac37a2e9` 已由S1在GPU分配前接纳，实际7,928行数组、训练和验证分母及13例材料身份通过，见[审核报告](../../reports/reviews/P04_CUDA_SFT_FULL_ARRAY_Q1_R1.md)。实际执行主干为 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。以下保留原任务范围。
 
 本轮核对完整数组与冻结v3选择的对应关系：smoke为1,583条train、194条validation，formal为5,938条train、213条validation。逐行读取实际数组，核对冻结ID、顺序、rank、长度bucket、token摘要、prompt/completion/EOS边界及causal mask；验证没有重复、漏选、截断或额外样本。按实际mask独立累计监督token，预期train分别141,211和536,238，validation分别21,226和23,841。
 

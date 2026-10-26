@@ -4,7 +4,7 @@
 
 主模型：`Qwen/Qwen3-1.7B`；冒烟/容量对照：`Qwen/Qwen3-0.6B`。模型身份见 [S06/S07](09_SOURCES.md)。两者作为本项目未微调的原始 checkpoint；不要把它们写成同名 `-Base` 模型。
 
-当前（2026-10-26）后端路线为 Colab CUDA：PyTorch / Transformers / PEFT 的 LoRA SFT，TRL DPO。版本需按实际兼容性锁定；正式 CUDA 训练尚未运行。旧 MLX-LM / mlx-tune / mlx-lm-lora 的原校准与失败保留为历史，不能作为新平台验收。
+当前（2026-10-26）后端路线为 Colab CUDA：PyTorch / Transformers / PEFT 的 LoRA SFT，TRL DPO。0.6B和1.7B已使用锁定环境完成一轮SFT，等待R1/Q1独立终验，见[G3结果](../reports/S1_P04_CUDA_G3_SFT.md)；DPO尚未运行，TRL版本须按实际兼容性锁定。旧 MLX-LM / mlx-tune / mlx-lm-lora 的原校准与失败保留为历史，不能作为新平台验收。
 
 先使用 BF16 LoRA 建立可比较基线；量化作为明确的独立配置再评估，不因更换硬件静默改变数值路线。已有冻结模型为 Q/V 28层、rank 8、dropout 0、有效 scale 2；PEFT 标准 LoRA 的 alpha 为16。当前冻结数据上限为0.6B 1536、1.7B 2048；下文旧起始参数只作历史背景，正式配置以版本化 CUDA 任务为准。显存与恢复流程见 [Colab 规格](16_COLAB_WORKFLOW.md)。
 
@@ -78,4 +78,4 @@ D2 前完成 backend 兼容性判断。若主候选失败，最多选择一次�
 
 ## 8. PyTorch 能力的保留
 
-小规模 Dataset/collator、CE/DPO loss、mask/梯度校验可使用独立 PyTorch CPU 实现作为 reference；正式训练使用 Colab CUDA。旧 MLX 数值与兼容性记录保留为其原范围证据。当前 CUDA 已完成有界 SFT 容量与完整恢复实测，正式 SFT、DPO 和多卡训练不能据此登记为完成。
+小规模 Dataset/collator、CE/DPO loss、mask/梯度校验可使用独立 PyTorch CPU 实现作为 reference；正式训练使用 Colab CUDA。旧 MLX 数值与兼容性记录保留为其原范围证据。CUDA容量与完整恢复已独立验收，G3正式SFT有单独实际运行证据，当前等待终验；DPO和多卡训练尚未运行。
