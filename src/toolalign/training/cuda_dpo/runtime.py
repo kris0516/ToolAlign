@@ -18,6 +18,7 @@ from toolalign.training.cuda_sft.protocol import (
     dependency_identity,
     encoded,
     require,
+    sha,
     source_identity,
     write_bytes,
 )
@@ -26,6 +27,8 @@ from toolalign.training.cuda_sft.runtime import require_cuda
 from .checkpoint import inspect, validate_native_state
 from .data import prepare_input
 from .protocol import CONFIG_SHA256, load_protocol, select_pairs, validate_run
+
+FAILURE_RECEIPT_RESERVE = 4096
 
 
 def memory(config):
@@ -175,9 +178,13 @@ def output_size(root):
 def supervise(request):
     validate_run(request)
     load_protocol(request["repository"])
+    run_bytes = encoded(request) + b"\n"
+    output_limit = request["max_output_bytes"]
+    require(len(run_bytes) + FAILURE_RECEIPT_RESERVE <= output_limit,
+            "DPO_output_budget_has_no_receipt_space")
     output = Path(request["output_dir"])
     output.mkdir(mode=0o700, parents=False, exist_ok=False)
-    write_bytes(output / "run.json", encoded(request) + b"\n")
+    write_bytes(output / "run.json", run_bytes)
     context = multiprocessing.get_context("spawn")
     receiver, sender = context.Pipe(duplex=False)
     process = context.Process(target=_child, args=(request, sender), name="toolalign-dpo")
@@ -199,7 +206,8 @@ def supervise(request):
         while process.is_alive():
             require(interrupted is None, "DPO_interrupted")
             require(time.monotonic() < deadline, "DPO_wall_budget_exceeded")
-            require(output_size(output) <= request["max_output_bytes"], "DPO_output_budget_exceeded")
+            require(output_size(output) + FAILURE_RECEIPT_RESERVE <= output_limit,
+                    "DPO_output_budget_exceeded")
             # Drain the pipe before join: the complete identity can exceed a
             # pipe buffer, and a child sending it must not deadlock on join().
             if receiver.poll(0.1):
@@ -211,7 +219,8 @@ def supervise(request):
         require(not process.is_alive() and process.exitcode == 0, "DPO_worker_exit")
         if not received and receiver.poll():
             result = receiver.recv()
-        require(output_size(output) <= request["max_output_bytes"], "DPO_output_budget_exceeded")
+        require(output_size(output) + FAILURE_RECEIPT_RESERVE <= output_limit,
+                "DPO_output_budget_exceeded")
         require(result.get("status") == "PASS", result.get("error", "DPO_worker_missing_result"))
     except (Exception, KeyboardInterrupt) as error:
         result = {"status": "FAIL", "run_id": request["run_id"],
@@ -231,7 +240,25 @@ def supervise(request):
             sender.close()
             receiver.close()
             process.close()
-            write_bytes(output / "summary.json", encoded(result) + b"\n")
+            # The worker is reaped, so these are the final file bytes. Account
+            # for the complete encoded receipt, including exit metadata and LF.
+            used = output_size(output)
+            summary = encoded(result) + b"\n"
+            if used + len(summary) > output_limit:
+                result = {"status": "FAIL", "run_id": request["run_id"],
+                          "error": "DPO_output_budget_exceeded",
+                          "max_output_bytes": output_limit, "output_bytes_before_summary": used,
+                          "attempted_summary_bytes": len(summary),
+                          "attempted_summary_sha256": sha(summary),
+                          "previous_status": result["status"],
+                          "previous_error": result.get("error", "")[:256],
+                          **{key: result[key] for key in (
+                              "elapsed_seconds", "worker_exit_code", "interrupted_signal")}}
+                summary = encoded(result) + b"\n"
+                require(len(summary) <= FAILURE_RECEIPT_RESERVE, "DPO_failure_receipt_size")
+            # A worker may already have exceeded the limit in one write. Keep
+            # those files as failure evidence; never delete them to obtain PASS.
+            write_bytes(output / "summary.json", summary)
         finally:
             for sig, handler in previous.items():
                 signal.signal(sig, handler)
