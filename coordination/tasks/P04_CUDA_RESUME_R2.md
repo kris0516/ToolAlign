@@ -6,7 +6,7 @@
 
 先定位原因，再作最小修复。读取真实保存状态，在CPU上分析adapter、Adam状态、参数顺序和更新关系，核对官方已安装实现；对比连续路径与恢复路径。需要区分实现/状态错误与CUDA后向数值变化。不得先归因为随机性，不得扩大容差、强制fixture结果或跳过真实差异。当前预注册：FP32 adapter/Adam moments `atol=1e-6, rtol=1e-4`；loss/validation CE `atol=1e-4, rtol=1e-4`；恢复初始adapter、完整checkpoint传输、RNG、步数、游标和冻结底座严格一致。
 
-允许修改 `src/toolalign/training/cuda_sft/**`、相关 `tests/training/test_cuda_sft*`、新增 `reports/P04_CUDA_RESUME_R2.md` 与 `coordination/handoffs/P04-cuda-resume-r2.md`。协议/config/锁或数值路线若需改变，先向S1提交证据和最小方案；不自行修改共享契约。若CPU证据不足，交付一个有区分力的最小Colab诊断方案/脚本，由S1单独冻结并运行，不能在Mac加载真实模型或用CPU结果冒充CUDA复现。
+允许修改 `src/toolalign/training/cuda_sft/**`、相关 `tests/training/test_cuda_sft*`、新增 `reports/P04_CUDA_RESUME_R2.md` 与 `coordination/handoffs/P04-cuda-resume-r2.md`。协议/config/锁或数值路线若需改变，先向S1提交证据和最小方案；不自行修改共享契约。若CPU证据不足，允许新增单个 `reports/experiments/P04_CUDA_RESUME_DIAGNOSTIC.py` 及对应报告中的运行方案，交付精确可审commit；由S1单独冻结、在Colab运行。探针复用已回收state和现有实现，保持GPU互斥、有限时限/步数/输出，输出明确标为诊断。不能在Mac加载真实模型或用CPU结果冒充CUDA复现。
 
 使用S1既有共享CPU环境，只分析已保存tensor和小型原创fixture；每命令≤300秒、2线程、私有新增≤512MiB。禁止新GPU/SSH/真实模型载入、真实数据编码、包升级或修改共享环境。精确私有证据路径由S1原生给出。可先提交原因与最小候选，再补报告；最终交精确commit、命令/结果和所有未解决差异。R1独立审核后由S1合并，真实CUDA复验单独执行。
 
