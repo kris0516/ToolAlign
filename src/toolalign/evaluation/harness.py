@@ -7,9 +7,10 @@ stays in the caller. Limits are the existing protocol.v1 defaults, not new knobs
 from __future__ import annotations
 
 import hashlib
+import math
 import time
 import uuid
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -125,6 +126,24 @@ class _RequestCancellation:
 
 
 @dataclass(frozen=True)
+class SamplingParameters:
+    """Optional decoding choices; the harness budgets remain fixed."""
+
+    seed: int = 0
+    temperature: float = 0.0
+    top_p: float = 1.0
+
+    def __post_init__(self):
+        if type(self.seed) is not int or not 0 <= self.seed < 2**63:
+            raise ValueError("invalid_sampling_seed")
+        if (type(self.temperature) not in (int, float) or not math.isfinite(self.temperature)
+                or self.temperature < 0):
+            raise ValueError("invalid_sampling_temperature")
+        if type(self.top_p) not in (int, float) or not 0 < self.top_p <= 1:
+            raise ValueError("invalid_sampling_top_p")
+
+
+@dataclass(frozen=True)
 class HarnessResult:
     trace: list[dict]
     decisions: list[dict]
@@ -134,6 +153,7 @@ class HarnessResult:
     process_records: list[dict]
     token_accounting_complete: bool
     provenance: dict
+    decision_inputs: list[dict] = field(default_factory=list)
 
     @property
     def budget(self):
@@ -146,8 +166,11 @@ class LocalHarness:
         self.executor = executor
         self.oracle = oracle or SemanticOracle()
 
-    def run(self, example, task, backend, sandbox_context, *, model_identity):
+    def run(self, example, task, backend, sandbox_context, *, model_identity, sampling=None):
         started = time.monotonic()
+        sampling = SamplingParameters() if sampling is None else sampling
+        if type(sampling) is not SamplingParameters:
+            raise ValueError("sampling_parameters_required")
         model = validate_part(model_identity, "model_identity")
         deadline = datetime.now(timezone.utc) + timedelta(seconds=DEADLINE_SECONDS)
         context_error = False
@@ -165,7 +188,8 @@ class LocalHarness:
         deadline_utc = deadline.isoformat().replace("+00:00", "Z")
         cancellation = _RequestCancellation(sandbox_context.cancellation, expiry)
         context = SandboxContext(sandbox_context.root, request_id, deadline_utc, cancellation)
-        config = GenerationConfig(0, 0.0, 1.0, MAX_NEW_TOKENS, deadline_utc)
+        config = GenerationConfig(sampling.seed, sampling.temperature, sampling.top_p,
+                                  MAX_NEW_TOKENS, deadline_utc)
         provenance = {
             "protocol_version": "toolalign.protocol.v1",
             "model_input_hash": None,
@@ -178,7 +202,7 @@ class LocalHarness:
         except ContractError:
             pass
         budget = {"model_decisions": 0, "tool_rounds": 0, "input_tokens": 0, "output_tokens": 0}
-        trace, decisions, processes = [], [], []
+        trace, decisions, processes, decision_inputs = [], [], [], []
         trace_id = uuid.uuid4().hex
         final = None
         session = None
@@ -227,6 +251,19 @@ class LocalHarness:
                 # A failed signal must neither bypass close nor re-enter shutdown.
                 # Attempted cleanup is separate from the child's actual reaped record.
                 session_cleanup_attempted = True
+                metrics = session.directory / "backend-metrics.json"
+                try:
+                    if metrics.is_file():
+                        metric = read_packet(metrics)
+                        if type(metric) is not dict:
+                            raise ValueError("backend_metrics_object_required")
+                        provenance["backend_metrics"] = metric
+                        if metric.get("cold_load_seconds") is None:
+                            since = metric.get("cold_load_started_monotonic")
+                            if type(since) in (int, float):
+                                metric["incomplete_cold_load_seconds"] = max(0, time.monotonic() - since)
+                except (OSError, ValueError):
+                    provenance["backend_metrics_error"] = "unreadable_backend_metrics"
                 try:
                     session.record["operation_started"] = (
                         session.directory / "generating-0.json"
@@ -270,6 +307,7 @@ class LocalHarness:
                 clone(records),
                 accounting_complete,
                 clone(provenance),
+                decision_inputs,
             )
 
         emit("received")
@@ -309,6 +347,7 @@ class LocalHarness:
                     session.directory / f"request-{index}.json",
                     {"input": prefix, "config": asdict(config)},
                 )
+                decision_inputs.append(clone(prefix, INPUT_BYTES))
                 status, packet = session.wait(f"result-{index}.json", expiry, cancellation)
                 if status != "completed":
                     accounting_complete = False

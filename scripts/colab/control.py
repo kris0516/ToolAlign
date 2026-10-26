@@ -24,6 +24,7 @@ from support import (
     json_bytes,
     name,
     read_json,
+    run_command,
     time_remaining,
     utc_now,
     validate_payload,
@@ -70,8 +71,7 @@ def make_payload(spec: dict, endpoint: str) -> dict:
     if hashlib.sha256(data).hexdigest() != spec["run_config_sha256"]:
         raise ValueError("local run configuration hash mismatch")
     run = json.loads(data)
-    if run["schema"] != "toolalign.cuda-sft-run.v1" or run["authorized_by"] != "S1":
-        raise ValueError("expected S1's frozen CUDA run configuration")
+    run_command(run)
     payload = {
         "session": spec["session"], "endpoint": endpoint, "run_id": spec["run_id"],
         "source_commit": run["source_commit"],
