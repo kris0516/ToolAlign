@@ -13,19 +13,26 @@ from toolalign.contracts import (
     validate_tool_arguments,
 )
 from toolalign.contracts.interfaces import Rejection, ValidatedCall
-from toolalign.tools import catalog
+from toolalign.tools import catalog, heldout_catalog
 from toolalign.tools._json import CALL_BYTES, clone, validate_part
 
 REGISTRY_VERSION = "toolalign.local-registry.v1"
+_CATALOGS = {
+    "local-devops.v1": (catalog, "catalog.py"),
+    "heldout-devops.v1": (heldout_catalog, "heldout_catalog.py"),
+}
 
 
 class LocalToolRegistry:
-    def __init__(self, names=None):
-        definitions = [validate_record(spec, "tool") for spec in catalog.specs()]
+    def __init__(self, names=None, *, catalog_id="local-devops.v1"):
+        if type(catalog_id) is not str or catalog_id not in _CATALOGS:
+            raise ValueError("Unknown fixed local tool catalog")
+        module, filename = _CATALOGS[catalog_id]
+        definitions = [validate_record(spec, "tool") for spec in module.specs()]
         definition_names = [spec["name"] for spec in definitions]
         if len(definition_names) != len(set(definition_names)):
             raise ValueError("Duplicate or conflicting catalog definition")
-        if set(definition_names) != set(catalog.IMPLEMENTATIONS):
+        if set(definition_names) != set(module.IMPLEMENTATIONS):
             raise ValueError("Every catalog tool must have exactly one implementation")
         available = {spec["name"]: spec for spec in definitions}
         selected = list(available) if names is None else list(names)
@@ -34,8 +41,10 @@ class LocalToolRegistry:
         if len(selected) != len(set(selected)):
             raise ValueError("Duplicate or conflicting tool name")
         self._specs = {name: available[name] for name in sorted(selected)}
+        self._catalog_id = catalog_id
+        self._implementations = {name: module.IMPLEMENTATIONS[name] for name in self._specs}
         source_hash = hashlib.sha256(
-            files("toolalign.tools").joinpath("catalog.py").read_bytes()
+            files("toolalign.tools").joinpath(filename).read_bytes()
         ).hexdigest()
         self._manifest = {
             "registry_version": REGISTRY_VERSION,
@@ -43,7 +52,7 @@ class LocalToolRegistry:
                 {
                     "spec": spec,
                     "schema_hash": canonical_hash(spec["parameters_json_schema"]),
-                    "implementation": "toolalign.tools.catalog:" + name,
+                    "implementation": module.__name__ + ":" + name,
                     "source_hash": source_hash,
                 }
                 for name, spec in self._specs.items()
@@ -52,6 +61,10 @@ class LocalToolRegistry:
         self._hash = canonical_hash(self._manifest)
         self._issued = {}
         self._lock = threading.Lock()
+
+    @property
+    def catalog_id(self):
+        return self._catalog_id
 
     @property
     def registry_hash(self):

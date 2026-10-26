@@ -14,11 +14,16 @@ from toolalign.tools.isolation import OwnedProcess, enter_child, utc_remaining, 
 from toolalign.tools.registry import LocalToolRegistry
 
 
-def _tool_child(directory, names, registry_hash, call, fault):
+def _tool_child(directory, catalog_id, names, registry_hash, call, fault):
     enter_child(directory)
     result = ToolResult(call["call_id"], "error", None, "execution_error", False)
     try:
-        registry = LocalToolRegistry(names)
+        try:
+            registry = LocalToolRegistry(names, catalog_id=catalog_id)
+        except (ValueError, ContractError):
+            result = ToolResult(call["call_id"], "rejected", None, "child_binding_mismatch", False)
+            write_packet(Path(directory) / "result.json", result.__dict__)
+            return
         validated = registry.validate(call)
         if isinstance(validated, Rejection) or registry.registry_hash != registry_hash:
             result = ToolResult(call["call_id"], "rejected", None, "child_binding_mismatch", False)
@@ -31,7 +36,7 @@ def _tool_child(directory, names, registry_hash, call, fault):
                 raise catalog.ToolFault("injected_transient", retryable=True)
             if fault == "error":
                 raise catalog.ToolFault("injected_permanent")
-            output = catalog.IMPLEMENTATIONS[call["name"]](validated.call["arguments"])
+            output = registry._implementations[call["name"]](validated.call["arguments"])
             if fault == "oversize":
                 output = "x" * (RESULT_BYTES + 1)
             output = clone(output, RESULT_BYTES)
@@ -91,6 +96,7 @@ class LocalToolExecutor:
                 sandbox_context.root,
                 _tool_child,
                 (
+                    self.registry.catalog_id,
                     [tool["name"] for tool in self.registry.tools],
                     self.registry.registry_hash,
                     call,
