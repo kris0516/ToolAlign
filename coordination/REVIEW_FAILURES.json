@@ -4753,10 +4753,32 @@
       ],
       "next_action": "复用独立pip24解析与S1集成PASS；S1绑定新锁与精确源码执行真实Linux安装。原setup失败和全部诊断保留。",
       "deduplication_basis": "两个不同setup失败及诊断不是同问题多次正式修订；首次独立正式结论再登记。"
+    },
+    {
+      "issue_id": "P04-CUDA-RESUME-001",
+      "stable_requirement_key": "cuda_complete_checkpoint_new_process_update_equivalence",
+      "requirement": "完整checkpoint恢复后，下一步adapter、optimizer和loss须在预注册容差内复现连续运行，状态身份/RNG/游标保持一致。",
+      "summary": "真实L4从第2步恢复后，第3步前loss相同，但更新后99个adapter张量、92项Adam张量及验证CE超容差。",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 0,
+      "events": [
+        {
+          "event_kind": "OBSERVED_RUNTIME_FAILURE_PENDING_INDEPENDENT_REVIEW",
+          "candidate": "97637f336df4299a4bfd59b06f9716bb3c104796",
+          "observer": "Codex-AI(S1)",
+          "verdict": "FAIL_RUNTIME_RESUME_NUMERICS",
+          "comparison_receipt_sha256": "3fc985a68106f58f9d66226f55860987b0cf8619bceb362b0c440b435b31f135",
+          "comparison_result_sha256": "678960c8b76296863f3f83378d72633728012edf916ec104fb69d61499e269b3",
+          "adopted_at_utc": "2026-10-26T01:14:58.698048+00:00",
+          "new_failed_revision_increment": 0
+        }
+      ],
+      "next_action": "T1基于真实已保存状态定位原因，R1独立复核；未通过前不运行跨实例恢复或正式SFT，不扩大容差。",
+      "deduplication_basis": "一次连续/恢复对照的多项差异是同一S1运行发现，非多次独立正式修订。"
     }
   ],
-  "prior_findings": "现有86项问题全部关闭；Colab RECOVERY-001经r2独立PASS关闭，PROCESS-001经r3独立PASS关闭。原r1/r2 FAIL、全部原始失败与审核历史保留；冻结v3 G-DATA批准不变。",
-  "updated_at_utc": "2026-10-26T00:46:36.728942+00:00",
+  "prior_findings": "既有87项问题均关闭，全部失败历史保留；新增CUDA-RESUME-001为S1真实运行发现，尚无独立正式失败计数。",
+  "updated_at_utc": "2026-10-26T01:14:58.698305+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
