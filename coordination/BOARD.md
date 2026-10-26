@@ -35,8 +35,8 @@
 | G5 BFCL与分析 / E1 | R1技术与Q1零题处置PASS已接纳 | 7e56244经R1 2b47acf、Q1 d31a6a6；固定150条0合格，L2分数NOT_RUN；[技术审核](../reports/reviews/P06_G5_DATA_ANALYSIS_R1.md)、[处置](../reports/reviews/P06_G5_BFCL_DISPOSITION_Q1_R1.md) |
 | G5 L1观察依赖 / T1 | R1 r2 PASS已接纳 | ecbb520经eba411b复验：两原反例改判failure，合法分轮/独立batch保持；新增非相邻依赖真实轨迹及4个child回收；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
 | G5完整隔离参考 / D1 | R1 r2 PASS已接纳 | f159b52经eba411b复验：0保留/48隔离，独立重建3,595节点/3,506组件；改名和schema等价变形仍传递隔离全部78旧节点；[审核](../reports/reviews/P06_G5_ORACLE_REFERENCE_R2.md) |
-| G5新关系工具 / E1 | CPU r2实现中 | [任务](tasks/P06_G5_CONSTRAINT_TOOLS_CPU_R2.md)：累计quorum、区间并集、依赖图、故障域碎片恢复；按完整参考检查交集 |
-| G5新语料 / D1 | 待新工具交付，尚未构造 | [r2任务](tasks/P06_G5_CORPUS_CPU_R2.md)：至多28题，四域七题；旧48保持隔离，A2不变 |
+| G5新关系工具 / E1 | 已交付，R1独立复核中 | 6f6a497：60项定点检查、8个真实child通过/回收，三类排除键交集0，旧18种registry身份保持；[报告](../reports/P06_G5_CONSTRAINT_TOOLS_CPU_R2.md) |
+| G5新语料 / D1 | CPU r2构造中 | [r2任务](tasks/P06_G5_CORPUS_CPU_R2.md)：采用新关系工具及已接纳观察oracle/完整历史参考；至多28题、四域七题，旧48隔离，A2不变 |
 | P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
