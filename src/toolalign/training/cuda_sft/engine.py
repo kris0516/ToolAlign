@@ -110,7 +110,7 @@ def attach_adapter(base, config):
     return model
 
 
-def load_model(request, config, lease, *, verified_files=None):
+def load_model(request, config, lease, *, verified_files=None, with_adapter=True):
     """The sole real model loader, called inside the bounded leased process."""
     import torch
     from transformers import AutoModelForCausalLM
@@ -137,17 +137,22 @@ def load_model(request, config, lease, *, verified_files=None):
     )
     require(sum(p.numel() for p in base.parameters()) == files.expected_base_parameter_count,
             "base_parameter_count")
-    model = attach_adapter(base, config)
-    expected = {f"base_model.model.model.layers.{i}.self_attn.{target}"
-                for i in range(config["model"]["layers"]) for target in config["model"]["targets"]}
-    actual = {name for name, module in model.named_modules() if hasattr(module, "lora_A")}
-    require(actual == expected and len(actual) == config["model"]["module_count"], "adapter_module_set")
-    trainable = [(name, p) for name, p in model.named_parameters() if p.requires_grad]
-    require(sum(p.numel() for _, p in trainable)
-            == config["model"]["expected_trainable_parameters"][request["profile"]], "adapter_parameter_count")
-    require(all(".lora_A." in name or ".lora_B." in name for name, _ in trainable), "unintended_trainable_weight")
-    require(all(p.dtype == (torch.float32 if p.requires_grad else torch.bfloat16)
-                for p in model.parameters()), "model_dtype_mismatch")
+    require(type(with_adapter) is bool, "with_adapter_boolean")
+    if with_adapter:
+        model = attach_adapter(base, config)
+        expected = {f"base_model.model.model.layers.{i}.self_attn.{target}"
+                    for i in range(config["model"]["layers"]) for target in config["model"]["targets"]}
+        actual = {name for name, module in model.named_modules() if hasattr(module, "lora_A")}
+        require(actual == expected and len(actual) == config["model"]["module_count"], "adapter_module_set")
+        trainable = [(name, p) for name, p in model.named_parameters() if p.requires_grad]
+        require(sum(p.numel() for _, p in trainable)
+                == config["model"]["expected_trainable_parameters"][request["profile"]], "adapter_parameter_count")
+        require(all(".lora_A." in name or ".lora_B." in name for name, _ in trainable), "unintended_trainable_weight")
+        require(all(p.dtype == (torch.float32 if p.requires_grad else torch.bfloat16)
+                    for p in model.parameters()), "model_dtype_mismatch")
+    else:
+        model = base.requires_grad_(False)
+        require(all(p.dtype == torch.bfloat16 for p in model.parameters()), "model_dtype_mismatch")
     model = model.to(device="cuda:0")
     if verified_files is not None:
         recheck_model_files(files, request["model_root"], **file_options)
