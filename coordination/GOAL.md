@@ -6,7 +6,7 @@
 
 当前：G1–G5已complete。G4按R1/Q1通过的DATA_INSUFFICIENT_WITH_NO_DPO处置结束，原DPO checkpoint条件未满足。G5的M0/M1均0/28、恢复on/off均0/8，A2的12对原始输出相同、4次实际命中；R1 `b52c711` / Q1 `c4ef464`终验已接纳。PR34已合并主干`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最终头双Python CI 40400234474全部成功且完整文件树一致。245份产物、124进程已回收，L4已停止，G5 App goal实际complete。
 
-G6现为唯一active goal，按[正式协议](tasks/P07_G6_PROTOCOL.md)推进受限CUDA服务、Mac客户端、独立复现与GitHub交付。[HTTP字段](../docs/18_RESTRICTED_CUDA_SERVICE.md)已冻结，T1/E1两包CPU已由R1 `00409b6`独立PASS并经S1回读接纳；PR35待最终CI与主干核对，随后冻结具体GPU smoke，最多12次generate尝试、累计7,200秒/4CU，初次3,600秒。
+G6为唯一active goal，按[正式协议](tasks/P07_G6_PROTOCOL.md)完成受限CUDA服务与最终交付。两包CPU经R1 `00409b6`独立PASS，PR35主干aaab017和双Python CI核对通过。冻结11次真实尝试已完成，缓存/隔离/取消/重载有据；实际CLI工具换算正确但未生成最终答案。71份文件及2模型/2工具child回收，L4已停止，837.615秒/0.25CU，见[实测](../reports/S1_P07_G6_SERVICE_R1.md)。当前进行R1技术终验、Q1最终材料审核及最后GitHub交付；不追加GPU。
 
 | Goal | 阶段任务 | 验收产物与结束条件 |
 |---|---|---|

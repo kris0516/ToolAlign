@@ -23,7 +23,7 @@
 
 G3在Colab完成0.6B冒烟198次、1.7B正式SFT743次更新，独立容量/完整恢复及终验通过。G5固定28题的M0/M1完整成功均0/28，M1首动作格式合法28/28；A1恢复on/off均0/8；A2支持局部prefill复用。G4无有效偏好，DPO/M2未运行；L2没有官方模型分数。
 
-G6客户端与原创CPU示例有自测证据，实际服务与独立终验仍待完成。论文、简历或演示中的每项结论应链接相应 [项目证据](../coordination/PROJECT_STATUS.md)，不把数学fixture、CE下降、API completed或测试PASS写成模型语义成功。历史Mac/MLX结论保留其实际平台，不改写成CUDA证据。
+G6真实服务完成11次冻结尝试，缓存、隔离、取消与重载有据，71份文件已回收、实例已停止。实际CLI两次工具换算正确，但没有最终答案；最终R1/Q1审核待接纳。论文、简历或演示中的每项结论应链接相应[项目证据](../coordination/PROJECT_STATUS.md)，不把数学fixture、CE下降、API completed或测试PASS写成模型语义成功。历史Mac/MLX结论保留其实际平台，不改写成CUDA证据。
 
 ## 4. 可选学习路径
 

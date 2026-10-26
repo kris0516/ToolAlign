@@ -1,6 +1,6 @@
 # 19｜受限客户端复现与交付
 
-2026-10-27。当前可复现的是 Mac 客户端、真实 loopback HTTP 和固定只读工具的 CPU 路径。五类原创 scripted 示例不加载模型。真实 Mac→SSH→Colab CUDA 服务、服务回滚及 G6 独立终验仍为 **NOT_RUN**；S1 在两实现包集成和 R1 审核后冻结实际运行。客户端自测与原始失败见 [CPU 交付报告](../reports/P07_G6_MAC_CLIENT_CPU_R1.md)。
+2026-10-27。Mac→SSH→Colab L4固定M1服务已完成11次冻结尝试，实际缓存命中、principal隔离、active取消与新worker重载有据；产物已回收，实例已停止。真实CLI两次工具换算正确，但未生成最终答案，见[实际服务报告](../reports/S1_P07_G6_SERVICE_R1.md)。干净CPU复现已由R1通过，最终R1/Q1材料审核待接纳；部署回滚仍NOT_RUN。五类原创scripted示例不加载模型，客户端自测与原始失败见[CPU交付报告](../reports/P07_G6_MAC_CLIENT_CPU_R1.md)。
 
 ## CPU 用户入口
 
@@ -22,13 +22,22 @@ uv run --locked python -m toolalign.client demo \
 
 ## 连接固定远端服务
 
-S1 提供经批准的精确源码、`toolalign.service-run.v1` 私有配置、冻结 M1 制品、依赖锁、认证映射与实际端口；配置须声明 `authorized_by=S1`、`run_kind=serving`。固定入口为下列命令，**此处尚无真实 G6 启动成功记录**：
+S1 提供经批准的精确源码、`toolalign.service-run.v1` 私有配置、冻结 M1 制品、依赖锁、认证映射与实际端口；配置须声明 `authorized_by=S1`、`run_kind=serving`。本轮真实运行版本为[PR35 main `aaab017`](https://github.com/kris0516/ToolAlign/commit/aaab0171246feaf307ad2c626108e94383e438d9)。固定服务入口为：
 
 ```sh
 python -m toolalign.service serve --run-config "$TOOLALIGN_SERVICE_RUN_CONFIG"
 ```
 
-服务只绑定 Colab `127.0.0.1`。用现有包装先检查 `sessions/status`，确认本任务命名会话存在、SSH alias 指向该会话，且包装在会话缺失时失败；不能用官方 CLI 的缺省自动创建路径代替这一步。OpenSSH 转发形式如下，三个变量由 S1 的实际回执填写：
+服务只绑定Colab `127.0.0.1`。用现有包装先检查`sessions/status`，确认本任务命名会话存在、SSH alias指向该会话，且包装在会话缺失时失败；不能用官方CLI的缺省自动创建路径代替这一步。先通过控制器在tmux内启动服务，退出启动连接，再建立转发。本轮CLI 0.7.4的实测限制为同实例仅一条活动SSH：隧道存在时另开启动连接返回HTTP429。没有重复启动模型，原失败已保留。
+
+经S1冻结的私有control spec对应下列既有入口；`setup`只在该run尚未安装时执行，连接中断后先`status`确认原作业状态：
+
+```sh
+python scripts/colab/control.py --spec "$TOOLALIGN_CONTROL_SPEC" setup
+python scripts/colab/control.py --spec "$TOOLALIGN_CONTROL_SPEC" launch
+```
+
+OpenSSH转发形式如下，三个变量由实际私有回执填写：
 
 ```sh
 ssh -N -o ExitOnForwardFailure=yes \
@@ -36,7 +45,7 @@ ssh -N -o ExitOnForwardFailure=yes \
   "$TOOLALIGN_EXISTING_SSH_ALIAS"
 ```
 
-实际会话、端口、完整 SSH 命令及连通性证据由 S1 真实 smoke 后补齐，当前为 NOT_RUN。Colab 安装、启动、空闲、传输与清理均计入资源账目，流程见 [16号文档](16_COLAB_WORKFLOW.md)。客户端没有申请实例、换模型或重启服务的功能。
+本轮实际两端loopback端口均为18761，完整SSH argv、会话归属、HTTP原始回包和模型身份留在私有回执。该实例已停止；重现需要经批准的新命名会话和新run/output，不能重放旧started请求。安装、启动、空闲、传输与清理均计入资源账目，流程见[16号文档](16_COLAB_WORKFLOW.md)。客户端没有申请实例、换模型或重启服务的功能。
 
 将 S1 交付的 token 放入私有0600文件；配置中的 `token_file` 相对配置文件目录解析。以下为配置格式，`18080` 和 run ID 是待替换示意值，七字段 M1 身份来自已回收 G5 实测：
 
@@ -87,7 +96,17 @@ uv run --locked python -m toolalign.client cancel \
 
 该命令不会创建新决策。`terminal_observed` 表示已回读终态；正常 completed 的 worker 可以为 `live` 以复用 warm/cache，因此不能把该字段称为“worker已回收”。active cancel/timeout 的终态必须有 `reaped` 证据，queued 取消可以为 `not_started`。
 
-`run` 退出码0表示 finalized，1表示未完成，130表示用户取消；2表示输入、配置或本地 I/O 拒绝。`cancel` 退出码0表示读到终态，1表示未确认。服务进程由 S1 的既有控制器停止，先回收请求/进程证据并确认 child 与 GPU lease 释放，再停止本任务 Colab 实例并读回活动分配；关闭 SSH 不会释放实例。
+`run`退出码0表示finalized，1表示未完成，130表示用户取消；2表示输入、配置或本地I/O拒绝。`cancel`退出码0表示读到终态，1表示未确认。关闭转发隧道后才使用另一条SSH控制连接。服务到预设墙钟期限会停止；如提前停止，只向已核对argv/进程身份的服务父进程发信号，不能按名称杀其他作业。本轮在生成次数上限已回收child后用定向SIGTERM结束HTTP父进程，退出0。
+
+先确认服务终态及child/lease释放，再回收并停止实例：
+
+```sh
+python scripts/colab/control.py --spec "$TOOLALIGN_CONTROL_SPEC" status
+python scripts/colab/control.py --spec "$TOOLALIGN_CONTROL_SPEC" recover
+python scripts/colab/control.py --spec "$TOOLALIGN_CONTROL_SPEC" stop
+```
+
+`recover`回读完整manifest与字节后确认，`stop`核对全部run已持久化并验证实例缺席；关闭SSH本身不会释放实例。重试前检查已有receipt，不能把连接失败当成作业失败后直接重新提交。
 
 ## 模型制品、许可与回滚
 
@@ -138,10 +157,10 @@ G5固定28题中M0/M1完整成功均0/28；首动作格式合法为1/28和28/28�
 
 真实失败 `unit_id=6/M1` 属于无需工具题：前两次动作各调用2个工具，第三次完整输入增至1991 tokens，加256输出预留为2247，超过2048；以 `backend_error/context_overflow` 结束，没有最终答案。5个owned child均已回收。原结果文件 SHA256 为 `001709eac0905a9bf279396ad1d3c1b288ca9a6af3d1c47c51e65ce1f2cf0a89`，该行 SHA256 为 `6c270503c22528a801498e63bd2d3ff34f3eaadf570d003bb85b039f0f02dcf2`。这说明格式正确与工具执行完成仍不足以决定何时停止；客户端保留失败，不压缩历史或补写final。隐藏题面与答案未复制到开发示例。
 
-G5分配实际2358.235秒、余额观测差0.89 CU，产物已回收、实例已停止。G6仍待运行：累计上限7200秒/4 CU，首次分配3600秒、真实generate至多12次，单服务900秒/256MiB；这些是上限，不是已发生用量。
+G5分配实际2358.235秒、余额观测差0.89 CU。G6本轮唯一L4分配837.615秒、余额166.20→165.95 CU，71份远端文件已回收、实例已停止；采样显存峰值3856 MiB，CUDA allocated/reserved峰值3469.662/3592 MiB。实际11次尝试为10 completed、1 cancelled；完整CLI14.378秒后因工具轮次上限未完成，不能把API completed当作任务成功。两次同principal缓存各命中580 tokens，跨principal及重载后均miss。计时口径、缺失计量与原失败见[完整报告](../reports/S1_P07_G6_SERVICE_R1.md)。累计7200秒/4CU、首次3600秒、单服务900秒/256MiB为原上限。
 
 ## 交付与独立复核
 
-从 [CPU交接](../coordination/handoffs/P07-g6-mac-client-cpu-r1.md)取得精确客户端提交、命令及私有索引；G6最终集成、公开GitHub提交/CI读回和实际smoke由S1登记到 [PROJECT_STATUS](../coordination/PROJECT_STATUS.md)。本页不预填未发生的发布或运行成功。
+从[CPU交接](../coordination/handoffs/P07-g6-mac-client-cpu-r1.md)取得精确客户端提交、命令及私有索引；[G6实测](../reports/S1_P07_G6_SERVICE_R1.md)绑定实际源码、冻结配置和完整回收。两个完整G3训练checkpoint及本轮原始回执由S1私有交付索引定位。最终独立接纳与GitHub最后版本读回登记到[PROJECT_STATUS](../coordination/PROJECT_STATUS.md)。
 
 R1负责精确集成候选、干净CPU环境及真实远端链路的技术验收；独立Q1 AI核对示例、上述样本/数学/失败说明与实际证据。执行 [REVIEW_POLICY](../coordination/REVIEW_POLICY.md)，不记作kris本人签字或掌握程度证明。

@@ -8,7 +8,7 @@ G1–G5已完成，当前唯一active goal为G6受限推理、复现与交付。
 
 G5冻结28题/4组的M0/M1完整成功均0/28；M1首动作格式合法28/28，但66个合法动作全为tool_calls。恢复on/off均0/8；A2的12对原始输出相同、4次真实缓存命中，支持局部prefill收益。L2固定筛选0合格，没有官方模型分数。245份产物与124个进程已回收，唯一L4已停止，累计2,358.235秒/0.89CU。见[实测与21例失败](reports/S1_P06_G5_EVALUATION_R1.md)、[R1终验](reports/reviews/P06_G5_FINAL_R1.md)和[Q1终验](reports/reviews/P06_G5_FINAL_Q1_R1.md)。
 
-PR34已合并主干`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，双Python CI 40400234474成功、主干与受检头完整文件树一致，G5 App goal实际complete。[G6协议](coordination/tasks/P07_G6_PROTOCOL.md)及[共享HTTP字段](docs/18_RESTRICTED_CUDA_SERVICE.md)现已冻结：T1服务/控制器与E1客户端/示例/说明CPU包已由[R1 `00409b6`](reports/reviews/P07_G6_INTEGRATION_CPU_R1.md)独立PASS，S1回读接纳七项新增场景与28个回收child；PR35最终CI及主干核对后冻结有界真实smoke。**实际G6服务与新GPU分配仍NOT_RUN/0。** 原FAIL、48题永久隔离及所有失败历史保留。
+PR34主干核对后G5 App goal实际complete。G6两包CPU经[R1 `00409b6`](reports/reviews/P07_G6_INTEGRATION_CPU_R1.md)独立PASS；PR35主干`aaab0171246feaf307ad2c626108e94383e438d9`与受检头文件树一致，双Python CI 40412567146全部成功。固定11次真实服务尝试完成：10 completed、1 cancelled，两次缓存命中、跨身份隔离及新worker重载有据；真实CLI两次换算正确但未生成最终答案。[71份产物](reports/S1_P07_G6_SERVICE_R1.md)已回收，唯一L4已停止，837.615秒/0.25CU。**G6保持唯一active，等待独立R1/Q1终验与最后GitHub读回；不追加GPU。** 原FAIL、48题永久隔离及所有失败历史保留。
 
 ## 每个对话如何开始
 
