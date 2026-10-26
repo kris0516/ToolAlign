@@ -10,6 +10,7 @@ from toolalign.contracts import canonical_hash, model_input_from_example
 from toolalign.contracts.interfaces import OracleTask, SandboxContext
 from toolalign.data.common import DataError, read_json, write_json
 from toolalign.evaluation.harness import LocalHarness
+from toolalign.evaluation.oracles import select_oracle
 from toolalign.model_io.cuda_generation import prompt_ids
 from toolalign.tools import CancellationToken, LocalToolExecutor, LocalToolRegistry
 from toolalign.tools.scripted import SCRIPTED_IDENTITY, ScriptedCPUModelBackend
@@ -17,16 +18,17 @@ from toolalign.tools.scripted import SCRIPTED_IDENTITY, ScriptedCPUModelBackend
 from .tasks import CATALOG
 
 
-def run_script(task, responses, root, run_id):
+def run_script(task, responses, root, run_id, *, catalog=CATALOG):
     root = Path(root)
     root.mkdir(parents=True, exist_ok=False)
-    registry = LocalToolRegistry(task["tool_names"], catalog_id=CATALOG)
+    registry = LocalToolRegistry(task["tool_names"], catalog_id=catalog)
     executor = LocalToolExecutor(registry, faults=task["faults"])
     context = SandboxContext(root, run_id,
                              (datetime.now(timezone.utc) + timedelta(seconds=30)).isoformat(),
                              CancellationToken())
-    result = LocalHarness(registry, executor).run(
-        task["example"], OracleTask(**task["oracle_task"]), ScriptedCPUModelBackend(responses),
+    oracle_task = OracleTask(**task["oracle_task"])
+    result = LocalHarness(registry, executor, select_oracle(oracle_task)).run(
+        task["example"], oracle_task, ScriptedCPUModelBackend(responses),
         context, model_identity=SCRIPTED_IDENTITY)
     row = {"task_id": task["task_id"], "scripted_cpu_only": True,
            "responses": responses, "harness_result": asdict(result)}
@@ -45,7 +47,8 @@ def check_scripts(bundle, authoring, root):
                        for label, responses in case["negative_scripts"].items())
         for index, (kind, label, responses) in enumerate(scripts):
             relative = Path(task["task_id"]) / f"script-{index}" / "result.json"
-            row = run_script(task, responses, root / relative.parent, f"cpu-{index}")
+            row = run_script(task, responses, root / relative.parent, f"cpu-{index}",
+                             catalog=bundle["catalog"])
             result = row["harness_result"]
             expected = "success" if kind == "positive" else "failure"
             checks.append({"task_id": task["task_id"], "kind": kind, "label": label,
