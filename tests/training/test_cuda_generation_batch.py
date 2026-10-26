@@ -6,8 +6,10 @@ import copy
 import json
 import subprocess
 import sys
+import time
 from dataclasses import asdict
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -69,11 +71,13 @@ def batch(tmp_path):
     return request, task_document, registry, identity
 
 
-def execute_fixture(batch, *, factory=None, **patch):
+def execute_fixture(batch, *, factory=None, model_file_preflight_seconds=None,
+                    started_monotonic=None, **patch):
     request, tasks, registry, identity = batch
     request = request | patch
     summary = run_batch(request, tasks, registry, identity=identity,
-        backend_factory=factory or (lambda _: ScriptedCPUModelBackend([final(17)])))
+        backend_factory=factory or (lambda _: ScriptedCPUModelBackend([final(17)])),
+        started_monotonic=started_monotonic, model_file_preflight_seconds=model_file_preflight_seconds)
     root = Path(request["output_dir"])
     rows = [json.loads(line) for line in (root / "candidates.jsonl").read_text().splitlines()]
     return summary, rows
@@ -209,6 +213,72 @@ def test_batch_deadline_reaps_current_child_and_does_not_start_next_id(batch):
     result = rows[0]["harness_result"]
     assert result["trace"][-1]["event"] == "timed_out"
     assert result["process_records"][0]["reaped"] and result["process_records"][0]["stopped"]
+
+
+def test_preflight_cost_consumes_segment_budget_before_any_candidate(batch):
+    def must_not_start(_):
+        raise AssertionError("preflight exhausted the segment budget")
+
+    summary, rows = execute_fixture(batch, factory=must_not_start, max_wall_seconds=1,
+        started_monotonic=time.monotonic() - 2, model_file_preflight_seconds=2.0)
+    assert summary["status"] == "wall_limit" and rows == []
+    assert summary["segment_wall_seconds"] >= 2.0
+    assert summary["model_file_preflight_seconds"] == 2.0
+    assert summary["not_started_trajectories"] == 4
+    assert not (Path(batch[0]["output_dir"]) / "states").exists()
+
+
+def test_preflight_timing_is_segment_metadata_and_does_not_change_resume_identity(batch, tmp_path):
+    summary, first_rows = execute_fixture(batch, max_trajectories=1, model_file_preflight_seconds=0.1)
+    first_hash = summary["batch_sha256"]
+    summary, resumed_rows = execute_fixture(batch, model_file_preflight_seconds=0.7,
+        **resume_arguments(batch, tmp_path / "resumed-with-new-preflight"))
+    assert summary["batch_sha256"] == first_hash
+    assert summary["model_file_preflight_seconds"] == 0.7
+    assert summary["restored_trajectories"] == 1 and summary["new_trajectories"] == 3
+    assert resumed_rows[:1] == first_rows
+    assert b"preflight_seconds" not in (Path(batch[0]["output_dir"]) / "batch.json").read_bytes()
+
+
+def test_production_execute_preflights_once_per_invocation_and_passes_only_memory_metadata(batch, monkeypatch):
+    """Production dispatch only; authorization/dependencies and file validation are MOCK_ONLY here."""
+    from toolalign.training.cuda_generate import runner
+
+    request = batch[0]
+    imported_before = set(sys.modules)
+    clock = iter([10.0, 11.0, 13.0, 20.0, 21.0, 25.0])
+    monkeypatch.setattr(runner, "time", SimpleNamespace(monotonic=lambda: next(clock)))
+    monkeypatch.setattr(runner, "source_identity", lambda *_: {"MOCK_ONLY": "source"})
+    monkeypatch.setattr(runner, "dependency_identity", lambda *_: {"MOCK_ONLY": "dependencies"})
+    validated = []
+
+    def preflight(root, **options):
+        assert root == request["model_root"]
+        assert options == {"model_id": runner.MODEL_ID, "revision": runner.MODEL_REVISION,
+                           "config_path": ROOT / "configs/qwen-models.v1.json"}
+        evidence = object()
+        validated.append(evidence)
+        return evidence
+
+    def dispatch(received_request, tasks, registry, **kwargs):
+        assert received_request == request
+        # These are real backend constructors, which must remain framework-free.
+        for candidate in request["candidate_plan"]:
+            backend = kwargs["backend_factory"](candidate)
+            assert backend._verified_files is validated[-1]
+            assert backend._model is backend._lease is None
+        assert kwargs["identity"]["model_file_validation"] == runner.BATCH_FILE_VALIDATION
+        assert "preflight_seconds" not in encoded(kwargs["identity"]).decode()
+        return {key: kwargs[key] for key in ("identity", "started_monotonic", "model_file_preflight_seconds")}
+
+    monkeypatch.setattr(runner, "validate_model_files", preflight)
+    monkeypatch.setattr(runner, "run_batch", dispatch)
+    first, second = runner.execute(request), runner.execute(request)
+    assert len(validated) == 2 and validated[0] is not validated[1]
+    assert first["identity"] == second["identity"]
+    assert (first["started_monotonic"], first["model_file_preflight_seconds"]) == (10.0, 2.0)
+    assert (second["started_monotonic"], second["model_file_preflight_seconds"]) == (20.0, 4.0)
+    assert not {"torch", "transformers", "peft", "mlx"} & (set(sys.modules) - imported_before)
 
 
 def test_each_candidate_gets_the_same_fresh_fault_schedule(batch):

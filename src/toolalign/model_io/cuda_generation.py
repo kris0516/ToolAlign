@@ -38,6 +38,7 @@ CHECKPOINT_SHA256 = "cfb02aec2279138c01f8b336abc08a588d0ab11efa8db68fd61ba0b6150
 ADAPTER_SHA256 = "973c440e29090892ad11d6d56b94bad4c98a5398c223e2b4302d7dba7c4640ed"
 SFT_SOURCE_COMMIT = "2abbe7ac913661df1d5e430f285604b4ceb8ff4b"
 CONTEXT_TOKENS = 2048
+BATCH_FILE_VALIDATION = "batch_full_hash_child_stat.v1"
 
 
 def selected_model_identity(repository):
@@ -121,13 +122,14 @@ def decode_once(model, tokenizer, ids, config, *, device, identity):
 
 
 class CUDAGenerationBackend:
-    def __init__(self, *, repository, model_root, checkpoint_dir, run_id):
+    def __init__(self, *, repository, model_root, checkpoint_dir, run_id, verified_files=None):
         self.repository = str(repository)
         self.model_root = str(model_root)
         self.checkpoint_dir = str(checkpoint_dir)
         self.run_id = run_id
         self.identity = selected_model_identity(repository)
         self._creator_pid = os.getpid()
+        self._verified_files = verified_files
         self._tokenizer = self._model = self._lease = None
         self._metrics = {}
 
@@ -139,7 +141,12 @@ class CUDAGenerationBackend:
         if self._tokenizer is None:
             self._metrics = {"backend": "cuda-selected-sft.v1", "cold_load_seconds": None,
                              "cold_load_started_monotonic": time.monotonic(),
-                             "seed_policy": "reset_per_decision"}
+                             "seed_policy": "reset_per_decision",
+                             "model_file_validation": BATCH_FILE_VALIDATION
+                             if self._verified_files is not None else "child_full_hash.v1",
+                             "cold_load_scope": "tokenizer_through_cuda_ready_excludes_batch_file_preflight"
+                             if self._verified_files is not None
+                             else "tokenizer_through_cuda_ready_includes_full_file_validation"}
             self._report("tokenizer_loading")
             # This verified engine must be constructed before importing torch.
             self._tokenizer = OfflineQwenTokenizer(self.model_root, repo_id=MODEL_ID,
@@ -183,7 +190,8 @@ class CUDAGenerationBackend:
         self._report("model_loading")
         torch.cuda.reset_peak_memory_stats(0)
         self._model = load_model({"repository": self.repository, "model_root": self.model_root,
-                                  "profile": "formal"}, config, self._lease)
+                                  "profile": "formal"}, config, self._lease,
+                                 verified_files=self._verified_files)
         restore_adapter(self._model, state["adapter"], expected_hash=ADAPTER_SHA256)
         del state, raw
         self._model.gradient_checkpointing_disable()

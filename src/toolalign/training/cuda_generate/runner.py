@@ -15,10 +15,14 @@ from toolalign.contracts.interfaces import OracleTask, SandboxContext
 from toolalign.evaluation.harness import LocalHarness, SamplingParameters
 from toolalign.model_io.cuda_generation import (
     ADAPTER_SHA256,
+    BATCH_FILE_VALIDATION,
     CHECKPOINT_SHA256,
+    MODEL_ID,
+    MODEL_REVISION,
     CUDAGenerationBackend,
     selected_model_identity,
 )
+from toolalign.model_io.qwen_model import validate_model_files
 from toolalign.tools import CancellationToken, LocalToolExecutor
 from toolalign.training.cuda_sft.protocol import (
     CONFIG_SHA256,
@@ -168,6 +172,7 @@ def summarize(records, tasks, plan, *, request, reason, segment_seconds, restore
             "trajectory_time_complete": all(row["elapsed_seconds"] is not None for row in records.values()),
             "cold_load_seconds": [r["cold_load_seconds"] for r in resources
                                   if r.get("cold_load_seconds") is not None],
+            "cold_load_scopes": sorted({r["cold_load_scope"] for r in resources if "cold_load_scope" in r}),
             "incomplete_cold_load_seconds": [r["incomplete_cold_load_seconds"] for r in resources
                                              if "incomplete_cold_load_seconds" in r],
             "peak_allocated_bytes": max((r["peak_allocated_bytes"] for r in resources
@@ -179,7 +184,7 @@ def summarize(records, tasks, plan, *, request, reason, segment_seconds, restore
 
 
 def run_batch(request, task_document, registry, *, identity, backend_factory,
-              cancellation=None, started_monotonic=None):
+              cancellation=None, started_monotonic=None, model_file_preflight_seconds=None):
     """Host-side orchestration seam; CPU fixtures supply an explicitly labeled backend.
 
     The factory receives a plan item only, never Example/oracle/faults. The public
@@ -253,6 +258,7 @@ def run_batch(request, task_document, registry, *, identity, backend_factory,
     summary = summarize(records, tasks, plan, request=request, reason=reason,
                         segment_seconds=time.monotonic() - started, restored=restored, batch_hash=batch_hash)
     summary.update(identity=identity, recovered_files=recovered_files,
+                   model_file_preflight_seconds=model_file_preflight_seconds,
                    candidates_sha256=sha(candidates), max_output_bytes=store.max_bytes,
                    output_bytes_before_summary=store.size)
     store.json("summary.json", summary)
@@ -267,15 +273,21 @@ def execute(request, *, cancellation=None):
     load_protocol(request["repository"])
     source = source_identity(request["repository"], request["source_commit"])
     dependencies = dependency_identity(request["dependency_lock"], request["dependency_lock_sha256"])
+    preflight_started = time.monotonic()
+    verified_files = validate_model_files(request["model_root"], model_id=MODEL_ID,
+        revision=MODEL_REVISION, config_path=Path(request["repository"]) / "configs/qwen-models.v1.json")
+    preflight_seconds = time.monotonic() - preflight_started
     identity = {"execution_kind": "REAL_CUDA_SFT", "source": source,
                 "config_sha256": CONFIG_SHA256, "tasks_sha256": request["tasks_sha256"],
                 "model_identity": selected_model_identity(request["repository"]),
                 "checkpoint_sha256": CHECKPOINT_SHA256, "adapter_sha256": ADAPTER_SHA256,
-                "dependencies": dependencies}
+                "dependencies": dependencies, "model_file_validation": BATCH_FILE_VALIDATION}
 
     def backend(candidate):
         return CUDAGenerationBackend(repository=request["repository"], model_root=request["model_root"],
-                                     checkpoint_dir=request["checkpoint_dir"], run_id=request["run_id"])
+                                     checkpoint_dir=request["checkpoint_dir"], run_id=request["run_id"],
+                                     verified_files=verified_files)
 
     return run_batch(request, tasks, registry, identity=identity, backend_factory=backend,
-                     cancellation=cancellation, started_monotonic=started)
+                     cancellation=cancellation, started_monotonic=started,
+                     model_file_preflight_seconds=preflight_seconds)
