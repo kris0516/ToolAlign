@@ -2,15 +2,15 @@
 
 ## 当前状态
 
-`kris0516/ToolAlign` 已由用户创建为公开仓库。当前会话已通过 GitHub 写入规划基线；因此本仓库**不再需要运行首次建仓脚本**。首次发布脚本保留在 `scripts/publish_plan_repo.sh`，仅用于记录原规划包的安全发布设计，不应对当前仓库再次执行 `--publish`。
+`kris0516/ToolAlign`已是公开仓库，后续代码和实验采用branch/PR/独立审查流程；本仓库**不再需要运行首次建仓脚本**。当前受检版本、运行和验收见[PROJECT_STATUS](../coordination/PROJECT_STATUS.md)。首次发布脚本保留在`scripts/publish_plan_repo.sh`，仅用于记录原规划包的发布设计，不应对当前仓库再次执行`--publish`。
 
 ## Supervisor 接手
 
 1. 克隆或在 Codex 中打开 `https://github.com/kris0516/ToolAlign`。
-2. 读取 `AGENTS.md`、`SUPERVISOR_START_HERE.md`、`docs/00_MASTER_PLAN.md`、`coordination/PROTOCOL.md`。
-3. 用 GitHub/Git 读回当前 `main` 的精确 SHA，并登记为 P00 的 base commit。
-4. 领取 P00，冻结 contracts、最小项目结构、测试入口与共享 GPU 锁实现。
-5. P00 合并后再按依赖分发 P01/P02/P03 到**独立 Codex 对话**；禁止 sub-agent。
+2. 实际读取本机avoid-overkill技能，再读[AGENTS](../AGENTS.md)、[toolalign.md](../toolalign.md)和[当前状态](../coordination/PROJECT_STATUS.md)。
+3. 用GitHub/Git读回当前`main`精确SHA，对照已验收提交、未提交改动与实际活动作业。
+4. 从当前范围接续，不重做已完成P00–P03；旧任务包和原规划不自动授权新运行。
+5. 如需新实现，按[协作协议](../coordination/PROTOCOL.md)使用**独立Codex对话**及隔离worktree，禁止sub-agent；已有实现与证据按当前状态复用。
 
 ## 远端验收要求
 
