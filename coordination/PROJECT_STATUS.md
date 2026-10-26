@@ -74,4 +74,6 @@ R1技术终验 `b52c7115dba09c5f83faab24f0a95baf04694280` 与Q1结果说明终�
 
 PR34已合并为`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最后提交`3730b048119d448da013aca6e9079661a587c936`的双Python CI 40400234474全部成功；S1核对主干完整文件树一致、工作树干净，G5 App goal实际complete。G6 App goal已创建并成为唯一active：共享HTTP与两包CPU任务已冻结，T1服务/控制器与E1客户端/示例/说明已实际从ef885c0派发并确认运行中。当前G6新模型推理及GPU分配为0；CPU/R1/主干通过后才冻结具体有界smoke。
 
+G6两包CPU交付已接入候选`fa908839859b758ab2444845f9a2ad2c1eae6c57`：T1 `185d857`的149项不同检查通过、3项既有pip检查跳过，35个服务child及1个原创tiny-cache child回收；E1 `59b9c48`的30项检查通过，五类原创示例15个child回收。S1分别回读4,586/355份私有文件、20/24份公开文件并匹配最终源码，原自测失败保留。R1即将按[集成审核任务](tasks/P07_G6_INTEGRATION_REVIEW_R1.md)独立复核生产服务与Mac客户端组合及干净CPU环境；当前仅接纳作者交付，独立结论待定。G6实际CUDA/SSH服务及GPU分配仍0。
+
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
