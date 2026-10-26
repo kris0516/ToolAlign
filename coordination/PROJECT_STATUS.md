@@ -19,7 +19,8 @@
 | P04 CUDA容量/恢复 v1 | 最长2048 token三步容量PASS、采样峰值5180MiB；新进程恢复后更新超容差，跨实例未运行 | [实测与数值FAIL](../reports/S1_P04_CUDA_CAPACITY_R1.md)；两份输出已回收，实例已停止 |
 | P04 CUDA恢复诊断 | 新实例初始状态严格一致；同进程重复backward差异约0.86%，关闭checkpointing仍存在；零更新 | [实际诊断](../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)，29文件已回收、实例已停止；不构成更新恢复PASS |
 | P04 CUDA确定性v2 / G2 | 验收PASS；实际三步、新进程及新实例恢复1,883项通过，672个张量比较差为0；R1/Q1独立终验通过 | [实测及接纳](../reports/S1_P04_CUDA_V2_RECOVERY.md)；65文件已回收、实例已停止 |
-| P04 正式 SFT / G3 | PREPARING，训练NOT_RUN；固定完整SFT与原始模型验证CE对照，T1实现初始验证记录 | [执行计划](tasks/P04_CUDA_G3_SFT.md) |
+| G3 原始验证 CE | CPU实现及独立技术审核PASS；8项实现检查、4项独立检查通过，未改变SFT选模 | [R1审核](../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)，候选c633bd7、审核fd4ad07 |
+| P04 正式 SFT / G3 | PREPARING，训练NOT_RUN；下一步冻结主干、生成完整数组并由Q1增量核对 | [执行计划](tasks/P04_CUDA_G3_SFT.md) |
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 

@@ -19,7 +19,8 @@
 | P04 CUDA恢复定位 / T1、R1 | 重复backward差异已实测 | [同状态诊断](../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)：开/关checkpointing均约0.86%梯度差；下一步核查确定性路径，原恢复FAIL保留 |
 | P04 CUDA严格确定性 / T1、R1 | ACCEPTED | [v2实测](../reports/S1_P04_CUDA_V2_RECOVERY.md)：两种恢复均逐值一致，R1 be756a1独立PASS；恢复问题已关闭 |
 | G2 实际结果终验 / R1、Q1 | 验收PASS | R1技术PASS、Q1 847e0be数据与说明PASS；65文件已回收、两实例已停止 |
-| P04 正式 SFT / G3 | PREPARING，训练NOT_RUN | [固定计划](tasks/P04_CUDA_G3_SFT.md)；T1补充原始验证CE，随后完整数组增量审查；198/743次更新 |
+| G3 原始验证 CE / T1、R1 | ACCEPTED（CPU） | c633bd7经fd4ad07独立PASS；8项实现检查、4项独立检查通过 |
+| P04 正式 SFT / G3 | PREPARING，训练NOT_RUN | [固定计划](tasks/P04_CUDA_G3_SFT.md)；冻结主干后准备完整数组并由Q1增量审查；198/743次更新 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |

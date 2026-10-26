@@ -1,6 +1,6 @@
 # T1｜G3 原始 checkpoint 验证 CE
 
-状态：READY。S1 接纳 G2 的主干为 `75209551c8520e5c97ed5cb424a686657a6d9da4`；T1 从 S1 原生派发的精确授权提交建立 `codex/p04-cuda-sft-baseline-r1`。本包为 CPU 实现和检查，不申请 GPU。G3 固定计划见 [配置](../../configs/sft-cuda-g3.v1.json)。
+状态：ACCEPTED（CPU）。T1候选 `c633bd70f4446bc8ea3ee80440944e6e6da7ff87` 的8项检查通过；独立R1 `fd4ad07cb4a6a083c5fc178ba30a5705cc2a9684` 的4项定点检查与10个分段请求接口检查通过，S1已接纳。见[独立审核](../../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)。G2主干为 `75209551c8520e5c97ed5cb424a686657a6d9da4`；本包没有GPU运行，完整SFT尚未开始。G3固定计划见[配置](../../configs/sft-cuda-g3.v1.json)。
 
 当前 `runtime.execute` 只在更新后验证，缺少同格式、同完整验证集的原始模型 CE。补齐这项记录，供 G3 对照原始 checkpoint 与验证集选出的 SFT；工具语义效果留待 G5。
 

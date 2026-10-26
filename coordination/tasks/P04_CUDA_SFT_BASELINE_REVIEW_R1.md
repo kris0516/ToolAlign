@@ -1,6 +1,6 @@
 # R1｜G3 原始验证 CE 独立审查
 
-状态：READY。候选 `c633bd70f4446bc8ea3ee80440944e6e6da7ff87`，实现授权 `7eb0ac97e394528d82533c6cc92c298aa5d305b0`，G2已验收主干 `75209551c8520e5c97ed5cb424a686657a6d9da4`。R1从候选建立隔离分支 `codex/review-p04-cuda-sft-baseline-r1`；本任务及最新G3计划按S1原生派发的授权提交读取，无需改候选生产文件。
+状态：ACCEPTED（CPU）。R1提交 `fd4ad07cb4a6a083c5fc178ba30a5705cc2a9684`，P0/P1/P2均0，4项独立定点检查通过；S1已核对原始回执并接纳，见[报告](../../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)。候选 `c633bd70f4446bc8ea3ee80440944e6e6da7ff87`，实现授权 `7eb0ac97e394528d82533c6cc92c298aa5d305b0`，审查授权 `9bfb2b8467e9bfefd5b98c6de4557a38f4684d40`。以下保留本轮审查范围；实际完整数组及GPU训练仍待后续任务。
 
 只新增 `reports/reviews/P04_CUDA_SFT_BASELINE_R1.md`、`coordination/handoffs/P04-cuda-sft-baseline-review-r1.md` 和必要私有证据。独立判断 [T1交付](../handoffs/P04-cuda-sft-baseline-r1.md) 是否正确补齐 [实现任务](P04_CUDA_SFT_BASELINE_R1.md)。不修生产、共享配置或状态。
 

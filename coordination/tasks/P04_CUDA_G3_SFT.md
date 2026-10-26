@@ -2,7 +2,7 @@
 
 状态：PREPARING。G2 已由 R1/Q1 独立验收，PR25 合入 `75209551c8520e5c97ed5cb424a686657a6d9da4`，双 Python CI 40267549022 全部成功。当前唯一活动 goal 为 G3。
 
-先完成 [T1 原始验证 CE](P04_CUDA_SFT_BASELINE_R1.md)及 R1 技术审核，再冻结执行源码。S1 用现有 prepare/encode 入口分别准备 smoke 1,777、formal 6,151 条完整数组，Q1 增量核对冻结身份、选择顺序和实际 mask 分母。复用既有13例语义审查，不重开未变化的数据质量矩阵。
+[T1原始验证CE](P04_CUDA_SFT_BASELINE_R1.md)及[R1技术审核](../../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)已接纳：候选 `c633bd7`、独立审核 `fd4ad07`，CPU检查通过。合入主干并通过CI后冻结执行源码。S1用现有prepare/encode入口分别准备smoke 1,777、formal 6,151条完整数组，按[Q1增量任务](P04_CUDA_SFT_FULL_ARRAY_Q1_R1.md)核对冻结身份、选择顺序和实际mask分母。复用既有13例语义审查，不重开未变化的数据质量矩阵。
 
 执行参数见 [G3 v1 计划](../../configs/sft-cuda-g3.v1.json)，底层模型/数据/训练协议仍为 CUDA v2。0.6B 完整冒烟为198次更新，1.7B一轮为743次；各自先记录完整 validation 的原始 CE，再按每100步及最终尾批验证选模。首段前固定精确 source、array manifest、run ID、路径与资源上限，私有 run 配置才是实际启动授权。
 
