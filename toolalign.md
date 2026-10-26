@@ -4,9 +4,9 @@
 
 ## 当前结论
 
-冻结v3数据、CPU工具执行器和CUDA SFT实现均有独立审核。PR24主干的Qwen3-1.7B在同规格L4完成三步容量、新进程与新实例完整恢复；S1实际比较1,883项通过，672个adapter/Adam张量比较最大绝对差0，全部产物已回收且实例已停止。R1技术终验与Q1数据/说明终验均已接纳，G2验收通过，下一阶段为G3正式SFT。
+冻结v3数据、CPU工具执行器和CUDA SFT实现均有独立审核。PR24主干的Qwen3-1.7B在同规格L4完成三步容量、新进程与新实例完整恢复；S1实际比较1,883项通过，672个adapter/Adam张量比较最大绝对差0，全部产物已回收且实例已停止。R1技术终验与Q1数据/说明终验已随PR25合入 `75209551c8520e5c97ed5cb424a686657a6d9da4`，G2完成；当前G3准备原始验证CE与完整SFT，见[固定计划](coordination/tasks/P04_CUDA_G3_SFT.md)。
 
-实际执行主干为 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`（PR24），双Python CI 40261767879成功。**正式Qwen SFT、DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[当前实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
+G2实际执行主干为 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`（PR24），双Python CI 40261767879成功。G3原始验证CE已由T1实现、R1独立CPU审查通过，见[审核](reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)；主干发布后准备完整数组并交Q1核对。**正式Qwen SFT、DPO、模型语义评测和服务仍NOT_RUN。** 原v1恢复FAIL及所有修订历史保留；见[当前实测](reports/S1_P04_CUDA_V2_RECOVERY.md)与[项目状态](coordination/PROJECT_STATUS.md)。
 
 ## 每个对话如何开始
 

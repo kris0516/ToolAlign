@@ -1,0 +1,64 @@
+{
+  "schema": "toolalign.cuda-sft-g3-plan.v1",
+  "owner": "S1",
+  "is_run_authorization": false,
+  "protocol": "configs/sft-cuda.v2.json",
+  "protocol_sha256": "ee235d612b2552be5927b4ff790887a34b088ab842f78a15fcb8212323b60045",
+  "g2_acceptance_main": "75209551c8520e5c97ed5cb424a686657a6d9da4",
+  "comparison": {
+    "metric": "full_frozen_validation_completion_and_EOS_token_weighted_CE",
+    "original": "original_checkpoint_with_adapter_disabled_before_first_update",
+    "sft": "minimum_finite_validation_ce_then_earliest_step_then_checkpoint_sha256",
+    "reported_delta": "selected_sft_ce_minus_original_ce",
+    "baseline_in_checkpoint_selection": false,
+    "test_set_used": false,
+    "semantic_effect_evaluation_goal": "G5"
+  },
+  "profiles": {
+    "smoke": {
+      "train_examples": 1583,
+      "validation_examples": 194,
+      "expected_validation_supervised_tokens": 21226,
+      "expected_train_supervised_tokens": 141211,
+      "max_encoded_examples": 1777,
+      "optimizer_updates": 198,
+      "tail_microsteps": 7,
+      "chunk_final_steps": [100, 198],
+      "max_run_wall_seconds": 1200
+    },
+    "formal": {
+      "train_examples": 5938,
+      "validation_examples": 213,
+      "expected_validation_supervised_tokens": 23841,
+      "expected_train_supervised_tokens": 536238,
+      "max_encoded_examples": 6151,
+      "optimizer_updates": 743,
+      "tail_microsteps": 2,
+      "chunk_final_steps": [100, 200, 300, 400, 500, 600, 700, 743],
+      "max_run_wall_seconds": 1800
+    }
+  },
+  "cadence": {
+    "validation_every_steps": 100,
+    "checkpoint_every_steps": 25,
+    "include_final_tail_state": true,
+    "recover_each_completed_chunk_to_mac": true,
+    "resume_carries_historical_best": true
+  },
+  "limits": {
+    "gpu": "L4",
+    "heavy_gpu_jobs": 1,
+    "allocated_gpu_seconds_including_setup_idle_failures_and_recovery": 14400,
+    "observed_account_balance_decrease_CU": 8,
+    "minimum_memory_headroom_fraction": 0.2,
+    "max_output_bytes_per_run": 536870912,
+    "max_new_private_artifact_bytes": 4294967296,
+    "automatic_full_epoch_retry": false
+  },
+  "pre_execution_requirements": [
+    "R1_accepts_original_validation_implementation",
+    "Q1_accepts_full_profile_array_identities_and_denominators",
+    "source_commit_and_actual_array_manifest_are_frozen_in_each_run_config",
+    "fresh_owned_resource_inventory_and_account_balance_are_recorded"
+  ]
+}
