@@ -4715,10 +4715,32 @@
       ],
       "next_action": "复用r2独立通过证据；原FAIL和所有修订历史保留。",
       "deduplication_basis": "同一候选的R1复跑、首次未就绪探针、辅助审计错误与S1接口探针均不重复计数。"
+    },
+    {
+      "issue_id": "P04-COLAB-INDEX-001",
+      "stable_requirement_key": "linux_hash_locked_setup_retains_cuda_extra_index_after_requirement_options",
+      "requirement": "使用冻结Linux锁安装时，pip最终搜索源须同时保留PyPI及批准的CUDA源。",
+      "summary": "真实pip24读取锁内index-url后清除CLI extra-index，无法发现torch==2.8.0+cu128。",
+      "status": "CHANGES_REQUESTED",
+      "consecutive_failed_revisions": 0,
+      "events": [
+        {
+          "event_kind": "OBSERVED_RUNTIME_FAILURE_PENDING_INDEPENDENT_REVIEW",
+          "candidate": "920c41551f0f7f2be8a5a8dcced23cc080ac1f27",
+          "observer": "Codex-AI(S1)",
+          "verdict": "FAIL_RUNTIME_SETUP",
+          "setup_receipt_sha256": "7f3b4a893895ce30e4c4db86ae99adb32379a11a51f7c3b231d6fd30f6944e43",
+          "root_cause_probe_receipt_sha256": "8fde76812e862001c0778a9592eccffafbc583dd17c30813390816dc8966d4cd",
+          "adopted_at_utc": "2026-10-26T00:28:08.595138+00:00",
+          "new_failed_revision_increment": 0
+        }
+      ],
+      "next_action": "E1-r4最小修复，R1独立增量审查后S1重新执行真实Linux安装。",
+      "deduplication_basis": "两个不同setup失败及诊断不是同问题多次正式修订；首次独立正式结论再登记。"
     }
   ],
   "prior_findings": "现有86项问题全部关闭；Colab RECOVERY-001经r2独立PASS关闭，PROCESS-001经r3独立PASS关闭。原r1/r2 FAIL、全部原始失败与审核历史保留；冻结v3 G-DATA批准不变。",
-  "updated_at_utc": "2026-10-25T23:48:53.882615+00:00",
+  "updated_at_utc": "2026-10-26T00:28:08.595138+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",

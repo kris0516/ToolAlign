@@ -20,7 +20,7 @@
 | P05 DPO | NOT_RUN；偏好数据、CUDA reference/优化路径待建立 | [训练规格](../docs/03_TRAINING_SPEC.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
-现有86项问题全部关闭；Colab的RECOVERY-001经r2、PROCESS-001经r3独立复审关闭，原r1/r2 FAIL和全部失败历史保留。数据质量、CPU或toy PASS都不是正式模型效果。
+既有86项问题全部关闭；Colab的RECOVERY-001经r2、PROCESS-001经r3独立复审关闭。新增INDEX-001由真实安装发现，待E1/R1处理；原FAIL和全部失败历史保留。数据质量、CPU或toy PASS都不是正式模型效果。
 
 ## 本次交接
 
@@ -32,6 +32,6 @@
 
 S1 已实际读取入口并与 S0 核对交接：交接时主干干净，生产路径未变；既有五个 worker worktree 干净，私有证据与数据保留；冻结输入 manifest 和 609 成员路径、D1 v3/来源根、Qwen 两个模型缓存均已定位。现有 Colab CLI 0.7.4 的认证查询成功，当次无活动实例。G1准备已完成；G2已完成上表真实数据消费，T1/E1已原生派发。模型缓存完整字节与CUDA尚未新验。
 
-按 [GOAL](GOAL.md)依次推进。T1 CUDA和E1 Colab控制均已获得独立R1 CPU PASS；Q1的13例预审及20例增量均通过。[PR21](https://github.com/kris0516/ToolAlign/pull/21)双Python CI通过并已合并。有界L4实际setup发现系统venv缺包及pip索引覆盖；前者已修，后者进入[E1-r4](tasks/P04_COLAB_ENVIRONMENT_R4.md)。两次失败保留，当前实例先回收停止；修后重新冻结源码/锁/数组身份再运行。真实CUDA训练、正式SFT/DPO/模型评测仍NOT_RUN，旧Mac runtime不恢复。
+按 [GOAL](GOAL.md)依次推进。T1 CUDA和E1 Colab控制均已获得独立R1 CPU PASS；Q1的13例预审及20例增量均通过。[PR21](https://github.com/kris0516/ToolAlign/pull/21)双Python CI通过并已合并。有界L4实际setup发现系统venv缺包及pip索引覆盖；前者已修，后者进入[E1-r4](tasks/P04_COLAB_ENVIRONMENT_R4.md)。[两次失败记录](../reports/S1_P04_COLAB_SETUP_R1.md)均已回收，当前实例已停止并确认不存在；修后重新冻结源码/锁/数组身份再运行。真实CUDA训练、正式SFT/DPO/模型评测仍NOT_RUN，旧Mac runtime不恢复。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
