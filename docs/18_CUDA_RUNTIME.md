@@ -24,6 +24,15 @@
 uv pip compile requirements/cuda-linux.in --python-version 3.12 --python-platform x86_64-manylinux_2_28 --torch-backend cu128 --default-index https://pypi.org/simple --generate-hashes --only-binary :all: --no-python-downloads --exclude-newer 2026-10-26T00:00:00+08:00 --emit-index-url --output-file requirements/cuda-linux-py312.lock.txt
 ```
 
+Linux 锁在该输出上增加 CUDA extra index，生成后须将以下两行按此顺序写入锁头部；后处理不改变包版本或 wheel hashes：
+
+```text
+--index-url https://pypi.org/simple
+--extra-index-url https://download.pytorch.org/whl/cu128
+```
+
+pip 24.0 读取 requirements 内的 `--index-url` 时会重置索引列表，因此 CUDA 源必须在锁中重新声明，不能仅依靠命令行的 `--extra-index-url`。修改索引声明也会改变整个锁的 SHA-256；S1 必须将新值绑定到后续运行配置。
+
 安装时保留全部 `--hash` 行，并同时提供 PyPI 与 CUDA wheel 索引。`setup` 使用以下固定安装计划，随后检查 Python 3.12、全部包版本和额外包：
 
 ```bash
@@ -36,7 +45,7 @@ python3.12 -m venv /content/toolalign/.toolalign-local/cuda-env
 
 ## 私有配置与目录
 
-S1 先显式分配本任务的 `toolalign-*` 命名会话，读取实际 GPU/显存和分配时间，再部署已审精确 Git commit。实例需要 Git、tmux、控制端 `python3`（≥3.11）及 `python3.12`。这些是运行前置条件，`setup` 不安装系统包、模型或训练数据。
+S1 先显式分配本任务的 `toolalign-*` 命名会话，读取实际 GPU/显存和分配时间，再部署已审精确 Git commit。实例需要 Git、tmux、控制端 `python3`（≥3.11）及 `python3.12`。Ubuntu 上还需要配套的 `python3.12-venv`，以提供创建专用环境所需的 ensurepip。这些是运行前置条件，`setup` 不安装系统包、模型或训练数据。
 
 | 用途 | 路径/约束 |
 |---|---|

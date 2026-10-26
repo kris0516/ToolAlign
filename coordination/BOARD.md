@@ -13,7 +13,9 @@
 | P04 Colab 独立复核 / R1 | r3 PASS | 7825216；两项问题均已关闭，原r1/r2 FAIL保留；跨session组合PASS |
 | P04 CUDA SFT 独立复核 / R1 | PASS | 7d460f2；14项核心、3项进程及独立数值通过 |
 | P04 CUDA mask 与说明 / Q1 | PASS（13例预审） | 82f1e88；423项检查及26条原证据绑定通过，20例容量数组后续增量核对 |
-| P04 L4 容量与短 SFT | PLANNED | 适配、复核和显存预算后，一轮短验证 |
+| P04 容量数组 / Q1增量 | PASS | ed022da；20条、531项检查通过，验证分母335 |
+| P04 Linux 实装索引 / E1、R1 | ACCEPTED（CPU） | 99b8116经c4b5c1c独立PASS；48 pins/894 hashes未变，S1两项集成通过 |
+| P04 L4 容量与恢复 | READY_FOR_RETRY，训练NOT_RUN | 两次setup失败已回收并停止；修复合并后绑定新源码/锁再实装 |
 | P04 正式 SFT | NOT_RUN | 容量通过、明确配置与预算后运行 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
