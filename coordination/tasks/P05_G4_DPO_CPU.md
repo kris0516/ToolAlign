@@ -1,6 +1,6 @@
 # P05 G4｜原生 TRL DPO 与依赖 CPU 实现
 
-状态：READY，生成器已交付，等待S1实际派发；owner E1。S1 派发时给出包含已交付生成器的精确起点，在现有独立 worktree 建 `codex/e1-p05-g4-dpo-r1`。本文件本身不启动任务或 GPU。
+状态：ACTIVE；owner E1，已从 `f72bb5fc7343989efcfc01b305e690d0cddeb661` 在现有独立 worktree 建 `codex/e1-p05-g4-dpo-r1` 执行。2026-10-26 S1已回读并接纳R1生成/偏好CPU审查 `fac9ec52a7dbb0b28c6d767ea13fcdeb13ccc9fa`；生成器无代码修订，现解除下述Colab控制器三文件保留，E1可按原范围加入独立DPO入口/环境。真实GPU运行仍由S1另冻配置。
 
 目标：按 [G4 协议](P05_G4_PROTOCOL.md)交付可复现的 TRL 0.26.2 标准 sigmoid DPO、独立依赖锁、有界 Colab 入口及完整 checkpoint 恢复。本包只安装专用 Mac CPU 测试环境、运行小型随机初始化 fixture，不加载真实模型、不训练正式数据、不分配 GPU。真实偏好数量及 Q1 结果尚未确定，零有效对不启动 DPO。
 
