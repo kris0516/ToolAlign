@@ -13,13 +13,14 @@ from toolalign.contracts import (
     validate_tool_arguments,
 )
 from toolalign.contracts.interfaces import Rejection, ValidatedCall
-from toolalign.tools import catalog, heldout_catalog
+from toolalign.tools import catalog, constraints_catalog, heldout_catalog
 from toolalign.tools._json import CALL_BYTES, clone, validate_part
 
 REGISTRY_VERSION = "toolalign.local-registry.v1"
 _CATALOGS = {
     "local-devops.v1": (catalog, "catalog.py"),
     "heldout-devops.v1": (heldout_catalog, "heldout_catalog.py"),
+    "heldout-constraints.v1": (constraints_catalog, "constraints_catalog.py"),
 }
 
 
