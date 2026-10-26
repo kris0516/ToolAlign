@@ -4836,10 +4836,39 @@
       ],
       "next_action": "新进程和新实例实际完整恢复已由R1独立验收；复用v2确定性策略推进正式SFT，原v1失败及全部诊断保留。",
       "deduplication_basis": "一次连续/恢复对照的多项差异是同一S1运行发现，非多次独立正式修订。"
+    },
+    {
+      "issue_id": "Q1-G4-CORPUS-001",
+      "stable_requirement_key": "g4_closed_answer_json_version_type_explicit_in_task_prompt",
+      "requirement": "封闭答案判定依赖的JSON类型必须在任务提示中明确；否则同值合法表示不能作为语义错误rejected。",
+      "summary": "固定语料第10、13项未要求版本答案使用JSON字符串，但封闭答案集只接受字符串；两个数字表示反例均被oracle判失败。",
+      "status": "OPEN",
+      "consecutive_failed_revisions": 1,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "FORMAL_SEMANTIC_REVISION_FAIL",
+          "candidate": "938c47166786c1ad3b45314ee16d04aa35b4eeac",
+          "tasks_file_sha256": "d9fc455fa667bc323249bc5907571f1e38b446bc97f4f4b3da24a813d9649030",
+          "affected_ordinals": [
+            10,
+            13
+          ],
+          "review_commit": "fd0e8f34f3e7bf80d70914e5177d84cc8386a50e",
+          "reviewer": "Codex-AI(Q1)",
+          "verdict": "REQUEST_CHANGES",
+          "review_evidence_index_sha256": "b85529e78e4c45adb379a809c25e64614b5434fb74c008be7205e86b18a2254a",
+          "s1_evidence_audit_sha256": "18afca4b9e9d6fa9bd1dcce964f61899460b7c77e5c2dc149bfaa36aeb46f880",
+          "adopted_at_utc": "2026-10-26T10:38:17.660712+00:00",
+          "new_failed_revision_increment": 1
+        }
+      ],
+      "next_action": "D1仅补明两条私有提示的JSON字符串要求，保留旧包；核对身份映射、字符串正例及数字反例后由Q1定点复审。",
+      "deduplication_basis": "两个任务共享同一答案类型约束问题，属于一次正式语料审阅；不作为两次失败，不计算真实偏好误标率。"
     }
   ],
-  "prior_findings": "88项问题均已关闭，全部失败历史保留；CUDA-RESUME-001经R1实际新进程和新实例完整恢复独立验收关闭，正式修订失败计数0。",
-  "updated_at_utc": "2026-10-26T03:59:30.773003+00:00",
+  "prior_findings": "历史88项问题均已关闭；Q1-G4-CORPUS-001为当前唯一开放问题，首次正式未通过计1。全部原FAIL和历史事件保留，尚无真实候选或偏好误标率。",
+  "updated_at_utc": "2026-10-26T10:38:17.660712+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -4984,5 +5013,15 @@
       "highest_consecutive_failed_revisions": 0,
       "whole_goal_paused": false
     }
-  ]
+  ],
+  "last_semantic_adoption": {
+    "issue_id": "Q1-G4-CORPUS-001",
+    "review_commit": "fd0e8f34f3e7bf80d70914e5177d84cc8386a50e",
+    "new_formal_failure_events": 1,
+    "closed_issue_count": 88,
+    "open_issue_count": 1,
+    "highest_consecutive_failed_revisions": 1,
+    "whole_goal_paused": false,
+    "adopted_at_utc": "2026-10-26T10:38:17.660712+00:00"
+  }
 }

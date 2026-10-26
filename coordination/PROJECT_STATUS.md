@@ -22,10 +22,10 @@
 | G3 原始验证 CE | CPU实现及独立技术审核PASS；8项实现检查、4项独立检查通过，未改变SFT选模 | [R1审核](../reports/reviews/P04_CUDA_SFT_BASELINE_R1.md)，候选c633bd7、审核fd4ad07 |
 | G3 完整输入数组 / Q1 | ACCEPTED；两个profile共7,928行逐行核对通过，原13例材料身份不变 | [Q1完整数组审核](../reports/reviews/P04_CUDA_SFT_FULL_ARRAY_Q1_R1.md)，`98cf0e1` |
 | P04 正式 SFT / G3 | 独立验收PASS；198/743次更新完成，验证CE为0.041494/0.024438；R1 300af3f、Q1 34331c2已接纳 | [实测与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；196文件已回收，实例已停止 |
-| P05 偏好与 DPO / G4 | 生成/偏好CPU已交付，R1/Q1审查中；E1实现DPO | [G4协议](tasks/P05_G4_PROTOCOL.md)、[生成报告](../reports/P05_G4_GENERATION_CPU.md)、[数据报告](../reports/P05_G4_PREFERENCE_CPU.md)、[DPO任务](tasks/P05_G4_DPO_CPU.md) |
+| P05 偏好与 DPO / G4 | 生成/偏好CPU由R1审查；Q1语料r1退回两题，D1局部修订；E1实现DPO | [G4协议](tasks/P05_G4_PROTOCOL.md)、[Q1语料审阅](../reports/reviews/P05_G4_CORPUS_Q1_R1.md)、[DPO任务](tasks/P05_G4_DPO_CPU.md) |
 | P06–P09 | 模型对照、正式服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
 
-88项问题全部关闭。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
+历史88项问题全部关闭；新增Q1-G4-CORPUS-001开放，首次正式未通过计1。两题的版本答案未明确JSON字符串类型，封闭答案标注却只接受字符串，D1正在局部修订。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
 
 ## 原 S0 交接记录
 
@@ -43,6 +43,6 @@ G3实际执行PR26主干 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。0.6B/1.7B�
 
 G4 App goal现为active。T1交付d1aa1c8，170项受影响检查通过、2项既有pip parser检查跳过，最终回收修补另有18项通过；D1交付147d045及938c471，42项测试、32正向/20反例CPU轨迹通过。实际新语料为20个train任务、12个family、10类别、1个共享工具/schema连通组；完整recipe和原始材料留私有。S1回读源码与证据身份，并通过1项生成恢复到偏好提取的组合检查。固定tokenizer预检中，初始输入最长1,351、scripted轨迹输入最长1,742 tokens，预留256均在2,048上限内；不代表真实生成不会遇到更长历史。
 
-R1已开始两包独立技术审查，Q1已开始固定20题生成前语义/分组审阅；两者尚无结论，正式偏好池审核另行执行。E1已开始独立TRL依赖、原生DPOTrainer与完整恢复的CPU实现。G4总上限仍为128任务×4候选、全部GPU分配累计21,600秒/12 CU；本批20题最多80条真实候选，具体run须在独立审核后冻结。目前未分配G4 GPU，真实候选、DPO、模型语义评测和服务仍NOT_RUN。
+R1继续两包独立技术审查。Q1对固定20题的生成前语义/分组审阅r1为REQUEST_CHANGES：18题通过，第10、13项未明确版本答案须为JSON字符串，独立反例确认同值数字被判失败；分组和v3根绑定通过。S1已核对Q1提交 `fd0e8f3` 及30份私有证据，接纳问题Q1-G4-CORPUS-001；D1仅补充两题的类型要求，保留旧包和原FAIL，完成后由Q1定点复审。正式偏好池审核另行执行。E1已开始独立TRL依赖、原生DPOTrainer与完整恢复的CPU实现。G4总上限仍为128任务×4候选、全部GPU分配累计21,600秒/12 CU；本批20题最多80条真实候选，具体run须在独立审核后冻结。目前未分配G4 GPU，真实候选、DPO、模型语义评测和服务仍NOT_RUN。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。
