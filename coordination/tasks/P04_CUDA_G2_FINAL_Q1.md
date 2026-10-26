@@ -1,6 +1,6 @@
 # Q1｜P04 CUDA G2 实际结果与说明终验
 
-状态：READY。独立 Q1，协调者 S1。实际执行主干 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`；授权提交与私有证据索引由 S1 原生派发。以授权提交建立隔离分支 `codex/q1-p04-cuda-g2-final-r1`，保留既有分支和全部证据。
+状态：ACCEPTED。独立 Q1 提交 `847e0be8bcf91b38e07accc2226c1fe9de837e7e` 已由 S1 接纳，98项数据与说明核对PASS，见[终验报告](../../reports/reviews/P04_CUDA_G2_FINAL_Q1_R1.md)。以下保留原任务范围。实际执行主干 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`；授权提交与私有证据索引由 S1 原生派发。以授权提交建立隔离分支 `codex/q1-p04-cuda-g2-final-r1`，保留既有分支和全部证据。
 
 仅新增 `reports/reviews/P04_CUDA_G2_FINAL_Q1_R1.md`、`coordination/handoffs/P04-cuda-g2-final-q1-r1.md` 及必要私有核对结果。目标是独立核对 [S1 实测报告](../../reports/S1_P04_CUDA_V2_RECOVERY.md)的数据身份、实际运行分母及结论范围；R1 并行承担完整张量和恢复技术验收。
 

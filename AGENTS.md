@@ -19,6 +19,6 @@
 
 ## 当前完成与接续
 
-P00–P03 与 P04 原CPU/MLX证据保留。当前执行主干为 PR24 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`；CUDA v2 在同规格 L4 完成三步容量、新进程与新实例完整恢复，S1比较1,883项通过、672个张量比较差为0，待R1/Q1终验。见 [实测报告](reports/S1_P04_CUDA_V2_RECOVERY.md)。正式SFT/DPO/模型评测/服务仍NOT_RUN，不恢复旧Mac runtime任务。
+P00–P03 与 P04 原CPU/MLX证据保留。当前执行主干为 PR24 `eb73fbcdb5f053509a396c59092e28d7c317cdd9`；CUDA v2 在同规格 L4 完成三步容量、新进程与新实例完整恢复，S1比较1,883项通过、672个张量比较差为0，R1/Q1独立终验已接纳，G2验收通过。见 [实测报告](reports/S1_P04_CUDA_V2_RECOVERY.md)。正式SFT/DPO/模型评测/服务仍NOT_RUN，不恢复旧Mac runtime任务。
 
-2026-10-26 用户指定 Toolalign Supervisor S1 接班并继续推进；按 [分组目标](coordination/GOAL.md)依次推进，每次只有一个活动goal。当前G2在独立终验，完成后进入G3。原逐轮完成表保留在 [迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。
+2026-10-26 用户指定 Toolalign Supervisor S1 接班并继续推进；按 [分组目标](coordination/GOAL.md)依次推进，每次只有一个活动goal。G1、G2验收已完成，下一阶段G3。原逐轮完成表保留在 [迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。

@@ -1,6 +1,6 @@
 # S1｜P04 CUDA v2 容量与完整恢复实测
 
-2026-10-26。**Qwen3-1.7B 在同规格 L4 上的连续三步、新进程恢复和新实例恢复均通过实际比较。** 两种恢复分别从 v2 第 2 步 checkpoint 完成第 3 步；672 个 adapter/Adam 张量比较的最大绝对差为 **0**，完整检查 **1,883 PASS、0 FAIL**。原恢复容差未变。这支持进入正式 SFT 的独立验收关口，R1/Q1 最终结论目前待接纳。
+2026-10-26。**Qwen3-1.7B 在同规格 L4 上的连续三步、新进程恢复和新实例恢复均通过实际比较及 R1/Q1 独立终验。** 两种恢复分别从 v2 第 2 步 checkpoint 完成第 3 步；672 个 adapter/Adam 张量比较的最大绝对差为 **0**，完整检查 **1,883 PASS、0 FAIL**。原恢复容差未变。S1 已接纳两项独立结论，G2 验收通过，下一阶段为 G3 正式 SFT。
 
 本次为固定 18 train、2 validation 的容量与恢复验证，实际执行 3+1+1 个 optimizer update。正式 epoch、模型语义效果、DPO 和服务仍 NOT_RUN。
 
@@ -42,7 +42,7 @@
 
 两个安装 SSH 连接均曾以 exit 255 / Broken pipe 断开；同一实例的原安装进程随后都正常退出 0，未重复安装。第一实例在安装连接活动时尝试上传被 HTTP 429 拒绝，未开始传输；待原连接结束后串行上传成功。未重复提交任何训练。全部命令回执及原始错误保留。
 
-[原 v1 恢复 FAIL](S1_P04_CUDA_CAPACITY_R1.md)和[零更新诊断](S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)保持原结论。本次没有迁移旧 checkpoint、改变数据或放宽容差；`P04-CUDA-RESUME-001` 等待 R1 对本候选实际结果的独立验收后再关闭。
+[原 v1 恢复 FAIL](S1_P04_CUDA_CAPACITY_R1.md)和[零更新诊断](S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)保持原结论。本次没有迁移旧 checkpoint、改变数据或放宽容差；`P04-CUDA-RESUME-001` 已经 R1 实际独立验收关闭，正式修订失败计数为 0。
 
 | 实际证据 | SHA-256 |
 |---|---|
@@ -52,3 +52,9 @@
 | 三份完整比较结果 | `bf5b44b434fd03970c738389fb467c052bb3a8d6ba39d8e84e7d89bcc9e2a7dd` |
 | 比较命令回执 | `29e21f720cd726fe0156c55510a60401d4cd539dce3ee7b7843a0d1e9f8cae78` |
 | 65 文件、33 命令及资源索引 | `2918cac2801ed992695fcfe1c2169091e7db1f9887249338e30062aab05638bb` |
+
+## 独立验收与 S1 接纳
+
+[R1 技术终验](reviews/P04_CUDA_DETERMINISM_R3.md)提交 `be756a152b13eb01d7586d961aee39a8298f1608` 为 PASS，P0/P1/P2 均为 0。R1 独立核对实际完整状态、672 个张量比较、外部回收与停止顺序，支持关闭恢复问题。[Q1 数据与说明终验](reviews/P04_CUDA_G2_FINAL_Q1_R1.md)提交 `847e0be8bcf91b38e07accc2226c1fe9de837e7e` 为 PASS，98 项核对确认原数组/材料身份、实际分母与容量结论范围。
+
+两项审查均针对授权 `873b88858da13c993ebeeee4c17546772752413f` 和上述实际执行主干。S1 已读取精确提交与私有证据，技术接纳回执 SHA256 为 `918fb48d7dc20b5d565f8059bcba25688591f2d81e3255a0567a97b4f6e4f622`，Q1 接纳回执为 `2ea2eea2210c8a6f0bed954b9ceca429953ac810994f707b7d2cca384458b319`。当前 88 项问题全部关闭，原失败及 reviewer helper 的纠正记录保留。G2 的容量与恢复验收不改变正式 SFT、DPO、模型语义评测及服务的 NOT_RUN 状态。

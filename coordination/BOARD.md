@@ -17,11 +17,11 @@
 | P04 Linux 实装索引 / E1、R1 | ACCEPTED（CPU） | 99b8116经c4b5c1c独立PASS；48 pins/894 hashes未变，S1两项集成通过 |
 | P04 L4 容量与恢复 v1 | 原FAIL保留 | PR22主干实装/3步通过；第2步恢复后更新超容差，见原实测报告 |
 | P04 CUDA恢复定位 / T1、R1 | 重复backward差异已实测 | [同状态诊断](../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)：开/关checkpointing均约0.86%梯度差；下一步核查确定性路径，原恢复FAIL保留 |
-| P04 CUDA严格确定性 / T1、R1 | CPU PASS，实际比较PASS | [v2实测](../reports/S1_P04_CUDA_V2_RECOVERY.md)：两种恢复均逐值一致，1,883项通过；待R1/Q1终验 |
-| G2 实际结果终验 / R1、Q1 | READY | 65文件已回收校验、两实例已停止；核对技术结果与说明范围 |
-| P04 正式 SFT | NOT_RUN | 恢复差异关闭、G2独立审核通过后进入G3 |
+| P04 CUDA严格确定性 / T1、R1 | ACCEPTED | [v2实测](../reports/S1_P04_CUDA_V2_RECOVERY.md)：两种恢复均逐值一致，R1 be756a1独立PASS；恢复问题已关闭 |
+| G2 实际结果终验 / R1、Q1 | 验收PASS | R1技术PASS、Q1 847e0be数据与说明PASS；65文件已回收、两实例已停止 |
+| P04 正式 SFT / G3 | NOT_RUN，下一阶段 | 冻结0.6B/1.7B一轮配置、原始模型验证CE和SFT选模；198/743次更新 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1 不运行 GPU；G2 两个实现首包先做 CPU 准备，GPU 执行须待精确候选、独立复核和有界配置。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1、G2验收已经完成；后续GPU执行继续绑定精确候选、独立复核和有界配置。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
