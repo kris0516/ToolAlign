@@ -23,6 +23,7 @@ from toolalign.training.cuda_sft.protocol import (
 
 RUN_SCHEMA = "toolalign.cuda-evaluation-run.v1"
 CATALOG = "heldout-devops.v1"
+CATALOGS = (CATALOG, "heldout-constraints.v1")
 MODES = ("l1", "action-only", "replay", "capacity")
 
 
@@ -44,9 +45,9 @@ def read_inputs(path, digest, mode):
         fields(value, "schema_version purpose catalog registry_hash tasks recovery_task_ids", "evaluation_task_fields")
         require(value["schema_version"] == "toolalign.evaluation-tasks.v1"
                 and value["purpose"] == "heldout-model-evaluation"
-                and value["catalog"] == CATALOG, "evaluation_task_schema")
-        registry = LocalToolRegistry(catalog_id=CATALOG)
-        require(registry.catalog_id == CATALOG and value["registry_hash"] == registry.registry_hash,
+                and value["catalog"] in CATALOGS, "evaluation_task_schema")
+        registry = LocalToolRegistry(catalog_id=value["catalog"])
+        require(registry.catalog_id == value["catalog"] and value["registry_hash"] == registry.registry_hash,
                 "evaluation_registry_identity")
         entries = value["tasks"]
         require(type(entries) is list and 0 < len(entries) <= 48, "evaluation_task_count")
@@ -62,7 +63,7 @@ def read_inputs(path, digest, mode):
                     "evaluation_task_identity_or_split")
             require(type(entry["tool_names"]) is list
                     and len(entry["tool_names"]) == len(set(entry["tool_names"])), "evaluation_tool_names")
-            subset = LocalToolRegistry(entry["tool_names"], catalog_id=CATALOG)
+            subset = LocalToolRegistry(entry["tool_names"], catalog_id=value["catalog"])
             require({t["name"]: t for t in subset.tools} == {t["name"]: t for t in example["tools"]},
                     "evaluation_task_tool_schema")
             require(type(task.oracle_payload) is dict and type(entry["faults"]) is dict,
