@@ -73,7 +73,7 @@ def evaluate(model, records, *, expected_ids, profile, device):
     import torch
 
     totals = ValidationTotals(profile=profile, split="validation", expected_ids=expected_ids)
-    was_training = model.training
+    training_modes = [(module, module.training) for module in model.modules()]
     model.eval()
     try:
         with torch.no_grad():
@@ -84,7 +84,8 @@ def evaluate(model, records, *, expected_ids, profile, device):
         return {"ce_sum": totals.numerator, "supervised_tokens": totals.denominator,
                 "examples": totals.count, "validation_ce": totals.finish()}
     finally:
-        model.train(was_training)
+        for module, was_training in training_modes:
+            module.training = was_training
 
 
 def attach_adapter(base, config):

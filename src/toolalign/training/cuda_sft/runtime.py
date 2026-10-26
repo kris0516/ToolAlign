@@ -89,6 +89,23 @@ def _memory(config):
             "peak_allocated_bytes": torch.cuda.max_memory_allocated(0)}
 
 
+def original_validation(model, bundle, *, request, identity, output_dir, device):
+    """Record the original model once, separately from SFT checkpoint selection."""
+    if request["run_kind"] != "sft":
+        return {"status": "NOT_RUN", "reason": "capacity_run"}
+    if "resume_from" in request:
+        return {"status": "NOT_RUN", "reason": "resume_segment"}
+    with model.disable_adapter():
+        validation = evaluate(model, bundle.records("validation"), expected_ids=bundle.ids["validation"],
+                              profile=request["profile"], device=device)
+    result = {"schema": "toolalign.cuda-sft-original-validation.v1", "status": "PASS",
+        "run_id": request["run_id"], "profile": request["profile"], "identity": identity,
+        "optimizer_step": 0, "data_cursor": 0, "adapter_disabled": True, **validation}
+    filename = "original-validation.json"
+    write_bytes(Path(output_dir) / filename, encoded(result) + b"\n")
+    return {"status": "PASS", "file": filename}
+
+
 def execute(request):
     """Called by the supervised child. No real-model CPU or Mac fallback."""
     started = time.monotonic()
@@ -142,6 +159,8 @@ def execute(request):
         adapter_before = parameter_hash(model)
         frozen_before = parameter_hash(model, trainable=False) if request["run_kind"] == "capacity" else None
         _memory(config)
+        baseline = original_validation(model, bundle, request=request, identity=identity,
+                                       output_dir=root, device="cuda:0")
         last_checkpoint = None
         with (root / "events.jsonl").open("x", encoding="utf-8") as events:
             for group in groups(bundle.records("train"), cursor=cursor):
@@ -186,7 +205,7 @@ def execute(request):
             "adapter_after_sha256": adapter_after, "adapter_changed": True,
             "frozen_before_sha256": frozen_before, "frozen_after_sha256": frozen_after,
             "frozen_content_check": "PASS" if frozen_before is not None else "NOT_RUN",
-            "best": store.best, "identity": identity, "memory": _memory(config),
+            "best": store.best, "original_validation": baseline, "identity": identity, "memory": _memory(config),
             "elapsed_seconds": time.monotonic() - started}
         write_bytes(root / "summary.json", encoded(summary) + b"\n")
         return summary
