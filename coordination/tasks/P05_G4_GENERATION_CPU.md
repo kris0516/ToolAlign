@@ -14,7 +14,7 @@
 - 复用已冻结model_io渲染/tokenizer；完整schema/历史、不偷偷截断。eval/no_grad、实际token计数、raw text不修复，截止/长度失败如实保留。采样seed/config逐条固定；无工具答案或oracle进入生成输入。
 - LocalHarness默认行为和原测试不变；仅显式传入采样时生效，3/2/256/30秒预算不开放覆盖。增加decision_inputs以保存实际ModelInput并绑定hash；默认调用方兼容。
 - 首版模型在已有owned child内lazy load，同轨迹复用，终止后回收；记录冷加载成本。先交付可测路径，不预建常驻服务。若30秒冷加载在真实pilot不足，由S1根据测量另定最小修订。
-- 输入/输出严格按共享协议。进度按task/candidate固定ID保存，恢复只续未完成项；不因断线重复已完成候选，不把失败隐去。批次有明确轨迹数、墙钟、输出上限及输入/源码/模型hash。
+- 输入/输出严格按共享协议。按task/candidate固定ID保存started与终态；恢复只续从未启动项，已启动但终态不明的候选记interrupted留原分母，不能重跑并用成功替换。已有终态不重复。批次有明确轨迹数、墙钟、输出上限及输入/源码/模型hash。
 - Colab控制器仅增加明确白名单generation kind/module，SFT原路径兼容；生成配置使用真实max_trajectories边界，不能填虚假的max_optimizer_steps。检查现有输出回收和中止路径也适用，不引入任意shell入口。
 
 CPU验收覆盖真实接口行为：隐藏oracle不流入模型、可选采样与默认greedy、首分歧输入hash记录、输入溢出/length/deadline、子进程回收、固定ID恢复不重复、控制器入口白名单/预算和SFT回归。测试命令与实际退出码入报告；模型前向、L4性能与真实SFT候选标NOT_RUN。避免镜像实现的过量mock。
