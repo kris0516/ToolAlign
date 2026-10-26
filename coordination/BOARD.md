@@ -28,7 +28,7 @@
 | G4 原生TRL DPO / E1 | CPU独立审核已接纳 | [R1 r2](../reports/reviews/P05_G4_DPO_R2.md)8ce08bf复验原反例PASS，输出预算问题关闭、计数1→0；原FAIL保留 |
 | G4 偏好处置 / Q1 | NO_ELIGIBLE_PAIRS已接纳 | [审核](../reports/reviews/P05_G4_PREFERENCE_Q1_R1.md)5321842：80条分母、0对及监督范围核对一致；ordinal 8诊断第三次为额外工具，DPO保持BLOCKED |
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
-| G5 评测后端 / T1 | 已交付，R1独立审核中 | 候选60c52f8：231项通过/1项既有pip缺失跳过，真实工具组合另1项通过；[审核范围](tasks/P06_G5_EVALUATION_REVIEW_R1.md) |
+| G5 评测后端 / T1 | R1 PASS已接纳 | 候选60c52f8，独立审核37eb027；复用231项通过/1项既有pip检查跳过与1项工具组合，新增6项独立检查通过，8+8个child回收；[审核](../reports/reviews/P06_G5_EVALUATION_R1.md) |
 | G5 独立工具 / E1 | R1 PASS已接纳 | 候选6027096，独立审核c6c81db；109项既有/新增检查与3项独立检查通过，8+4个child回收 |
 | G5 L1语料 / D1 | CPU构造进行中 | [语料任务](tasks/P06_G5_CORPUS_CPU.md)：最多48题、真实连通group、隐藏oracle与tokenizer预检 |
 | G5 BFCL与分析 / E1 | CPU实现进行中 | [任务](tasks/P06_G5_BFCL_ANALYSIS_CPU.md)：官方原始分与严格成功率分列，固定分母和配对分析 |
