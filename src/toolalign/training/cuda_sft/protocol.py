@@ -13,7 +13,7 @@ import stat
 import subprocess
 from pathlib import Path
 
-CONFIG_SHA256 = "3d4785e1e130dd04990abb3767c23d92cdb7b18dad1d30cc6991f976cd44c9c4"
+CONFIG_SHA256 = "ee235d612b2552be5927b4ff790887a34b088ab842f78a15fcb8212323b60045"
 CAPACITY_COHORT_SHA256 = "48d66f48010dc0d0ce6db5bc64ac5e7223aa79fe7824f7ca623e6449f4adedeb"
 MAX_BUNDLE_BYTES = 1024**3
 
@@ -67,7 +67,7 @@ def write_bytes(path, data):
 
 def load_protocol(repository):
     root = Path(repository)
-    config = document(root / "configs/sft-cuda.v1.json", digest=CONFIG_SHA256)
+    config = document(root / "configs/sft-cuda.v2.json", digest=CONFIG_SHA256)
     for name, digest in config["bindings"].items():
         require(sha(read_bytes(root / name)) == digest, "protocol_binding_mismatch")
     return config

@@ -4771,14 +4771,44 @@
           "comparison_result_sha256": "678960c8b76296863f3f83378d72633728012edf916ec104fb69d61499e269b3",
           "adopted_at_utc": "2026-10-26T01:14:58.698048+00:00",
           "new_failed_revision_increment": 0
+        },
+        {
+          "event_kind": "INDEPENDENT_DIAGNOSTIC_REVIEW",
+          "candidate": "739c9b382f2841848a80b514ca1f31558728b5b3",
+          "review_commit": "0947a91bbbcd304b55833743a78c4082d6294916",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "DIAGNOSTIC_READY_ISSUE_OPEN",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T02:25:30.398584+00:00"
+        },
+        {
+          "event_kind": "BOUNDED_CUDA_DIAGNOSTIC_COMPLETED",
+          "candidate": "fee99c83ac6e2aeebbb8d565087eb5a80966ac26",
+          "observer": "Codex-AI(S1)",
+          "verdict": "SAME_STATE_BACKWARD_DIFFERENCE_REPRODUCED",
+          "summary_sha256": "83127446c36cd55fa8b81c4045b12030f047be2b48be3bf7d0adaadb4749c59b",
+          "result_index_sha256": "a4c4043d7415fc72f949530a3bb3a07a2ee1068fe9a4351d165a9ae0fdc78ee6",
+          "recovery_acceptance": "NOT_EVALUATED",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T02:25:30.398584+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_CPU_REPAIR_REVIEW",
+          "candidate": "f6f66545c17827fa442c38d4d3af52d6cb7231e3",
+          "review_commit": "9212903fc8f86955ba713d75016bfd6bc3bd935f",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS_CPU_TECHNICAL_REAL_CUDA_PENDING",
+          "independent_checks_passed": 9,
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T02:58:02.986075+00:00"
         }
       ],
-      "next_action": "T1基于真实已保存状态定位原因，R1独立复核；未通过前不运行跨实例恢复或正式SFT，不扩大容差。",
+      "next_action": "S1合入已审v2实现，冻结同源三步连续、新进程及新实例恢复；按原容差实测后由R1独立验收同一候选。",
       "deduplication_basis": "一次连续/恢复对照的多项差异是同一S1运行发现，非多次独立正式修订。"
     }
   ],
-  "prior_findings": "既有87项问题均关闭，全部失败历史保留；新增CUDA-RESUME-001为S1真实运行发现，尚无独立正式失败计数。",
-  "updated_at_utc": "2026-10-26T01:14:58.698305+00:00",
+  "prior_findings": "既有87项问题均关闭，全部失败历史保留；CUDA-RESUME-001的原差异经R1确认，同进程同状态重复backward已实测复现，正式修订失败计数仍0。",
+  "updated_at_utc": "2026-10-26T02:58:02.986075+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
