@@ -1,6 +1,6 @@
 # T1｜P04 CUDA 严格确定性策略
 
-状态：READY。owner T1，协调者 S1。代码基线 `fee99c83ac6e2aeebbb8d565087eb5a80966ac26`；在既有隔离worktree建立 `codex/p04-cuda-determinism-r3`，从S1本任务授权提交开始。原候选、分支和证据保留。
+状态：ACCEPTED（CPU）。精确实现 `f6f66545c17827fa442c38d4d3af52d6cb7231e3` 经R1 `9212903fc8f86955ba713d75016bfd6bc3bd935f` 独立审查通过；真实数值验收待运行。owner T1，协调者 S1。代码基线 `fee99c83ac6e2aeebbb8d565087eb5a80966ac26`；在既有隔离worktree建立 `codex/p04-cuda-determinism-r3`，从S1本任务授权提交开始。原候选、分支和证据保留。
 
 [同状态诊断](../../reports/S1_P04_CUDA_RESUME_DIAGNOSTIC_R1.md)已将下一步收敛到CUDA反向确定性。T1对应版本源码核对支持 [ADR-0032](../DECISIONS.md) 的最小路线。共享配置 `configs/sft-cuda.v2.json` 由S1冻结，SHA-256 `ee235d612b2552be5927b4ff790887a34b088ab842f78a15fcb8212323b60045`；逐字节接入，不能自行改动。v1保持原字节。
 

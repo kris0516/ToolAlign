@@ -4791,14 +4791,24 @@
           "recovery_acceptance": "NOT_EVALUATED",
           "new_failed_revision_increment": 0,
           "adopted_at_utc": "2026-10-26T02:25:30.398584+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_CPU_REPAIR_REVIEW",
+          "candidate": "f6f66545c17827fa442c38d4d3af52d6cb7231e3",
+          "review_commit": "9212903fc8f86955ba713d75016bfd6bc3bd935f",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS_CPU_TECHNICAL_REAL_CUDA_PENDING",
+          "independent_checks_passed": 9,
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T02:58:02.986075+00:00"
         }
       ],
-      "next_action": "T1核对对应版本CUDA反向确定性控制，S1冻结最小数值契约后独立R1审核及真实复验；原恢复容差不变。",
+      "next_action": "S1合入已审v2实现，冻结同源三步连续、新进程及新实例恢复；按原容差实测后由R1独立验收同一候选。",
       "deduplication_basis": "一次连续/恢复对照的多项差异是同一S1运行发现，非多次独立正式修订。"
     }
   ],
   "prior_findings": "既有87项问题均关闭，全部失败历史保留；CUDA-RESUME-001的原差异经R1确认，同进程同状态重复backward已实测复现，正式修订失败计数仍0。",
-  "updated_at_utc": "2026-10-26T02:25:30.398584+00:00",
+  "updated_at_utc": "2026-10-26T02:58:02.986075+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",

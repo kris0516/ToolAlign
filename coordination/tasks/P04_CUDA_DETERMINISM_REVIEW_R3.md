@@ -1,6 +1,6 @@
 # R1｜P04 CUDA 严格确定性策略独立审查
 
-状态：等待T1精确候选。owner R1，协调者 S1。实现范围见 [T1任务](P04_CUDA_DETERMINISM_R3.md)，数值决定见 [ADR-0032](../DECISIONS.md)。在既有隔离worktree建立 `codex/review-p04-cuda-determinism-r3`，代码基线及候选由S1原生派发。
+状态：CPU PASS，真实数值待验收。精确候选 `f6f66545c17827fa442c38d4d3af52d6cb7231e3`；独立审查提交 `9212903fc8f86955ba713d75016bfd6bc3bd935f`，9项定点检查通过。owner R1，协调者 S1。实现范围见 [T1任务](P04_CUDA_DETERMINISM_R3.md)，数值决定见 [ADR-0032](../DECISIONS.md)。在既有隔离worktree建立 `codex/review-p04-cuda-determinism-r3`，代码基线及候选由S1原生派发。
 
 只新增 `reports/reviews/P04_CUDA_DETERMINISM_R3.md`、`coordination/handoffs/P04-cuda-determinism-review-r3.md` 和必要私有证据，不修生产/配置/锁或协调状态。核对v2与v1仅schema及三项numerics差异；实际训练子进程在首次CUDA调用前应用策略，import/父进程/prepare无全局副作用；runtime identity绑定真实strict/warn_only/workspace，旧checkpoint不能被伪装为新策略。
 
