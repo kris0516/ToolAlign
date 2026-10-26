@@ -4951,9 +4951,20 @@
           "verdict": "REQUEST_CHANGES_PREVIOUS_FINDING",
           "new_failed_revision_increment": 0,
           "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_TECHNICAL_REVISION_PASS_PENDING_CORPUS_REVIEW",
+          "review_commit": "eba411baa01f40a82415cfe77934decc603fda55",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS_IMPLEMENTATION_ONLY",
+          "review_evidence_index_sha256": "e88a4fed21cde4c8eb272a3c9bae55fd5cf887923677d413cd08b7e31dd86a64",
+          "s1_evidence_audit_sha256": "1fe7917ec93a038c2c5b50952f81207f4ed840d10bbe10ddfe2bd2235441c99d",
+          "new_failed_revision_increment": 0,
+          "formal_semantic_closure": "PENDING",
+          "adopted_at_utc": "2026-10-26T17:56:22.396175+00:00"
         }
       ],
-      "next_action": "独立复验版本化观察oracle与完整历史隔离参考；新候选经逐题Q1审阅后裁定关闭，原48保持整组隔离。",
+      "next_action": "新候选实际采用已接纳观察oracle和完整历史参考，完成逐题Q1复验后裁定关闭；原48永久隔离。",
       "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
     },
     {
@@ -4986,14 +4997,25 @@
           "verdict": "REQUEST_CHANGES_PREVIOUS_FINDING",
           "new_failed_revision_increment": 0,
           "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
+        },
+        {
+          "event_kind": "INDEPENDENT_TECHNICAL_REVISION_PASS_PENDING_CORPUS_REVIEW",
+          "review_commit": "eba411baa01f40a82415cfe77934decc603fda55",
+          "reviewer": "Codex-AI(R1)",
+          "verdict": "PASS_IMPLEMENTATION_ONLY",
+          "review_evidence_index_sha256": "e88a4fed21cde4c8eb272a3c9bae55fd5cf887923677d413cd08b7e31dd86a64",
+          "s1_evidence_audit_sha256": "1fe7917ec93a038c2c5b50952f81207f4ed840d10bbe10ddfe2bd2235441c99d",
+          "new_failed_revision_increment": 0,
+          "formal_semantic_closure": "PENDING",
+          "adopted_at_utc": "2026-10-26T17:56:22.396175+00:00"
         }
       ],
-      "next_action": "独立复验版本化观察oracle与完整历史隔离参考；新候选经逐题Q1审阅后裁定关闭，原48保持整组隔离。",
+      "next_action": "新候选实际采用已接纳观察oracle和完整历史参考，完成逐题Q1复验后裁定关闭；原48永久隔离。",
       "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
     }
   ],
   "prior_findings": "90项既有问题全部关闭。P05-DPO-OUTPUT-001经独立r2原反例PASS关闭、计数1→0；Q1-G4-CORPUS-001原失败与其后PASS保持。真实80条候选经Q1确认0对，偏好质量门BLOCKED，不新增或伪造质量PASS。",
-  "updated_at_utc": "2026-10-26T17:35:57.826487+00:00",
+  "updated_at_utc": "2026-10-26T17:56:22.396175+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -5098,15 +5120,20 @@
     }
   ],
   "last_technical_adoption": {
-    "candidate": "7e56244c0d0cb5b07da48ee6585f31a3f04acc71",
-    "review_commit": "2b47acf02e22b9fdd1b5dfeae31292f12c4848e9",
-    "scope": "G5 E1 BFCL and paired analysis CPU; D1 original corpus remains excluded",
-    "verdict": "E1_PASS_JOINT_REQUEST_CHANGES",
-    "review_evidence_index_sha256": "26173560847b923b2b976b7073d48945f0647d9684015a51e5bf90fba1646f20",
-    "s1_evidence_audit_sha256": "8806b721f99d352e3f4bb03559b6f795e3cbf4033eade5093f4c7a45db32dfeb",
+    "candidates": [
+      "ecbb5202209582f57aee82ae490ae455e5f5dba0",
+      "2153c6823ed98db58782037acba7ca348e4010ed",
+      "f159b52d201efde370c572aed973651c68340120"
+    ],
+    "review_commit": "eba411baa01f40a82415cfe77934decc603fda55",
+    "scope": "G5 versioned observation oracle and complete historical quarantine reference CPU revisions",
+    "verdict": "PASS",
+    "review_evidence_index_sha256": "e88a4fed21cde4c8eb272a3c9bae55fd5cf887923677d413cd08b7e31dd86a64",
+    "s1_evidence_audit_sha256": "1fe7917ec93a038c2c5b50952f81207f4ed840d10bbe10ddfe2bd2235441c99d",
     "new_issue_count": 0,
     "new_formal_failure_events": 0,
-    "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
+    "formal_semantic_issue_closure": "PENDING_NEW_CORPUS_Q1_REVIEW",
+    "adopted_at_utc": "2026-10-26T17:56:22.396175+00:00"
   },
   "technical_adoption_history": [
     {
@@ -5173,6 +5200,17 @@
       "highest_consecutive_failed_revisions": 1,
       "whole_goal_paused": false,
       "adopted_at_utc": "2026-10-26T12:30:20.864476+00:00"
+    },
+    {
+      "candidate": "7e56244c0d0cb5b07da48ee6585f31a3f04acc71",
+      "review_commit": "2b47acf02e22b9fdd1b5dfeae31292f12c4848e9",
+      "scope": "G5 E1 BFCL and paired analysis CPU; D1 original corpus remains excluded",
+      "verdict": "E1_PASS_JOINT_REQUEST_CHANGES",
+      "review_evidence_index_sha256": "26173560847b923b2b976b7073d48945f0647d9684015a51e5bf90fba1646f20",
+      "s1_evidence_audit_sha256": "8806b721f99d352e3f4bb03559b6f795e3cbf4033eade5093f4c7a45db32dfeb",
+      "new_issue_count": 0,
+      "new_formal_failure_events": 0,
+      "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
     }
   ],
   "last_semantic_adoption": {
