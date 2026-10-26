@@ -21,9 +21,11 @@
 | G2 实际结果终验 / R1、Q1 | 验收PASS | R1技术PASS、Q1 847e0be数据与说明PASS；65文件已回收、两实例已停止 |
 | G3 原始验证 CE / T1、R1 | ACCEPTED（CPU） | c633bd7经fd4ad07独立PASS；8项实现检查、4项独立检查通过 |
 | G3 完整数组 / Q1 | ACCEPTED | 98cf0e1；两个profile共7,928行逐行核对通过，13例身份不变 |
-| P04 正式 SFT / G3 | 独立验收PASS | [结果与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；198/743次更新、196文件已回收、实例已停止；R1 300af3f、Q1 34331c2已接纳，下一阶段G4 |
-| P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
+| P04 正式 SFT / G3 | COMPLETE | [结果与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；PR27主干1267d1a、双Python CI成功；R1/Q1通过，实例已停止 |
+| G4 CUDA候选生成 / T1 | CPU实现启动 | [任务](tasks/P05_G4_GENERATION_CPU.md)；真实生成NOT_RUN |
+| G4 train任务与偏好 / D1 | CPU实现启动 | [任务](tasks/P05_G4_PREFERENCE_CPU.md)；独立审核后再生成候选 |
+| P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；Q1偏好审核、TRL锁及CUDA容量/恢复后运行 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1、G2验收已经完成；后续GPU执行继续绑定精确候选、独立复核和有界配置。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4当前为CPU实现。后续GPU执行继续绑定精确候选、独立复核和有界配置。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
