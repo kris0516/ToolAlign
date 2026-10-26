@@ -18,6 +18,8 @@
     "smoke": {
       "train_examples": 1583,
       "validation_examples": 194,
+      "expected_validation_supervised_tokens": 21226,
+      "expected_train_supervised_tokens": 141211,
       "max_encoded_examples": 1777,
       "optimizer_updates": 198,
       "tail_microsteps": 7,
@@ -27,6 +29,8 @@
     "formal": {
       "train_examples": 5938,
       "validation_examples": 213,
+      "expected_validation_supervised_tokens": 23841,
+      "expected_train_supervised_tokens": 536238,
       "max_encoded_examples": 6151,
       "optimizer_updates": 743,
       "tail_microsteps": 2,
