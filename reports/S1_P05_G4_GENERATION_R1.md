@@ -113,3 +113,6 @@ DPO CPU候选`982cc191`经R1 `32a031b`审核为REQUEST_CHANGES：原生SUM/mask/
 S1接纳最终处置：**DATA_INSUFFICIENT_WITH_NO_DPO**。[R1技术终验](reviews/P05_G4_FINAL_R1.md) `fe26311` 与[Q1语义/说明终验](reviews/P05_G4_FINAL_Q1_R1.md) `d5c55fb` 均PASS；S1分别回读7份审核文件及111份原始输入、126份Q1证据，确认独立结论和实际产物一致，新增实质问题0。原80条正式候选仍为0成功/0偏好，两条诊断单列，空样本误标率不定义，DPO质量门BLOCKED。
 
 原计划的DPO checkpoint交付条件**未满足**；DPO CUDA容量、恢复、正式训练及M2 checkpoint均为NOT_RUN。此处PASS指独立审核及有据降级处置，已有DPO CPU数学与工程证据不代表真实训练通过。预算未耗尽，结束本轮的依据是缺少合格chosen及固定样本的额外动作失败。后续G5冻结M0原始模型与M1已选SFT的同协议独立评测，M2明确缺失；不推断SFT造成退化或DPO负效果。G4 App goal在PR30主干发布和文件树核对前保持active，发布后按已授权的数据不足边界结束本阶段。
+
+
+[PR30](https://github.com/kris0516/ToolAlign/pull/30)已合并为 `d0a266d9fa9abd102fc8b7ceef69e4969fb6702d`。最终头 `17c8cc6` 的双Python CI 40338862773全部步骤成功，S1核对主干文件树相同、生产源码与实际诊断执行版本保持；G4 App goal随后按上述有据降级complete，G5已启动。独立审核、原checkpoint门未满足和DPO NOT_RUN均保持。

@@ -28,7 +28,9 @@
 | G4 原生TRL DPO / E1 | CPU独立审核已接纳 | [R1 r2](../reports/reviews/P05_G4_DPO_R2.md)8ce08bf复验原反例PASS，输出预算问题关闭、计数1→0；原FAIL保留 |
 | G4 偏好处置 / Q1 | NO_ELIGIBLE_PAIRS已接纳 | [审核](../reports/reviews/P05_G4_PREFERENCE_Q1_R1.md)5321842：80条分母、0对及监督范围核对一致；ordinal 8诊断第三次为额外工具，DPO保持BLOCKED |
 | P05 正式 DPO | NOT_RUN | [协议](tasks/P05_G4_PROTOCOL.md)；当前无有效chosen，零对不启动DPO |
-| P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
+| G5 评测后端 / T1 | CPU任务已冻结，待派发 | [后端任务](tasks/P06_G5_EVALUATION_CPU.md)：M0/M1、恢复开关、cache与有界执行 |
+| G5 独立工具 / E1 | CPU任务已冻结，待派发 | [工具任务](tasks/P06_G5_TOOLS_CPU.md)：四域静态只读工具，旧身份保持 |
+| P06 固定协议对照 | G5 ACTIVE，真实评测NOT_RUN | [协议](tasks/P06_G5_PROTOCOL.md)：L0/L1/L2分开，M0/M1配对、M2缺失 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |
 
-S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。待PR30主干发布核对后结束G4，App goal此时仍active。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
+S1 独占当前状态维护。旧未派发 MLX runtime CPU 任务由 Colab 路线取代，不能自动恢复。G1–G3验收已经完成；G4的80条真实候选和独立加载诊断均已完成回收，L4已停止。Q1零对处置、E1 r2和T1 r2均已独立接纳；PR29已合并3250f1b；固定样本诊断20.883秒tool_round_limit，原前缀一致。R1 `fe26311` / Q1 `d5c55fb` 终验PASS已接纳，处置为DATA_INSUFFICIENT_WITH_NO_DPO；原DPO checkpoint条件未满足，M2保持NOT_RUN。PR30已合并d0a266d，双Python CI 40338862773全部成功且文件树一致，G4已按有据降级complete；G5为唯一active goal。G3正式训练和验证目标均为tool_calls，整条任务能力仍须单独测量；正式DPO未运行。[历史看板](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/BOARD.md)。
