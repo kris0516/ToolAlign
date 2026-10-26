@@ -20,7 +20,8 @@
 | P04 CUDA严格确定性 / T1、R1 | ACCEPTED | [v2实测](../reports/S1_P04_CUDA_V2_RECOVERY.md)：两种恢复均逐值一致，R1 be756a1独立PASS；恢复问题已关闭 |
 | G2 实际结果终验 / R1、Q1 | 验收PASS | R1技术PASS、Q1 847e0be数据与说明PASS；65文件已回收、两实例已停止 |
 | G3 原始验证 CE / T1、R1 | ACCEPTED（CPU） | c633bd7经fd4ad07独立PASS；8项实现检查、4项独立检查通过 |
-| P04 正式 SFT / G3 | PREPARING，训练NOT_RUN | [固定计划](tasks/P04_CUDA_G3_SFT.md)；冻结主干后准备完整数组并由Q1增量审查；198/743次更新 |
+| G3 完整数组 / Q1 | ACCEPTED | 98cf0e1；两个profile共7,928行逐行核对通过，13例身份不变 |
+| P04 正式 SFT / G3 | 独立验收PASS | [结果与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；198/743次更新、196文件已回收、实例已停止；R1 300af3f、Q1 34331c2已接纳，下一阶段G4 |
 | P05 偏好与 DPO | NOT_RUN | 已验收 SFT 起点；Q1 偏好审核；CUDA DPO 验证 |
 | P06 固定协议对照 | NOT_RUN | 原始/SFT/DPO 同协议，训练与评测分开 |
 | P07–P09 服务、复现、交付 | NOT_RUN | GPU 在 Colab，Mac 可做客户端和分析 |

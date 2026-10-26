@@ -1,6 +1,6 @@
 # 16｜Colab 训练工作流与显存预算
 
-2026-10-26。本页记录 Colab 运行约束与容量预算。Qwen3-1.7B 已在 L4 完成三步容量、新进程和新实例完整恢复实测，并通过 R1/Q1 独立终验，见 [v2 运行报告](../reports/S1_P04_CUDA_V2_RECOVERY.md)；正式 SFT 与 DPO 仍 NOT_RUN。
+2026-10-26。本页记录 Colab 运行约束与容量预算。Qwen3-1.7B 已在 L4 完成三步容量、新进程和新实例完整恢复实测，并通过 R1/Q1 独立终验，见 [v2 运行报告](../reports/S1_P04_CUDA_V2_RECOVERY.md)。G3的0.6B/1.7B一轮SFT已完成，产物已回收、实例已停止，独立终验已通过，见[结果与曲线](../reports/S1_P04_CUDA_G3_SFT.md)；DPO仍NOT_RUN。
 
 ## 可复用的基础
 

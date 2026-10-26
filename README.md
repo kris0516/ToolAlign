@@ -4,7 +4,7 @@
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态（2026-10-26）：数据治理、冻结 v3 质量审核、CPU 工具执行器与 P04 准备接口已验收。PR19 已合并，main 定点检查 163 passed。** 正式 SFT、DPO 和模型评测保持 `NOT_RUN`。后续使用 Colab L4/A100，CUDA 训练接口待适配。新 Supervisor 从 **[toolalign.md](toolalign.md)** 接续，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+> **当前状态（2026-10-26）：CUDA 容量与完整恢复已验收；0.6B 冒烟和 1.7B 一轮正式 SFT 已完成，并通过 R1/Q1 独立终验。** 各自完整验证 CE 从 0.739884/1.145230 降至 0.041494/0.024438，全部产物已回收，Colab 已停止，见[结果与曲线](reports/S1_P04_CUDA_G3_SFT.md)。DPO 和模型语义评测保持 `NOT_RUN`。接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 
@@ -64,7 +64,7 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 ## 开源与部署状态
 
-当前公开仓库为 `kris0516/ToolAlign`。已有项目进度正在交接给用户后续新开的 Supervisor；[项目状态](coordination/PROJECT_STATUS.md)记录实际提交、独立审查、集成与尚未满足的验收门。
+当前公开仓库为 `kris0516/ToolAlign`。S1 已接班并按分组目标继续推进；[项目状态](coordination/PROJECT_STATUS.md)记录实际提交、独立审查、集成与尚未满足的验收门。
 
 原创代码和文档采用 [MIT](LICENSE)。模型、数据和第三方依赖各自保留原许可，见 [第三方来源与发布边界](THIRD_PARTY_NOTICES.md)。不复制 LiDARFoodAgent 私有源码、真实用户数据或任何云端凭据。
 
