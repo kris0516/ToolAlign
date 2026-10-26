@@ -2,7 +2,7 @@
 
 状态：READY；owner R1。候选实现提交 `147d0450447a7ad543a7a913f2a9084b039b849d`，修改限于 `src/toolalign/data/preferences/` 和 `tests/data/preferences/`，共8文件。S1 已回读差异、私有输入和日志，核对8个源码/test blob与42项通过的测试运行逐字节一致；当前只是待审集成，未合入 main。
 
-从 S1 派发的精确授权提交，在 R1 既有隔离 worktree 建 `codex/r1-p05-g4-preference-r1`。按 [G4协议](P05_G4_PROTOCOL.md) 和 [D1任务](P05_G4_PREFERENCE_CPU.md) 独立技术审查。完整20任务/12family/10类别/1group的语义审核由 Q1 同时进行；本任务不代替 Q1，也不验收真实模型偏好。
+从 S1 派发的精确授权提交，在 R1 既有隔离 worktree 建 `codex/r1-p05-g4-cpu-r1`，与[生成器审核](P05_G4_GENERATION_R1.md)共用本次独立审查分支，分别给出结论。按 [G4协议](P05_G4_PROTOCOL.md) 和 [D1任务](P05_G4_PREFERENCE_CPU.md) 独立技术审查。完整20任务/12family/10类别/1group的语义审核由 Q1 同时进行；本任务不代替 Q1，也不验收真实模型偏好。
 
 重点：固定计划和候选分母；任务/模型/实际 ModelInput/trace 的身份链；首分歧的当前语义错误与后续失败严格区分；合法替代、call_id与格式差异不误作负例；多步依赖有 prior observation 证据；每任务固定顺序最多1对；原始completion和双方采样参数保留；所有已知误标排除，Q1抽样/严格大于5%以原分母裁定，不删后重算或回填。
 

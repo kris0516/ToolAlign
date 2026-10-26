@@ -1,13 +1,13 @@
 # P05 G4｜原生 TRL DPO 与依赖 CPU 实现
 
-状态：PREPARED，等待现有实现槽位及生成控制器交付；owner E1。S1 派发时给出包含已交付生成器的精确起点，在现有独立 worktree 建 `codex/e1-p05-g4-dpo-r1`。本文件本身不启动任务或 GPU。
+状态：READY，生成器已交付，等待S1实际派发；owner E1。S1 派发时给出包含已交付生成器的精确起点，在现有独立 worktree 建 `codex/e1-p05-g4-dpo-r1`。本文件本身不启动任务或 GPU。
 
 目标：按 [G4 协议](P05_G4_PROTOCOL.md)交付可复现的 TRL 0.26.2 标准 sigmoid DPO、独立依赖锁、有界 Colab 入口及完整 checkpoint 恢复。本包只安装专用 Mac CPU 测试环境、运行小型随机初始化 fixture，不加载真实模型、不训练正式数据、不分配 GPU。真实偏好数量及 Q1 结果尚未确定，零有效对不启动 DPO。
 
 ## 修改范围
 
 - 新增 `src/toolalign/training/cuda_dpo/`、独立 `configs/dpo-cuda.v1.json`、`requirements/dpo-*.in` 和 Linux/Mac Python 3.12 哈希锁。
-- 在已交付的 `scripts/colab/{control,remote,support}.py` 中增加明确 DPO 白名单及专用环境选择；保持原 SFT 和 generation 路径的行为。
+- 在已交付的 `scripts/colab/{control,remote,support}.py` 中增加明确 DPO 白名单及专用环境选择；保持原 SFT 和 generation 路径的行为。生成器当前处于R1审查，E1先做依赖与trainer，控制器文件须等S1明确解除保留后再编辑，避免与审查修订重叠。
 - 对应 `tests/training/`、`tests/colab/` 定点检查，报告 `reports/P05_G4_DPO_CPU.md` 与交接 `coordination/handoffs/P05-g4-dpo-r1.md`。
 - 复用现有 model_io、cuda_sft 的公开只读帮助函数；不改冻结模板、模型描述、SFT 协议和依赖。若真实接口缺口要求编辑生成器或 SFT 核心，先向 S1 提出具体文件和原因。
 
