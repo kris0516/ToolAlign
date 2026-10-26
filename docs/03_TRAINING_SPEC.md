@@ -78,4 +78,4 @@ D2 前完成 backend 兼容性判断。若主候选失败，最多选择一次�
 
 ## 8. PyTorch 能力的保留
 
-小规模 Dataset/collator、CE/DPO loss、mask/梯度校验用独立 PyTorch CPU 实现，作为可读 reference；正式训练在 MLX。未来 CUDA/TRL adapter 是独立里程碑。简历应如实写“MLX 训练 + PyTorch 参考实现”，不冒充已运行多卡 PyTorch 训练。
+小规模 Dataset/collator、CE/DPO loss、mask/梯度校验可使用独立 PyTorch CPU 实现作为 reference；正式训练使用 Colab CUDA。旧 MLX 数值与兼容性记录保留为其原范围证据。当前 CUDA 已完成有界 SFT 容量与完整恢复实测，正式 SFT、DPO 和多卡训练不能据此登记为完成。
