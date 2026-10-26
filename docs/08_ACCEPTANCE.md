@@ -1,53 +1,43 @@
 # 08｜验收、发布与证据等级
 
-> 2026-10-26：平台相关验收以 [Colab 工作流](16_COLAB_WORKFLOW.md) 为准，旧 Mac 运行指标保留为历史。用户已将后续原需人工参与的审核委托独立 Q1，见 [审核规则](../coordination/REVIEW_POLICY.md)。不把历史 CPU/MLX PASS 当作 CUDA 或正式模型结果。
+2026-10-27。以下质量门采用名称，避免与 [App分组目标G1–G6](../coordination/GOAL.md)混用。App G2是CUDA容量/恢复、G3是SFT、G4是偏好/DPO、G5是评测、G6是受限服务与交付；这些编号不等于某个质量门已通过。
 
-## 1. 阶段门
+## 1. 质量门
 
 | Gate | 验收内容 | 必要证明 |
 |---|---|---|
-| G0 | 契约与独立对话治理 | schema version、任务 owner、branch/worktree、资源锁 |
-| G1 | 本机兼容与校准 |真实硬件/依赖，加载训练保存，DPO reference/数学测试 |
-| G2 | 数据治理 | 来源/许可、分组隔离、长度/质量报告、独立委托AI抽查 |
-| G3 | 模型训练 | 完整 run manifest、checkpoint、loss/mask、adapter reload |
-| G4 | 评测有效 | 冻结协议、分母、oracle 反例、BFCL 子集标注、未调测试集 |
-| G5 | 服务/安全 | 白名单、超时、预算、取消、cache 身份、loopback |
-| G6 | 独立复核与发布 | R1 检查、干净环境复现、release notes、已知局限 |
+| G-CONTRACT | 契约与协作治理 | 版本、所有权、隔离工作区、资源锁 |
+| G-COMPAT | 运行平台兼容 | 对应硬件/依赖、加载保存、损失/reference数学、容量/恢复 |
+| G-DATA | 数据治理 | 来源、许可、分组隔离、长度/质量报告、独立Q1审核 |
+| G-TRAIN | 模型训练 | 真实run、完整checkpoint、loss/mask、选模与恢复 |
+| G-EVAL | 评测有效 | 冻结协议、原分母、oracle反例、实际结果与失败、BFCL范围 |
+| G-SERVICE | 受限服务 | 固定工具、身份/鉴权、截止/取消、cache、loopback与真实回收 |
+| G-RELEASE | 独立复核与交付 | R1技术复现、Q1说明审核、精确版本、许可、未完成项 |
 
-对 G1 的 SFT 与 DPO 分开打勾。SFT 通过不代表 DPO 通过。
+SFT与DPO分别验收。CPU、历史MLX与CUDA证据注明实际平台；SFT通过不代表DPO训练通过。当前状态以 [PROJECT_STATUS](../coordination/PROJECT_STATUS.md)为准。
 
-本批G2/P02语义和token/mask材料采用kris明确委托的AI审阅方式，见ADR-0022；不记作本人或R1签字，不把审查存在等同于质量问题已关闭。实际浏览器显示另列NOT_RUN，旧安全拒绝保持；本轮CPU整改可继续。最新ADR-0023将P05分层偏好、全部后续人工审核及最终材料检查一并转交独立Q1；保留内容标准，实际标注AI身份，不要求kris本人再审核。
+## 2. 发布条件
 
-## 2. 什么结果允许发布
+`v0.1.0-core`要求G-CONTRACT、G-DATA、SFT的G-TRAIN、G-EVAL和G-RELEASE；须有真实原始模型对照。没有语义改善时报告确切结果与失败原因。
 
-`v0.1.0-core`：G0/G2/G3(SFT)/G4/G6。模型改善不是硬性数字门，但若没有改善，要清楚写失败分析；必须有真实 baseline。
+`v0.2.0-preference`另要求DPO的实现、有效数据、真实训练与对照证据。G4已按无有效偏好有据结束，不能据此声明已获得DPO checkpoint。
 
-`v0.2.0-preference`：在 core 基础上，DPO 的实现、数据、训练与对照证据全部通过。不能仅因为存了名为 dpo 的 adapter 就发布。
+`v0.3.0-serving`另要求G-SERVICE、Mac→SSH→Colab实际链路、启停/恢复与资源记录。客户端CPU示例通过仍不等于真实CUDA服务验收。上述为版本条件，实际tag/release发布须有GitHub读回记录。
 
-`v0.3.0-serving`：增加 G5、本机 API 复现与优化结果；只证明本地范围。
+## 3. 证据与完成层次
 
-计划包标记 `plan-v0.1`，不冒用功能 release 标签。P01受限兼容性smoke与容量校准不等同正式模型训练或功能release；当前实测及未完成项见[项目状态](../coordination/PROJECT_STATUS.md)。
+状态使用PASS / FAIL / BLOCKED / NOT_RUN / NOT_APPLICABLE，保留失败命令和原分母。交付至少包含精确commit、环境与依赖锁、输入manifest、模型/adapter身份、命令与原始日志索引、指标/失败、资源、审核交接和许可。大日志、权重、凭据及原始数据留私有；公开聚合结论可沿hash与独立审核追溯。
 
-## 3. 不采用虚假百分制
+- 实现完成：源码存在，相关自测已经运行。
+- 实验完成：真实模型按冻结输入与预算执行，结果完整回收。
+- 独立验收完成：R1技术审核/复现、Q1语义或说明审核，经S1接纳。
 
-不存在“代码 80 分即可证明工业级”的统一标准。验收按阻断项和证据完成度：PASS / FAIL / BLOCKED / NOT_RUN / NOT_APPLICABLE。安全、数据泄漏或错误指标不能靠 UI、代码量、文档长度弥补。
+CPU fixture不能补齐真实模型运行，AI审核不能替代未发生的执行。远端发布还须读回GitHub URL、commit、可见性及CI。
 
-## 4. 发布证据包
+## 4. 独立Q1最终材料检查
 
-最低文件：精确 commit、环境与依赖锁、数据 manifest、模型/adapter hashes、复现命令、原始日志索引、分类指标、失败分析、资源表、review handoff、已知限制、许可。
+按 [REVIEW_POLICY](../coordination/REVIEW_POLICY.md)，后续原需人工参与的语义、偏好与最终说明由独立Q1 AI承担，明确真实身份，不等待kris填表、签字或答辩。当前协调与验收职责由S1承接，历史S0审核记录保持原身份。
 
-大日志/模型本机保留并记录 hash；公开副本只含安全允许材料。可校验 hash 不能单独证明结果真实，所以还要有命令、版本、抽样轨迹和独立复核。
+材料包括正常调用、无需工具、错误参数、故障恢复与预算终止；一条绑定真实证据的token/mask样本；DPO的SUM、EOS和冻结SFT reference数值说明；一条真实失败边界。实际偏好为0时使用已验证原创数学案例并明确无DPO训练，不制造训练对。当前入口见 [19号文档](19_REPRODUCTION_AND_DELIVERY.md)。
 
-## 5. 三层“完成”分开写
-
-- 实现完成：代码存在，自测已运行。
-- 实验完成：真实模型在固定数据/配置上运行，记录完整。
-- 独立验收完成：R1 与 S0 检查证据并复现关键结果。
-
-只到第一层，不得把后两层默认为完成。远端发布还需实际 GitHub URL、commit、public 状态读回验证。
-
-## 6. 独立Q1的最终交接材料检查
-
-用新的任务展示正常调用、无需工具、错误参数、故障恢复、预算终止。用一条具体训练样本解释 token/mask，用一对 preference 解释 oracle 和 DPO reference，用一条失败样本解释无法解决的边界。
-
-Q1独立核对三类说明与实际实现/证据是否一致，缺项由S0组织补充；不测试或声称kris本人已理解。按REVIEW_POLICY记录同问题正式修订轮次，第五次未通过才暂停整个目标并通知本人。
+缺项由S1组织补充。同问题第1–4次正式未通过自主整改，第5次才整体暂停并通知用户；保留原失败，不因重复回读增加修订计数。

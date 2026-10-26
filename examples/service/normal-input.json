@@ -1,0 +1,60 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Use the advertised unit converter to convert 1536 KiB to MiB. Return the JSON number.",
+      "tool_calls": [],
+      "tool_call_id": null
+    }
+  ],
+  "tools": [
+    {
+      "description": "Convert time or byte units; incompatible dimensions fail.",
+      "name": "convert_numeric_units",
+      "parameters_json_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "from_unit": {
+            "enum": [
+              "ms",
+              "s",
+              "min",
+              "B",
+              "KiB",
+              "MiB"
+            ],
+            "maxLength": 64,
+            "type": "string"
+          },
+          "to_unit": {
+            "enum": [
+              "ms",
+              "s",
+              "min",
+              "B",
+              "KiB",
+              "MiB"
+            ],
+            "maxLength": 64,
+            "type": "string"
+          },
+          "value": {
+            "maximum": 1000000000.0,
+            "minimum": -1000000000.0,
+            "type": "number"
+          }
+        },
+        "required": [
+          "value",
+          "from_unit",
+          "to_unit"
+        ],
+        "type": "object"
+      },
+      "schema_version": "toolalign.tool.v1",
+      "side_effect_class": "read_only",
+      "timeout_ms": 1000,
+      "tool_version": "local-devops.v1"
+    }
+  ]
+}

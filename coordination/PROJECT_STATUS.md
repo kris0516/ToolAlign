@@ -1,6 +1,6 @@
 # 项目真实状态
 
-更新：2026-10-27（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。G3验收已随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，双Python CI 40295329527全部成功；实际SFT执行源码为PR26 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。当前唯一协调者S1，G1–G4已完成，G5为唯一active goal。G4按DATA_INSUFFICIENT_WITH_NO_DPO降级处置结束，原DPO checkpoint条件未满足；已在PR28主干 `6e2f1d2` 完成80条真实候选，0成功/0偏好，产物已回收且L4已停止。
+更新：2026-10-27（Asia/Shanghai）。当前入口：[toolalign.md](../toolalign.md)。G3验收已随PR27合入主干 `1267d1a33dfb08bfd9800b80ea97315730748952`，双Python CI 40295329527全部成功；实际SFT执行源码为PR26 `2abbe7ac913661df1d5e430f285604b4ceb8ff4b`。当前唯一协调者S1，G1–G5已完成，G6为唯一active goal。G4按DATA_INSUFFICIENT_WITH_NO_DPO降级处置结束，原DPO checkpoint条件未满足；已在PR28主干 `6e2f1d2` 完成80条真实候选，0成功/0偏好，产物已回收且L4已停止。
 
 | 阶段 | 已支持的结论 | 关键证据 |
 |---|---|---|
@@ -26,7 +26,7 @@
 | G4 DPO CPU实现 | 独立CPU审核已接纳；输出预算问题r2 PASS关闭，原数学/恢复证据保持 | [R1 r2](../reports/reviews/P05_G4_DPO_R2.md)、[E1修订](../reports/P05_G4_DPO_FIX_R2.md) |
 | G4 批次文件验证复用 | CPU审核接纳；一次诊断已回收 | [实测](../reports/S1_P05_G4_GENERATION_R1.md)：预检12.307秒/child冷加载7.219秒，第三动作返回额外工具，20.883秒tool_round_limit |
 | P06 / G5实际评测 | M0/M1均0/28；恢复均0/8；A2的12对输出相同、4次实际缓存命中；独立终验已接纳 | [实测与21例失败](../reports/S1_P06_G5_EVALUATION_R1.md)，245文件及124进程已回收，L4已停止 |
-| P07–P09 | 受限服务、最终复现与研究交付未完成 | [评测规格](../docs/04_EVALUATION_SPEC.md)、[审核规则](REVIEW_POLICY.md) |
+| P07–P09 / G6 | ACTIVE；两包CPU经R1独立PASS已接纳，实际服务未运行 | [G6协议](tasks/P07_G6_PROTOCOL.md)、[共享HTTP](../docs/18_RESTRICTED_CUDA_SERVICE.md) |
 
 已登记92项问题全部关闭；Q1-G5-CORPUS-001/002经Q1正式r2 `cb4c72d` 复验及S1接纳，连续计数各1→0，原首次失败及48题永久隔离保持。P05-DPO-OUTPUT-001经E1修订及R1 `8ce08bf` 独立复验原反例PASS关闭，连续计数1→0，首次REQUEST_CHANGES保留。Q1-G4-CORPUS-001经两条提示的JSON字符串约束修订及Q1独立r2 PASS关闭，连续未通过计数1→0，首次REQUEST_CHANGES保留。CUDA-RESUME-001经R1 `be756a1` 的实际完整恢复独立验收关闭，正式修订失败计数0；Q1 `847e0be` 已确认数据身份与说明范围。原FAIL和全部失败历史保留。数据质量、CPU、toy或容量PASS都不是正式模型效果。
 
@@ -71,5 +71,11 @@ R1最终语料技术审核 `bb4fc27` 与Q1正式逐题r2 `cb4c72d` 均PASS，S1�
 PR33已合并为 `19f6f9bbc3710487634765854f74f9af3fc80eef`，最终头5698f18的双Python CI 40388206384全部成功，主干完整文件树与受检头一致。三段输入和配置于实际推理前冻结。S1已申请唯一L4并核验23,034MiB实际显存；安装SSH断开后回读确认原安装正常完成，原失败保留。容量探针两模型均完成实际CUDA生成：各1,792输入tokens，输出27/33，完整段31.646秒含文件预检12.088秒，采样峰值3,926MiB；两个owned child均回收，23份产物已验证回收。两条Action格式失败按预先规则单列，未作为容量条件；实测最长序列1,825 tokens，不扩写为完整2,048-token解码。S1接纳冻结容量条件PASS。随后56条M0/M1主比较、8条A1恢复关闭对照与A2的24次请求全部完成，未启动项0。M0/M1均0/28、四组配对差值及bootstrap区间均0；M1首动作Action格式28/28合法（M0为1/28），全部66个合法动作均为tool_calls。恢复开启8/8重试成功但无完整答案，on/off均0/8；A2的12对原始输出相同，4次实际命中5,176 tokens，全部请求wall总和减少0.169秒。S1已回读104个L1实际输入和24个回放请求；245文件及124个owned进程已回收，唯一L4已停止且确认0活动分配。累计2,358.235秒、余额167.21→166.32 CU（观测差0.89），全部安装、空闲、失败连接与传输计入，低于14,400秒/8CU上限。[实际结果与21例失败](../reports/S1_P06_G5_EVALUATION_R1.md)候选等待独立R1/Q1终验，G5保持active。
 
 R1技术终验 `b52c7115dba09c5f83faab24f0a95baf04694280` 与Q1结果说明终验 `c4ef4645eb032d4884dc2f6ec8a414cb6f2383a6` 均PASS，S1分别回读540份、523份私有证据、各两份公开文档及完整审核脚本后接纳。R1五项独立检查通过，130次实际输入计数、完整分母、统计、成本及回收账目一致；Q1重建104次L1请求并独立审阅21例失败。新增问题0，原FAIL、48题永久隔离、M2 NOT_RUN及L2零合格处置保持。结果与审核已纳入PR34，当前等待最后提交CI及主干核对；G5仍为唯一active goal，随后进入G6。见[技术终验](../reports/reviews/P06_G5_FINAL_R1.md)与[Q1终验](../reports/reviews/P06_G5_FINAL_Q1_R1.md)。
+
+PR34已合并为`98d642a116da94f2ab2b2aaeb6e931f79fd5cabc`，最后提交`3730b048119d448da013aca6e9079661a587c936`的双Python CI 40400234474全部成功；S1核对主干完整文件树一致、工作树干净，G5 App goal实际complete。G6 App goal已创建并成为唯一active：共享HTTP与两包CPU任务已冻结，T1服务/控制器与E1客户端/示例/说明已实际从ef885c0派发并确认运行中。当前G6新模型推理及GPU分配为0；CPU/R1/主干通过后才冻结具体有界smoke。
+
+G6两包CPU交付已接入候选`fa908839859b758ab2444845f9a2ad2c1eae6c57`：T1 `185d857`的149项不同检查通过、3项既有pip检查跳过，35个服务child及1个原创tiny-cache child回收；E1 `59b9c48`的30项检查通过，五类原创示例15个child回收。S1分别回读4,586/355份私有文件、20/24份公开文件并匹配最终源码，原自测失败保留。R1即将按[集成审核任务](tasks/P07_G6_INTEGRATION_REVIEW_R1.md)独立复核生产服务与Mac客户端组合及干净CPU环境；当前仅接纳作者交付，独立结论待定。G6实际CUDA/SSH服务及GPU分配仍0。
+
+R1 `00409b628af9fc2118cb547fd193d43752f77b44`对G6 CPU集成独立PASS，新增问题0。S1回读5,444份私有文件、两份公开报告、173份当前源码/配置和八个私有脚本后接纳。复用179项通过记录及3项既有跳过；新增七项真实loopback/负向/取消/重载截止/父进程退出/干净CPU入口场景通过，28个owned child全部回收。原两处审查脚本错误及定点修复记录保留，不计候选正式修订失败。PR35初始实现头d259d85的双Python CI 40409934828全部成功；当前纳入独立报告后，等待最后提交CI和主干核对。G6新GPU分配与真实服务仍0；静态审查通过的私有smoke清单最多11次生成，尚未冻结或执行。见[独立审核](../reports/reviews/P07_G6_INTEGRATION_CPU_R1.md)。
 
 完整历史见[迁移前状态](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/coordination/PROJECT_STATUS.md)和各阶段报告。旧 Mac 包的“待派发”状态不覆盖新路线。

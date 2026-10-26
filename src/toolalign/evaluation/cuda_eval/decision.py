@@ -6,11 +6,12 @@ import time
 from dataclasses import asdict
 from datetime import datetime, timedelta, timezone
 
-from toolalign.contracts import ContractError, canonical_hash
+from toolalign.contracts import canonical_hash
 from toolalign.contracts.interfaces import GenerationConfig
 from toolalign.evaluation.harness import _model_child
+from toolalign.inference.results import gate_output
 from toolalign.model_io.format import validate_model_input
-from toolalign.tools._json import INPUT_BYTES, clone, parse_action
+from toolalign.tools._json import INPUT_BYTES, clone
 from toolalign.tools.isolation import OwnedProcess, read_packet, write_packet
 
 
@@ -68,33 +69,10 @@ class DecisionSession:
                               usage=packet["usage"])
                 return result
             output = packet["output"]
-            result.update(output=output, raw_text=output["raw_text"], finish_reason=output["finish_reason"])
-            # Parse raw text independently even when execution or finish reason failed.
-            try:
-                result.update(raw_action=clone(parse_action(output["raw_text"])),
-                              raw_action_valid=True, raw_parse_failure=None)
-            except ContractError:
-                result["raw_parse_failure"] = "invalid_raw_action"
-            counts_valid = all(type(output[k]) is int and output[k] >= 0
-                               for k in ("input_tokens", "output_tokens"))
-            result["token_accounting_complete"] = counts_valid
-            if canonical_hash(output["model_identity"]) != canonical_hash(self.identity):
-                result["reason"] = "model_identity_mismatch"
-            elif not counts_valid:
-                result["reason"] = "invalid_token_accounting"
-            elif output["finish_reason"] in ("timed_out", "cancelled"):
-                result.update(status=output["finish_reason"], reason=output["finish_reason"])
-            elif output["output_tokens"] > 256 or output["finish_reason"] == "length":
-                result.update(status="budget_exhausted", reason="response_token_limit")
-            elif output["finish_reason"] != "stop":
-                result["reason"] = output.get("parse_failure") or "backend_error"
-            elif not result["raw_action_valid"]:
-                result.update(status="parse_failure", reason="invalid_raw_action")
-            elif self.cancellation.is_cancelled() or time.monotonic() >= expires:
+            result.update(gate_output(output, self.identity))
+            if result["status"] == "completed" and (self.cancellation.is_cancelled() or time.monotonic() >= expires):
                 result.update(status="cancelled" if self.cancellation.is_cancelled() else "timed_out",
                               reason="request_deadline_or_cancellation")
-            else:
-                result.update(status="completed", reason="completed")
             return result
         except (OSError, ValueError, KeyError, TypeError) as error:
             result["reason"] = type(error).__name__ + ": " + str(error)[:1000]

@@ -1,91 +1,46 @@
-# 06｜前瞻性部署路线：本地实验到受控服务
+# 06｜受限部署路线：Colab 服务与 Mac 客户端
 
-> 2026-10-26：GPU 训练、批量评测和后续模型运行改用 Colab；Mac 可做受限客户端与 CPU 工具。旧 Mac 部署步骤为历史，当前接续见 [toolalign.md](../toolalign.md)。
+2026-10-27。当前 G6 交付采用标准库 HTTP 控制面、Colab CUDA worker 和 Mac 固定只读工具。客户端 CPU 路径见 [复现说明](19_REPRODUCTION_AND_DELIVERY.md)；真实服务与独立终验仍待 S1 集成运行，不能由 CPU 示例推定完成。
 
-这是能力路线，不是全部立即实施的承诺。公开仓库 ≠ 公开在线 API；发布 Markdown ≠ 推理服务已部署。
-
-## 1. 总体部署分层
+## 1. 当前分层
 
 ```text
 GitHub public repository
-    └─ source, specs, small lawful fixtures, sanitized reports
+    └─ source / contracts / original examples / aggregate reports
 
-Mac development/training host（private）
-    ├─ immutable model cache / dataset cache
-    ├─ one GPU lease shared by training & serving
-    ├─ run artifacts / reference cache / checkpoints
-    └─ native MLX worker
-
-Local service（default 127.0.0.1）
-    ├─ authentication and request contracts
-    ├─ bounded queue, cancellation, deadline, rate limit
-    ├─ model backend adapter
-    └─ read-only registered tool runner
-
-Optional later
-    ├─ private VPN access by explicitly authorized client
-    ├─ approved model adapter publication with licenses
-    └─ separate Linux/CUDA backend, not Metal-in-Docker
+Colab named session（private, one active GPU job）
+    ├─ immutable model + G3 SFT adapter / fixed dependency lock
+    ├─ HTTP control plane（127.0.0.1 only）
+    └─ owned CUDA child / GPU lease / single-entry prefix cache
+             ↑ OpenSSH local forwarding from an existing session
+Mac（private）
+    ├─ pinned run + ModelIdentity / token file / raw receipts
+    ├─ independent Action parse / advertised-schema validation
+    └─ fixed read-only LocalToolExecutor / observations / bounded trajectory
 ```
 
-## 2. 阶段及进入条件
+模型只建议 Action。Mac 核对原文、参数和 call_id 后执行本次 advertised 的固定工具，实际观察进入下一步完整历史。服务端不能下发任意代码、路径或模块。训练、偏好生成和模型评测继续使用 Colab；Mac 做开发、CPU 检查、控制与分析。
 
-| 阶段 | 相对时间目标 | 交付 | 进入/退出门 |
-|---|---|---|---|
-| plan-v0.1 | 当前 | Markdown 方案、独立对话协议、任务包 | 文档一致性检查；无实现完成声明 |
-| v0.1.0-core | 十天内优先完成 | 数据、baseline、SFT、可执行评测、资源记录 | G-DATA/G-TRAIN/G-EVAL；全部局限公开 |
-| v0.2.0-preference | 十天目标，兼容性不足则顺延 | DPO、有效 preference、同条件对照 | reference 与梯度验证；负结果允许 |
-| v0.3.0-serving | 后续 2–4 周窗口 | 本地 API、cache、受控负载、回滚 | 服务正确性/隔离/取消验证 |
-| v0.4.0-portability | 后续 1–2 月窗口 | 可选 CUDA/TRL adapter、标准导出与格式核验 | 至少一次真实跨 backend 对照，而不是仅写配置 |
-| v0.5.0-domain | 后续 2–3 月窗口 | 未见工具/领域评测、可选 LiDARFoodAgent shadow 集成 | 新域测试集、隐私与契约审查 |
-| v1.0.0-research | 后续 3–6 月窗口 | 多 seed 结果、稳定制品规范、可复现研究版本 | 独立复现、已知风险、发布/维护策略 |
+## 2. 服务协议与预算
 
-时间窗口用于顺序规划，不是对外 SLA。不能因为日历到了就跳过质量门。
+[18号HTTP契约](18_RESTRICTED_CUDA_SERVICE.md)固定存活、就绪、模型身份、提交、按key/ID查询和取消端点。除 healthz 外必须鉴权；principal由认证映射决定。相同run/principal/key与payload回读已有记录，跨principal隔离。准备完成前不ready，worker崩溃不自动重放已started请求。
 
-## 3. 本地 serving 第一版
+一个active、两个pending、64条累计记录、一个cache entry；请求接受后至多30秒，包含排队和重载等待。启动/重载各至多120秒，服务总墙钟900秒、输出256MiB，清理尾段单列。软件记录上限不等于模型调用授权；G6真实smoke至多12次generate尝试，分配上限由 [G6协议](../coordination/tasks/P07_G6_PROTOCOL.md)约束。
 
-建议一个轻量 FastAPI 控制层，一个原生 MLX 推理进程，一个受限工具进程；首版用简单持久化/文件 manifest，未出现明确并发需求前不引入 Redis/Kafka/Kubernetes。
+Mac最多3决策、2工具轮、30秒决策预算。响应丢失先按原key查询，原截止后仅查询和取消。断网后的远端状态保持unknown，直到获得可验证终态；本地退出不表示远端回收。
 
-接口建议：`GET /healthz`（存活）、`GET /readyz`（模型已加载且资源可用）、`GET /v1/model-info`、`POST /v1/tool-decisions`、`GET /v1/runs/{id}`、取消操作。所有接口是 P07 待实现契约，不是现有功能。
+## 3. 制品、启停与回滚
 
-`tool-decisions` 返回结构化建议和可核验 trace ID，不直接给任意机器执行权。控制层验证输入长度、工具 allowlist、最大 token、deadline、幂等 key 与 payload hash。
+制品身份包括模型revision/hash、tokenizer/template、adapter、量化、训练输入与配置、代码、依赖锁及评测结果。M1固定为G3 step743；模型切换须完整停服，保留旧文件，以新run ID及新输出目录重启，进程cache随之销毁。
 
-默认仅 loopback。多终端访问先用私有网络/VPN，并增加认证、授权和日志去敏；不默认 `0.0.0.0`，不配置公开穿透。不把兼容某 API 格式与达到该提供商安全/服务等级混为一谈。
+[19号文档](19_REPRODUCTION_AND_DELIVERY.md)提供客户端命令、私有配置格式、SSH前置和回滚步骤。实际端口/完整SSH命令与服务启停成功由S1实测后登记；当前没有已验收的G6服务回滚记录。停止前回收日志/状态与worker证据，随后停止Colab实例并确认无活动分配。断SSH不释放资源。
 
-## 4. 版本化制品
+## 4. 质量与服务验收
 
-模型制品身份至少包含：基础模型 revision、tokenizer/template、量化配置、adapter hash、训练 config、数据 manifest、代码 commit、评测协议、eval result hash、backend requirements。
+模型效果依据冻结任务的语义成功、无需工具行为、参数错误和故障恢复。G5的M0/M1完整成功均0/28，服务接口完成不能改变该结论。
 
-以不可变 ID 载入制品。`candidate`/`stable` 是指向不可变 ID 的小型指针；切换前运行 smoke，切换失败恢复旧指针。不能覆盖旧模型文件后再说“可回滚”。
+服务验收另查身份、鉴权、队列、原截止、取消/真实child回收、lease释放、cache失效、输出预算和网络中断。R1在干净CPU环境复现入口，并审核实际Mac→SSH→Colab链路；Q1独立检查示例与最终说明。公共CI运行CPU契约、工具、oracle、数学、打包和公开内容检查；固定模型加载与GPU运行不放入普通PR CI。
 
-保留一个上一稳定版本；清理策略依据磁盘预算，只删除明确可再生的 cache，不删除对应实验的配置/指标/摘要。
+## 5. 后续路线
 
-## 5. 质量与服务门分开
-
-模型晋级：数据来源审查、语义成功率、错误类别、无需工具误调用、安全约束，以及与旧版本的配对差异。
-
-服务晋级：冷启动、连续请求、队列、公平性、取消、超时、OOM、加载失败、缓存失效、鉴权/越权、日志泄漏。首个负载实验用固定长短混合请求；一次吞吐高不代表长期稳定。
-
-相同用户重试不应重复执行未来副作用工具。跨用户 key、cache、日志和制品授权边界必须测试。尚未做这些测试时，不称多租户生产服务。
-
-## 6. CI/CD 策略
-
-公共 Linux CI：静态检查、纯 CPU 数学参考、schema/data fixtures、oracle、parser/security 和文档链接。模型训练与 large download 不在每次 PR 自动运行。
-
-Mac 验证：由用户认可的代码 commit 在本机独立运行，回填摘要和 artifact hash。即使未来配置 self-hosted runner，也不执行不可信 fork PR，不向测试开放真实凭据或家庭网络。
-
-依赖升级先建分支，固定版本执行最小回归矩阵；禁止正式实验使用浮动 `latest`。Release 附依赖清单与已知未运行环境，不因为 CI 绿色就宣称 Apple GPU 全部通过。
-
-## 7. 与 LiDARFoodAgent 的长期衔接
-
-第一阶段完全独立，不复制私有源码和健康数据。将来只通过重新设计的版本化 JSON 接口传入最小化、去敏证据，ToolAlign 只输出候选检索/工具决策。
-
-先在合成/去敏任务上 shadow 模式运行，比较原方案与新策略；不改用户真实记录，不取代 Swift 端安全校验、营养计算、确认和提交权。接入后的效果单独测，不能把通用 tool benchmark 增益转写成健康结果改善。
-
-若需要复用既有 AGPL 代码，先作许可与开源范围决策，不把其代码直接混入 MIT 工程。协议集成不自动证明免除其他来源义务。
-
-## 8. 不优先做的“前沿功能”
-
-GRPO/agentic RL 需有可靠 reward 与更丰富环境后另立研究问题；不能为追热点把十天 SFT/DPO 实验改成在线 RL。自动生成 Skills 需要离线候选、审查、版本化发布，而不是模型自己改生产代码。MCP、A2A、多 Agent 只有真实互操作需求才加入。
-
-更大模型、多卡和云部署保留适配位置，但没有运行就写“设计支持/未验证”，不列入已完成技能证明。
+在当前受限交付验收后，才根据实际需求另立私有网络、多客户端负载、模型制品发布或新领域集成任务。公开源码不附带公网推理端口。长期LiDARFoodAgent衔接仍需独立隐私、接口和许可决定，不能把工具基准结果转写成健康效果。

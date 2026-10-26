@@ -1,0 +1,38 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Read atlas-100 and return its failed-test count as a JSON number.",
+      "tool_calls": [],
+      "tool_call_id": null
+    }
+  ],
+  "tools": [
+    {
+      "description": "Retrieve actual test counts from a fictional build report.",
+      "name": "query_build_report",
+      "parameters_json_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "report_id": {
+            "enum": [
+              "atlas-100",
+              "atlas-110",
+              "beacon-110"
+            ],
+            "maxLength": 64,
+            "type": "string"
+          }
+        },
+        "required": [
+          "report_id"
+        ],
+        "type": "object"
+      },
+      "schema_version": "toolalign.tool.v1",
+      "side_effect_class": "read_only",
+      "timeout_ms": 1000,
+      "tool_version": "local-devops.v1"
+    }
+  ]
+}
