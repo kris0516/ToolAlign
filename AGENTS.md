@@ -21,6 +21,6 @@
 
 P00–P03与P04原CPU/MLX证据保留。G1–G5已完成；G2真实CUDA容量/完整恢复、G3正式SFT和G5独立评测均经R1/Q1验收。G5的M0/M1完整成功均0/28，M1首动作格式合法28/28；恢复开启/关闭均0/8，A2有4次真实命中。G4无合格偏好，正式DPO保持NOT_RUN；L2零合格输入，无官方模型分数。见[G5结果](reports/S1_P06_G5_EVALUATION_R1.md)。
 
-G5已随PR34主干核对后complete。G6为唯一active goal；两包CPU经R1 `00409b6`独立PASS，PR35主干`aaab0171246feaf307ad2c626108e94383e438d9`及双Python CI已核对。固定11次真实服务尝试完成，缓存、隔离、取消/重载有据；CLI两次换算正确但未生成最终答案。71份远端文件已回收，唯一L4已停止，837.615秒/0.25 CU；[实际报告](reports/S1_P07_G6_SERVICE_R1.md)等待独立R1/Q1终验和最后GitHub读回。旧Mac runtime任务不恢复，模型/数据不自动公开。
+G1–G6阶段验收已通过，G4按无有效偏好/无DPO的有据处置结束。G6两包CPU经R1 `00409b6`独立PASS，PR35主干`aaab0171246feaf307ad2c626108e94383e438d9`及双Python CI已核对。固定11次真实服务尝试完成，缓存、隔离、取消/重载有据；CLI两次换算正确但未生成最终答案。71份远端文件已回收，唯一L4已停止，837.615秒/0.25 CU；[实际报告](reports/S1_P07_G6_SERVICE_R1.md)已获独立R1 `a0dd4c3` / Q1 `e5f16f2`终验并由S1接纳，最终交付见[PR36](https://github.com/kris0516/ToolAlign/pull/36)。M0/M1端到端均0/28，技术验收不表示模型效果成功。旧Mac runtime任务不恢复，模型/数据不自动公开。
 
 2026-10-26用户指定Toolalign Supervisor S1接班并继续推进；按[分组目标](coordination/GOAL.md)依次验收，每次只有一个活动goal。原逐轮完成表保留在[迁移前Git版本](https://github.com/kris0516/ToolAlign/blob/abdc53d468a270cc1bfecbe56980dd34918480e1/AGENTS.md)和对应reports。

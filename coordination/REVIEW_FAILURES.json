@@ -5048,10 +5048,37 @@
       ],
       "next_action": "按已接纳的28题/4组冻结输入推进有界M0/M1及A1评测；原48题及原失败证据保持永久隔离，A2身份不变。",
       "deduplication_basis": "同轮同根因相关题目与两个独立反例不重复计数；R1复读同一发现不增加正式修订轮次。"
+    },
+    {
+      "issue_id": "Q1-G6-DOC-001",
+      "stable_requirement_key": "g6_examples_actual_model_run_status_matches_frozen_input",
+      "requirement": "示例输入的真实运行状态须逐项对应冻结输入与实际请求，不能笼统标记为NOT_RUN。",
+      "summary": "旧739493a将五个示例输入的真实M1表现笼统写为NOT_RUN；normal-input实际上与第9次输入逐字节一致，真实轨迹未完成。",
+      "status": "CLOSED_SEMANTIC_PASS",
+      "priority": "P2",
+      "consecutive_failed_revisions": 0,
+      "events": [
+        {
+          "attempt": 1,
+          "event_kind": "SAME_ROUND_FINDING_CORRECTED_BEFORE_FORMAL_VERDICT",
+          "original_candidate": "739493a1c8381a1bca798344b993de08f4444e1e",
+          "candidate": "10f99b0b9f52d36b294a615e979a89dce77d7b1b",
+          "review_commit": "e5f16f29b90e8541f12dc0dbe92924864a8af17e",
+          "reviewer": "Codex-AI(Q1)",
+          "verdict": "PASS_AFTER_SAME_ROUND_FIX",
+          "formal_REQUEST_CHANGES_preceded_fix": false,
+          "review_evidence_index_sha256": "69ca2d24eb97daa071ad72f1b7c78f9797b7e07e3b77f759dd00b6037480d134",
+          "s1_evidence_audit_sha256": "8f35fb279db9d15b6690becfa4410bece6c7f601af5453aecb2140e4bd5a4977",
+          "new_failed_revision_increment": 0,
+          "adopted_at_utc": "2026-10-26T23:29:09.488039+00:00"
+        }
+      ],
+      "next_action": "已关闭；normal实际无最终答案与其他四例真实NOT_RUN分别保留。",
+      "deduplication_basis": "同轮S1修正与Q1发现是同一问题；正式终验前修正不构造一次未发生的REQUEST_CHANGES。"
     }
   ],
-  "prior_findings": "92项已登记问题全部关闭。Q1-G5-CORPUS-001/002经正式r2逐题复验PASS及S1回读接纳，连续计数各1→0；原48题永久隔离、原失败保留。既有G4零偏好处置及DPO质量门BLOCKED保持，不据此伪造模型或偏好质量PASS。",
-  "updated_at_utc": "2026-10-26T19:34:37.100043+00:00",
+  "prior_findings": "93项已登记问题全部关闭。新增Q1-G6-DOC-001经同轮修正及Q1正式终验PASS、S1回读接纳；正式未通过次数增量0。全部原失败和隔离保持，技术交付不表示模型语义成功。",
+  "updated_at_utc": "2026-10-26T23:29:09.488039+00:00",
   "last_adoption": {
     "q1_review_commit": "7941f1f56519ea2eac437c669ac2c6445a0329f6",
     "candidate": "5825d789ee89afedbfff31e828223608c6f435e2",
@@ -5262,23 +5289,20 @@
     }
   ],
   "last_semantic_adoption": {
-    "scope": "G5 finalized relation corpus r2, all 28 tasks and complete historical isolation",
-    "review_commit": "cb4c72deb9b27b3cd8d0b5e13996ab55a9983a2c",
-    "verdict": "PASS_PRE_EVALUATION_CORPUS",
-    "review_evidence_index_sha256": "cc0096ae2fac012052fc59a5b3f8ea1ef5af39098a057427509c7d1656dde32d",
-    "s1_evidence_audit_sha256": "20a67aa93dd8ccea347818b87b643020a056d323027879ffd71df8d13df1b831",
     "issue_ids": [
-      "Q1-G5-CORPUS-001",
-      "Q1-G5-CORPUS-002"
+      "Q1-G6-DOC-001"
     ],
+    "review_commit": "e5f16f29b90e8541f12dc0dbe92924864a8af17e",
+    "candidate": "10f99b0b9f52d36b294a615e979a89dce77d7b1b",
+    "reviewer": "Codex-AI(Q1)",
+    "s1_receipt_sha256": "8f35fb279db9d15b6690becfa4410bece6c7f601af5453aecb2140e4bd5a4977",
     "new_formal_failure_events": 0,
-    "new_formal_pass_events": 2,
-    "closed_issue_count": 92,
+    "new_formal_pass_events": 1,
+    "closed_issue_count": 93,
     "open_issue_count": 0,
     "highest_consecutive_failed_revisions": 0,
     "whole_goal_paused": false,
-    "original_48_restored": 0,
-    "adopted_at_utc": "2026-10-26T19:34:37.100043+00:00"
+    "adopted_at_utc": "2026-10-26T23:29:09.488039+00:00"
   },
   "semantic_adoption_history": [
     {
@@ -5330,6 +5354,22 @@
       "highest_consecutive_failed_revisions": 1,
       "whole_goal_paused": false,
       "adopted_at_utc": "2026-10-26T17:35:57.826487+00:00"
+    },
+    {
+      "issue_ids": [
+        "Q1-G6-DOC-001"
+      ],
+      "review_commit": "e5f16f29b90e8541f12dc0dbe92924864a8af17e",
+      "candidate": "10f99b0b9f52d36b294a615e979a89dce77d7b1b",
+      "reviewer": "Codex-AI(Q1)",
+      "s1_receipt_sha256": "8f35fb279db9d15b6690becfa4410bece6c7f601af5453aecb2140e4bd5a4977",
+      "new_formal_failure_events": 0,
+      "new_formal_pass_events": 1,
+      "closed_issue_count": 93,
+      "open_issue_count": 0,
+      "highest_consecutive_failed_revisions": 0,
+      "whole_goal_paused": false,
+      "adopted_at_utc": "2026-10-26T23:29:09.488039+00:00"
     }
   ]
 }

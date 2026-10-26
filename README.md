@@ -4,7 +4,7 @@
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
-> **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。G6的Mac→SSH→Colab服务已完成11次固定尝试，缓存/隔离/取消与重载有真实证据；CLI工具换算正确但未生成最终答案，见[G6实测](reports/S1_P07_G6_SERVICE_R1.md)。全部产物已回收、Colab已停止，最终R1/Q1审核待接纳。[复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)提供CPU示例和固定服务入口；接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+> **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。训练与验证的监督目标全部为`tool_calls`，未覆盖最终回答、无需工具回答和澄清；当前结果说明格式拟合没有转化为完整任务能力。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。G6的Mac→SSH→Colab服务已完成11次固定尝试，缓存/隔离/取消与重载有真实证据；CLI工具换算正确但未生成最终答案，见[G6实测](reports/S1_P07_G6_SERVICE_R1.md)。全部产物已回收、Colab已停止，[R1技术终验](reports/reviews/P07_G6_FINAL_R1.md)和[Q1材料终验](reports/reviews/P07_G6_FINAL_Q1_R1.md)已接纳；最终交付见[PR36](https://github.com/kris0516/ToolAlign/pull/36)。[复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)提供CPU示例和固定服务入口；接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
 
 ## CPU 基础检查
 

@@ -1,6 +1,6 @@
 # 19｜受限客户端复现与交付
 
-2026-10-27。Mac→SSH→Colab L4固定M1服务已完成11次冻结尝试，实际缓存命中、principal隔离、active取消与新worker重载有据；产物已回收，实例已停止。真实CLI两次工具换算正确，但未生成最终答案，见[实际服务报告](../reports/S1_P07_G6_SERVICE_R1.md)。干净CPU复现已由R1通过，最终R1/Q1材料审核待接纳；部署回滚仍NOT_RUN。五类原创scripted示例不加载模型，客户端自测与原始失败见[CPU交付报告](../reports/P07_G6_MAC_CLIENT_CPU_R1.md)。
+2026-10-27。Mac→SSH→Colab L4固定M1服务已完成11次冻结尝试，实际缓存命中、principal隔离、active取消与新worker重载有据；产物已回收，实例已停止。真实CLI两次工具换算正确，但未生成最终答案，见[实际服务报告](../reports/S1_P07_G6_SERVICE_R1.md)。干净CPU复现已由R1通过，[R1技术终验](../reports/reviews/P07_G6_FINAL_R1.md)与[Q1实际AI材料审核](../reports/reviews/P07_G6_FINAL_Q1_R1.md)已接纳；部署回滚仍NOT_RUN。五类原创scripted示例不加载模型，客户端自测与原始失败见[CPU交付报告](../reports/P07_G6_MAC_CLIENT_CPU_R1.md)。
 
 ## CPU 用户入口
 
@@ -161,6 +161,6 @@ G5分配实际2358.235秒、余额观测差0.89 CU。G6本轮唯一L4分配837.6
 
 ## 交付与独立复核
 
-从[CPU交接](../coordination/handoffs/P07-g6-mac-client-cpu-r1.md)取得精确客户端提交、命令及私有索引；[G6实测](../reports/S1_P07_G6_SERVICE_R1.md)绑定实际源码、冻结配置和完整回收。两个完整G3训练checkpoint及本轮原始回执由S1私有交付索引定位。最终独立接纳与GitHub最后版本读回登记到[PROJECT_STATUS](../coordination/PROJECT_STATUS.md)。
+从[CPU交接](../coordination/handoffs/P07-g6-mac-client-cpu-r1.md)取得精确客户端提交、命令及私有索引；[G6实测](../reports/S1_P07_G6_SERVICE_R1.md)绑定实际源码、冻结配置和完整回收。两个完整G3训练checkpoint及本轮原始回执由S1私有交付索引定位。最终公开交付见[PR36](https://github.com/kris0516/ToolAlign/pull/36)；独立接纳见[PROJECT_STATUS](../coordination/PROJECT_STATUS.md)。S1私有最终交付记录保存合并commit、CI和GitHub文件读回身份。
 
 R1负责精确集成候选、干净CPU环境及真实远端链路的技术验收；独立Q1 AI核对示例、上述样本/数学/失败说明与实际证据。执行 [REVIEW_POLICY](../coordination/REVIEW_POLICY.md)，不记作kris本人签字或掌握程度证明。
