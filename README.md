@@ -1,10 +1,36 @@
 # ToolAlign
 
-**Reliable small-model tool-use post-training and evaluation.**
+**Small-model tool-use post-training and evaluation.**
+
+A research codebase for studying tool selection, argument generation, and bounded recovery in small language models. It includes CPU examples, LoRA SFT and evaluation code, and reports of completed Colab CUDA experiments.
+
+**Current evidence:** the original 1.7B checkpoint and its SFT adapter both completed **0/28 tasks** in the recorded evaluation. SFT improved first-action format validity from **1/28 to 28/28**; DPO was **NOT_RUN** because no eligible preference pairs were produced. The CPU demos below use scripted responses and do not measure model capability. See the [evaluation report](reports/S1_P06_G5_EVALUATION_R1.md) and [reproduction guide](docs/19_REPRODUCTION_AND_DELIVERY.md).
 
 ToolAlign 是一个使用 Colab GPU 训练、在 Mac 开发与控制的开源研究工程项目：把小型语言模型的工具选择、参数生成、无需工具判断与有限故障恢复，做成可复现、可审计的训练—评测—推理闭环。
 
+<details>
+<summary>中文阶段状态与证据（2026-10-27）</summary>
+
 > **当前状态（2026-10-27）：正式SFT和独立CUDA评测已通过R1/Q1终验。28题中原始模型与SFT完整任务成功均为0/28，SFT首动作格式合法率由1/28升至28/28。** 8次故障重试均取回观察，但没有完成任务；12对cache回放输出相同，4次真实命中。完整结果与21例失败见[G5报告](reports/S1_P06_G5_EVALUATION_R1.md)。训练与验证的监督目标全部为`tool_calls`，未覆盖最终回答、无需工具回答和澄清；当前结果说明格式拟合没有转化为完整任务能力。G3的验证CE下降见[训练曲线](reports/S1_P04_CUDA_G3_SFT.md)；80条候选没有有效偏好，DPO保持`NOT_RUN`。G6的Mac→SSH→Colab服务已完成11次固定尝试，缓存/隔离/取消与重载有真实证据；CLI工具换算正确但未生成最终答案，见[G6实测](reports/S1_P07_G6_SERVICE_R1.md)。全部产物已回收、Colab已停止，[R1技术终验](reports/reviews/P07_G6_FINAL_R1.md)和[Q1材料终验](reports/reviews/P07_G6_FINAL_Q1_R1.md)已接纳；最终交付见[PR36](https://github.com/kris0516/ToolAlign/pull/36)。[复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)提供CPU示例和固定服务入口；接续入口为 **[toolalign.md](toolalign.md)**，阶段证据见[真实状态](coordination/PROJECT_STATUS.md)。
+
+</details>
+
+## Quick start: CPU demo
+
+Requirements: Git, Python 3.11–3.14, and [uv](https://docs.astral.sh/uv/getting-started/installation/). CI uses uv 0.12.5 and checks Python 3.11 and 3.14. The following installs the locked CPU environment; optional model runtimes are not needed.
+
+```sh
+git clone https://github.com/kris0516/ToolAlign.git
+cd ToolAlign
+uv sync --locked --python 3.14
+uv run --locked python -m toolalign.client demo --cases examples/service/scripted.json --output .toolalign-local/g6-demo
+```
+
+Use a new output directory for each run. The demo starts a local HTTP fixture and exercises five cases: a normal tool call, no tool needed, invalid arguments, recovery, and budget exhaustion. Inspect `summary.json` in the output directory; passing the behavior checks includes expected failures. No model weights, GPU, or remote service are required. Dependency installation requires network access unless the locked packages and Python are already available locally.
+
+输出目录须全新。五类原创脚本覆盖正常调用、无需工具、错误参数、故障恢复和预算终止；它们不加载模型。行为检查通过包含预期失败，不代表模型成功率。逐类命令见 [示例说明](examples/service/README.md)，固定远端配置、取消、模型身份/许可与实际失败解释见 [复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)。
+
+The public repository includes source, fixtures, and reports. Model weights, adapters, raw training data, and hidden evaluation inputs are not distributed here; reproducing the recorded model runs requires the corresponding approved artifacts and configuration described in the reproduction guide.
 
 ## CPU 基础检查
 
@@ -24,14 +50,6 @@ uv run --locked python -m toolalign.training.compatibility --help
 
 数据流程的固定来源、转换政策、复现命令和真实 tokenizer 依赖见 [P02 使用说明](reports/data/README.md)。数据与人审制品仅保留本地；历史工具调用是监督数据，未绑定可执行工具。技术审查通过不表示数据语义或模型训练已验收。
 
-## 客户端 CPU 示例
-
-```sh
-uv run --locked python -m toolalign.client demo --cases examples/service/scripted.json --output .toolalign-local/g6-demo
-```
-
-输出目录须全新。五类原创脚本覆盖正常调用、无需工具、错误参数、故障恢复和预算终止；它们不加载模型。行为检查通过包含预期失败，不代表模型成功率。逐类命令见 [示例说明](examples/service/README.md)，固定远端配置、取消、模型身份/许可与实际失败解释见 [复现与交付](docs/19_REPRODUCTION_AND_DELIVERY.md)。
-
 ## 研究问题
 
 在固定数据、计算预算和评测协议下，`Qwen3-1.7B` 经 LoRA SFT，再经基于执行反馈的 DPO，能否提高工具调用的**语义任务成功率**？增加重试、量化和 prefix cache 后，准确性、延迟、内存的变化能否被分别归因？
@@ -42,6 +60,7 @@ uv run --locked python -m toolalign.client demo --cases examples/service/scripte
 
 | 阅读者 | 入口 |
 |---|---|
+| First-time visitors / 外部读者 | [CPU 示例](examples/service/README.md)、[复现范围](docs/19_REPRODUCTION_AND_DELIVERY.md)、[贡献指南](CONTRIBUTING.md) |
 | 项目负责人 kris | [总计划](docs/00_MASTER_PLAN.md)、[十天任务表](coordination/BOARD.md) |
 | Supervisor Codex 独立对话 | **[toolalign.md](toolalign.md)** |
 | 所有独立实现/审查对话 | [AGENTS.md](AGENTS.md)、[协作协议](coordination/PROTOCOL.md) |
@@ -57,6 +76,8 @@ uv run --locked python -m toolalign.client demo --cases examples/service/scripte
 不在十天核心范围：全量 BFCL V4 总榜复现、多机多卡、PPO/GRPO、无人监督自我改权重、五个自治 Agent、商业多租户服务、公开公网推理、完整前端。Speculative decoding 与高级 batching 是后续候选，不承诺提速。
 
 ## 协作方式
+
+For bug reports, documentation fixes, or reproducibility questions, start with [CONTRIBUTING.md](CONTRIBUTING.md) and [GitHub Issues](https://github.com/kris0516/ToolAlign/issues). Include the commit, command, expected behavior, and a small public example; keep private artifacts out of issues and PRs.
 
 一个 Supervisor + 多个**独立 Codex 对话**；每个实现对话拥有独立 branch/worktree。通过任务包、Git 提交和交接文档交换状态。**不使用 sub-agent、Agents SDK 编排、`spawn_agent` 或嵌套代理。** 当前环境没有对话创建能力时，由 kris 手动创建独立对话并粘贴已准备的分发词，不能冒称已经派发。
 
